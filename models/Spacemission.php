@@ -13,10 +13,10 @@
  *
  * @brief Represents the table space_missions and access to it
  */
-class SpacemissionDAO
+class SpacemissionDAO extends ModelDAO
  {
 	/** database connection */
-	protected $_link = NULL;
+	//protected $_link = NULL;
 
 	/** Array of column names from space mission */
 	protected $_fields = array();
@@ -51,17 +51,17 @@ class SpacemissionDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** creates relevant member variables */
-	function __construct() {
-		 //creates database connection
-		 $this->_link = new DbConnector();
-	}
+//	function __construct() {
+//		 //creates database connection
+//		 $this->_link = new DbConnector();
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
  	/** removes/unsets relevant member variables */
-	function __destruct() {
-		//closes database connection
-		$this->_link->close();
-	}
+//	function __destruct() {
+//		//closes database connection
+//		$this->_link->close();
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get a field from space mission */
@@ -75,7 +75,7 @@ class SpacemissionDAO
 	public function get_agencies()
 	{
 		$query = "SELECT * FROM agencies";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				$this->_agencies[$key][$row['id']] = $value;
@@ -120,7 +120,7 @@ class SpacemissionDAO
 	public function get_research_areas()
 	{
 		$query = "SELECT * FROM research_areas ORDER BY research_areas.name ASC";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       	    foreach ($row as $key => $value)
 				$this->_researchAreas[$key][$row['id']] = $value;
@@ -136,7 +136,7 @@ class SpacemissionDAO
 	public function get_targets()
 	{
 		$query = "SELECT id, target_family, target_name FROM targets ORDER BY targets.target_family ASC";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				$this->_targets[$key][$row['id']] = $value;
@@ -152,7 +152,7 @@ class SpacemissionDAO
    public function get_science_goals()
    {
 		$query = "SELECT * FROM science_goals";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
   			foreach($row as $key => $value)
   				$this->_scienceGoals[$key][$row['id']] = $value;
@@ -186,7 +186,7 @@ class SpacemissionDAO
    */
 	public function get_resource($resource_id) {
 		$query = "SELECT * FROM space_missions WHERE id=" . $resource_id;
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
       	     or die("<br>Error: No such Resource existing!</b>");
 
@@ -203,7 +203,7 @@ class SpacemissionDAO
       	//Research Areas
 		$query = "SELECT research_area_id as research_areas FROM space_mission_to_research_areas " .
 		"WHERE space_mission_to_research_areas.space_mission_id=" . $resource_id;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			foreach ($row as $key => $value)
@@ -214,7 +214,7 @@ class SpacemissionDAO
 		//Targets
 		$query = "SELECT target_id as targets FROM space_mission_to_targets " .
 		"WHERE space_mission_to_targets.space_mission_id=" . $resource_id;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			foreach($row as $key => $value)
@@ -228,7 +228,7 @@ class SpacemissionDAO
 		"AND space_mission_to_sensors.space_mission_id=" . $resource_id;
 		//DEBUG:
 		//echo "Sensor query: " . $query . "<br>";
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
@@ -246,7 +246,7 @@ class SpacemissionDAO
 //						$query_1 = "SELECT science_goal_id FROM sensor_to_science_goals WHERE sensor_id=" . $value;
 //						//DEBUG:
 //						//echo "Science Goals queries: " . $query_1 . "<br>";
-//						$result_1 = $this->_link->query($query_1);
+//						$result_1 = self::$db->query($query_1);
 //
 //						while ($row_1 = mysqli_fetch_array($result_1, MYSQLI_ASSOC))
 //							$this->_hasMany["science_goals"][$value][] = $row_1["science_goal_id"];
@@ -259,7 +259,7 @@ class SpacemissionDAO
 						"AND sensor_to_scientific_contacts.sensor_id=" . $value;
 						//DEBUG:
 						//echo "Scientific Contacts queries: " . $query_2 . "<br>";
-						$result_2 = $this->_link->query($query_2);
+						$result_2 = self::$db->query($query_2);
 
 						while ($row_2 = mysqli_fetch_array($result_2, MYSQLI_ASSOC))
 						{
@@ -300,10 +300,10 @@ class SpacemissionDAO
         addslashes($_POST["add_spa_brief_desc"]) . "'," .
         "NOW())";
 
-        $this->_link->query($query);
-        $status = array("errno" => $this->_link->errno(),
-                        "error" => $this->_link->error(),
-                        "res_id" => $this->_link->getLastInsertId());
+        self::$db->query($query);
+        $status = array("errno" => self::$db->errno(),
+                        "error" => self::$db->error(),
+                        "res_id" => self::$db->getLastInsertId());
 
         return $status;
 	}
@@ -329,9 +329,9 @@ class SpacemissionDAO
 		"modification_date=NOW() " .
   		"WHERE id=" . $res_id;
 
-  		$this->_link->query($query);
-	    $status = array("errno" => $this->_link->errno(),
-                        "error" => $this->_link->error(),
+  		self::$db->query($query);
+	    $status = array("errno" => self::$db->errno(),
+                        "error" => self::$db->error(),
                         "res_id" => $res_id);
 
 	  	return $status;
@@ -415,19 +415,19 @@ class SpacemissionDAO
    	 	  		//DEBUG:
    	 	  		//echo "Main Query: " . $query . "<br>";
 
-   	 	  		$this->_link->query($query);
-	        	if ($this->_link->errno() != 0)
+   	 	  		self::$db->query($query);
+	        	if (self::$db->errno() != 0)
 	          		print "<H4>Error inserting new entry in sensors!</H4>" . LF;
 
 	      		//Save sensor id for additional queries
-	      		$sensor_id = $this->_link->getLastInsertId();
+	      		$sensor_id = self::$db->getLastInsertId();
 
    	 	 		//Space Mission to Sensors
    	 	 		$query = "INSERT INTO space_mission_to_sensors (`space_mission_id`,`sensor_id`)" .
    	 	 		"VALUES (" . $res_id . "," .  $sensor_id . ")";
 
-   	 	 		$this->_link->query($query);
-   	 	    	if ($this->_link->errno() != 0)
+   	 	 		self::$db->query($query);
+   	 	    	if (self::$db->errno() != 0)
    	 	    		print "<H4>Error inserting new entry in space_mission_to_sensors!</H4>" . LF;
 
           		//Sensor to Science Goals
@@ -443,13 +443,13 @@ class SpacemissionDAO
 //   							addslashes($_POST["add_sci_acro"][$key][$id]) . "', '" .
 //          					addslashes($new_sci_goal) . "')";
 //
-//          					$this->_link->query($query);
-//	      					if ($this->_link->errno() != 0)
+//          					self::$db->query($query);
+//	      					if (self::$db->errno() != 0)
 //	        					print "<H4>Error inserting new entry in science_goals!</H4>" . LF;
 //
 //	        				//push new id into add_spa_sci_goal_ids
 //	        				/** @todo we need to check if the array is existing or put validation in JS */
-//   							array_push($_POST["add_spa_sci_goal_ids"][$key], $this->_link->getLastInsertId());
+//   							array_push($_POST["add_spa_sci_goal_ids"][$key], self::$db->getLastInsertId());
 //          				}
 //          			}
 //          		}
@@ -465,8 +465,8 @@ class SpacemissionDAO
 //   		    				"VALUES (" . $sensor_id . "," . $sci_goal_id . ")";
 //   		      		   		//DEBUG:
 //   		      		   		//echo "sensor_to_science_goals - Query: " . $query . "<br>";
-//   		      				$this->_link->query($query);
-//	            			if ($this->_link->errno() != 0)
+//   		      				self::$db->query($query);
+//	            			if (self::$db->errno() != 0)
 //	              				print "<H4>Error inserting new entry in sensors_to_science_goals!</H4>" . LF;
 //	      				}
 //					}
@@ -483,15 +483,15 @@ class SpacemissionDAO
 		               		addslashes($_POST["add_spa_sci_con_email"][$key][$sci_con_key]) . "','" .
 		               		addslashes($_POST["add_spa_sci_con_institution"][$key][$sci_con_key]) . "')";
 
-		            	$this->_link->query($query);
-				    	if ($this->_link->errno() != 0)
+		            	self::$db->query($query);
+				    	if (self::$db->errno() != 0)
 				        	print "<H4>Error inserting scientific_contacts!</H4>" . LF;
 
 				    	$query = "INSERT INTO sensor_to_scientific_contacts VALUES (" . $sensor_id .
-				         	     "," . $this->_link->getLastInsertId() . ")";
+				         	     "," . self::$db->getLastInsertId() . ")";
 
-				    	$this->_link->query($query);
-				    	if ($this->_link->errno() != 0)
+				    	self::$db->query($query);
+				    	if (self::$db->errno() != 0)
 				        	print "<H4>Error inserting sensor_to_scientific_contacts!</H4>" . LF;
 					}
 				}
@@ -517,8 +517,8 @@ class SpacemissionDAO
 
      //DEBUG:
      //echo "TEST: " . $query . "<br>";
-	 $this->_link->query($query);
-	 if ($this->_link->errno() != 0)
+	 self::$db->query($query);
+	 if (self::$db->errno() != 0)
 	              print "<H4>Error deleting entry in space_mission_to_sensors!</H4>" . LF;
 
 	 //Sensor
@@ -534,8 +534,8 @@ class SpacemissionDAO
          	(SELECT scientific_contact_id FROM sensor_to_scientific_contacts WHERE sensor_id=" . $sen_id . ")";
 	 	 	//DEBUG:
      	 	//echo "TEST: " . $query . "<br>";
-	     	$this->_link->query($query);
-         	if ($this->_link->errno() != 0)
+	     	self::$db->query($query);
+         	if (self::$db->errno() != 0)
          		print "<H4>Error deleting entry in sensor_to_scientific_contacts!</H4>" . LF;
 
 
@@ -544,16 +544,16 @@ class SpacemissionDAO
           	//DEBUG:
       	 	//echo "TEST: " . $query . "<br>";
       	 	//echo "SEN_ID" . $sen_id . "<br>";
-         	$this->_link->query($query);
-         	if ($this->_link->errno() != 0)
+         	self::$db->query($query);
+         	if (self::$db->errno() != 0)
          		print "<H4>Error deleting entry in sensors!</H4>" . LF;
 
          	//Sensor to Science Goals (maybe obsolete)
 //	     	$query = "DELETE FROM sensor_to_science_goals WHERE sensor_id=" . $sen_id;
 //	 	 	//DEBUG:
 //     	 	//echo "TEST: " . $query . "<br>";
-//	     	$this->_link->query($query);
-//         	if (mysqli_errno($this->_link) != 0)
+//	     	self::$db->query($query);
+//         	if (mysqli_errno(self::$db) != 0)
 //         		print "<H4>Error deleting entry in sensor_to_science_goals!</H4>" . LF;
 
          }
@@ -582,12 +582,12 @@ class SpacemissionDAO
    				"`id`,`name`)". " VALUES (NULL, '" .
    				addslashes($new_res_are) . "')";
 
-   				$this->_link->query($query);
-	      		if ($this->_link->errno() != 0)
+   				self::$db->query($query);
+	      		if (self::$db->errno() != 0)
 	        		print "<H4>Error inserting new entry in research_areas!</H4>" . LF;
 
    				//push new id into add_obs_res_are_ids
-   				array_push($_POST["add_spa_res_are_ids"], $this->_link->getLastInsertId());
+   				array_push($_POST["add_spa_res_are_ids"], self::$db->getLastInsertId());
    			}
    		}
 
@@ -599,8 +599,8 @@ class SpacemissionDAO
 	      		$query = "INSERT INTO space_mission_to_research_areas VALUES (" . $res_id .
 	        	"," . $res_are_id . ")";
 
-	     		$this->_link->query($query);
-	      		if ($this->_link->errno() != 0)
+	     		self::$db->query($query);
+	      		if (self::$db->errno() != 0)
 	        		print "<H4>Error inserting in space_mission_to_research_areas!</H4>" . LF;
 	      	}
 	    }
@@ -619,7 +619,7 @@ class SpacemissionDAO
     {
       $query = "DELETE FROM space_mission_to_research_areas WHERE " .
                "space_mission_id=" . $res_id;
-	  $this->_link->query($query);
+	  self::$db->query($query);
     }
 
 //-----------------------------------------------------------------------------------------------------------
@@ -648,8 +648,8 @@ class SpacemissionDAO
 	    			$query = "INSERT INTO space_mission_to_targets VALUES (" . $res_id .
 	        			     "," . $target_id . ")";
 
-	     			$this->_link->query($query);
-	      			if ($this->_link->errno() != 0)
+	     			self::$db->query($query);
+	      			if (self::$db->errno() != 0)
 	        			print "<H4>Error inserting in space_mission_to_targets!</H4>" . LF;
 				}
 	    	}
@@ -670,7 +670,7 @@ class SpacemissionDAO
     {
       $query = "DELETE FROM space_mission_to_targets WHERE " .
 		   	   "space_mission_id=" . $res_id;
-	  $this->_link->query($query);
+	  self::$db->query($query);
     }
 
  }

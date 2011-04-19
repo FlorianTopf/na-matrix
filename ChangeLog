@@ -1,5 +1,10 @@
 2011-04-19  ftopf
 
+    * observatories.php: Fixed missing semicolon
+
+    * ChangeLog, inc: Removed old inc folder from v0.1, modified ChangeLog for
+      v0.2
+
     * .buildpath, .project, .settings, DbConnector.php, ObservatoryView.php,
       SpacemissionView.php, account.php, controller.inc.php, css, functions.js,
       functions.php, images, index.php, jquery-1.4.2.min.js,

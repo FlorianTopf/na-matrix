@@ -11,7 +11,8 @@
 require_once ('../config.inc.php');
 require_once ('../lib/php/functions.php');
 include_once ('../lib/php/orm/DbConnector.php');
-require_once ('../models/Spacemission.php');
+//require_once ('../models/Spacemission.php');
+require_once ('../lib/php/orm/ModelDAO.php');
 
 //DB CONNECTION:
 $link = new DbConnector();
@@ -41,7 +42,8 @@ $link->close();
 <?php 
 
   	//CREATES ACCESS CLASS TO SPACE MISSIONS
-  	$_spacemission = new SpaceMissionDAO();
+  	//$_spacemission = new SpaceMissionDAO();
+  	$_observatory = ModelDAO::getFromName("Spacemission");
   	//GET SPACE MISSION
     $_spacemission->get_resource($_GET["id"]);
 

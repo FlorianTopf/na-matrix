@@ -11,7 +11,8 @@
 require_once ('../config.inc.php');
 require_once ('../lib/php/functions.php');
 include_once ('../lib/php/orm/DbConnector.php');
-require_once ('../models/Observatory.php');
+//require_once ('../models/Observatory.php');
+require_once ('../lib/php/orm/ModelDAO.php');
 
 //DB CONNECTION:
 $link = new DbConnector();
@@ -42,7 +43,8 @@ $link->close();
 <?php
 
 	//CREATES ACCESS CLASS TO OBSERVATORIES
-  	$_observatory = new ObservatoryDAO();
+  	//$_observatory = new ObservatoryDAO();
+  	$_observatory = ModelDAO::getFromName("Observatory");
   	//GET OBSERVATORY
   	$_observatory->get_resource($_GET["id"]);
 

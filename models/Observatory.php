@@ -13,10 +13,10 @@
  *
  * @brief Represents the table observatories and access to it
  */
-class ObservatoryDAO
+class ObservatoryDAO extends ModelDAO
  {
 	/** database connection */
-	protected $_link = NULL;
+	//protected $_link = NULL;
 
 	/** Array of column names from observatories */
 	protected $_fields = array();
@@ -88,17 +88,17 @@ class ObservatoryDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** creates relevant member variables */
-	function __construct() {
-		 //creates database connection
-		 $this->_link = new DbConnector();
-	}
+//	function __construct() {
+//		 //creates database connection
+//		 $this->_link = new DbConnector();
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** removes/unsets relevant member variables */
-	function __destruct() {
-		//closes database connection
-		$this->_link->close();
-	}
+//	function __destruct() {
+//		//closes database connection
+//		$this->_link->close();
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get a field from observatories */
@@ -122,7 +122,7 @@ class ObservatoryDAO
 	public function get_countries()
 	{
 		$query = "SELECT id, name FROM countries";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
       			//$this->_countries[$key][] = $value;
@@ -139,7 +139,7 @@ class ObservatoryDAO
 	public function get_precipitation_ranges()
 	{
 		$query = "SELECT * FROM precipitation_ranges ORDER by id DESC";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_precipitationRanges[$key][] = $value;
@@ -156,7 +156,7 @@ class ObservatoryDAO
 	public function get_clearnights_ranges()
 	{
 		$query = "SELECT * FROM clearnights_ranges ORDER by id DESC";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_clearnightsRanges[$key][] = $value;
@@ -173,7 +173,7 @@ class ObservatoryDAO
  	public function get_timezones()
 	{
 		$query = "SELECT * FROM timezones";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_timezones[$key][] = $value;
@@ -204,7 +204,7 @@ class ObservatoryDAO
 	public function get_research_areas()
 	{
 		$query = "SELECT * FROM research_areas ORDER BY research_areas.name ASC";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       	    foreach ($row as $key => $value)
 				//$this->_researchAreas[$key][] = $value;
@@ -221,7 +221,7 @@ class ObservatoryDAO
 	public function get_targets()
 	{
 		$query = "SELECT id, target_family, target_name FROM targets ORDER BY targets.target_family ASC";
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_targets[$key][] = $value;
@@ -245,7 +245,7 @@ class ObservatoryDAO
  	public function get_telescope_types()
  	{
 		$query = "SELECT id, name FROM telescope_types";
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_telescopeTypes[$key][] = $value;
@@ -262,7 +262,7 @@ class ObservatoryDAO
  	public function get_antenna_types()
  	{
 		$query = "SELECT id, antenna_type FROM antenna_types";
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_antennaTypes[$key][] = $value;
@@ -279,7 +279,7 @@ class ObservatoryDAO
  	public function get_wavelength_units()
  	{
 		$query = "SELECT id, wavelength_unit FROM wavelength_units";
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_wavelengthUnits[$key][] = $value;
@@ -306,7 +306,7 @@ class ObservatoryDAO
  	public function get_instrument_types()
  	{
 		$query = "SELECT id, name FROM instrument_types";
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_instrumentTypes[$key][] = $value;
@@ -369,7 +369,7 @@ class ObservatoryDAO
    */
 	public function get_resource($resource_id) {
 		$query = "SELECT * FROM observatories WHERE id=" . $resource_id;
-      	$result = $this->_link->query($query);
+      	$result = self::$db->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
       		or die("<br>Error: No such Resource existing!</b>");
       	mysqli_free_result($result);
@@ -397,7 +397,7 @@ class ObservatoryDAO
 		"AND observatory_to_scientific_contacts.observatory_id=" . $resource_id;
 		//DEBUG:
 		//echo $query;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 			foreach ($row as $key => $value)
@@ -412,7 +412,7 @@ class ObservatoryDAO
 
 		//HIDDENFIELDS
 		$query = "SELECT * FROM hidden_fields WHERE hidden_fields.id=" . $resource_id;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		/** @todo check if empty when DONT want to insert empty rows */
 		foreach ($row as $key => $value)
@@ -426,7 +426,7 @@ class ObservatoryDAO
 		//RESEARCH AREAS
 		$query = "SELECT research_area_id as research_areas FROM observatory_to_research_areas " .
 		"WHERE observatory_to_research_areas.observatory_id=" . $resource_id;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 			foreach ($row as $key => $value)
@@ -439,7 +439,7 @@ class ObservatoryDAO
 		"WHERE observatory_to_targets.observatory_id=" . $resource_id;
 		//DEBUG:
 		//echo $query;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 			foreach ($row as $key => $value)
@@ -455,7 +455,7 @@ class ObservatoryDAO
 		"AND observatory_to_telescopes.observatory_id=" . $resource_id;
 		//echo "TESTING INSTRUMENT QUERY: " . $query . "<br>";
 
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
@@ -481,7 +481,7 @@ class ObservatoryDAO
 						//DEBUG
 						//echo $query_1 . "<br>";
 
-						$result_1 = $this->_link->query($query_1);
+						$result_1 = self::$db->query($query_1);
 						while($row_1 = mysqli_fetch_array($result_1, MYSQLI_ASSOC))
 						{
 							//for each instrument of the requested telescopes
@@ -521,7 +521,7 @@ class ObservatoryDAO
 		$query = "SELECT * FROM additional_information WHERE additional_information.id=" . $resource_id;
 		//DEBUG:
 		//echo $query;
-		$result = $this->_link->query($query);
+		$result = self::$db->query($query);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		foreach ($row as $key => $value)
 		{
@@ -584,10 +584,10 @@ class ObservatoryDAO
         	addslashes($_POST["add_obs_partner"]) . "'," .
         	"NOW())";
 
-		$this->_link->query($query);
+		self::$db->query($query);
 		$status = array("errno" => $this_->_link->errno(),
-			"error" => $this->_link->error(),
-			"res_id" => $this->_link->getLastInsertId());
+			"error" => self::$db->error(),
+			"res_id" => self::$db->getLastInsertId());
 
 		return $status;
 	}
@@ -641,9 +641,9 @@ class ObservatoryDAO
 			"modification_date=NOW() " .
 	  		"WHERE id=" . $res_id;
 		
-		$this->_link->query($query);
-		$status = array("errno" => $this->_link->errno(),
-			"error" => $this->_link->error(),
+		self::$db->query($query);
+		$status = array("errno" => self::$db->errno(),
+			"error" => self::$db->error(),
 			"res_id" => $res_id);
 
 		return $status;
@@ -727,7 +727,7 @@ class ObservatoryDAO
   	{
 		$query = "DELETE FROM observatory_to_scientific_contacts WHERE " .
 	               "observatory_id=" . $res_id;
-	    $this->_link->query($query);
+	    self::$db->query($query);
 
   		//PROOF IF THERE IS AN ARRAY!
   		if(is_array($_POST["add_obs_sci_con_ids"]))
@@ -740,8 +740,8 @@ class ObservatoryDAO
 					$query = "INSERT INTO observatory_to_scientific_contacts VALUES (" . $res_id .
          	 			"," . $sci_con_id . ")";
 
-					$this->_link->query($query);
-					if ($this->_link->errno() != 0)
+					self::$db->query($query);
+					if (self::$db->errno() != 0)
   						print "<H4>Error updating observatory_to_scientific_contacts!</H4>" . LF;
 					else
 					{
@@ -754,16 +754,16 @@ class ObservatoryDAO
   						//DEBUG:
   						//echo $query;
 
-  						$this->_link->query($query);
-  						if ($this->_link->errno() != 0)
+  						self::$db->query($query);
+  						if (self::$db->errno() != 0)
     						print "<H4>Error updating scientific_contacts!</H4>" . LF;
 					}
 				}
 				else //DELETE empty row scientific contacts
 				{
   					$query = "DELETE FROM scientific_contacts WHERE id=" . $sci_con_id;
-  					$this->_link->query($query);
-					if ($this->_link->errno() != 0)
+  					self::$db->query($query);
+					if (self::$db->errno() != 0)
   						print "<H4>Error deleting entry in scientific_contacts!</H4>" . LF;
 				}
 			}
@@ -793,15 +793,15 @@ class ObservatoryDAO
 	               addslashes($_POST["add_obs_sci_con_email"][$key]) . "','" .
 	               addslashes($_POST["add_obs_sci_con_institution"][$key]) . "')";
 
-	            $this->_link->query($query);
-			    if ($this->_link->errno() != 0)
+	            self::$db->query($query);
+			    if (self::$db->errno() != 0)
 			          print "<H4>Error inserting scientific_contacts!</H4>" . LF;
 
 			    $query = "INSERT INTO observatory_to_scientific_contacts VALUES (" . $res_id .
-			             "," . $this->_link->getLastInsertId() . ")";
+			             "," . self::$db->getLastInsertId() . ")";
 
-			    $this->_link->query($query);
-			    if ($this->_link->errno() != 0)
+			    self::$db->query($query);
+			    if (self::$db->errno() != 0)
 			          print "<H4>Error inserting observatory_to_scientific_contacts!</H4>" . LF;
 			}
 		}
@@ -832,8 +832,8 @@ class ObservatoryDAO
 			$_POST["add_obs_hide_8"] . "','" .
 	        $_POST["add_obs_hide_9"] . "')";
 
-	    $this->_link->query($query);
-	    if ($this->_link->errno() != 0)
+	    self::$db->query($query);
+	    if (self::$db->errno() != 0)
 	    	print "<H4>Error inserting hidden fields!</H4>" . LF;
    }
 
@@ -863,8 +863,8 @@ class ObservatoryDAO
 	  		"further_contacts='" . $_POST["add_obs_hide_9"] . "'" .
 	  		"WHERE id=" . $res_id;
 
-	  	$this->_link->query($query);
-	    	if ($this->_link->errno() != 0)
+	  	self::$db->query($query);
+	    	if (self::$db->errno() != 0)
 	    		print "<H4>Error updating hidden fields!</H4>" . LF;
    }
 
@@ -883,7 +883,7 @@ class ObservatoryDAO
    {
 		$query = "DELETE FROM observatory_to_research_areas WHERE " .
 			"observatory_id=" . $res_id;
-	    $this->_link->query($query);
+	    self::$db->query($query);
    }
 
 //-----------------------------------------------------------------------------------------------------------
@@ -916,12 +916,12 @@ class ObservatoryDAO
    				//DEBUG:
    				//echo "TESTING QUERY: " . $query . "<br>";
 
-   				$this->_link->query($query);
-	      		if ($this->_link->errno() != 0)
+   				self::$db->query($query);
+	      		if (self::$db->errno() != 0)
 	        		print "<H4>Error inserting new entry in research_areas!</H4>" . LF;
 
    				//push new id into add_obs_res_are_ids
-   				array_push($_POST["add_obs_res_are_ids"], $this->_link->getLastInsertId());
+   				array_push($_POST["add_obs_res_are_ids"], self::$db->getLastInsertId());
    			}
    		}
 
@@ -936,8 +936,8 @@ class ObservatoryDAO
 	      		//DEBUG:
 	      		//echo "TESTING: " . $query . "<br>";
 
-	     		$this->_link->query($query);
-	      		if ($this->_link->errno() != 0)
+	     		self::$db->query($query);
+	      		if (self::$db->errno() != 0)
 	        		print "<H4>Error inserting in observatory_to_research_areas!</H4>" . LF;
 	      	}
 	    }
@@ -958,7 +958,7 @@ class ObservatoryDAO
    {
 		$query = "DELETE FROM observatory_to_targets WHERE " .
 			"observatory_id=" . $res_id;
-	    $this->_link->query($query);
+	    self::$db->query($query);
    }
 
 //-----------------------------------------------------------------------------------------------------------
@@ -989,8 +989,8 @@ class ObservatoryDAO
 	      			//DEBUG:
 	      			//echo "TESTING: " . $query . "<br>";
 
-	     			$this->_link->query($query);
-	      			if ($this->_link->errno() != 0)
+	     			self::$db->query($query);
+	      			if (self::$db->errno() != 0)
 	        			print "<H4>Error inserting in observatory_to_targets!</H4>" . LF;
 				}
 	    	}
@@ -1027,8 +1027,8 @@ class ObservatoryDAO
   					//DEBUG:
 					//echo "INSTRUMENTS TABLE DELETE: " . $query . "<br>";
 
-  					$this->_link->query($query);
-					if ($this->_link->errno() != 0)
+  					self::$db->query($query);
+					if (self::$db->errno() != 0)
   						print "<H4>Error deleting entry in instruments!</H4>" . LF;
 
 					//Telescopes
@@ -1037,8 +1037,8 @@ class ObservatoryDAO
 					//DEBUG:
 					//echo "TELESCOPES TABLE DELETE: " . $query . "<br>";
 
-  					$this->_link->query($query);
-					if ($this->_link->errno() != 0)
+  					self::$db->query($query);
+					if (self::$db->errno() != 0)
   						print "<H4>Error deleting entry in telescopes!</H4>" . LF;
 				}
 			}
@@ -1076,12 +1076,12 @@ class ObservatoryDAO
           			//DEBUG:
           			//echo "TELESCOPE TYPE: " . $query . "<br>";
 
-          			$this->_link->query($query);
-	      			if ($this->_link->errno() != 0)
+          			self::$db->query($query);
+	      			if (self::$db->errno() != 0)
 	        			print "<H4>Error inserting new entry in telescope_types!</H4>" . LF;
 
 	        		//overwrite POST var with new telescope type id
-	        		$_POST["add_obs_telescope_type_id"][$tele_key] = $this->_link->getLastInsertId();
+	        		$_POST["add_obs_telescope_type_id"][$tele_key] = self::$db->getLastInsertId();
 				}
 
 				//new Antenna Type (only one!)
@@ -1094,12 +1094,12 @@ class ObservatoryDAO
           			//DEBUG:
           			//echo "ANTENNA TYPE: " . $query . "<br>";
 
-          			$this->_link->query($query);
-	      			if ($this->_link->errno() != 0)
+          			self::$db->query($query);
+	      			if (self::$db->errno() != 0)
 	        			print "<H4>Error inserting new entry in antenna_types!</H4>" . LF;
 
 	        		//overwrite POST var with new antenna type id
-	        		$_POST["add_obs_antenna_type_id"][$tele_key] = $this->_link->getLastInsertId();
+	        		$_POST["add_obs_antenna_type_id"][$tele_key] = self::$db->getLastInsertId();
 				}
 
 				//insert new telescope
@@ -1120,12 +1120,12 @@ class ObservatoryDAO
 				//DEBUG:
 				//echo "TELESCOPES TABLE: " . $query . "<br>";
 
-	            $this->_link->query($query);
-			    if ($this->_link->errno() != 0)
+	            self::$db->query($query);
+			    if (self::$db->errno() != 0)
 			    	print "<H4>Error inserting telescopes!</H4>" . LF;
 
 				//save telescope id for inserting instruments later
-				$telescope_id = $this->_link->getLastInsertId();
+				$telescope_id = self::$db->getLastInsertId();
 
 			    $query = "INSERT INTO observatory_to_telescopes VALUES (" . $res_id .
 			    		"," . $telescope_id . ")";
@@ -1133,8 +1133,8 @@ class ObservatoryDAO
 			    //DEBUG:
 			    //echo "OBSERVATORY_TO_TELESCOPES TABLE: " . $query . "<br>";
 
-			    $this->_link->query($query);
-			    if ($this->_link->errno() != 0)
+			    self::$db->query($query);
+			    if (self::$db->errno() != 0)
 			    	print "<H4>Error inserting observatory_to_telescopes!</H4>" . LF;
 
 			    //Instruments
@@ -1155,12 +1155,12 @@ class ObservatoryDAO
           					//DEBUG:
           					//echo "INSTRUMENT TYPE: " . $query . "<br>";
 
-          					$this->_link->query($query);
-	      					if ($this->_link->errno() != 0)
+          					self::$db->query($query);
+	      					if (self::$db->errno() != 0)
 	        					print "<H4>Error inserting new entry in instrument_types!</H4>" . LF;
 
 	        				//overwrite POST var with new instrument type id
-	        				$_POST["add_obs_instrument_type_id"][$tele_key][$instr_key] = $this->_link->getLastInsertId();
+	        				$_POST["add_obs_instrument_type_id"][$tele_key][$instr_key] = self::$db->getLastInsertId();
 			    		}
 
 			    		//insert new instrument to telescope
@@ -1188,18 +1188,18 @@ class ObservatoryDAO
 				   		//DEBUG:
 						//echo "INSTRUMENTS TABLE: " . $query . "<br>";
 
-	            		$this->_link->query($query);
-			    		if ($this->_link->errno() != 0)
+	            		self::$db->query($query);
+			    		if (self::$db->errno() != 0)
 			    			print "<H4>Error inserting instruments!</H4>" . LF;
 
 						$query = "INSERT INTO telescope_to_instruments VALUES (" . $telescope_id .
-			    			"," . $this->_link->getLastInsertId() . ")";
+			    			"," . self::$db->getLastInsertId() . ")";
 
 						//DEBUG:
 			    		//echo "TELESCOPE_TO_INSTRUMENTS TABLE: " . $query . "<br>";
 
-			    		$this->_link->query($query);
-			    		if ($this->_link->errno() != 0)
+			    		self::$db->query($query);
+			    		if (self::$db->errno() != 0)
 			    			print "<H4>Error inserting telescope_to_instruments!</H4>" . LF;
 			    	}
 			    }
@@ -1234,8 +1234,8 @@ class ObservatoryDAO
 
 		//DEBUG:
   		//echo "ADD info: " . $query . "<br>";
-    	$this->_link->query($query);
-    	if ($this->_link->errno() != 0)
+    	self::$db->query($query);
+    	if (self::$db->errno() != 0)
     		print "<H4>Error inserting additional information!</H4>" . LF;
   	}
 
@@ -1266,8 +1266,8 @@ class ObservatoryDAO
 
 		//DEBUG:
 		//echo "UPDATE info: " . $query . "<br>";
-		$this->_link->query($query);
-		if ($this->_link->errno() != 0)
+		self::$db->query($query);
+		if (self::$db->errno() != 0)
 			print "<H4>Error updating additional information!</H4>" . LF;
   	}
 

@@ -28,6 +28,9 @@
 * Introduce clean_num() for high precision values in browse.php or models
   * diameter_m, wavelength_begin, wavelength_end
   
+* Introduce Questionnaire form (entries must be approved afterwards)
+  * very user friendly! tooltips necessary (UI)
+  * maybe modify database (use a second one)
 
 * Input form for observatories
   * add other targets (db functionality)
@@ -96,11 +99,13 @@
   
   
 * E-Mail functionality for ADD / EDIT notification
+  * add_obs/spa_keys => notification as array
 
 * E-Mail functionality for thrown ERROR (make a function)
+  * summary of thrown error
   
 
-* Add JQUERY Tooltips where user help is necessary
+* Add JQUERY Tooltips where user help is necessary (Questionnaire)
   * input fields format: web addresses, latitude, longitude,
     research areas, targets, instrument properties, 
     camera properties, sensor properties, science goals, ..
@@ -111,9 +116,10 @@
   * dynamic row adding routines (redundancy)
   
 * Refactor classes in observatory.php, spacemission.php
-  * MVC Pattern implementieren (show_entry.php, add.php etc.)
-    * autoloader is in Controller
+  * MVC Pattern implementieren
+    * VIEWS (all access through DAO) / CONTROLLER (frontcontroller)
   * ORM Pattern implementieren für die models
+  	* DAO / Object => abstract base class (singleton)
 
 * ADD all entries from OLD Matrix, inlcuding the new entries from UCL (if missing)
   * extra work! (take old excel list as support)

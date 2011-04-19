@@ -1,8 +1,9 @@
 <?php
 
 include_once ('lib/php/orm/DbConnector.php');
-require_once ('models/Observatory.php');
-require_once ('models/Spacemission.php');
+require_once ('lib/php/orm/ModelDAO.php');
+//require_once ('models/Observatory.php');
+//require_once ('models/Spacemission.php');
 
 class Controller
 {
@@ -81,7 +82,8 @@ class Controller
     		case "add": 
 				switch ($resource_type) {
 				case "obs":
-					$_observatory = new ObservatoryDAO();
+					//$_observatory = new ObservatoryDAO();
+					$_observatory = ModelDAO::getFromName("Observatory");
 					/** get resource! */
 					if($action == "edit")
 					{
@@ -135,7 +137,8 @@ class Controller
 				 	}
 				break;
 				case "spa":
-					$_spacemission = new SpacemissionDAO();
+					//$_spacemission = new SpacemissionDAO();
+					$_observatory = ModelDAO::getFromName("Spacemission");
 					/** get resource! */
 					if($action == "edit")
 					{
