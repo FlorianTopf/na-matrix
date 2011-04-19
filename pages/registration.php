@@ -47,7 +47,7 @@
 
   show_message();
 
-  $link = dbiSelect();
+  $link = new DbConnector();
 
   if (isSet($_POST["registration"]))
   {
@@ -68,7 +68,7 @@
 
 // Check if username already in use
     $query = "SELECT username FROM users_list";
-    $result = mysqli_query($link, $query);
+    $result = $link->query($query);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     {
       if (strtoupper(trim($_POST["reg_uname"])) == strtoupper($row["username"]))
@@ -96,7 +96,7 @@
                addslashes(trim($_POST["reg_affiliation"])) . "','" .
                $_POST["reg_category"] . "',21)";
 
-      mysqli_query($link, $query);
+      $link->query($query);
       if (mysqli_affected_rows($link) > 0)
       {
         print "Thank you for registering! " .
@@ -190,6 +190,6 @@
     print "<INPUT type='submit' name='registration' value='Register'><P>";
   }
 
-  mysqli_close($link);
+  $link->close();
 
 ?>

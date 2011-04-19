@@ -43,23 +43,36 @@ class DbConnector extends SystemComponent
 	}
 	
 	function query($sql) {
-		$this->theQuery = $sql;
 		if ($result = $this->dbms->query($sql)) {
 		    if ($result == NULL) echo "encore null !";
 		}
 		else {
-			//nl();
-			echo "Mysqli ERROR: ";
+			echo "<br>Mysqli ERROR: ";
 			echo $this->dbms->error;
 			exit;
 		}
 		return $result;
 	}
 	
+	function errno()
+	{
+		return $this->dbms->errno;
+	}
+	
+	function error()
+	{
+		return $this->dbms->error;
+	}
+	
+	function getLastInsertId() 
+	{
+		return $this->dbms->insert_id;
+	}
+	
 	//Function: close, Purpose: Close the connection
 	function close() 
 	{
-		$this->dbms -> close();
+		$this->dbms->close();
 	}
 	
 }

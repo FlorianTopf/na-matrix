@@ -7,12 +7,12 @@
 
   function authenticate($userid, $passwd)
   {
-    $link = dbiSelect();
+  	$link = new DbConnector();
 
     $query = "SELECT id, username, passwd, level FROM users_list WHERE " .
              "username = '" . $userid .
              "' AND passwd = '" . md5($passwd) . "' LIMIT 1";
-    $result = mysqli_query($link, $query);
+    $result = $link->query($query);
     if (mysqli_num_rows($result) > 0)
     {
       $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -25,7 +25,7 @@
       $id = 0;
     }
 
-    mysqli_close($link);
+    $link->close();
 
     return $id;
   }

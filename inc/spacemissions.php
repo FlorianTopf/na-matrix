@@ -9,13 +9,12 @@
  * @author Florian Topf
  */
 
-require_once ('setup.php');
-require_once ('functions.php');
+include_once ('../lib/orm/DbConnector.php');
 
 $name = trim(strtolower($_GET['add_spa_name']));
 
 //CREATE DATABASE CONNECTION
-$link = dbiSelect();
+$link = new DbConnector();
 
 $query = "SELECT * FROM space_missions WHERE mission_name='$name';";
 $result = mysqli_query($link, $query);
@@ -28,6 +27,8 @@ else
 	$output = true;
 }
 mysqli_free_result($result);
+
+$link->close();
 
 echo json_encode($output);
 ?>

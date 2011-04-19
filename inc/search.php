@@ -5,11 +5,10 @@ $q = strtolower($_GET["term"]);
 // remove slashes if they were magically added
 if (get_magic_quotes_gpc()) $q = stripslashes($q);
 
-require_once ('setup.php');
-require_once ('functions.php'');
+include_once ('../lib/orm/DbConnector.php');
 
 //CREATE DATABASE CONNECTION
-$link = dbiSelect();
+$link = new DbConnector();
 
 $query = "SELECT * FROM wavelength_ranges WHERE acronym LIKE '%$q%';";
 $result = mysqli_query($link, $query);
@@ -27,6 +26,8 @@ else
 	$return = false;
 }
 mysqli_free_result($result);
+
+$link->close();
 
 // json_encode is available in PHP 5.2 and above, or you can install a PECL module in earlier versions
 echo json_encode($return);

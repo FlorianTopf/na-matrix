@@ -13,12 +13,12 @@
 
   show_message();
 
-  $link = dbiSelect();
+  $link = new DbConnector();
 
   if (!isset($_POST["update"]))
   {
     $query = "SELECT * FROM users_list WHERE id=" . $_SESSION["user_id"];
-    $result = mysqli_query($link, $query);
+    $result = $link->query($query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     mysqli_free_result($result);
 
@@ -68,7 +68,7 @@
         $query .= ",passwd='" . md5(trim($_POST["acc_pwd"])) . "'";
 
       $query .= " WHERE id=" . $_SESSION["user_id"] . " LIMIT 1";
-      mysqli_query($link, $query);
+      $link->query($query);
       if (mysqli_affected_rows($link) > 0)
         set_message("Account successfully updated!", "message");
       else
@@ -78,7 +78,7 @@
     }
   }
 
-  mysqli_close($link);
+  $link->close();
 
   if (!isset($_POST["update"]))
   {

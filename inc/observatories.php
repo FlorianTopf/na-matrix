@@ -9,16 +9,15 @@
  * @author Florian Topf
  */
 
-require_once ('setup.php');
-require_once ('functions.php');
+include_once ('../lib/orm/DbConnector.php');
 
 $name = trim(strtolower($_GET['add_obs_name']));
 
 //CREATE DATABASE CONNECTION
-$link = dbiSelect();
+$link = new DbConnector();
 
 $query = "SELECT * FROM observatories WHERE name='$name';";
-$result = mysqli_query($link, $query);
+$result = $link->query($query)
 if (mysqli_num_rows($result) > 0)
 {
 	$output = false;
@@ -28,6 +27,8 @@ else
 	$output = true;
 }
 mysqli_free_result($result);
+
+$link->close();
 
 echo json_encode($output);
 ?>

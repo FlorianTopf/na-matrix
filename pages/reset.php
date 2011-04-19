@@ -51,7 +51,7 @@
 
   show_message();
 
-  $link = dbiSelect();
+  $link = newDbConnector();
 
   if (isSet($_POST["reset"]))
   {
@@ -62,7 +62,7 @@
     // checks if uname exists
     $user_exists = 0;
   	$query = "SELECT username, email FROM users_list";
-    $result = mysqli_query($link, $query);
+    $result = $link->query($query);
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     {
       if (strtoupper(trim($_POST["res_uname"])) == strtoupper($row["username"]))
@@ -86,7 +86,7 @@
     {
       $res_pwd = randPw();
       $query = "UPDATE users_list SET passwd='". md5(trim($res_pwd)) ."' WHERE username='". trim($_POST["res_uname"]) ."'";
-      mysqli_query($link, $query);
+      $link->query($query);
       if (mysqli_affected_rows($link) > 0)
       {
         print "Your password has been reset! " .

@@ -36,6 +36,7 @@ class Controller
 		$userid = $_SESSION["user_id"];
     	$userlevel = $_SESSION["user_level"];
 
+    	/** @todo this is also used by views which do not act over DAOs atm */
     	$link = new DbConnector();
 
     	$query = "SELECT level FROM pages_list WHERE " .
@@ -69,7 +70,7 @@ class Controller
     	else
     	{
    			/** @todo implement write stats */
-    //   	write_stats($link, $page);
+    	   	self::write_stats($link, $page);
     //  	mysqli_close($link);
     		/** @todo add optional mail functionality */
 	//      mail_page($page);
@@ -228,8 +229,19 @@ class Controller
     			break;
     		}  		
 		}
-		
+		$link->close();
 	}
+	
+  	static function write_stats($link, $page)
+  	{
+    	$userid = $_SESSION["user_id"];
+
+    	$query = "INSERT INTO users_statistics SELECT NULL, " .
+             $userid . ", id, NOW() FROM pages_list WHERE name='" .
+             $page . "' LIMIT 1";
+
+    	$link->query($query);
+  }
 	
 	
 }

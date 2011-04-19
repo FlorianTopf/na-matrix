@@ -6,13 +6,13 @@
  */
 
 
-  function dbiSelect()
-  {
-    mysqli_init();
-    $link = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or exit(mysqli_error($link));
-
-    return $link;
-  }
+//  function dbiSelect()
+//  {
+//    mysqli_init();
+//    $link = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or exit(mysqli_error($link));
+//
+//    return $link;
+//  }
 
   function isValidURL($url)
   {
@@ -125,16 +125,16 @@
   }
 
 
-  function write_stats($link, $page)
-  {
-    $userid = $_SESSION["user_id"];
-
-    $query = "INSERT INTO users_statistics SELECT NULL, " .
-             $userid . ", id, NOW() FROM pages_list WHERE name='" .
-             $page . "' LIMIT 1";
-
-    mysqli_query($link, $query);
-  }
+//  function write_stats($link, $page)
+//  {
+//    $userid = $_SESSION["user_id"];
+//
+//    $query = "INSERT INTO users_statistics SELECT NULL, " .
+//             $userid . ", id, NOW() FROM pages_list WHERE name='" .
+//             $page . "' LIMIT 1";
+//
+//    mysqli_query($link, $query);
+//  }
 
 
   function set_message($message, $type)

@@ -7,26 +7,25 @@
  * @todo implement ObservatoryDAO usage
  */
 
-  print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
-  $link = dbiSelect();
-  //show_message();
+print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
+//show_message();
 
-  //Observatories
-  $res = array();
-  $query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
-  $result = mysqli_query($link, $query);
-  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-    $res[] = $row;
-  mysqli_free_result($result);
+//Observatories
+$res = array();
+$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
+$result = $link->query($query);
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+	$res[] = $row;
+mysqli_free_result($result);
 
-  if (count($res) == 0)
-  {
-    print "<CENTER><H3>There are no Observatory entries " .
-          "to edit.</H3></CENTER>" . LF;
-  }
-  else
-  {
-  	print "<CENTER><P><TABLE border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
+if (count($res) == 0)
+{
+	print "<CENTER><H3>There are no Observatory entries " .
+		"to edit.</H3></CENTER>" . LF;
+}
+else
+{
+	print "<CENTER><P><TABLE border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
     print "<CAPTION><H3 align='center'>To edit please click on the Observatory name.</H3></CAPTION>" . LF;
     print "<TR><TH>NAME</TH><TH>CREATION DATE</TH><TH>MODIFICATION DATE</TH></TR>" . LF;
 
@@ -42,8 +41,6 @@
         print "</TR>" . LF;
     }
 	print "</TABLE></P></CENTER>" . LF;
-  }
-  
-  mysqli_close($link);
+}
   
 ?>

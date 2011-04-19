@@ -10,14 +10,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <?php
-  ini_set("display_errors", "1");
-//  set_include_path(
-//  '.'.PATH_SEPARATOR.
-//  './lib/php/orm'.PATH_SEPARATOR.
-//  get_include_path()
-//  );
-  require_once ('inc/setup.php');
-  require_once ('inc/parameters.php');
+  require_once ('config.inc.php');
   require_once ('inc/functions.php');
   require_once ('controller.inc.php');
 
@@ -148,7 +141,8 @@
   		echo "POST PAGE: " . $_POST["page"] . "<br>";
   		echo "PUSH PAGE: " . $_POST["push"] . "<br>";
           
-		if(isset($_POST["page"]))
+		/** @todo refactor all $_REQUEST variables */
+  		if(isset($_POST["page"]))
         {
         	if(isset($_GET["action"]))
 			{
