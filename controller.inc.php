@@ -36,7 +36,9 @@ class Controller
 		$userid = $_SESSION["user_id"];
     	$userlevel = $_SESSION["user_level"];
 
-    	/** @todo this is also used by views which do not act over DAOs atm */
+    	/** @todo this is also used by views which do not act 
+    	 * 	over DAOs atm AND also all pages (except login) 
+    	 */
     	$link = new DbConnector();
 
     	$query = "SELECT level FROM pages_list WHERE " .

@@ -54,6 +54,11 @@ class DbConnector extends SystemComponent
 		return $result;
 	}
 	
+	function getLastInsertId() 
+	{
+		return $this->dbms->insert_id;
+	}
+	
 	function errno()
 	{
 		return $this->dbms->errno;
@@ -64,9 +69,9 @@ class DbConnector extends SystemComponent
 		return $this->dbms->error;
 	}
 	
-	function getLastInsertId() 
+	function affectedRows()
 	{
-		return $this->dbms->insert_id;
+		return $this->dbms->affected_rows;
 	}
 	
 	//Function: close, Purpose: Close the connection

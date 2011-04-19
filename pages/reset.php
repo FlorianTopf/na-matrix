@@ -51,7 +51,7 @@
 
   show_message();
 
-  $link = newDbConnector();
+  //$link = newDbConnector();
 
   if (isSet($_POST["reset"]))
   {
@@ -87,7 +87,7 @@
       $res_pwd = randPw();
       $query = "UPDATE users_list SET passwd='". md5(trim($res_pwd)) ."' WHERE username='". trim($_POST["res_uname"]) ."'";
       $link->query($query);
-      if (mysqli_affected_rows($link) > 0)
+      if ($link->affectedRows() > 0)
       {
         print "Your password has been reset! " .
               "An email containing your new password has been sent to the " .
@@ -129,6 +129,6 @@
     print "<INPUT type='submit' name='reset' value='Reset'><P>";
   }
 
-  mysqli_close($link);
+  //$link->close();
 
 ?>

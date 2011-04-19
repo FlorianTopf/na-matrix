@@ -47,7 +47,7 @@
 
   show_message();
 
-  $link = new DbConnector();
+  //$link = new DbConnector();
 
   if (isSet($_POST["registration"]))
   {
@@ -97,7 +97,7 @@
                $_POST["reg_category"] . "',21)";
 
       $link->query($query);
-      if (mysqli_affected_rows($link) > 0)
+      if ($link->affectedRows() > 0)
       {
         print "Thank you for registering! " .
               "A confirmation email has been sent to the specified address. " .
@@ -190,6 +190,6 @@
     print "<INPUT type='submit' name='registration' value='Register'><P>";
   }
 
-  $link->close();
+  //$link->close();
 
 ?>

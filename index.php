@@ -11,7 +11,7 @@
 
 <?php
   require_once ('config.inc.php');
-  require_once ('inc/functions.php');
+  require_once ('lib/php/functions.php');
   require_once ('controller.inc.php');
 
   if (!isSet($_SESSION["user_id"]))
@@ -37,12 +37,12 @@
   	<META http-equiv="cache-control" content="no-cache, must-revalidate">
     <LINK rel="icon" href="images/favicon.ico" type="image/x-icon">
     <LINK rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <LINK rel="stylesheet" type="text/css" href="inc/style.css">
-<!--  <LINK rel="stylesheet" type="text/css" href="inc/jquery-ui-1.8.10.custom.css">  -->   
-    <SCRIPT src="inc/jquery-1.4.2.min.js"></SCRIPT>
-    <SCRIPT src="inc/jquery.validate.min.js"></SCRIPT>
-<!--  <SCRIPT src="inc/jquery-ui-1.8.10.custom.min.js"></SCRIPT>  -->    
-    <SCRIPT src="inc/functions.js"></SCRIPT>
+    <LINK rel="stylesheet" type="text/css" href="css/style.css">
+<!--  <LINK rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css">  -->   
+    <SCRIPT src="lib/js/jquery-1.4.2.min.js"></SCRIPT>
+    <SCRIPT src="lib/js/jquery.validate.min.js"></SCRIPT>
+<!--  <SCRIPT src="lib/js/jquery-ui-1.8.10.custom.min.js"></SCRIPT>  -->    
+    <SCRIPT src="js/functions.js"></SCRIPT>
   </HEAD>
 
   <BODY>

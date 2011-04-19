@@ -9,7 +9,7 @@
  */
 
 require_once ('../config.inc.php');
-require_once ('../inc/functions.php');
+require_once ('../lib/php/functions.php');
 include_once ('../lib/php/orm/DbConnector.php');
 require_once ('../models/Spacemission.php');
 
@@ -30,10 +30,10 @@ $link->close();
   <TITLE>NA1-Matrix: <?php print $res["mission_name"]  ?></TITLE>
   <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <META http-equiv="cache-control" content="no-cache, must-revalidate">
-  <LINK rel="stylesheet" type="text/css" href="../inc/style.css">
-  <SCRIPT src="../inc/jquery-1.4.2.min.js"></SCRIPT>
-  <SCRIPT src="../inc/jquery.validate.min.js"></SCRIPT>
-  <SCRIPT src="../inc/functions.js"></SCRIPT>
+  <LINK rel="stylesheet" type="text/css" href="../css/style.css">
+<!--  <SCRIPT src="../lib/js/jquery-1.4.2.min.js"></SCRIPT>-->
+<!--  <SCRIPT src="../lib/js/jquery.validate.min.js"></SCRIPT>-->
+<!--  <SCRIPT src="../js/functions.js"></SCRIPT>-->
 </HEAD>
 
 <BODY class='report'>

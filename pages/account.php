@@ -13,7 +13,7 @@
 
   show_message();
 
-  $link = new DbConnector();
+  //$link = new DbConnector();
 
   if (!isset($_POST["update"]))
   {
@@ -69,7 +69,7 @@
 
       $query .= " WHERE id=" . $_SESSION["user_id"] . " LIMIT 1";
       $link->query($query);
-      if (mysqli_affected_rows($link) > 0)
+      if ($link->affectedRows() > 0)
         set_message("Account successfully updated!", "message");
       else
         set_message("Error updating account!", "error");
@@ -77,8 +77,8 @@
       show_message();
     }
   }
-
-  $link->close();
+  
+   //$link->close();
 
   if (!isset($_POST["update"]))
   {
