@@ -1,0 +1,34 @@
+Fields missing in the old-na1-DB structure compared to new DB structure:
+
+observatories:
+- city [TEXT]
+- approx_position [TEXT]
+
++ scientific_contacts:
+  - institution [TEXT]
+
++ hiddenfields:
+  - address [BOOL]
+  - city [BOOL]
+  - further_contacts [BOOL]
+
++ camera_properties: (given as part of "backend description" where available in old-DB)
+  - camera_type [TEXT]
+  - max_frames_per_sec [FLOAT]
+  - frame_size [TEXT]
+  - max_exposure_time [FLOAT]
+  - min_exposure_time [FLOAT]
+  - color_bw_chip [BOOL]
+  - ccd_chip_type [TEXT]
+
++ additional_information:
+  - research_comments [TEXT] (given as part of "Additional Research-Fields" where available in old-DB)
+
+
+space_missions:
+- web_address [TEXT]
+- target [key-reference] (given as "Orbit" where available in old-DB)
+- research_areas [key-reference]
+
+----------------------------------------------------------------------------------------
+Fields missing in the questionnaire compared to the new DB structure:

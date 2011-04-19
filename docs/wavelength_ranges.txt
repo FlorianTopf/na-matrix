@@ -1,0 +1,19 @@
+* Radiowaves (Radio Frequencies)
+  * LF (Low Frequency)
+  * MF (Medium Frequency)
+  * HF (High Frequency)
+  * VHF (Very High Frequency)
+* Microwaves (Microwave Frequencies)
+  * UHF (Ultra High Frequency)
+  * SHF (Super High Frequency)
+  * EHF (Extremely High Frequency)
+* Submillimeter waves (Terahertz Frequency)
+* Infrared radiation (Infrared Frequencies)
+  * FIR (Far Infrared)
+  * MIR (Mid Infrared)
+  * NIR (Near Infrared)
+* Optical waves (Visible Light)
+* UV radiation (Ultraviolett Light)
+
+  
+

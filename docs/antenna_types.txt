@@ -1,0 +1,10 @@
+* Dipole
+* Whip
+* Loop
+* Helical
+* Yagi
+* Log Periodic
+* Conical
+* Cylindrical
+* Horn
+* Parabolic

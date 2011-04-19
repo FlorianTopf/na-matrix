@@ -1,0 +1,218 @@
+---+++++ NEW Database Structure Documentation (09.03.2011):
+   * *User logging System*
+      * pages_list
+	     * id INT(10)
+		 * name TEXT
+		 * description TEXT
+		 * level INT(10) FK:users_levels:level
+      * users_levels
+	     * level INT(10)
+		 * category TEXT
+		 * description TEXT
+      * users_statistics
+	     * id INT(10)
+		 * user INT(10) FK:users_list:id
+		 * page INT(10) FK:pages_list:id
+		 * epoch DATETIME
+      * users_list
+	     * id INT(10)
+		 * username TEXT
+		 * passwd TEXT
+		 * title TEXT
+		 * fname TEXT
+		 * lname TEXT
+		 * email TEXT
+		 * affiliation TEXT
+		 * category TEXT
+		 * level INT(10) FK:users_levels:level
+
+
+   * *Space Mission Structure:* 
+      * space_missions 
+         * id INT
+         * mission_name TEXT
+         * mission_agency INT FK:agencies:id
+         * launch_date DATE
+         * death_date DATE
+         * web_adress TEXT
+         * brief_description TEXT
+         * creation_date DATETIME
+         * modification_date DATETIME
+      * agencies 
+         * id INT
+         * acronym VARCHAR(20)
+         * name TEXT
+         * web_address TEXT
+      * targets 
+         * id INT
+         * target_family VARCHAR(45)
+         * target_name VARCHAR(45)
+      * sensors
+         * id INT
+         * sensor_name TEXT
+         * sensor_type TEXT
+         * underlying TEXT
+         * range_begin FLOAT
+         * range_end FLOAT
+         * units TEXT
+         * measured TEXT
+         * resolution TEXT
+         * field_of_view TEXT
+         * web_address TEXT
+         * sensor_comments TEXT
+      * science_goals
+	     * id INT
+		 * acronym VARCHAR(5)
+		 * name TEXT
+
+   * *REFERENCE TABLES:*
+      * space_mission_to_target 
+         * space_mission_id INT FK:space_missions:id
+         * target_id INT FK:targets:id
+      * space_mission_to_research_areas 
+         * space_mission_id INT FK:space_missions:id
+         * research_area_id INT FK:research_areas:id
+      * space_mission_to_sensors 
+         * space_mission_id INT FK:space_missions:id
+         * sensor_id INT FK:sensors:id
+      * sensor_to_scientific_contacts 
+         * sensor_id INT FK:sensors:id
+         * scientific_contact_id INT FK:scientific_contacts:id
+      * sensor_to_science_goals
+         * sensor_id INT FK:sensors:id
+         * science_goal_id INT FK:science_goals:id
+
+		 
+   * *Observatories Structure* 
+      * observatories 
+         * id INT
+         * name TEXT
+         * founded INT
+         * institution TEXT
+         * web_address TEXT
+         * address TEXT
+         * zip_code VARCHAR(10)
+         * city TEXT
+         * country_id INT FK:countries:id
+         * phone VARCHAR(22)
+         * email TEXT
+         * latitude DOUBLE(10,6)
+         * longitude DOUBLE(10,6)
+         * approx_position TEXT
+         * sealevel_m INT
+         * precipitation INT FK:precipitation_ranges:id
+         * clear_nights INT FK:clearnights_ranges:id
+         * timezone INT FK:timezones:id
+         * instruments_number INT FK:number_of_instruments:id
+         * partner_observatories TEXT
+         * creation_date DATETIME
+         * modification_date DATETIME
+      * countries 
+         * id INT
+         * acronym VARCHAR(5)
+         * name TEXT
+      * precipitation_ranges 
+         * id INT
+         * range VARCHAR(20)
+      * clearnights_ranges 
+         * id INT
+         * range VARCHAR(20)
+      * timezones 
+         * id INT
+         * timezones VARCHAR(10)
+      * research_areas 
+         * id INT
+         * name TEXT
+      * instruments 
+         * id INT
+         * instrument_name TEXT
+         * instrument_type INT FK:instrument_types:id
+         * focal_position TEXT
+         * wavelength TEXT
+         * wavelength_begin FLOAT(10,6)
+         * wavelength_b_unit INT FK:wavelength_units:id
+         * wavelength_end FLOAT(10,6)
+         * wavelength_e_unit INT FK:wavelength_units:id
+         * field_of_view TEXT
+         * spatial_resolution TEXT
+         * spectral_resolution TEXT
+         * polarisation TEXT
+         * comments TEXT
+      * instrument_types 
+         * id INT
+         * name TEXT
+      * scientific_contacts 
+         * id INT
+         * name TEXT
+         * email TEXT
+         * institution TEXT
+      * telescopes
+         * id INT
+         * telescope_name TEXT
+         * telescope_type INT FK:telescope_types:id
+         * telescope_elements INT
+         * diameter_m FLOAT(10,6)
+         * focallength_m VARCHAR(10)
+         * antenna_type INT FK:antenna_types:id
+         * wavelength TEXT
+         * wavelength_begin FLOAT(10,6)
+         * wavelength_b_unit INT FK:wavelength_units:id
+         * wavelength_end FLOAT(10,6)
+         * wavelength_e_unit INT FK:wavelength_units:id
+         * comments TEXT
+      * telescope_types
+        * id INT
+        * name TEXT
+      * antenna_types
+        * id INT
+        * antenna_type TEXT
+      * wavelength_units
+        * id INT
+        * wavelength_unit TEXT
+      * additional_information 
+         * id INT FK:observatories:id
+         * further_contacts TEXT
+         * instrument_comments TEXT
+         * additional_instruments TEXT
+         * array_description TEXT
+         * backend_description TEXT
+         * research_comments TEXT
+         * general_comments TEXT
+      * hidden_fields 
+         * id INT FK:observatories:id
+         * web_address BOOL
+         * address BOOL
+         * zip_code BOOL
+         * city BOOL
+         * phone BOOL
+         * email BOOL
+         * latitude BOOL
+         * longitude BOOL
+         * scientific_contacts BOOL
+         * further_contacts BOOL
+      * camera_properties 
+         * id INT FK:observatories:id
+         * camera_type TEXT
+         * max_frames_per_sec FLOAT
+         * frame_size TEXT
+         * max_exposure_time FLOAT
+         * min_exposure_time FLOAT
+         * color_bw_chip BOOL
+         * ccd_chip_type TEXT
+
+   * *REFERENCE TABLES*
+      * observatory_to_research_areas
+         * observatory_id INT FK:observatories:id
+         * research_area_id INT FK:research_areas:id
+      * observatory_to_telescopes
+         * observatory_id INT FK:observatories:id
+         * telescope_id INT FK:telescopes:id
+      * observatory_to_scientific_contacts
+         * observatory_id INT FK:observatories:id
+         * scientific_contact_id INT FK:scientific_contacts:id
+	  * observatory_to_targets
+	     * observatory_id INT FK:observatories:id
+		 * target_id INT FK:targets:id
+      * telescope_to_instruments
+         * telescope_id INT FK:telescopes:id
+         * instrument_id INT FK:instruments:id

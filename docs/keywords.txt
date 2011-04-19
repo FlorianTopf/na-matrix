@@ -1,0 +1,103 @@
+Research Areas: (for Space Missions and Observatories)
+Key Area 1 (Planetary aurorae, planetary radio emissions, planetary space weather)
+Key Area 2 (Small solar system objects: Astrometry, spectroscopy, stellar occultations, meteoroid impact effects)
+Key Area 3 (Airless bodies in the solar system: Moon, Mercury, Galilean satellites)
+Atmospheric Physics
+Supernovae / Novae
+Galaxies
+Interstellar Medium
+Exoplanets
+Stellar Physics
+Large Scale Structures
+Solar Physics
+Geodesy
+Cosmology
+Stellar Occultations
+Public Outreach / Education etc.
+Particle Physics
+Black Holes
+Astrobiology
+Astrochemistry
+Neutron Stars / Pulsars etc.
+Orbital Mechanics
+Interplanetary Medium
+Magnetospheric Physics
+
+Targets: (for Space Missions and Observatories)
+Venus
+Earth
+Mars
+Jupiter
+Saturn
+Uranus
+Neptune
+Pluto
+Moon
+Phobos
+Deimos
+Jupiter Satellites
+Io
+Ganymede
+Callisto
+Janus
+Mimas
+Enceladus
+Tethys
+Dione
+Rhea
+Titan
+Hyperion
+Iapetus
+Phoebe
+Uranus Satellites
+Neptune Satellites
+Nereid
+Pluto Satellites
+Charon
+Comets
+Kuiper Belt and Oort Cloud
+Asteroids
+Meteors
+Mars Satellites
+TNO (Trans-Neptunian Objects)
+SMALL BODIES
+RINGS
+Saturn Rings
+Jupiter Rings
+Uranus Rings
+Neptune Rings
+Vesta
+Ceres
+SUN
+DUST
+EXOPLANETS
+SATELLITES
+Europa
+PLANETS
+Meteorites
+Saturn Satellites
+Mercury
+
+Instrument Types: (for Observatories)
+Newton
+Cassegrain
+Schmidt-Cassegrain
+Maksutov
+Ritchey-Chretien
+Dobson
+Refracting Telescope
+Binocular Telescope
+Spectrometer
+Radio Telescope
+Underground Telescope
+Interferometer
+Polarimeter
+Magnetometer
+Riometer
+Other
+
+Science Goals: (for Space Missions Sensors)
+Magnetospheres (MA)
+Satellites (SA)
+Atmospheres (AT)
+Aurorae (AU)

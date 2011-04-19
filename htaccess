@@ -1,0 +1,5 @@
+RewriteEngine On
+#Root directory (could be /test/ for instance)
+RewriteBase /na1-matrix/
+RewriteRule !\.(js|ico|gif|jpg|png|css|pdf|doc|ppt|pptx|txt|xls)$ index.php
+

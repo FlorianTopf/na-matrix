@@ -1,0 +1,119 @@
+* Put FIREFOX/JS recommendation in footer
+
+* PRESENTATION:
+  * remove functionality for camera properties for the moment (add, show, observatory)
+  * remove functionality for science goals for the moment (add, show, spacemission)
+
+
+* Running Database
+  * Review Science Goals / Research Areas (Robert, Manuel)
+   * Move camera_properties to instruments (after field_of_view column) [OK]
+   * comments will be the last column of instruments [OK]
+   * Introduce new instrument_type CAMERA [OK]
+   * Rewrite entries of europlanet_na1 database
+ 	 * camera properties to instrument=>camera [OK]
+ 	 * comments to new fields (remove unnecessary comment fields:
+ 	    instrument comments)
+ 	 * old telescope types to new instrument types
+
+* Development Database
+  * hidden_fields, camera_properties, additional_information (ID must be unique) [OK]
+  * Every table needs to have a PRIMARY KEY [OK]
+    * identifiying relationships for relational tables [OK]
+  * introduce primary key for relational tables with 2 foreign keys (for ORM) [OK]
+  * improve hidden fields / additional information (remove not necessary)
+  * remove OTHER from Telescope Types / Instrument Types / Antenna Types!
+  
+  
+* Introduce clean_num() for high precision values in browse.php or models
+  * diameter_m, wavelength_begin, wavelength_end
+  
+
+* Input form for observatories
+  * add other targets (db functionality)
+  * error labels for diameter (and other inputs) must be better!
+  * wavelength (written text? like radio, near-infrared..)
+    * autocompleter + db table (acronym / name)
+    * take only necessary jquery UI scripts + css
+  * spatial resolution => format?
+  * spectral resolution => format?
+  * remove last telescope => empty fields
+  * remove last instrument => empty fields
+  * toggle table of instruments [OK]
+  
+* Input validation in JQUERY for observatories (see comments in add.php)
+  * other target - MANDATORY!
+  * telescope name - MANDATORY?
+  * telescope type - MANDATORY?
+  * instrument name - MANDATORY?
+  * instrument type - MANDATORY?
+  * check for type of values (critical review)!
+
+
+* Input form for space missions
+  * add other targets (db functionality)
+  * sensor type? => dropdown from PDAP types? -> extensible?
+  * field of view, resolution, measured => format?
+  * range_begin, range_end => high precision float?
+  * remove last sensor => empty fields
+  * Add validation for OTHER science goals with inline error label
+  
+* Input validation in JQUERY for space missions (see comments in add.php)
+  * other target - MANDATORY!
+  * sensor name - MANDATORY (array => THIS IS AN OPEN ISSUE!)
+  * science goals are MANDATORY! (required)
+  * validation for sensor web_address (URL)
+  * check for type of values (critical review)!
+  
+** ALL INPUT FORMS:
+   * Add validation for existing names for all OTHER 
+
+   
+* Browsing pages for observatories
+  * according to telecon inputs (standard / detail pages)
+  * USE GEOHACK FOR GPS: http://toolserver.org/~geohack/ (WGS84) [OK]
+  * separate display for Telescope types / Instrument types [OK]
+  * colorization of different observatories
+  * show creation / modification date
+  * links to the partner observatories (how to manage this?)
+  
+* Browsing pages for space missions
+  * according to telecon inputs (standard / detail pages)
+  * don't forget to display agencies details
+  * colorization of different agencies
+  * show creation / modification date
+
+ 
+** ALL BROWSING PAGES
+   * how to handle values, that are not given? (lat/long etc.) [OK]
+   * filter mechanisms with onchange events
+    
+    
+* Search pages for space missions / observatories
+  * according to use cases and telecon inputs
+  * wavelength searchable? (maybe dropdown for specific ranges)
+  * colorization and listing in browsing pages (filters above)
+  
+  
+* E-Mail functionality for ADD / EDIT notification
+
+* E-Mail functionality for thrown ERROR (make a function)
+  
+
+* Add JQUERY Tooltips where user help is necessary
+  * input fields format: web addresses, latitude, longitude,
+    research areas, targets, instrument properties, 
+    camera properties, sensor properties, science goals, ..
+  * wavelength ranges (format documentation)
+  * delete last sensor (remove name of sensor and it will be deleted)
+    
+* Refactor all Javascript in functions.js
+  * dynamic row adding routines (redundancy)
+  
+* Refactor classes in observatory.php, spacemission.php
+  * MVC Pattern implementieren (show_entry.php, add.php etc.)
+    * autoloader is in Controller
+  * ORM Pattern implementieren für die models
+
+* ADD all entries from OLD Matrix, inlcuding the new entries from UCL (if missing)
+  * extra work! (take old excel list as support)
