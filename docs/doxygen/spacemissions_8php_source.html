@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>NA1-Matrix: inc/spacemissions.php Source File</title>
+<title>NA1-Matrix: js/spacemissions.php Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -25,35 +25,36 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<h1>inc/spacemissions.php</h1>  </div>
+<h1>js/spacemissions.php</h1>  </div>
 </div>
 <div class="contents">
 <a href="spacemissions_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
-<a name="l00012"></a>00012 require_once(<span class="stringliteral">&quot;setup.php&quot;</span>);
-<a name="l00013"></a>00013 require_once(<span class="stringliteral">&quot;functions.php&quot;</span>);
-<a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="spacemissions_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">00015</a> <a class="code" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a> = trim(strtolower($_GET[<span class="stringliteral">&#39;add_spa_name&#39;</span>]));
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 <span class="comment">//CREATE DATABASE CONNECTION</span>
-<a name="l00018"></a><a class="code" href="spacemissions_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">00018</a> <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <a class="code" href="functions_8php.html#abe893db53becec14cfe1fd500fc19913">dbiSelect</a>();
-<a name="l00019"></a>00019 
-<a name="l00020"></a><a class="code" href="spacemissions_8php.html#af59a5f7cd609e592c41dc3643efd3c98">00020</a> <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM space_missions WHERE mission_name=&#39;$name&#39;;&quot;</span>;
-<a name="l00021"></a><a class="code" href="spacemissions_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">00021</a> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00022"></a>00022 <span class="keywordflow">if</span> (mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) &gt; 0)
-<a name="l00023"></a>00023 {
-<a name="l00024"></a>00024         $output = <span class="keyword">false</span>;
-<a name="l00025"></a>00025 }
-<a name="l00026"></a>00026 <span class="keywordflow">else</span>
-<a name="l00027"></a>00027 {
-<a name="l00028"></a>00028         $output = <span class="keyword">true</span>;
-<a name="l00029"></a>00029 }
-<a name="l00030"></a>00030 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 echo json_encode($output);
-<a name="l00033"></a>00033 ?&gt;
+<a name="l00012"></a>00012 include_once (<span class="stringliteral">&#39;../lib/orm/DbConnector.php&#39;</span>);
+<a name="l00013"></a>00013 
+<a name="l00014"></a><a class="code" href="spacemissions_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">00014</a> <a class="code" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a> = trim(strtolower($_GET[<span class="stringliteral">&#39;add_spa_name&#39;</span>]));
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="comment">//CREATE DATABASE CONNECTION</span>
+<a name="l00017"></a><a class="code" href="spacemissions_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">00017</a> <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <span class="keyword">new</span> <a class="code" href="class_db_connector.html">DbConnector</a>();
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="spacemissions_8php.html#af59a5f7cd609e592c41dc3643efd3c98">00019</a> <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM space_missions WHERE mission_name=&#39;$name&#39;;&quot;</span>;
+<a name="l00020"></a><a class="code" href="spacemissions_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">00020</a> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00021"></a>00021 <span class="keywordflow">if</span> (mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) &gt; 0)
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023         $output = <span class="keyword">false</span>;
+<a name="l00024"></a>00024 }
+<a name="l00025"></a>00025 <span class="keywordflow">else</span>
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027         $output = <span class="keyword">true</span>;
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;close();
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 echo json_encode($output);
+<a name="l00034"></a>00034 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

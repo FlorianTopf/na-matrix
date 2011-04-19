@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>NA1-Matrix: inc/functions.php Source File</title>
+<title>NA1-Matrix: lib/php/functions.php Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -25,17 +25,17 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<h1>inc/functions.php</h1>  </div>
+<h1>lib/php/functions.php</h1>  </div>
 </div>
 <div class="contents">
 <a href="functions_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
-<a name="l00009"></a><a class="code" href="functions_8php.html#abe893db53becec14cfe1fd500fc19913">00009</a>   function <a class="code" href="functions_8php.html#abe893db53becec14cfe1fd500fc19913">dbiSelect</a>()
-<a name="l00010"></a>00010   {
-<a name="l00011"></a>00011     mysqli_init();
-<a name="l00012"></a>00012     <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = mysqli_connect(<a class="code" href="setup_8php.html#ac91a4a68860d6443b4af3115b80fe5c4">DB_HOST</a>, <a class="code" href="setup_8php.html#ad55a7004aec7b83d13230c5bca839d5b">DB_USERNAME</a>, <a class="code" href="setup_8php.html#a7e717bf6e7045cd892772c56c69d9cb1">DB_PASSWORD</a>, <a class="code" href="setup_8php.html#aaa97d1ab157ad17a19dc81f58f0c90dd">DB_DATABASE</a>) or exit(mysqli_error(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>));
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014     <span class="keywordflow">return</span> <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>;
-<a name="l00015"></a>00015   }
+<a name="l00009"></a>00009 <span class="comment">//  function dbiSelect()</span>
+<a name="l00010"></a>00010 <span class="comment">//  {</span>
+<a name="l00011"></a>00011 <span class="comment">//    mysqli_init();</span>
+<a name="l00012"></a>00012 <span class="comment">//    $link = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or exit(mysqli_error($link));</span>
+<a name="l00013"></a>00013 <span class="comment">//</span>
+<a name="l00014"></a>00014 <span class="comment">//    return $link;</span>
+<a name="l00015"></a>00015 <span class="comment">//  }</span>
 <a name="l00016"></a>00016 
 <a name="l00017"></a><a class="code" href="functions_8php.html#acba17f96058bbeb5dda60312de95e3e8">00017</a>   function <a class="code" href="functions_8php.html#acba17f96058bbeb5dda60312de95e3e8">isValidURL</a>($url)
 <a name="l00018"></a>00018   {
@@ -147,16 +147,16 @@
 <a name="l00125"></a>00125   }
 <a name="l00126"></a>00126 
 <a name="l00127"></a>00127 
-<a name="l00128"></a><a class="code" href="functions_8php.html#abe297c0d502b0870eacf14616c353916">00128</a>   function <a class="code" href="functions_8php.html#abe297c0d502b0870eacf14616c353916">write_stats</a>(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page)
-<a name="l00129"></a>00129   {
-<a name="l00130"></a>00130     $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132     <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_statistics SELECT NULL, &quot;</span> .
-<a name="l00133"></a>00133              $userid . <span class="stringliteral">&quot;, id, NOW() FROM pages_list WHERE name=&#39;&quot;</span> .
-<a name="l00134"></a>00134              $page . <span class="stringliteral">&quot;&#39; LIMIT 1&quot;</span>;
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136     mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00137"></a>00137   }
+<a name="l00128"></a>00128 <span class="comment">//  function write_stats($link, $page)</span>
+<a name="l00129"></a>00129 <span class="comment">//  {</span>
+<a name="l00130"></a>00130 <span class="comment">//    $userid = $_SESSION[&quot;user_id&quot;];</span>
+<a name="l00131"></a>00131 <span class="comment">//</span>
+<a name="l00132"></a>00132 <span class="comment">//    $query = &quot;INSERT INTO users_statistics SELECT NULL, &quot; .</span>
+<a name="l00133"></a>00133 <span class="comment">//             $userid . &quot;, id, NOW() FROM pages_list WHERE name=&#39;&quot; .</span>
+<a name="l00134"></a>00134 <span class="comment">//             $page . &quot;&#39; LIMIT 1&quot;;</span>
+<a name="l00135"></a>00135 <span class="comment">//</span>
+<a name="l00136"></a>00136 <span class="comment">//    mysqli_query($link, $query);</span>
+<a name="l00137"></a>00137 <span class="comment">//  }</span>
 <a name="l00138"></a>00138 
 <a name="l00139"></a>00139 
 <a name="l00140"></a><a class="code" href="functions_8php.html#a1e355a5a8ac2ff176c96f6da79685eb8">00140</a>   function <a class="code" href="functions_8php.html#a1e355a5a8ac2ff176c96f6da79685eb8">set_message</a>($message, $type)
@@ -216,7 +216,7 @@
 <a name="l00194"></a>00194 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

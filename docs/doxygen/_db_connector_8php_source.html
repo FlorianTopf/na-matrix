@@ -73,32 +73,50 @@
 <a name="l00043"></a>00043         }
 <a name="l00044"></a>00044         
 <a name="l00045"></a><a class="code" href="class_db_connector.html#a6b251c8058230359b2922377699c4f29">00045</a>         function <a class="code" href="class_db_connector.html#a6b251c8058230359b2922377699c4f29">query</a>($sql) {
-<a name="l00046"></a>00046                 $this-&gt;theQuery = $sql;
-<a name="l00047"></a>00047                 <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = $this-&gt;dbms-&gt;query($sql)) {
-<a name="l00048"></a>00048                     <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> == <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>) echo <span class="stringliteral">&quot;encore null !&quot;</span>;
-<a name="l00049"></a>00049                 }
-<a name="l00050"></a>00050                 <span class="keywordflow">else</span> {
-<a name="l00051"></a>00051                         <span class="comment">//nl();</span>
-<a name="l00052"></a>00052                         echo <span class="stringliteral">&quot;Mysqli ERROR: &quot;</span>;
-<a name="l00053"></a>00053                         echo $this-&gt;dbms-&gt;error;
-<a name="l00054"></a>00054                         exit;
-<a name="l00055"></a>00055                 }
-<a name="l00056"></a>00056                 <span class="keywordflow">return</span> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>;
-<a name="l00057"></a>00057         }
-<a name="l00058"></a>00058         
-<a name="l00059"></a>00059         <span class="comment">//Function: close, Purpose: Close the connection</span>
-<a name="l00060"></a><a class="code" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">00060</a>         function <a class="code" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a>() 
-<a name="l00061"></a>00061         {
-<a name="l00062"></a>00062                 $this-&gt;dbms -&gt; <a class="code" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a>();
-<a name="l00063"></a>00063         }
-<a name="l00064"></a>00064         
-<a name="l00065"></a>00065 }
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 ?&gt;
+<a name="l00046"></a>00046                 <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = $this-&gt;dbms-&gt;query($sql)) {
+<a name="l00047"></a>00047                     <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> == <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>) echo <span class="stringliteral">&quot;encore null !&quot;</span>;
+<a name="l00048"></a>00048                 }
+<a name="l00049"></a>00049                 <span class="keywordflow">else</span> {
+<a name="l00050"></a>00050                         echo <span class="stringliteral">&quot;&lt;br&gt;Mysqli ERROR: &quot;</span>;
+<a name="l00051"></a>00051                         echo $this-&gt;dbms-&gt;error;
+<a name="l00052"></a>00052                         exit;
+<a name="l00053"></a>00053                 }
+<a name="l00054"></a>00054                 <span class="keywordflow">return</span> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>;
+<a name="l00055"></a>00055         }
+<a name="l00056"></a>00056         
+<a name="l00057"></a><a class="code" href="class_db_connector.html#aaf8e789036f518ea4523e095d1892e34">00057</a>         function <a class="code" href="class_db_connector.html#aaf8e789036f518ea4523e095d1892e34">getLastInsertId</a>() 
+<a name="l00058"></a>00058         {
+<a name="l00059"></a>00059                 <span class="keywordflow">return</span> $this-&gt;dbms-&gt;insert_id;
+<a name="l00060"></a>00060         }
+<a name="l00061"></a>00061         
+<a name="l00062"></a><a class="code" href="class_db_connector.html#ab2eeb64cab360a0f09923108b55c9099">00062</a>         function <a class="code" href="class_db_connector.html#ab2eeb64cab360a0f09923108b55c9099">errno</a>()
+<a name="l00063"></a>00063         {
+<a name="l00064"></a>00064                 <span class="keywordflow">return</span> $this-&gt;dbms-&gt;errno;
+<a name="l00065"></a>00065         }
+<a name="l00066"></a>00066         
+<a name="l00067"></a><a class="code" href="class_db_connector.html#a43b8d30b879d4f09ceb059b02af2bc02">00067</a>         function <a class="code" href="class_db_connector.html#a43b8d30b879d4f09ceb059b02af2bc02">error</a>()
+<a name="l00068"></a>00068         {
+<a name="l00069"></a>00069                 <span class="keywordflow">return</span> $this-&gt;dbms-&gt;error;
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071         
+<a name="l00072"></a><a class="code" href="class_db_connector.html#a1289c8742f764b73b60011ce8339157d">00072</a>         function <a class="code" href="class_db_connector.html#a1289c8742f764b73b60011ce8339157d">affectedRows</a>()
+<a name="l00073"></a>00073         {
+<a name="l00074"></a>00074                 <span class="keywordflow">return</span> $this-&gt;dbms-&gt;affected_rows;
+<a name="l00075"></a>00075         }
+<a name="l00076"></a>00076         
+<a name="l00077"></a>00077         <span class="comment">//Function: close, Purpose: Close the connection</span>
+<a name="l00078"></a><a class="code" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">00078</a>         function <a class="code" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a>() 
+<a name="l00079"></a>00079         {
+<a name="l00080"></a>00080                 $this-&gt;dbms-&gt;close();
+<a name="l00081"></a>00081         }
+<a name="l00082"></a>00082         
+<a name="l00083"></a>00083 }
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

@@ -3,6 +3,9 @@
 * PRESENTATION:
   * remove functionality for camera properties for the moment (add, show, observatory)
   * remove functionality for science goals for the moment (add, show, spacemission)
+  
+* DOCUMENTATION:
+  * new research areas, more input descriptions
 
 
 * Running Database
@@ -43,6 +46,7 @@
   * remove last telescope => empty fields
   * remove last instrument => empty fields
   * toggle table of instruments [OK]
+  * autocompleter for telescope name / instrument name
   
 * Input validation in JQUERY for observatories (see comments in add.php)
   * other target - MANDATORY!
@@ -51,6 +55,7 @@
   * instrument name - MANDATORY?
   * instrument type - MANDATORY?
   * check for type of values (critical review)!
+  * autocompleter for sensor type
 
 
 * Input form for space missions
@@ -106,6 +111,7 @@
   
 
 * Add JQUERY Tooltips where user help is necessary (Questionnaire)
+  * http://view.jqueryui.com/master/demos/tooltip/default.html
   * input fields format: web addresses, latitude, longitude,
     research areas, targets, instrument properties, 
     camera properties, sensor properties, science goals, ..

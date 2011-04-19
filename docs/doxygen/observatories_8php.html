@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>NA1-Matrix: inc/observatories.php File Reference</title>
+<title>NA1-Matrix: js/observatories.php File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -28,7 +28,7 @@
   <div class="summary">
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<h1>inc/observatories.php File Reference</h1>  </div>
+<h1>js/observatories.php File Reference</h1>  </div>
 </div>
 <div class="contents">
 
@@ -37,14 +37,14 @@
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a> = trim(strtolower($_GET['add_obs_name']))</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = dbiSelect()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = &quot;SELECT * FROM observatories WHERE name='$name';&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query($link, $query)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = new <a class="el" href="class_db_connector.html">DbConnector</a>()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = &quot;SELECT * FROM observatories WHERE <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>='$<a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>';&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = $link-&gt;query($query)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Input Validation Procedure Tests if an <a class="el" href="class_observatory.html" title="Represents the table observatories and access to it.">Observatory</a> name already exists called by validator.js</p>
 <dl class="version"><dt><b>Version:</b></dt><dd></dd></dl>
-<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="observatories_8php.html">observatories.php</a> 178 2011-02-17 19:45:37Z ftopf </dd></dl>
+<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="observatories_8php.html">observatories.php</a> 332 2011-04-19 20:38:20Z ftopf </dd></dl>
 <dl class="author"><dt><b>Author:</b></dt><dd>Florian Topf </dd></dl>
 
 <p>Definition in file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
@@ -54,13 +54,13 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$link = dbiSelect()</td>
+          <td class="memname">$link = new <a class="el" href="class_db_connector.html">DbConnector</a>()</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="observatories_8php_source.html#l00018">18</a> of file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
+<p>Definition at line <a class="el" href="observatories_8php_source.html#l00017">17</a> of file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
 
 </div>
 </div>
@@ -69,13 +69,13 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$name = trim(strtolower($_GET['add_obs_name']))</td>
+          <td class="memname">$<a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a> = trim(strtolower($_GET['add_obs_name']))</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="observatories_8php_source.html#l00015">15</a> of file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
+<p>Definition at line <a class="el" href="observatories_8php_source.html#l00014">14</a> of file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
 
 </div>
 </div>
@@ -84,7 +84,22 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$query = &quot;SELECT * FROM observatories WHERE name='$name';&quot;</td>
+          <td class="memname">$query = &quot;SELECT * FROM observatories WHERE <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>='$<a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>';&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="observatories_8php_source.html#l00019">19</a> of file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a112ef069ddc0454086e3d1e6d8d55d07"></a><!-- doxytag: member="observatories.php::$result" ref="a112ef069ddc0454086e3d1e6d8d55d07" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$result = $link-&gt;query($query)</td>
         </tr>
       </table>
 </div>
@@ -94,23 +109,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a112ef069ddc0454086e3d1e6d8d55d07"></a><!-- doxytag: member="observatories.php::$result" ref="a112ef069ddc0454086e3d1e6d8d55d07" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$result = mysqli_query($link, $query)</td>
-        </tr>
-      </table>
 </div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="observatories_8php_source.html#l00021">21</a> of file <a class="el" href="observatories_8php_source.html">observatories.php</a>.</p>
-
-</div>
-</div>
-</div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

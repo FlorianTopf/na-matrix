@@ -58,12 +58,12 @@
 <a name="l00037"></a>00037                 <span class="stringliteral">&quot;&lt;B&gt;&lt;FONT color=&#39;red&#39;&gt;*&lt;/FONT&gt; Mission Agency:&lt;/B&gt;&lt;/TD&gt;&quot;</span>;
 <a name="l00038"></a>00038       print <span class="stringliteral">&quot;&lt;TD align=&#39;left&#39;&gt;&lt;SELECT name=&#39;add_spa_agency_id&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00039"></a>00039       print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&#39;&gt;Please choose...&lt;/OPTION&quot;</span>;
-<a name="l00040"></a>00040       $agencies = $_spacemission-&gt;get_agencies();
-<a name="l00041"></a>00041       <span class="keywordflow">foreach</span> ($agencies[<span class="stringliteral">&#39;id&#39;</span>] as $key =&gt; $value)
+<a name="l00040"></a>00040       <a class="code" href="_spacemission_view_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a> = $_spacemission-&gt;get_agencies();
+<a name="l00041"></a>00041       <span class="keywordflow">foreach</span> (<a class="code" href="_spacemission_view_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a>[<span class="stringliteral">&#39;id&#39;</span>] as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
 <a name="l00042"></a>00042       {
 <a name="l00043"></a>00043         print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $value . <span class="stringliteral">&quot;&#39;&quot;</span>;
 <a name="l00044"></a>00044         <span class="keywordflow">if</span> ($value == $_spacemission-&gt;get_field(<span class="stringliteral">&quot;spa_mission_agency&quot;</span>)) print <span class="stringliteral">&quot; selected&quot;</span>;
-<a name="l00045"></a>00045         print <span class="stringliteral">&quot;&gt;&quot;</span> . $agencies[<span class="stringliteral">&#39;acronym&#39;</span>][$key] . <span class="stringliteral">&quot; (&quot;</span> . $agencies[<span class="stringliteral">&#39;name&#39;</span>][$key] . <span class="stringliteral">&quot;)&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00045"></a>00045         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_spacemission_view_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a>[<span class="stringliteral">&#39;acronym&#39;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>] . <span class="stringliteral">&quot; (&quot;</span> . <a class="code" href="_spacemission_view_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a>[<span class="stringliteral">&#39;name&#39;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>] . <span class="stringliteral">&quot;)&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00046"></a>00046       }
 <a name="l00047"></a>00047       print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00048"></a>00048 
@@ -104,13 +104,13 @@
 <a name="l00083"></a><a class="code" href="_spacemission_create_update_8php.html#a874d90d0ca64874618e05ded0aca0308">00083</a>       print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&#39;&gt;Please choose one or several by holding CTRL...&lt;/OPTION&gt;&quot;</span>;
 <a name="l00084"></a>00084       print <span class="stringliteral">&quot;&lt;OPTION id=&#39;add_other_area&#39; value=&#39;100000&#39;&gt;Add other Research Area&lt;/OPTION&gt;&quot;</span>;
 <a name="l00085"></a><a class="code" href="_spacemission_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">00085</a>       <a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a> = $_spacemission-&gt;get_research_areas();
-<a name="l00086"></a>00086       <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a>[<span class="stringliteral">&#39;id&#39;</span>] as $key =&gt; $value)
+<a name="l00086"></a>00086       <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a>[<span class="stringliteral">&#39;id&#39;</span>] as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
 <a name="l00087"></a>00087       {
 <a name="l00088"></a>00088        print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $value . <span class="stringliteral">&quot;&#39;&quot;</span>;
 <a name="l00089"></a>00089         <span class="keywordflow">if</span>(is_array($_spacemission-&gt;get_has_many(<span class="stringliteral">&quot;research_areas&quot;</span>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)))
 <a name="l00090"></a>00090                 <span class="keywordflow">if</span> (in_array($value, $_spacemission-&gt;get_has_many(<span class="stringliteral">&quot;research_areas&quot;</span>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)))
 <a name="l00091"></a>00091                         print <span class="stringliteral">&quot; selected&quot;</span>;
-<a name="l00092"></a>00092         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a>[<span class="stringliteral">&quot;name&quot;</span>][$key] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00092"></a>00092         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a>[<span class="stringliteral">&quot;name&quot;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00093"></a>00093       }
 <a name="l00094"></a>00094       print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00095"></a>00095       print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;/FIELDSET&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
@@ -125,13 +125,13 @@
 <a name="l00105"></a>00105                 <span class="stringliteral">&quot;multiple size=&#39;10&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>; <span class="comment">//[]</span>
 <a name="l00106"></a>00106       print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&#39;&gt;Please choose one or several by holding CTRL...&lt;/OPTION&gt;&quot;</span>;
 <a name="l00107"></a><a class="code" href="_spacemission_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">00107</a>       <a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a> = $_spacemission-&gt;get_targets();
-<a name="l00108"></a>00108       <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a>[<span class="stringliteral">&#39;id&#39;</span>] as $key =&gt; $value)
+<a name="l00108"></a>00108       <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a>[<span class="stringliteral">&#39;id&#39;</span>] as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
 <a name="l00109"></a>00109       {
 <a name="l00110"></a>00110         print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $value . <span class="stringliteral">&quot;&#39;&quot;</span>;
 <a name="l00111"></a>00111                 <span class="keywordflow">if</span>(is_array($_spacemission-&gt;get_has_many(<span class="stringliteral">&quot;targets&quot;</span>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)))
 <a name="l00112"></a>00112                 <span class="keywordflow">if</span> (in_array($value, $_spacemission-&gt;get_has_many(<span class="stringliteral">&quot;targets&quot;</span>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)))
 <a name="l00113"></a>00113                         print <span class="stringliteral">&quot; selected&quot;</span>;
-<a name="l00114"></a>00114         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a>[<span class="stringliteral">&#39;target_name&#39;</span>][$key] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00114"></a>00114         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a>[<span class="stringliteral">&#39;target_name&#39;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00115"></a>00115       }
 <a name="l00116"></a>00116       print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00117"></a>00117       print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;/FIELDSET&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
@@ -286,7 +286,7 @@
 <a name="l00270"></a>00270 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

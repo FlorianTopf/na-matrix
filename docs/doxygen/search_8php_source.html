@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>NA1-Matrix: inc/search.php Source File</title>
+<title>NA1-Matrix: js/search.php Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -25,7 +25,7 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<h1>inc/search.php</h1>  </div>
+<h1>js/search.php</h1>  </div>
 </div>
 <div class="contents">
 <a href="search_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
@@ -35,57 +35,58 @@
 <a name="l00005"></a>00005 <span class="comment">// remove slashes if they were magically added</span>
 <a name="l00006"></a>00006 <span class="keywordflow">if</span> (get_magic_quotes_gpc()) <a class="code" href="search_8php.html#abb0f8f809252372e25f48d52b63ef29d">$q</a> = stripslashes(<a class="code" href="search_8php.html#abb0f8f809252372e25f48d52b63ef29d">$q</a>);
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008 require_once(<span class="stringliteral">&quot;setup.php&quot;</span>);
-<a name="l00009"></a>00009 require_once(<span class="stringliteral">&quot;functions.php&quot;</span>);
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="comment">//CREATE DATABASE CONNECTION</span>
-<a name="l00012"></a><a class="code" href="search_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">00012</a> <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <a class="code" href="functions_8php.html#abe893db53becec14cfe1fd500fc19913">dbiSelect</a>();
-<a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="search_8php.html#af59a5f7cd609e592c41dc3643efd3c98">00014</a> <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM wavelength_ranges WHERE acronym LIKE &#39;%$q%&#39;;&quot;</span>;
-<a name="l00015"></a><a class="code" href="search_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">00015</a> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00016"></a>00016 <span class="keywordflow">if</span> (mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) &gt; 0)
-<a name="l00017"></a>00017 {
-<a name="l00018"></a>00018         $return = array();
-<a name="l00019"></a>00019         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00020"></a>00020         {
-<a name="l00021"></a>00021                 array_push($return, array(<span class="stringliteral">&quot;id&quot;</span>=&gt;$row[<span class="stringliteral">&#39;acronym&#39;</span>], <span class="stringliteral">&quot;label&quot;</span>=&gt;$row[<span class="stringliteral">&#39;acronym&#39;</span>] . 
-<a name="l00022"></a>00022                 <span class="stringliteral">&quot; [&quot;</span> . $row[<span class="stringliteral">&#39;name&#39;</span>] . <span class="stringliteral">&quot;]&quot;</span> , <span class="stringliteral">&quot;value&quot;</span> =&gt; strip_tags($row[<span class="stringliteral">&#39;acronym&#39;</span>])));
-<a name="l00023"></a>00023         }
-<a name="l00024"></a>00024 }
-<a name="l00025"></a>00025 <span class="keywordflow">else</span>
-<a name="l00026"></a>00026 {
-<a name="l00027"></a>00027         $return = <span class="keyword">false</span>;
-<a name="l00028"></a>00028 }
-<a name="l00029"></a>00029 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="comment">// json_encode is available in PHP 5.2 and above, or you can install a PECL module in earlier versions</span>
-<a name="l00032"></a>00032 echo json_encode($return);
-<a name="l00033"></a>00033 
+<a name="l00008"></a>00008 include_once (<span class="stringliteral">&#39;../lib/orm/DbConnector.php&#39;</span>);
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="comment">//CREATE DATABASE CONNECTION</span>
+<a name="l00011"></a><a class="code" href="search_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">00011</a> <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <span class="keyword">new</span> <a class="code" href="class_db_connector.html">DbConnector</a>();
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="search_8php.html#af59a5f7cd609e592c41dc3643efd3c98">00013</a> <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM wavelength_ranges WHERE acronym LIKE &#39;%$q%&#39;;&quot;</span>;
+<a name="l00014"></a><a class="code" href="search_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">00014</a> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00015"></a>00015 <span class="keywordflow">if</span> (mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) &gt; 0)
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017         $return = array();
+<a name="l00018"></a>00018         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00019"></a>00019         {
+<a name="l00020"></a>00020                 array_push($return, array(<span class="stringliteral">&quot;id&quot;</span>=&gt;$row[<span class="stringliteral">&#39;acronym&#39;</span>], <span class="stringliteral">&quot;label&quot;</span>=&gt;$row[<span class="stringliteral">&#39;acronym&#39;</span>] . 
+<a name="l00021"></a>00021                 <span class="stringliteral">&quot; [&quot;</span> . $row[<span class="stringliteral">&#39;name&#39;</span>] . <span class="stringliteral">&quot;]&quot;</span> , <span class="stringliteral">&quot;value&quot;</span> =&gt; strip_tags($row[<span class="stringliteral">&#39;acronym&#39;</span>])));
+<a name="l00022"></a>00022         }
+<a name="l00023"></a>00023 }
+<a name="l00024"></a>00024 <span class="keywordflow">else</span>
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026         $return = <span class="keyword">false</span>;
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;close();
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="comment">// json_encode is available in PHP 5.2 and above, or you can install a PECL module in earlier versions</span>
+<a name="l00033"></a>00033 echo json_encode($return);
 <a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="comment">//$items = array(</span>
-<a name="l00036"></a>00036 <span class="comment">//&quot;radio&quot;=&gt;&quot;radio&quot;,</span>
-<a name="l00037"></a>00037 <span class="comment">//&quot;very high frequency&quot;=&gt;&quot;radio&quot;,</span>
-<a name="l00038"></a>00038 <span class="comment">//&quot;high frequency&quot;=&gt;&quot;radio&quot;,</span>
-<a name="l00039"></a>00039 <span class="comment">//&quot;medium frequency&quot;=&gt;&quot;radio&quot;,</span>
-<a name="l00040"></a>00040 <span class="comment">//&quot;low frequency&quot;=&gt;&quot;radio&quot;</span>
-<a name="l00041"></a>00041 <span class="comment">//);</span>
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="comment">//$result = array();</span>
-<a name="l00044"></a>00044 <span class="comment">//foreach ($items as $key=&gt;$value) {</span>
-<a name="l00045"></a>00045 <span class="comment">//if (strpos(strtolower($key), $q) !== false) {</span>
-<a name="l00046"></a>00046 <span class="comment">//</span>
-<a name="l00047"></a>00047 <span class="comment">//}</span>
-<a name="l00048"></a>00048 <span class="comment">//if (count($result) &gt; 11)</span>
-<a name="l00049"></a>00049 <span class="comment">//break;</span>
-<a name="l00050"></a>00050 <span class="comment">//}</span>
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="comment">// json_encode is available in PHP 5.2 and above, or you can install a PECL module in earlier versions</span>
-<a name="l00053"></a>00053 <span class="comment">//echo json_encode($result);</span>
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 ?&gt;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="comment">//$items = array(</span>
+<a name="l00037"></a>00037 <span class="comment">//&quot;radio&quot;=&gt;&quot;radio&quot;,</span>
+<a name="l00038"></a>00038 <span class="comment">//&quot;very high frequency&quot;=&gt;&quot;radio&quot;,</span>
+<a name="l00039"></a>00039 <span class="comment">//&quot;high frequency&quot;=&gt;&quot;radio&quot;,</span>
+<a name="l00040"></a>00040 <span class="comment">//&quot;medium frequency&quot;=&gt;&quot;radio&quot;,</span>
+<a name="l00041"></a>00041 <span class="comment">//&quot;low frequency&quot;=&gt;&quot;radio&quot;</span>
+<a name="l00042"></a>00042 <span class="comment">//);</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="comment">//$result = array();</span>
+<a name="l00045"></a>00045 <span class="comment">//foreach ($items as $key=&gt;$value) {</span>
+<a name="l00046"></a>00046 <span class="comment">//if (strpos(strtolower($key), $q) !== false) {</span>
+<a name="l00047"></a>00047 <span class="comment">//</span>
+<a name="l00048"></a>00048 <span class="comment">//}</span>
+<a name="l00049"></a>00049 <span class="comment">//if (count($result) &gt; 11)</span>
+<a name="l00050"></a>00050 <span class="comment">//break;</span>
+<a name="l00051"></a>00051 <span class="comment">//}</span>
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="comment">// json_encode is available in PHP 5.2 and above, or you can install a PECL module in earlier versions</span>
+<a name="l00054"></a>00054 <span class="comment">//echo json_encode($result);</span>
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

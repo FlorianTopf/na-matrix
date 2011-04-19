@@ -42,17 +42,17 @@
 <a name="l00018"></a>00018 
 <a name="l00019"></a><a class="code" href="reset_8php.html#a5738cba9c7d855d16bbed9a629c0156f">00019</a>   function <a class="code" href="reset_8php.html#a5738cba9c7d855d16bbed9a629c0156f">mailReset</a>($email, $uname, $pword)
 <a name="l00020"></a>00020   {
-<a name="l00021"></a>00021         ini_set(<span class="stringliteral">&quot;SMTP&quot;</span>, <a class="code" href="setup_8php.html#af31810836ec4b396873423ff9c4ee446">MAIL_SMTP</a>);
+<a name="l00021"></a>00021         ini_set(<span class="stringliteral">&quot;SMTP&quot;</span>, <a class="code" href="config_8inc_8php.html#af31810836ec4b396873423ff9c4ee446">MAIL_SMTP</a>);
 <a name="l00022"></a>00022 
 <a name="l00023"></a>00023     $subject = <span class="stringliteral">&quot;Europlanet NA1 Matrix: Password reset! &quot;</span>;
 <a name="l00024"></a>00024 
 <a name="l00025"></a>00025     $headers  = <span class="stringliteral">&#39;MIME-Version: 1.0&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span>;
 <a name="l00026"></a>00026     $headers .= <span class="stringliteral">&#39;Content-type: text/plain; charset=iso-8859-1&#39;</span> . <span class="stringliteral">&quot;\r\n&quot;</span>;
-<a name="l00027"></a>00027     $headers = <span class="stringliteral">&quot;From: &quot;</span> . <a class="code" href="setup_8php.html#a1aafe8befaaf37537cc0c278fe69e8f1">MAIL_FROM</a> . <span class="stringliteral">&quot;\n&quot;</span>;
-<a name="l00028"></a>00028     $headers .= <span class="stringliteral">&#39;Cc: &#39;</span> . <a class="code" href="setup_8php.html#aaa6a975793328c51db5bd7a7393c48cd">MAIL_TO</a> . <span class="stringliteral">&quot;\r\n&quot;</span>;
-<a name="l00029"></a>00029     $headers .= <span class="stringliteral">&quot;Reply-To: &quot;</span> . <a class="code" href="setup_8php.html#a8a3040d494482f623e8b7742a3391a38">MAIL_REPLY</a>;
+<a name="l00027"></a>00027     $headers = <span class="stringliteral">&quot;From: &quot;</span> . <a class="code" href="config_8inc_8php.html#a1aafe8befaaf37537cc0c278fe69e8f1">MAIL_FROM</a> . <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00028"></a>00028     $headers .= <span class="stringliteral">&#39;Cc: &#39;</span> . <a class="code" href="config_8inc_8php.html#aaa6a975793328c51db5bd7a7393c48cd">MAIL_TO</a> . <span class="stringliteral">&quot;\r\n&quot;</span>;
+<a name="l00029"></a>00029     $headers .= <span class="stringliteral">&quot;Reply-To: &quot;</span> . <a class="code" href="config_8inc_8php.html#a8a3040d494482f623e8b7742a3391a38">MAIL_REPLY</a>;
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031     $from = <span class="stringliteral">&quot;-f&quot;</span> . <a class="code" href="setup_8php.html#a1aafe8befaaf37537cc0c278fe69e8f1">MAIL_FROM</a>;
+<a name="l00031"></a>00031     $from = <span class="stringliteral">&quot;-f&quot;</span> . <a class="code" href="config_8inc_8php.html#a1aafe8befaaf37537cc0c278fe69e8f1">MAIL_FROM</a>;
 <a name="l00032"></a>00032 
 <a name="l00033"></a>00033     $message = <span class="stringliteral">&quot;Dear &quot;</span> . $uname . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00034"></a>00034     $message .= <span class="stringliteral">&quot;Your password has been reset to: &quot;</span>. $pword . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
@@ -75,7 +75,7 @@
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052   <a class="code" href="functions_8php.html#ac6d8837b79ceaae117cc1505e4b127c4">show_message</a>();
 <a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="reset_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">00054</a>   <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <a class="code" href="functions_8php.html#abe893db53becec14cfe1fd500fc19913">dbiSelect</a>();
+<a name="l00054"></a>00054   <span class="comment">//$link = newDbConnector();</span>
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056   <span class="keywordflow">if</span> (isSet($_POST[<span class="stringliteral">&quot;reset&quot;</span>]))
 <a name="l00057"></a>00057   {
@@ -86,7 +86,7 @@
 <a name="l00062"></a>00062     <span class="comment">// checks if uname exists</span>
 <a name="l00063"></a>00063     $user_exists = 0;
 <a name="l00064"></a>00064         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT username, email FROM users_list&quot;</span>;
-<a name="l00065"></a>00065     <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00065"></a>00065     <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
 <a name="l00066"></a>00066     <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
 <a name="l00067"></a>00067     {
 <a name="l00068"></a>00068       <span class="keywordflow">if</span> (strtoupper(trim($_POST[<span class="stringliteral">&quot;res_uname&quot;</span>])) == strtoupper($row[<span class="stringliteral">&quot;username&quot;</span>]))
@@ -110,8 +110,8 @@
 <a name="l00086"></a>00086     {
 <a name="l00087"></a>00087       $res_pwd = <a class="code" href="reset_8php.html#a63ef8ab24dac8f6871d4b5509464b8e5">randPw</a>();
 <a name="l00088"></a>00088       <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;UPDATE users_list SET passwd=&#39;&quot;</span>. md5(trim($res_pwd)) .<span class="stringliteral">&quot;&#39; WHERE username=&#39;&quot;</span>. trim($_POST[<span class="stringliteral">&quot;res_uname&quot;</span>]) .<span class="stringliteral">&quot;&#39;&quot;</span>;
-<a name="l00089"></a>00089       mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00090"></a>00090       <span class="keywordflow">if</span> (mysqli_affected_rows(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>) &gt; 0)
+<a name="l00089"></a>00089       <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00090"></a>00090       <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;affectedRows() &gt; 0)
 <a name="l00091"></a>00091       {
 <a name="l00092"></a>00092         print <span class="stringliteral">&quot;Your password has been reset! &quot;</span> .
 <a name="l00093"></a>00093               <span class="stringliteral">&quot;An email containing your new password has been sent to the &quot;</span> .
@@ -153,12 +153,12 @@
 <a name="l00129"></a>00129     print <span class="stringliteral">&quot;&lt;INPUT type=&#39;submit&#39; name=&#39;reset&#39; value=&#39;Reset&#39;&gt;&lt;P&gt;&quot;</span>;
 <a name="l00130"></a>00130   }
 <a name="l00131"></a>00131 
-<a name="l00132"></a>00132   mysqli_close(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>);
+<a name="l00132"></a>00132   <span class="comment">//$link-&gt;close();</span>
 <a name="l00133"></a>00133 
 <a name="l00134"></a>00134 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

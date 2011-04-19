@@ -35,211 +35,204 @@
 <a name="l00010"></a>00010    <span class="stringliteral">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 &lt;?php
-<a name="l00013"></a>00013   ini_set(<span class="stringliteral">&quot;display_errors&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>);
-<a name="l00014"></a>00014 <span class="comment">//  set_include_path(</span>
-<a name="l00015"></a>00015 <span class="comment">//  &#39;.&#39;.PATH_SEPARATOR.</span>
-<a name="l00016"></a>00016 <span class="comment">//  &#39;./lib/php/orm&#39;.PATH_SEPARATOR.</span>
-<a name="l00017"></a>00017 <span class="comment">//  get_include_path()</span>
-<a name="l00018"></a>00018 <span class="comment">//  );</span>
-<a name="l00019"></a>00019   require_once(<span class="stringliteral">&quot;inc/setup.php&quot;</span>);
-<a name="l00020"></a>00020   require_once(<span class="stringliteral">&quot;inc/parameters.php&quot;</span>);
-<a name="l00021"></a>00021   require_once(<span class="stringliteral">&quot;inc/functions.php&quot;</span>);
-<a name="l00022"></a>00022   require_once <span class="stringliteral">&#39;controller.inc.php&#39;</span>;
+<a name="l00013"></a>00013   require_once (<span class="stringliteral">&#39;config.inc.php&#39;</span>);
+<a name="l00014"></a>00014   require_once (<span class="stringliteral">&#39;lib/php/functions.php&#39;</span>);
+<a name="l00015"></a>00015   require_once (<span class="stringliteral">&#39;controller.inc.php&#39;</span>);
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017   <span class="keywordflow">if</span> (!isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>]))
+<a name="l00018"></a>00018   {
+<a name="l00019"></a>00019     <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] = 1;
+<a name="l00020"></a>00020     <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_name&quot;</span>] = <span class="stringliteral">&quot;anonymous&quot;</span>;
+<a name="l00021"></a>00021     <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>] = 0;
+<a name="l00022"></a>00022   }
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <span class="keywordflow">if</span> (!isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>]))
+<a name="l00024"></a>00024   <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;page&quot;</span>]))
 <a name="l00025"></a>00025   {
-<a name="l00026"></a>00026     <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] = 1;
-<a name="l00027"></a>00027     <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_name&quot;</span>] = <span class="stringliteral">&quot;anonymous&quot;</span>;
-<a name="l00028"></a>00028     <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>] = 0;
-<a name="l00029"></a>00029   }
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031   <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;page&quot;</span>]))
-<a name="l00032"></a>00032   {
-<a name="l00033"></a>00033     $_POST[<span class="stringliteral">&quot;page&quot;</span>] = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;page&quot;</span>];
-<a name="l00034"></a>00034     unSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;page&quot;</span>]);
-<a name="l00035"></a>00035   }
-<a name="l00036"></a>00036   <span class="keywordflow">if</span> (isSet($_POST[<span class="stringliteral">&quot;login&quot;</span>])) $_POST[<span class="stringliteral">&quot;page&quot;</span>] = <span class="stringliteral">&quot;login&quot;</span>;
-<a name="l00037"></a>00037   <span class="keywordflow">if</span> (isSet($_POST[<span class="stringliteral">&quot;logout&quot;</span>])) $_POST[<span class="stringliteral">&quot;page&quot;</span>] = <span class="stringliteral">&quot;logout&quot;</span>;
-<a name="l00038"></a>00038 ?&gt;
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 &lt;HTML&gt;
-<a name="l00041"></a>00041   &lt;HEAD&gt;
-<a name="l00042"></a>00042     &lt;TITLE&gt;NA1-Matrix&lt;/TITLE&gt;
-<a name="l00043"></a>00043     &lt;META http-equiv=<span class="stringliteral">&quot;Content-Type&quot;</span> content=<span class="stringliteral">&quot;text/html; charset=iso-8859-1&quot;</span>&gt;
-<a name="l00044"></a>00044         &lt;META http-equiv=<span class="stringliteral">&quot;cache-control&quot;</span> content=<span class="stringliteral">&quot;no-cache, must-revalidate&quot;</span>&gt;
-<a name="l00045"></a>00045     &lt;LINK rel=<span class="stringliteral">&quot;icon&quot;</span> href=<span class="stringliteral">&quot;images/favicon.ico&quot;</span> type=<span class="stringliteral">&quot;image/x-icon&quot;</span>&gt;
-<a name="l00046"></a>00046     &lt;LINK rel=<span class="stringliteral">&quot;shortcut icon&quot;</span> href=<span class="stringliteral">&quot;images/favicon.ico&quot;</span> type=<span class="stringliteral">&quot;image/x-icon&quot;</span>&gt;
-<a name="l00047"></a>00047     &lt;LINK rel=<span class="stringliteral">&quot;stylesheet&quot;</span> type=<span class="stringliteral">&quot;text/css&quot;</span> href=<span class="stringliteral">&quot;inc/style.css&quot;</span>&gt;
-<a name="l00048"></a>00048 &lt;!--  &lt;LINK rel=<span class="stringliteral">&quot;stylesheet&quot;</span> type=<span class="stringliteral">&quot;text/css&quot;</span> href=<span class="stringliteral">&quot;inc/jquery-ui-1.8.10.custom.css&quot;</span>&gt;  --&gt;   
-<a name="l00049"></a>00049     &lt;SCRIPT src=<span class="stringliteral">&quot;inc/jquery-1.4.2.min.js&quot;</span>&gt;&lt;/SCRIPT&gt;
-<a name="l00050"></a>00050     &lt;SCRIPT src=<span class="stringliteral">&quot;inc/jquery.validate.min.js&quot;</span>&gt;&lt;/SCRIPT&gt;
-<a name="l00051"></a>00051 &lt;!--  &lt;SCRIPT src=<span class="stringliteral">&quot;inc/jquery-ui-1.8.10.custom.min.js&quot;</span>&gt;&lt;/SCRIPT&gt;  --&gt;    
-<a name="l00052"></a>00052     &lt;SCRIPT src=<span class="stringliteral">&quot;inc/functions.js&quot;</span>&gt;&lt;/SCRIPT&gt;
-<a name="l00053"></a>00053   &lt;/HEAD&gt;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055   &lt;BODY&gt;
-<a name="l00056"></a>00056   &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;outer-wrapper&quot;</span>&gt;
-<a name="l00057"></a>00057     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;banner-top&quot;</span>&gt;&lt;/div&gt;
-<a name="l00058"></a>00058         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header&quot;</span>&gt;
-<a name="l00059"></a>00059       &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header-top&quot;</span>&gt;
-<a name="l00060"></a>00060         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header-top-inside&quot;</span>&gt;
-<a name="l00061"></a>00061           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;logo&quot;</span>&gt;
-<a name="l00062"></a>00062             &lt;a href=<span class="stringliteral">&quot;http://europlanet-jra3.oeaw.ac.at&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/europlanet_logo.gif&quot;</span> width=<span class="stringliteral">&quot;561&quot;</span> height=<span class="stringliteral">&quot;51&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;EuroPlanet - Research Infrastructure.&quot;</span> title=<span class="stringliteral">&quot;EuroPlanet - Research Infrastructure.&quot;</span> /&gt;&lt;/a&gt;
-<a name="l00063"></a>00063           &lt;/div&gt;
-<a name="l00064"></a>00064           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;partners&quot;</span>&gt;
-<a name="l00065"></a>00065             &lt;a href=<span class="stringliteral">&quot;http://europa.eu/index_en.htm&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/ue_logo.gif&quot;</span> width=<span class="stringliteral">&quot;81&quot;</span> height=<span class="stringliteral">&quot;47&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> title=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> /&gt;&lt;/a&gt;
-<a name="l00066"></a>00066             &lt;a href=<span class="stringliteral">&quot;http://cordis.europa.eu/fp7/&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/7_logo.gif&quot;</span> width=<span class="stringliteral">&quot;77&quot;</span> height=<span class="stringliteral">&quot;53&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;Seventh Framework Programme.&quot;</span> title=<span class="stringliteral">&quot;Seventh Framework Programme.&quot;</span> /&gt;&lt;/a&gt;
-<a name="l00067"></a>00067           &lt;/div&gt;
-<a name="l00068"></a>00068         &lt;/div&gt;
-<a name="l00069"></a>00069       &lt;/div&gt;
-<a name="l00070"></a>00070       &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header-img&quot;</span>&gt;&lt;/div&gt;
-<a name="l00071"></a>00071     &lt;/div&gt;
-<a name="l00072"></a><a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">00072</a>         &lt;FORM action=<span class="stringliteral">&quot;&lt;?php print $_SERVER[&quot;</span>PHP_SELF<span class="stringliteral">&quot;]; ?&gt;&quot;</span> name=<span class="stringliteral">&quot;main_form&quot;</span> <span class="keywordtype">id</span>=<span class="stringliteral">&quot;main_form&quot;</span> enctype=<span class="stringliteral">&quot;multipart/form-data&quot;</span> method=<span class="stringliteral">&quot;POST&quot;</span>&gt;
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074     &lt;?php
-<a name="l00075"></a>00075       <span class="keywordflow">if</span> (!isSet($_POST[<span class="stringliteral">&quot;page&quot;</span>]))
-<a name="l00076"></a>00076       {
-<a name="l00077"></a>00077         <span class="keywordflow">if</span> (isSet($_GET[<span class="stringliteral">&quot;page&quot;</span>]))
-<a name="l00078"></a>00078           $_POST[<span class="stringliteral">&quot;page&quot;</span>] = $_GET[<span class="stringliteral">&quot;page&quot;</span>];
-<a name="l00079"></a>00079         <span class="keywordflow">else</span>
-<a name="l00080"></a>00080           print <span class="stringliteral">&quot;&lt;INPUT name=&#39;page&#39; type=&#39;hidden&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00081"></a>00081       }
-<a name="l00082"></a>00082     ?&gt;
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top&quot;</span>&gt;
-<a name="l00085"></a>00085                 &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top-menu-img&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/top_menu_img.gif&quot;</span> align=<span class="stringliteral">&quot;middle&quot;</span> width=<span class="stringliteral">&quot;527&quot;</span> height=<span class="stringliteral">&quot;19&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;top menu&quot;</span> title=<span class="stringliteral">&quot;top menu&quot;</span> /&gt;&lt;/div&gt;
-<a name="l00086"></a>00086                         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top-menu&quot;</span>&gt;&lt;font style=<span class="stringliteral">&quot;font-family: verdana, arial; font-weight: bold; font-size: 22px&quot;</span> color=<span class="stringliteral">&quot;#172983&quot;</span>&gt;NA1-MATRIX of ground-based &amp;amp; space-based observatories&lt;/font&gt;&lt;/div&gt;
-<a name="l00087"></a>00087                 &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top-menu-bottom-img&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/bottom_menu_img.gif&quot;</span> align=<span class="stringliteral">&quot;middle&quot;</span> width=<span class="stringliteral">&quot;527&quot;</span> height=<span class="stringliteral">&quot;19&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;top menu&quot;</span> title=<span class="stringliteral">&quot;top menu&quot;</span> /&gt;&lt;/div&gt;
-<a name="l00088"></a>00088         &lt;/div&gt;
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;content-wrapper&quot;</span>&gt;
-<a name="l00091"></a>00091     &lt;CENTER&gt;
-<a name="l00092"></a>00092     &lt;TABLE <span class="keyword">class</span>=<span class="stringliteral">&quot;main&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> cellspacing=<span class="stringliteral">&quot;0&quot;</span> cellpadding=<span class="stringliteral">&quot;0&quot;</span> width=<span class="stringliteral">&quot;100%&quot;</span> height=<span class="stringliteral">&quot;100%&quot;</span>&gt;
-<a name="l00093"></a>00093       &lt;TR&gt;&lt;!--LEFT MENU--&gt;
-<a name="l00094"></a>00094         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;0&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;
-<a name="l00095"></a>00095         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span> <span class="keywordtype">id</span>=<span class="stringliteral">&quot;lmcol&quot;</span> width=<span class="stringliteral">&quot;208&quot;</span>&gt;
-<a name="l00096"></a>00096           &lt;TABLE <span class="keyword">class</span>=<span class="stringliteral">&quot;ltable&quot;</span> cellspacing=<span class="stringliteral">&quot;0&quot;</span> cellpadding=<span class="stringliteral">&quot;0&quot;</span> width=<span class="stringliteral">&quot;100%&quot;</span>&gt;
-<a name="l00097"></a>00097             &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left&quot;</span>&gt;
-<a name="l00098"></a>00098                     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left-content&quot;</span>&gt;
-<a name="l00099"></a>00099                     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left-menu-box&quot;</span>&gt;
-<a name="l00100"></a>00100             &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left-menu&quot;</span>&gt;
-<a name="l00101"></a>00101               &lt;ul&gt;
-<a name="l00102"></a>00102                 &lt;li <span class="keyword">class</span>=<span class="stringliteral">&quot;left-level-1-no&quot;</span>&gt;&lt;A href=<span class="stringliteral">&quot;&lt;?php print $_SERVER[&quot;</span>PHP_SELF<span class="stringliteral">&quot;]; ?&gt;?page=home&quot;</span>&gt;Home&lt;/A&gt;&lt;/li&gt;
-<a name="l00103"></a>00103                 &lt;li <span class="keyword">class</span>=<span class="stringliteral">&quot;left-level-1-no&quot;</span>&gt;&lt;A href=<span class="stringliteral">&quot;&lt;?php print $_SERVER[&quot;</span>PHP_SELF<span class="stringliteral">&quot;]; ?&gt;?page=browse&quot;</span>&gt;Browse Matrix&lt;/A&gt;&lt;/li&gt;
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105           &lt;?php
-<a name="l00106"></a><a class="code" href="index_8php.html#aef915316f784c9063d942974538301a6">00106</a>                 <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] &lt;= 1)
-<a name="l00107"></a>00107             {
-<a name="l00108"></a>00108               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;FONT font-weight=&#39;bold&#39;; font-size=&#39;10px&#39;; color=&#39;black&#39;;&gt;Username: &lt;/FONT&gt;&quot;</span> .
-<a name="l00109"></a>00109                     <span class="stringliteral">&quot;&lt;INPUT name=&#39;userid&#39; size=&#39;10&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00110"></a>00110               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;FONT font-weight=&#39;bold&#39;; font-size=&#39;10px&#39;; color=&#39;black&#39;;&gt;Password: &lt;/FONT&gt;&quot;</span> .
-<a name="l00111"></a>00111                     <span class="stringliteral">&quot;&lt;INPUT type=&#39;password&#39; name=&#39;passwd&#39; size=&#39;10&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00112"></a>00112               print <span class="stringliteral">&quot;&lt;div align=&#39;right&#39;&gt;&lt;li&gt;&lt;INPUT type=&#39;submit&#39; name=&#39;login&#39; value=&#39;Log in&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00113"></a>00113               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=reset&#39;&gt;Forgot password?&lt;/A&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> .LF;
-<a name="l00114"></a>00114                         }
-<a name="l00115"></a>00115             <span class="keywordflow">else</span>
-<a name="l00116"></a>00116             {
-<a name="l00117"></a>00117               print <span class="stringliteral">&quot;&lt;h1 class=&#39;menu-header&#39;&gt;&amp;nbsp;Edit Matrix:&lt;/h1&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00118"></a>00118               print <span class="stringliteral">&quot;&lt;li class=&#39;left-level-1-no&#39;&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=add&amp;action=add&#39;&gt;Add entries&lt;/A&gt;&lt;/li&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00119"></a>00119               print <span class="stringliteral">&quot;&lt;li class=&#39;left-level-1-no&#39;&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=edit&#39;&gt;Edit entries&lt;/A&gt;&lt;/li&gt;&quot;</span> .LF;
-<a name="l00120"></a>00120               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;B&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_name&quot;</span>] . <span class="stringliteral">&quot; logged in&lt;/B&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00121"></a>00121               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=account&#39;&gt;My account&lt;/A&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00122"></a>00122               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;INPUT type=&#39;submit&#39; class=&#39;cancel&#39; name=&#39;logout&#39; value=&#39;Log out&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00123"></a>00123               <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>] &gt;= 31)
-<a name="l00124"></a>00124               {
-<a name="l00125"></a>00125                 print <span class="stringliteral">&quot;&lt;IMG src=&#39;images/blank.gif&#39; height=&#39;30&#39; border=&#39;0&#39;&gt;&quot;</span>;
-<a name="l00126"></a>00126                 print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=registration&#39;&gt;Register a new account&lt;/A&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00127"></a>00127               }
-<a name="l00128"></a>00128             }
-<a name="l00129"></a>00129           ?&gt;
-<a name="l00130"></a>00130 
-<a name="l00131"></a>00131               &lt;/ul&gt;
-<a name="l00132"></a>00132               &lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> height=<span class="stringliteral">&quot;30&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;
-<a name="l00133"></a>00133               &lt;div align=<span class="stringliteral">&#39;center&#39;</span>&gt;&lt;SPAN <span class="keyword">class</span>=<span class="stringliteral">&quot;dhc&quot;</span>&gt;&lt;B&gt;Developed by&amp;<a class="code" href="index_8php.html#aef915316f784c9063d942974538301a6">nbsp</a>;&amp;<a class="code" href="index_8php.html#aef915316f784c9063d942974538301a6">nbsp</a>;&lt;/B&gt;&lt;br /&gt;&lt;A href=<span class="stringliteral">&quot;http://www.iwf.oeaw.ac.at/&quot;</span>&gt;IWF Graz Team&lt;/A&gt;&lt;/SPAN&gt;&lt;/div&gt;
-<a name="l00134"></a>00134             &lt;/div&gt;
-<a name="l00135"></a>00135             &lt;/div&gt;
-<a name="l00136"></a>00136             &lt;/div&gt;
-<a name="l00137"></a>00137             &lt;/div&gt;
-<a name="l00138"></a>00138           &lt;/TABLE&gt;
-<a name="l00139"></a>00139         &lt;/TD&gt;
-<a name="l00140"></a>00140         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;10&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;
-<a name="l00141"></a>00141         &lt;TD align=<span class="stringliteral">&quot;left&quot;</span> valign=<span class="stringliteral">&quot;top&quot;</span> width=<span class="stringliteral">&quot;770&quot;</span> <span class="keyword">class</span>=<span class="stringliteral">&quot;rbody&quot;</span>&gt;&lt;!-- LOAD MAIN FRAME --&gt;
-<a name="l00142"></a>00142         &lt;?php
-<a name="l00143"></a>00143         
-<a name="l00144"></a>00144         <span class="comment">//DEBUG:</span>
-<a name="l00145"></a>00145                 echo <span class="stringliteral">&quot;ACTION: GET: &quot;</span> . $_GET[<span class="stringliteral">&quot;action&quot;</span>] . <span class="stringliteral">&quot; POST: &quot;</span> . $_POST[<span class="stringliteral">&quot;action&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
-<a name="l00146"></a>00146                 echo <span class="stringliteral">&quot;POST ADD_RES_TYPE: &quot;</span> . $_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>] . <span class="stringliteral">&quot; POST RES_TYPE: &quot;</span> . $_POST[<span class="stringliteral">&quot;res_type&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
-<a name="l00147"></a>00147                 echo <span class="stringliteral">&quot;RES_ID: GET: &quot;</span> . $_GET[<span class="stringliteral">&quot;id&quot;</span>] . <span class="stringliteral">&quot; POST: &quot;</span> . $_POST[<span class="stringliteral">&quot;add_res_id&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
-<a name="l00148"></a>00148                 echo <span class="stringliteral">&quot;POST PAGE: &quot;</span> . $_POST[<span class="stringliteral">&quot;page&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
-<a name="l00149"></a>00149                 echo <span class="stringliteral">&quot;PUSH PAGE: &quot;</span> . $_POST[<span class="stringliteral">&quot;push&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
-<a name="l00150"></a>00150           
-<a name="l00151"></a>00151                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;page&quot;</span>]))
-<a name="l00152"></a>00152         {
-<a name="l00153"></a>00153                 <span class="keywordflow">if</span>(isset($_GET[<span class="stringliteral">&quot;action&quot;</span>]))
-<a name="l00154"></a>00154                         {
-<a name="l00155"></a>00155                             $action = $_GET[<span class="stringliteral">&quot;action&quot;</span>];
-<a name="l00156"></a>00156                         
-<a name="l00157"></a>00157                             <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;edit&quot;</span>)
-<a name="l00158"></a>00158                             {
-<a name="l00159"></a>00159                               <span class="comment">// GET RES ID and RES TYPE</span>
-<a name="l00160"></a>00160                               $resource_id = $_GET[<span class="stringliteral">&quot;id&quot;</span>];
-<a name="l00161"></a>00161                               $resource_type = $_GET[<span class="stringliteral">&quot;res_type&quot;</span>];
-<a name="l00162"></a>00162                             }
-<a name="l00163"></a>00163                             
-<a name="l00164"></a>00164                             <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;add&quot;</span>)
-<a name="l00165"></a>00165                         {
-<a name="l00166"></a>00166                                 <span class="comment">// RESET RES ID and RES TYPE</span>
-<a name="l00167"></a>00167                                 $resource_id = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
-<a name="l00168"></a>00168                                 $resource_type = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
-<a name="l00169"></a>00169                         }
-<a name="l00170"></a>00170                         }
-<a name="l00171"></a>00171                         
-<a name="l00172"></a>00172                         <span class="comment">//if selector was pressed</span>
-<a name="l00173"></a>00173                         <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>]))
-<a name="l00174"></a>00174                         {
-<a name="l00175"></a>00175                                 $resource_type = $_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>];
-<a name="l00176"></a>00176                                 $action = $_POST[<span class="stringliteral">&quot;action&quot;</span>];
-<a name="l00177"></a>00177                         }
-<a name="l00178"></a>00178                                 
-<a name="l00179"></a>00179                         <span class="comment">//if push in add/edit was pressed</span>
-<a name="l00180"></a>00180                         <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;push&quot;</span>]))
-<a name="l00181"></a>00181                         {
-<a name="l00182"></a>00182                                 $action = $_POST[<span class="stringliteral">&quot;push&quot;</span>];
-<a name="l00183"></a>00183                                 $resource_type = $_POST[<span class="stringliteral">&quot;res_type&quot;</span>];
-<a name="l00184"></a>00184                                 $resource_id= $_POST[<span class="stringliteral">&quot;add_res_id&quot;</span>];
-<a name="l00185"></a>00185                         }
-<a name="l00186"></a>00186                         
-<a name="l00187"></a>00187                         <a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">Controller::check</a>($_POST[<span class="stringliteral">&quot;page&quot;</span>], $action, $resource_type, $resource_id);
-<a name="l00188"></a>00188                         
-<a name="l00189"></a>00189           }
-<a name="l00190"></a>00190           <span class="keywordflow">else</span>
-<a name="l00191"></a>00191             <a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">Controller::check</a>(<span class="stringliteral">&quot;home&quot;</span>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>);
-<a name="l00192"></a>00192         ?&gt;
-<a name="l00193"></a>00193         &lt;/TD&gt;
-<a name="l00194"></a>00194         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;10&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;
-<a name="l00195"></a>00195       &lt;/TR&gt;
-<a name="l00196"></a>00196       &lt;TR&gt;&lt;TD valign=<span class="stringliteral">&quot;top&quot;</span> colspan=<span class="stringliteral">&quot;5&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;10&quot;</span> height=<span class="stringliteral">&quot;10&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;&lt;/TR&gt;
-<a name="l00197"></a>00197     &lt;/TABLE&gt;
-<a name="l00198"></a>00198     &lt;/CENTER&gt;
-<a name="l00199"></a>00199       &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;footer&quot;</span>&gt;&lt;!-- FOOTER--&gt;
-<a name="l00200"></a>00200         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;footer-box&quot;</span>&gt;
-<a name="l00201"></a>00201           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;ue&quot;</span>&gt;
-<a name="l00202"></a>00202             &lt;a href=<span class="stringliteral">&quot;http://europa.eu/index_en.htm&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/ue_logo_small.gif&quot;</span> width=<span class="stringliteral">&quot;40&quot;</span> height=<span class="stringliteral">&quot;23&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> title=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> /&gt;&lt;/a&gt;
-<a name="l00203"></a>00203             &lt;a href=<span class="stringliteral">&quot;http://europa.eu/index_en.htm&quot;</span>&gt;Project supported &lt;br /&gt;by the European Union&lt;/a&gt;
-<a name="l00204"></a>00204           &lt;/div&gt;
-<a name="l00205"></a>00205           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;footer-text&quot;</span>&gt;
-<a name="l00206"></a>00206             &lt;b&gt;Contact the Team: &lt;/b&gt;&lt;br/&gt;&lt;a href=<span class="stringliteral">&quot;mailto:florian.topf@oeaw.ac.at&quot;</span>&gt;Florian Topf&lt;/a&gt; | &lt;a href=<span class="stringliteral">&quot;mailto:robert.stoeckler@oeaw.ac.at&quot;</span>&gt;Robert Stoeckler&lt;/a&gt; | &lt;a href=<span class="stringliteral">&quot;mailto:manuel.scherf@oeaw.ac.at&quot;</span>&gt;Manuel Scherf&lt;/a&gt;
-<a name="l00207"></a>00207           &lt;/div&gt;
-<a name="l00208"></a>00208         &lt;/div&gt;
-<a name="l00209"></a>00209       &lt;/div&gt;
-<a name="l00210"></a>00210     &lt;/div&gt; &lt;!-- content-wrapper --&gt;
-<a name="l00211"></a>00211    &lt;/FORM&gt;
-<a name="l00212"></a>00212   &lt;/div&gt; &lt;!-- outer-wrapper --&gt;
-<a name="l00213"></a>00213   &lt;/BODY&gt;
-<a name="l00214"></a>00214 &lt;/HTML&gt;
+<a name="l00026"></a>00026     $_POST[<span class="stringliteral">&quot;page&quot;</span>] = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;page&quot;</span>];
+<a name="l00027"></a>00027     unSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;page&quot;</span>]);
+<a name="l00028"></a>00028   }
+<a name="l00029"></a>00029   <span class="keywordflow">if</span> (isSet($_POST[<span class="stringliteral">&quot;login&quot;</span>])) $_POST[<span class="stringliteral">&quot;page&quot;</span>] = <span class="stringliteral">&quot;login&quot;</span>;
+<a name="l00030"></a>00030   <span class="keywordflow">if</span> (isSet($_POST[<span class="stringliteral">&quot;logout&quot;</span>])) $_POST[<span class="stringliteral">&quot;page&quot;</span>] = <span class="stringliteral">&quot;logout&quot;</span>;
+<a name="l00031"></a>00031 ?&gt;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 &lt;HTML&gt;
+<a name="l00034"></a>00034   &lt;HEAD&gt;
+<a name="l00035"></a>00035     &lt;TITLE&gt;NA1-Matrix&lt;/TITLE&gt;
+<a name="l00036"></a>00036     &lt;META http-equiv=<span class="stringliteral">&quot;Content-Type&quot;</span> content=<span class="stringliteral">&quot;text/html; charset=iso-8859-1&quot;</span>&gt;
+<a name="l00037"></a>00037         &lt;META http-equiv=<span class="stringliteral">&quot;cache-control&quot;</span> content=<span class="stringliteral">&quot;no-cache, must-revalidate&quot;</span>&gt;
+<a name="l00038"></a>00038     &lt;LINK rel=<span class="stringliteral">&quot;icon&quot;</span> href=<span class="stringliteral">&quot;images/favicon.ico&quot;</span> type=<span class="stringliteral">&quot;image/x-icon&quot;</span>&gt;
+<a name="l00039"></a>00039     &lt;LINK rel=<span class="stringliteral">&quot;shortcut icon&quot;</span> href=<span class="stringliteral">&quot;images/favicon.ico&quot;</span> type=<span class="stringliteral">&quot;image/x-icon&quot;</span>&gt;
+<a name="l00040"></a>00040     &lt;LINK rel=<span class="stringliteral">&quot;stylesheet&quot;</span> type=<span class="stringliteral">&quot;text/css&quot;</span> href=<span class="stringliteral">&quot;css/style.css&quot;</span>&gt;
+<a name="l00041"></a>00041 &lt;!--  &lt;LINK rel=<span class="stringliteral">&quot;stylesheet&quot;</span> type=<span class="stringliteral">&quot;text/css&quot;</span> href=<span class="stringliteral">&quot;lib/js/jquery-ui-1.8.10.custom.css&quot;</span>&gt;  --&gt;   
+<a name="l00042"></a>00042     &lt;SCRIPT src=<span class="stringliteral">&quot;lib/js/jquery-1.4.2.min.js&quot;</span>&gt;&lt;/SCRIPT&gt;
+<a name="l00043"></a>00043     &lt;SCRIPT src=<span class="stringliteral">&quot;lib/js/jquery.validate.min.js&quot;</span>&gt;&lt;/SCRIPT&gt;
+<a name="l00044"></a>00044 &lt;!--  &lt;SCRIPT src=<span class="stringliteral">&quot;lib/js/jquery-ui-1.8.10.custom.min.js&quot;</span>&gt;&lt;/SCRIPT&gt;  --&gt;    
+<a name="l00045"></a>00045     &lt;SCRIPT src=<span class="stringliteral">&quot;js/functions.js&quot;</span>&gt;&lt;/SCRIPT&gt;
+<a name="l00046"></a>00046   &lt;/HEAD&gt;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048   &lt;BODY&gt;
+<a name="l00049"></a>00049   &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;outer-wrapper&quot;</span>&gt;
+<a name="l00050"></a>00050     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;banner-top&quot;</span>&gt;&lt;/div&gt;
+<a name="l00051"></a>00051         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header&quot;</span>&gt;
+<a name="l00052"></a>00052       &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header-top&quot;</span>&gt;
+<a name="l00053"></a>00053         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header-top-inside&quot;</span>&gt;
+<a name="l00054"></a>00054           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;logo&quot;</span>&gt;
+<a name="l00055"></a>00055             &lt;a href=<span class="stringliteral">&quot;http://europlanet-jra3.oeaw.ac.at&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/europlanet_logo.gif&quot;</span> width=<span class="stringliteral">&quot;561&quot;</span> height=<span class="stringliteral">&quot;51&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;EuroPlanet - Research Infrastructure.&quot;</span> title=<span class="stringliteral">&quot;EuroPlanet - Research Infrastructure.&quot;</span> /&gt;&lt;/a&gt;
+<a name="l00056"></a>00056           &lt;/div&gt;
+<a name="l00057"></a>00057           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;partners&quot;</span>&gt;
+<a name="l00058"></a>00058             &lt;a href=<span class="stringliteral">&quot;http://europa.eu/index_en.htm&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/ue_logo.gif&quot;</span> width=<span class="stringliteral">&quot;81&quot;</span> height=<span class="stringliteral">&quot;47&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> title=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> /&gt;&lt;/a&gt;
+<a name="l00059"></a>00059             &lt;a href=<span class="stringliteral">&quot;http://cordis.europa.eu/fp7/&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/7_logo.gif&quot;</span> width=<span class="stringliteral">&quot;77&quot;</span> height=<span class="stringliteral">&quot;53&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;Seventh Framework Programme.&quot;</span> title=<span class="stringliteral">&quot;Seventh Framework Programme.&quot;</span> /&gt;&lt;/a&gt;
+<a name="l00060"></a>00060           &lt;/div&gt;
+<a name="l00061"></a>00061         &lt;/div&gt;
+<a name="l00062"></a>00062       &lt;/div&gt;
+<a name="l00063"></a>00063       &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;header-img&quot;</span>&gt;&lt;/div&gt;
+<a name="l00064"></a>00064     &lt;/div&gt;
+<a name="l00065"></a><a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">00065</a>         &lt;FORM action=<span class="stringliteral">&quot;&lt;?php print $_SERVER[&quot;</span>PHP_SELF<span class="stringliteral">&quot;]; ?&gt;&quot;</span> <a class="code" href="_observatory_view_8php.html#a74671768ff0565476a6d5a24ee86f18d">name</a>=<span class="stringliteral">&quot;main_form&quot;</span> <span class="keywordtype">id</span>=<span class="stringliteral">&quot;main_form&quot;</span> enctype=<span class="stringliteral">&quot;multipart/form-data&quot;</span> method=<span class="stringliteral">&quot;POST&quot;</span>&gt;
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067     &lt;?php
+<a name="l00068"></a>00068       <span class="keywordflow">if</span> (!isSet($_POST[<span class="stringliteral">&quot;page&quot;</span>]))
+<a name="l00069"></a>00069       {
+<a name="l00070"></a>00070         <span class="keywordflow">if</span> (isSet($_GET[<span class="stringliteral">&quot;page&quot;</span>]))
+<a name="l00071"></a>00071           $_POST[<span class="stringliteral">&quot;page&quot;</span>] = $_GET[<span class="stringliteral">&quot;page&quot;</span>];
+<a name="l00072"></a>00072         <span class="keywordflow">else</span>
+<a name="l00073"></a>00073           print <span class="stringliteral">&quot;&lt;INPUT name=&#39;page&#39; type=&#39;hidden&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00074"></a>00074       }
+<a name="l00075"></a>00075     ?&gt;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top&quot;</span>&gt;
+<a name="l00078"></a>00078                 &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top-menu-img&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/top_menu_img.gif&quot;</span> align=<span class="stringliteral">&quot;middle&quot;</span> width=<span class="stringliteral">&quot;527&quot;</span> height=<span class="stringliteral">&quot;19&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;top menu&quot;</span> title=<span class="stringliteral">&quot;top menu&quot;</span> /&gt;&lt;/div&gt;
+<a name="l00079"></a>00079                         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top-menu&quot;</span>&gt;&lt;font style=<span class="stringliteral">&quot;font-family: verdana, arial; font-weight: bold; font-size: 22px&quot;</span> color=<span class="stringliteral">&quot;#172983&quot;</span>&gt;NA1-MATRIX of ground-based &amp;amp; space-based observatories&lt;/font&gt;&lt;/div&gt;
+<a name="l00080"></a>00080                 &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;top-menu-bottom-img&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/bottom_menu_img.gif&quot;</span> align=<span class="stringliteral">&quot;middle&quot;</span> width=<span class="stringliteral">&quot;527&quot;</span> height=<span class="stringliteral">&quot;19&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;top menu&quot;</span> title=<span class="stringliteral">&quot;top menu&quot;</span> /&gt;&lt;/div&gt;
+<a name="l00081"></a>00081         &lt;/div&gt;
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;content-wrapper&quot;</span>&gt;
+<a name="l00084"></a>00084     &lt;CENTER&gt;
+<a name="l00085"></a>00085     &lt;TABLE <span class="keyword">class</span>=<span class="stringliteral">&quot;main&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> cellspacing=<span class="stringliteral">&quot;0&quot;</span> cellpadding=<span class="stringliteral">&quot;0&quot;</span> width=<span class="stringliteral">&quot;100%&quot;</span> height=<span class="stringliteral">&quot;100%&quot;</span>&gt;
+<a name="l00086"></a>00086       &lt;TR&gt;&lt;!--LEFT MENU--&gt;
+<a name="l00087"></a>00087         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;0&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;
+<a name="l00088"></a>00088         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span> <span class="keywordtype">id</span>=<span class="stringliteral">&quot;lmcol&quot;</span> width=<span class="stringliteral">&quot;208&quot;</span>&gt;
+<a name="l00089"></a>00089           &lt;TABLE <span class="keyword">class</span>=<span class="stringliteral">&quot;ltable&quot;</span> cellspacing=<span class="stringliteral">&quot;0&quot;</span> cellpadding=<span class="stringliteral">&quot;0&quot;</span> width=<span class="stringliteral">&quot;100%&quot;</span>&gt;
+<a name="l00090"></a>00090             &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left&quot;</span>&gt;
+<a name="l00091"></a>00091                     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left-content&quot;</span>&gt;
+<a name="l00092"></a>00092                     &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left-menu-box&quot;</span>&gt;
+<a name="l00093"></a>00093             &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;left-menu&quot;</span>&gt;
+<a name="l00094"></a>00094               &lt;ul&gt;
+<a name="l00095"></a>00095                 &lt;li <span class="keyword">class</span>=<span class="stringliteral">&quot;left-level-1-no&quot;</span>&gt;&lt;A href=<span class="stringliteral">&quot;&lt;?php print $_SERVER[&quot;</span>PHP_SELF<span class="stringliteral">&quot;]; ?&gt;?page=home&quot;</span>&gt;Home&lt;/A&gt;&lt;/li&gt;
+<a name="l00096"></a>00096                 &lt;li <span class="keyword">class</span>=<span class="stringliteral">&quot;left-level-1-no&quot;</span>&gt;&lt;A href=<span class="stringliteral">&quot;&lt;?php print $_SERVER[&quot;</span>PHP_SELF<span class="stringliteral">&quot;]; ?&gt;?page=browse&quot;</span>&gt;Browse Matrix&lt;/A&gt;&lt;/li&gt;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098           &lt;?php
+<a name="l00099"></a><a class="code" href="index_8php.html#aef915316f784c9063d942974538301a6">00099</a>                 <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] &lt;= 1)
+<a name="l00100"></a>00100             {
+<a name="l00101"></a>00101               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;FONT font-weight=&#39;bold&#39;; font-size=&#39;10px&#39;; color=&#39;black&#39;;&gt;Username: &lt;/FONT&gt;&quot;</span> .
+<a name="l00102"></a>00102                     <span class="stringliteral">&quot;&lt;INPUT name=&#39;userid&#39; size=&#39;10&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00103"></a>00103               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;FONT font-weight=&#39;bold&#39;; font-size=&#39;10px&#39;; color=&#39;black&#39;;&gt;Password: &lt;/FONT&gt;&quot;</span> .
+<a name="l00104"></a>00104                     <span class="stringliteral">&quot;&lt;INPUT type=&#39;password&#39; name=&#39;passwd&#39; size=&#39;10&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00105"></a>00105               print <span class="stringliteral">&quot;&lt;div align=&#39;right&#39;&gt;&lt;li&gt;&lt;INPUT type=&#39;submit&#39; name=&#39;login&#39; value=&#39;Log in&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00106"></a>00106               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=reset&#39;&gt;Forgot password?&lt;/A&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> .LF;
+<a name="l00107"></a>00107                         }
+<a name="l00108"></a>00108             <span class="keywordflow">else</span>
+<a name="l00109"></a>00109             {
+<a name="l00110"></a>00110               print <span class="stringliteral">&quot;&lt;h1 class=&#39;menu-header&#39;&gt;&amp;nbsp;Edit Matrix:&lt;/h1&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00111"></a>00111               print <span class="stringliteral">&quot;&lt;li class=&#39;left-level-1-no&#39;&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=add&amp;action=add&#39;&gt;Add entries&lt;/A&gt;&lt;/li&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00112"></a>00112               print <span class="stringliteral">&quot;&lt;li class=&#39;left-level-1-no&#39;&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=edit&#39;&gt;Edit entries&lt;/A&gt;&lt;/li&gt;&quot;</span> .LF;
+<a name="l00113"></a>00113               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;B&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_name&quot;</span>] . <span class="stringliteral">&quot; logged in&lt;/B&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00114"></a>00114               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=account&#39;&gt;My account&lt;/A&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00115"></a>00115               print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;INPUT type=&#39;submit&#39; class=&#39;cancel&#39; name=&#39;logout&#39; value=&#39;Log out&#39;&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00116"></a>00116               <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>] &gt;= 31)
+<a name="l00117"></a>00117               {
+<a name="l00118"></a>00118                 print <span class="stringliteral">&quot;&lt;IMG src=&#39;images/blank.gif&#39; height=&#39;30&#39; border=&#39;0&#39;&gt;&quot;</span>;
+<a name="l00119"></a>00119                 print <span class="stringliteral">&quot;&lt;div align=&#39;center&#39;&gt;&lt;li&gt;&lt;A href=&#39;&quot;</span> . <a class="code" href="index_8php.html#a90051e69d44ec3ce65dac4a8296bb05d">$_SERVER</a>[<span class="stringliteral">&quot;PHP_SELF&quot;</span>] . <span class="stringliteral">&quot;?page=registration&#39;&gt;Register a new account&lt;/A&gt;&lt;/li&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00120"></a>00120               }
+<a name="l00121"></a>00121             }
+<a name="l00122"></a>00122           ?&gt;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124               &lt;/ul&gt;
+<a name="l00125"></a>00125               &lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> height=<span class="stringliteral">&quot;30&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;
+<a name="l00126"></a>00126               &lt;div align=<span class="stringliteral">&#39;center&#39;</span>&gt;&lt;SPAN <span class="keyword">class</span>=<span class="stringliteral">&quot;dhc&quot;</span>&gt;&lt;B&gt;Developed by&amp;<a class="code" href="index_8php.html#aef915316f784c9063d942974538301a6">nbsp</a>;&amp;<a class="code" href="index_8php.html#aef915316f784c9063d942974538301a6">nbsp</a>;&lt;/B&gt;&lt;br /&gt;&lt;A href=<span class="stringliteral">&quot;http://www.iwf.oeaw.ac.at/&quot;</span>&gt;IWF Graz Team&lt;/A&gt;&lt;/SPAN&gt;&lt;/div&gt;
+<a name="l00127"></a>00127             &lt;/div&gt;
+<a name="l00128"></a>00128             &lt;/div&gt;
+<a name="l00129"></a>00129             &lt;/div&gt;
+<a name="l00130"></a>00130             &lt;/div&gt;
+<a name="l00131"></a>00131           &lt;/TABLE&gt;
+<a name="l00132"></a>00132         &lt;/TD&gt;
+<a name="l00133"></a>00133         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;10&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;
+<a name="l00134"></a>00134         &lt;TD align=<span class="stringliteral">&quot;left&quot;</span> valign=<span class="stringliteral">&quot;top&quot;</span> width=<span class="stringliteral">&quot;770&quot;</span> <span class="keyword">class</span>=<span class="stringliteral">&quot;rbody&quot;</span>&gt;&lt;!-- LOAD MAIN FRAME --&gt;
+<a name="l00135"></a>00135         &lt;?php
+<a name="l00136"></a>00136         
+<a name="l00137"></a>00137         <span class="comment">//DEBUG:</span>
+<a name="l00138"></a>00138                 echo <span class="stringliteral">&quot;ACTION: GET: &quot;</span> . $_GET[<span class="stringliteral">&quot;action&quot;</span>] . <span class="stringliteral">&quot; POST: &quot;</span> . $_POST[<span class="stringliteral">&quot;action&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
+<a name="l00139"></a>00139                 echo <span class="stringliteral">&quot;POST ADD_RES_TYPE: &quot;</span> . $_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>] . <span class="stringliteral">&quot; POST RES_TYPE: &quot;</span> . $_POST[<span class="stringliteral">&quot;res_type&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
+<a name="l00140"></a>00140                 echo <span class="stringliteral">&quot;RES_ID: GET: &quot;</span> . $_GET[<span class="stringliteral">&quot;id&quot;</span>] . <span class="stringliteral">&quot; POST: &quot;</span> . $_POST[<span class="stringliteral">&quot;add_res_id&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
+<a name="l00141"></a>00141                 echo <span class="stringliteral">&quot;POST PAGE: &quot;</span> . $_POST[<span class="stringliteral">&quot;page&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
+<a name="l00142"></a>00142                 echo <span class="stringliteral">&quot;PUSH PAGE: &quot;</span> . $_POST[<span class="stringliteral">&quot;push&quot;</span>] . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
+<a name="l00143"></a>00143           
+<a name="l00145"></a>00145                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;page&quot;</span>]))
+<a name="l00146"></a>00146         {
+<a name="l00147"></a>00147                 <span class="keywordflow">if</span>(isset($_GET[<span class="stringliteral">&quot;action&quot;</span>]))
+<a name="l00148"></a>00148                         {
+<a name="l00149"></a>00149                             $action = $_GET[<span class="stringliteral">&quot;action&quot;</span>];
+<a name="l00150"></a>00150                         
+<a name="l00151"></a>00151                             <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;edit&quot;</span>)
+<a name="l00152"></a>00152                             {
+<a name="l00153"></a>00153                               <span class="comment">// GET RES ID and RES TYPE</span>
+<a name="l00154"></a>00154                               $resource_id = $_GET[<span class="stringliteral">&quot;id&quot;</span>];
+<a name="l00155"></a>00155                               $resource_type = $_GET[<span class="stringliteral">&quot;res_type&quot;</span>];
+<a name="l00156"></a>00156                             }
+<a name="l00157"></a>00157                             
+<a name="l00158"></a>00158                             <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;add&quot;</span>)
+<a name="l00159"></a>00159                         {
+<a name="l00160"></a>00160                                 <span class="comment">// RESET RES ID and RES TYPE</span>
+<a name="l00161"></a>00161                                 $resource_id = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
+<a name="l00162"></a>00162                                 $resource_type = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
+<a name="l00163"></a>00163                         }
+<a name="l00164"></a>00164                         }
+<a name="l00165"></a>00165                         
+<a name="l00166"></a>00166                         <span class="comment">//if selector was pressed</span>
+<a name="l00167"></a>00167                         <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>]))
+<a name="l00168"></a>00168                         {
+<a name="l00169"></a>00169                                 $resource_type = $_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>];
+<a name="l00170"></a>00170                                 $action = $_POST[<span class="stringliteral">&quot;action&quot;</span>];
+<a name="l00171"></a>00171                         }
+<a name="l00172"></a>00172                                 
+<a name="l00173"></a>00173                         <span class="comment">//if push in add/edit was pressed</span>
+<a name="l00174"></a>00174                         <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;push&quot;</span>]))
+<a name="l00175"></a>00175                         {
+<a name="l00176"></a>00176                                 $action = $_POST[<span class="stringliteral">&quot;push&quot;</span>];
+<a name="l00177"></a>00177                                 $resource_type = $_POST[<span class="stringliteral">&quot;res_type&quot;</span>];
+<a name="l00178"></a>00178                                 $resource_id= $_POST[<span class="stringliteral">&quot;add_res_id&quot;</span>];
+<a name="l00179"></a>00179                         }
+<a name="l00180"></a>00180                         
+<a name="l00181"></a>00181                         <a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">Controller::check</a>($_POST[<span class="stringliteral">&quot;page&quot;</span>], $action, $resource_type, $resource_id);
+<a name="l00182"></a>00182                         
+<a name="l00183"></a>00183           }
+<a name="l00184"></a>00184           <span class="keywordflow">else</span>
+<a name="l00185"></a>00185             <a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">Controller::check</a>(<span class="stringliteral">&quot;home&quot;</span>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>);
+<a name="l00186"></a>00186         ?&gt;
+<a name="l00187"></a>00187         &lt;/TD&gt;
+<a name="l00188"></a>00188         &lt;TD valign=<span class="stringliteral">&quot;top&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;10&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;
+<a name="l00189"></a>00189       &lt;/TR&gt;
+<a name="l00190"></a>00190       &lt;TR&gt;&lt;TD valign=<span class="stringliteral">&quot;top&quot;</span> colspan=<span class="stringliteral">&quot;5&quot;</span>&gt;&lt;IMG src=<span class="stringliteral">&quot;images/blank.gif&quot;</span> width=<span class="stringliteral">&quot;10&quot;</span> height=<span class="stringliteral">&quot;10&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span>&gt;&lt;/TD&gt;&lt;/TR&gt;
+<a name="l00191"></a>00191     &lt;/TABLE&gt;
+<a name="l00192"></a>00192     &lt;/CENTER&gt;
+<a name="l00193"></a>00193       &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;footer&quot;</span>&gt;&lt;!-- FOOTER--&gt;
+<a name="l00194"></a>00194         &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;footer-box&quot;</span>&gt;
+<a name="l00195"></a>00195           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;ue&quot;</span>&gt;
+<a name="l00196"></a>00196             &lt;a href=<span class="stringliteral">&quot;http://europa.eu/index_en.htm&quot;</span> target=<span class="stringliteral">&quot;_blank&quot;</span>&gt;&lt;img src=<span class="stringliteral">&quot;images/ue_logo_small.gif&quot;</span> width=<span class="stringliteral">&quot;40&quot;</span> height=<span class="stringliteral">&quot;23&quot;</span> border=<span class="stringliteral">&quot;0&quot;</span> alt=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> title=<span class="stringliteral">&quot;Project supported by the European Union.&quot;</span> /&gt;&lt;/a&gt;
+<a name="l00197"></a>00197             &lt;a href=<span class="stringliteral">&quot;http://europa.eu/index_en.htm&quot;</span>&gt;Project supported &lt;br /&gt;by the European Union&lt;/a&gt;
+<a name="l00198"></a>00198           &lt;/div&gt;
+<a name="l00199"></a>00199           &lt;div <span class="keywordtype">id</span>=<span class="stringliteral">&quot;footer-text&quot;</span>&gt;
+<a name="l00200"></a>00200             &lt;b&gt;Contact the Team: &lt;/b&gt;&lt;br/&gt;&lt;a href=<span class="stringliteral">&quot;mailto:florian.topf@oeaw.ac.at&quot;</span>&gt;Florian Topf&lt;/a&gt; | &lt;a href=<span class="stringliteral">&quot;mailto:robert.stoeckler@oeaw.ac.at&quot;</span>&gt;Robert Stoeckler&lt;/a&gt; | &lt;a href=<span class="stringliteral">&quot;mailto:manuel.scherf@oeaw.ac.at&quot;</span>&gt;Manuel Scherf&lt;/a&gt;
+<a name="l00201"></a>00201           &lt;/div&gt;
+<a name="l00202"></a>00202         &lt;/div&gt;
+<a name="l00203"></a>00203       &lt;/div&gt;
+<a name="l00204"></a>00204     &lt;/div&gt; &lt;!-- content-wrapper --&gt;
+<a name="l00205"></a>00205    &lt;/FORM&gt;
+<a name="l00206"></a>00206   &lt;/div&gt; &lt;!-- outer-wrapper --&gt;
+<a name="l00207"></a>00207   &lt;/BODY&gt;
+<a name="l00208"></a>00208 &lt;/HTML&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
