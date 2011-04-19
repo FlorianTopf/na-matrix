@@ -1,16 +1,23 @@
 <?php 
+/**
+ * @file SpacemissionEditAll.php
+ * @version $Id$
+ * @author Florian Topf, Robert Stöckler
+ *
+ * @todo implement SpacemissionDAO usage
+ */
 
-  print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
-  $link = dbiSelect();
-  //show_message();
+print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
+$link = dbiSelect();
+//show_message();
 
-  //Space Missions
-  $res = array();
-  $query = "SELECT id, mission_name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
-  $result = mysqli_query($link, $query);
-  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-    $res[] = $row;
-  mysqli_free_result($result);
+//Space Missions
+$res = array();
+$query = "SELECT id, mission_name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
+$result = mysqli_query($link, $query);
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+	$res[] = $row;
+mysqli_free_result($result);
 
   if (count($res) == 0)
   {

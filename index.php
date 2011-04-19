@@ -16,10 +16,10 @@
 //  './lib/php/orm'.PATH_SEPARATOR.
 //  get_include_path()
 //  );
-  require_once("inc/setup.php");
-  require_once("inc/parameters.php");
-  require_once("inc/functions.php");
-  require_once 'controller.inc.php';
+  require_once ('inc/setup.php');
+  require_once ('inc/parameters.php');
+  require_once ('inc/functions.php');
+  require_once ('controller.inc.php');
 
   if (!isSet($_SESSION["user_id"]))
   {

@@ -1,4 +1,11 @@
 <?php 
+/**
+ * @file ObservatoryEditAll.php
+ * @version $Id$
+ * @author Florian Topf, Robert Stöckler
+ *
+ * @todo implement ObservatoryDAO usage
+ */
 
   print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
   $link = dbiSelect();

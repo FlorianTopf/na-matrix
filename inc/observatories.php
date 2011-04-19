@@ -9,8 +9,8 @@
  * @author Florian Topf
  */
 
-require_once("setup.php");
-require_once("functions.php");
+require_once ('setup.php');
+require_once ('functions.php');
 
 $name = trim(strtolower($_GET['add_obs_name']));
 

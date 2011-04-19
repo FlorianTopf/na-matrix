@@ -1,6 +1,6 @@
 <?php
 
-require_once ('DbConnector.php');
+include_once ('DbConnector.php');
 
 function __autoload($className) {
    	// If DAO class, remove the ending 'DAO'

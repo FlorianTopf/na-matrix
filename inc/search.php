@@ -5,8 +5,8 @@ $q = strtolower($_GET["term"]);
 // remove slashes if they were magically added
 if (get_magic_quotes_gpc()) $q = stripslashes($q);
 
-require_once("setup.php");
-require_once("functions.php");
+require_once ('setup.php');
+require_once ('functions.php'');
 
 //CREATE DATABASE CONNECTION
 $link = dbiSelect();

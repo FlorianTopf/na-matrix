@@ -1,8 +1,8 @@
 <?php
 
 include_once ('lib/php/orm/DbConnector.php');
-include_once ('models/observatory.php');
-include_once ('models/spacemission.php');
+require_once ('models/Observatory.php');
+require_once ('models/Spacemission.php');
 
 class Controller
 {

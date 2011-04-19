@@ -8,11 +8,11 @@
  * @todo improve includes a bit
  */
 
-require_once("../inc/setup.php");
-require_once("../inc/parameters.php");
-require_once("../inc/functions.php");
-require_once("../models/observatory.php");
-require_once("../models/spacemission.php");
+require_once ('../inc/setup.php');
+require_once ('../inc/parameters.php');
+require_once ('../inc/functions.php');
+require_once ('../models/Observatory.php');
+require_once ('../models/Spacemission.php');
 
 //DB CONNECTION:
 $link = dbiSelect();

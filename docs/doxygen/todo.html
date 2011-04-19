@@ -23,235 +23,259 @@
 <h1>Todo List </h1>  </div>
 </div>
 <div class="contents">
-<p><a class="anchor" id="_todo000034"></a> </p>
+<p><a class="anchor" id="_todo000001"></a> </p>
 <dl>
-<dt>Global <a class="el" href="add_8php.html#aeafd69dd366c6398de55f8cc67c667dd">$_observatory</a>  </dt>
-<dd>improve loading of classes (only when needed) </dd>
-</dl>
-<p><a class="anchor" id="_todo000033"></a> </p>
-<dl>
-<dt>File <a class="el" href="add_8php.html">add.php</a>  </dt>
-<dd><p class="startdd">generalize error messages and send them via mail </p>
-<p>check where else need to pass on res_type! </p>
+<dt>Global <a class="el" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">Controller::check</a> ($page, $action=NULL, $resource_type=NULL, $resource_id=NULL) </dt>
+<dd><p class="startdd">implement write stats </p>
+<p>add optional mail functionality </p>
 <p>here we add some sexy backlinks </p>
 <p>here we add some sexy backlinks </p>
+<p>mail functionality </p>
 <p>here we add some sexy backlinks </p>
-<p>here we add some sexy backlinks </p>
-<p>reimplement this but with obs/spa name, id and actual user name maybe add user info in db too </p>
-<p>get rid of database queries here, as far as possible </p>
-<p>THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING </p>
-<p>improve custom error labels, location in html </p>
-<p>improve custom error labels, location in html </p>
-<p>add other targets </p>
-<p>refactor the two hidden fields </p>
-<p>refactor the two hidden fields </p>
-<p>add JQUERY/DB support for autocomplete </p>
-<p>improve custom error labels, location in html </p>
-<p>add custom error labels for all necessary inputs </p>
-<p>how to implement validation here? </p>
-<p>how to implement validation here? </p>
-<p>add custom error labels for all necessary inputs </p>
-<p>THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING </p>
-<p>add other targets </p>
-<p>refactor the two hidden fields </p>
-<p>refactor the two hidden fields </p>
-<p class="enddd">validate =&gt; MANDATORY, but we have a little problem here, you can leave the form empty! </p>
+<p>mail functionality </p>
+<p class="enddd">here we add some sexy backlinks </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000059"></a> </p>
+<p><a class="anchor" id="_todo000046"></a> </p>
 <dl>
-<dt>File <a class="el" href="browse_8php.html">browse.php</a>  </dt>
-<dd><p class="startdd">add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </p>
+<dt>Global <a class="el" href="_observatory_view_all_8php.html#ae2a0bff90c6bbec09a4edc390db33a89">LF</a>  </dt>
+<dd><p class="startdd">define new css rules for alternating BG color... </p>
+<p>define new css rules for alternating BG color... </p>
 <p>define new css rules for alternating BG color... </p>
 <p class="enddd">define new css rules for alternating BG color... </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000001"></a> </p>
+<p><a class="anchor" id="_todo000009"></a> </p>
 <dl>
 <dt>File <a class="el" href="observatory_8php.html">observatory.php</a>  </dt>
 <dd>generalize error messages and send them via mail </dd>
 </dl>
-<p><a class="anchor" id="_todo000019"></a> </p>
+<p><a class="anchor" id="_todo000041"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#a6400560bf468013e1d76a36521c2198e">Observatory::add_add_info</a> ($res_id) </dt>
+<dt>File <a class="el" href="_observatory_create_update_8php.html">ObservatoryCreateUpdate.php</a>  </dt>
+<dd><p class="startdd">generalize error messages and send them via mail </p>
+<p class="enddd">THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000027"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a6400560bf468013e1d76a36521c2198e">ObservatoryDAO::add_add_info</a> ($res_id) </dt>
 <dd>do we really want to have empty rows, if nothing was entered? </dd>
 </dl>
-<p><a class="anchor" id="_todo000016"></a> </p>
+<p><a class="anchor" id="_todo000024"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#a3664cf2338a202965629a2e0acc24134">Observatory::add_res_areas</a> ($res_id) </dt>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a3664cf2338a202965629a2e0acc24134">ObservatoryDAO::add_res_areas</a> ($res_id) </dt>
 <dd>check if the given names of new areas are existing </dd>
+</dl>
+<p><a class="anchor" id="_todo000025"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#ae397bee56fc67a69c747827be3470ec0">ObservatoryDAO::add_targets</a> ($res_id) </dt>
+<dd>adding new targets needed? </dd>
+</dl>
+<p><a class="anchor" id="_todo000026"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a82a7787ea2a6ed86e7dd55abecd0c999">ObservatoryDAO::delete_telescopes</a> ($res_id) </dt>
+<dd>implement functionality for instruments and make a delete out of it </dd>
+</dl>
+<p><a class="anchor" id="_todo000030"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a32449febe8a73a3b7f111b2030d97398">ObservatoryDAO::floatToGps</a> ($LATorLON, $float) </dt>
+<dd>set errno or warning </dd>
 </dl>
 <p><a class="anchor" id="_todo000017"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#ae397bee56fc67a69c747827be3470ec0">Observatory::add_targets</a> ($res_id) </dt>
-<dd>adding new targets needed? </dd>
-</dl>
-<p><a class="anchor" id="_todo000018"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#a82a7787ea2a6ed86e7dd55abecd0c999">Observatory::delete_telescopes</a> ($res_id) </dt>
-<dd>implement functionality for instruments and make a delete out of it </dd>
-</dl>
-<p><a class="anchor" id="_todo000022"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#a32449febe8a73a3b7f111b2030d97398">Observatory::floatToGps</a> ($LATorLON, $float) </dt>
-<dd>set errno or warning </dd>
-</dl>
-<p><a class="anchor" id="_todo000009"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#aeba21ab180f9dc19a158c5a8370627fe">Observatory::get_antenna_types</a> () </dt>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#aeba21ab180f9dc19a158c5a8370627fe">ObservatoryDAO::get_antenna_types</a> () </dt>
 <dd><p class="startdd">improve this a bit </p>
 <p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
 </dd>
-</dl>
-<p><a class="anchor" id="_todo000004"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#a3a5048fb759adc47249ef97f94da1701">Observatory::get_clearnights_ranges</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000002"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#ab097a08b6dc05d5f5f0e378020e77b02">Observatory::get_countries</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000011"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#ab8647defb71eaa5e1c547adb1d764e8e">Observatory::get_instrument</a> ($x_field, $y_field, $z_field) </dt>
-<dd>return empty string when its not set! </dd>
 </dl>
 <p><a class="anchor" id="_todo000012"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#a4a0a7e0d964e1a586b5d19f065ecd84f">Observatory::get_instrument_types</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000003"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#a229ab91b4d8acbacfcc97837c28ba6e1">Observatory::get_precipitation_ranges</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000006"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#a186bc83c5e3c643b4fa3973ad2607f78">Observatory::get_research_areas</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000013"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#af4da44a32dcf8ff43358a8c3855688d8">Observatory::get_resource</a> ($resource_id) </dt>
-<dd><p class="startdd">check if empty when DONT want to insert empty rows </p>
-<p>check if value is 0 since we use FLOAT in the DB </p>
-<p class="enddd">check if value is 0 since we use FLOAT in the DB </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000007"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#ace817061c7896f32a9bcc918038ca4d1">Observatory::get_targets</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000008"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#a0c27324962a2b278dc9a0d8521e081c0">Observatory::get_telescope_types</a> () </dt>
-<dd><p class="startdd">improve this a bit </p>
-<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
-</dd>
-</dl>
-<p><a class="anchor" id="_todo000005"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_observatory.html#afbb34604d0f6e7d2103da4f42e2487b1">Observatory::get_timezones</a> () </dt>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a3a5048fb759adc47249ef97f94da1701">ObservatoryDAO::get_clearnights_ranges</a> () </dt>
 <dd><p class="startdd">improve this a bit </p>
 <p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
 </dd>
 </dl>
 <p><a class="anchor" id="_todo000010"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#aac1368d40d04f3ab3299a4e656759167">Observatory::get_wavelength_units</a> () </dt>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#ab097a08b6dc05d5f5f0e378020e77b02">ObservatoryDAO::get_countries</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000019"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#ab8647defb71eaa5e1c547adb1d764e8e">ObservatoryDAO::get_instrument</a> ($x_field, $y_field, $z_field) </dt>
+<dd>return empty string when its not set! </dd>
+</dl>
+<p><a class="anchor" id="_todo000020"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a4a0a7e0d964e1a586b5d19f065ecd84f">ObservatoryDAO::get_instrument_types</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000011"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a229ab91b4d8acbacfcc97837c28ba6e1">ObservatoryDAO::get_precipitation_ranges</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000014"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a186bc83c5e3c643b4fa3973ad2607f78">ObservatoryDAO::get_research_areas</a> () </dt>
 <dd><p class="startdd">improve this a bit </p>
 <p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
 </dd>
 </dl>
 <p><a class="anchor" id="_todo000021"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#a9e5ac6c1a8f1aea5c1f705fafc6a4306">Observatory::gpsToFloat</a> ($prefix, $degree, $minutes, $seconds, $cent) </dt>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#af4da44a32dcf8ff43358a8c3855688d8">ObservatoryDAO::get_resource</a> ($resource_id) </dt>
+<dd><p class="startdd">check if empty when DONT want to insert empty rows </p>
+<p>check if value is 0 since we use FLOAT in the DB </p>
+<p class="enddd">check if value is 0 since we use FLOAT in the DB </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000015"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">ObservatoryDAO::get_targets</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000016"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a0c27324962a2b278dc9a0d8521e081c0">ObservatoryDAO::get_telescope_types</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000013"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#afbb34604d0f6e7d2103da4f42e2487b1">ObservatoryDAO::get_timezones</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000018"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#aac1368d40d04f3ab3299a4e656759167">ObservatoryDAO::get_wavelength_units</a> () </dt>
+<dd><p class="startdd">improve this a bit </p>
+<p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000029"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a9e5ac6c1a8f1aea5c1f705fafc6a4306">ObservatoryDAO::gpsToFloat</a> ($prefix, $degree, $minutes, $seconds, $cent) </dt>
 <dd>set errno or warning </dd>
 </dl>
-<p><a class="anchor" id="_todo000020"></a> </p>
+<p><a class="anchor" id="_todo000028"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_observatory.html#a36eb7316c7eb4571987c817d5aa0c392">Observatory::update_add_info</a> ($res_id) </dt>
+<dt>Global <a class="el" href="class_observatory_d_a_o.html#a36eb7316c7eb4571987c817d5aa0c392">ObservatoryDAO::update_add_info</a> ($res_id) </dt>
 <dd>do we really want to have empty rows, if nothing was entered? </dd>
 </dl>
-<p><a class="anchor" id="_todo000062"></a> </p>
+<p><a class="anchor" id="_todo000044"></a> </p>
+<dl>
+<dt>File <a class="el" href="_observatory_edit_all_8php.html">ObservatoryEditAll.php</a>  </dt>
+<dd>implement <a class="el" href="class_observatory_d_a_o.html">ObservatoryDAO</a> usage </dd>
+</dl>
+<p><a class="anchor" id="_todo000045"></a> </p>
+<dl>
+<dt>File <a class="el" href="_observatory_view_all_8php.html">ObservatoryViewAll.php</a>  </dt>
+<dd><p class="startdd">add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </p>
+<p class="enddd">implement <a class="el" href="class_observatory_d_a_o.html">ObservatoryDAO</a> usage </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000047"></a> </p>
 <dl>
 <dt>File <a class="el" href="show_8php.html">show.php</a>  </dt>
 <dd><p class="startdd">improve if clauses when we want to hide fields which are not given </p>
 <p class="enddd">improve includes a bit </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000023"></a> </p>
+<p><a class="anchor" id="_todo000031"></a> </p>
 <dl>
 <dt>File <a class="el" href="spacemission_8php.html">spacemission.php</a>  </dt>
 <dd>generalize error messages and send them via mail </dd>
 </dl>
-<p><a class="anchor" id="_todo000031"></a> </p>
+<p><a class="anchor" id="_todo000048"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#a3664cf2338a202965629a2e0acc24134">Spacemission::add_res_areas</a> ($res_id) </dt>
+<dt>File <a class="el" href="_spacemission_create_update_8php.html">SpacemissionCreateUpdate.php</a>  </dt>
+<dd><p class="startdd">generalize error messages and send them via mail </p>
+<p class="enddd">THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000039"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134">SpacemissionDAO::add_res_areas</a> ($res_id) </dt>
 <dd>check if the given names of new areas are existing </dd>
 </dl>
-<p><a class="anchor" id="_todo000029"></a> </p>
+<p><a class="anchor" id="_todo000037"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#ad714c6b9be9a2b2d268db0a467fdba48">Spacemission::add_sensors</a> ($res_id) </dt>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48">SpacemissionDAO::add_sensors</a> ($res_id) </dt>
 <dd><p class="startdd">we need to check if the array is existing or put validation in JS </p>
 <p class="enddd">maybe obsolete </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000028"></a> </p>
+<p><a class="anchor" id="_todo000036"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#a46cd5f59508fe4424112ecee17aefa28">Spacemission::add_spa_keys</a> ($res_id, $action) </dt>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#a46cd5f59508fe4424112ecee17aefa28">SpacemissionDAO::add_spa_keys</a> ($res_id, $action) </dt>
 <dd>finish IMPLEMENTATION of sensors at add_spa_keys($res_id, $action) </dd>
+</dl>
+<p><a class="anchor" id="_todo000040"></a> </p>
+<dl>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0">SpacemissionDAO::add_targets</a> ($res_id) </dt>
+<dd>adding new targets needed? </dd>
 </dl>
 <p><a class="anchor" id="_todo000032"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#ae397bee56fc67a69c747827be3470ec0">Spacemission::add_targets</a> ($res_id) </dt>
-<dd>adding new targets needed? </dd>
-</dl>
-<p><a class="anchor" id="_todo000024"></a> </p>
-<dl>
-<dt>Global <a class="el" href="class_spacemission.html#a186bc83c5e3c643b4fa3973ad2607f78">Spacemission::get_research_areas</a> () </dt>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#a186bc83c5e3c643b4fa3973ad2607f78">SpacemissionDAO::get_research_areas</a> () </dt>
 <dd><p class="startdd">improve this a bit </p>
 <p>if we want to call this several times, we need to reinitalize arrays </p>
 <p class="enddd">this is a duplicate to get_research_areas, refactoring needed </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000027"></a> </p>
+<p><a class="anchor" id="_todo000035"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#af4da44a32dcf8ff43358a8c3855688d8">Spacemission::get_resource</a> ($resource_id) </dt>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#af4da44a32dcf8ff43358a8c3855688d8">SpacemissionDAO::get_resource</a> ($resource_id) </dt>
 <dd>check if value is 0 since we use FLOAT in the DB </dd>
 </dl>
-<p><a class="anchor" id="_todo000026"></a> </p>
+<p><a class="anchor" id="_todo000034"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#a1051c6419270dc714570ce9383a4b4e9">Spacemission::get_science_goals</a> () </dt>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#a1051c6419270dc714570ce9383a4b4e9">SpacemissionDAO::get_science_goals</a> () </dt>
 <dd><p class="startdd">improve this a bit </p>
 <p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000025"></a> </p>
+<p><a class="anchor" id="_todo000033"></a> </p>
 <dl>
-<dt>Global <a class="el" href="class_spacemission.html#ace817061c7896f32a9bcc918038ca4d1">Spacemission::get_targets</a> () </dt>
+<dt>Global <a class="el" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">SpacemissionDAO::get_targets</a> () </dt>
 <dd><p class="startdd">improve this a bit </p>
 <p class="enddd">if we want to call this several times, we need to reinitalize arrays </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000051"></a> </p>
+<dl>
+<dt>File <a class="el" href="_spacemission_edit_all_8php.html">SpacemissionEditAll.php</a>  </dt>
+<dd>implement <a class="el" href="class_spacemission_d_a_o.html">SpacemissionDAO</a> usage </dd>
+</dl>
+<p><a class="anchor" id="_todo000052"></a> </p>
+<dl>
+<dt>File <a class="el" href="_spacemission_view_all_8php.html">SpacemissionViewAll.php</a>  </dt>
+<dd><p class="startdd">add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </p>
+<p class="enddd">implement <a class="el" href="class_spacemission_d_a_o.html">SpacemissionDAO</a> usage </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000043"></a> </p>
+<dl>
+<dt>Global <a class="el" href="_observatory_create_update_8php.html#ac5c6391e294aeebe518004adab68827a">Targets</a>  </dt>
+<dd><p class="startdd">add other targets </p>
+<p class="enddd">add other targets </p>
 </dd>
 </dl>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Wed Apr 6 2011 23:40:09 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

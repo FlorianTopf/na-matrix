@@ -80,49 +80,48 @@
 <a name="l00057"></a>00057   }
 <a name="l00058"></a>00058 
 <a name="l00059"></a>00059 
-<a name="l00060"></a><a class="code" href="functions_8php.html#a687fa7f039092dac4912e6b90e2dd9ad">00060</a>   function <a class="code" href="functions_8php.html#a687fa7f039092dac4912e6b90e2dd9ad">check_page</a>($page)
-<a name="l00061"></a>00061   {
-<a name="l00062"></a>00062     $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
-<a name="l00063"></a>00063     $userlevel = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>];
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065     <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <a class="code" href="functions_8php.html#abe893db53becec14cfe1fd500fc19913">dbiSelect</a>();
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067     <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT level FROM pages_list WHERE &quot;</span> .
-<a name="l00068"></a>00068              <span class="stringliteral">&quot;name=&#39;&quot;</span> . $page . <span class="stringliteral">&quot;&#39; LIMIT 1&quot;</span>;
-<a name="l00069"></a>00069     <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = mysqli_query(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072     <span class="keywordflow">if</span> ((mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) == FALSE) ||
-<a name="l00073"></a>00073         (mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) == 0))
-<a name="l00074"></a>00074     {
-<a name="l00075"></a>00075       print <span class="stringliteral">&quot;Page not found!&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
-<a name="l00076"></a>00076       mysqli_close(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>);
-<a name="l00077"></a>00077       <span class="keywordflow">return</span>(FALSE);
-<a name="l00078"></a>00078     }
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080     $row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC);
-<a name="l00081"></a>00081     $level = $row[<span class="stringliteral">&quot;level&quot;</span>];
-<a name="l00082"></a>00082     mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     <span class="keywordflow">if</span> ($userlevel &lt; $level)
-<a name="l00085"></a>00085     {
-<a name="l00086"></a>00086       mysqli_close(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>);
-<a name="l00087"></a>00087       <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] == 1)
-<a name="l00088"></a>00088       {
-<a name="l00089"></a>00089         print <span class="stringliteral">&quot;This page is only available for entitled users.&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
-<a name="l00090"></a>00090         print <span class="stringliteral">&quot;&lt;P&gt;If you have an account, please log in first before continuing.&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
-<a name="l00091"></a>00091       }
-<a name="l00092"></a>00092       <span class="keywordflow">else</span>
-<a name="l00093"></a>00093         print <span class="stringliteral">&quot;Access to this page is not allowed for your user level!&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
-<a name="l00094"></a>00094     }
-<a name="l00095"></a>00095     <span class="keywordflow">else</span>
-<a name="l00096"></a>00096     {
-<a name="l00097"></a>00097       <a class="code" href="functions_8php.html#abe297c0d502b0870eacf14616c353916">write_stats</a>(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page);
-<a name="l00098"></a>00098       mysqli_close(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>);
-<a name="l00099"></a>00099 <span class="comment">//      mail_page($page);</span>
-<a name="l00100"></a>00100       include <span class="stringliteral">&quot;views/&quot;</span>. $page;
-<a name="l00101"></a>00101     }
-<a name="l00102"></a>00102   }
+<a name="l00060"></a>00060 <span class="comment">//  function check_page($page)</span>
+<a name="l00061"></a>00061 <span class="comment">//  {</span>
+<a name="l00062"></a>00062 <span class="comment">//    $userid = $_SESSION[&quot;user_id&quot;];</span>
+<a name="l00063"></a>00063 <span class="comment">//    $userlevel = $_SESSION[&quot;user_level&quot;];</span>
+<a name="l00064"></a>00064 <span class="comment">//</span>
+<a name="l00065"></a>00065 <span class="comment">//    $link = dbiSelect();</span>
+<a name="l00066"></a>00066 <span class="comment">//</span>
+<a name="l00067"></a>00067 <span class="comment">//    $query = &quot;SELECT level FROM pages_list WHERE &quot; .</span>
+<a name="l00068"></a>00068 <span class="comment">//             &quot;name=&#39;&quot; . $page . &quot;&#39; LIMIT 1&quot;;</span>
+<a name="l00069"></a>00069 <span class="comment">//    $result = mysqli_query($link, $query);</span>
+<a name="l00070"></a>00070 <span class="comment">//</span>
+<a name="l00071"></a>00071 <span class="comment">//</span>
+<a name="l00072"></a>00072 <span class="comment">//    if ((mysqli_num_rows($result) == FALSE) ||</span>
+<a name="l00073"></a>00073 <span class="comment">//        (mysqli_num_rows($result) == 0))</span>
+<a name="l00074"></a>00074 <span class="comment">//    {</span>
+<a name="l00075"></a>00075 <span class="comment">//      print &quot;Page not found!&quot; . LF;</span>
+<a name="l00076"></a>00076 <span class="comment">//      mysqli_close($link);</span>
+<a name="l00077"></a>00077 <span class="comment">//      return(FALSE);</span>
+<a name="l00078"></a>00078 <span class="comment">//    }</span>
+<a name="l00079"></a>00079 <span class="comment">//</span>
+<a name="l00080"></a>00080 <span class="comment">//    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);</span>
+<a name="l00081"></a>00081 <span class="comment">//    $level = $row[&quot;level&quot;];</span>
+<a name="l00082"></a>00082 <span class="comment">//    mysqli_free_result($result);</span>
+<a name="l00083"></a>00083 <span class="comment">//</span>
+<a name="l00084"></a>00084 <span class="comment">//    if ($userlevel &lt; $level)</span>
+<a name="l00085"></a>00085 <span class="comment">//    {</span>
+<a name="l00086"></a>00086 <span class="comment">//      mysqli_close($link);</span>
+<a name="l00087"></a>00087 <span class="comment">//      if ($_SESSION[&quot;user_id&quot;] == 1)</span>
+<a name="l00088"></a>00088 <span class="comment">//      {</span>
+<a name="l00089"></a>00089 <span class="comment">//        print &quot;This page is only available for entitled users.&quot; . LF;</span>
+<a name="l00090"></a>00090 <span class="comment">//        print &quot;&lt;P&gt;If you have an account, please log in first before continuing.&quot; . LF;</span>
+<a name="l00091"></a>00091 <span class="comment">//      }</span>
+<a name="l00092"></a>00092 <span class="comment">//      else</span>
+<a name="l00093"></a>00093 <span class="comment">//        print &quot;Access to this page is not allowed for your user level!&quot; . LF;</span>
+<a name="l00094"></a>00094 <span class="comment">//    }</span>
+<a name="l00095"></a>00095 <span class="comment">//    else</span>
+<a name="l00096"></a>00096 <span class="comment">//    {</span>
+<a name="l00097"></a>00097 <span class="comment">//      write_stats($link, $page);</span>
+<a name="l00098"></a>00098 <span class="comment">//      mysqli_close($link);</span>
+<a name="l00100"></a>00100 <span class="comment"></span><span class="comment">//      include &quot;views/&quot;. $page;</span>
+<a name="l00101"></a>00101 <span class="comment">//    }</span>
+<a name="l00102"></a>00102 <span class="comment">//  }</span>
 <a name="l00103"></a>00103 
 <a name="l00104"></a>00104 
 <a name="l00105"></a><a class="code" href="functions_8php.html#a36dc88ac86494d92369305e299109d4e">00105</a>   function <a class="code" href="functions_8php.html#a36dc88ac86494d92369305e299109d4e">mail_page</a>($page)
@@ -170,12 +169,12 @@
 <a name="l00147"></a>00147   {
 <a name="l00148"></a>00148     <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;message&quot;</span>]))
 <a name="l00149"></a>00149     {
-<a name="l00150"></a>00150       print <span class="stringliteral">&quot;&lt;FIELDSET class =&#39;message&#39;&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;message&quot;</span>] . <span class="stringliteral">&quot;&lt;/FIELDSET&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
+<a name="l00150"></a>00150       print <span class="stringliteral">&quot;&lt;FIELDSET class =&#39;message&#39;&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;message&quot;</span>] . <span class="stringliteral">&quot;&lt;/FIELDSET&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00151"></a>00151       unSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;message&quot;</span>]);
 <a name="l00152"></a>00152     }
 <a name="l00153"></a>00153     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;warning&quot;</span>]))
 <a name="l00154"></a>00154     {
-<a name="l00155"></a>00155       print <span class="stringliteral">&quot;&lt;FIELDSET class =&#39;warning&#39;&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;warning&quot;</span>] . <span class="stringliteral">&quot;&lt;/FIELDSET&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
+<a name="l00155"></a>00155       print <span class="stringliteral">&quot;&lt;FIELDSET class =&#39;warning&#39;&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;warning&quot;</span>] . <span class="stringliteral">&quot;&lt;/FIELDSET&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00156"></a>00156       unSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;warning&quot;</span>]);
 <a name="l00157"></a>00157     }
 <a name="l00158"></a>00158     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;error&quot;</span>]))
@@ -192,7 +191,7 @@
 <a name="l00169"></a>00169 <span class="comment">//                 &quot;: &quot; . $_SESSION[&quot;error&quot;];</span>
 <a name="l00170"></a>00170       <span class="comment">//mail($to, $subject, $message, $headers, $from);</span>
 <a name="l00171"></a>00171 
-<a name="l00172"></a>00172       print <span class="stringliteral">&quot;&lt;FIELDSET class =&#39;error&#39;&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/FIELDSET&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a7330e8908510787607d2bf1fb2876de5">LF</a>;
+<a name="l00172"></a>00172       print <span class="stringliteral">&quot;&lt;FIELDSET class =&#39;error&#39;&gt;&quot;</span> . <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/FIELDSET&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
 <a name="l00173"></a>00173       unSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;error&quot;</span>]);
 <a name="l00174"></a>00174     }
 <a name="l00175"></a>00175   }
@@ -217,7 +216,7 @@
 <a name="l00194"></a>00194 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Wed Apr 6 2011 23:40:08 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 15:21:29 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
