@@ -43,7 +43,7 @@ $link->close();
 
   	//CREATES ACCESS CLASS TO SPACE MISSIONS
   	//$_spacemission = new SpaceMissionDAO();
-  	$_observatory = ModelDAO::getFromName("Spacemission");
+  	$_spacemission = ModelDAO::getFromName("Spacemission");
   	//GET SPACE MISSION
     $_spacemission->get_resource($_GET["id"]);
 
