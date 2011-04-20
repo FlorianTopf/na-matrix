@@ -47,7 +47,7 @@ class SpacemissionDAO extends ModelDAO
 	'targets' => '',
 	'sensors' => '',
 	'scientific_contacts' => '',
-	'science_goals');
+	'science_goals' => '');
 
 //-----------------------------------------------------------------------------------------------------------
 	/** creates relevant member variables */
@@ -65,9 +65,12 @@ class SpacemissionDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get a field from space mission */
-	public function get_field($field)
+ 	public function get_field($field)
 	{
-		return htmlentities($this->_fields[$field],ENT_QUOTES);
+		if(array_key_exists($field, $this->_fields))
+			return htmlentities($this->_fields[$field],ENT_QUOTES);
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -85,18 +88,20 @@ class SpacemissionDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** get fieldkeys from 1-N relations (_hasMany) */
-	public function get_has_many($x_field, $y_field)
+ 	/** get fieldkeys from 1-N relations (_hasMany) */
+ 	public function get_has_many($x_field, $y_field)
 	{
 		if($y_field == NULL)
 			return $this->_hasMany[$x_field];
-		else
+		else if(isset($this->_hasMany[$x_field][$y_field]))
 			return $this->_hasMany[$x_field][$y_field];
+		else
+			return NULL;
 	}
-
+	
 //-----------------------------------------------------------------------------------------------------------
 	/** initialize 1-N relation (_hasMany) if no entry is there */
-	public function init_has_many($x_field, $y_field)
+ 	public function init_has_many($x_field, $y_field)
 	{
 		if($y_field == NULL)
 		{
@@ -165,14 +170,20 @@ class SpacemissionDAO extends ModelDAO
  	/** get a field from sensors */
 	public function get_sensor($x_field, $y_field)
 	{
-		return htmlentities($this->_sensors[$x_field][$y_field],ENT_QUOTES);
+		if(array_key_exists($x_field, $this->_sensors))
+			return htmlentities($this->_sensors[$x_field][$y_field],ENT_QUOTES);
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get a field from scientific contacts */
 	public function get_scientific_contact($x_field, $y_field, $z_field)
 	{
-		return htmlentities($this->_scientificContacts[$x_field][$y_field][$z_field],ENT_QUOTES);
+		if(array_key_exists($x_field, $this->_scientificContacts))
+			return htmlentities($this->_scientificContacts[$x_field][$y_field][$z_field],ENT_QUOTES);
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------

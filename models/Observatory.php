@@ -104,7 +104,10 @@ class ObservatoryDAO extends ModelDAO
 	/** get a field from observatories */
 	public function get_field($field)
 	{
-		return htmlentities($this->_fields[$field],ENT_QUOTES);
+		if(array_key_exists($field, $this->_fields))
+			return htmlentities($this->_fields[$field],ENT_QUOTES);
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -112,7 +115,10 @@ class ObservatoryDAO extends ModelDAO
 	 *  only for latitude / longitude right now */
 	public function get_field_array($x_field, $y_field)
 	{
-		return $this->_fields[$x_field][$y_field];
+		if(array_key_exists($x_field, $this->_fields))
+			return $this->_fields[$x_field][$y_field];
+		else 
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -235,7 +241,10 @@ class ObservatoryDAO extends ModelDAO
  	/** get a field from telescopes */
 	public function get_telescope($x_field, $y_field)
 	{
-		return htmlentities($this->_telescopes[$x_field][$y_field],ENT_QUOTES);
+		if(array_key_exists($x_field, $this->_telescopes))
+			return htmlentities($this->_telescopes[$x_field][$y_field],ENT_QUOTES);
+		else 
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -296,7 +305,10 @@ class ObservatoryDAO extends ModelDAO
   */
 	public function get_instrument($x_field, $y_field, $z_field)
 	{
-		return htmlentities($this->_instruments[$x_field][$y_field][$z_field],ENT_QUOTES);
+		if(array_key_exists($x_field, $this->_instruments))
+			return htmlentities($this->_instruments[$x_field][$y_field][$z_field],ENT_QUOTES);
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -327,7 +339,10 @@ class ObservatoryDAO extends ModelDAO
 	/** get a field from additional_information */
 	public function get_add_info($field)
 	{
-		return htmlentities($this->_additionalInformation[$field],ENT_QUOTES);
+		if(array_key_exists($field, $this->_additionalInformation))
+			return htmlentities($this->_additionalInformation[$field],ENT_QUOTES);
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -336,8 +351,10 @@ class ObservatoryDAO extends ModelDAO
 	{
 		if($y_field == NULL)
 			return $this->_hasMany[$x_field];
-		else
+		else if(isset($this->_hasMany[$x_field][$y_field]))
 			return $this->_hasMany[$x_field][$y_field];
+		else
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -347,12 +364,12 @@ class ObservatoryDAO extends ModelDAO
 		if($y_field == NULL)
 		{
 			$this->_hasMany[$x_field] = array();
-			array_push($this->_hasMany[$x_field], "0");
+			array_push($this->_hasMany[$x_field], 0);
 		}
 		else
 		{
 			$this->_hasMany[$x_field][$y_field] = array();
-			array_push($this->_hasMany[$x_field][$y_field], "0");
+			array_push($this->_hasMany[$x_field][$y_field], 0);
 		}
 
 		//echo "INIT HAS MANY: " . $x_field . "<br>";
@@ -585,7 +602,7 @@ class ObservatoryDAO extends ModelDAO
         	"NOW())";
 
 		self::$db->query($query);
-		$status = array("errno" => $this_->_link->errno(),
+		$status = array("errno" => self::$db->errno(),
 			"error" => self::$db->error(),
 			"res_id" => self::$db->getLastInsertId());
 

@@ -15,6 +15,7 @@ abstract class SystemComponent
 //		$settings['dbusername'] = 'root';
 //		$settings['dbpassword'] = '';
 //		$settings['dbname'] = 'europlanet_na1_test';
+		$settings['tablename_is_plural'] = true;
 
 		return $settings;
 	}

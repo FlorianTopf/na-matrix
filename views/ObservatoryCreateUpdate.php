@@ -462,6 +462,7 @@
 	        			  $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count) . "' size='40'></TD></TR>" . LF;
 
 	        		//Wavelength
+	        		/** @todo add JQUERY/DB support for autocomplete (with other class than for telescopes!) */
 	      			print "<TR><TD align='left'>" .
 	          	  		  "<B>&nbsp;&nbsp;&nbsp;Wavelength:</B> </TD>";
 	      			print "<TD align='left'><INPUT name='add_obs_instrument_wavelength[" . $telescope_count . "][" . $instrument_count . "]' value='" .

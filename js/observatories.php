@@ -9,7 +9,7 @@
  * @author Florian Topf
  */
 
-include_once ('../lib/orm/DbConnector.php');
+include_once ('../lib/php/orm/DbConnector.php');
 
 $name = trim(strtolower($_GET['add_obs_name']));
 

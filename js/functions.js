@@ -16,65 +16,21 @@ function openwin(content)
   return false;
 }
 
+//HELPER FUNCTIONS for AUTOCOMPLETER
+function split( val ) {
+	return val.split( /,\s*/ );
+}
+
+function extractLast( term ) {
+	return split( term ).pop();
+}
+
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
 	//hide all .error labels, if costum labels are inserted in html
 	//$('.error').hide();
 	$('table.instrument').hide();
-	
-	//HELPER FUNCTIONS for AUTOCOMPLETER
-	function split( val ) {
-		return val.split( /,\s*/ );
-	}
-	function extractLast( term ) {
-		return split( term ).pop();
-	}
-	
-	//AUTOCOMPLETER FOR WAVELENGTH
-	$.fn.wavelength_completer = function() {
-		// don't navigate away from the field on tab when selecting an item
-		$(this).bind( "keydown", function( event ) {
-			if ( event.keyCode === $.ui.keyCode.TAB &&
-					$( this ).data( "autocomplete" ).menu.active ) {
-				event.preventDefault();
-			}
-		});
-		$(this).autocomplete({
-			source: function( request, response ) {
-				$.getJSON( "js/search.php", {
-					term: extractLast( request.term )
-				}, response );
-			},
-			search: function() {
-				// custom minLength
-				var term = extractLast( this.value );
-				if ( term.length < 1 ) {
-					return false;
-				}
-			},
-			focus: function() {
-				// prevent value inserted on focus
-				return false;
-			},
-			select: function( event, ui ) {
-				var terms = split( this.value );
-				// remove the current input
-				terms.pop();
-				// add the selected item
-				terms.push( ui.item.value );
-				// add placeholder to get the comma-and-space at the end
-				terms.push( "" );
-				this.value = terms.join( ", " );
-				return false;
-			}
-		});
-	};
-
-	$("input.wavelength").each(function() {
-		//CALLING AUTOCOMPLETER FOR WAVELENGTH
-		$(this).wavelength_completer();
-	});
-	
+		
 	$('a.toggle_instrument').click(function() {
 		$(this).parent().parent().
 		parent().parent().next('table.instrument').toggle();
@@ -183,6 +139,46 @@ $(document).ready(function(){
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 	
+	//AUTOCOMPLETER FOR WAVELENGTH
+	$.fn.wavelength_completer = function() {
+		// don't navigate away from the field on tab when selecting an item
+		$(this).bind( "keydown", function( event ) {
+			if ( event.keyCode === $.ui.keyCode.TAB &&
+					$( this ).data( "autocomplete" ).menu.active ) {
+				event.preventDefault();
+			}
+		});
+		$(this).autocomplete({
+			source: function( request, response ) {
+				$.getJSON( "js/search.php", {
+					term: extractLast( request.term )
+				}, response );
+			},
+			search: function() {
+				// custom minLength
+				var term = extractLast( this.value );
+				if ( term.length < 1 ) {
+					return false;
+				}
+			},
+			focus: function() {
+				// prevent value inserted on focus
+				return false;
+			},
+			select: function( event, ui ) {
+				var terms = split( this.value );
+				// remove the current input
+				terms.pop();
+				// add the selected item
+				terms.push( ui.item.value );
+				// add placeholder to get the comma-and-space at the end
+				terms.push( "" );
+				this.value = terms.join( ", " );
+				return false;
+			}
+		});
+	};
+	
 	//DYNAMIC ROW ADDING FUNCTION for ADD "Instruments"
 	$.fn.add_instrument = function(newInstrumentNum) {
 		var addInstrument = $(this).parent().parent().parent().
@@ -270,11 +266,6 @@ $(document).ready(function(){
 			$(this).text(
 				text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
 			return false;
-		});
-		
-		//CALLING AUTOCOMPLETER FOR WAVELENGTH
-        $("input.wavelength", newInstrument).each(function() {
-			$(this).wavelength_completer();
 		});
 	};
 	
@@ -424,6 +415,11 @@ $(document).ready(function(){
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
+	$('input.wavelength').each(function() {
+		//CALLING AUTOCOMPLETER FOR WAVELENGTH
+		$(this).wavelength_completer();
+		return false;
+	});
 	
 	//DYNAMIC ROW ADDING ROUTINE for ADD "Scientific Contacts"
 	var newContactNum = 0;
@@ -690,6 +686,12 @@ $(document).ready(function(){
     			text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
     		return false;
     	});
+    	
+		//CALLING AUTOCOMPLETER FOR WAVELENGTH
+        $('input.wavelength', newTelescope).each(function() {
+			$(this).wavelength_completer();
+			return false;
+		});
 
         return false;
 	});

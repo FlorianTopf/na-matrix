@@ -7,32 +7,32 @@ require_once ('lib/php/orm/ModelDAO.php');
 
 class Controller
 {
-	static function printSelector($page, $action)
+	static function printSelector($page, $action = NULL, $resource_type = NULL)
 	{
 		print "<FIELDSET class='rfield'><LEGEND>Resource Selection:</LEGEND>" . LF;
     	print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
 
     	print "<TR><TD align='center' width='45%'>" .
           "<INPUT type='radio' name='add_res_type' value='obs'";
-   		if ($_POST["add_res_type"] == "obs") print " checked";
+   		if ($resource_type == "obs") print " checked";
     	print " id='sel_obs' onchange=\"document.main_form.submit()\">" .
           " <LABEL for='sel_obs'><B>Observatory</B></LABEL></TD>" . LF;
 
    		print "<TD align='center' width='45%'>" .
           "<INPUT type='radio' name='add_res_type' value='spa'";
-    	if ($_POST["add_res_type"] == "spa") print " checked";
+    	if ($resource_type == "spa") print " checked";
     	print " id='sel_spa' onchange=\"document.main_form.submit()\">" .
           " <LABEL for='sel_spa'><B>Space Mission</B></LABEL></TD></TR>" . LF;
     	print "</TABLE></FIELDSET>";
     	
-    	if (!isSet($_POST["add_res_type"]))
+    	if ($resource_type == NULL)
     		print "<H3 align='center'>Please select a resource type</H3>" . LF;
     		
     	print "<INPUT type='hidden' name='page' value='" . $page . "'>" . LF ;
     	print "<INPUT type='hidden' name='action' value='" . $action . "'>" . LF ;
 	}
 	
-	static function check($page, $action = NULL , $resource_type = NULL, $resource_id = NULL)
+	static function check($page, $action = NULL, $resource_type = NULL, $resource_id = NULL)
 	{
 		$userid = $_SESSION["user_id"];
     	$userlevel = $_SESSION["user_level"];
@@ -93,7 +93,7 @@ class Controller
 						
 					if($action == "add")
 					{
-						self::printSelector($page, $action);
+						self::printSelector($page, $action, $resource_type);
 						include "views/ObservatoryCreateUpdate.php";
 					}
 						
@@ -138,7 +138,7 @@ class Controller
 				break;
 				case "spa":
 					//$_spacemission = new SpacemissionDAO();
-					$_observatory = ModelDAO::getFromName("Spacemission");
+					$_spacemission = ModelDAO::getFromName("Spacemission");
 					/** get resource! */
 					if($action == "edit")
 					{
@@ -148,7 +148,7 @@ class Controller
 						
 					if($action == "add")
 					{
-						self::printSelector($page, $action); 
+						self::printSelector($page, $action, $resource_type); 
 						include "views/SpacemissionCreateUpdate.php";
 					}
 						
@@ -196,35 +196,35 @@ class Controller
 					}
 				 break;
 			default:
-    			self::printSelector($page, $action); 
+    			self::printSelector($page, $action, $resource_type); 
     			break; }
     		break;
     		case "edit":
     			switch($resource_type) {
     				case "obs":
-    					self::printSelector($page, $action);
+    					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryEditAll.php";
     					break;
     				case "spa":
-    					self::printSelector($page, $action);
+    					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionEditAll.php";
     					break;
     				case NULL:
-    					self::printSelector($page, $action);
+    					self::printSelector($page, $action, $resource_type);
     					break; }
     			break;
     		case "browse":
     			switch ($resource_type) {
     				case "obs":
-    					self::printSelector($page, $action);
+    					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryViewAll.php";
     					break;
     				case "spa":
-    					self::printSelector($page, $action);
+    					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionViewAll.php";
     					break;
     				case NULL:
-    					self::printSelector($page, $action);
+    					self::printSelector($page, $action, $resource_type);
     					break;
     				default: 
     					break; }

@@ -38,10 +38,10 @@
     <LINK rel="icon" href="images/favicon.ico" type="image/x-icon">
     <LINK rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <LINK rel="stylesheet" type="text/css" href="css/style.css">
-<!--  <LINK rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css">  -->   
+	<LINK rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css">   
     <SCRIPT src="lib/js/jquery-1.4.2.min.js"></SCRIPT>
     <SCRIPT src="lib/js/jquery.validate.min.js"></SCRIPT>
-<!--  <SCRIPT src="lib/js/jquery-ui-1.8.10.custom.min.js"></SCRIPT>  -->    
+	<SCRIPT src="lib/js/jquery-ui-1.8.10.custom.min.js"></SCRIPT>
     <SCRIPT src="js/functions.js"></SCRIPT>
   </HEAD>
 
@@ -135,11 +135,14 @@
         <?php
         
         //DEBUG:
-  		echo "ACTION: GET: " . $_GET["action"] . " POST: " . $_POST["action"] . "<br>";
-  		echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . " POST RES_TYPE: " . $_POST["res_type"] . "<br>";
-  		echo "RES_ID: GET: " . $_GET["id"] . " POST: " . $_POST["add_res_id"] . "<br>";
-  		echo "POST PAGE: " . $_POST["page"] . "<br>";
-  		echo "PUSH PAGE: " . $_POST["push"] . "<br>";
+//		echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
+//		echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . "- POST RES_TYPE: " . $_POST["res_type"] . "<br>";
+//		echo "RES_ID: GET: " . $_GET["id"] . "- POST: " . $_POST["add_res_id"] . "<br>";
+//		echo "POST PAGE: " . $_POST["page"] . "<br>";
+//		echo "PUSH PAGE: " . $_POST["push"] . "<br>";
+  		$action = '';
+  		$resource_id = '';
+  		$resource_type = '';
           
 		/** @todo refactor all $_REQUEST variables */
   		if(isset($_POST["page"]))

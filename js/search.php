@@ -5,13 +5,13 @@ $q = strtolower($_GET["term"]);
 // remove slashes if they were magically added
 if (get_magic_quotes_gpc()) $q = stripslashes($q);
 
-include_once ('../lib/orm/DbConnector.php');
+include_once ('../lib/php/orm/DbConnector.php');
 
 //CREATE DATABASE CONNECTION
 $link = new DbConnector();
 
 $query = "SELECT * FROM wavelength_ranges WHERE acronym LIKE '%$q%';";
-$result = mysqli_query($link, $query);
+$result = $link->query($query);
 if (mysqli_num_rows($result) > 0)
 {
 	$return = array();

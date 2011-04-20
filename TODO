@@ -1,4 +1,5 @@
 * Put FIREFOX/JS recommendation in footer
+  * MODEL has to be proof if javascript is OFF (check with browser)
 
 * PRESENTATION:
   * remove functionality for camera properties for the moment (add, show, observatory)

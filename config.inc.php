@@ -6,6 +6,9 @@
  */
 
 ini_set("display_errors", "1");
+
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
 //  set_include_path(
 //  '.'.PATH_SEPARATOR.
 //  './lib/php/orm'.PATH_SEPARATOR.
