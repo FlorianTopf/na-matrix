@@ -115,7 +115,7 @@ class ObservatoryDAO extends ModelDAO
 	 *  only for latitude / longitude right now */
 	public function get_field_array($x_field, $y_field)
 	{
-		if(array_key_exists($x_field, $this->_fields))
+		if(isset($this->_fields[$x_field][$y_field]))
 			return $this->_fields[$x_field][$y_field];
 		else 
 			return NULL;
