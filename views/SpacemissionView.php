@@ -103,7 +103,7 @@ $link->close();
 				print "<P><B>Web Address:&nbsp;</B><A href='" . $_spacemission->get_sensor("web_address", $sensor_count) .
 			 	"' target='_blank'>" . $_spacemission->get_sensor("web_address", $sensor_count) . "</A></P>" . LF;
 			if($_spacemission->get_sensor("sensor_comments", $sensor_count))
-				print "<P><B>Sensor Comments:&nbsp;</B>" . $_spacemission->get_sensor("sensor_comments", $sensor_count) . "</P>" . LF;
+				print "<P><B>Sensor Comments:&nbsp;</B>" . nl2br($_spacemission->get_sensor("sensor_comments", $sensor_count)) . "</P>" . LF;
 
 			//Science Goals:
 //			print "<FIELDSET class='report'><LEGEND><B>Science Goals:</B></LEGEND> <UL>";

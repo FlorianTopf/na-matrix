@@ -212,7 +212,7 @@ $link->close();
 	    		print "<P><B>Wavelength End:&nbsp;</B>" . clean_num($_observatory->get_telescope("wavelength_end", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_e_unit", $key)] . "</P>" . LF;
 			if ($_observatory->get_telescope("comments", $key))
-	    		print "<P><B>Telescope Comments:&nbsp;</B>" . $_observatory->get_telescope("comments", $key) . "</P>" . LF;
+	    		print "<P><B>Telescope Comments:&nbsp;</B>" . nl2br($_observatory->get_telescope("comments", $key)) . "</P>" . LF;
 
 	    	//OBSERVATORY Instruments:
 	    	if(is_array($_observatory->get_has_many("instruments", $telescope_id)))
@@ -261,7 +261,7 @@ $link->close();
 	    				print "<P><B>CCD chip type:&nbsp;</B>" . $_observatory->get_instrument("ccd_chip_type", $telescope_id, $key2) . "</P>" . LF;
 
 	    			if ($_observatory->get_instrument("comments", $telescope_id, $key2))
-	    				print "<P><B>Instrument Comments:&nbsp;</B>" . $_observatory->get_instrument("comments", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<P><B>Instrument Comments:&nbsp;</B>" . nl2br($_observatory->get_instrument("comments", $telescope_id, $key2)) . "</P>" . LF;
 	    			print "</FIELDSET>" . LF;
 	    		}
 	    	print "</FIELDSET>" . LF;
@@ -272,19 +272,19 @@ $link->close();
 	    if ($_observatory->get_hidden_field('further_contacts'))
 	    	print "<P><B>Further contacts:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>" . LF;
 	    else if ($_observatory->get_add_info('further_contacts'))
-	    	print "<P><B>Further contacts:&nbsp;</B>" . $_observatory->get_add_info('further_contacts') . "</P>" . LF;
+	    	print "<P><B>Further contacts:&nbsp;</B>" . nl2br($_observatory->get_add_info('further_contacts')) . "</P>" . LF;
 		if ($_observatory->get_add_info('instrument_comments'))
-	    	print "<P><B>Instrument comments:&nbsp;</B>" . $_observatory->get_add_info('instrument_comments') . "</P>" . LF;
+	    	print "<P><B>Instrument comments:&nbsp;</B>" . nl2br($_observatory->get_add_info('instrument_comments')) . "</P>" . LF;
 	    if ($_observatory->get_add_info('additional_instruments'))
-	    	print "<P><B>Additional instruments:&nbsp;</B>" . $_observatory->get_add_info('additional_instruments') . "</P>" . LF;
+	    	print "<P><B>Additional instruments:&nbsp;</B>" . nl2br($_observatory->get_add_info('additional_instruments')) . "</P>" . LF;
 	    if ($_observatory->get_add_info('array_description'))
-	    	print "<P><B>Array description:&nbsp;</B>" . $_observatory->get_add_info('array_description') . "</P>" . LF;
+	    	print "<P><B>Array description:&nbsp;</B>" . nl2br($_observatory->get_add_info('array_description')) . "</P>" . LF;
 	    if ($_observatory->get_add_info('backend_description'))
-	    	print "<P><B>Backend description:&nbsp;</B>" . $_observatory->get_add_info('backend_description') . "</P>" . LF;
+	    	print "<P><B>Backend description:&nbsp;</B>" . nl2br($_observatory->get_add_info('backend_description')) . "</P>" . LF;
 	    if ($_observatory->get_add_info('research_comments'))
-	    	print "<P><B>Research comments:&nbsp;</B>" . $_observatory->get_add_info('research_comments') . "</P>" . LF;
+	    	print "<P><B>Research comments:&nbsp;</B>" . nl2br($_observatory->get_add_info('research_comments')) . "</P>" . LF;
 	    if ($_observatory->get_add_info('general_comments'))
-	    	print "<P><B>General comments:&nbsp;</B>" . $_observatory->get_add_info('general_comments') . "</P>" . LF;
+	    	print "<P><B>General comments:&nbsp;</B>" . nl2br($_observatory->get_add_info('general_comments')) . "</P>" . LF;
 		print "</FIELDSET>" . LF;
   
 ?>
