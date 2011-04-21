@@ -4,6 +4,7 @@ include_once ('lib/php/orm/DbConnector.php');
 require_once ('lib/php/orm/ModelDAO.php');
 //require_once ('models/Observatory.php');
 //require_once ('models/Spacemission.php');
+require_once ('lib/php/orm/Acl.php');
 
 class Controller
 {
@@ -41,23 +42,14 @@ class Controller
     	 * 	over DAOs atm AND also all pages (except login) 
     	 */
     	$link = new DbConnector();
-
-    	$query = "SELECT level FROM pages_list WHERE " .
-             "name='" . $page . ".php" . "' LIMIT 1";
-    	$result = $link->query($query);
-
-
-    	if ((mysqli_num_rows($result) == FALSE) ||
-        	(mysqli_num_rows($result) == 0))
+    	
+    	$level = Acl::getAclForOption($page);
+    		
+    	if($level == -1)
     	{
-      		print "Page not found!" . LF;
-      		//mysqli_close($link);
-      		return(FALSE);
-    	}
-
-    	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    	$level = $row["level"];
-    	mysqli_free_result($result);
+    		print "Page not found!" . LF;
+    		return(FALSE);
+    	} 	
 
     	if ($userlevel < $level)
     	{
@@ -241,9 +233,8 @@ class Controller
   	{
     	$userid = $_SESSION["user_id"];
 
-    	$query = "INSERT INTO users_statistics SELECT NULL, " .
-             $userid . ", id, NOW() FROM pages_list WHERE name='" .
-             $page . "' LIMIT 1";
+    	$query = "INSERT INTO users_statistics VALUES (NULL, " .
+             $userid . ", '" . $page . "', NOW())";
 
     	$link->query($query);
   }

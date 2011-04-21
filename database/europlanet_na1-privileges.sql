@@ -17,10 +17,6 @@ grant DELETE on TABLE `europlanet_na1`.`antenna_types` to 'europlanet_na1'@'loca
 grant INSERT on TABLE `europlanet_na1`.`antenna_types` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`antenna_types` to 'europlanet_na1'@'localhost';
 grant UPDATE on TABLE `europlanet_na1`.`antenna_types` to 'europlanet_na1'@'localhost';
-grant DELETE on TABLE `europlanet_na1`.`camera_properties` to 'europlanet_na1'@'localhost';
-grant INSERT on TABLE `europlanet_na1`.`camera_properties` to 'europlanet_na1'@'localhost';
-grant SELECT on TABLE `europlanet_na1`.`camera_properties` to 'europlanet_na1'@'localhost';
-grant UPDATE on TABLE `europlanet_na1`.`camera_properties` to 'europlanet_na1'@'localhost';
 grant DELETE on TABLE `europlanet_na1`.`clearnights_ranges` to 'europlanet_na1'@'localhost';
 grant INSERT on TABLE `europlanet_na1`.`clearnights_ranges` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`clearnights_ranges` to 'europlanet_na1'@'localhost';
@@ -41,10 +37,6 @@ grant DELETE on TABLE `europlanet_na1`.`instruments` to 'europlanet_na1'@'localh
 grant INSERT on TABLE `europlanet_na1`.`instruments` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`instruments` to 'europlanet_na1'@'localhost';
 grant UPDATE on TABLE `europlanet_na1`.`instruments` to 'europlanet_na1'@'localhost';
-/* grant DELETE on TABLE `europlanet_na1`.`number_of_instruments` to 'europlanet_na1'@'localhost';
-grant INSERT on TABLE `europlanet_na1`.`number_of_instruments` to 'europlanet_na1'@'localhost';
-grant SELECT on TABLE `europlanet_na1`.`number_of_instruments` to 'europlanet_na1'@'localhost';
-grant UPDATE on TABLE `europlanet_na1`.`number_of_instruments` to 'europlanet_na1'@'localhost';  */
 grant DELETE on TABLE `europlanet_na1`.`observatories` to 'europlanet_na1'@'localhost';
 grant INSERT on TABLE `europlanet_na1`.`observatories` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`observatories` to 'europlanet_na1'@'localhost';
@@ -65,10 +57,6 @@ grant DELETE on TABLE `europlanet_na1`.`observatory_to_targets` to 'europlanet_n
 grant INSERT on TABLE `europlanet_na1`.`observatory_to_targets` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`observatory_to_targets` to 'europlanet_na1'@'localhost';
 grant UPDATE on TABLE `europlanet_na1`.`observatory_to_targets` to 'europlanet_na1'@'localhost';
-grant DELETE on TABLE `europlanet_na1`.`pages_list` to 'europlanet_na1'@'localhost';
-grant INSERT on TABLE `europlanet_na1`.`pages_list` to 'europlanet_na1'@'localhost';
-grant SELECT on TABLE `europlanet_na1`.`pages_list` to 'europlanet_na1'@'localhost';
-grant UPDATE on TABLE `europlanet_na1`.`pages_list` to 'europlanet_na1'@'localhost';
 grant DELETE on TABLE `europlanet_na1`.`precipitation_ranges` to 'europlanet_na1'@'localhost';
 grant INSERT on TABLE `europlanet_na1`.`precipitation_ranges` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`precipitation_ranges` to 'europlanet_na1'@'localhost';
@@ -133,10 +121,6 @@ grant DELETE on TABLE `europlanet_na1`.`timezones` to 'europlanet_na1'@'localhos
 grant INSERT on TABLE `europlanet_na1`.`timezones` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`timezones` to 'europlanet_na1'@'localhost';
 grant UPDATE on TABLE `europlanet_na1`.`timezones` to 'europlanet_na1'@'localhost';
-grant DELETE on TABLE `europlanet_na1`.`users_levels` to 'europlanet_na1'@'localhost';
-grant INSERT on TABLE `europlanet_na1`.`users_levels` to 'europlanet_na1'@'localhost';
-grant SELECT on TABLE `europlanet_na1`.`users_levels` to 'europlanet_na1'@'localhost';
-grant UPDATE on TABLE `europlanet_na1`.`users_levels` to 'europlanet_na1'@'localhost';
 grant DELETE on TABLE `europlanet_na1`.`users_list` to 'europlanet_na1'@'localhost';
 grant INSERT on TABLE `europlanet_na1`.`users_list` to 'europlanet_na1'@'localhost';
 grant SELECT on TABLE `europlanet_na1`.`users_list` to 'europlanet_na1'@'localhost';

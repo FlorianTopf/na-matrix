@@ -1,14 +1,5 @@
----+++++ NEW Database Structure Documentation (09.03.2011):
+---+++++ NEW Database Structure Documentation (21.04.2011):
    * *User logging System*
-      * pages_list
-	     * id INT(10)
-		 * name TEXT
-		 * description TEXT
-		 * level INT(10) FK:users_levels:level
-      * users_levels
-	     * level INT(10)
-		 * category TEXT
-		 * description TEXT
       * users_statistics
 	     * id INT(10)
 		 * user INT(10) FK:users_list:id
@@ -190,15 +181,6 @@
          * longitude BOOL
          * scientific_contacts BOOL
          * further_contacts BOOL
-      * camera_properties 
-         * id INT FK:observatories:id
-         * camera_type TEXT
-         * max_frames_per_sec FLOAT
-         * frame_size TEXT
-         * max_exposure_time FLOAT
-         * min_exposure_time FLOAT
-         * color_bw_chip BOOL
-         * ccd_chip_type TEXT
 
    * *REFERENCE TABLES*
       * observatory_to_research_areas
@@ -216,3 +198,9 @@
       * telescope_to_instruments
          * telescope_id INT FK:telescopes:id
          * instrument_id INT FK:instruments:id
+         
+    * *Helper Tables*
+       * wavelength_ranges
+          * id
+          * acronym TEXT
+          * name TEXT 

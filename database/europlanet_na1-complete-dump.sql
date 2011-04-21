@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2011 at 03:59 PM
+-- Generation Time: Apr 21, 2011 at 01:08 PM
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -607,37 +607,6 @@ CREATE TABLE IF NOT EXISTS `observatory_to_telescopes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_list`
---
-
-DROP TABLE IF EXISTS `pages_list`;
-CREATE TABLE IF NOT EXISTS `pages_list` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
-  `description` text,
-  `level` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `level` (`level`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
---
--- Dumping data for table `pages_list`
---
-
-INSERT INTO `pages_list` (`id`, `name`, `description`, `level`) VALUES
-(1, 'add.php', 'add new catalogue entries', 21),
-(2, 'browse.php', 'browse catalogue', 0),
-(3, 'edit.php', 'edit catalogue entries', 21),
-(4, 'home.php', NULL, 0),
-(5, 'login.php', NULL, 0),
-(6, 'logout.php', NULL, 0),
-(7, 'account.php', 'change account details', 11),
-(8, 'reset.php', 'resets a user password', 0),
-(9, 'registration.php', 'registers a new user', 31);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `precipitation_ranges`
 --
 
@@ -1113,30 +1082,6 @@ INSERT INTO `timezones` (`id`, `timezone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_levels`
---
-
-DROP TABLE IF EXISTS `users_levels`;
-CREATE TABLE IF NOT EXISTS `users_levels` (
-  `level` int(10) unsigned NOT NULL,
-  `category` text NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`level`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `users_levels`
---
-
-INSERT INTO `users_levels` (`level`, `category`, `description`) VALUES
-(0, 'anonymous', 'access without login'),
-(11, 'browsing', 'read-only access for registered users'),
-(21, 'processing', 'data processing for selected users'),
-(31, 'super user', 'full access');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users_list`
 --
 
@@ -1152,8 +1097,7 @@ CREATE TABLE IF NOT EXISTS `users_list` (
   `affiliation` text,
   `category` text NOT NULL,
   `level` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `level` (`level`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
@@ -1166,7 +1110,7 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 (3, 'ftopf', '5e12806b179c04620320b332f205a80c', 'Mr.', 'Florian', 'Topf', 'florian.topf@oeaw.ac.at', 'Institut für Weltraumforschung', 'commercial', 31),
 (4, 'nagpal', '28e29334745b11450410d66f147239d7', 'Mr.', 'Parinesh', 'Nagpal', 'p.nagpal@ucl.ac.uk', 'UCL', 'scientific', 11),
 (5, 'smiller', '28e29334745b11450410d66f147239d7', 'Prof.', 'Steve', 'Miller', 's.miller@ucl.ac.uk', 'UCL', 'scientific', 11),
-(6, 'mscherf', '9996535e07258a7bbfd8b132435c5962', 'Mr.', 'Manuel', 'Scherf', 'manuel.scherf@oeaw.ac.at', 'IWF-OeAW', 'scientific', 11);
+(6, 'mscherf', '9996535e07258a7bbfd8b132435c5962', 'Mr.', 'Manuel', 'Scherf', 'manuel.scherf@oeaw.ac.at', 'IWF-OeAW', 'scientific', 21);
 
 -- --------------------------------------------------------
 
@@ -1178,12 +1122,11 @@ DROP TABLE IF EXISTS `users_statistics`;
 CREATE TABLE IF NOT EXISTS `users_statistics` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user` int(10) unsigned NOT NULL,
-  `page` int(10) unsigned NOT NULL,
+  `page` varchar(45) NOT NULL,
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user` (`user`),
-  KEY `page` (`page`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `user` (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `users_statistics`
@@ -1308,12 +1251,6 @@ ALTER TABLE `observatory_to_telescopes`
   ADD CONSTRAINT `telescope_id_1` FOREIGN KEY (`telescope_id`) REFERENCES `telescopes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pages_list`
---
-ALTER TABLE `pages_list`
-  ADD CONSTRAINT `pages_list_ibfk_1` FOREIGN KEY (`level`) REFERENCES `users_levels` (`level`);
-
---
 -- Constraints for table `sensor_to_science_goals`
 --
 ALTER TABLE `sensor_to_science_goals`
@@ -1371,17 +1308,10 @@ ALTER TABLE `telescope_to_instruments`
   ADD CONSTRAINT `telescope_id_2` FOREIGN KEY (`telescope_id`) REFERENCES `telescopes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `users_list`
---
-ALTER TABLE `users_list`
-  ADD CONSTRAINT `users_list_ibfk_1` FOREIGN KEY (`level`) REFERENCES `users_levels` (`level`);
-
---
 -- Constraints for table `users_statistics`
 --
 ALTER TABLE `users_statistics`
-  ADD CONSTRAINT `users_statistics_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users_list` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `users_statistics_ibfk_2` FOREIGN KEY (`page`) REFERENCES `pages_list` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `users_statistics_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users_list` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

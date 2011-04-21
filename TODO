@@ -2,29 +2,21 @@
   * MODEL has to be proof if javascript is OFF (check with browser)
 
 * PRESENTATION:
-  * remove functionality for camera properties for the moment (add, show, observatory)
   * remove functionality for science goals for the moment (add, show, spacemission)
   
 * DOCUMENTATION:
-  * new research areas, more input descriptions
+  * update input_descriptions.txt (new research areas, more description)
+  * Doxygen Information for new library classes etc.
 
 
 * Running Database
   * Review Science Goals / Research Areas (Robert, Manuel)
-   * Move camera_properties to instruments (after field_of_view column) [OK]
-   * comments will be the last column of instruments [OK]
-   * Introduce new instrument_type CAMERA [OK]
    * Rewrite entries of europlanet_na1 database
- 	 * camera properties to instrument=>camera [OK]
  	 * comments to new fields (remove unnecessary comment fields:
  	    instrument comments)
  	 * old telescope types to new instrument types
 
 * Development Database
-  * hidden_fields, camera_properties, additional_information (ID must be unique) [OK]
-  * Every table needs to have a PRIMARY KEY [OK]
-    * identifiying relationships for relational tables [OK]
-  * introduce primary key for relational tables with 2 foreign keys (for ORM) [OK]
   * improve hidden fields / additional information (remove not necessary)
   * remove OTHER from Telescope Types / Instrument Types / Antenna Types!
   
@@ -34,7 +26,8 @@
   
 * Introduce Questionnaire form (entries must be approved afterwards)
   * very user friendly! tooltips necessary (UI)
-  * maybe modify database (use a second one)
+  * switch of all OTHER options (research areas etc.)
+  * maybe modify database (use a second one OR make flags)
 
 * Input form for observatories
   * add other targets (db functionality)
@@ -46,7 +39,6 @@
   * spectral resolution => format?
   * remove last telescope => empty fields
   * remove last instrument => empty fields
-  * toggle table of instruments [OK]
   * autocompleter for telescope name / instrument name
   
 * Input validation in JQUERY for observatories (see comments in add.php)
@@ -80,8 +72,6 @@
    
 * Browsing pages for observatories
   * according to telecon inputs (standard / detail pages)
-  * USE GEOHACK FOR GPS: http://toolserver.org/~geohack/ (WGS84) [OK]
-  * separate display for Telescope types / Instrument types [OK]
   * colorization of different observatories
   * show creation / modification date
   * links to the partner observatories (how to manage this?)
@@ -94,7 +84,6 @@
 
  
 ** ALL BROWSING PAGES
-   * how to handle values, that are not given? (lat/long etc.) [OK]
    * filter mechanisms with onchange events
     
     
@@ -118,6 +107,7 @@
     camera properties, sensor properties, science goals, ..
   * wavelength ranges (format documentation)
   * delete last sensor (remove name of sensor and it will be deleted)
+  * other research areas => research comments
     
 * Refactor all Javascript in functions.js
   * dynamic row adding routines (redundancy)

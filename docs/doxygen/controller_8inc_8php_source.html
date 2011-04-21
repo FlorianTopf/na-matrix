@@ -34,244 +34,254 @@
 <a name="l00004"></a>00004 require_once (<span class="stringliteral">&#39;lib/php/orm/ModelDAO.php&#39;</span>);
 <a name="l00005"></a>00005 <span class="comment">//require_once (&#39;models/Observatory.php&#39;);</span>
 <a name="l00006"></a>00006 <span class="comment">//require_once (&#39;models/Spacemission.php&#39;);</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a><a class="code" href="class_controller.html">00008</a> <span class="keyword">class </span><a class="code" href="class_controller.html">Controller</a>
-<a name="l00009"></a>00009 {
-<a name="l00010"></a><a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">00010</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">printSelector</a>($page, $action)
-<a name="l00011"></a>00011         {
-<a name="l00012"></a>00012                 print <span class="stringliteral">&quot;&lt;FIELDSET class=&#39;rfield&#39;&gt;&lt;LEGEND&gt;Resource Selection:&lt;/LEGEND&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00013"></a>00013         print <span class="stringliteral">&quot;&lt;TABLE border=&#39;0&#39; cellspacing=&#39;4&#39; cellpadding=&#39;4&#39; class=&#39;rtable&#39; width=&#39;100%&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015         print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD align=&#39;center&#39; width=&#39;45%&#39;&gt;&quot;</span> .
-<a name="l00016"></a>00016           <span class="stringliteral">&quot;&lt;INPUT type=&#39;radio&#39; name=&#39;add_res_type&#39; value=&#39;obs&#39;&quot;</span>;
-<a name="l00017"></a>00017                 <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>] == <span class="stringliteral">&quot;obs&quot;</span>) print <span class="stringliteral">&quot; checked&quot;</span>;
-<a name="l00018"></a>00018         print <span class="stringliteral">&quot; id=&#39;sel_obs&#39; onchange=\&quot;document.main_form.submit()\&quot;&gt;&quot;</span> .
-<a name="l00019"></a>00019           <span class="stringliteral">&quot; &lt;LABEL for=&#39;sel_obs&#39;&gt;&lt;B&gt;Observatory&lt;/B&gt;&lt;/LABEL&gt;&lt;/TD&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021                 print <span class="stringliteral">&quot;&lt;TD align=&#39;center&#39; width=&#39;45%&#39;&gt;&quot;</span> .
-<a name="l00022"></a>00022           <span class="stringliteral">&quot;&lt;INPUT type=&#39;radio&#39; name=&#39;add_res_type&#39; value=&#39;spa&#39;&quot;</span>;
-<a name="l00023"></a>00023         <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>] == <span class="stringliteral">&quot;spa&quot;</span>) print <span class="stringliteral">&quot; checked&quot;</span>;
-<a name="l00024"></a>00024         print <span class="stringliteral">&quot; id=&#39;sel_spa&#39; onchange=\&quot;document.main_form.submit()\&quot;&gt;&quot;</span> .
-<a name="l00025"></a>00025           <span class="stringliteral">&quot; &lt;LABEL for=&#39;sel_spa&#39;&gt;&lt;B&gt;Space Mission&lt;/B&gt;&lt;/LABEL&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00026"></a>00026         print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;/FIELDSET&gt;&quot;</span>;
-<a name="l00027"></a>00027         
-<a name="l00028"></a>00028         <span class="keywordflow">if</span> (!isSet($_POST[<span class="stringliteral">&quot;add_res_type&quot;</span>]))
-<a name="l00029"></a>00029                 print <span class="stringliteral">&quot;&lt;H3 align=&#39;center&#39;&gt;Please select a resource type&lt;/H3&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00030"></a>00030                 
-<a name="l00031"></a>00031         print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;&quot;</span> . $page . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> ;
-<a name="l00032"></a>00032         print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;action&#39; value=&#39;&quot;</span> . $action . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> ;
-<a name="l00033"></a>00033         }
-<a name="l00034"></a>00034         
-<a name="l00035"></a><a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">00035</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">check</a>($page, $action = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a> , $resource_type = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, $resource_id = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)
-<a name="l00036"></a>00036         {
-<a name="l00037"></a>00037                 $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
-<a name="l00038"></a>00038         $userlevel = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>];
-<a name="l00039"></a>00039 
-<a name="l00043"></a>00043         <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <span class="keyword">new</span> <a class="code" href="class_db_connector.html">DbConnector</a>();
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT level FROM pages_list WHERE &quot;</span> .
-<a name="l00046"></a>00046              <span class="stringliteral">&quot;name=&#39;&quot;</span> . $page . <span class="stringliteral">&quot;.php&quot;</span> . <span class="stringliteral">&quot;&#39; LIMIT 1&quot;</span>;
-<a name="l00047"></a>00047         <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         <span class="keywordflow">if</span> ((mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) == FALSE) ||
-<a name="l00051"></a>00051                 (mysqli_num_rows(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>) == 0))
-<a name="l00052"></a>00052         {
-<a name="l00053"></a>00053                 print <span class="stringliteral">&quot;Page not found!&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00054"></a>00054                 <span class="comment">//mysqli_close($link);</span>
-<a name="l00055"></a>00055                 <span class="keywordflow">return</span>(FALSE);
-<a name="l00056"></a>00056         }
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058         $row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC);
-<a name="l00059"></a>00059         $level = $row[<span class="stringliteral">&quot;level&quot;</span>];
-<a name="l00060"></a>00060         mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062         <span class="keywordflow">if</span> ($userlevel &lt; $level)
-<a name="l00063"></a>00063         {
-<a name="l00064"></a>00064                 <span class="comment">//mysqli_close($link);</span>
-<a name="l00065"></a>00065                 <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] == 1)
-<a name="l00066"></a>00066                 {
-<a name="l00067"></a>00067                         print <span class="stringliteral">&quot;This page is only available for entitled users.&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00068"></a>00068                         print <span class="stringliteral">&quot;&lt;P&gt;If you have an account, please log in first before continuing.&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00069"></a>00069                 }
-<a name="l00070"></a>00070                 <span class="keywordflow">else</span>
-<a name="l00071"></a>00071                         print <span class="stringliteral">&quot;Access to this page is not allowed for your user level!&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00072"></a>00072         }
-<a name="l00073"></a>00073         <span class="keywordflow">else</span>
-<a name="l00074"></a>00074         {
-<a name="l00076"></a>00076                 <a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">self::write_stats</a>(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page);
-<a name="l00077"></a>00077     <span class="comment">//          mysqli_close($link);</span>
-<a name="l00079"></a>00079 <span class="comment"></span>        <span class="comment">//      mail_page($page);</span>
-<a name="l00080"></a>00080         
-<a name="l00081"></a>00081                 <span class="keywordflow">switch</span> ($page) {
-<a name="l00082"></a>00082                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;add&quot;</span>: 
-<a name="l00083"></a>00083                                 <span class="keywordflow">switch</span> ($resource_type) {
-<a name="l00084"></a>00084                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;obs&quot;</span>:
-<a name="l00085"></a>00085                                         <span class="comment">//$_observatory = new ObservatoryDAO();</span>
-<a name="l00086"></a>00086                                         <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a> = <a class="code" href="class_model_d_a_o.html#a60a00c2be2dbdcd1e29b9b1753d96f85">ModelDAO::getFromName</a>(<span class="stringliteral">&quot;Observatory&quot;</span>);
-<a name="l00088"></a>00088                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;edit&quot;</span>)
-<a name="l00089"></a>00089                                         {
-<a name="l00090"></a>00090                                                 <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;get_resource($resource_id);
-<a name="l00091"></a>00091                                                 include <span class="stringliteral">&quot;views/ObservatoryCreateUpdate.php&quot;</span>;
-<a name="l00092"></a>00092                                         }
-<a name="l00093"></a>00093                                                 
-<a name="l00094"></a>00094                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;add&quot;</span>)
-<a name="l00095"></a>00095                                         {
-<a name="l00096"></a>00096                                                 <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00097"></a>00097                                                 include <span class="stringliteral">&quot;views/ObservatoryCreateUpdate.php&quot;</span>;
-<a name="l00098"></a>00098                                         }
-<a name="l00099"></a>00099                                                 
-<a name="l00100"></a>00100                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;Add Entry&quot;</span>)
-<a name="l00101"></a>00101                                         {
-<a name="l00102"></a>00102                                             <span class="comment">//NEW: WITH ACCESS CLASS</span>
-<a name="l00103"></a>00103                                         $status = <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;add_resource();
-<a name="l00104"></a>00104                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
-<a name="l00105"></a>00105                                         {
-<a name="l00106"></a>00106                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
-<a name="l00107"></a>00107                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
-<a name="l00108"></a>00108                                                  <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;add_obs_keys($res_id, $action);
-<a name="l00109"></a>00109                                         print <span class="stringliteral">&quot;&lt;H4&gt;The new Observatory has been added to the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00111"></a>00111                                         }
-<a name="l00112"></a>00112                                         <span class="keywordflow">else</span>
-<a name="l00113"></a>00113                                         {
-<a name="l00114"></a>00114                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00115"></a>00115                                         <span class="keywordflow">return</span>;
-<a name="l00116"></a>00116                                         }
-<a name="l00117"></a>00117                                         }
-<a name="l00118"></a>00118                                                 
-<a name="l00119"></a>00119                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;Update Entry&quot;</span>)
-<a name="l00120"></a>00120                                         {
-<a name="l00121"></a>00121                                             print <span class="stringliteral">&quot;UPDATE OBSERVATORY&lt;BR&gt;&quot;</span>;
-<a name="l00122"></a>00122                                                 <span class="comment">//NEW: WITH ACCESS CLASS</span>
-<a name="l00123"></a>00123                                         $status = <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;update_resource($resource_id);
-<a name="l00124"></a>00124                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
-<a name="l00125"></a>00125                                         {
-<a name="l00126"></a>00126                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
-<a name="l00127"></a>00127                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
-<a name="l00128"></a>00128                                         <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;add_obs_keys($res_id, $action);
-<a name="l00129"></a>00129                                         print <span class="stringliteral">&quot;&lt;H4&gt;The Observatory has been updated in the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00131"></a>00131                                         }
-<a name="l00132"></a>00132                                         <span class="keywordflow">else</span>
-<a name="l00133"></a>00133                                         {
-<a name="l00134"></a>00134                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00135"></a>00135                                         <span class="keywordflow">return</span>;
-<a name="l00136"></a>00136                                         }
-<a name="l00137"></a>00137                                         }
-<a name="l00138"></a>00138                                 <span class="keywordflow">break</span>;
-<a name="l00139"></a>00139                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;spa&quot;</span>:
-<a name="l00140"></a>00140                                         <span class="comment">//$_spacemission = new SpacemissionDAO();</span>
-<a name="l00141"></a>00141                                         <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a> = <a class="code" href="class_model_d_a_o.html#a60a00c2be2dbdcd1e29b9b1753d96f85">ModelDAO::getFromName</a>(<span class="stringliteral">&quot;Spacemission&quot;</span>);
-<a name="l00143"></a>00143                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;edit&quot;</span>)
-<a name="l00144"></a>00144                                         {
-<a name="l00145"></a>00145                                                 $_spacemission-&gt;get_resource($resource_id);
-<a name="l00146"></a>00146                                                 include <span class="stringliteral">&quot;views/SpacemissionCreateUpdate.php&quot;</span>;
-<a name="l00147"></a>00147                                         }
-<a name="l00148"></a>00148                                                 
-<a name="l00149"></a>00149                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;add&quot;</span>)
-<a name="l00150"></a>00150                                         {
-<a name="l00151"></a>00151                                                 <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action); 
-<a name="l00152"></a>00152                                                 include <span class="stringliteral">&quot;views/SpacemissionCreateUpdate.php&quot;</span>;
-<a name="l00153"></a>00153                                         }
-<a name="l00154"></a>00154                                                 
-<a name="l00155"></a>00155                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;Add Entry&quot;</span>)
-<a name="l00156"></a>00156                                         {
-<a name="l00157"></a>00157                                                 <span class="comment">//NEW: WITH ACCESS CLASS</span>
-<a name="l00158"></a>00158                                         $status = $_spacemission-&gt;add_resource();
-<a name="l00159"></a>00159                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
-<a name="l00160"></a>00160                                         {
-<a name="l00161"></a>00161                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
-<a name="l00162"></a>00162                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
-<a name="l00163"></a>00163                                         $_spacemission-&gt;add_spa_keys($res_id, $action);
-<a name="l00164"></a>00164                                         print <span class="stringliteral">&quot;&lt;H4&gt;The new Space Mission has been added to the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00166"></a>00166                                         <span class="comment">//mail_add($_POST[&quot;add_res_name&quot;], $res_id, $_POST[&quot;add_contact_email&quot;]);</span>
-<a name="l00168"></a>00168 <span class="comment"></span>                                        }
-<a name="l00169"></a>00169                                         <span class="keywordflow">else</span>
-<a name="l00170"></a>00170                                         {
-<a name="l00171"></a>00171                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00172"></a>00172                                         <span class="keywordflow">return</span>;
-<a name="l00173"></a>00173                                         }
-<a name="l00174"></a>00174                                         }
-<a name="l00175"></a>00175                                                 
-<a name="l00176"></a>00176                                         <span class="keywordflow">if</span>($action == <span class="stringliteral">&quot;Update Entry&quot;</span>)
-<a name="l00177"></a>00177                                         {
-<a name="l00178"></a>00178                                                 print <span class="stringliteral">&quot;UPDATE SPACE MISSION&lt;br&gt;&quot;</span>;
-<a name="l00179"></a>00179                                                 <span class="comment">//NEW: WITH ACCESS CLASS</span>
-<a name="l00180"></a>00180                                         $status = $_spacemission-&gt;update_resource($resource_id);
-<a name="l00181"></a>00181                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
-<a name="l00182"></a>00182                                         {
-<a name="l00183"></a>00183                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
-<a name="l00184"></a>00184                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
-<a name="l00185"></a>00185                                         $_spacemission-&gt;add_spa_keys($res_id, $action);
-<a name="l00186"></a>00186                                         print <span class="stringliteral">&quot;&lt;H4&gt;The Space Mission has been updated in the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00188"></a>00188                                         <span class="comment">//mail_add($_POST[&quot;add_res_name&quot;], $res_id, $_POST[&quot;add_contact_email&quot;]);</span>
-<a name="l00190"></a>00190 <span class="comment"></span>                                        }
-<a name="l00191"></a>00191                                         <span class="keywordflow">else</span>
-<a name="l00192"></a>00192                                         {
-<a name="l00193"></a>00193                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00194"></a>00194                                         <span class="keywordflow">return</span>;
-<a name="l00195"></a>00195                                         }
-<a name="l00196"></a>00196                                         }
-<a name="l00197"></a>00197                                  <span class="keywordflow">break</span>;
-<a name="l00198"></a>00198                         <span class="keywordflow">default</span>:
-<a name="l00199"></a>00199                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action); 
-<a name="l00200"></a>00200                         <span class="keywordflow">break</span>; }
-<a name="l00201"></a>00201                 <span class="keywordflow">break</span>;
-<a name="l00202"></a>00202                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;edit&quot;</span>:
-<a name="l00203"></a>00203                         <span class="keywordflow">switch</span>($resource_type) {
-<a name="l00204"></a>00204                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;obs&quot;</span>:
-<a name="l00205"></a>00205                                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00206"></a>00206                                         include <span class="stringliteral">&quot;views/ObservatoryEditAll.php&quot;</span>;
-<a name="l00207"></a>00207                                         <span class="keywordflow">break</span>;
-<a name="l00208"></a>00208                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;spa&quot;</span>:
-<a name="l00209"></a>00209                                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00210"></a>00210                                         include <span class="stringliteral">&quot;views/SpacemissionEditAll.php&quot;</span>;
-<a name="l00211"></a>00211                                         <span class="keywordflow">break</span>;
-<a name="l00212"></a>00212                                 <span class="keywordflow">case</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>:
-<a name="l00213"></a>00213                                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00214"></a>00214                                         <span class="keywordflow">break</span>; }
-<a name="l00215"></a>00215                         <span class="keywordflow">break</span>;
-<a name="l00216"></a>00216                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;browse&quot;</span>:
-<a name="l00217"></a>00217                         <span class="keywordflow">switch</span> ($resource_type) {
-<a name="l00218"></a>00218                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;obs&quot;</span>:
-<a name="l00219"></a>00219                                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00220"></a>00220                                         include <span class="stringliteral">&quot;views/ObservatoryViewAll.php&quot;</span>;
-<a name="l00221"></a>00221                                         <span class="keywordflow">break</span>;
-<a name="l00222"></a>00222                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;spa&quot;</span>:
-<a name="l00223"></a>00223                                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00224"></a>00224                                         include <span class="stringliteral">&quot;views/SpacemissionViewAll.php&quot;</span>;
-<a name="l00225"></a>00225                                         <span class="keywordflow">break</span>;
-<a name="l00226"></a>00226                                 <span class="keywordflow">case</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>:
-<a name="l00227"></a>00227                                         <a class="code" href="class_controller.html#ab8cbcc07837bd42b3b53bfa4631b0bc9">self::printSelector</a>($page, $action);
-<a name="l00228"></a>00228                                         <span class="keywordflow">break</span>;
-<a name="l00229"></a>00229                                 <span class="keywordflow">default</span>: 
-<a name="l00230"></a>00230                                         <span class="keywordflow">break</span>; }
-<a name="l00231"></a>00231                         <span class="keywordflow">break</span>;
-<a name="l00232"></a>00232                 <span class="keywordflow">default</span>:
-<a name="l00233"></a>00233                         include <span class="stringliteral">&quot;pages/&quot;</span> . $page . <span class="stringliteral">&quot;.php&quot;</span>;
-<a name="l00234"></a>00234                         <span class="keywordflow">break</span>;
-<a name="l00235"></a>00235                 }               
-<a name="l00236"></a>00236                 }
-<a name="l00237"></a>00237                 <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;close();
-<a name="l00238"></a>00238         }
-<a name="l00239"></a>00239         
-<a name="l00240"></a><a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">00240</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">write_stats</a>(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page)
-<a name="l00241"></a>00241         {
-<a name="l00242"></a>00242         $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
-<a name="l00243"></a>00243 
-<a name="l00244"></a>00244         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_statistics SELECT NULL, &quot;</span> .
-<a name="l00245"></a>00245              $userid . <span class="stringliteral">&quot;, id, NOW() FROM pages_list WHERE name=&#39;&quot;</span> .
-<a name="l00246"></a>00246              $page . <span class="stringliteral">&quot;&#39; LIMIT 1&quot;</span>;
-<a name="l00247"></a>00247 
-<a name="l00248"></a>00248         <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00249"></a>00249   }
-<a name="l00250"></a>00250         
-<a name="l00251"></a>00251         
-<a name="l00252"></a>00252 }
-<a name="l00253"></a>00253 
-<a name="l00254"></a>00254 ?&gt;
+<a name="l00007"></a>00007 require_once (<span class="stringliteral">&#39;lib/php/orm/Acl.php&#39;</span>);
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="class_controller.html">00009</a> <span class="keyword">class </span><a class="code" href="class_controller.html">Controller</a>
+<a name="l00010"></a>00010 {
+<a name="l00011"></a><a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">00011</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a> = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)
+<a name="l00012"></a>00012         {
+<a name="l00013"></a>00013                 print <span class="stringliteral">&quot;&lt;FIELDSET class=&#39;rfield&#39;&gt;&lt;LEGEND&gt;Resource Selection:&lt;/LEGEND&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00014"></a>00014         print <span class="stringliteral">&quot;&lt;TABLE border=&#39;0&#39; cellspacing=&#39;4&#39; cellpadding=&#39;4&#39; class=&#39;rtable&#39; width=&#39;100%&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016         print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD align=&#39;center&#39; width=&#39;45%&#39;&gt;&quot;</span> .
+<a name="l00017"></a>00017           <span class="stringliteral">&quot;&lt;INPUT type=&#39;radio&#39; name=&#39;add_res_type&#39; value=&#39;obs&#39;&quot;</span>;
+<a name="l00018"></a>00018                 <span class="keywordflow">if</span> (<a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a> == <span class="stringliteral">&quot;obs&quot;</span>) print <span class="stringliteral">&quot; checked&quot;</span>;
+<a name="l00019"></a>00019         print <span class="stringliteral">&quot; id=&#39;sel_obs&#39; onchange=\&quot;document.main_form.submit()\&quot;&gt;&quot;</span> .
+<a name="l00020"></a>00020           <span class="stringliteral">&quot; &lt;LABEL for=&#39;sel_obs&#39;&gt;&lt;B&gt;Observatory&lt;/B&gt;&lt;/LABEL&gt;&lt;/TD&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022                 print <span class="stringliteral">&quot;&lt;TD align=&#39;center&#39; width=&#39;45%&#39;&gt;&quot;</span> .
+<a name="l00023"></a>00023           <span class="stringliteral">&quot;&lt;INPUT type=&#39;radio&#39; name=&#39;add_res_type&#39; value=&#39;spa&#39;&quot;</span>;
+<a name="l00024"></a>00024         <span class="keywordflow">if</span> (<a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a> == <span class="stringliteral">&quot;spa&quot;</span>) print <span class="stringliteral">&quot; checked&quot;</span>;
+<a name="l00025"></a>00025         print <span class="stringliteral">&quot; id=&#39;sel_spa&#39; onchange=\&quot;document.main_form.submit()\&quot;&gt;&quot;</span> .
+<a name="l00026"></a>00026           <span class="stringliteral">&quot; &lt;LABEL for=&#39;sel_spa&#39;&gt;&lt;B&gt;Space Mission&lt;/B&gt;&lt;/LABEL&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00027"></a>00027         print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;/FIELDSET&gt;&quot;</span>;
+<a name="l00028"></a>00028         
+<a name="l00029"></a>00029         <span class="keywordflow">if</span> (<a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a> == <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)
+<a name="l00030"></a>00030                 print <span class="stringliteral">&quot;&lt;H3 align=&#39;center&#39;&gt;Please select a resource type&lt;/H3&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00031"></a>00031                 
+<a name="l00032"></a>00032         print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;&quot;</span> . $page . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> ;
+<a name="l00033"></a>00033         print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;action&#39; value=&#39;&quot;</span> . <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> ;
+<a name="l00034"></a>00034         }
+<a name="l00035"></a>00035         
+<a name="l00036"></a><a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">00036</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">check</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a> = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>, <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a> = <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)
+<a name="l00037"></a>00037         {
+<a name="l00038"></a>00038                 $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
+<a name="l00039"></a>00039         $userlevel = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_level&quot;</span>];
+<a name="l00040"></a>00040 
+<a name="l00044"></a>00044         <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = <span class="keyword">new</span> <a class="code" href="class_db_connector.html">DbConnector</a>();
+<a name="l00045"></a>00045         
+<a name="l00046"></a>00046         $level = <a class="code" href="class_acl.html#a9a8187a855188621307ce8e50bd46909">Acl::getAclForOption</a>($page);
+<a name="l00047"></a>00047                 
+<a name="l00048"></a>00048         <span class="keywordflow">if</span>($level == -1)
+<a name="l00049"></a>00049         {
+<a name="l00050"></a>00050                 print <span class="stringliteral">&quot;Page not found!&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00051"></a>00051                 <span class="keywordflow">return</span>(FALSE);
+<a name="l00052"></a>00052         }       
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="comment">//      $query = &quot;SELECT level FROM pages_list WHERE &quot; .</span>
+<a name="l00055"></a>00055 <span class="comment">//             &quot;name=&#39;&quot; . $page . &quot;.php&quot; . &quot;&#39; LIMIT 1&quot;;</span>
+<a name="l00056"></a>00056 <span class="comment">//      $result = $link-&gt;query($query);</span>
+<a name="l00057"></a>00057 <span class="comment">//</span>
+<a name="l00058"></a>00058 <span class="comment">//</span>
+<a name="l00059"></a>00059 <span class="comment">//      if ((mysqli_num_rows($result) == FALSE) ||</span>
+<a name="l00060"></a>00060 <span class="comment">//              (mysqli_num_rows($result) == 0))</span>
+<a name="l00061"></a>00061 <span class="comment">//      {</span>
+<a name="l00062"></a>00062 <span class="comment">//                      print &quot;Page not found!&quot; . LF;</span>
+<a name="l00063"></a>00063 <span class="comment">//                      //mysqli_close($link);</span>
+<a name="l00064"></a>00064 <span class="comment">//                      return(FALSE);</span>
+<a name="l00065"></a>00065 <span class="comment">//      }</span>
+<a name="l00066"></a>00066 <span class="comment">//</span>
+<a name="l00067"></a>00067 <span class="comment">//      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);</span>
+<a name="l00068"></a>00068 <span class="comment">//      $level = $row[&quot;level&quot;];</span>
+<a name="l00069"></a>00069 <span class="comment">//      mysqli_free_result($result);</span>
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071         <span class="keywordflow">if</span> ($userlevel &lt; $level)
+<a name="l00072"></a>00072         {
+<a name="l00073"></a>00073                 <span class="comment">//mysqli_close($link);</span>
+<a name="l00074"></a>00074                 <span class="keywordflow">if</span> (<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>] == 1)
+<a name="l00075"></a>00075                 {
+<a name="l00076"></a>00076                         print <span class="stringliteral">&quot;This page is only available for entitled users.&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00077"></a>00077                         print <span class="stringliteral">&quot;&lt;P&gt;If you have an account, please log in first before continuing.&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00078"></a>00078                 }
+<a name="l00079"></a>00079                 <span class="keywordflow">else</span>
+<a name="l00080"></a>00080                         print <span class="stringliteral">&quot;Access to this page is not allowed for your user level!&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00081"></a>00081         }
+<a name="l00082"></a>00082         <span class="keywordflow">else</span>
+<a name="l00083"></a>00083         {
+<a name="l00085"></a>00085                 <a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">self::write_stats</a>(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page);
+<a name="l00086"></a>00086     <span class="comment">//          mysqli_close($link);</span>
+<a name="l00088"></a>00088 <span class="comment"></span>        <span class="comment">//      mail_page($page);</span>
+<a name="l00089"></a>00089         
+<a name="l00090"></a>00090                 <span class="keywordflow">switch</span> ($page) {
+<a name="l00091"></a>00091                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;add&quot;</span>: 
+<a name="l00092"></a>00092                                 <span class="keywordflow">switch</span> (<a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>) {
+<a name="l00093"></a>00093                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;obs&quot;</span>:
+<a name="l00094"></a>00094                                         <span class="comment">//$_observatory = new ObservatoryDAO();</span>
+<a name="l00095"></a>00095                                         <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a> = <a class="code" href="class_model_d_a_o.html#a60a00c2be2dbdcd1e29b9b1753d96f85">ModelDAO::getFromName</a>(<span class="stringliteral">&quot;Observatory&quot;</span>);
+<a name="l00097"></a>00097                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;edit&quot;</span>)
+<a name="l00098"></a>00098                                         {
+<a name="l00099"></a>00099                                                 <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;get_resource(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>);
+<a name="l00100"></a>00100                                                 include <span class="stringliteral">&quot;views/ObservatoryCreateUpdate.php&quot;</span>;
+<a name="l00101"></a>00101                                         }
+<a name="l00102"></a>00102                                                 
+<a name="l00103"></a>00103                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;add&quot;</span>)
+<a name="l00104"></a>00104                                         {
+<a name="l00105"></a>00105                                                 <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00106"></a>00106                                                 include <span class="stringliteral">&quot;views/ObservatoryCreateUpdate.php&quot;</span>;
+<a name="l00107"></a>00107                                         }
+<a name="l00108"></a>00108                                                 
+<a name="l00109"></a>00109                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Add Entry&quot;</span>)
+<a name="l00110"></a>00110                                         {
+<a name="l00111"></a>00111                                             <span class="comment">//NEW: WITH ACCESS CLASS</span>
+<a name="l00112"></a>00112                                         $status = <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;add_resource();
+<a name="l00113"></a>00113                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
+<a name="l00114"></a>00114                                         {
+<a name="l00115"></a>00115                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
+<a name="l00116"></a>00116                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
+<a name="l00117"></a>00117                                                  <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;add_obs_keys($res_id, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>);
+<a name="l00118"></a>00118                                         print <span class="stringliteral">&quot;&lt;H4&gt;The new Observatory has been added to the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00120"></a>00120                                         }
+<a name="l00121"></a>00121                                         <span class="keywordflow">else</span>
+<a name="l00122"></a>00122                                         {
+<a name="l00123"></a>00123                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00124"></a>00124                                         <span class="keywordflow">return</span>;
+<a name="l00125"></a>00125                                         }
+<a name="l00126"></a>00126                                         }
+<a name="l00127"></a>00127                                                 
+<a name="l00128"></a>00128                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Update Entry&quot;</span>)
+<a name="l00129"></a>00129                                         {
+<a name="l00130"></a>00130                                             print <span class="stringliteral">&quot;UPDATE OBSERVATORY&lt;BR&gt;&quot;</span>;
+<a name="l00131"></a>00131                                                 <span class="comment">//NEW: WITH ACCESS CLASS</span>
+<a name="l00132"></a>00132                                         $status = <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;update_resource(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>);
+<a name="l00133"></a>00133                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
+<a name="l00134"></a>00134                                         {
+<a name="l00135"></a>00135                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
+<a name="l00136"></a>00136                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
+<a name="l00137"></a>00137                                         <a class="code" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a>-&gt;add_obs_keys($res_id, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>);
+<a name="l00138"></a>00138                                         print <span class="stringliteral">&quot;&lt;H4&gt;The Observatory has been updated in the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00140"></a>00140                                         }
+<a name="l00141"></a>00141                                         <span class="keywordflow">else</span>
+<a name="l00142"></a>00142                                         {
+<a name="l00143"></a>00143                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00144"></a>00144                                         <span class="keywordflow">return</span>;
+<a name="l00145"></a>00145                                         }
+<a name="l00146"></a>00146                                         }
+<a name="l00147"></a>00147                                 <span class="keywordflow">break</span>;
+<a name="l00148"></a>00148                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;spa&quot;</span>:
+<a name="l00149"></a>00149                                         <span class="comment">//$_spacemission = new SpacemissionDAO();</span>
+<a name="l00150"></a>00150                                         <a class="code" href="_spacemission_view_8php.html#ae13d8581fb08721aed9597ea0e6f169d">$_spacemission</a> = <a class="code" href="class_model_d_a_o.html#a60a00c2be2dbdcd1e29b9b1753d96f85">ModelDAO::getFromName</a>(<span class="stringliteral">&quot;Spacemission&quot;</span>);
+<a name="l00152"></a>00152                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;edit&quot;</span>)
+<a name="l00153"></a>00153                                         {
+<a name="l00154"></a>00154                                                 <a class="code" href="_spacemission_view_8php.html#ae13d8581fb08721aed9597ea0e6f169d">$_spacemission</a>-&gt;get_resource(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>);
+<a name="l00155"></a>00155                                                 include <span class="stringliteral">&quot;views/SpacemissionCreateUpdate.php&quot;</span>;
+<a name="l00156"></a>00156                                         }
+<a name="l00157"></a>00157                                                 
+<a name="l00158"></a>00158                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;add&quot;</span>)
+<a name="l00159"></a>00159                                         {
+<a name="l00160"></a>00160                                                 <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>); 
+<a name="l00161"></a>00161                                                 include <span class="stringliteral">&quot;views/SpacemissionCreateUpdate.php&quot;</span>;
+<a name="l00162"></a>00162                                         }
+<a name="l00163"></a>00163                                                 
+<a name="l00164"></a>00164                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Add Entry&quot;</span>)
+<a name="l00165"></a>00165                                         {
+<a name="l00166"></a>00166                                                 <span class="comment">//NEW: WITH ACCESS CLASS</span>
+<a name="l00167"></a>00167                                         $status = <a class="code" href="_spacemission_view_8php.html#ae13d8581fb08721aed9597ea0e6f169d">$_spacemission</a>-&gt;add_resource();
+<a name="l00168"></a>00168                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
+<a name="l00169"></a>00169                                         {
+<a name="l00170"></a>00170                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
+<a name="l00171"></a>00171                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
+<a name="l00172"></a>00172                                         <a class="code" href="_spacemission_view_8php.html#ae13d8581fb08721aed9597ea0e6f169d">$_spacemission</a>-&gt;add_spa_keys($res_id, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>);
+<a name="l00173"></a>00173                                         print <span class="stringliteral">&quot;&lt;H4&gt;The new Space Mission has been added to the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00175"></a>00175                                         <span class="comment">//mail_add($_POST[&quot;add_res_name&quot;], $res_id, $_POST[&quot;add_contact_email&quot;]);</span>
+<a name="l00177"></a>00177 <span class="comment"></span>                                        }
+<a name="l00178"></a>00178                                         <span class="keywordflow">else</span>
+<a name="l00179"></a>00179                                         {
+<a name="l00180"></a>00180                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00181"></a>00181                                         <span class="keywordflow">return</span>;
+<a name="l00182"></a>00182                                         }
+<a name="l00183"></a>00183                                         }
+<a name="l00184"></a>00184                                                 
+<a name="l00185"></a>00185                                         <span class="keywordflow">if</span>(<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Update Entry&quot;</span>)
+<a name="l00186"></a>00186                                         {
+<a name="l00187"></a>00187                                                 print <span class="stringliteral">&quot;UPDATE SPACE MISSION&lt;br&gt;&quot;</span>;
+<a name="l00188"></a>00188                                                 <span class="comment">//NEW: WITH ACCESS CLASS</span>
+<a name="l00189"></a>00189                                         $status = <a class="code" href="_spacemission_view_8php.html#ae13d8581fb08721aed9597ea0e6f169d">$_spacemission</a>-&gt;update_resource(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>);
+<a name="l00190"></a>00190                                         <span class="keywordflow">if</span> ($status[<span class="stringliteral">&quot;errno&quot;</span>] == 0)
+<a name="l00191"></a>00191                                         {
+<a name="l00192"></a>00192                                         $res_id = $status[<span class="stringliteral">&quot;res_id&quot;</span>];
+<a name="l00193"></a>00193                                         <span class="comment">//INSERT FK-TABLE ENTRY &amp; REFERENCED TABLES ENTRIES</span>
+<a name="l00194"></a>00194                                         <a class="code" href="_spacemission_view_8php.html#ae13d8581fb08721aed9597ea0e6f169d">$_spacemission</a>-&gt;add_spa_keys($res_id, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>);
+<a name="l00195"></a>00195                                         print <span class="stringliteral">&quot;&lt;H4&gt;The Space Mission has been updated in the database!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00197"></a>00197                                         <span class="comment">//mail_add($_POST[&quot;add_res_name&quot;], $res_id, $_POST[&quot;add_contact_email&quot;]);</span>
+<a name="l00199"></a>00199 <span class="comment"></span>                                        }
+<a name="l00200"></a>00200                                         <span class="keywordflow">else</span>
+<a name="l00201"></a>00201                                         {
+<a name="l00202"></a>00202                                         print <span class="stringliteral">&quot;&lt;H4&gt;&quot;</span> . $status[<span class="stringliteral">&quot;error&quot;</span>] . <span class="stringliteral">&quot;&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00203"></a>00203                                         <span class="keywordflow">return</span>;
+<a name="l00204"></a>00204                                         }
+<a name="l00205"></a>00205                                         }
+<a name="l00206"></a>00206                                  <span class="keywordflow">break</span>;
+<a name="l00207"></a>00207                         <span class="keywordflow">default</span>:
+<a name="l00208"></a>00208                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>); 
+<a name="l00209"></a>00209                         <span class="keywordflow">break</span>; }
+<a name="l00210"></a>00210                 <span class="keywordflow">break</span>;
+<a name="l00211"></a>00211                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;edit&quot;</span>:
+<a name="l00212"></a>00212                         <span class="keywordflow">switch</span>(<a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>) {
+<a name="l00213"></a>00213                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;obs&quot;</span>:
+<a name="l00214"></a>00214                                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00215"></a>00215                                         include <span class="stringliteral">&quot;views/ObservatoryEditAll.php&quot;</span>;
+<a name="l00216"></a>00216                                         <span class="keywordflow">break</span>;
+<a name="l00217"></a>00217                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;spa&quot;</span>:
+<a name="l00218"></a>00218                                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00219"></a>00219                                         include <span class="stringliteral">&quot;views/SpacemissionEditAll.php&quot;</span>;
+<a name="l00220"></a>00220                                         <span class="keywordflow">break</span>;
+<a name="l00221"></a>00221                                 <span class="keywordflow">case</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>:
+<a name="l00222"></a>00222                                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00223"></a>00223                                         <span class="keywordflow">break</span>; }
+<a name="l00224"></a>00224                         <span class="keywordflow">break</span>;
+<a name="l00225"></a>00225                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;browse&quot;</span>:
+<a name="l00226"></a>00226                         <span class="keywordflow">switch</span> (<a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>) {
+<a name="l00227"></a>00227                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;obs&quot;</span>:
+<a name="l00228"></a>00228                                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00229"></a>00229                                         include <span class="stringliteral">&quot;views/ObservatoryViewAll.php&quot;</span>;
+<a name="l00230"></a>00230                                         <span class="keywordflow">break</span>;
+<a name="l00231"></a>00231                                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;spa&quot;</span>:
+<a name="l00232"></a>00232                                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00233"></a>00233                                         include <span class="stringliteral">&quot;views/SpacemissionViewAll.php&quot;</span>;
+<a name="l00234"></a>00234                                         <span class="keywordflow">break</span>;
+<a name="l00235"></a>00235                                 <span class="keywordflow">case</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>:
+<a name="l00236"></a>00236                                         <a class="code" href="class_controller.html#a1945b54d350fbae321236ab4c5aa1102">self::printSelector</a>($page, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>, <a class="code" href="index_8php.html#aab0fa7f0ab9d049f4a39128d01297101">$resource_type</a>);
+<a name="l00237"></a>00237                                         <span class="keywordflow">break</span>;
+<a name="l00238"></a>00238                                 <span class="keywordflow">default</span>: 
+<a name="l00239"></a>00239                                         <span class="keywordflow">break</span>; }
+<a name="l00240"></a>00240                         <span class="keywordflow">break</span>;
+<a name="l00241"></a>00241                 <span class="keywordflow">default</span>:
+<a name="l00242"></a>00242                         include <span class="stringliteral">&quot;pages/&quot;</span> . $page . <span class="stringliteral">&quot;.php&quot;</span>;
+<a name="l00243"></a>00243                         <span class="keywordflow">break</span>;
+<a name="l00244"></a>00244                 }               
+<a name="l00245"></a>00245                 }
+<a name="l00246"></a>00246                 <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;close();
+<a name="l00247"></a>00247         }
+<a name="l00248"></a>00248         
+<a name="l00249"></a><a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">00249</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">write_stats</a>(<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page)
+<a name="l00250"></a>00250         {
+<a name="l00251"></a>00251         $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_statistics NULL, &quot;</span> .
+<a name="l00254"></a>00254              $userid . <span class="stringliteral">&quot;, &#39;&quot;</span> . $page . <span class="stringliteral">&quot;&#39;, NOW()&quot;</span>;
+<a name="l00255"></a>00255              
+<a name="l00256"></a>00256         echo <span class="stringliteral">&quot;$query&quot;</span>;
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258         <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00259"></a>00259   }
+<a name="l00260"></a>00260         
+<a name="l00261"></a>00261         
+<a name="l00262"></a>00262 }
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:17 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

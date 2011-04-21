@@ -312,28 +312,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `europlanet_na1`.`camera_properties`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`camera_properties` (
-  `id` INT UNSIGNED NOT NULL ,
-  `camera_type` TEXT NULL DEFAULT NULL ,
-  `max_frames_per_sec` FLOAT NULL DEFAULT NULL ,
-  `frame_size` TEXT NULL DEFAULT NULL ,
-  `max_exposure_time` FLOAT NULL DEFAULT NULL ,
-  `min_exposure_time` FLOAT NULL DEFAULT NULL ,
-  `color_bw_chip` TINYINT(1)  NULL DEFAULT NULL ,
-  `ccd_chip_type` TEXT NULL DEFAULT NULL ,
-  INDEX `observatory_id_6` (`id` ASC) ,
-  PRIMARY KEY (`id`) ,
-  CONSTRAINT `observatory_id_6`
-    FOREIGN KEY (`id` )
-    REFERENCES `europlanet_na1`.`observatories` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `europlanet_na1`.`agencies`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`agencies` (
@@ -617,6 +595,17 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`telescope_to_instruments` (
     REFERENCES `europlanet_na1`.`instruments` (`id` )
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `europlanet_na1`.`wavelength_ranges`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`wavelength_ranges` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `acronym` TEXT NOT NULL ,
+  `name` TEXT NOT NULL ,
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
 

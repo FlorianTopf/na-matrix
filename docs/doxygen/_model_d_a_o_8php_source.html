@@ -81,8 +81,8 @@
 <a name="l00051"></a>00051                 <span class="keywordflow">if</span> (strtoupper(substr($daoName, -3)) != <span class="stringliteral">&#39;DAO&#39;</span>) $daoName.=<span class="stringliteral">&#39;DAO&#39;</span>;
 <a name="l00052"></a>00052                 <span class="keywordflow">if</span> (!isset(self::$_daos[$daoName])) { 
 <a name="l00053"></a>00053                         <span class="comment">// create a new ModelDAO instance (will be UNIQUE and used by all other Models)</span>
-<a name="l00054"></a>00054                         echo <span class="stringliteral">&quot;NEW &quot;</span>;
-<a name="l00055"></a>00055                         echo <span class="stringliteral">&quot;class = $daoName &lt;br&gt;&quot;</span>;
+<a name="l00054"></a>00054 <span class="comment">//                      echo &quot;NEW &quot;;</span>
+<a name="l00055"></a>00055 <span class="comment">//                      echo &quot;class = $daoName &lt;br&gt;&quot;;</span>
 <a name="l00056"></a>00056                         self::set(<span class="keyword">new</span> $daoName()); <span class="comment">// ATTENTION: not allowed if ModelDAO constructor is private</span>
 <a name="l00057"></a>00057                 }
 <a name="l00058"></a>00058                 <span class="keywordflow">return</span> self::$_daos[$daoName];
@@ -100,14 +100,17 @@
 <a name="l00070"></a>00070                 <span class="keywordflow">return</span> substr(get_class($this), 0,-3);
 <a name="l00071"></a>00071         }
 <a name="l00072"></a>00072         
-<a name="l00073"></a>00073 }
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 ?&gt;
+<a name="l00073"></a>00073         <span class="comment">//--- Common methods</span>
+<a name="l00074"></a>00074         
+<a name="l00075"></a>00075         
+<a name="l00076"></a>00076 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Apr 19 2011 23:27:54 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:17 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
