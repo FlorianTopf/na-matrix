@@ -117,7 +117,7 @@ class ObservatoryDAO extends ModelDAO
 	{
 		if(isset($this->_fields[$x_field][$y_field]))
 			return $this->_fields[$x_field][$y_field];
-		else 
+		else
 			return NULL;
 	}
 
@@ -243,7 +243,7 @@ class ObservatoryDAO extends ModelDAO
 	{
 		if(array_key_exists($x_field, $this->_telescopes))
 			return htmlentities($this->_telescopes[$x_field][$y_field],ENT_QUOTES);
-		else 
+		else
 			return NULL;
 	}
 
@@ -613,7 +613,7 @@ class ObservatoryDAO extends ModelDAO
   /**
    * @fn update_resource($res_id)
    * @brief updates an existing resource obs/spa
-   * 
+   *
    * @param $res_id ID of the resource we want to have
    *
    * @return $status mysql_status
@@ -657,11 +657,57 @@ class ObservatoryDAO extends ModelDAO
 	  		"partner_observatories='" . addslashes($_POST["add_obs_partner"]) . "'," .
 			"modification_date=NOW() " .
 	  		"WHERE id=" . $res_id;
-		
+
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
 			"error" => self::$db->error(),
 			"res_id" => $res_id);
+
+		return $status;
+	}
+
+//-----------------------------------------------------------------------------------------------------------
+  /**
+   * @fn del_resource($res_id)
+   * @brief deletes an existing observatory
+   *
+   * @param $res_id ID of the observatory we want to delete
+   *
+   * @return $status mysql_status
+   *
+   * GLOBAL: $_POST array
+   */
+	public function del_resource($resource_id)
+	{
+		//DELETING instruments
+		$query = "DELETE FROM instruments WHERE EXISTS " .
+				 "(SELECT telescope_to_instruments.telescope_id FROM telescope_to_instruments, observatory_to_telescopes WHERE " .
+				 "telescope_to_instruments.instrument_id = instruments.id AND " .
+				 "observatory_to_telescopes.telescope_id = telescope_to_instruments.telescope_id AND " .
+				 "observatory_to_telescopes.observatory_id = " . $resource_id . ");";
+		self::$db->query($query);
+
+		//DELETING scientific contacts
+		$query = "DELETE FROM scientific_contacts WHERE EXISTS " .
+				 "(SELECT observatory_to_scientific_contacts.observatory_id FROM observatory_to_scientific_contacts WHERE " .
+				 "observatory_to_scientific_contacts.scientific_contact_id = scientific_contacts.id AND " .
+				 "observatory_to_scientific_contacts.observatory_id = " . $resource_id . ");";
+		self::$db->query($query);
+
+		//DELETING telescopes
+		$query = "DELETE FROM telescopes WHERE EXISTS " .
+				 "(SELECT observatory_to_telescopes.observatory_id FROM observatory_to_telescopes WHERE " .
+				 "observatory_to_telescopes.telescope_id = telescopes.id AND " .
+				 "observatory_to_telescopes.observatory_id = " . $resource_id . ");";
+		self::$db->query($query);
+
+		//DELETING observatory
+		$query = "DELETE FROM observatories WHERE id=" . $resource_id;
+		self::$db->query($query);
+
+		$status = array("errno" => self::$db->errno(),
+			"error" => self::$db->error(),
+			"resource_id" => $resource_id);
 
 		return $status;
 	}
@@ -1324,6 +1370,9 @@ class ObservatoryDAO extends ModelDAO
  */
   	protected function floatToGps($LATorLON, $float)
   	{
+  		if($float == NULL)
+  			$float = 0.0;
+
   		$this->_fields["obs_$LATorLON"]["float"] = $float;
 
   		if ($LATorLON == "latitude")
