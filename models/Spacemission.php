@@ -170,7 +170,7 @@ class SpacemissionDAO extends ModelDAO
  	/** get a field from sensors */
 	public function get_sensor($x_field, $y_field)
 	{
-		if(array_key_exists($x_field, $this->_sensors))
+		if(isset($this->_sensors[$x_field][$y_field]))
 			return htmlentities($this->_sensors[$x_field][$y_field],ENT_QUOTES);
 		else
 			return NULL;
@@ -180,7 +180,7 @@ class SpacemissionDAO extends ModelDAO
 	/** get a field from scientific contacts */
 	public function get_scientific_contact($x_field, $y_field, $z_field)
 	{
-		if(array_key_exists($x_field, $this->_scientificContacts))
+		if(isset($this->_scientificContacts[$x_field][$y_field][$z_field]))
 			return htmlentities($this->_scientificContacts[$x_field][$y_field][$z_field],ENT_QUOTES);
 		else
 			return NULL;

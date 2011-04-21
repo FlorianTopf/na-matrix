@@ -123,8 +123,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get countries from countries table
-	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 * @todo improve this a bit */
 	public function get_countries()
 	{
 		$query = "SELECT id, name FROM countries";
@@ -140,8 +139,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get precipitation ranges from table
-	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 * @todo improve this a bit */
 	public function get_precipitation_ranges()
 	{
 		$query = "SELECT * FROM precipitation_ranges ORDER by id DESC";
@@ -157,8 +155,7 @@ class ObservatoryDAO extends ModelDAO
 
  //-----------------------------------------------------------------------------------------------------------
  	/** get clear nights from table
-	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 * @todo improve this a bit */
 	public function get_clearnights_ranges()
 	{
 		$query = "SELECT * FROM clearnights_ranges ORDER by id DESC";
@@ -174,8 +171,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get timezones from table
-	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 * @todo improve this a bit */
  	public function get_timezones()
 	{
 		$query = "SELECT * FROM timezones";
@@ -190,7 +186,8 @@ class ObservatoryDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** get a field from scientific contacts */
+	/** get a field from scientific contacts 
+	 * @todo maybe check here with isset too */
 	public function get_scientific_contact($x_field, $y_field)
 	{
 		return htmlentities($this->_scientificContacts[$x_field][$y_field],ENT_QUOTES);
@@ -241,7 +238,7 @@ class ObservatoryDAO extends ModelDAO
  	/** get a field from telescopes */
 	public function get_telescope($x_field, $y_field)
 	{
-		if(array_key_exists($x_field, $this->_telescopes))
+		if(isset($this->_telescopes[$x_field][$y_field]))
 			return htmlentities($this->_telescopes[$x_field][$y_field],ENT_QUOTES);
 		else
 			return NULL;
@@ -305,7 +302,7 @@ class ObservatoryDAO extends ModelDAO
   */
 	public function get_instrument($x_field, $y_field, $z_field)
 	{
-		if(array_key_exists($x_field, $this->_instruments))
+		if(isset($this->_instruments[$x_field][$y_field][$z_field]))
 			return htmlentities($this->_instruments[$x_field][$y_field][$z_field],ENT_QUOTES);
 		else
 			return NULL;
