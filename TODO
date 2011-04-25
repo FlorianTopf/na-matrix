@@ -1,3 +1,6 @@
+BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be on the safe side)
+* Watch out for MODEL functionality and TABLEFIELD class
+
 * Put FIREFOX/JS recommendation in footer
   * MODEL has to be proof if javascript is OFF (check with browser)
 
@@ -24,7 +27,7 @@
 * Introduce clean_num() for high precision values in browse.php or models
   * diameter_m, wavelength_begin, wavelength_end
   
-* Introduce Questionnaire form (entries must be approved afterwards)
+** Introduce Questionnaire form (entries must be approved afterwards)
   * very user friendly! tooltips necessary (UI)
   * switch of all OTHER options (research areas etc.)
   * maybe modify database (use a second one OR make flags)
@@ -33,7 +36,7 @@
   * add other targets (db functionality)
   * error labels for diameter (and other inputs) must be better!
   * wavelength (written text? like radio, near-infrared..)
-    * autocompleter + db table (acronym / name)
+    * autocompleter + db table (acronym / name) [OK]
     * take only necessary jquery UI scripts + css
   * spatial resolution => format?
   * spectral resolution => format?
@@ -48,7 +51,7 @@
   * instrument name - MANDATORY?
   * instrument type - MANDATORY?
   * check for type of values (critical review)!
-  * autocompleter for sensor type
+  * autocompleter for telescope / instrument name
 
 
 * Input form for space missions
@@ -58,6 +61,7 @@
   * range_begin, range_end => high precision float?
   * remove last sensor => empty fields
   * Add validation for OTHER science goals with inline error label
+  * autocompleter for sensor type
   
 * Input validation in JQUERY for space missions (see comments in add.php)
   * other target - MANDATORY!
@@ -66,17 +70,18 @@
   * validation for sensor web_address (URL)
   * check for type of values (critical review)!
   
-** ALL INPUT FORMS:
-   * Add validation for existing names for all OTHER 
+* ALL INPUT FORMS:
+  * Add validation for existing names for all OTHER 
+  * make scientific contacts work like e.g. telescopes (jquery, DAO)
 
    
-* Browsing pages for observatories
+** Browsing pages for observatories
   * according to telecon inputs (standard / detail pages)
   * colorization of different observatories
   * show creation / modification date
   * links to the partner observatories (how to manage this?)
   
-* Browsing pages for space missions
+** Browsing pages for space missions
   * according to telecon inputs (standard / detail pages)
   * don't forget to display agencies details
   * colorization of different agencies
@@ -87,7 +92,7 @@
    * filter mechanisms with onchange events
     
     
-* Search pages for space missions / observatories
+** Search pages for space missions / observatories
   * according to use cases and telecon inputs
   * wavelength searchable? (maybe dropdown for specific ranges)
   * colorization and listing in browsing pages (filters above)

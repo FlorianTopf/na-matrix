@@ -3,8 +3,6 @@
  * @file SpacemissionCreateUpdate.php
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
- *
- * @todo generalize error messages and send them via mail
  */
 	 
       print "<INPUT type='hidden' name='page' value='add'>" . LF ;

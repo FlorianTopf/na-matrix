@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file controller.inc.php
+ * @version $Id$
+ * @author Florian Topf, Robert Stöckler
+ */
 
 include_once ('lib/php/orm/DbConnector.php');
 require_once ('lib/php/orm/ModelDAO.php');
@@ -64,7 +69,6 @@ class Controller
     	}
     	else
     	{
-   			/** @todo implement write stats */
     	   	self::write_stats($link, $page);
     //  	mysqli_close($link);
     		/** @todo add optional mail functionality */
@@ -110,7 +114,7 @@ class Controller
 					 	
 				 	if($action == "Update Entry")
 				 	{
-				 	    print "UPDATE OBSERVATORY<BR>";
+				 	    //print "UPDATE OBSERVATORY<BR>";
 				 		//NEW: WITH ACCESS CLASS
           				$status = $_observatory->update_resource($resource_id);
           				if ($status["errno"] == 0)
@@ -154,7 +158,7 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_spacemission->add_spa_keys($res_id, $action);
             				print "<H4>The new Space Mission has been added to the database!</H4>" . LF;
-            				/** @todo mail functionality*/
+            				/** @todo mail functionality, resource name, id and username*/
             				//mail_add($_POST["add_res_name"], $res_id, $_POST["add_contact_email"]);
             				/** @todo here we add some sexy backlinks */
          				}
@@ -167,7 +171,7 @@ class Controller
 						
 					if($action == "Update Entry")
 					{
-						print "UPDATE SPACE MISSION<br>";
+						//print "UPDATE SPACE MISSION<br>";
 						//NEW: WITH ACCESS CLASS
           				$status = $_spacemission->update_resource($resource_id);
           				if ($status["errno"] == 0)
@@ -176,7 +180,7 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_spacemission->add_spa_keys($res_id, $action);
             				print "<H4>The Space Mission has been updated in the database!</H4>" . LF;
-            				/** @todo mail functionality*/
+            				/** @todo mail functionality, resource name, id and username*/
             				//mail_add($_POST["add_res_name"], $res_id, $_POST["add_contact_email"]);
             				/** @todo here we add some sexy backlinks */
           				}

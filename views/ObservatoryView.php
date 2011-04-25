@@ -9,7 +9,8 @@
  */
 
 require_once ('../config.inc.php');
-require_once ('../lib/php/functions.php');
+//require_once ('../lib/php/functions.php');
+require_once ('../lib/php/orm/html.php');
 include_once ('../lib/php/orm/DbConnector.php');
 //require_once ('../models/Observatory.php');
 require_once ('../lib/php/orm/ModelDAO.php');

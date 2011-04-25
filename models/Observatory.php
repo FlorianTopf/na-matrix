@@ -3,8 +3,6 @@
  * @file observatory.php
  * @version $Id$
  * @author Florian Topf
- *
- * @todo generalize error messages and send them via mail
  */
 
 
@@ -12,6 +10,10 @@
  * @class Observatory
  *
  * @brief Represents the table observatories and access to it
+ * 
+ * @todo generalize error messages and send them via mail 
+ * integrate set_message() with error by checking in controller each time 
+ * if a SESSION error ocurred show_message()
  */
 class ObservatoryDAO extends ModelDAO
  {
@@ -19,10 +21,18 @@ class ObservatoryDAO extends ModelDAO
 	//protected $_link = NULL;
 
 	/** Array of column names from observatories */
-	protected $_fields = array();
+	//protected $_fields = array();
 
 	/** Array for all countries */
 	protected $_countries = array();
+	
+	/** Array for latitude prefixes 
+	 * @todo make a getter for this */
+	public $_latitudePrefixes = array("North", "South");
+	
+	/** Array for longitude prefixes
+	 * @todo make a getter for this */
+	public $_longitudePrefixes = array("East", "West");	
 
 	/** Array for all precipitation ranges */
 	protected $_precipitationRanges = array();
@@ -102,13 +112,13 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get a field from observatories */
-	public function get_field($field)
-	{
-		if(array_key_exists($field, $this->_fields))
-			return htmlentities($this->_fields[$field],ENT_QUOTES);
-		else
-			return NULL;
-	}
+//	public function get_field($field)
+//	{
+//		if(array_key_exists($field, $this->_fields))
+//			return htmlentities($this->_fields[$field],ENT_QUOTES);
+//		else
+//			return NULL;
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get field array from observatories
@@ -202,8 +212,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get research_areas from table
-	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 * @todo improve this a bit */
 	public function get_research_areas()
 	{
 		$query = "SELECT * FROM research_areas ORDER BY research_areas.name ASC";
@@ -219,8 +228,7 @@ class ObservatoryDAO extends ModelDAO
 
  //-----------------------------------------------------------------------------------------------------------
 	/** get targets from table
-	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 * @todo improve this a bit */
 	public function get_targets()
 	{
 		$query = "SELECT id, target_family, target_name FROM targets ORDER BY targets.target_family ASC";
@@ -247,7 +255,7 @@ class ObservatoryDAO extends ModelDAO
 //-----------------------------------------------------------------------------------------------------------
  	/** get telescope types from table
   	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 */
  	public function get_telescope_types()
  	{
 		$query = "SELECT id, name FROM telescope_types";
@@ -264,7 +272,7 @@ class ObservatoryDAO extends ModelDAO
 //-----------------------------------------------------------------------------------------------------------
  	/** get antenna types from table
 	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 */
  	public function get_antenna_types()
  	{
 		$query = "SELECT id, antenna_type FROM antenna_types";
@@ -281,7 +289,7 @@ class ObservatoryDAO extends ModelDAO
 //-----------------------------------------------------------------------------------------------------------
  	/** get wavelength units from table
  	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 */
  	public function get_wavelength_units()
  	{
 		$query = "SELECT id, wavelength_unit FROM wavelength_units";
@@ -297,9 +305,7 @@ class ObservatoryDAO extends ModelDAO
 
 
 //-----------------------------------------------------------------------------------------------------------
- /** get a field from instruments
-  	 @todo return empty string when its not set!
-  */
+ /** get a field from instruments */
 	public function get_instrument($x_field, $y_field, $z_field)
 	{
 		if(isset($this->_instruments[$x_field][$y_field][$z_field]))
@@ -310,8 +316,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get instrument_types from table
-  	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+  	 * @todo improve this a bit */
  	public function get_instrument_types()
  	{
 		$query = "SELECT id, name FROM instrument_types";
@@ -344,15 +349,15 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get fieldkeys from 1-N relations (_hasMany) */
-	public function get_has_many($x_field, $y_field)
-	{
-		if($y_field == NULL)
-			return $this->_hasMany[$x_field];
-		else if(isset($this->_hasMany[$x_field][$y_field]))
-			return $this->_hasMany[$x_field][$y_field];
-		else
-			return NULL;
-	}
+//	public function get_has_many($x_field, $y_field)
+//	{
+//		if($y_field == NULL)
+//			return $this->_hasMany[$x_field];
+//		else if(isset($this->_hasMany[$x_field][$y_field]))
+//			return $this->_hasMany[$x_field][$y_field];
+//		else
+//			return NULL;
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** initialize 1-N relation (_hasMany) if no entry is there */
@@ -476,7 +481,7 @@ class ObservatoryDAO extends ModelDAO
 			//for each telescope of the requested obervatory
 			foreach ($row as $key => $value)
 			{
-				/** @todo check if value is 0 since we use FLOAT in the DB */
+				//check if value is 0 since we use FLOAT in the DB
 				if($value != '0')
 				{
 					if($key == 'id')
@@ -501,7 +506,7 @@ class ObservatoryDAO extends ModelDAO
 							//for each instrument of the requested telescopes
 							foreach($row_1 as $i_key => $i_value)
 							{
-								/** @todo check if value is 0 since we use FLOAT in the DB */
+								//check if value is 0 since we use FLOAT in the DB
 								if($i_value != '0')
 								{
 									if($i_key == 'id')
@@ -881,16 +886,16 @@ class ObservatoryDAO extends ModelDAO
    protected function add_hidden_fields($res_id)
    {
 		$query = "INSERT INTO hidden_fields VALUES (". $res_id  .",'" .
-	    	$_POST["add_obs_hide_0"] . "','" .
-	    	$_POST["add_obs_hide_1"] . "','" .
-	    	$_POST["add_obs_hide_2"] . "','" .
-	    	$_POST["add_obs_hide_3"] . "','" .
-	    	$_POST["add_obs_hide_4"] . "','" .
-	    	$_POST["add_obs_hide_5"] . "','" .
-	    	$_POST["add_obs_hide_6"] . "','" .
-	    	$_POST["add_obs_hide_7"] . "','" .
-			$_POST["add_obs_hide_8"] . "','" .
-	        $_POST["add_obs_hide_9"] . "')";
+	    	checkbox_value("add_obs_hide_0") . "','" .
+	    	checkbox_value("add_obs_hide_1") . "','" .
+	    	checkbox_value("add_obs_hide_2") . "','" .
+	    	checkbox_value("add_obs_hide_3") . "','" .
+	    	checkbox_value("add_obs_hide_4") . "','" .
+	    	checkbox_value("add_obs_hide_5") . "','" .
+	    	checkbox_value("add_obs_hide_6") . "','" .
+	    	checkbox_value("add_obs_hide_7") . "','" .
+			checkbox_value("add_obs_hide_8") . "','" .
+	        checkbox_value("add_obs_hide_9") . "')";
 
 	    self::$db->query($query);
 	    if (self::$db->errno() != 0)
@@ -907,20 +912,22 @@ class ObservatoryDAO extends ModelDAO
    * GLOBAL: $_POST array
    *
    * THIS IS A 1ST ORDER TABLE
+   * 
+   * @todo gives a notice on unset post vars (not checked boxes)
    */
    protected function update_hidden_fields($res_id)
    {
 		$query = "UPDATE hidden_fields SET " .
-	  		"web_address='" . $_POST["add_obs_hide_0"] . "'," .
-	  		"address='" . $_POST["add_obs_hide_1"] . "'," .
-	  		"zip_code='" . $_POST["add_obs_hide_2"] . "'," .
-	  		"city='" . $_POST["add_obs_hide_3"] . "'," .
-	  		"phone='" . $_POST["add_obs_hide_4"] . "'," .
-	  		"email='" . $_POST["add_obs_hide_5"] . "'," .
-	  		"latitude='" . $_POST["add_obs_hide_6"] . "'," .
-	  		"longitude='" . $_POST["add_obs_hide_7"] . "'," .
-	  		"scientific_contacts='" . $_POST["add_obs_hide_8"] . "'," .
-	  		"further_contacts='" . $_POST["add_obs_hide_9"] . "'" .
+	  		"web_address='" . checkbox_value("add_obs_hide_0") . "'," .
+	  		"address='" . checkbox_value("add_obs_hide_1") . "'," .
+	  		"zip_code='" . checkbox_value("add_obs_hide_2") . "'," .
+	  		"city='" . checkbox_value("add_obs_hide_3") . "'," .
+	  		"phone='" . checkbox_value("add_obs_hide_4") . "'," .
+	  		"email='" . checkbox_value("add_obs_hide_5") . "'," .
+	  		"latitude='" . checkbox_value("add_obs_hide_6") . "'," .
+	  		"longitude='" . checkbox_value("add_obs_hide_7") . "'," .
+	  		"scientific_contacts='" . checkbox_value("add_obs_hide_8") . "'," .
+	  		"further_contacts='" . checkbox_value("add_obs_hide_9") . "'" .
 	  		"WHERE id=" . $res_id;
 
 	  	self::$db->query($query);
@@ -981,6 +988,7 @@ class ObservatoryDAO extends ModelDAO
 	        		print "<H4>Error inserting new entry in research_areas!</H4>" . LF;
 
    				//push new id into add_obs_res_are_ids
+   				/** @todo we need to check if the array is existing or put validation in JS */
    				array_push($_POST["add_obs_res_are_ids"], self::$db->getLastInsertId());
    			}
    		}
@@ -1031,11 +1039,11 @@ class ObservatoryDAO extends ModelDAO
    * GLOBAL: $_POST array
    *
    * THIS IS A 2ND ORDER TABLE
+   * 
+   * @todo adding new targets needed?
    */
    protected function add_targets($res_id)
    {
-   		/** @todo adding new targets needed? */
-
    		//if there is any entry given
    		if(isset($_POST["add_obs_target_ids"]))
    			foreach ($_POST["add_obs_target_ids"] as $target_id)
@@ -1066,8 +1074,6 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 3RD ORDER TABLE
- *
- * @todo implement functionality for instruments and make a delete out of it
  */
 	protected function delete_telescopes($res_id)
 	{
@@ -1241,7 +1247,7 @@ class ObservatoryDAO extends ModelDAO
 				   			addslashes($_POST["add_obs_instrument_frame_size"][$tele_key][$instr_key]) . "','" .
 				   			$_POST["add_obs_instrument_max_exposure"][$tele_key][$instr_key] . "','" .
 				   			$_POST["add_obs_instrument_min_exposure"][$tele_key][$instr_key] . "','" .
-				   			$_POST["add_obs_instrument_bw_chip"][$tele_key][$instr_key] . "','" .
+				   			checkbox_value("add_obs_instrument_bw_chip", $tele_key, $instr_key) . "','" .
 				   			addslashes($_POST["add_obs_instrument_chip_type"][$tele_key][$instr_key]) . "','" .
 				   			addslashes($_POST["add_obs_instrument_comments"][$tele_key][$instr_key]) . "')";
 

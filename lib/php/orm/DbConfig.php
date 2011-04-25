@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file DbConfig.php
+ * @version $Id$
+ * @author Florian Topf
+ */
 
 abstract class SystemComponent 
 {

@@ -1,4 +1,9 @@
 <?php 
+/**
+ * @file Acl.php
+ * @version $Id$
+ * @author Florian Topf
+ */
 
 class Acl
 {

@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file ModelDAO.php
+ * @version $Id$
+ * @author Florian Topf
+ */
 
 include_once ('DbConnector.php');
 
@@ -27,6 +32,14 @@ abstract class ModelDAO
 	
 	private $_modelName; // Model name
 	
+	/** Array of column names from the mapped table */
+	protected $_fields = array();
+	
+	/** Array of all 1-N relations: can be overridden by subclasses */
+	protected $_hasMany = array ();
+	
+//-----------------------------------------------------------------------------------------------------------
+
 	protected function __construct()
 	{
 		$this->_modelName = $this->getModelName(); // ex : 'ModelDAO' --> 'Model'
@@ -34,41 +47,77 @@ abstract class ModelDAO
 		if (self::$db == NULL)
 			self::$db = new DbConnector();
 			
-		self::set($this);
-			
+		self::set($this);		
 	}
+
+//-----------------------------------------------------------------------------------------------------------
 	
 	static public function getDB()
 	{
 		return self::$db;
 	}
 	
+//-----------------------------------------------------------------------------------------------------------
+	
 	static private function set(ModelDAO $dao) {
 		self::$_daos[get_class($dao)] = $dao;
 	}
+
+//-----------------------------------------------------------------------------------------------------------
 	
 	static public function getFromName($daoName) {
 		if (strtoupper(substr($daoName, -3)) != 'DAO') $daoName.='DAO';
 		if (!isset(self::$_daos[$daoName])) { 
 			// create a new ModelDAO instance (will be UNIQUE and used by all other Models)
-			echo "NEW ";
-			echo "class = $daoName <br>";
+//			echo "NEW ";
+//			echo "class = $daoName <br>";
 			self::set(new $daoName()); // ATTENTION: not allowed if ModelDAO constructor is private
 		}
 		return self::$_daos[$daoName];
 	}
+
+//-----------------------------------------------------------------------------------------------------------
 	
 	static public function getCurrent() {
 		return self::$_daos[self::$_currentDaoName];
 	}
 	
+//-----------------------------------------------------------------------------------------------------------
+	
 	static public function setCurrent($daoName) {
 		self::$_currentDaoName = $daoName;
 	}
 	
+//-----------------------------------------------------------------------------------------------------------
+	
 	function getModelName() { // ex : for GroupDAO --> model is "Group"
 		return substr(get_class($this), 0,-3);
 	}
+
+//-----------------------------------------------------------------------------------------------------------
+//--- COMMON METHODS
+	/** get a field from the mapped table */
+	public function get_field($field)
+	{
+		if(array_key_exists($field, $this->_fields))
+			return htmlentities($this->_fields[$field],ENT_QUOTES);
+		else
+			return NULL;
+	}
+	
+//-----------------------------------------------------------------------------------------------------------
+ 	/** get fieldkeys from 1-N relations (_hasMany) */
+ 	public function get_has_many($x_field, $y_field)
+	{
+		if($y_field == NULL)
+			return $this->_hasMany[$x_field];
+		else if(isset($this->_hasMany[$x_field][$y_field]))
+			return $this->_hasMany[$x_field][$y_field];
+		else
+			return NULL;
+	}
+
+//-----------------------------------------------------------------------------------------------------------
 	
 }
 

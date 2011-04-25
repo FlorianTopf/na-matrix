@@ -14,23 +14,33 @@
 //    return $link;
 //  }
 
-  function isValidURL($url)
-  {
-	return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
-  }
+//  function isValidURL($url)
+//  {
+//	return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
+//  }
+//
+//  function url_exists($url)
+//  {
+//  	$handle = @fopen($url, "r");
+//	if ($handle === false)
+//		return false;
+//	fclose($handle);
+//	return true;
+//  }
+//  
+//  function clean_num($num)
+//  {
+//  	return rtrim(rtrim($num, '0'), '.');
+//  }
 
-  function url_exists($url)
+  function checkbox_value($name, $x_value=NULL, $y_value=NULL) 
   {
-  	$handle = @fopen($url, "r");
-	if ($handle === false)
-		return false;
-	fclose($handle);
-	return true;
-  }
-  
-  function clean_num($num)
-  {
-  	return rtrim(rtrim($num, '0'), '.');
+  	if($x_value != NULL && $y_value != NULL)
+  		return (isset($_POST[$name][$x_value][$y_value]) ? "1" : "0");
+  	if($x_value != NULL && $y_value == NULL)
+  		return (isset($_POST[$name][$x_value]) ? "1" : "0");
+  	else
+  		return (isset($_POST[$name]) ? "1" : "0");
   }
 
   function varStore($varname, $vardefault)
@@ -102,8 +112,8 @@
 //  }
 
 
-  function mail_page($page)
-  {
+//function mail_page($page)
+//{
 //    ini_set("SMTP", MAIL_SMTP);
 //
 //    $subject = "Europlanet catalogue access";
@@ -122,7 +132,7 @@
 //    $message = "Page access: " . $page . " by user " . $user;
 //
 //    mail(MAIL_TO, $subject, $message, $headers, $from);
-  }
+//}
 
 
 //  function write_stats($link, $page)

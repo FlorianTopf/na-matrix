@@ -3,8 +3,6 @@
  * @file spacemission.php
  * @version $Id$
  * @author Florian Topf
- *
- * @todo generalize error messages and send them via mail
  */
 
 
@@ -12,6 +10,10 @@
  * @class Spacemission
  *
  * @brief Represents the table space_missions and access to it
+ * 
+ * @todo generalize error messages and send them via mail 
+ * integrate set_message() with error by checking in controller each time 
+ * if a SESSION error ocurred show_message()
  */
 class SpacemissionDAO extends ModelDAO
  {
@@ -19,7 +21,7 @@ class SpacemissionDAO extends ModelDAO
 	//protected $_link = NULL;
 
 	/** Array of column names from space mission */
-	protected $_fields = array();
+	//protected $_fields = array();
 
 	/** Array for all agencies */
 	protected $_agencies = array ();
@@ -65,13 +67,13 @@ class SpacemissionDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get a field from space mission */
- 	public function get_field($field)
-	{
-		if(array_key_exists($field, $this->_fields))
-			return htmlentities($this->_fields[$field],ENT_QUOTES);
-		else
-			return NULL;
-	}
+// 	public function get_field($field)
+//	{
+//		if(array_key_exists($field, $this->_fields))
+//			return htmlentities($this->_fields[$field],ENT_QUOTES);
+//		else
+//			return NULL;
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get agencies from table */
@@ -89,15 +91,15 @@ class SpacemissionDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get fieldkeys from 1-N relations (_hasMany) */
- 	public function get_has_many($x_field, $y_field)
-	{
-		if($y_field == NULL)
-			return $this->_hasMany[$x_field];
-		else if(isset($this->_hasMany[$x_field][$y_field]))
-			return $this->_hasMany[$x_field][$y_field];
-		else
-			return NULL;
-	}
+// 	public function get_has_many($x_field, $y_field)
+//	{
+//		if($y_field == NULL)
+//			return $this->_hasMany[$x_field];
+//		else if(isset($this->_hasMany[$x_field][$y_field]))
+//			return $this->_hasMany[$x_field][$y_field];
+//		else
+//			return NULL;
+//	}
 	
 //-----------------------------------------------------------------------------------------------------------
 	/** initialize 1-N relation (_hasMany) if no entry is there */
@@ -120,7 +122,6 @@ class SpacemissionDAO extends ModelDAO
 //-----------------------------------------------------------------------------------------------------------
 	/** get all research_areas from table
 	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays
 	 * @todo this is a duplicate to get_research_areas, refactoring needed */
 	public function get_research_areas()
 	{
@@ -137,7 +138,7 @@ class SpacemissionDAO extends ModelDAO
 //-----------------------------------------------------------------------------------------------------------
 	/** get targets from table
 	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 */
 	public function get_targets()
 	{
 		$query = "SELECT id, target_family, target_name FROM targets ORDER BY targets.target_family ASC";
@@ -153,7 +154,7 @@ class SpacemissionDAO extends ModelDAO
 //-----------------------------------------------------------------------------------------------------------
 	/** get science goals from table
 	 * @todo improve this a bit
-	 * @todo if we want to call this several times, we need to reinitalize arrays */
+	 */
    public function get_science_goals()
    {
 		$query = "SELECT * FROM science_goals";
@@ -245,7 +246,7 @@ class SpacemissionDAO extends ModelDAO
 		{
 			//for each sensor of the requested space mission
 			foreach($row as $key => $value)
-				/** @todo check if value is 0 since we use FLOAT in the DB */
+				//check if value is 0 since we use FLOAT in the DB
 				if($value != '0')
 				{
 					if($key == 'id')
@@ -356,8 +357,6 @@ class SpacemissionDAO extends ModelDAO
    * @param $action ADD/UPDATE/DELETE space mission
    *
    * GLOBAL: $_POST array
-   *
-   * @todo finish IMPLEMENTATION of sensors at add_spa_keys($res_id, $action)
    */
  	function add_spa_keys($res_id, $action)
   	{
@@ -459,7 +458,7 @@ class SpacemissionDAO extends ModelDAO
 //	        					print "<H4>Error inserting new entry in science_goals!</H4>" . LF;
 //
 //	        				//push new id into add_spa_sci_goal_ids
-//	        				/** @todo we need to check if the array is existing or put validation in JS */
+	        				/** @todo we need to check if the array is existing or put validation in JS */
 //   							array_push($_POST["add_spa_sci_goal_ids"][$key], self::$db->getLastInsertId());
 //          				}
 //          			}
@@ -469,7 +468,7 @@ class SpacemissionDAO extends ModelDAO
 //   		    		foreach($_POST["add_spa_sci_goal_ids"][$key] as $sci_goal_id)
 //   		    		{
 //   		    			//check if sci goal id is not empty and 100000 (other)
-//   		    			/** @todo maybe obsolete */
+   		    			/** @todo maybe obsolete */
 //	    				if(($sci_goal_id != '') && ($sci_goal_id != 100000))
 //	      				{
 //   		    				$query = "INSERT INTO sensor_to_science_goals (`sensor_id`,`science_goal_id`) " .

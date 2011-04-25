@@ -65,7 +65,7 @@ $(document).ready(function(){
 				add_obs_founded: {
       				//gets required when something is entered in this field
 					required: function(element) {
-      			        return $("#add_obs_founded").val() != ''; },
+      			        return $("input.add_obs_founded").val() != ''; },
       				minlength: 4,
       				digits: true },
       			add_obs_web_address : {
@@ -310,7 +310,7 @@ $(document).ready(function(){
   		'<td><b>New Telescope Type:&nbsp;</b>' +
   		//'<input type="text" class="required" name="add_telescope_type' + TelescopeCount + '[' + newTelescopeType +
   		//']" size="45" value="" /></td></tr>';
-  		'<input type="text" class="telescope_type" name="add_telescope_type' + TelescopeCount + '" size="45" value="" /></td></tr>';
+  		'<input type="text" class="telescope_type" name="add_telescope_type' + TelescopeCount + '" size="40" value="" /></td></tr>';
 
   		$(this).closest('tr').after(strToAdd);
   		
@@ -348,7 +348,7 @@ $(document).ready(function(){
   		'<td><b>New Antenna Type:&nbsp;</b>' +
   		//'<input type="text" class="required" name="add_antenna_type' + TelescopeCount + '[' + newAntennaType +
   		//']" size="45" value="" /></td></tr>';
-  		'<input type="text" class="antenna_type" name="add_antenna_type' + TelescopeCount + '" size="45" value="" /></td></tr>';
+  		'<input type="text" class="antenna_type" name="add_antenna_type' + TelescopeCount + '" size="40" value="" /></td></tr>';
 
   		$(this).closest('tr').after(strToAdd);
   		
@@ -388,7 +388,7 @@ $(document).ready(function(){
   		'<td><b>New Instrument Type:&nbsp;</b>' +
   		//'<input type="text" class="required" name="add_instrument_type' + InstrumentCount + '[' + newInstrumentType +
   		//']" size="45" value="" /></td></tr>';
-  		'<input type="text" class="instrument_type" name="add_instrument_type' + InstrumentCount + '" size="45" value="" /></td></tr>';
+  		'<input type="text" class="instrument_type" name="add_instrument_type' + InstrumentCount + '" size="40" value="" /></td></tr>';
 
   		$(this).closest('tr').after(strToAdd);
   		

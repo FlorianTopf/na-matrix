@@ -12,6 +12,7 @@
 <?php
   require_once ('config.inc.php');
   require_once ('lib/php/functions.php');
+  require_once ('lib/php/orm/html.php');
   require_once ('controller.inc.php');
 
   if (!isSet($_SESSION["user_id"]))
@@ -185,7 +186,7 @@
   		  	
           }
           else
-            Controller::check("home", NULL, NULL, NULL);
+            Controller::check("home");
         ?>
         </TD>
         <TD valign="top"><IMG src="images/blank.gif" width="10" border="0"></TD>

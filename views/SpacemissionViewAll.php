@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["mission_name"]) . "</SPAN></TD>";
     //print "<TD><SPAN title='Click for more details' class='hand'>" . stripslashes($row["mission_name"]) . "</SPAN></TD>";
 	print "<TD><A href='" . $agency_web_address . "' target='_blank'>" . $agency . "</A></TD>";
-	if(isValidURL($row["web_address"]))
+	if(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
 		print "<TD><A href='" . $row["web_address"] . "' target='_blank'><img width='30' border='0' src='images/globe.png'></A></TD>";
 	else
 	print "<TD></TD>";

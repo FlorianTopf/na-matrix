@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file DBConnector.php
+ * @version $Id$
+ * @author Florian Topf
+ */
 
 include_once ('DbConfig.php');
 
@@ -47,7 +52,8 @@ class DbConnector extends SystemComponent
 		    if ($result == NULL) echo "encore null !";
 		}
 		else {
-			echo "<br>Mysqli ERROR: ";
+			nl();
+			echo "Mysqli ERROR: ";
 			echo $this->dbms->error;
 			exit;
 		}
