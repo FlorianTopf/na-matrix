@@ -91,7 +91,8 @@ function makeCheckBox($name, $value=false)
     return $content;
 }
 
-/** @todo not to override EPN framework */
+/** @todo not to override EPN framework 
+ * 	@todo if we want to have more written in the option name than 2 items */
 function makeSelectListFromArray_($name, $value, $items, $column, $options=array())
 {
 	$content =  "<SELECT name='". $name ."'>" . LF;
@@ -101,7 +102,10 @@ function makeSelectListFromArray_($name, $value, $items, $column, $options=array
 	{
 		$content .= "<OPTION value='" . $item . "'";
 		if ($item == $value) $content .= " selected";
-    	$content .= ">" . $items[$column][$key] . "</OPTION>" . LF;
+		if(is_array($column))
+		    $content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</OPTION>" . LF;
+		else
+    		$content .= ">" . $items[$column][$key] . "</OPTION>" . LF;
 	}
 	$content .= "</SELECT>";
 	return $content;
@@ -256,6 +260,26 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
     	print ">" . $items[$column][$key] . "</OPTION>" . LF;
 	}
 	print "</SELECT></TD></TR>" . LF;
+}
+
+function PrintAddRemoveButton($count, $amount, $class, $table=true)
+{
+	if($table)
+	{
+		if($count == (count($amount) - 1))
+			print "<TABLE class='{$class}_button'><TR><td><a class='add_{$class}' href=''>Add " . ucfirst($class) . "</a></td></tr></TABLE>";
+		else
+    		print "<TABLE class='{$class}_button'><TR><td><a class='remove_{$class}' href=''>Delete " . ucfirst($class) . "</a></td></tr></TABLE>";
+	}
+	else
+	{
+		print "<TD>";
+		if($count == (count($amount) - 1))
+			print "<a class='add_{$class}' href=''>Add</a>";
+		else
+    		print "<a class='remove_{$class}' href=''>Del</a>";	
+    	print "</TD>";
+	}
 }
 
 

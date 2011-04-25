@@ -361,21 +361,21 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
 	/** initialize 1-N relation (_hasMany) if no entry is there */
-	public function init_has_many($x_field, $y_field)
-	{
-		if($y_field == NULL)
-		{
-			$this->_hasMany[$x_field] = array();
-			array_push($this->_hasMany[$x_field], 0);
-		}
-		else
-		{
-			$this->_hasMany[$x_field][$y_field] = array();
-			array_push($this->_hasMany[$x_field][$y_field], 0);
-		}
-
-		//echo "INIT HAS MANY: " . $x_field . "<br>";
-	}
+//	public function init_has_many($x_field, $y_field)
+//	{
+//		if($y_field == NULL)
+//		{
+//			$this->_hasMany[$x_field] = array();
+//			array_push($this->_hasMany[$x_field], 0);
+//		}
+//		else
+//		{
+//			$this->_hasMany[$x_field][$y_field] = array();
+//			array_push($this->_hasMany[$x_field][$y_field], 0);
+//		}
+//
+//		//echo "INIT HAS MANY: " . $x_field . "<br>";
+//	}
 
 //-----------------------------------------------------------------------------------------------------------
   /**

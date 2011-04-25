@@ -802,7 +802,7 @@ $(document).ready(function(){
         });
 
         //add delete sensor button
-        $('table.linkfield', newSensor).
+        $('table.sensor_button', newSensor).
         //html('<tr><td><a href="" class="remove_sensor">Delete Sensor<\/a><\/td><td><a href="" class="add_sensor">Add Sensor<\/a><\/td><\/tr>');
         html('<tr><td><a href="" class="remove_sensor">Delete Sensor<\/a><\/td><\/tr>');
         
@@ -904,6 +904,6 @@ $(document).ready(function(){
 //JQUERY VALIDATOR STANDARD MESSAGES - ADOPTED FOR INLINE VALIDATION LABELS
 jQuery.extend(jQuery.validator.messages, {
     required: "Please enter a new Entry or delete and select existing from above!",
-    number: "Plase enter a float numnber!"
+    number: "Plase enter a float number!"
 });
 

@@ -36,7 +36,7 @@ abstract class ModelDAO
 	protected $_fields = array();
 	
 	/** Array of all 1-N relations: can be overridden by subclasses */
-	protected $_hasMany = array ();
+	protected $_hasMany = array();
 	
 //-----------------------------------------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ abstract class ModelDAO
 	
 //-----------------------------------------------------------------------------------------------------------
  	/** get fieldkeys from 1-N relations (_hasMany) */
- 	public function get_has_many($x_field, $y_field)
+ 	public function get_has_many($x_field, $y_field=NULL)
 	{
 		if($y_field == NULL)
 			return $this->_hasMany[$x_field];
@@ -115,6 +115,24 @@ abstract class ModelDAO
 			return $this->_hasMany[$x_field][$y_field];
 		else
 			return NULL;
+	}
+
+//-----------------------------------------------------------------------------------------------------------
+	/** initialize 1-N relation (_hasMany) if no entry is there */
+	public function init_has_many($x_field, $y_field=NULL)
+	{
+		if($y_field == NULL)
+		{
+			$this->_hasMany[$x_field] = array();
+			array_push($this->_hasMany[$x_field], 0);
+		}
+		else
+		{
+			$this->_hasMany[$x_field][$y_field] = array();
+			array_push($this->_hasMany[$x_field][$y_field], 0);
+		}
+
+		//echo "INIT HAS MANY: " . $x_field . "<br>";
 	}
 
 //-----------------------------------------------------------------------------------------------------------
