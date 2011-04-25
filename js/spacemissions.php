@@ -17,15 +17,13 @@ $name = trim(strtolower($_GET['add_spa_name']));
 $link = new DbConnector();
 
 $query = "SELECT * FROM space_missions WHERE mission_name='$name';";
-$result = mysqli_query($link, $query);
+$result = $link->query($query);
+
 if (mysqli_num_rows($result) > 0)
-{
 	$output = false;
-}
 else
-{
 	$output = true;
-}
+	
 mysqli_free_result($result);
 
 $link->close();
