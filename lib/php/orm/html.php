@@ -92,9 +92,11 @@ function makeCheckBox($name, $value=false)
 }
 
 /** @todo not to override EPN framework */
-function makeSelectListFromArray_($name, $value, $items, $column)
+function makeSelectListFromArray_($name, $value, $items, $column, $options=array())
 {
 	$content =  "<SELECT name='". $name ."'>" . LF;
+	foreach($options as $option)
+		$content .= $option . LF;
 	foreach($items['id'] as $key => $item)
 	{
 		$content .= "<OPTION value='" . $item . "'";
@@ -161,10 +163,10 @@ function printCheckBoxCol($name, $value)
 }
 
 
-//function printSelectListColFromArray($name, $value, $items, $column)
-//{
-//	print makeTAG("TD", makeSelectListFromArray_($name, $value, $items, $column), "align='left'");	
-//}
+function printSelectListColFromArray($name, $value, $items, $column, $options=array())
+{
+	print makeTAG("TD", makeSelectListFromArray_($name, $value, $items, $column, $options), "align='left'");	
+}
 
 
 function printCheckBoxRow($title, $name, $value, $info=NULL, $mandatory=false)
@@ -213,16 +215,8 @@ function printSelectListRowFromArray($title, $name, $value, $items, $column, $in
 {
 	print "<TR>";
 	printInputTitleCol($title, $info, $mandatory);	
-	print "<TD align='left'><SELECT name='{$name}'>" . LF;
-	foreach($options as $option)
-		print $option;
-	foreach($items['id'] as $key => $item)
-	{
-		print "<OPTION value='" . $item . "'";
-		if ($item == $value) print " selected";
-    	print ">" . $items[$column][$key] . "</OPTION>" . LF;
-	}
-	print "</SELECT></TD></TR>" . LF;
+	printSelectListColFromArray($name, $value, $items, $column, $options);
+	print "</TR>" . LF;
 }
 
 /** @todo improve this a bit */
