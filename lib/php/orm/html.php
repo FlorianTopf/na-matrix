@@ -282,5 +282,19 @@ function PrintAddRemoveButton($count, $amount, $class, $table=true)
 	}
 }
 
+function PrintActionButton($action)
+{
+	nl();
+	//Define the action buttons
+	print "<CENTER><TABLE>" . LF;
+	//IF ACTION IS ADD
+	if ($action == "add")
+		print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
+	//IF ACTION IS EDIT
+	else if ($action == "edit")
+		print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
+	print "</TABLE></CENTER>" . LF;
+}
+
 
 ?>

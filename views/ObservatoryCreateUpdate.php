@@ -774,13 +774,14 @@ print "</TABLE></FIELDSET>" . LF;
 // Submit Button
 //-----------------------------------------------------------------------------------------------------------
 //Define the action buttons
-print "<P><CENTER><TABLE>" . LF;
-//IF ACTION IS ADD
-if ($action == "add")
-	print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
-//IF ACTION IS EDIT
-else if ($action == "edit")
-	print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
-print "</TABLE></CENTER>" . LF;
+//print "<P><CENTER><TABLE>" . LF;
+////IF ACTION IS ADD
+//if ($action == "add")
+//	print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
+////IF ACTION IS EDIT
+//else if ($action == "edit")
+//	print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
+//print "</TABLE></CENTER>" . LF;
+PrintActionButton($action);
 
 ?>
