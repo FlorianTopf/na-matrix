@@ -251,7 +251,7 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 	foreach($_observatory->get_has_many("scientific_contacts") as $contact_count => $contact_id)
 	{
 		print "<TR>";
-		PrintAddRemoveButton($contact_count, $_observatory->get_has_many("scientific_contacts"), "contact", FALSE);
+		printAddRemoveButton($contact_count, $_observatory->get_has_many("scientific_contacts"), "contact", FALSE);
 //		print "<TD align='center'>";
 //			"<INPUT name='add_obs_sci_con_name[" . $contact_count . "]' value='" .
 //			$_observatory->get_scientific_contact("sci_con_name", $contact_count) . "' size='30'>" .
@@ -719,7 +719,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 //      				print "<TABLE class='instrument_button'><TR><td><a class='add_instrument' href=''>Add Instrument</a></td></TR></TABLE>";
 //      			else
 //      				print "<TABLE class='instrument_button'><TR><td><a href='' class='remove_instrument'>Delete Instrument</a></td></TR></TABLE>";
-				PrintAddRemoveButton($instrument_count, $_observatory->get_has_many("instruments", $telescope_id), "instrument");
+				printAddRemoveButton($instrument_count, $_observatory->get_has_many("instruments", $telescope_id), "instrument");
 	      			
 	      		/** @todo add custom error labels for all necessary inputs */
 				print "</FIELDSET>" . LF;
@@ -729,7 +729,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 //      		print "<TABLE class='telescope_button'><TR><td><a class='add_telescope' href=''>Add Telescope</a></td></tr></TABLE>";
 //      	else
 //      		print "<TABLE class='telescope_button'><TR><td><a href='' class='remove_telescope'>Delete Telescope</a></td></tr></TABLE>";
-		PrintAddRemoveButton($telescope_count, $_observatory->get_has_many("telescopes"), "telescope");
+		printAddRemoveButton($telescope_count, $_observatory->get_has_many("telescopes"), "telescope");
 
       	print "</FIELDSET>" . LF;
 	}
@@ -792,6 +792,6 @@ print "</TABLE></FIELDSET>" . LF;
 //else if ($action == "edit")
 //	print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
 //print "</TABLE></CENTER>" . LF;
-PrintActionButton($action);
+printActionButton($action);
 
 ?>

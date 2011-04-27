@@ -1,4 +1,172 @@
+2011-04-27  ftopf
+
+    * Observatory.php, ObservatoryEditAll.php, Spacemission.php,
+      SpacemissionEditAll.php, controller.inc.php: Integrated get_all_resources
+      into DAOs
+
+    * DbConnector.php, login.php, observatories.php, search.php,
+      spacemissions.php: Implemented OO num_rows for DBConnector
+
+    * Observatory.php, ObservatoryCreateUpdate.php,
+      SpacemissionCreateUpdate.php, functions.js, html.php: Fixed some html tags
+      for scientific contacts, rewrote scientific contacts for observatory
+      (which is working also with UPDATE now!) => see functions.js
+
+2011-04-26  ftopf
+
+    * ObservatoryCreateUpdate.php, SpacemissionCreateUpdate.php, html.php: Added
+      html tag routine for submit buttons
+
+2011-04-25  ftopf
+
+    * ModelDAO.php, Observatory.php, ObservatoryCreateUpdate.php,
+      Spacemission.php, SpacemissionCreateUpdate.php, functions.js, html.php:
+      Fixed some little issues, moved some functionality to DAO, simplified some
+      calls, integrated html tag functions in SpacemissionCreateUpdate, added
+      functionality to html.php
+
+    * observatories.php, spacemissions.php: Fixed little but severe bug at
+      spacemissions.php => no submit was possible
+
+    * html.php: Added a little simplification to the code
+
+    * Acl.php, DbConfig.php, DbConnector.php, ModelDAO.php, Observatory.php,
+      ObservatoryCreateUpdate.php, ObservatoryView.php, Spacemission.php,
+      SpacemissionCreateUpdate.php, SpacemissionView.php,
+      SpacemissionViewAll.php, TODO, controller.inc.php, functions.js,
+      functions.php, html.php, index.php: little adaptions in functions.js (no
+      new functionality); introduced html.php (with html tag functions);
+      modified spacemission / observatory and modeldao accordingly. (got rid of
+      some remaining E_NOTICES), modified ObservatoryCreateUpdate completely
+      with use of tag functions (only science contacts missing); added comments
+      widely and added doygen headers where still missing; added new include in
+      index.php; modified TODO
+
+2011-04-21  ftopf
+
+    * ObservatoryView.php, SpacemissionView.php: Added nl2br functions where
+      necessary
+
+    * Observatory.php, Spacemission.php: improved E_NOTICE handling a bit
+
+    * Acl.php, NA1MatrixDocumentation.pdf, NA1MatrixImplementation.pdf, TODO,
+      _acl_8php.html, _acl_8php_source.html, _db_config_8php.html,
+      _db_config_8php_source.html, _db_connector_8php.html,
+      _db_connector_8php_source.html, _model_d_a_o_8php.html,
+      _model_d_a_o_8php_source.html, _observatory_8php.html,
+      _observatory_8php_source.html, _observatory_create_update_8php.html,
+      _observatory_create_update_8php_source.html,
+      _observatory_edit_all_8php.html, _observatory_edit_all_8php_source.html,
+      _observatory_view_8php.html, _observatory_view_8php_source.html,
+      _observatory_view_all_8php.html, _observatory_view_all_8php_source.html,
+      _spacemission_8php.html, _spacemission_8php_source.html,
+      _spacemission_create_update_8php.html,
+      _spacemission_create_update_8php_source.html,
+      _spacemission_edit_all_8php.html, _spacemission_edit_all_8php_source.html,
+      _spacemission_view_8php.html, _spacemission_view_8php_source.html,
+      _spacemission_view_all_8php.html, _spacemission_view_all_8php_source.html,
+      account_8php.html, account_8php_source.html, all_24.html, all_61.html,
+      all_67.html, all_70.html, annotated.html, backups, class_acl.html,
+      class_controller.html, class_db_connector.html, class_model_d_a_o.html,
+      class_observatory.html, class_observatory_d_a_o.html,
+      class_spacemission.html, class_spacemission_d_a_o.html,
+      class_system_component.html, classes.html, classes_61.html,
+      config_8inc_8php.html, config_8inc_8php_source.html, controller.inc.php,
+      controller_8inc_8php.html, controller_8inc_8php_source.html,
+      db_structure.txt, europlanet_na1-changes.sql,
+      europlanet_na1-complete-dump.sql, europlanet_na1-dump-01-04-2011.sql,
+      europlanet_na1-dump-04-04-2011.sql, europlanet_na1-dump-06-04-2011.sql,
+      europlanet_na1-dump-08-03-2011.sql, europlanet_na1-dump-09-03-2011.sql,
+      europlanet_na1-dump-18-04-2011.sql, europlanet_na1-dump-21-04-2011.sql,
+      europlanet_na1-privileges.sql, europlanet_na1-users.sql,
+      europlanet_na1.mwb, europlanet_na1.sql, files.html, files_61.html,
+      functions.html, functions_67.html, functions_70.html, functions_8php.html,
+      functions_8php_source.html, functions_func.html, functions_vars.html,
+      globals.html, globals_enum.html, globals_func.html, globals_vars.html,
+      hierarchy.html, home_8php.html, home_8php_source.html, index_8php.html,
+      index_8php_source.html, key_words.xls, login_8php.html,
+      login_8php_source.html, logout_8php.html, logout_8php_source.html,
+      main.html, na1-timeline-dec10.png, na1-timeline-nov10.png,
+      observatories-key_words-query.txt, observatories-key_words.csv,
+      observatories_8php.html, observatories_8php_source.html,
+      observatories_old.pdf, pages.html, registration_8php.html,
+      registration_8php_source.html, reset_8php.html, reset_8php_source.html,
+      search.js, search_8php.html, search_8php_source.html,
+      space_mission-key_words-query.txt, space_mission-key_words.csv,
+      space_missions_old.pdf, spacemissions_8php.html,
+      spacemissions_8php_source.html, todo.html, tree.html, variables_24.html,
+      wavelength_ranges.sql: Introduced ACL class and removed users_levels,
+      pages_list from database, added wavelength_ranges to traditional structure
+      and adapted all scripts, added new key_words.xls, modified TODO, modifed
+      doxygen doc
+
+2011-04-21  rst
+
+    * Observatory.php: added del_resource($resource_id) function to
+      models/Observatory.php
+
+2011-04-20  ftopf
+
+    * Observatory.php: Fixed little issue with recent E_NOTICE error
+
+    * DbConfig.php, Observatory.php, ObservatoryCreateUpdate.php,
+      Spacemission.php, TODO, config.inc.php, controller.inc.php, functions.js,
+      index.php, observatories.php, search.php, spacemissions.php: Fixed all
+      javascript errors, fixed all E_NOTICE messages (added option in config),
+      modifed TODO, added comment in ObservatoryCreateUpdate
+
+    * SpacemissionView.php: Fixed a little typo
+
 2011-04-19  ftopf
+
+    * TODO, _db_config_8php.html, _db_config_8php_source.html,
+      _db_connector_8php.html, _db_connector_8php_source.html,
+      _model_d_a_o_8php.html, _model_d_a_o_8php_source.html,
+      _observatory_8php.html, _observatory_8php_source.html,
+      _observatory_create_update_8php.html,
+      _observatory_create_update_8php_source.html,
+      _observatory_edit_all_8php.html, _observatory_edit_all_8php_source.html,
+      _observatory_view_8php.html, _observatory_view_8php_source.html,
+      _observatory_view_all_8php.html, _observatory_view_all_8php_source.html,
+      _spacemission_8php.html, _spacemission_8php_source.html,
+      _spacemission_create_update_8php.html,
+      _spacemission_create_update_8php_source.html,
+      _spacemission_edit_all_8php.html, _spacemission_edit_all_8php_source.html,
+      _spacemission_view_8php.html, _spacemission_view_8php_source.html,
+      _spacemission_view_all_8php.html, _spacemission_view_all_8php_source.html,
+      account_8php.html, account_8php_source.html, all_24.html, all_5f.html,
+      all_61.html, all_63.html, all_64.html, all_65.html, all_67.html,
+      all_6c.html, all_6d.html, all_6e.html, all_6f.html, all_70.html,
+      all_73.html, all_74.html, all_77.html, annotated.html,
+      class_controller.html, class_db_connector.html, class_model_d_a_o.html,
+      class_model_d_a_o.png, class_observatory.html,
+      class_observatory_d_a_o.html, class_observatory_d_a_o.png,
+      class_spacemission.html, class_spacemission_d_a_o.html,
+      class_spacemission_d_a_o.png, class_system_component.html, classes.html,
+      config_8inc_8php.html, config_8inc_8php_source.html,
+      controller_8inc_8php.html, controller_8inc_8php_source.html,
+      enums_64.html, enums_6d.html, files.html, files_63.html, files_6f.html,
+      files_73.html, functions.html, functions_5f.html, functions_61.html,
+      functions_64.html, functions_65.html, functions_67.html,
+      functions_77.html, functions_8php.html, functions_8php_source.html,
+      functions_func.html, functions_vars.html, globals.html, globals_enum.html,
+      globals_func.html, globals_vars.html, hierarchy.html, home_8php.html,
+      home_8php_source.html, index_8php.html, index_8php_source.html,
+      login_8php.html, login_8php_source.html, logout_8php.html,
+      logout_8php_source.html, main.html, observatories_8php.html,
+      observatories_8php_source.html, pages.html, registration_8php.html,
+      registration_8php_source.html, reset_8php.html, reset_8php_source.html,
+      search.js, search_8php.html, search_8php_source.html,
+      spacemissions_8php.html, spacemissions_8php_source.html, todo.html,
+      tree.html, variables_24.html, variables_61.html, variables_64.html,
+      variables_67.html, variables_6c.html, variables_6e.html,
+      variables_74.html: Modified TODO, Modified Doygen
+
+    * ChangeLog, DbConfig.php, Observatory.php, ObservatoryView.php,
+      Spacemission.php, SpacemissionView.php, TODO, controller.inc.php:
+      Introduced abstract model class first usage of db connector as singleton,
+      strange behavior with singleton inherited models (check), modified TODO,
+      ChangeLog
 
     * observatories.php: Fixed missing semicolon
 

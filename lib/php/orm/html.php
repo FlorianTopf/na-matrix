@@ -262,7 +262,7 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
 	print "</SELECT></TD></TR>" . LF;
 }
 
-function PrintAddRemoveButton($count, $amount, $class, $table=true)
+function printAddRemoveButton($count, $amount, $class, $table=true)
 {
 	if($table)
 	{
@@ -282,7 +282,7 @@ function PrintAddRemoveButton($count, $amount, $class, $table=true)
 	}
 }
 
-function PrintActionButton($action)
+function printActionButton($action)
 {
 	nl();
 	//Define the action buttons
@@ -294,6 +294,29 @@ function PrintActionButton($action)
 	else if ($action == "edit")
 		print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
 	print "</TABLE></CENTER>" . LF;
+}
+
+function printEditAllTable($name, $resources, $type)
+{
+	if (empty($resources))
+		print "<CENTER><H3>There are no {$name} entries to edit.</H3></CENTER>" . LF;	
+	else
+	{
+		print "<CENTER><P><TABLE border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
+    	print "<CAPTION><H3 align='center'>To edit please click on the {$name} name.</H3></CAPTION>" . LF;
+    	print "<TR><TH>NAME</TH><TH>CREATION DATE</TH><TH>MODIFICATION DATE</TH></TR>" . LF;
+    	foreach ($resources as $entry)
+    	{
+   			print "<TR align='center'>";
+    		print "<TD><A title='Click to edit' class='hand' " .
+              	"href='index.php?page=add&action=edit&id=" . $entry["id"] . "&res_type={$type}" .
+              	"'>" . $entry["name"] . "</A></TD>";
+        	print "<TD>" . $entry["creation_date"] . "</TD>";
+        	print "<TD>" . $entry["modification_date"] . "</TD>";
+        	print "</TR>" . LF;
+    	}
+    	print "</TABLE></P></CENTER>" . LF;
+	}	
 }
 
 

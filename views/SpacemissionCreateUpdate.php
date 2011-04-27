@@ -147,7 +147,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
 //      		print "<TABLE class='sensor_button'><TR><td><a class='add_sensor' href=''>Add Sensor</a></td></tr></TABLE>";
 //      	else
 //      		print "<TABLE class='sensor_button'><TR><td><a href='' class='remove_sensor'>Delete Sensor</a></td></tr></TABLE>";
-		PrintAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
+		printAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
       	print "<TABLE border='1' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
        	/** @todo refactor the two hidden fields */
       	//TRANSPORT THE NUMBER OF SENSORS FOR JQUERY
@@ -263,7 +263,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
 //   					print "<a class='remove_contact' href=''>Del</a>";
 //   				print "</TD>";
 				print "<TR>";
-				PrintAddRemoveButton($contact_count, $_spacemission->get_has_many("scientific_contacts", $sensor_id), "contact", FALSE);
+				printAddRemoveButton($contact_count, $_spacemission->get_has_many("scientific_contacts", $sensor_id), "contact", FALSE);
 //				print "</td><TD align='center'>" .
 //       			"<INPUT name='add_spa_sci_con_name[" . $sensor_count . "][" . $contact_count . "]' value='" .
 //    				$_spacemission->get_scientific_contact("name", $sensor_id, $contact_count) . "' size='30'>" .
@@ -299,6 +299,6 @@ if(is_array($_spacemission->get_has_many("sensors")))
 //else if ($action == "edit")
 //	print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
 //print "</TABLE></CENTER>" . LF;
-PrintActionButton($action);
+printActionButton($action);
 
 ?>
