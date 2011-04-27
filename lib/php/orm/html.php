@@ -196,12 +196,12 @@ function printmultipleCheckBoxRow($name, $items)
 	print "</TR>" . LF;
 }
 
-
+/** @todo improve this a bit */
 function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=NULL, $mandatory=false) 
 {	
 	print "<TR>";
 	printInputTitleCol($title, $info, $mandatory);
-	printInputTextCol($name, $value, $size, $class);
+	printInputTextCol($name, $value, $size, NULL, $class, NULL);
     print "</TR>" . LF;
 }
 

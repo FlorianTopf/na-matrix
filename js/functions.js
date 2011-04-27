@@ -151,7 +151,7 @@ $(document).ready(function(){
 		});
 		$(this).autocomplete({
 			source: function( request, response ) {
-				$.getJSON( "js/search.php", {
+				$.getJSON( "js/wavelengthRanges.php", {
 					term: extractLast( request.term )
 				}, response );
 			},
