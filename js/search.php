@@ -12,7 +12,7 @@ $link = new DbConnector();
 
 $query = "SELECT * FROM wavelength_ranges WHERE acronym LIKE '%$q%';";
 $result = $link->query($query);
-if (mysqli_num_rows($result) > 0)
+if ($link->getNumRows($result) > 0)
 {
 	$return = array();
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))

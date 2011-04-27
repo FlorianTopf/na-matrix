@@ -80,6 +80,12 @@ class DbConnector extends SystemComponent
 		return $this->dbms->affected_rows;
 	}
 	
+	//Function: getNumRows, Purpose: Return row count
+	function getNumRows($result) 
+	{
+		return $result->num_rows;
+	}
+	
 	//Function: close, Purpose: Close the connection
 	function close() 
 	{

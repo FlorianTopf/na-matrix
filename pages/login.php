@@ -13,7 +13,7 @@
              "username = '" . $userid .
              "' AND passwd = '" . md5($passwd) . "' LIMIT 1";
     $result = $link->query($query);
-    if (mysqli_num_rows($result) > 0)
+    if ($link->getNumRows($result) > 0)
     {
       $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
       $id = $user["id"];
