@@ -389,7 +389,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 //	    	print "<TD align='left'><INPUT name='add_obs_telescope_name[" . $telescope_count . "]' value='" .
 //	    		$_observatory->get_telescope("telescope_name", $telescope_count) . "' size='60'></TD></TR>" . LF;
 		printInputTextRow("Telescope Name", "add_obs_telescope_name[{$telescope_count}]",
-			 $_observatory->get_telescope("telescope_name", $telescope_count), 60);
+			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope");
 
 		//Telescope Type
 		$options = array("top" => "<OPTION value=''>Please select a Telescope Type</OPTION>",

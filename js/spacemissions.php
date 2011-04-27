@@ -2,7 +2,7 @@
 /**
  * Input Validation Procedure
  * Tests if an Observatory name already exists
- * called by validator.js
+ * called by validate in functions.js
  *
  * @file spacemissions.php
  * @version $Id$

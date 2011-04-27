@@ -1,4 +1,14 @@
 <?php
+/**
+ * Autocomplete Procedure
+ * Runs an Autocompleter on Wavelength Ranges
+ * called by wavelength_completer in functions.js
+ *
+ * @file wavelengthRanges.php
+ * @version $Id$
+ * @author Florian Topf
+ */
+
 // no term passed - just exit early with no response
 if (empty($_GET['term'])) exit ;
 $q = strtolower($_GET["term"]);

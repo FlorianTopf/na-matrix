@@ -180,6 +180,35 @@ $(document).ready(function(){
 		});
 	};
 	
+	//AUTOCOMPLETER FOR TELESCOPE NAME
+	$.fn.telescope_completer = function() {
+		// don't navigate away from the field on tab when selecting an item
+		$(this).bind( "keydown", function( event ) {
+			if ( event.keyCode === $.ui.keyCode.TAB &&
+					$( this ).data( "autocomplete" ).menu.active ) {
+				event.preventDefault();
+			}
+		});
+		$(this).autocomplete({
+			source: function( request, response ) {
+				$.getJSON( "js/telescopeNames.php", {
+					term: extractLast( request.term )
+				}, response );
+			},
+			search: function() {
+				// custom minLength
+				var term = extractLast( this.value );
+				if ( term.length < 1 ) {
+					return false;
+				}
+			},
+			focus: function() {
+				// prevent value inserted on focus
+				return false;
+			}
+		});
+	};
+	
 	//DYNAMIC ROW ADDING FUNCTION for ADD "Instruments"
 	$.fn.add_instrument = function(newInstrumentNum) {
 		var addInstrument = $(this).parent().parent().parent().
@@ -427,11 +456,6 @@ $(document).ready(function(){
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-	$('input.wavelength').each(function() {
-		//CALLING AUTOCOMPLETER FOR WAVELENGTH
-		$(this).wavelength_completer();
-		return false;
-	});
 	
 	//DYNAMIC ROW ADDING ROUTINE for ADD "Scientific Contacts"
 	var newContactNum = 0;
@@ -471,12 +495,25 @@ $(document).ready(function(){
 //-------------------------------------------------------------------------------------------------
     
     //ROUTINES for EDIT OBSERVATORY - TELESCOPES
+    //CALLING AUTOCOMPLETER FOR WAVELENGTH
+	$('input.wavelength').each(function() {
+		$(this).wavelength_completer();
+		return false;
+	});
+	
+	//CALLING AUTOCOMPLETER FOR TELESCOPE NAME
+	$('input.telescope').each(function() {
+		$(this).telescope_completer();
+		return false;
+	});
+	
     //REMOVE EXISTING TELESCOPES IN EDIT
     $('a.remove_telescope').click(function() {
         $(this).parent().parent().parent().
         parent().parent().remove();
         return false;
     });
+    
     //REMOVE EXISTING INSTRUMENTS IN EDIT
     $('a.remove_instrument').click(function() {
     	$(this).parent().parent().parent().
@@ -702,6 +739,12 @@ $(document).ready(function(){
 		//CALLING AUTOCOMPLETER FOR WAVELENGTH
         $('input.wavelength', newTelescope).each(function() {
 			$(this).wavelength_completer();
+			return false;
+		});
+        
+		//CALLING AUTOCOMPLETER FOR TELESCOPE NAME
+        $('input.telescope', newTelescope).each(function() {
+			$(this).telescope_completer();
 			return false;
 		});
 
