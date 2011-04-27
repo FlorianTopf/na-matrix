@@ -197,7 +197,7 @@ class SpacemissionDAO extends ModelDAO
 	public function get_all_resources()
 	{
 		$resources = array();
-		$query = "SELECT id, mission_name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
+		$query = "SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			$resources[] = $row;
