@@ -156,9 +156,9 @@ function printInputTitleCol($title, $info=NULL, $mandatory=false)
 }
 
 
-function printInputTextCol($name , $value, $size=10, $class=NULL) 
+function printInputTextCol($name, $value, $size=10, $args="", $class=NULL, $info=NULL) 
 {
-	print makeTAG("TD", makeInputText_($name, $value, $size, $class), "align='left'");
+	print makeTAG("TD", makeInputText_($name, $value, $size, $class, $info), $args);
 }
 
 function printCheckBoxCol($name, $value)

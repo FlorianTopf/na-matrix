@@ -6,6 +6,7 @@
  * @todo refactor every jquery function (see JQUERY API http://api.jquery.com/)
  * @todo there is a certain problem with validating IDs, which lets us only providing them AFTER
  * dynamic rows routines
+ * @todo improve regular expressions where possible
  */
 
 function openwin(content)
@@ -280,6 +281,14 @@ $(document).ready(function(){
         $('input', addRow).each(function(i) {
         	names[i] = $(this).attr('name');
         });
+        
+		/** @todo THIS IS A NEW APPROACH TO GETTING ACTUAL NUMBER
+		 *  newContactNum got obsolete, just return actual value */
+        var contactCount = names[0];
+        //remove everything up to the last 0-9 (1 or more times)
+		contactCount = contactCount.replace(/^.*\[(\d*)\]$/, '$1');
+		if(newContactNum <= contactCount)
+			newContactNum = ++contactCount;
 
         $('td:first-child', newRow).html('<a href="" class="remove_contact">Del<\/a>');
         $('input', newRow).each(function(i) {
@@ -292,9 +301,12 @@ $(document).ready(function(){
 
         $('a.remove_contact', newRow).click(function() {
             $(this).parent().parent().remove();
-            //newRowNum--;
+            //newContactNum--;
             return false;
         });
+        
+        //return new number of contacts
+        return newContactNum;
 	};
 	
 	//DYNAMIC ROW ADDING FUNCTION for ADD "Other Telescope Type"
@@ -425,7 +437,7 @@ $(document).ready(function(){
 	var newContactNum = 0;
     $('a.add_contact').click(function() {
         newContactNum++;
-        $(this).add_contact(newContactNum);
+        newContactNum = $(this).add_contact(newContactNum);
         return false;
     });
     

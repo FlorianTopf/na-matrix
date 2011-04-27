@@ -241,36 +241,46 @@ printInputTextRow("Partner Observatories", "add_obs_partner", $_observatory->get
 print "</TABLE></FIELDSET>" . LF;
 
 //SCIENTIFIC CONTACTS
-/** @todo this will be fixed with the DAO together */
 print "<FIELDSET class='rfield'><LEGEND>Scientific Contacts:</LEGEND>" . LF;
 print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
 print "<TR><TH></TH><TH>Name</TH><TH>Email</TH><TH>Institution</TH></TR>";
+if(!is_array($_observatory->get_has_many("scientific_contacts")))
+	$_observatory->init_has_many("scientific_contacts");
 //PROOF IF THERE IS AN ARRAY!
 if(is_array($_observatory->get_has_many("scientific_contacts")))
 	foreach($_observatory->get_has_many("scientific_contacts") as $contact_count => $contact_id)
 	{
-		print "<TR><td></td><TD align='center'>" .
-			"<INPUT name='load_obs_sci_con_name[" . $contact_count . "]' value='" .
-			$_observatory->get_scientific_contact("sci_con_name", $contact_count) . "' size='30'>" .
-			"</TD><TD align='center'>" .
-			"<INPUT name='load_obs_sci_con_email[" . $contact_count . "]' value='" .
-			$_observatory->get_scientific_contact("sci_con_email", $contact_count) . "' size='30'>" .
-			"</TD><TD align='center'>" .
-			"<INPUT name='load_obs_sci_con_institution[" . $contact_count . "]' value='" .
-			$_observatory->get_scientific_contact("sci_con_institution", $contact_count) . "' size='30'>" .
-     		//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
-            "<INPUT type='hidden' name='add_obs_sci_con_ids[" . $contact_count . "]' value='". $contact_id . "'>" .
-            "</TD></TR>";
+		print "<TR>";
+		PrintAddRemoveButton($contact_count, $_observatory->get_has_many("scientific_contacts"), "contact", FALSE);
+//		print "<TD align='center'>";
+//			"<INPUT name='add_obs_sci_con_name[" . $contact_count . "]' value='" .
+//			$_observatory->get_scientific_contact("sci_con_name", $contact_count) . "' size='30'>" .
+//			"</TD><TD align='center'>" .
+//			"<INPUT name='add_obs_sci_con_email[" . $contact_count . "]' value='" .
+//			$_observatory->get_scientific_contact("sci_con_email", $contact_count) . "' size='30'>" .
+//			"</TD><TD align='center'>" .
+//			"<INPUT name='add_obs_sci_con_institution[" . $contact_count . "]' value='" .
+//			$_observatory->get_scientific_contact("sci_con_institution", $contact_count) . "' size='30'>" .
+		printInputTextCol("add_obs_sci_con_name[{$contact_count}]", 
+			$_observatory->get_scientific_contact("sci_con_name", $contact_count), 30, "align='center'");
+		printInputTextCol("add_obs_sci_con_email[{$contact_count}]",
+			$_observatory->get_scientific_contact("sci_con_email", $contact_count), 30, "align='center'");
+		printInputTextCol("add_obs_sci_con_institution[{$contact_count}]", 
+			$_observatory->get_scientific_contact("sci_con_institution", $contact_count), 30, "align='center'");
+//		print "</TD></TR>" .
+		print "</TR>";
+			//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
+            "<INPUT type='hidden' name='add_obs_sci_con_ids[" . $contact_count . "]' value='". $contact_id . "'>";
 	}
 //dynamically add rows for more scientific contacts
-print "<TR><td><a class='add_contact' href=''>Add</a></td><TD align='center'>" .
-	"<INPUT name='add_obs_sci_con_name[0]' value='' size='30'>" .
-    "</TD><TD align='center'>" .
-    "<INPUT name='add_obs_sci_con_email[0]' value='' size='30'>" .
-    "</TD><TD align='center'>" .
-    "<INPUT name='add_obs_sci_con_institution[0]' value='' size='30'>" .
-    "</TD>" .
-    "</TR>" ;
+//print "<TR><td><a class='add_contact' href=''>Add</a></td><TD align='center'>" .
+//	"<INPUT name='add_obs_sci_con_name[0]' value='' size='30'>" .
+//    "</TD><TD align='center'>" .
+//    "<INPUT name='add_obs_sci_con_email[0]' value='' size='30'>" .
+//    "</TD><TD align='center'>" .
+//    "<INPUT name='add_obs_sci_con_institution[0]' value='' size='30'>" .
+//    "</TD>" .
+//    "</TR>" ;
 print "</TABLE></FIELDSET>" . LF;
 
 //HIDDEN FIELDS:

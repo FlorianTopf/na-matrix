@@ -268,14 +268,17 @@ if(is_array($_spacemission->get_has_many("sensors")))
 //       			"<INPUT name='add_spa_sci_con_name[" . $sensor_count . "][" . $contact_count . "]' value='" .
 //    				$_spacemission->get_scientific_contact("name", $sensor_id, $contact_count) . "' size='30'>" .
 //           		"</TD><TD align='center'>" .
-				printInputTextCol("add_spa_sci_con_name[{$sensor_count}][{$contact_count}]", $_spacemission->get_scientific_contact("name", $sensor_id, $contact_count), 30);
+				printInputTextCol("add_spa_sci_con_name[{$sensor_count}][{$contact_count}]", 
+					$_spacemission->get_scientific_contact("name", $sensor_id, $contact_count), 30, "align='center'");
 //        		"<INPUT name='add_spa_sci_con_email[" . $sensor_count . "][" . $contact_count . "]' value='" .
 //        			$_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "' size='30'>" .
 //            	"</TD><TD align='center'>" .
-				printInputTextCol("add_spa_sci_con_email[{$sensor_count}][{$contact_count}]", $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count), 30);
+				printInputTextCol("add_spa_sci_con_email[{$sensor_count}][{$contact_count}]", 
+					$_spacemission->get_scientific_contact("email", $sensor_id, $contact_count), 30, "align='center'");
 //        		"<INPUT name='add_spa_sci_con_institution[" . $sensor_count . "][" . $contact_count . "]' value='" .
 //        	 		$_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count) . "' size='30'>" .
-				printInputTextCol("add_spa_sci_con_institution[{$sensor_count}][{$contact_count}]", $_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count), 30);
+				printInputTextCol("add_spa_sci_con_institution[{$sensor_count}][{$contact_count}]", 
+					$_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count), 30, "align='center'");
             	//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
             	//"<INPUT type='hidden' name='add_spa_sci_con_ids[" . $sensor_count . "][" . $contact_count . "]' value='". $contact_id . "'>" .
 //            	print "</TD></TR>";

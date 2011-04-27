@@ -196,11 +196,13 @@ class ObservatoryDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** get a field from scientific contacts 
-	 * @todo maybe check here with isset too */
+	/** get a field from scientific contacts */
 	public function get_scientific_contact($x_field, $y_field)
 	{
-		return htmlentities($this->_scientificContacts[$x_field][$y_field],ENT_QUOTES);
+		if(isset($this->_scientificContacts[$x_field][$y_field]))
+			return htmlentities($this->_scientificContacts[$x_field][$y_field],ENT_QUOTES);
+		else 
+			return NULL;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -254,8 +256,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get telescope types from table
-  	 * @todo improve this a bit
-	 */
+  	 * @todo improve this a bit */
  	public function get_telescope_types()
  	{
 		$query = "SELECT id, name FROM telescope_types";
@@ -271,8 +272,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get antenna types from table
-	 * @todo improve this a bit
-	 */
+	 * @todo improve this a bit */
  	public function get_antenna_types()
  	{
 		$query = "SELECT id, antenna_type FROM antenna_types";
@@ -288,8 +288,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get wavelength units from table
- 	 * @todo improve this a bit
-	 */
+ 	 * @todo improve this a bit */
  	public function get_wavelength_units()
  	{
 		$query = "SELECT id, wavelength_unit FROM wavelength_units";
@@ -670,10 +669,10 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
   /**
-   * @fn del_resource($res_id)
+   * @fn del_resource($resourceå_id)
    * @brief deletes an existing observatory
    *
-   * @param $res_id ID of the observatory we want to delete
+   * @param $resource_id ID of the observatory we want to delete
    *
    * @return $status mysql_status
    *
@@ -799,7 +798,7 @@ class ObservatoryDAO extends ModelDAO
 			foreach ($_POST["add_obs_sci_con_ids"] as $key => $sci_con_id)
 			{
 				// check if a name is written in the line
-				if ($_POST["load_obs_sci_con_name"][$key] != "")
+				if (!empty($_POST["add_obs_sci_con_name"][$key]))
 				{
 
 					$query = "INSERT INTO observatory_to_scientific_contacts VALUES (" . $res_id .
@@ -811,13 +810,17 @@ class ObservatoryDAO extends ModelDAO
 					else
 					{
   						$query = "UPDATE scientific_contacts SET " .
-           					"name='". addslashes($_POST["load_obs_sci_con_name"][$key]) . "'," .
-           					"email='" . addslashes($_POST["load_obs_sci_con_email"][$key]) . "'," .
-           					"institution='" . addslashes($_POST["load_obs_sci_con_institution"][$key]) . "' " .
+           					"name='". addslashes($_POST["add_obs_sci_con_name"][$key]) . "'," .
+           					"email='" . addslashes($_POST["add_obs_sci_con_email"][$key]) . "'," .
+           					"institution='" . addslashes($_POST["add_obs_sci_con_institution"][$key]) . "' " .
            					"WHERE id=" . $sci_con_id;
 
+  						//SETTING THE POSTVAR TO empty string (for add_sci_cons)
+  						$_POST["add_obs_sci_con_name"][$key] = "";
+  						
   						//DEBUG:
-  						//echo $query;
+  						echo $query;
+  						nl();
 
   						self::$db->query($query);
   						if (self::$db->errno() != 0)
@@ -851,12 +854,16 @@ class ObservatoryDAO extends ModelDAO
 	    foreach($_POST["add_obs_sci_con_name"] as $key => $name)
 		{
 			// check if a name is written in the line
-			if ($_POST["add_obs_sci_con_name"][$key] != "")
+			if (!empty($_POST["add_obs_sci_con_name"][$key]))
 			{
 	        	$query = "INSERT INTO scientific_contacts VALUES (NULL,'" .
 	               addslashes($_POST["add_obs_sci_con_name"][$key]) . "','" .
 	               addslashes($_POST["add_obs_sci_con_email"][$key]) . "','" .
 	               addslashes($_POST["add_obs_sci_con_institution"][$key]) . "')";
+	               
+	       		//DEBUG:
+  				echo $query;
+  				nl();
 
 	            self::$db->query($query);
 			    if (self::$db->errno() != 0)
@@ -1074,6 +1081,8 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 3RD ORDER TABLE
+ * 
+ * @todo implement INTELLIGENT DELETE like in update_sci_cons 
  */
 	protected function delete_telescopes($res_id)
 	{
@@ -1123,6 +1132,8 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 3RD ORDER TABLE
+ * 
+ * @todo implement INTELLIGENT UPDATE/ADD like in add_sci_cons 
  */
 	protected function add_telescopes($res_id)
 	{
