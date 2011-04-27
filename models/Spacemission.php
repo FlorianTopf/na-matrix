@@ -192,16 +192,51 @@ class SpacemissionDAO extends ModelDAO
    * @fn get_all_resources()
    * @brief gets all existing resources space mission
    * 
+   * @param $page which page wants to display resources
+   * 
    * @return $resources array of resources
+   * 
+   * @todo be aware that we will need filters here soon! (improve queries)
    */
-	public function get_all_resources()
+	public function get_all_resources($page)
 	{
 		$resources = array();
-		$query = "SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
+		if($page == "edit")
+			$query = "SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
+		if($page == "browse")
+			$query = "SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name";
+			
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-			$resources[] = $row;
+		{
+			$resources[$row["id"]] = $row;
+			if($page == "browse")
+			{
+				//Mission Agency
+				$query2 = "SELECT acronym, web_address FROM agencies WHERE id=" . $row["mission_agency"];
+				$result2 = self::$db->query($query2);
+				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+				$resources[$row["id"]]["agency"] = $row2["acronym"];
+				$resources[$row["id"]]["agency_web_address"] = $row2["web_address"];
+				mysqli_free_result($result2);
+	
+				//Targets
+				$targets = array();
+				$query2 = "SELECT target_id FROM space_mission_to_targets WHERE space_mission_id=" . $row["id"];
+				$result2 = self::$db->query($query2);
+				while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+				{
+					$query3 = "SELECT target_name FROM targets WHERE id=" . $row2["target_id"];
+					$result3 = self::$db->query($query3);
+					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
+					$resources[$row["id"]]["targets"][] = $row3["target_name"];
+					mysqli_free_result($result3);
+				}
+				mysqli_free_result($result2);
+			}
+		}
 		mysqli_free_result($result);
+		
 		return $resources;
 	}
 	

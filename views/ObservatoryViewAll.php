@@ -16,52 +16,53 @@ print "<CENTER><P><TABLE border='1' cellpadding='4' width='100%' class='rtable'>
 print "<CAPTION><H3 align='center'>For details please click on Observatory entry name</H3></CAPTION>" . LF;
 print "<TR><TH>NAME</TH><TH>INSTITUTION</TH><TH>COUNTRY</TH><TH>E-MAIL</TH><TH>WEB</TH><TH>TELESCOPE-TYPE <i>(WAVELENGTH)</i></TH></TR>" . LF;
 
-$query = "SELECT id, name, institution, web_address, country_id, email FROM observatories ORDER BY name";
+//$query = "SELECT id, name, institution, web_address, country_id, email FROM observatories ORDER BY name";
 //$result = mysqli_query($link, $query);
-$result = $link->query($query);
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+//$result = $link->query($query);
+//while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+foreach($resources as $row)
 {
 	//Hidden Fields
-	$query2 = "SELECT web_address, email FROM hidden_fields WHERE id=" . $row["id"];
-	//$result2 = mysqli_query($link, $query2);
-	$result2 = $link->query($query2);
-	$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
-	$hide_web_address = $row2["web_address"];
-	$hide_email = $row2["email"];
-	mysqli_free_result($result2);
+//	$query2 = "SELECT web_address, email FROM hidden_fields WHERE id=" . $row["id"];
+//	//$result2 = mysqli_query($link, $query2);
+//	$result2 = $link->query($query2);
+//	$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+//	$hide_web_address = $row2["web_address"];
+//	$hide_email = $row2["email"];
+//	mysqli_free_result($result2);
 
 	//Country
-	$query2 = "SELECT name FROM countries WHERE id=" . $row["country_id"];
-	//$result2 = mysqli_query($link, $query2);
-	$result2 = $link->query($query2);
-	$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
-	$country = $row2["name"];
-	mysqli_free_result($result2);
+//	$query2 = "SELECT name FROM countries WHERE id=" . $row["country_id"];
+//	//$result2 = mysqli_query($link, $query2);
+//	$result2 = $link->query($query2);
+//	$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+//	$country = $row2["name"];
+//	mysqli_free_result($result2);
 
 	//Telescope Types
-	$telescope_types = array();
-	$wavelengths = array();
-	$query2 = "SELECT telescope_id FROM observatory_to_telescopes WHERE observatory_id=" . $row["id"];
-	//$result2 = mysqli_query($link, $query2);
-	$result2 = $link->query($query2);
-	while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
-	{
-		$query3 = "SELECT telescope_type, wavelength FROM telescopes WHERE id=" . $row2["telescope_id"];
-		//$result3 = mysqli_query($link, $query3);
-		$result3 = $link->query($query3);
-		$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
-		$telescope_type_id = $row3["telescope_type"];
-		$wavelengths[] = $row3["wavelength"];
-		mysqli_free_result($result3);
-
-		$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;
-		//$result3 = mysqli_query($link, $query3);
-		$result3 = $link->query($query3);
-		$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
-		$telescope_types[] = $row3["name"];
-		mysqli_free_result($result3);
-	}
-	mysqli_free_result($result2);
+//	$telescope_types = array();
+//	$wavelengths = array();
+//	$query2 = "SELECT telescope_id FROM observatory_to_telescopes WHERE observatory_id=" . $row["id"];
+//	//$result2 = mysqli_query($link, $query2);
+//	$result2 = $link->query($query2);
+//	while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+//	{
+//		$query3 = "SELECT telescope_type, wavelength FROM telescopes WHERE id=" . $row2["telescope_id"];
+//		//$result3 = mysqli_query($link, $query3);
+//		$result3 = $link->query($query3);
+//		$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
+//		$telescope_type_id = $row3["telescope_type"];
+//		$wavelengths[] = $row3["wavelength"];
+//		mysqli_free_result($result3);
+//
+//		$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;
+//		//$result3 = mysqli_query($link, $query3);
+//		$result3 = $link->query($query3);
+//		$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
+//		$telescope_types[] = $row3["name"];
+//		mysqli_free_result($result3);
+//	}
+//	mysqli_free_result($result2);
 
 	//HTML
 	print "<TR align='center'>";
@@ -69,37 +70,42 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</SPAN></TD>";
     //print "<TD><SPAN title='Click for more details' class='hand'>" . stripslashes($row["name"]) . "</SPAN></TD>";
     print "<TD>" . $row["institution"] . "</TD>";
-    print "<TD>" . $country . "</TD>";
-    if($hide_email)
+//    print "<TD>" . $country . "</TD>";
+	print "<TD>" . $row["country"] . "</TD>";
+//    if($hide_email)
+	if($row["hide_email"])
     	print "<TD><font color='#FF0000'>Not Displayed</font></TD>";
     else
        	print "<TD><A href='mailto:" . $row["email"] . "'>" . $row["email"] . "</A></TD>";
-	if($hide_web_address)
+//	if($hide_web_address)
+	if($row["hide_web_address"])
 		print "<TD><font color='#FF0000'>Not Displayed</font></TD>";
     elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
     	print "<TD><A href='" . $row["web_address"] . "' target='_blank'><img width='30' border='0' src='images/globe.png'></A></TD>";
     else
     	print "<TD></TD>";
     print "<TD>";
-    foreach($telescope_types as $key => $type)
+//    foreach($telescope_types as $key => $type)
+//    {	
+//    	print $type;
+//        if($wavelengths[$key] != '')
+//        	print " (<i>" . $wavelengths[$key] . "</i>)";
+//		print "<br>";
+//   	}
+    foreach($row["telescope_types"] as $key => $type)
     {	
     	print $type;
-        if($wavelengths[$key] != '')
-        	print " (<i>" . $wavelengths[$key] . "</i>)";
+        if($row["wavelengths"][$key] != '')
+        	print " (<i>" . $row["wavelengths"][$key] . "</i>)";
 		print "<br>";
    	}
 	print "</TD>";
-//	print "<TD>";
-//	foreach($wavelengths as $wavelength)
-//	{
-//		print $wavelength . "<br>";
-//	}
-//	print "</TD>";
 	print "</TR>" . LF;
 }
-if(!$result)
-print "<TR><H3>There are no Observatory entries</H3></TR>" . LF;
-mysqli_free_result($result);
+//if(!$result)
+if(empty($resources))
+	print "<TR><H3>There are no Observatory entries</H3></TR>" . LF;
+//mysqli_free_result($result);
 print "</TABLE></P></CENTER>" . LF;
 		
 ?>

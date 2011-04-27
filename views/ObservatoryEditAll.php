@@ -15,7 +15,6 @@ print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
 //while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 //	$res[] = $row;
 //mysqli_free_result($result);
-$resources = $_observatory->get_all_resources();
 
 //if (empty($resources))
 //{

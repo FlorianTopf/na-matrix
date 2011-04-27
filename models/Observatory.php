@@ -381,16 +381,65 @@ class ObservatoryDAO extends ModelDAO
    * @fn get_all_resources()
    * @brief gets all existing resources observatory
    * 
+   * @param $page which page wants to display resources
+   * 
    * @return $resources array of resources
+   * 
+   * @todo be aware that we will need filters here soon! (improve queries)
    */
-	public function get_all_resources()
+	public function get_all_resources($page)
 	{
 		$resources = array();
-		$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
+		if($page == "edit")
+			$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
+		elseif($page == "browse")
+			$query = "SELECT id, name, institution, web_address, country_id, email FROM observatories ORDER BY observatories.name";
+			
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-			$resources[] = $row;
+		{
+			$resources[$row["id"]] = $row;
+			if($page == "browse")
+			{
+				$query2 = "SELECT name FROM countries WHERE id=" . $row["country_id"];
+				$result2 = self::$db->query($query2);
+				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+				$resources[$row["id"]]["country"] = $row2["name"];
+				mysqli_free_result($result2);
+				
+				//Hidden Fields				
+				$query2 = "SELECT web_address, email FROM hidden_fields WHERE id=" . $row["id"];
+				$result2 = self::$db->query($query2);
+				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+				$resources[$row["id"]]["hide_web_address"] = $row2["web_address"];
+				$resources[$row["id"]]["hide_email"] = $row2["email"];
+				mysqli_free_result($result2);
+
+				//Telescope Types
+				$resources[$row["id"]]["telescope_types"] = array();
+				$resources[$row["id"]]["wavelengths"] = array();
+				$query2 = "SELECT telescope_id FROM observatory_to_telescopes WHERE observatory_id=" . $row["id"];
+				$result2 = self::$db->query($query2);
+				while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+				{
+					$query3 = "SELECT telescope_type, wavelength FROM telescopes WHERE id=" . $row2["telescope_id"];
+					$result3 = self::$db->query($query3);
+					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
+					$telescope_type_id = $row3["telescope_type"];
+					$resources[$row["id"]]["wavelengths"][] = $row3["wavelength"];
+					mysqli_free_result($result3);
+
+					$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;
+					$result3 = self::$db->query($query3);
+					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
+					$resources[$row["id"]]["telescope_types"][] = $row3["name"];
+					mysqli_free_result($result3);
+				}
+				mysqli_free_result($result2);	
+			}
+		}
 		mysqli_free_result($result);
+		
 		return $resources;
 	}
 

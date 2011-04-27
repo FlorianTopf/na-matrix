@@ -199,11 +199,13 @@ class Controller
     			switch($resource_type) {
     				case "obs":
     					$_observatory = ModelDAO::getFromName("Observatory");
+    					$resources = $_observatory->get_all_resources($page);
     					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryEditAll.php";
     					break;
     				case "spa":
     					$_spacemission = ModelDAO::getFromName("Spacemission");
+    					$resources = $_spacemission->get_all_resources($page);
     					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionEditAll.php";
     					break;
@@ -214,10 +216,14 @@ class Controller
     		case "browse":
     			switch ($resource_type) {
     				case "obs":
+    					$_observatory = ModelDAO::getFromName("Observatory");
+    					$resources = $_observatory->get_all_resources($page);
     					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryViewAll.php";
     					break;
     				case "spa":
+    					$_spacemission = ModelDAO::getFromName("Spacemission");
+    					$resources = $_spacemission->get_all_resources($page);
     					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionViewAll.php";
     					break;
