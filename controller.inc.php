@@ -198,10 +198,12 @@ class Controller
     		case "edit":
     			switch($resource_type) {
     				case "obs":
+    					$_observatory = ModelDAO::getFromName("Observatory");
     					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryEditAll.php";
     					break;
     				case "spa":
+    					$_spacemission = ModelDAO::getFromName("Spacemission");
     					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionEditAll.php";
     					break;

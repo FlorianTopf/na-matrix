@@ -378,6 +378,24 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
   /**
+   * @fn get_all_resources()
+   * @brief gets all existing resources observatory
+   * 
+   * @return $resources array of resources
+   */
+	public function get_all_resources()
+	{
+		$resources = array();
+		$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
+		$result = self::$db->query($query);
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+			$resources[] = $row;
+		mysqli_free_result($result);
+		return $resources;
+	}
+
+//-----------------------------------------------------------------------------------------------------------
+  /**
    * @fn get_resource($resource_id)
    * @brief gets an existing resource observatory
    *

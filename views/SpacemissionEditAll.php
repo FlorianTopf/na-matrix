@@ -11,12 +11,13 @@ print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
 //show_message();
 
 //Space Missions
-$res = array();
-$query = "SELECT id, mission_name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
-$result = $link->query($query);
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-	$res[] = $row;
-mysqli_free_result($result);
+//$res = array();
+//$query = "SELECT id, mission_name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
+//$result = $link->query($query);
+//while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+//	$res[] = $row;
+//mysqli_free_result($result);
+$res = $_spacemission->get_all_resources();
 
 if (count($res) == 0)
 {

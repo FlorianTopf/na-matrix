@@ -186,6 +186,25 @@ class SpacemissionDAO extends ModelDAO
 		else
 			return NULL;
 	}
+	
+//-----------------------------------------------------------------------------------------------------------
+  /**
+   * @fn get_all_resources()
+   * @brief gets all existing resources space mission
+   * 
+   * @return $resources array of resources
+   */
+	public function get_all_resources()
+	{
+		$resources = array();
+		$query = "SELECT id, mission_name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
+		$result = self::$db->query($query);
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+			$resources[] = $row;
+		mysqli_free_result($result);
+		return $resources;
+	}
+	
 
 //-----------------------------------------------------------------------------------------------------------
 /**
