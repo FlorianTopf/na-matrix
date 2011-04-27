@@ -1,5 +1,30 @@
 2011-04-27  ftopf
 
+    * ObservatoryCreateUpdate.php, functions.js, observatories.php,
+      spacemissions.php, telescopeNames.php, wavelengthRanges.php: Added
+      functionality for autocompleting telescope names (to keep duplicate names
+      conform), added file headers to search scripts
+
+    * functions.js, html.php, search.php, wavelengthRanges.php: Fixed a minor
+      issue in html.php which deactivated autocompleter, renamed autocompleter
+      php script (more to come!)
+
+    * SpacemissionViewAll.php: Fixed a little printing table headers
+
+    * Observatory.php, ObservatoryEditAll.php, ObservatoryViewAll.php,
+      Spacemission.php, SpacemissionEditAll.php, SpacemissionViewAll.php,
+      controller.inc.php: Improved controller for EditAll calls, changed EditAll
+      views accordingly, modified get_all_resources in all models to work with
+      browse and edit, removed database functionality from ViewAll views
+
+    * ChangeLog, ObservatoryCreateUpdate.php, ObservatoryEditAll.php,
+      SpacemissionCreateUpdate.php, SpacemissionEditAll.php, html.php: Fixed
+      some function typos (convention mistake), introduced printEditAllTable in
+      html
+
+    * ObservatoryEditAll.php, Spacemission.php, SpacemissionEditAll.php:
+      generalized EditAll html prints to simplify them in the next step
+
     * Observatory.php, ObservatoryEditAll.php, Spacemission.php,
       SpacemissionEditAll.php, controller.inc.php: Integrated get_all_resources
       into DAOs
