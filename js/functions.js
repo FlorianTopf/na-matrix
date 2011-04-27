@@ -209,6 +209,9 @@ $(document).ready(function(){
 		});
 	};
 	
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+	
 	//DYNAMIC ROW ADDING FUNCTION for ADD "Instruments"
 	$.fn.add_instrument = function(newInstrumentNum) {
 		var addInstrument = $(this).parent().parent().parent().
@@ -226,9 +229,9 @@ $(document).ready(function(){
         
         $('input', newInstrument).val('');
         //set instrument number, if there are more loaded in edit
-        if(newInstrumentNum < 1) {
-        	newInstrumentNum = $('input.instruments', addInstrument).val();
-        }
+//        if(newInstrumentNum < 1) {
+//        	newInstrumentNum = $('input.instruments', addInstrument).val();
+//        }
         $('select', newInstrument).val('');
         $('textarea', newInstrument).val('');
         $("input[type='checkbox']", newInstrument).attr('checked', false);
@@ -246,6 +249,13 @@ $(document).ready(function(){
         $('textarea', addInstrument).each(function(i) {
         	areas[i] = $(this).attr('name');
         });
+        
+		/** @todo THIS IS A NEW APPROACH TO GETTING ACTUAL NUMBER */
+        var instrumentCount = inputs[0];
+        //remove everything up to the last 0-9 (1 or more times)
+		instrumentCount = instrumentCount.replace(/^.*\[(\d*)\]$/, '$1');
+		if(newInstrumentNum <= instrumentCount)
+			newInstrumentNum = ++instrumentCount;
         
         //add delete instrument button
         $('table.instrument_button', newInstrument).
@@ -279,7 +289,6 @@ $(document).ready(function(){
             return false;
         });
         
-
         //DYNAMIC ROW ADDING ROUTINE for ADD "Other Instrument Type"
         var newInstrumentType = 0;
         $('option.add_instrument_type', newInstrument).click(function() {
@@ -297,6 +306,9 @@ $(document).ready(function(){
 				text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
 			return false;
 		});
+		
+		//return new number of instruments
+		return newInstrumentNum;
 	};
 	
 	//DYNAMIC ROW ADDING FUNCTION FOR ADD "Scientific Contacts"
@@ -542,7 +554,7 @@ $(document).ready(function(){
     $('a.add_instrument').click(function() {
         newInstrumentNum++;
         //$(this).add_instrument('0', newInstrumentNum);
-        $(this).add_instrument(newInstrumentNum);
+        newInstrumentNum = $(this).add_instrument(newInstrumentNum);
         return false;
 	});
     
@@ -597,9 +609,9 @@ $(document).ready(function(){
         //clear values for each input
         $('input', newTelescope).val('');
         //set telescope number, if there are more loaded in edit
-        if(newTelescopeNum <= 1) {
-        	newTelescopeNum = $('input.telescopes', addTelescope).val();
-        }
+//        if(newTelescopeNum <= 1) {
+//        	newTelescopeNum = $('input.telescopes', addTelescope).val();
+//        }
         //clear value for each select
         $('select', newTelescope).val('');
         //clear value for each textarea
@@ -630,6 +642,13 @@ $(document).ready(function(){
         $('table.instrument textarea', addTelescope).each(function(i) {
     		instr_areas[i] = $(this).attr('name');
         });
+        
+		/** @todo THIS IS A NEW APPROACH TO GETTING ACTUAL NUMBER */
+        var telescopeCount = inputs[0];
+        //remove everything up to the last 0-9 (1 or more times)
+		telescopeCount = telescopeCount.replace(/^.*\[(\d*)\]$/, '$1');
+		if(newTelescopeNum <= telescopeCount)
+			newTelescopeNum = ++telescopeCount;
 
         //add delete telescope button
         $('table.telescope_button', newTelescope).
@@ -686,7 +705,7 @@ $(document).ready(function(){
             return false;
         });
 
-        /** @todo add sensor routine - needs to be recursive */
+        /** @todo add telescope routine - needs to be recursive */
         $('a.add_telescope', newTelescope).click(function() {
             //we need a recursive call here!
         	return false;
@@ -714,7 +733,7 @@ $(document).ready(function(){
         $('a.add_instrument', newTelescope).click(function() {
         	newInstrumentNum++;
         	//$(this).add_instrument(newTelescopeNum, newInstrumentNum);
-        	$(this).add_instrument(newInstrumentNum);
+        	newInstrumentNum = $(this).add_instrument(newInstrumentNum);
         	return false;
         });
         
@@ -769,6 +788,7 @@ $(document).ready(function(){
 		newGoal++;
 
 		var sensorCount = $(this).parent().attr('name');
+		/** @todo improve this regexes */
 		//remove everything before [0-9]
 		sensorCount = sensorCount.replace(/^[^\[]*(\[.*)$/, '$1');
 		//remove trailing []
@@ -948,7 +968,7 @@ $(document).ready(function(){
         var newContactNum = 0;
         $('a.add_contact', newSensor).click(function() {
             newContactNum++;     
-            $(this).add_contact(newContactNum);    
+            newContactNum = $(this).add_contact(newContactNum);    
             return false;
         });
 

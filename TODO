@@ -124,7 +124,8 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
     
 * Refactor all Javascript in functions.js
   * dynamic row adding routines (redundancy)
-  * refactor the double hidden_fields in CreateUpdate (scientific_contacts is finished)
+  * refactor the double hidden_fields in CreateUpdate (Sensors)
+  * maybe use -- again in remove fields
   
 * Refactor classes in observatory.php, spacemission.php
   * MVC Pattern implementieren

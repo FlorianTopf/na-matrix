@@ -150,6 +150,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
 		printAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
       	print "<TABLE border='1' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
        	/** @todo refactor the two hidden fields */
+      	/** @todo make the same approach as with telescope count */
       	//TRANSPORT THE NUMBER OF SENSORS FOR JQUERY
       	print "<TR><INPUT type='hidden' name='sensors' class='sensors' value='". count($_spacemission->get_has_many("sensors", NULL)) . "'></TR>";
       	//Sensor Name:

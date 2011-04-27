@@ -370,17 +370,16 @@ if(!is_array($_observatory->get_has_many("telescopes")))
 if(is_array($_observatory->get_has_many("telescopes")))
 	foreach($_observatory->get_has_many("telescopes") as $telescope_count => $telescope_id)
 	{
-		/** @todo refactor the two hidden fields */
+		/** @todo use this for determining deletion / update / add */
   		//TRANSPORT THE OLD NUMBER OF TELESCOPES VIA POST
 	    print "<INPUT type='hidden' name='add_obs_telescope_ids[" . $telescope_count . "]' value='". $telescope_id . "'>" . LF;
 	      
       	print "<FIELDSET class='rfield'><LEGEND>Telescope:</LEGEND>" . LF;
       	print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
       	
-	    /** @todo refactor the two hidden fields */
       	//TRANSPORT THE NUMBER OF TELESCOPES FOR JQUERY
-      	print "<TR><INPUT type='hidden' name='telescopes' class='telescopes' value='".
-      		count($_observatory->get_has_many("telescopes")) . "'></TR>";
+      	//print "<TR><INPUT type='hidden' name='telescopes' class='telescopes' value='".
+      	//	count($_observatory->get_has_many("telescopes")) . "'></TR>";
       	//echo "TELESCOPES: " . count($_observatory->get_has_many("telescopes")) . "<br>";
 
 	    //Telescope Name
@@ -536,9 +535,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
       			/** this table has two classes!! class='rtable' */
       			//print "<TABLE class='rtable' border='0' cellspacing='4' cellpadding='4' width='100%'>" . LF;
       			print "<TABLE class='instrument rtable' border='0' cellspacing='4' cellpadding='4' width='100%'>" . LF;
-      			//TRANSPORT THE NUMBER OF TELESCOPES FOR JQUERY
-      			print "<TR><INPUT type='hidden' name='instruments' class='instruments' value='".
-      				  count($_observatory->get_has_many("instruments", $telescope_id)) . "'></TR>";
+      			//TRANSPORT THE NUMBER OF INSTRUMENT FOR JQUERY
+//      			print "<TR><INPUT type='hidden' name='instruments' class='instruments' value='".
+//      				  count($_observatory->get_has_many("instruments", $telescope_id)) . "'></TR>";
       			//echo "INSTRUMENTS: " . count($_observatory->get_has_many("instruments", $telescope_id)) . "<br>";
 
 				//Instrument Name
