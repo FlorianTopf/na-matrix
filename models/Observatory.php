@@ -157,7 +157,7 @@ class ObservatoryDAO extends ModelDAO
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_precipitationRanges[$key][] = $value;
-				$this->_precipitationRanges[$key][$row['id']] = $value;
+				$this->_precipitationRanges[$key][$row['id']] = htmlentities($value);
       	mysqli_free_result($result);
 
       	return $this->_precipitationRanges;
@@ -173,7 +173,7 @@ class ObservatoryDAO extends ModelDAO
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_clearnightsRanges[$key][] = $value;
-				$this->_clearnightsRanges[$key][$row['id']] = $value;
+				$this->_clearnightsRanges[$key][$row['id']] = htmlentities($value);
       	mysqli_free_result($result);
 
       	return $this->_clearnightsRanges;
