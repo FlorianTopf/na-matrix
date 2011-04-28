@@ -5,7 +5,7 @@
  * @author Florian Topf, Robert Stöckler
  */
 ?>
-
+   
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -31,22 +31,22 @@
   if (isSet($_POST["logout"])) $_POST["page"] = "logout";
 ?>
 
-<HTML>
-  <HEAD>
-    <TITLE>NA1-Matrix</TITLE>
-    <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  	<META http-equiv="cache-control" content="no-cache, must-revalidate">
-    <LINK rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <LINK rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <LINK rel="stylesheet" type="text/css" href="css/style.css">
-	<LINK rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css">   
-    <SCRIPT src="lib/js/jquery-1.4.2.min.js"></SCRIPT>
-    <SCRIPT src="lib/js/jquery.validate.min.js"></SCRIPT>
-	<SCRIPT src="lib/js/jquery-ui-1.8.10.custom.min.js"></SCRIPT>
-    <SCRIPT src="js/functions.js"></SCRIPT>
-  </HEAD>
+<html>
+  <head>
+    <title>NA1-Matrix</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+  	<meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>   
+    <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="lib/js/jquery-ui-1.8.10.custom.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+  </head>
 
-  <BODY>
+  <body>
   <div id="outer-wrapper">
     <div id="banner-top"></div>
 	<div id="header">
@@ -63,7 +63,7 @@
       </div>
       <div id="header-img"></div>
     </div>
-	<FORM action="<?php print $_SERVER["PHP_SELF"]; ?>" name="main_form" id="main_form" enctype="multipart/form-data" method="POST">
+	<form action="<?php print $_SERVER["PHP_SELF"]; ?>" name="main_form" id="main_form" enctype="multipart/form-data" method="post">
 
     <?php
       if (!isSet($_POST["page"]))
@@ -77,7 +77,7 @@
 
     <div id="top">
 		<div id="top-menu-img"><img src="images/top_menu_img.gif" align="middle" width="527" height="19" border="0" alt="top menu" title="top menu" /></div>
-			<div id="top-menu"><font style="font-family: verdana, arial; font-weight: bold; font-size: 22px" color="#172983">NA1-MATRIX of ground-based &amp; space-based observatories</font></div>
+			<div id="top-menu"><font style="font-family: verdana, arial; font-weight: bold; font-size: 22px;" color="#172983">NA1-MATRIX of ground-based &amp; space-based observatories</font></div>
 		<div id="top-menu-bottom-img"><img src="images/bottom_menu_img.gif" align="middle" width="527" height="19" border="0" alt="top menu" title="top menu" /></div>
 	</div>
 
@@ -133,6 +133,7 @@
         </TD>
         <TD valign="top"><IMG src="images/blank.gif" width="10" border="0"></TD>
         <TD align="left" valign="top" width="770" class="rbody"><!-- LOAD MAIN FRAME -->
+        
         <?php
         
         //DEBUG:
@@ -188,6 +189,7 @@
           else
             Controller::check("home");
         ?>
+        
         </TD>
         <TD valign="top"><IMG src="images/blank.gif" width="10" border="0"></TD>
       </TR>
@@ -206,7 +208,7 @@
         </div>
       </div>
     </div> <!-- content-wrapper -->
-   </FORM>
+   </form>
   </div> <!-- outer-wrapper -->
-  </BODY>
-</HTML>
+  </body>
+</html>

@@ -26,19 +26,21 @@ $link->close();
 
 ?>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
 
-<HTML class='report'>
-<HEAD>
-  <TITLE>NA1-Matrix: <?php print $res["mission_name"]  ?></TITLE>
-  <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  <META http-equiv="cache-control" content="no-cache, must-revalidate">
-  <LINK rel="stylesheet" type="text/css" href="../css/style.css">
+<html>
+<head>
+  <title>NA1-Matrix: <?php print $res["mission_name"]  ?></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
+  <link rel="stylesheet" type="text/css" href="../css/style.css"/>
 <!--  <SCRIPT src="../lib/js/jquery-1.4.2.min.js"></SCRIPT>-->
 <!--  <SCRIPT src="../lib/js/jquery.validate.min.js"></SCRIPT>-->
 <!--  <SCRIPT src="../js/functions.js"></SCRIPT>-->
-</HEAD>
+</head>
 
-<BODY class='report'>
+<body class='report'>
 
 <?php 
 
@@ -137,3 +139,6 @@ $link->close();
 		}
 		
 ?>
+
+</body>
+</html>

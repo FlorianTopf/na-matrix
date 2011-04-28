@@ -2,6 +2,8 @@
  * @file style.css
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
+ * 
+ * @todo rewrite everything to comply with STRICT XHTML and remove old stuff for v0.2
  */
 
 /*
@@ -279,6 +281,10 @@ html.report, body.report {
 	margin-right: auto;
 }
 
+#top-menu-img img {
+	display: block;
+}
+
 #top-menu-bottom-img {
 	width: 527px;
 	height: 19px;
@@ -287,6 +293,10 @@ html.report, body.report {
 	margin-top: 0;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#top-menu-bottom-img img {
+	display: block;
 }
 
 /* CONTENT */
