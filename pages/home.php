@@ -8,7 +8,7 @@
 
 <div><input type='hidden' name='page' value='home'/></div>
 
-<center><h2>What is the purpose of a Matrix for Observatories and Space Missions?</h2></center>
+<h2>What is the purpose of a Matrix for Observatories and Space Missions?</h2>
 
 
 <p class="home">

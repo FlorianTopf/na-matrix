@@ -76,16 +76,16 @@
     ?>
 
     <div id="top">
-		<div id="top-menu-img"><img src="images/top_menu_img.gif" align="middle" width="527" height="19" alt="top menu" title="top menu" /></div>
+		<div id="top-menu-img"><img src="images/top_menu_img.gif" width="527" height="19" alt="top menu" title="top menu" /></div>
 			<div id="top-menu">NA1-MATRIX of ground-based &amp; space-based observatories</div>
-		<div id="top-menu-bottom-img"><img src="images/bottom_menu_img.gif" align="middle" width="527" height="19" alt="top menu" title="top menu" /></div>
+		<div id="top-menu-bottom-img"><img src="images/bottom_menu_img.gif" width="527" height="19" alt="top menu" title="top menu" /></div>
 	</div>
 
     <div id="content-wrapper">
 <!--    <center>-->
-    <table class="main" border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+    <table class="main" border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr><!--LEFT MENU-->
-        <td valign="top"><img src="images/blank.gif" width="0" /></td>
+        <td valign="top"><img src="images/blank.gif" width="0" alt="blank"/></td>
         <td valign="top" id="lmcol" width="208">
           <table class="ltable" cellspacing="0" cellpadding="0" width="100%">
             <div id="left">
@@ -116,14 +116,14 @@
               print "<div align='center'><li><input type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
               if ($_SESSION["user_level"] >= 31)
               {
-                print "<img src='images/blank.gif' height='30'>";
+                print "<img src='images/blank.gif' height='30' alt='blank'>";
                 print "<div align='center'><li><A href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new account</a></li></div>" . LF;
               }
             }
           ?>
 
               </ul>
-              <img src="images/blank.gif" height="30"/>
+              <img src="images/blank.gif" height="30" alt="blank"/>
               <div align='center'><span class="dhc"><b>Developed by&nbsp;&nbsp;</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></span></div>
             </div>
             </div>
@@ -131,7 +131,7 @@
             </div>
           </table>
         </td>
-        <td valign="top"><img src="images/blank.gif" width="10"/></td>
+        <td valign="top"><img src="images/blank.gif" width="10" alt="blank"/></td>
         <td align="left" valign="top" width="770" class="rbody"><!-- LOAD MAIN FRAME -->
         
         <?php
@@ -190,9 +190,9 @@
         ?>
         
         </td>
-        <td valign="top"><img src="images/blank.gif" width="10"/></td>
+        <td valign="top"><img src="images/blank.gif" width="10" alt="blank"/></td>
       </tr>
-      <tr><td valign="top" colspan="5"><img src="images/blank.gif" width="10" height="10"/></td></tr>
+      <tr><td valign="top" colspan="5"><img src="images/blank.gif" width="10" height="10" alt="blank"/></td></tr>
     </table>
 <!--    </center>-->
       <div id="footer"><!-- FOOTER-->
