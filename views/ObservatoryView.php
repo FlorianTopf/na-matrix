@@ -29,7 +29,7 @@ $link->close();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <title>NA1-Matrix: <?php print $res["name"]  ?></title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
@@ -51,39 +51,39 @@ $link->close();
   	$_observatory->get_resource($_GET["id"]);
 
 	//OBSERVATORY GENERAL:
-  	print "<FIELDSET class='report'><LEGEND><B>Observatory General:</B></LEGEND>" . LF;
-  	print "<P><B>Observatory name:&nbsp;</B>" .	$_observatory->get_field("obs_name") . "</P>" . LF;
+  	print "<fieldset class='report'><legend><b>Observatory General:</b></legend>" . LF;
+  	print "<p><b>Observatory name:&nbsp;</b>" .	$_observatory->get_field("obs_name") . "</p>" . LF;
   	if ($_observatory->get_field("obs_founded"))
-  		print "<P><B>Year founded:&nbsp;</B>" . $_observatory->get_field("obs_founded") . "</P>" . LF;
+  		print "<p><b>Year founded:&nbsp;</b>" . $_observatory->get_field("obs_founded") . "</p>" . LF;
   	if ($_observatory->get_field("obs_institution"))
-  		print "<P><B>Institution:&nbsp;</B>" . $_observatory->get_field("obs_institution") . "</P>" . LF;
+  		print "<p><b>Institution:&nbsp;</b>" . $_observatory->get_field("obs_institution") . "</p>" . LF;
   	if($_observatory->get_hidden_field("web_address"))
-  		print "<P><B>Web address:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>" . LF;
+  		print "<p><b>Web address:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
   	else if ($_observatory->get_field("obs_web_address"))
-  		print "<P><B>Web address:&nbsp;</B><A href='" . $_observatory->get_field("obs_web_address") . "' target='_blank'>" .
-  												   		$_observatory->get_field("obs_web_address") . "</A></P>" . LF;
+  		print "<p><b>Web address:&nbsp;</b><A href='" . $_observatory->get_field("obs_web_address") . "' target='_blank'>" .
+  												   		$_observatory->get_field("obs_web_address") . "</A></p>" . LF;
   	if ($_observatory->get_field("obs_address"))
-  		print "<P><B>Address:&nbsp;</B>" . ($_observatory->get_hidden_field("address") ?
-  			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_address")). "</P>" . LF;
+  		print "<p><b>Address:&nbsp;</b>" . ($_observatory->get_hidden_field("address") ?
+  			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_address")). "</p>" . LF;
   	if ($_observatory->get_hidden_field("zip_code"))
-  		print "<P><B>ZIP code:&nbsp;</B>" . ($_observatory->get_hidden_field("zip_code") ?
-  			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_zip_code")) . "</P>" . LF;
+  		print "<p><b>ZIP code:&nbsp;</b>" . ($_observatory->get_hidden_field("zip_code") ?
+  			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
   	if ($_observatory->get_hidden_field("city"))
-  		print "<P><B>City:&nbsp;</B>" . ($_observatory->get_hidden_field("city") ?
-  		 	  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_city")) . "</P>" . LF;
+  		print "<p><b>City:&nbsp;</b>" . ($_observatory->get_hidden_field("city") ?
+  		 	  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
 
   	$countries = $_observatory->get_countries();
-  	print "<P><B>Country:&nbsp;</B>" . $countries['name'][$_observatory->get_field("obs_country_id")] . "</P>" . LF;
+  	print "<p><b>Country:&nbsp;</b>" . $countries['name'][$_observatory->get_field("obs_country_id")] . "</p>" . LF;
 
   	if ($_observatory->get_hidden_field("phone"))
-  		print "<P><B>Phone:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>" . LF;
+  		print "<p><b>Phone:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
   	else if ($_observatory->get_field("obs_phone"))
-  		print "<P><B>Phone:&nbsp;</B>" . $_observatory->get_field("obs_phone") . "</P>" . LF;
+  		print "<p><b>Phone:&nbsp;</b>" . $_observatory->get_field("obs_phone") . "</p>" . LF;
 
   	if($_observatory->get_hidden_field("email"))
-  		print "<P><B>Email:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>" . LF;
+  		print "<p><b>Email:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
   	else if ($_observatory->get_field("obs_email"))
-  		print "<P><B>Email:&nbsp;</B><A href='mailto:" . $_observatory->get_field("obs_email") . "'>" . $_observatory->get_field("obs_email") . "</A></P>" . LF;
+  		print "<p><b>Email:&nbsp;</b><A href='mailto:" . $_observatory->get_field("obs_email") . "'>" . $_observatory->get_field("obs_email") . "</A></p>" . LF;
 
 	//GeoHack Coordinate Postfixes:
 	if($_observatory->get_field_array("obs_latitude", "float"))
@@ -101,57 +101,57 @@ $link->close();
 		$gps_are_null = true;
 
   	if($_observatory->get_hidden_field("latitude"))
-  		print "<P><B>Latitude:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>";
+  		print "<p><b>Latitude:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>";
   	else if (!$gps_are_null)
-		print "<P><B>Latitude:&nbsp;</B>" . "<A href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
+		print "<p><b>Latitude:&nbsp;</b>" . "<A href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
   										"&params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
   								   		$_observatory->get_field_array("obs_longitude", "float") . $geohack_lon_postfix . "' target='_blank'>" .
   										$_observatory->get_field_array("obs_latitude", "prefix") . " " .
   		  								$_observatory->get_field_array("obs_latitude", "degree") . "&deg ".
   		  								$_observatory->get_field_array("obs_latitude", "minutes"). "' " .
   		  								$_observatory->get_field_array("obs_latitude", "seconds"). "'' " .
-  		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</A></P>" . LF ;
+  		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</A></p>" . LF ;
 
   	if($_observatory->get_hidden_field("longitude"))
-  		print "<P><B>Longitude:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>";
+  		print "<p><b>Longitude:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>";
   	else if (!$gps_are_null)
-  		print "<P><B>Longitude:&nbsp;</B>" . "<A href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
+  		print "<p><b>Longitude:&nbsp;</b>" . "<A href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
   										"&params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
   								   		$_observatory->get_field_array("obs_longitude", "float") . $geohack_lon_postfix . "' target='_blank'>" .
   										$_observatory->get_field_array("obs_longitude", "prefix") . " " .
   		  								$_observatory->get_field_array("obs_longitude", "degree") . "&deg ".
   		  								$_observatory->get_field_array("obs_longitude", "minutes"). "' " .
   		  								$_observatory->get_field_array("obs_longitude", "seconds"). "'' " .
-  		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "'''" . "</A></P>" . LF ;
+  		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "'''" . "</A></p>" . LF ;
 
 	if ($_observatory->get_field("obs_approx_position"))
-  		print "<P><B>Approximate position:&nbsp;</B>" . $_observatory->get_field("obs_approx_position") . "</P>" . LF;
+  		print "<p><b>Approximate position:&nbsp;</b>" . $_observatory->get_field("obs_approx_position") . "</p>" . LF;
   	if ($_observatory->get_field("obs_sealevel_m"))
-  		print "<P><B>Sealevel:</B>&nbsp;" . $_observatory->get_field("obs_sealevel_m") . "&nbsp;[m]</P>" . LF;
+  		print "<p><b>Sealevel:</b>&nbsp;" . $_observatory->get_field("obs_sealevel_m") . "&nbsp;[m]</p>" . LF;
 
   	$p_ranges = $_observatory->get_precipitation_ranges();
   	$p_range = array_search($_observatory->get_field("obs_precipitation"), $p_ranges['id']);
   	if ($p_ranges['range'][$p_range] != "---")
-  		print "<P><B>Precipitation range:</B>&nbsp;" . $p_ranges['range'][$p_range] . "&nbsp;[mm/Y]</P>" . LF;
+  		print "<p><b>Precipitation range:</b>&nbsp;" . $p_ranges['range'][$p_range] . "&nbsp;[mm/Y]</p>" . LF;
 
   	$c_ranges = $_observatory->get_clearnights_ranges();
   	$c_range = array_search($_observatory->get_field("obs_clear_nights"), $c_ranges['id']);
   	if ($c_ranges['range'][$c_range] != "---")
-  		print "<P><B>Clear nights:</B>&nbsp;" . $c_ranges['range'][$c_range] . "&nbsp;[D]</P>" . LF;
+  		print "<p><b>Clear nights:</b>&nbsp;" . $c_ranges['range'][$c_range] . "&nbsp;[D]</p>" . LF;
 
   	$timezones = $_observatory->get_timezones();
   	$timezone = array_search($_observatory->get_field("obs_timezone"), $timezones['id']);
-  	print "<P><B>Timezone:</B>&nbsp;" . $timezones['timezone'][$timezone] . "&nbsp;[GMT+/-]</P>" . LF;
+  	print "<p><b>Timezone:</b>&nbsp;" . $timezones['timezone'][$timezone] . "&nbsp;[GMT+/-]</p>" . LF;
 
 	if ($_observatory->get_field("obs_observatory_status"))
-		print "<P><B>Observatory Status:</B>&nbsp;" . $_observatory->get_field("obs_observatory_status") . "</P>" . LF;
+		print "<p><b>Observatory Status:</b>&nbsp;" . $_observatory->get_field("obs_observatory_status") . "</p>" . LF;
 
 	if ($_observatory->get_field("obs_partner_observatories"))
-  		print "<P><B>Partner observatories:</B>&nbsp;" . $_observatory->get_field("obs_partner_observatories") . "</P>" . LF;
-  	print "</FIELDSET>" . LF;
+  		print "<p><b>Partner observatories:</b>&nbsp;" . $_observatory->get_field("obs_partner_observatories") . "</p>" . LF;
+  	print "</fieldset>" . LF;
 
 	//OBSERVATORY Scientific Contacts:
-  	print "<FIELDSET class='report'><LEGEND><B>Scientific Contacts:</B></LEGEND>" . LF;
+  	print "<fieldset class='report'><legend><b>Scientific Contacts:</b></legend>" . LF;
   	print "<TABLE border='0' cellpadding='4' class='rtable' width='100%'>" . LF;
   	if($_observatory->get_hidden_field("scientific_contacts"))
   		"<TR><TD><font color='#FF0000'>Not Displayed</font></TD></TR>";
@@ -167,25 +167,25 @@ $link->close();
 				print "</TR>";
       		}
     print "</TABLE>";
-  	print "</FIELDSET>" . LF;
+  	print "</fieldset>" . LF;
 
   	//OBSERVATORY Research Areas:
-  	print "<FIELDSET class='report'><LEGEND><B>Research Areas:</B></LEGEND><UL>" . LF;
+  	print "<fieldset class='report'><legend><b>Research Areas:</b></legend><UL>" . LF;
 	$research_areas = $_observatory->get_research_areas();
     foreach($research_areas['id'] as $key => $value)
     	if(is_array($_observatory->get_has_many("research_areas", NULL)))
         	if (in_array($value, $_observatory->get_has_many("research_areas", NULL)))
           		print "<li>" . $research_areas['name'][$key] . "</li>";
-	print "</UL></FIELDSET>" . LF;
+	print "</UL></fieldset>" . LF;
 
 	//OBSERVATORY Targets:
-	print "<FIELDSET class='report'><LEGEND><B>Targets:</B></LEGEND><UL>" . LF;
+	print "<fieldset class='report'><legend><b>Targets:</b></legend><UL>" . LF;
 	$targets = $_observatory->get_targets();
     foreach($targets['id'] as $key => $value)
     	if(is_array($_observatory->get_has_many("targets", NULL)))
         	if (in_array($value, $_observatory->get_has_many("targets", NULL)))
           		print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>";
-    print "</UL></FIELDSET>" . LF;
+    print "</UL></fieldset>" . LF;
 
     //OBSERVATORY Telescopes:
     $telescope_types = $_observatory->get_telescope_types();
@@ -195,99 +195,99 @@ $link->close();
     if(is_array($_observatory->get_has_many("telescopes", NULL)))
       	foreach($_observatory->get_has_many("telescopes", NULL) as $key => $telescope_id)
 	    {
-	    	print "<FIELDSET class='report'><LEGEND><B>Telescope:&nbsp;" . $_observatory->get_telescope("telescope_name", $key) . "</B></LEGEND>" . LF;
-	    	print "<P><B>Telescope Name:&nbsp;</B>" . $_observatory->get_telescope("telescope_name", $key) . "</P>" . LF;
-	    	//print "<P><B>Telescope Type:</B> " . $telescope_types['name'][$_observatory->get_telescope("telescope_type", $key) - 1] . "</P>" . LF;
-	    	print "<P><B>Telescope Type:&nbsp;</B>" . $telescope_types['name'][$_observatory->get_telescope("telescope_type", $key)] . "</P>" . LF;
+	    	print "<fieldset class='report'><legend><b>Telescope:&nbsp;" . $_observatory->get_telescope("telescope_name", $key) . "</b></legend>" . LF;
+	    	print "<p><b>Telescope Name:&nbsp;</b>" . $_observatory->get_telescope("telescope_name", $key) . "</p>" . LF;
+	    	//print "<p><b>Telescope Type:</b> " . $telescope_types['name'][$_observatory->get_telescope("telescope_type", $key) - 1] . "</p>" . LF;
+	    	print "<p><b>Telescope Type:&nbsp;</b>" . $telescope_types['name'][$_observatory->get_telescope("telescope_type", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("telescope_elements", $key))
-	    		print "<P><B>Telescope Elements:&nbsp;</B>" . $_observatory->get_telescope("telescope_elements", $key) . "</P>" . LF;
+	    		print "<p><b>Telescope Elements:&nbsp;</b>" . $_observatory->get_telescope("telescope_elements", $key) . "</p>" . LF;
 	    	if ($_observatory->get_telescope("diameter_m", $key))
-	    		print "<P><B>Diameter:&nbsp;</B>" . clean_num($_observatory->get_telescope("diameter_m", $key)) . "&nbsp;[m]</P>" . LF;
+	    		print "<p><b>Diameter:&nbsp;</b>" . clean_num($_observatory->get_telescope("diameter_m", $key)) . "&nbsp;[m]</p>" . LF;
 	    	if ($_observatory->get_telescope("focallength_m", $key))
-	    		print "<P><B>Focallength:&nbsp;</B>" . $_observatory->get_telescope("focallength_m", $key) . "&nbsp;[m]</P>" . LF;
+	    		print "<p><b>Focallength:&nbsp;</b>" . $_observatory->get_telescope("focallength_m", $key) . "&nbsp;[m]</p>" . LF;
 	    	if ($antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] != "---")
-	    		print "<P><B>Antenna Type:&nbsp;</B>" . $antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] . "</P>" . LF;
+	    		print "<p><b>Antenna Type:&nbsp;</b>" . $antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("wavelength_begin", $key))
-	    		print "<P><B>Wavelength Begin:&nbsp;</B>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
-	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_b_unit", $key)] . "</P>" . LF;
+	    		print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
+	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_b_unit", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("wavelength_end", $key))
-	    		print "<P><B>Wavelength End:&nbsp;</B>" . clean_num($_observatory->get_telescope("wavelength_end", $key)) . " " .
-	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_e_unit", $key)] . "</P>" . LF;
+	    		print "<p><b>Wavelength End:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_end", $key)) . " " .
+	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_e_unit", $key)] . "</p>" . LF;
 			if ($_observatory->get_telescope("comments", $key))
-	    		print "<P><B>Telescope Comments:&nbsp;</B>" . nl2br($_observatory->get_telescope("comments", $key)) . "</P>" . LF;
+	    		print "<p><b>Telescope Comments:&nbsp;</b>" . nl2br($_observatory->get_telescope("comments", $key)) . "</p>" . LF;
 
 	    	//OBSERVATORY Instruments:
 	    	if(is_array($_observatory->get_has_many("instruments", $telescope_id)))
       			foreach($_observatory->get_has_many("instruments", $telescope_id) as $key2 => $instrument_id)
 	    		{
-	    			print "<FIELDSET class='report'><LEGEND><B>Instrument:&nbsp;" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</B></LEGEND>" . LF;
-	    			print "<P><B>Instrument Name:&nbsp;</B>" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</P>" . LF;
-//	    			print "<P><B>Instrument Type:&nbsp;</B>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2) - 1] . "</P>" . LF;
-					print "<P><B>Instrument Type:&nbsp;</B>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] . "</P>" . LF;
+	    			print "<fieldset class='report'><legend><b>Instrument:&nbsp;" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</b></legend>" . LF;
+	    			print "<p><b>Instrument Name:&nbsp;</b>" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</p>" . LF;
+//	    			print "<p><b>Instrument Type:&nbsp;</b>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2) - 1] . "</p>" . LF;
+					print "<p><b>Instrument Type:&nbsp;</b>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("focal_position", $telescope_id, $key2))
-						print "<P><B>Focal Position:&nbsp;</B>" . $_observatory->get_instrument("focal_position", $telescope_id, $key2) . "</P>" . LF;
+						print "<p><b>Focal Position:&nbsp;</b>" . $_observatory->get_instrument("focal_position", $telescope_id, $key2) . "</p>" . LF;
 					if ($_observatory->get_instrument("wavelength", $telescope_id, $key2))
-	    				print "<P><B>Wavelength:&nbsp;</B>" . $_observatory->get_instrument("wavelength", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<p><b>Wavelength:&nbsp;</b>" . $_observatory->get_instrument("wavelength", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2))
-	    				print "<P><B>Wavelength Begin:&nbsp;</B>" . clean_num($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2)) . " " .
-	    					  //$wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2) - 1] . "</P>" . LF;
-	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2)] . "</P>" . LF;
+	    				print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2)) . " " .
+	    					  //$wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2) - 1] . "</p>" . LF;
+	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("wavelength_end", $telescope_id, $key2))
-	    				print "<P><B>Wavelength End:&nbsp;</B>" . clean_num($_observatory->get_instrument("wavelength_end", $telescope_id, $key2)) . " " .
-	    					  //$wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2) - 1] . "</P>" . LF;
-	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2)] . "</P>" . LF;
+	    				print "<p><b>Wavelength End:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_end", $telescope_id, $key2)) . " " .
+	    					  //$wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2) - 1] . "</p>" . LF;
+	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("spatial_resolution", $telescope_id, $key2))
-	    				print "<P><B>Spatial Resolution:&nbsp;</B>" . $_observatory->get_instrument("spatial_resolution", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<p><b>Spatial Resolution:&nbsp;</b>" . $_observatory->get_instrument("spatial_resolution", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("spectral_resolution", $telescope_id, $key2))
-	    				print "<P><B>Spectral Resolution:&nbsp;</B>" . $_observatory->get_instrument("spectral_resolution", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<p><b>Spectral Resolution:&nbsp;</b>" . $_observatory->get_instrument("spectral_resolution", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("polarisation", $telescope_id, $key2))
-	    				print "<P><B>Polarisation:&nbsp;</B>" . $_observatory->get_instrument("polarisation", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<p><b>Polarisation:&nbsp;</b>" . $_observatory->get_instrument("polarisation", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("field_of_view", $telescope_id, $key2))
-	    				print "<P><B>Field of View:&nbsp;</B>" . $_observatory->get_instrument("field_of_view", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<p><b>Field of View:&nbsp;</b>" . $_observatory->get_instrument("field_of_view", $telescope_id, $key2) . "</p>" . LF;
 
 	    			if ($_observatory->get_instrument("max_frames_per_sec", $telescope_id, $key2))
-	    				print "<P><B>MAX frames:&nbsp;</B>" . $_observatory->get_instrument("max_frames_per_sec", $telescope_id, $key2) . "&nbsp;[per second]</P>" . LF;
+	    				print "<p><b>MAX frames:&nbsp;</b>" . $_observatory->get_instrument("max_frames_per_sec", $telescope_id, $key2) . "&nbsp;[per second]</p>" . LF;
 	    			if ($_observatory->get_instrument("frame_size", $telescope_id, $key2))
-	    				print "<P><B>Frame size:&nbsp;</B>" . $_observatory->get_instrument("frame_size", $telescope_id, $key2) . "&nbsp;[pixel*pixel]</P>" . LF;
+	    				print "<p><b>Frame size:&nbsp;</b>" . $_observatory->get_instrument("frame_size", $telescope_id, $key2) . "&nbsp;[pixel*pixel]</p>" . LF;
 	    			if ($_observatory->get_instrument("max_exposure_time", $telescope_id, $key2))
-	    				print "<P><B>MAX exposure time:&nbsp;</B>" . $_observatory->get_instrument("max_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</P>" . LF;
+	    				print "<p><b>MAX exposure time:&nbsp;</b>" . $_observatory->get_instrument("max_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</p>" . LF;
 	    			if ($_observatory->get_instrument("min_exposure_time‚", $telescope_id, $key2))
-	    				print "<P><B>MIN exposure time:&nbsp;</B>" . $_observatory->get_instrument("min_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</P>" . LF;
+	    				print "<p><b>MIN exposure time:&nbsp;</b>" . $_observatory->get_instrument("min_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</p>" . LF;
 	    			/** distinction between B/W == 1 and Color chip == 0 */
 	    			if($instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] == "Camera")
 	    				if ($_observatory->get_instrument("color_bw_chip", $telescope_id, $key2) == 0)
-	    					print "<P><B>B/W or Color chip:&nbsp;</B>Color chip</P>" . LF;
+	    					print "<p><b>B/W or Color chip:&nbsp;</b>Color chip</p>" . LF;
 	    				else if ($_observatory->get_instrument("color_bw_chip", $telescope_id, $key2) == 1)
-	    					print "<P><B>B/W or Color chip:&nbsp;</B>B/W chip</P>" . LF;
+	    					print "<p><b>B/W or Color chip:&nbsp;</b>B/W chip</p>" . LF;
 	    			if ($_observatory->get_instrument("ccd_chip_type", $telescope_id, $key2))
-	    				print "<P><B>CCD chip type:&nbsp;</B>" . $_observatory->get_instrument("ccd_chip_type", $telescope_id, $key2) . "</P>" . LF;
+	    				print "<p><b>CCD chip type:&nbsp;</b>" . $_observatory->get_instrument("ccd_chip_type", $telescope_id, $key2) . "</p>" . LF;
 
 	    			if ($_observatory->get_instrument("comments", $telescope_id, $key2))
-	    				print "<P><B>Instrument Comments:&nbsp;</B>" . nl2br($_observatory->get_instrument("comments", $telescope_id, $key2)) . "</P>" . LF;
-	    			print "</FIELDSET>" . LF;
+	    				print "<p><b>Instrument Comments:&nbsp;</b>" . nl2br($_observatory->get_instrument("comments", $telescope_id, $key2)) . "</p>" . LF;
+	    			print "</fieldset>" . LF;
 	    		}
-	    	print "</FIELDSET>" . LF;
+	    	print "</fieldset>" . LF;
 	    }
 
 	    //OBSERVATORY Additional Information
-	    print "<FIELDSET class='report'><LEGEND><B>Additional Information:</B></LEGEND>" . LF;
+	    print "<fieldset class='report'><legend><b>Additional Information:</b></legend>" . LF;
 	    if ($_observatory->get_hidden_field('further_contacts'))
-	    	print "<P><B>Further contacts:&nbsp;</B><font color='#FF0000'>Not Displayed</font></P>" . LF;
+	    	print "<p><b>Further contacts:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
 	    else if ($_observatory->get_add_info('further_contacts'))
-	    	print "<P><B>Further contacts:&nbsp;</B>" . nl2br($_observatory->get_add_info('further_contacts')) . "</P>" . LF;
+	    	print "<p><b>Further contacts:&nbsp;</b>" . nl2br($_observatory->get_add_info('further_contacts')) . "</p>" . LF;
 		if ($_observatory->get_add_info('instrument_comments'))
-	    	print "<P><B>Instrument comments:&nbsp;</B>" . nl2br($_observatory->get_add_info('instrument_comments')) . "</P>" . LF;
+	    	print "<p><b>Instrument comments:&nbsp;</b>" . nl2br($_observatory->get_add_info('instrument_comments')) . "</p>" . LF;
 	    if ($_observatory->get_add_info('additional_instruments'))
-	    	print "<P><B>Additional instruments:&nbsp;</B>" . nl2br($_observatory->get_add_info('additional_instruments')) . "</P>" . LF;
+	    	print "<p><b>Additional instruments:&nbsp;</b>" . nl2br($_observatory->get_add_info('additional_instruments')) . "</p>" . LF;
 	    if ($_observatory->get_add_info('array_description'))
-	    	print "<P><B>Array description:&nbsp;</B>" . nl2br($_observatory->get_add_info('array_description')) . "</P>" . LF;
+	    	print "<p><b>Array description:&nbsp;</b>" . nl2br($_observatory->get_add_info('array_description')) . "</p>" . LF;
 	    if ($_observatory->get_add_info('backend_description'))
-	    	print "<P><B>Backend description:&nbsp;</B>" . nl2br($_observatory->get_add_info('backend_description')) . "</P>" . LF;
+	    	print "<p><b>Backend description:&nbsp;</b>" . nl2br($_observatory->get_add_info('backend_description')) . "</p>" . LF;
 	    if ($_observatory->get_add_info('research_comments'))
-	    	print "<P><B>Research comments:&nbsp;</B>" . nl2br($_observatory->get_add_info('research_comments')) . "</P>" . LF;
+	    	print "<p><b>Research comments:&nbsp;</b>" . nl2br($_observatory->get_add_info('research_comments')) . "</p>" . LF;
 	    if ($_observatory->get_add_info('general_comments'))
-	    	print "<P><B>General comments:&nbsp;</B>" . nl2br($_observatory->get_add_info('general_comments')) . "</P>" . LF;
-		print "</FIELDSET>" . LF;
+	    	print "<p><b>General comments:&nbsp;</b>" . nl2br($_observatory->get_add_info('general_comments')) . "</p>" . LF;
+		print "</fieldset>" . LF;
   
 ?>
 
