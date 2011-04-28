@@ -71,7 +71,7 @@
         if (isSet($_GET["page"]))
           $_POST["page"] = $_GET["page"];
         else
-          print "<INPUT name='page' type='hidden'>" . LF;
+          print "<input name='page' type='hidden'>" . LF;
       }
     ?>
 
@@ -82,7 +82,7 @@
 	</div>
 
     <div id="content-wrapper">
-    <center>
+<!--    <center>-->
     <table class="main" border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
       <tr><!--LEFT MENU-->
         <td valign="top"><img src="images/blank.gif" width="0" /></td>
@@ -195,7 +195,7 @@
       </tr>
       <tr><td valign="top" colspan="5"><img src="images/blank.gif" width="10" height="10"/></td></tr>
     </table>
-    </center>
+<!--    </center>-->
       <div id="footer"><!-- FOOTER-->
         <div id="footer-box">
           <div id="ue">

@@ -21,13 +21,13 @@ class Controller
     	print "<TR><TD align='center' width='45%'>" .
           "<INPUT type='radio' name='add_res_type' value='obs'";
    		if ($resource_type == "obs") print " checked";
-    	print " id='sel_obs' onchange=\"document.main_form.submit()\">" .
+    	print " id='sel_obs' onchange=\"document.getElementById('main_form').submit()\">" .
           " <LABEL for='sel_obs'><B>Observatory</B></LABEL></TD>" . LF;
 
    		print "<TD align='center' width='45%'>" .
           "<INPUT type='radio' name='add_res_type' value='spa'";
     	if ($resource_type == "spa") print " checked";
-    	print " id='sel_spa' onchange=\"document.main_form.submit()\">" .
+    	print " id='sel_spa' onchange=\"document.getElementById('main_form').submit()\">" .
           " <LABEL for='sel_spa'><B>Space Mission</B></LABEL></TD></TR>" . LF;
     	print "</TABLE></FIELDSET>";
     	
