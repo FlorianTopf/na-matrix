@@ -53,11 +53,11 @@ function makeTAG($TAG, $content, $args="")
 }
 
 // *****************************
-// HTML TABLE TAGS functions
+// HTML TAG TAGS functions
 // *****************************
 function makeTR($content, $args="") 
 {
-    return makeTAG("TR",$content,$args);
+    return makeTAG("tr",$content,$args);
 }
  
   
@@ -67,25 +67,25 @@ function makeTR($content, $args="")
 
 function makeInputTitle($title, $info=NULL, $mandatory=false)
 {
-	$content = "<B>";
-	($mandatory == true) ? ($content .= "<FONT color='red'>*</FONT>") : ($content .= "&nbsp;&nbsp;");
-	$content .= "&nbsp;" . $title . "</B>&nbsp;" . $info;
+	$content = "<b>";
+	($mandatory == true) ? ($content .= "<font color='red'>*</font>") : ($content .= "&nbsp;&nbsp;");
+	$content .= "&nbsp;" . $title . "</b>&nbsp;" . $info;
 	return $content;
 }
 
 /** @todo not to override EPN framework */
 function makeInputText_($name, $value, $size=10, $class=NULL, $info=NULL)
 {
-    $content = "<INPUT name='" . $name . "' ";
+    $content = "<input name='" . $name . "' ";
 	if($class != NULL) $content .=  "class='" . $class . "' ";
  	$content .= "value='" . $value . "' size='" . $size . "'>";
-    if($info != NULL ) $content .= "&nbsp;<B>" . $info . "</B>"; 
+    if($info != NULL ) $content .= "&nbsp;<b>" . $info . "</b>"; 
     return $content;
 }
 
 function makeCheckBox($name, $value=false)
 {
-	$content = "<INPUT name='" . $name . "' type='checkbox' value='1' ";
+	$content = "<input name='" . $name . "' type='checkbox' value='1' ";
 	if($value) $content .= "checked='checked'";
     $content .= "'>";
     return $content;
@@ -95,33 +95,33 @@ function makeCheckBox($name, $value=false)
  * 	@todo if we want to have more written in the option name than 2 items */
 function makeSelectListFromArray_($name, $value, $items, $column, $options=array())
 {
-	$content =  "<SELECT name='". $name ."'>" . LF;
+	$content =  "<select name='". $name ."'>" . LF;
 	foreach($options as $option)
 		$content .= $option . LF;
 	foreach($items['id'] as $key => $item)
 	{
-		$content .= "<OPTION value='" . $item . "'";
+		$content .= "<option value='" . $item . "'";
 		if ($item == $value) $content .= " selected";
 		if(is_array($column))
-		    $content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</OPTION>" . LF;
+		    $content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</option>" . LF;
 		else
-    		$content .= ">" . $items[$column][$key] . "</OPTION>" . LF;
+    		$content .= ">" . $items[$column][$key] . "</option>" . LF;
 	}
-	$content .= "</SELECT>";
+	$content .= "</select>";
 	return $content;
 }
 
 
 function makeSimpleSelectListFromArray_($name, $value, $items)
 {
-	$content =  "<SELECT name='". $name ."'>" . LF;
+	$content =  "<select name='". $name ."'>" . LF;
 	foreach($items as $item)
 	{
-		$content .= "<OPTION value='" . $item . "'";
+		$content .= "<option value='" . $item . "'";
 		if ($item == $value) $content .= " selected";
-    	$content .= ">" . $item . "</OPTION>" . LF;
+    	$content .= ">" . $item . "</option>" . LF;
 	}
-	$content .= "</SELECT>";
+	$content .= "</select>";
 	return $content;
 }
 
@@ -152,114 +152,114 @@ function printSimpleSelectListFromArray($name, $value, $items)
 
 function printInputTitleCol($title, $info=NULL, $mandatory=false)
 {
-	print makeTAG("TD", makeInputTitle($title, $info, $mandatory), "align='left'");
+	print makeTAG("td", makeInputTitle($title, $info, $mandatory), "align='left'");
 }
 
 
 function printInputTextCol($name, $value, $size=10, $args="", $class=NULL, $info=NULL) 
 {
-	print makeTAG("TD", makeInputText_($name, $value, $size, $class, $info), $args);
+	print makeTAG("td", makeInputText_($name, $value, $size, $class, $info), $args);
 }
 
 function printCheckBoxCol($name, $value)
 {
-	print makeTAG("TD", makeCheckBox($name, $value));
+	print makeTAG("td", makeCheckBox($name, $value));
 }
 
 
 function printSelectListColFromArray($name, $value, $items, $column, $options=array())
 {
-	print makeTAG("TD", makeSelectListFromArray_($name, $value, $items, $column, $options), "align='left'");	
+	print makeTAG("td", makeSelectListFromArray_($name, $value, $items, $column, $options), "align='left'");	
 }
 
 
 function printCheckBoxRow($title, $name, $value, $info=NULL, $mandatory=false)
 {
-	print "<TR>";
+	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);
 	printCheckBoxCol($name, $value);
-	print "</TR>" . LF;
+	print "</tr>" . LF;
 }
 
 
 function printmultipleCheckBoxRow($name, $items)
 {
-	print "<TR>";
+	print "<tr>";
 	$iterator = 0;
 	foreach ($items as $key => $value)
 	{
-		print "<TD align='center'><B>". ucfirst(str_replace("_", " ", $key)) . "&nbsp;</B>" .
+		print "<td align='center'><b>". ucfirst(str_replace("_", " ", $key)) . "&nbsp;</b>" .
 		makeCheckBox($name . "_" . $iterator, $value);
-    	print "</TD>" . LF;
+    	print "</td>" . LF;
     	$iterator++;
 	}
-	print "</TR>" . LF;
+	print "</tr>" . LF;
 }
 
 /** @todo improve this a bit */
 function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=NULL, $mandatory=false) 
 {	
-	print "<TR>";
+	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);
 	printInputTextCol($name, $value, $size, NULL, $class, NULL);
-    print "</TR>" . LF;
+    print "</tr>" . LF;
 }
 
 /** @todo improve this a bit */
 function printInputTextfieldRow($title, $name, $value, $cols=60, $rows=2, $info=NULL, $mandatory=false) 
 {	
-	print "<TR>";
+	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	
-	print "<TD align='left'><TEXTAREA name='{$name}' type='text'" .
-	  	" cols='{$cols}' rows='{$rows}'>{$value}</TEXTAREA></TD></TR>" . LF;
+	print "<td align='left'><textarea name='{$name}' type='text'" .
+	  	" cols='{$cols}' rows='{$rows}'>{$value}</textarea></td></tr>" . LF;
 }
 
 /** @todo improve this a bit */
 function printSelectListRowFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array())
 {
-	print "<TR>";
+	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	
 	printSelectListColFromArray($name, $value, $items, $column, $options);
-	print "</TR>" . LF;
+	print "</tr>" . LF;
 }
 
 /** @todo improve this a bit */
 function printTypeSelectListFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array())
 {
-	print "<TR>";
+	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);
-	print "<TD align='left'><SELECT name='{$name}'>" . LF;
+	print "<td align='left'><select name='{$name}'>" . LF;
 	if(array_key_exists("top", $options))
 		print $options["top"];
 	foreach($items['id'] as $key => $item)
 	{
-		print "<OPTION value='" . $item . "'";
+		print "<option value='" . $item . "'";
 		if ($item == $value) print " selected";
-    	print ">" . $items[$column][$key] . "</OPTION>" . LF;
+    	print ">" . $items[$column][$key] . "</option>" . LF;
 	}
 	if(array_key_exists("bottom", $options))
 		print $options["bottom"];
-	print "</SELECT></TD></TR>" . LF;
+	print "</select></td></tr>" . LF;
 }
 
 /** @todo improve this a bit */
 function printBigSelectListFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array())
 {
-	print "<TR>";
+	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	
-	print "<TD align='left'><SELECT name='{$name}' multiple size='10'>" . LF;
+	print "<td align='left'><select name='{$name}' multiple size='10'>" . LF;
 	foreach($options as $option)
 		print $option;
 	foreach($items['id'] as $key => $item)
 	{
-		print "<OPTION value='" . $item . "'";
+		print "<option value='" . $item . "'";
 		//PROOF IF THIS IS AN ARRAY!
     	if(is_array($value))
     		if(in_array($item, $value))
         		print " selected";
-    	print ">" . $items[$column][$key] . "</OPTION>" . LF;
+    	print ">" . $items[$column][$key] . "</option>" . LF;
 	}
-	print "</SELECT></TD></TR>" . LF;
+	print "</select></td></tr>" . LF;
 }
 
 function printAddRemoveButton($count, $amount, $class, $table=true)
@@ -267,18 +267,18 @@ function printAddRemoveButton($count, $amount, $class, $table=true)
 	if($table)
 	{
 		if($count == (count($amount) - 1))
-			print "<TABLE class='{$class}_button'><TR><td><a class='add_{$class}' href=''>Add " . ucfirst($class) . "</a></td></tr></TABLE>";
+			print "<table class='{$class}_button'><tr><td><a class='add_{$class}' href=''>Add " . ucfirst($class) . "</a></td></tr></table>";
 		else
-    		print "<TABLE class='{$class}_button'><TR><td><a class='remove_{$class}' href=''>Delete " . ucfirst($class) . "</a></td></tr></TABLE>";
+    		print "<table class='{$class}_button'><tr><td><a class='remove_{$class}' href=''>Delete " . ucfirst($class) . "</a></td></tr></table>";
 	}
 	else
 	{
-		print "<TD>";
+		print "<td>";
 		if($count == (count($amount) - 1))
 			print "<a class='add_{$class}' href=''>Add</a>";
 		else
     		print "<a class='remove_{$class}' href=''>Del</a>";	
-    	print "</TD>";
+    	print "</td>";
 	}
 }
 
@@ -286,36 +286,36 @@ function printActionButton($action)
 {
 	nl();
 	//Define the action buttons
-	print "<CENTER><TABLE>" . LF;
+	print "<center><table>" . LF;
 	//IF ACTION IS ADD
 	if ($action == "add")
-		print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
+		print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
 	//IF ACTION IS EDIT
 	else if ($action == "edit")
-		print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
-	print "</TABLE></CENTER>" . LF;
+		print "<tr><td><input type='submit' name='push' value='Update Entry'></td></tr>" . LF;
+	print "</table></center>" . LF;
 }
 
 function printEditAllTable($name, $resources, $type)
 {
 	if (empty($resources))
-		print "<CENTER><H3>There are no {$name} entries to edit.</H3></CENTER>" . LF;	
+		print "<center><h3>There are no {$name} entries to edit.</h3></center>" . LF;	
 	else
 	{
-		print "<CENTER><P><TABLE border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
-    	print "<CAPTION><H3 align='center'>To edit please click on the {$name} name.</H3></CAPTION>" . LF;
-    	print "<TR><TH>NAME</TH><TH>CREATION DATE</TH><TH>MODIFICATION DATE</TH></TR>" . LF;
+		print "<center><p><table border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
+    	print "<caption><h3 align='center'>To edit please click on the {$name} name.</h3></caption>" . LF;
+    	print "<tr><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
     	foreach ($resources as $entry)
     	{
-   			print "<TR align='center'>";
-    		print "<TD><A title='Click to edit' class='hand' " .
+   			print "<tr align='center'>";
+    		print "<td><a title='Click to edit' class='hand' " .
               	"href='index.php?page=add&action=edit&id=" . $entry["id"] . "&res_type={$type}" .
-              	"'>" . $entry["name"] . "</A></TD>";
-        	print "<TD>" . $entry["creation_date"] . "</TD>";
-        	print "<TD>" . $entry["modification_date"] . "</TD>";
-        	print "</TR>" . LF;
+              	"'>" . $entry["name"] . "</a></td>";
+        	print "<td>" . $entry["creation_date"] . "</td>";
+        	print "<td>" . $entry["modification_date"] . "</td>";
+        	print "</tr>" . LF;
     	}
-    	print "</TABLE></P></CENTER>" . LF;
+    	print "</table></P></center>" . LF;
 	}	
 }
 
