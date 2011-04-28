@@ -87,7 +87,7 @@
       <tr><!--LEFT MENU-->
         <td valign="top"><img src="images/blank.gif" width="0" alt="blank"/></td>
         <td valign="top" id="lmcol">
-          <table class="ltable" cellspacing="0" cellpadding="0" width="100%">
+<!--          <table class="ltable" cellspacing="0" cellpadding="0" width="100%">-->
             <div id="left">
 		    <div id="left-content">
 		    <div id="left-menu-box">
@@ -129,7 +129,7 @@
             </div>
             </div>
             </div>
-          </table>
+<!--          </table>-->
         </td>
         <td valign="top"><img src="images/blank.gif" width="10" alt="blank"/></td>
         <td align="left" valign="top" class="rbody"><!-- LOAD MAIN FRAME -->
