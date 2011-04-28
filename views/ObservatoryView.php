@@ -6,6 +6,7 @@
  *
  * @todo improve if clauses when we want to hide fields which are not given
  * @todo improve includes a bit
+ * @todo empty tables (without tr), empty lists (without li), a href targets are NOT allowed with xhtml strict
  */
 
 require_once ('../config.inc.php');
@@ -35,9 +36,9 @@ $link->close();
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
   <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-<!--  <SCRIPT src="../lib/js/jquery-1.4.2.min.js"></SCRIPT>-->
-<!--  <SCRIPT src="../lib/js/jquery.validate.min.js"></SCRIPT>-->
-<!--  <SCRIPT src="../js/functions.js"></SCRIPT>-->
+<!--    <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>-->
+<!--    <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>-->
+<!--    <script type="text/javascript" src="js/functions.js"></script>-->
 </head>
 
 <body class='report'>
