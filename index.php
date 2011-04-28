@@ -95,36 +95,34 @@
               <ul>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=home">Home</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=browse">Browse Matrix</a></li>
+              </ul>
 
           <?php
           	if ($_SESSION["user_id"] <= 1)
             {
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<div class='center'><li>Username:&nbsp;" .
-                    "<input name='userid' size='10'/></li></div>" . LF;
-              print "<div align='center'><li>Password:&nbsp;" .
-                    "<input type='password' name='passwd' size='10'/></li></div>" . LF;
-              print "<div class='center'><li><input type='submit' name='login' value='Log in'/></li></div>" . LF;
-              print "<div class='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></div>" .LF;
+              print "<div class='center'><ul><li>Username:&nbsp<input name='userid' size='10'/></li>" . LF;
+              print "<li>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
+              print "<li><input type='submit' name='login' value='Log in'/></li>" . LF;
+              print "<li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li><ul></div>" .LF;
 			}
             else
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
-              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
-              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" .LF;
+              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
+              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li></ul>" .LF;
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<div class='center'><li><b>" . $_SESSION["user_name"] . " logged in</b></li></div>" . LF;
-              print "<div class='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li></div>" . LF;
-              print "<div class='center'><li><input type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
+              print "<div class='center'><ul><li><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
+              print "<li><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
+              print "<li><input type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
               if ($_SESSION["user_level"] >= 31)
               {
                 print "<img src='images/blank.gif' height='30' alt='blank'>";
-                print "<div class='center'><li><A href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></div>" . LF;
+                print "<div class='center'><ul><li><a href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></ul></div>" . LF;
               }
             }
           ?>
 
-              </ul>
               <img src="images/blank.gif" height="30" alt="blank"/>
               <div class="center"><b>Developed by&nbsp;&nbsp;</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></div>
             </div>
