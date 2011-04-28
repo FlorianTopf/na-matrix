@@ -11,9 +11,10 @@ function __autoload($className) {
    	// If DAO class, remove the ending 'DAO'
    	$classFile = substr($className,-3)=='DAO' ? substr($className,0,-3) : $className;
 	// This now works from everywhere
-	$classFilePath = $_SERVER['DOCUMENT_ROOT'];
+	//$classFilePath = $_SERVER['DOCUMENT_ROOT'];
+	$classFilePath = DOC_ROOT;
 	//echo "cfp = $classFilePath";
-	$classFileLongName = 'na1-matrix/models/'.$classFile.'.php';
+	$classFileLongName = 'models/'.$classFile.'.php';
 	//echo "cft = ".$classFilePath.'/'.$classFileLongName;
 	if (file_exists($classFilePath.'/'.$classFileLongName))
    		require_once $classFilePath.'/'.$classFileLongName;

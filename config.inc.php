@@ -15,10 +15,11 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 //  get_include_path()
 //  );
 
-define("DOCROOT", "/Applications/XAMPP/htdocs/na1-matrix");
+//TEST SERVER
+//define("DOC_ROOT", "/Applications/XAMPP/htdocs/na1-matrix");
 
-// REAL NA1 SERVER:	
-//define("DOCROOT", "/users/iwf/europlanet/matrix");
+//REAL NA1 SERVER:	
+define("DOC_ROOT", "/users/iwf/europlanet/matrix");
 
 // Mail setup
 define("MAIL_SMTP", "smtp.oeaw.ac.at");
