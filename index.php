@@ -6,8 +6,8 @@
  */
 ?>
    
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <?php
   require_once ('config.inc.php');
@@ -31,7 +31,7 @@
   if (isSet($_POST["logout"])) $_POST["page"] = "logout";
 ?>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title>NA1-Matrix</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
