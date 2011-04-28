@@ -37,14 +37,15 @@ body {
 }
 
 body.report {
+	position: relative;
 	font-family: verdana, arial;
 	font-style: normal;
     font-variant: normal;
     font-weight: normal;
     font-size: 8pt;
     color: black;
- /* margin: 10px;
-    padding: 10px; */
+ 	margin: 5px auto;
+    padding: 0px;
     border: 0px;
     background: #FFFFFF;
     background-color: white;
