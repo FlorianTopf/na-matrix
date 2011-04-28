@@ -60,8 +60,8 @@ $link->close();
   	if($_observatory->get_hidden_field("web_address"))
   		print "<p><b>Web address:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
   	else if ($_observatory->get_field("obs_web_address"))
-  		print "<p><b>Web address:&nbsp;</b><A href='" . $_observatory->get_field("obs_web_address") . "' target='_blank'>" .
-  												   		$_observatory->get_field("obs_web_address") . "</A></p>" . LF;
+  		print "<p><b>Web address:&nbsp;</b><a href='" . $_observatory->get_field("obs_web_address") . "' target='_blank'>" .
+  												   		$_observatory->get_field("obs_web_address") . "</a></p>" . LF;
   	if ($_observatory->get_field("obs_address"))
   		print "<p><b>Address:&nbsp;</b>" . ($_observatory->get_hidden_field("address") ?
   			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_address")). "</p>" . LF;
@@ -83,7 +83,7 @@ $link->close();
   	if($_observatory->get_hidden_field("email"))
   		print "<p><b>Email:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
   	else if ($_observatory->get_field("obs_email"))
-  		print "<p><b>Email:&nbsp;</b><A href='mailto:" . $_observatory->get_field("obs_email") . "'>" . $_observatory->get_field("obs_email") . "</A></p>" . LF;
+  		print "<p><b>Email:&nbsp;</b><a href='mailto:" . $_observatory->get_field("obs_email") . "'>" . $_observatory->get_field("obs_email") . "</a></p>" . LF;
 
 	//GeoHack Coordinate Postfixes:
 	if($_observatory->get_field_array("obs_latitude", "float"))
@@ -103,26 +103,26 @@ $link->close();
   	if($_observatory->get_hidden_field("latitude"))
   		print "<p><b>Latitude:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>";
   	else if (!$gps_are_null)
-		print "<p><b>Latitude:&nbsp;</b>" . "<A href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
-  										"&params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
+		print "<p><b>Latitude:&nbsp;</b>" . "<a href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
+  										"&amp;params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
   								   		$_observatory->get_field_array("obs_longitude", "float") . $geohack_lon_postfix . "' target='_blank'>" .
   										$_observatory->get_field_array("obs_latitude", "prefix") . " " .
   		  								$_observatory->get_field_array("obs_latitude", "degree") . "&deg ".
   		  								$_observatory->get_field_array("obs_latitude", "minutes"). "' " .
   		  								$_observatory->get_field_array("obs_latitude", "seconds"). "'' " .
-  		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</A></p>" . LF ;
+  		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</a></p>" . LF ;
 
   	if($_observatory->get_hidden_field("longitude"))
   		print "<p><b>Longitude:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>";
   	else if (!$gps_are_null)
-  		print "<p><b>Longitude:&nbsp;</b>" . "<A href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
-  										"&params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
+  		print "<p><b>Longitude:&nbsp;</b>" . "<a href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
+  										"&amp;params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
   								   		$_observatory->get_field_array("obs_longitude", "float") . $geohack_lon_postfix . "' target='_blank'>" .
   										$_observatory->get_field_array("obs_longitude", "prefix") . " " .
   		  								$_observatory->get_field_array("obs_longitude", "degree") . "&deg ".
   		  								$_observatory->get_field_array("obs_longitude", "minutes"). "' " .
   		  								$_observatory->get_field_array("obs_longitude", "seconds"). "'' " .
-  		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "'''" . "</A></p>" . LF ;
+  		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "'''" . "</a></p>" . LF ;
 
 	if ($_observatory->get_field("obs_approx_position"))
   		print "<p><b>Approximate position:&nbsp;</b>" . $_observatory->get_field("obs_approx_position") . "</p>" . LF;
@@ -152,7 +152,7 @@ $link->close();
 
 	//OBSERVATORY Scientific Contacts:
   	print "<fieldset class='report'><legend><b>Scientific Contacts:</b></legend>" . LF;
-  	print "<TABLE border='0' cellpadding='4' class='rtable' width='100%'>" . LF;
+  	print "<table border='0' cellpadding='4' class='rtable' width='100%'>" . LF;
   	if($_observatory->get_hidden_field("scientific_contacts"))
   		"<TR><TD><font color='#FF0000'>Not Displayed</font></TD></TR>";
   	else
@@ -161,31 +161,31 @@ $link->close();
       		{
 				print "<TR>";
 				print "<TD><b>Name:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_name", $key)  . "</TD>";
-				print "<TD><b>Email:</b>&nbsp;<A href='mailto:" . $_observatory->get_scientific_contact("sci_con_email", $key) . "'>" .
-				  					$_observatory->get_scientific_contact("sci_con_email", $key) . "</A></TD>";
+				print "<TD><b>Email:</b>&nbsp;<a href='mailto:" . $_observatory->get_scientific_contact("sci_con_email", $key) . "'>" .
+				  					$_observatory->get_scientific_contact("sci_con_email", $key) . "</a></TD>";
 				print "<TD><b>Institution:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_institution", $key) . "</TD>";
 				print "</TR>";
       		}
-    print "</TABLE>";
+    print "</table>";
   	print "</fieldset>" . LF;
 
   	//OBSERVATORY Research Areas:
-  	print "<fieldset class='report'><legend><b>Research Areas:</b></legend><UL>" . LF;
+  	print "<fieldset class='report'><legend><b>Research Areas:</b></legend><ul>" . LF;
 	$research_areas = $_observatory->get_research_areas();
     foreach($research_areas['id'] as $key => $value)
     	if(is_array($_observatory->get_has_many("research_areas", NULL)))
         	if (in_array($value, $_observatory->get_has_many("research_areas", NULL)))
           		print "<li>" . $research_areas['name'][$key] . "</li>";
-	print "</UL></fieldset>" . LF;
+	print "</ul></fieldset>" . LF;
 
 	//OBSERVATORY Targets:
-	print "<fieldset class='report'><legend><b>Targets:</b></legend><UL>" . LF;
+	print "<fieldset class='report'><legend><b>Targets:</b></legend><ul>" . LF;
 	$targets = $_observatory->get_targets();
     foreach($targets['id'] as $key => $value)
     	if(is_array($_observatory->get_has_many("targets", NULL)))
         	if (in_array($value, $_observatory->get_has_many("targets", NULL)))
           		print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>";
-    print "</UL></fieldset>" . LF;
+    print "</ul></fieldset>" . LF;
 
     //OBSERVATORY Telescopes:
     $telescope_types = $_observatory->get_telescope_types();
