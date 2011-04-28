@@ -21,7 +21,7 @@ body {
  */
 
 /* MAIN */
-html {
+body {
 	position: relative;
 /*	text-align: center; */
 	border: 0;
@@ -36,7 +36,7 @@ html {
 	background-repeat: repeat-x;
 }
 
-html.report, body.report {
+body.report {
 	font-family: verdana, arial;
 	font-style: normal;
     font-variant: normal;
