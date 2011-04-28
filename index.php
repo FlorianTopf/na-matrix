@@ -71,7 +71,7 @@
         if (isSet($_GET["page"]))
           $_POST["page"] = $_GET["page"];
         else
-          print "<input name='page' type='hidden'>" . LF;
+          print "<div><input name='page' type='hidden'/></div>" . LF;
       }
     ?>
 
@@ -135,7 +135,6 @@
         <td align="left" valign="top" width="770" class="rbody"><!-- LOAD MAIN FRAME -->
         
         <?php
-        
         //DEBUG:
 //		echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
 //		echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . "- POST RES_TYPE: " . $_POST["res_type"] . "<br>";

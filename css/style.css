@@ -4,6 +4,7 @@
  * @author Florian Topf, Robert Stöckler
  * 
  * @todo rewrite everything to comply with STRICT XHTML and remove old stuff for v0.2
+ * @todo reorder this stuff and make a hierarchy to FIND anything here!
  */
 
 /*
@@ -68,7 +69,7 @@ body.report {
  }
  */
 
- .home {
+p.home {
  	margin: 10px;
  	line-height: 16px;
  	text-align: justify;
