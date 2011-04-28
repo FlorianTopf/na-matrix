@@ -943,6 +943,7 @@ table.dtable {
 #lmcol {
 	/*background-color: lavender;*/
 	border: 0px solid black;
+	width: 208px;
 }
 
 table.ltable {
@@ -1099,6 +1100,7 @@ fieldset.error {
 	font-size: 8pt;
 	color: black;
 	background-color: white;
+	width: 770px;
 }
 
 .rbody A {

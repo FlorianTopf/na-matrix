@@ -86,7 +86,7 @@
     <table class="main" border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr><!--LEFT MENU-->
         <td valign="top"><img src="images/blank.gif" width="0" alt="blank"/></td>
-        <td valign="top" id="lmcol" width="208">
+        <td valign="top" id="lmcol">
           <table class="ltable" cellspacing="0" cellpadding="0" width="100%">
             <div id="left">
 		    <div id="left-content">
@@ -101,10 +101,10 @@
           	if ($_SESSION["user_id"] <= 1)
             {
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<div class='center'><ul><li>Username:&nbsp<input name='userid' size='10'/></li>" . LF;
+              print "<div class='center'><ul><li>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
               print "<li>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
               print "<li><input type='submit' name='login' value='Log in'/></li>" . LF;
-              print "<li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li><ul></div>" .LF;
+              print "<li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul></div>" .LF;
 			}
             else
             {
@@ -132,7 +132,7 @@
           </table>
         </td>
         <td valign="top"><img src="images/blank.gif" width="10" alt="blank"/></td>
-        <td align="left" valign="top" width="770" class="rbody"><!-- LOAD MAIN FRAME -->
+        <td align="left" valign="top" class="rbody"><!-- LOAD MAIN FRAME -->
         
         <?php
         //DEBUG:
