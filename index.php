@@ -77,7 +77,7 @@
 
     <div id="top">
 		<div id="top-menu-img"><img src="images/top_menu_img.gif" align="middle" width="527" height="19" alt="top menu" title="top menu" /></div>
-			<div id="top-menu"><font style="font-family: verdana, arial; font-weight: bold; font-size: 22px;" color="#172983">NA1-MATRIX of ground-based &amp; space-based observatories</font></div>
+			<div id="top-menu">NA1-MATRIX of ground-based &amp; space-based observatories</div>
 		<div id="top-menu-bottom-img"><img src="images/bottom_menu_img.gif" align="middle" width="527" height="19" alt="top menu" title="top menu" /></div>
 	</div>
 
@@ -99,11 +99,11 @@
           <?php
           	if ($_SESSION["user_id"] <= 1)
             {
-              print "<div align='center'><li><font font-weight='bold'; font-size='10px'; color='black';>Username: </font>" .
-                    "<input name='userid' size='10'></li></div>" . LF;
-              print "<div align='center'><li><font font-weight='bold'; font-size='10px'; color='black';>Password: </font>" .
-                    "<input type='password' name='passwd' size='10'></li></div>" . LF;
-              print "<div align='right'><li><input type='submit' name='login' value='Log in'></li></div>" . LF;
+              print "<div align='center'><li>Username:&nbsp;" .
+                    "<input name='userid' size='10'/></li></div>" . LF;
+              print "<div align='center'><li>Password:&nbsp;" .
+                    "<input type='password' name='passwd' size='10'/></li></div>" . LF;
+              print "<div align='right'><li><input type='submit' name='login' value='Log in'/></li></div>" . LF;
               print "<div align='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></div>" .LF;
 			}
             else
