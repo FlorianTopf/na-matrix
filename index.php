@@ -99,32 +99,34 @@
           <?php
           	if ($_SESSION["user_id"] <= 1)
             {
-              print "<div align='center'><li>Username:&nbsp;" .
+              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
+              print "<div class='center'><li>Username:&nbsp;" .
                     "<input name='userid' size='10'/></li></div>" . LF;
               print "<div align='center'><li>Password:&nbsp;" .
                     "<input type='password' name='passwd' size='10'/></li></div>" . LF;
-              print "<div align='right'><li><input type='submit' name='login' value='Log in'/></li></div>" . LF;
-              print "<div align='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></div>" .LF;
+              print "<div class='center'><li><input type='submit' name='login' value='Log in'/></li></div>" . LF;
+              print "<div class='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></div>" .LF;
 			}
             else
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
               print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
               print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" .LF;
-              print "<div align='center'><li><b>" . $_SESSION["user_name"] . " logged in</b></li></div>" . LF;
-              print "<div align='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li></div>" . LF;
-              print "<div align='center'><li><input type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
+              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
+              print "<div class='center'><li><b>" . $_SESSION["user_name"] . " logged in</b></li></div>" . LF;
+              print "<div class='center'><li><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li></div>" . LF;
+              print "<div class='center'><li><input type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
               if ($_SESSION["user_level"] >= 31)
               {
                 print "<img src='images/blank.gif' height='30' alt='blank'>";
-                print "<div align='center'><li><A href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new account</a></li></div>" . LF;
+                print "<div class='center'><li><A href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></div>" . LF;
               }
             }
           ?>
 
               </ul>
               <img src="images/blank.gif" height="30" alt="blank"/>
-              <div align='center'><span class="dhc"><b>Developed by&nbsp;&nbsp;</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></span></div>
+              <div class="center"><b>Developed by&nbsp;&nbsp;</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></div>
             </div>
             </div>
             </div>

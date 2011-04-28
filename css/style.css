@@ -1173,6 +1173,10 @@ button {
 	font-size: 6pt;
 }
 
+.center {
+	text-align: center;
+}
+
 /* INPUT VALIDATION */
 label.error {
 	font-family: verdana, arial;
