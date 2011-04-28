@@ -107,7 +107,7 @@ $link->close();
   										"&amp;params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
   								   		$_observatory->get_field_array("obs_longitude", "float") . $geohack_lon_postfix . "' target='_blank'>" .
   										$_observatory->get_field_array("obs_latitude", "prefix") . " " .
-  		  								$_observatory->get_field_array("obs_latitude", "degree") . "&deg ".
+  		  								$_observatory->get_field_array("obs_latitude", "degree") . "&deg; ".
   		  								$_observatory->get_field_array("obs_latitude", "minutes"). "' " .
   		  								$_observatory->get_field_array("obs_latitude", "seconds"). "'' " .
   		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</a></p>" . LF ;
@@ -119,7 +119,7 @@ $link->close();
   										"&amp;params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
   								   		$_observatory->get_field_array("obs_longitude", "float") . $geohack_lon_postfix . "' target='_blank'>" .
   										$_observatory->get_field_array("obs_longitude", "prefix") . " " .
-  		  								$_observatory->get_field_array("obs_longitude", "degree") . "&deg ".
+  		  								$_observatory->get_field_array("obs_longitude", "degree") . "&deg; ".
   		  								$_observatory->get_field_array("obs_longitude", "minutes"). "' " .
   		  								$_observatory->get_field_array("obs_longitude", "seconds"). "'' " .
   		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "'''" . "</a></p>" . LF ;
@@ -154,17 +154,17 @@ $link->close();
   	print "<fieldset class='report'><legend><b>Scientific Contacts:</b></legend>" . LF;
   	print "<table border='0' cellpadding='4' class='rtable' width='100%'>" . LF;
   	if($_observatory->get_hidden_field("scientific_contacts"))
-  		"<TR><TD><font color='#FF0000'>Not Displayed</font></TD></TR>";
+  		"<tr><td><font color='#FF0000'>Not Displayed</font></td></tr>";
   	else
   		if(is_array($_observatory->get_has_many("scientific_contacts", NULL)))
       		foreach($_observatory->get_has_many("scientific_contacts", NULL) as $key => $value)
       		{
-				print "<TR>";
-				print "<TD><b>Name:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_name", $key)  . "</TD>";
-				print "<TD><b>Email:</b>&nbsp;<a href='mailto:" . $_observatory->get_scientific_contact("sci_con_email", $key) . "'>" .
-				  					$_observatory->get_scientific_contact("sci_con_email", $key) . "</a></TD>";
-				print "<TD><b>Institution:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_institution", $key) . "</TD>";
-				print "</TR>";
+				print "<tr>";
+				print "<td><b>Name:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_name", $key)  . "</td>";
+				print "<td><b>Email:</b>&nbsp;<a href='mailto:" . $_observatory->get_scientific_contact("sci_con_email", $key) . "'>" .
+				  					$_observatory->get_scientific_contact("sci_con_email", $key) . "</a></td>";
+				print "<td><b>Institution:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_institution", $key) . "</td>";
+				print "</tr>";
       		}
     print "</table>";
   	print "</fieldset>" . LF;
