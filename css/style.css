@@ -230,6 +230,10 @@ p.home {
 	background: #FFFFFF;
 	text-transform: uppercase;
 	text-align: center;
+	font-family: verdana, arial; 
+	font-weight: bold; 
+	font-size: 22px;
+	color: #172983;
 }
 
  #top-menu {
