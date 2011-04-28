@@ -64,22 +64,22 @@ $link->close();
 	print "</fieldset>" . LF;
 
 	//Research Areas:
-	print "<fieldset class='report'><legend><b>Space Mission Research Areas:</b></legend><UL>";
+	print "<fieldset class='report'><legend><b>Space Mission Research Areas:</b></legend><ul>";
 	$research_areas = $_spacemission->get_research_areas();
     foreach($research_areas['id'] as $key => $value)
     	if(is_array($_spacemission->get_has_many("research_areas", NULL)))
         	if (in_array($value, $_spacemission->get_has_many("research_areas", NULL)))
           		print "<li>" . $research_areas['name'][$key] . "</li>";
-	print "</UL></fieldset>" . LF;
+	print "</ul></fieldset>" . LF;
 
 	//Targets:
-	print "<fieldset class='report'><legend><b>Space Mission Targets:</b></legend> <UL>";
+	print "<fieldset class='report'><legend><b>Space Mission Targets:</b></legend><ul>";
   	$targets = $_spacemission->get_targets();
     foreach($research_areas['id'] as $key => $value)
         if(is_array($_spacemission->get_has_many("targets", NULL)))
         	if (in_array($value, $_spacemission->get_has_many("targets", NULL)))
         	print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>" . LF;
-	print "</UL></fieldset>" . LF;
+	print "</ul></fieldset>" . LF;
 
 	//Sensors:
 	$science_goals = $_spacemission->get_science_goals();
@@ -128,12 +128,12 @@ $link->close();
 			if(is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
 				foreach ($_spacemission->get_has_many("scientific_contacts", $sensor_id) as $contact_count => $contact_id)
 				{
-					print "<TR>";
-					print "<TD><b>Name:&nbsp;</b>" . $_spacemission->get_scientific_contact("name", $sensor_id, $contact_count) . "</TD>";
-					print "<TD><b>Email:&nbsp;</b><a href='mailto:" . $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "'>" .
-						  $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "</TD>";
-					print "<TD><b>Institution:&nbsp;</b>" . $_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count) . "</TD>";
-					print "</TR>";
+					print "<tr>";
+					print "<td><b>Name:&nbsp;</b>" . $_spacemission->get_scientific_contact("name", $sensor_id, $contact_count) . "</td>";
+					print "<td><b>Email:&nbsp;</b><a href='mailto:" . $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "'>" .
+						  $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "</td>";
+					print "<td><b>Institution:&nbsp;</b>" . $_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count) . "</td>";
+					print "</tr>";
 				}
 			print "</table>";
 			print "</fieldset></fieldset>";
