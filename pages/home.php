@@ -24,7 +24,7 @@ taking decades to prepare. Due to the sizes of the projects, they involve severa
 on a variety of instruments. For example the Cassini Mission, which took 25 years from its inception to arrival at Saturn in 2004,
 has 12 instruments all involved in taking data regarding the planet, its magnetosphere, rings and moons. The budget for the whole
 mission is estimated to be well in excess of $3 billion and rising every day, as scientists are employed in directing the spacecraft
-and analysing the information returned. Thus, <i>it is vital that the scientic return obtained from this large investment of money,
+and analysing the information returned. Thus, <i>it is vital that the scientific return obtained from this large investment of money,
 time and effort is maximised.</i>
 </p>
 
@@ -32,7 +32,7 @@ time and effort is maximised.</i>
 Observations from the ground are much cheaper to make in comparison to the space missions and can
 back up spacecraft measurements: a nights observation on the largest telescopes costs something in the order of $20,000. Also not
 every type of instrument can be own as some are too heavy and others lose out to mission-decided priorities. This can be overcome
-though as ground based telescopes may have the capabilities to fill the gaps in the data collection, while complementing what the
+though as ground based telescopes may have the capabilities to fill the gaps in the data collection, while complementing what the
 spacecraft can achieve. For example, there is no high-spectral-resolution infrared spectrometer on Cassini capable of measuring the
 Saturns wind systems. But such instruments are available on NASAs Infrared Telescope Facility on Mauna Kea, Hawaii and elsewhere. In
 the USA, the American planetary science community has a long and productive history of supporting their space missions with
