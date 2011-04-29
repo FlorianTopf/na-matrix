@@ -43,9 +43,9 @@
 
 //----------------------------------------------------------------------
 
-  print "<CENTER><H2>Password reset</H2></CENTER>" . LF;
+  print "<h2>Password reset</h2>" . LF;
 
-  print "<INPUT type='hidden' name='page' value='reset'>" . LF;
+  print "<div><input type='hidden' name='page' value='reset'/></div>" . LF;
 
   varStore("res_uname", "");
 
@@ -81,7 +81,7 @@
 
     // Throw a warning and reload if needed ELSE change pw & send mail
     if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
-      print "<SCRIPT>document.main_form.submit()</SCRIPT>";
+      print "<script type='text/javascript'>document.main_form.submit()</script>";
     else
     {
       $res_pwd = randPw();
@@ -89,12 +89,12 @@
       $link->query($query);
       if ($link->affectedRows() > 0)
       {
-        print "Your password has been reset! " .
+        print "<p>Your password has been reset! " .
               "An email containing your new password has been sent to the " .
-              "email address accosiated to your account. " . LF;
+              "email address accosiated to your account.<p>" . LF;
 
-        print "If you do not receive this mail, please contact " .
-              "<A href='mailto:robert.stoeckler@oeaw.ac.at'>Robert.Stoeckler@oeaw.ac.at</A>.<P>" . LF;
+        print "<p>If you do not receive this mail, please contact " .
+              "<a href='mailto:robert.stoeckler@oeaw.ac.at'>robert.stoeckler@oeaw.ac.at</a>.</p>" . LF;
 
         mailReset($res_mail, $_POST["res_uname"], $res_pwd);
       }
@@ -111,22 +111,22 @@
   {
     if ($_POST["res_uname"] == "")
     {
-      print "In order to reset your password, you need to provide your " .
-            "Login name at the input field below. " . LF;
-      print "An email containing your new password will be send to the " .
-            "email address associated to your account. " . LF;
+      print "<p>In order to reset your password, you need to provide your " .
+            "Login name at the input field below.</p>" . LF;
+      print "<p>An email containing your new password will be send to the " .
+            "email address associated to your account.</p>" . LF;
     }
 
     // Store values in $_SESSION for retrieval on reload
-    print "<P><TABLE class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
+    print "<p><table class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
 
-    print "<TR><TD><B>Login name:</B></TD>" .
-          "<TD><INPUT name='res_uname' size='16' value='" .
+    print "<tr><td><b>Login name:</b></td>" .
+          "<td><input name='res_uname' size='16' value='" .
           $_POST["res_uname"] . "'>" .
-          "</TD></TR>" . LF;
+          "</td></tr>" . LF;
 
-    print "</TABLE><P>" . LF;
-    print "<INPUT type='submit' name='reset' value='Reset'><P>";
+    print "</table></p>" . LF;
+    print "<p><input type='submit' name='reset' value='Reset'></p>";
   }
 
   //$link->close();

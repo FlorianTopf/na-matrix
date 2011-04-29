@@ -7,6 +7,6 @@
 
   $_SESSION = array();
 
-  print "<SCRIPT>window.open('index.php','_self')</SCRIPT>";
+  print "<script type='text/javascript'>window.open('index.php','_self')</script>";
 
 ?>

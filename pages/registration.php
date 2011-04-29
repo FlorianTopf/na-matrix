@@ -31,9 +31,9 @@
 
   global $user_titles, $usage_selection;
 
-  print "<INPUT type='hidden' name='page' value='registration'>" . LF;
+  print "<div><input type='hidden' name='page' value='registration'/></div>" . LF;
 
-  print "<CENTER><H2>Account registration</H2></CENTER>" . LF;
+  print "<h2>Account registration</h2>" . LF;
 
   varStore("reg_uname", "");
   varStore("reg_pwd", "");
@@ -81,7 +81,7 @@
 
 // Throw a warning and reload if needed
     if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
-      print "<SCRIPT>document.main_form.submit()</SCRIPT>";
+      print "<script type='text/javascript'>document.main_form.submit()</script>";
     else
     {
       $query = "INSERT INTO users_list (`id`,`username`,`passwd`," .
@@ -99,10 +99,10 @@
       $link->query($query);
       if ($link->affectedRows() > 0)
       {
-        print "Thank you for registering! " .
-              "A confirmation email has been sent to the specified address. " .
-              "If you do not receive this message, please contact " .
-              "<A href='mailto:robert.stoeckler@oeaw.ac.at'>Robert.Stoeckler@OeAW.ac.at</A>.<P>" . LF;
+        print "<p>Thank you for registering!</p>" .
+              "<p>A confirmation email has been sent to the specified address.</p>" .
+              "<p>If you do not receive this message, please contact " .
+              "<a href='mailto:robert.stoeckler@oeaw.ac.at'>robert.stoeckler@oeaw.ac.at</a>.</p>" . LF;
 
         mail_reg($_POST["reg_email"], $_POST["reg_title"],
                  $_POST["reg_lname"], $_POST["reg_uname"], $_POST["reg_pwd"]);
@@ -118,76 +118,76 @@
   {
     if ($_POST["reg_title"] == "")
     {
-      print "In order to use the catalogue, you need to register for " .
+      print "<p>In order to use the catalogue, you need to register for " .
             "a user account by filling out the form below (all fields " .
-            "need to be filled out)." . LF;
-      print "The information provided will only be used internally " .
+            "need to be filled out).</p>" . LF;
+      print "<p>The information provided will only be used internally " .
             "and for contacting you. No information will be forwarded " .
-            "to third parties without explicit consent from the user." .
-            "<P><HR><P>" . LF;
+            "to third parties without explicit consent from the user.</p>" .
+            "<p><hr></p>" . LF;
     }
 
 // Store values in $_SESSION for retrieval on reload
-    print "<P><TABLE class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
+    print "<p><table class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
 
-    print "<TR><TD><B>Title:</B></TD>" .
-          "<TD><SELECT name='reg_title'>" . LF;
+    print "<tr><td><b>Title:</B></td>" .
+          "<td><select name='reg_title'>" . LF;
     foreach ($user_titles as $title)
     {
-      print "<OPTION value='" . $title . "'";
+      print "<option value='" . $title . "'";
       if ($_POST["reg_title"] == $title) print " selected";
-      print ">" . $title . "</OPTION>" . LF;
+      print ">" . $title . "</option>" . LF;
     }
-    print "</SELECT></TD></TR>" . LF;
+    print "</select></td></tr>" . LF;
 
-    print "<TR><TD><B>First name:</B></TD>" .
-          "<TD><INPUT name='reg_fname' size='30' value='" .
-          $_POST["reg_fname"] . "'></TD></TR>" . LF;
+    print "<tr><td><b>First name:</B></td>" .
+          "<td><input name='reg_fname' size='30' value='" .
+          $_POST["reg_fname"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>Last name:</B></TD>" .
-          "<TD><INPUT name='reg_lname' size='30' value='" .
-          $_POST["reg_lname"] . "'></TD></TR>" . LF;
+    print "<tr><td><b>Last name:</B></td>" .
+          "<td><input name='reg_lname' size='30' value='" .
+          $_POST["reg_lname"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>Affiliation:</B></TD>" .
-          "<TD><INPUT name='reg_affiliation' size='30' value='" .
-          $_POST["reg_affiliation"] . "'></TD></TR>" . LF;
+    print "<tr><td><b>Affiliation:</B></td>" .
+          "<td><input name='reg_affiliation' size='30' value='" .
+          $_POST["reg_affiliation"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>E-mail:</B></TD>" .
-          "<TD><INPUT name='reg_email' size='30' value='" .
-          $_POST["reg_email"] . "'></TD></TR>" . LF;
+    print "<tr><td><b>E-mail:</B></td>" .
+          "<td><input name='reg_email' size='30' value='" .
+          $_POST["reg_email"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>Intended use:</B></TD>" .
-          "<TD><SELECT name='reg_category'>" . LF;
+    print "<tr><td><b>Intended use:</B></td>" .
+          "<td><select name='reg_category'>" . LF;
     foreach ($usage_selection as $use)
     {
-      print "<OPTION value='" . $use . "'";
+      print "<option value='" . $use . "'";
       if ($_POST["reg_category"] == $use) print " selected";
-      print ">" . $use . "</OPTION>" . LF;
+      print ">" . $use . "</option>" . LF;
     }
-    print "</SELECT></TD></TR>" . LF;
+    print "</select></td></tr>" . LF;
 
-    print "<TR><TD><B>User name:</B></TD>" .
-          "<TD><INPUT name='reg_uname' size='16' value='" .
+    print "<tr><td><b>User name:</B></td>" .
+          "<td><input name='reg_uname' size='16' value='" .
           $_POST["reg_uname"] . "'" .
-          "> (maximum 16 alphanumeric characters)</TD></TR>" . LF;
+          "> (maximum 16 alphanumeric characters)</td></tr>" . LF;
 
-    print "<TR><TD><B>Password:</B></TD>" .
-          "<TD><INPUT type='password' name='reg_pwd' size='16' value='" .
+    print "<tr><td><b>Password:</B></td>" .
+          "<td><input type='password' name='reg_pwd' size='16' value='" .
           $_POST["reg_pwd"] . "'" .
-          "> (maximum 16 alphanumeric characters)</TD></TR>" . LF;
+          "> (maximum 16 alphanumeric characters)</td></tr>" . LF;
 
 //---------- Password confirmation ------------------------------
 
-    print "<TR><TD><B>Confirm password:</B></TD>" .
-          "<TD><INPUT type='password' name='reg_pwd2' size='16' value='" .
+    print "<tr><td><b>Confirm password:</B></td>" .
+          "<td><input type='password' name='reg_pwd2' size='16' value='" .
           $_POST["reg_pwd2"] . "'" .
-          "> (maximum 16 alphanumeric characters)</TD></TR>" . LF;
+          "> (maximum 16 alphanumeric characters)</td></tr>" . LF;
 
 //------------------------------------------------------------
 
-    print "</TABLE><P>" . LF;
+    print "</table></p>" . LF;
 
-    print "<INPUT type='submit' name='registration' value='Register'><P>";
+    print "<p><input type='submit' name='registration' value='Register'/></p>";
   }
 
   //$link->close();

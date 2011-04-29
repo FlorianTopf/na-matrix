@@ -7,9 +7,9 @@
 
   global $user_titles, $usage_selection;
 
-  print "<CENTER><H2>Account modification</H2></CENTER>" . LF;
+  print "<h2>Account modification</h2>" . LF;
 
-  print "<INPUT type='hidden' name='page' value='account'>" . LF;
+  print "<div><input type='hidden' name='page' value='account'/></div>" . LF;
 
   show_message();
 
@@ -83,54 +83,54 @@
   if (!isset($_POST["update"]))
   {
 
-    print "<P><TABLE class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
+    print "<p><table class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
 
-    print "<TR><TD><B>Title:</B></TD>" .
-          "<TD><SELECT name='acc_title'>" . LF;
+    print "<tr><td><B>Title:</B></td>" .
+          "<td><select name='acc_title'>" . LF;
     foreach ($user_titles as $title)
     {
       print "<OPTION value='" . $title . "'";
       if ($_POST["acc_title"] == $title) print " selected";
       print ">" . $title . "</OPTION>" . LF;
     }
-    print "</SELECT></TD></TR>" . LF;
+    print "</select></td></tr>" . LF;
 
-    print "<TR><TD><B>First name:</B></TD>" .
-          "<TD><INPUT name='acc_fname' size='30'" .
-          " value='" . $_POST["acc_fname"] . "'></TD></TR>" . LF;
+    print "<tr><td><B>First name:</B></td>" .
+          "<td><input name='acc_fname' size='30'" .
+          " value='" . $_POST["acc_fname"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>Last name:</B></TD>" .
-          "<TD><INPUT name='acc_lname' size='30'" .
-          " value='" . $_POST["acc_lname"] . "'></TD></TR>" . LF;
+    print "<tr><td><B>Last name:</B></td>" .
+          "<td><input name='acc_lname' size='30'" .
+          " value='" . $_POST["acc_lname"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>Affiliation:</B></TD>" .
-          "<TD><INPUT name='acc_affiliation' size='30'" .
-          " value='" . $_POST["acc_affiliation"] . "'></TD></TR>" . LF;
+    print "<tr><td><B>Affiliation:</B></td>" .
+          "<td><input name='acc_affiliation' size='30'" .
+          " value='" . $_POST["acc_affiliation"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>E-mail:</B></TD>" .
-          "<TD><INPUT name='acc_email' size='30'" .
-          " value='" . $_POST["acc_email"] . "'></TD></TR>" . LF;
+    print "<tr><td><B>E-mail:</B></td>" .
+          "<td><input name='acc_email' size='30'" .
+          " value='" . $_POST["acc_email"] . "'></td></tr>" . LF;
 
-    print "<TR><TD><B>Intended use:</B></TD>" .
-          "<TD><SELECT name='acc_category'>" . LF;
+    print "<tr><td><B>Intended use:</B></td>" .
+          "<td><select name='acc_category'>" . LF;
     foreach ($usage_selection as $use)
     {
       print "<OPTION value='" . $use . "'";
       if ($_POST["acc_category"] == $use) print " selected";
       print ">" . $use . "</OPTION>" . LF;
     }
-    print "</SELECT></TD></TR>" . LF;
+    print "</select></td></tr>" . LF;
 
-    print "<TR><TD><B>New password:</B></TD>" .
-          "<TD><INPUT type='password' name='acc_pwd' size='16'> " .
-          "(maximum 16 alphanumeric characters)</TD></TR>" . LF;
-    print "<TR><TD><B>Confirm password:</B></TD>" .
-          "<TD><INPUT type='password' name='acc_pwdv' size='16'> " .
-          "(maximum 16 alphanumeric characters)</TD></TR>" . LF;
+    print "<tr><td><B>New password:</B></td>" .
+          "<td><input type='password' name='acc_pwd' size='16'> " .
+          "(maximum 16 alphanumeric characters)</td></tr>" . LF;
+    print "<tr><td><B>Confirm password:</B></td>" .
+          "<td><input type='password' name='acc_pwdv' size='16'> " .
+          "(maximum 16 alphanumeric characters)</td></tr>" . LF;
 
-    print "</TABLE><P>" . LF;
+    print "</table></p>" . LF;
 
-    print "<INPUT type='submit' name='update' value='Update'><P>";
+    print "<p><input type='submit' name='update' value='Update'/><p>";
   }
 
 ?>

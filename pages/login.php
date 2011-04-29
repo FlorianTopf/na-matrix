@@ -32,13 +32,12 @@
 
 ?>
 
-<INPUT type='hidden' name='page' value='login'>
+<div><input type='hidden' name='page' value='login'/></div>
 
-<CENTER><H2>User login</H2></CENTER>
+<h2>User login</h2>
 
-<P>
-<HR>
-<P>
+<p><hr></p>
+
 
 <?php
 
@@ -50,7 +49,7 @@
   {
     if ($_POST["userid"] == "")
     {
-      print "Please enter a valid user name and try again.<P>" . LF;
+      print "<p>Please enter a valid user name and try again.</p>" . LF;
     }
     else
     {
@@ -59,11 +58,11 @@
       {
         $_SESSION["user_id"] = $id;
         $_SESSION["page"] = "login";
-        print "<SCRIPT>window.open('index.php','_self')</SCRIPT>";
+        print "<script type='text/javascript'>window.open('index.php','_self')</script>";
       }
       else
       {
-        print "Login error. Please try again.<P>" . LF;
+        print "<p>Login error. Please try again.</p>" . LF;
       }
     }
   }
