@@ -123,7 +123,7 @@
             </div> <!--  left-menu-box -->
             </div> <!--  left-content -->
             </div> <!-- left -->
-			<div id=middle>
+			<div id="middle">
         	<div id="middle-content">
 			<div id="middle-marker-box">
 			<div id="middle-marker">

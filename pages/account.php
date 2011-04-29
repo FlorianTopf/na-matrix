@@ -95,23 +95,23 @@
     }
     print "</select></td></tr>" . LF;
 
-    print "<tr><td><B>First name:</B></td>" .
+    print "<tr><td><b>First name:</b></td>" .
           "<td><input name='acc_fname' size='30'" .
           " value='" . $_POST["acc_fname"] . "'></td></tr>" . LF;
 
-    print "<tr><td><B>Last name:</B></td>" .
+    print "<tr><td><b>Last name:</b></td>" .
           "<td><input name='acc_lname' size='30'" .
           " value='" . $_POST["acc_lname"] . "'></td></tr>" . LF;
 
-    print "<tr><td><B>Affiliation:</B></td>" .
+    print "<tr><td><b>Affiliation:</b></td>" .
           "<td><input name='acc_affiliation' size='30'" .
           " value='" . $_POST["acc_affiliation"] . "'></td></tr>" . LF;
 
-    print "<tr><td><B>E-mail:</B></td>" .
+    print "<tr><td><b>E-mail:</b></td>" .
           "<td><input name='acc_email' size='30'" .
           " value='" . $_POST["acc_email"] . "'></td></tr>" . LF;
 
-    print "<tr><td><B>Intended use:</B></td>" .
+    print "<tr><td><b>Intended use:</b></td>" .
           "<td><select name='acc_category'>" . LF;
     foreach ($usage_selection as $use)
     {
@@ -121,10 +121,10 @@
     }
     print "</select></td></tr>" . LF;
 
-    print "<tr><td><B>New password:</B></td>" .
+    print "<tr><td><b>New password:</b></td>" .
           "<td><input type='password' name='acc_pwd' size='16'> " .
           "(maximum 16 alphanumeric characters)</td></tr>" . LF;
-    print "<tr><td><B>Confirm password:</B></td>" .
+    print "<tr><td><b>Confirm password:</b></td>" .
           "<td><input type='password' name='acc_pwdv' size='16'> " .
           "(maximum 16 alphanumeric characters)</td></tr>" . LF;
 
