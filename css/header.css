@@ -1,6 +1,6 @@
 /* HEADER */
 #header {
-	position: absolute;
+	position: relative;
 	left: 0;
 	height: 190px;
 	background-image: url(./../images/banner_head.gif);
@@ -10,7 +10,7 @@
 #banner-top {
 	background-image: url(./../images/banner_top.gif);
 	background-repeat: no-repeat;
-	height: 16px
+	height: 16px;
 }
 
 #header-top {

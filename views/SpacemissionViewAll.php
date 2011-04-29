@@ -14,7 +14,7 @@ print "<INPUT type='hidden' name='page' value='browse'>" . LF ;
 /** @todo define new css rules for alternating BG color... */
 print "<CENTER><P><TABLE border='1' cellpadding='4' class='rtable' width='100%'>" . LF;
 print "<CAPTION><H3 align='center'>For details please click on Space Mission entry name</H3></CAPTION>" . LF;
-print "<TR><TH>NAME</TH><TH>&nbsp;AGENCY&nbsp;</TH><TH>WEB</TH><TH>&nbsp;LAUNCH-DATE&nbsp;</TH><TH>&nbsp;DEATH-DATE&nbsp;</TH><TH>TARGETS</TH></TR>" . LF;
+print "<TR><TH>NAME</TH><TH>AGENCY</TH><TH>WEB</TH><TH>LAUNCH-DATE</TH><TH>DEATH-DATE</TH><TH>TARGETS</TH></TR>" . LF;
 
 //$query = "SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name";
 //$result = mysqli_query($link, $query);
