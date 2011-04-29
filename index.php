@@ -82,12 +82,6 @@
 	</div>
 
     <div id="content-wrapper">
-<!--    <center>-->
-    <table class="main" border="0" cellspacing="0" cellpadding="0" width="100%">
-      <tr><!--LEFT MENU-->
-        <td valign="top"><img src="images/blank.gif" width="0" alt="blank"/></td>
-        <td valign="top" id="lmcol">
-<!--          <table class="ltable" cellspacing="0" cellpadding="0" width="100%">-->
             <div id="left">
 		    <div id="left-content">
 		    <div id="left-menu-box">
@@ -101,10 +95,10 @@
           	if ($_SESSION["user_id"] <= 1)
             {
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<div class='center'><ul><li>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
-              print "<li>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
-              print "<li><input type='submit' name='login' value='Log in'/></li>" . LF;
-              print "<li><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul></div>" .LF;
+              print "<ul><li class='left-level-1-center'>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
+              print "<li class='left-level-1-center'>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
+              print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li>" . LF;
+              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" .LF;
 			}
             else
             {
@@ -112,28 +106,27 @@
               print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
               print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li></ul>" .LF;
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<div class='center'><ul><li><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
-              print "<li><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
-              print "<li><input type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
+              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
+              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
+              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'></li>" . LF;
               if ($_SESSION["user_level"] >= 31)
               {
                 print "<img src='images/blank.gif' height='30' alt='blank'>";
-                print "<div class='center'><ul><li><a href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></ul></div>" . LF;
+                print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></ul>" . LF;
               }
             }
           ?>
 
               <img src="images/blank.gif" height="30" alt="blank"/>
-              <div class="center"><b>Developed by&nbsp;&nbsp;</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></div>
-            </div>
-            </div>
-            </div>
-            </div>
-<!--          </table>-->
-        </td>
-        <td valign="top"><img src="images/blank.gif" width="10" alt="blank"/></td>
-        <td align="left" valign="top" class="rbody"><!-- LOAD MAIN FRAME -->
-        
+              <ul><li class="left-level-1-center"><b>Developed by</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></li></ul>
+            </div> <!--  left-menu -->
+            </div> <!--  left-menu-box -->
+            </div> <!--  left-content -->
+            </div> <!-- left -->
+			<div id=middle>
+        	<div id="middle-content">
+			<div id="middle-marker-box">
+			<div id="middle-marker">
         <?php
         //DEBUG:
 //		echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
@@ -189,13 +182,11 @@
             Controller::check("home");
         ?>
         
-        </td>
-        <td valign="top"><img src="images/blank.gif" width="10" alt="blank"/></td>
-      </tr>
-      <tr><td valign="top" colspan="5"><img src="images/blank.gif" width="10" height="10" alt="blank"/></td></tr>
-    </table>
-<!--    </center>-->
-      <div id="footer"><!-- FOOTER-->
+        </div> <!-- middle-marker -->
+        </div> <!-- middle-marker-box -->
+        </div> <!-- middle-content -->
+        </div> <!-- middle -->
+      <div id="footer">
         <div id="footer-box">
           <div id="ue">
             <a href="http://europa.eu/index_en.htm" target="_blank"><img src="images/ue_logo_small.gif" width="40" height="23" alt="Project supported by the European Union." title="Project supported by the European Union." /></a>
@@ -203,9 +194,9 @@
           </div>
           <div id="footer-text">
             <b>Contact the Team: </b><br/><a href="mailto:florian.topf@oeaw.ac.at">Florian Topf</a> | <a href="mailto:robert.stoeckler@oeaw.ac.at">Robert Stoeckler</a> | <a href="mailto:manuel.scherf@oeaw.ac.at">Manuel Scherf</a>
-          </div>
-        </div>
-      </div>
+          </div> <!-- footer-text -->
+        </div> <!-- footer-box -->
+      </div> <!-- footer -->
     </div> <!-- content-wrapper -->
    </form>
   </div> <!-- outer-wrapper -->

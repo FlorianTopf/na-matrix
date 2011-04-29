@@ -1,0 +1,100 @@
+/* LEFT */
+#left-menu ul {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	list-style-type: none;
+}
+
+#left-menu ul a {
+	font-size: 120%;
+	/*	font-weight: bold; */
+	text-decoration: none;
+	display: block;
+}
+
+#left-menu ul li {
+	display: block;
+	padding: 0;
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+
+#left-menu li.left-level-1-center {
+	text-align: center;
+}
+
+#left-menu li.left-level-1-no a {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 5px;
+	color: #182250;
+}
+
+#left-menu li.left-level-1-no a:hover {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 5px;
+	background: #182250;
+	color: #FFFFFF;
+}
+
+#left-menu li.left-level-1-act a {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 5px;
+	color: #f29400;
+}
+
+#left-menu li.left-level-2-no a {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 10px;
+	color: #182250;
+}
+
+#left-menu li.left-level-2-no a:hover {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 10px;
+	background: #182250;
+	color: #FFFFFF;
+}
+
+#left-menu li.left-level-2-act a {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 10px;
+	color: #f29400;
+}
+
+#left-menu li.left-level-3-no a {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 20px;
+	color: #182250;
+}
+
+#left-menu li.left-level-3-no a:hover {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 20px;
+	background: #182250;
+	color: #FFFFFF;
+}
+
+#left-menu li.left-level-3-act a {
+	height: auto;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 20px;
+	color: #f29400;
+}

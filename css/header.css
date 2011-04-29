@@ -1,0 +1,56 @@
+/* HEADER */
+#header {
+	position: absolute;
+	left: 0;
+	height: 190px;
+	background-image: url(./../images/banner_head.gif);
+	background-repeat: repeat-y;
+}
+
+#banner-top {
+	background-image: url(./../images/banner_top.gif);
+	background-repeat: no-repeat;
+	height: 16px
+}
+
+#header-top {
+	position: relative;
+	height: 60px;
+}
+
+#header-top-inside {
+	padding: 0 15px 0 15px;
+}
+
+#header-img {
+	position: relative;
+	background-image: url(./../images/banner.jpg);
+	background-repeat: no-repeat;
+	left: 6px;
+	height: 130px;
+	/*	background: #FFFFFF; */
+}
+
+#header-img-inside {
+	padding: 15px 10px 0px 0px;
+	float: right;
+}
+
+#header-img-inside img {
+	float: right;
+	clear: both;
+	padding: 0 0 6px 0;
+}
+
+#logo {
+	float: left;
+}
+
+#partners {
+	float: right;
+}
+
+#partners img {
+	float: left;
+	margin: 0 0 0 5px;
+}

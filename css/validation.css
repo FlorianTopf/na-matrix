@@ -1,0 +1,33 @@
+/* INPUT VALIDATION */
+label.error {
+	font-family: verdana, arial;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	font-size: 8pt;
+	color: red;
+	background-color: transparent;
+/*	margin-left: 20px; */
+	border: 0;
+	padding: 4px 2px;
+	display: block;
+	}
+
+input.error {
+	font-family: verdana, arial;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 8pt;
+	color: yellow;
+	background-color: red;
+	border: 0;
+ 	padding: 4px 2px;
+}
+
+select.error {
+	color: yellow;
+	background-color: red;
+	border-collapse: collapse;
+	border: 1px solid orange;
+}
