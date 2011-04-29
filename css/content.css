@@ -16,7 +16,7 @@ A {
 	font-variant: normal;
 	font-weight: bold;
 	font-size: 8pt;
-	color: peru;
+	color: #cd853f;
 }
 
 A:link {
@@ -29,7 +29,7 @@ A:visited {
 
 A:hover {
 	text-decoration: none;
-	color: chocolate;
+	color: #d2691e;
 }
 
 /*
@@ -145,8 +145,102 @@ IMG {
 	border-style: none;
 }
 
+fieldset {
+	margin: 1px;
+	border: 1px solid black;
+	background-color: lightgrey;
+}
+
+fieldset.rfield {
+	color: black;
+	background-color: lightgrey;
+}
+
 table.main {
 	color: black;
 	background-color: white;
 	border-collapse: collapse;
+}
+
+table.rtable {
+	color: black;
+	background-color: beige;
+	border-collapse: collapse;
+}
+
+.rtable TD {
+	background: lightgrey;
+	border: black;
+}
+
+.rtable tr.odd {
+	background-color: lightgrey;
+	border: black;
+}
+
+.rtable tr.even {
+	background-color: lavender;
+	border: black;
+}
+
+tr TH {
+	background: #172983;
+	border: black;
+	color: white;
+	padding: 10px 0px;
+	text-align: center;
+}
+
+TD.odd {
+	background-color: lightgrey;
+	border: black;
+}
+
+TD.even {
+	background-color: lavender;
+	border: black;
+}
+
+#help {
+	background: lightgrey;
+	text-align: left;
+	padding: 4px 8px;
+	border: 1px solid black;
+}
+
+/* leave some space between icons and text */
+.icon {
+	vertical-align: middle;
+	margin-right: 0.0em;
+	margin-left: 0.0em;
+}
+
+/* no extra space in table cells */
+td .icon {
+	vertical-align: middle;
+	border: 0;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
+button {
+	display: inline;
+}
+
+button.mult_submit {
+	border: none;
+	background-color: transparent;
+	margin: 0;
+}
+
+button {
+	vertical-align: middle;
+}
+
+.hand {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.help {
+	cursor: help;
 }

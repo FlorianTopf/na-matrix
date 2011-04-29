@@ -31,3 +31,24 @@ select.error {
 	border-collapse: collapse;
 	border: 1px solid orange;
 }
+
+fieldset.message {
+	font-weight: bold;
+	color: yellow;
+	background-color: green;
+	border: 1px solid orange;
+}
+
+fieldset.warning {
+	font-weight: bold;
+	color: yellow;
+	background-color: orange;
+	border: 1px solid yellow;
+}
+
+fieldset.error {
+	font-weight: bold;
+	color: yellow;
+	background-color: red;
+	border: 1px solid orange;
+}
