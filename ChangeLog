@@ -1,4 +1,116 @@
+2011-04-30  ftopf
+
+    * ObservatoryCreateUpdate.php, ObservatoryView.php, ObservatoryViewAll.php,
+      SpacemissionCreateUpdate.php, SpacemissionView.php,
+      SpacemissionViewAll.php, account.php, content.css, controller.inc.php,
+      header.css, html.php, left.css, main.css, registration.php, reset.php,
+      style.css, top.css, validation.css: Massive changes in styling => new
+      tables everywhere, some little modifications, moved inline styles to CSS
+      (some refactoring still needed)
+
+    * ObservatoryView.php, functions.js: modified window width for views /
+      removed fieldset property in observatoryview for instruments (nested
+      fieldsets)
+
+2011-04-29  ftopf
+
+    * ObservatoryCreateUpdate.php, ObservatoryEditAll.php,
+      ObservatoryViewAll.php, SpacemissionCreateUpdate.php,
+      SpacemissionEditAll.php, SpacemissionViewAll.php: REMOVED all comments
+      with old html code (to improve the rest)
+
+    * SpacemissionView.php, SpacemissionViewAll.php, content.css,
+      controller.inc.php, header.css, main.css, top.css: Fixed again some CSS
+      stuff and worked on body issue (from old typo3 template), updates in
+      content.css
+
+    * account.php, index.php: Fixed a little issue in index.php, fixed missing
+      uppercase TAGS in account
+
+    * account.php, footer.css, header.css, login.php, logout.php, main.css,
+      registration.php, reset.php, style.css: some little adaptions in CSS,
+      lowercase of all TAGS in pages
+
+    * content.css, style.css, validation.css: Reworking CSS Part 2 only
+      content.css is remaining for clean up
+
+    * content.css, footer.css, header.css, index.php, left.css, main.css,
+      style.css, top.css, validation.css: Complete rewrite of CSS for validation
+      STEP 1 (main.css/content.css TBD)
+
+2011-04-28  ftopf
+
+    * index.php: Little update on STRICT issue
+
+    * index.php, style.css: Little update on STRICT issue
+
+    * index.php: Little update on STRICT issue
+
+    * index.php, style.css: Fixed other issues with STRICT
+
+    * home.php: fixed strange typo error (wrong encoding from creator)
+
+    * home.php, index.php, style.css: moved some parts to css, fixed some
+      validation errors
+
+    * index.php: follow up of previous commit
+
+    * style.css: moved some parts to css (top title)
+
+    * home.php, index.php, style.css: next step to comply xhtml strict in index,
+      fixed little error in CSS
+
+    * controller.inc.php, index.php: Fixed issue with JAVASCRIPT (document form
+      has no name tag anymore), commented unnecessary center in index.php
+
+    * index.php: next step to comply xhtml strict in index
+
+    * index.php: introduced xhtml strict in index.php
+
+    * html.php: all tags lowercase for xhtml strict compatibility
+
+    * SpacemissionView.php: Forgot </a> closing tag
+
+    * SpacemissionView.php: further spacemission view STRICT compatibility
+
+    * SpacemissionView.php: made spacemission view STRICT compatible
+
+    * ObservatoryView.php: commented some issues regarding STRICT mode
+
+    * Observatory.php: Fixed last issue with STRICT on single VIEW
+      (htmlentities) => ONLY a href target remains!
+
+    * ObservatoryView.php: Trying to use STRICT here further improvement
+
+    * ObservatoryView.php: Trying to use STRICT here further improvement
+
+    * ObservatoryView.php: Trying to use STRICT here further improvement
+
+    * ObservatoryView.php: Trying to use STRICT here
+
+    * style.css: Fixed a little issue in CSS
+
+    * style.css: Fixed a little issue in CSS
+
+    * config.inc.php: Wrong config for running server
+
+    * ObservatoryView.php, SpacemissionView.php, config.inc.php, index.php,
+      style.css: Fixed little issues with doctype, added definition in css to go
+      for strict mode someday, added doctype in views!
+
+    * Observatory.php: Removed debugs
+
+    * ModelDAO.php, config.inc.php: Fixed a little issue with SERVER var
+      DOCUMENT_ROOT, which isn't working at the running server, we use DOC_ROOT
+      from config.inc now!
+
 2011-04-27  ftopf
+
+    * ObservatoryCreateUpdate.php, SpacemissionCreateUpdate.php, TODO,
+      functions.js: Removed hidden fields from CreateUpdate for Telescopes /
+      Instruments, added functionality in functions.js, Modified TODO
+
+    * ChangeLog, TODO: Modified TODO, ChangeLog
 
     * ObservatoryCreateUpdate.php, functions.js, observatories.php,
       spacemissions.php, telescopeNames.php, wavelengthRanges.php: Added

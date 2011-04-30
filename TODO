@@ -1,6 +1,35 @@
+ROADMAP (MAY/JUNE 2011)
+* Finalize TARGETS / SCIENCE GOALS
+* Modify existing entries in running Matrix
+* E-Mail and Telecon UCL
+* Add entries from old Matrix
+* Implement Questionnaire (Approve/Unapprove)
+* Implement Filters/Search Interface (JUNE 2011)
+* Develop Strategy for UPDATE Entry procedure (JUNE 2011)
+
+
 BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be on the safe side)
 * Watch out for MODEL functionality and TABLEFIELD class
 * CODING STANDARD!
+* HTML 4.01 transitional => XHTML 1.0 strict conversion with validator
+	=> target NOT allowed => use JS
+	=> HTMLENTITIES < >
+	=> table oder ul ist nicht ohne tr bzw. li erlaubt
+	=> font tag is not allowed => move to CSS
+	=> input type hidden => put it in div
+	=> div inline definition ist nicht erlaubt (divs for ps)
+	=> get rid of bloody tables
+* CSS 2.1 validation (refactor css, original rev384, rev393)
+	=> define standard paragraph (p)
+	=> refine content tables (only for add remove / toggle buttons undefined table)
+	=> borders in browse are vanished in safari (define different tables)
+	=> content.css is remaining to be modified
+	=> colors MUST be HEX
+	=> UL definieren
+	=> Z-INDEX gelöscht (siehe typo3)
+	=> define divs for buttons
+	
+* Removed comments in VIEWS (rev391)
 
 * Implement delete_resource() in spacemission model
 
@@ -22,7 +51,6 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
  	    instrument comments)
  	 * old telescope types to new instrument types
  	 
-* PUT ACTUAL VERSION ONLINE (28.4.2011)
 
 * Development Database
   * improve hidden fields / additional information (remove not necessary)
@@ -96,12 +124,16 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
  
 ** ALL BROWSING PAGES
    * filter mechanisms with onchange events (Discuss with Manuel)
+   
+** All VIEW PAGES
+  * Implement table style for TEXTFIELDS (or make breaks)
     
     
 ** Search pages for space missions / observatories (JUNE 2011)
   * according to use cases and telecon inputs
   * wavelength searchable? (maybe dropdown for specific ranges)
   * colorization and listing in browsing pages (filters above)
+  * search with GPS data!
   
   
 * E-Mail functionality for ADD / EDIT notification
