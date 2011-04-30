@@ -11,7 +11,7 @@
 
 function openwin(content)
 {
-  W=window.open(content,'RESULTS','status=yes,menubar=yes,hotkeys=no,resizable=yes,scrollbars=yes,width=600,height=600');
+  W=window.open(content,'RESULTS','status=yes,menubar=yes,hotkeys=no,resizable=yes,scrollbars=yes,width=650,height=600');
   W.focus();
 
   return false;

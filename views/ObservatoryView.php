@@ -221,7 +221,7 @@ $link->close();
 	    	if(is_array($_observatory->get_has_many("instruments", $telescope_id)))
       			foreach($_observatory->get_has_many("instruments", $telescope_id) as $key2 => $instrument_id)
 	    		{
-	    			print "<fieldset class='report'><legend><b>Instrument:&nbsp;" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</b></legend>" . LF;
+	    			print "<fieldset><legend><b>Instrument:&nbsp;" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</b></legend>" . LF;
 	    			print "<p><b>Instrument Name:&nbsp;</b>" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</p>" . LF;
 //	    			print "<p><b>Instrument Type:&nbsp;</b>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2) - 1] . "</p>" . LF;
 					print "<p><b>Instrument Type:&nbsp;</b>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] . "</p>" . LF;
