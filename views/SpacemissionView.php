@@ -124,7 +124,7 @@ $link->close();
 
 			//Scientific Contacts:
 			print "<fieldset><legend><b>Scientific Contacts:</b></legend>";
-			print "<table border='0' cellpadding='4' class='rtable' width='100%'>";
+			print "<table class='view'>";
 			if(is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
 				foreach ($_spacemission->get_has_many("scientific_contacts", $sensor_id) as $contact_count => $contact_id)
 				{

@@ -118,7 +118,7 @@
     }
 
     // Store values in $_SESSION for retrieval on reload
-    print "<p><table class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
+    print "<p><table class='page'>" . LF;
 
     print "<tr><td><b>Login name:</b></td>" .
           "<td><input name='res_uname' size='16' value='" .

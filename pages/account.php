@@ -83,7 +83,7 @@
   if (!isset($_POST["update"]))
   {
 
-    print "<p><table class='main' border='0' cellpadding='4' cellspacing='4'>" . LF;
+    print "<p><table class='page'>" . LF;
 
     print "<tr><td><B>Title:</B></td>" .
           "<td><select name='acc_title'>" . LF;

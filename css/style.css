@@ -36,13 +36,13 @@
 #left-marker {
 	margin: 0;
 	padding: 0 6px;
-	background: #e4e0e7;
+	background-color: #e4e0e7;
 }
 
 #left {
 	float: left;
 	width: 210px;
-	background: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #left-content {
@@ -52,7 +52,7 @@
 #middle {
 	float: left;
 	width: 790px;
-	background: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #middle-content { 

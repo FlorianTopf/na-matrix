@@ -5,7 +5,7 @@ label.error {
 	font-variant: normal;
 	font-weight: bold;
 	font-size: 8pt;
-	color: red;
+	color: #ff0000;
 	background-color: transparent;
 /*	margin-left: 20px; */
 	border: 0;
@@ -19,36 +19,36 @@ input.error {
 	font-variant: normal;
 	font-weight: normal;
 	font-size: 8pt;
-	color: yellow;
-	background-color: red;
+	color: #ffff00;
+	background-color: #ff0000;
 	border: 0;
  	padding: 4px 2px;
 }
 
 select.error {
-	color: yellow;
-	background-color: red;
+	color: #ffff00;
+	background-color: #ff0000;
 	border-collapse: collapse;
-	border: 1px solid orange;
+	border: 1px solid #ffa500;
 }
 
 fieldset.message {
 	font-weight: bold;
-	color: yellow;
+	color: #ffff00;
 	background-color: green;
-	border: 1px solid orange;
+	border: 1px solid #ffa500;
 }
 
 fieldset.warning {
 	font-weight: bold;
-	color: yellow;
-	background-color: orange;
-	border: 1px solid yellow;
+	color: #ffff00;
+	background-color: #ffa500;
+	border: 1px solid #ffff00;
 }
 
 fieldset.error {
 	font-weight: bold;
-	color: yellow;
-	background-color: red;
-	border: 1px solid orange;
+	color: #ffff00;
+	background-color: #ff0000;
+	border: 1px solid #ffa500;
 }

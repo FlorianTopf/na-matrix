@@ -16,19 +16,18 @@ class Controller
 	static function printSelector($page, $action = NULL, $resource_type = NULL)
 	{
 		print "<fieldset class='rfield'><legend>Resource Selection:</legend>" . LF;
-    	print "<table border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+    	print "<table class='selector'>" . LF;
 
-    	print "<tr><td align='center' width='45%'>" .
-          "<input type='radio' name='add_res_type' value='obs'";
+    	print "<tr><td><input type='radio' name='add_res_type' value='obs'";
    		if ($resource_type == "obs") print " checked";
     	print " id='sel_obs' onchange=\"document.getElementById('main_form').submit()\"/>" .
           " <label for='sel_obs'><b>Observatory</b></label></td>" . LF;
 
-   		print "<td align='center' width='45%'>" .
-          "<input type='radio' name='add_res_type' value='spa'";
+   		print "<td><input type='radio' name='add_res_type' value='spa'";
     	if ($resource_type == "spa") print " checked";
     	print " id='sel_spa' onchange=\"document.getElementById('main_form').submit()\"/>" .
           " <label for='sel_spa'><b>Space Mission</b></label></td></tr>" . LF;
+    	
     	print "</table></fieldset>";
     	
     	if ($resource_type == NULL)

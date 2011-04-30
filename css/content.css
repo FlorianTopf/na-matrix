@@ -1,5 +1,4 @@
-/* CONTENT */
-
+/* CONTENT SINGLE ELEMENTS */
 H1,H2,H3,H4,H5,H6 {
 	color: #172983;
 	text-align: center;
@@ -36,6 +35,14 @@ P,UL,OL {
 P {
 	margin: 0px 0px 0px 0px;
 }*/
+
+p.home {
+ 	margin: 10px;
+ 	line-height: 16px;
+ 	color: #333333;
+ 	text-align: justify;
+ 	padding-bottom: 6px;
+}
 
 H1 {
 	font-size: 14px;
@@ -75,45 +82,21 @@ H6 {
 }
 */
 
-/*
-H1.csc-firstHeader,H2.csc-firstHeader {
-	margin-top: 0px;
-}
-
-H3.csc-firstHeader {
-	margin-top: 0px;
-}
-
-H4.csc-firstHeader,H5.csc-firstHeader,H6.csc-firstHeader {
-	margin-top: 0px;
-} */
-
 H1.menu-header {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	color: #000000;
 	text-transform: uppercase;
+	text-align: left;
 }
 
-p.home {
- 	margin: 10px;
- 	line-height: 16px;
- 	color: #333333;
- 	text-align: justify;
- 	padding-bottom: 6px;
-}
- 
-/*
 UL {
 	list-style-type: disc;
 	list-style-position: outside;
+	padding-left: 20px;
 }
 
-UL UL LI {
-	font-size: 10px;
-}
-
-LI {
+/* LI {
 	padding-left: 2px;
 } */
 
@@ -121,10 +104,11 @@ IMG {
 	border-style: none;
 }
 
+/* CONTENT FIELDSETS */
 fieldset {
 	margin: 1px;
-	border: 1px solid black;
-	background-color: lightgrey;
+	border: 1px solid #000000;
+	background-color: #d3d3d3;
 }
 
 fieldset.report {
@@ -132,60 +116,132 @@ fieldset.report {
 }
 
 fieldset.rfield {
-	color: black;
-	background-color: lightgrey;
+	color: #000000;
+	background-color: #d3d3d3;
 }
 
-table.main {
-	color: black;
-	background-color: white;
+/* CONTENT TABLES - REFACTOR THEM! */
+/*
+table {
+	width: 100%;
+}
+
+td {
+	padding: 4px;
+	align: center;
+	text-align: center;
+}*/
+
+table.page {
+	color: #000000;
+	background-color: #FFFFFF;
 	border-collapse: collapse;
+	border-style: none;
+	border-spacing: 4px;
+	width: auto;
 }
 
-table.rtable {
-	color: black;
-	background-color: beige;
+table.page td {
+	padding: 4px;
+}
+
+table.selector {
+	color: #000000;
+	background-color: #f5f5dc;
 	border-collapse: collapse;
+	border-style: none;
+	border-spacing: 4px;
+	width: 100%;
 }
 
-.rtable TD {
-	background: lightgrey;
-	border: black;
+table.selector td {
+	padding: 4px;
+	text-align: center;
+	background-color: #d3d3d3;
+	width: 45%;
 }
 
-.rtable tr.odd {
-	background-color: lightgrey;
-	border: black;
+table.view {
+	color: #000000;
+	background-color: #f5f5dc;
+	border-collapse: collapse;
+	width: 100%;
 }
 
-.rtable tr.even {
-	background-color: lavender;
-	border: black;
+table.view td {
+	background-color: #d3d3d3;
+	padding: 4px;
 }
 
-tr TH {
-	background: #172983;
-	border: black;
-	color: white;
+table.viewall {
+	color: #000000;
+	background-color: #f5f5dc;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.viewall TH {
+	background-color: #172983;
+	border: 1px solid #000000;
+	color: #FFFFFF;
 	padding: 10px 5px;
 	text-align: center;
 }
 
+table.viewall tr.odd {
+	background-color: #d3d3d3;
+	border: 1px solid #000000;
+}
+
+table.viewall tr.even {
+	background-color: #e6e6fA;
+	border: 1px solid #000000;
+}
+
+table.viewall td {
+	background-color: #d3d3d3;
+	padding: 4px;
+	border: 1px solid #000000;
+}
+
+table.create {
+	color: #000000;
+	background-color: #f5f5dc;
+	boder-style: none;
+	border-collapse: collapse;
+	border-spacing: 4px;
+	width: 100%;
+}
+
+table.create td {
+	background-color: #d3d3d3;
+	padding: 4px;
+}
+
+table.create th {
+	background-color: #172983;
+	color: #FFFFFF;
+	padding: 10px 5px;
+	text-align: center;
+}
+
+/* BUTTONS AND UTILS */
+/*
 TD.odd {
-	background-color: lightgrey;
-	border: black;
+	background-color: #d3d3d3;
+	border: 1px solid #000000;
 }
 
 TD.even {
-	background-color: lavender;
-	border: black;
-}
+	background-color: #e6e6fA;
+	border: 1px solid #000000;
+} */
 
 #help {
-	background: lightgrey;
+	background-color: #d3d3d3;
 	text-align: left;
 	padding: 4px 8px;
-	border: 1px solid black;
+	border: 1px solid #000000;
 }
 
 /* leave some space between icons and text */
@@ -224,3 +280,10 @@ button {
 .help {
 	cursor: help;
 }
+
+.actionbutton {
+	width: auto;
+	text-align: center;
+	padding: 20px 0 10px 0;
+}
+

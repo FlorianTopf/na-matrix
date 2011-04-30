@@ -153,7 +153,7 @@ $link->close();
 
 	//OBSERVATORY Scientific Contacts:
   	print "<fieldset class='report'><legend><b>Scientific Contacts:</b></legend>" . LF;
-  	print "<table border='0' cellpadding='4' class='rtable' width='100%'>" . LF;
+  	print "<table class='view'>" . LF;
   	if($_observatory->get_hidden_field("scientific_contacts"))
   		"<tr><td><font color='#FF0000'>Not Displayed</font></td></tr>";
   	else

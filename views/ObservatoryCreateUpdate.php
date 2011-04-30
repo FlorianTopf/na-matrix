@@ -13,7 +13,7 @@ print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . 
 //show_message();
 
 print "<FIELDSET class='rfield'><LEGEND>Observatory General:</LEGEND>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE class='create'>" . LF;
 
 //Observatory name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
@@ -109,7 +109,7 @@ print "</TABLE></FIELDSET>" . LF;
 
 //SCIENTIFIC CONTACTS
 print "<FIELDSET class='rfield'><LEGEND>Scientific Contacts:</LEGEND>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE class='create'>" . LF;
 print "<TR><TH></TH><TH>Name</TH><TH>Email</TH><TH>Institution</TH></TR>";
 if(!is_array($_observatory->get_has_many("scientific_contacts")))
 	$_observatory->init_has_many("scientific_contacts");
@@ -133,7 +133,7 @@ print "</TABLE></FIELDSET>" . LF;
 
 //HIDDEN FIELDS:
 print "<FIELDSET class='rfield'><LEGEND>Hidden Fields: You may want to hide some contact information</LEGEND>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE class='create'>" . LF;
 printMultipleCheckBoxRow("add_obs_hide", $_observatory->get_hidden_fields());
 print "</TABLE></FIELDSET>" . LF;
 
@@ -141,7 +141,7 @@ print "</TABLE></FIELDSET>" . LF;
 //RESEARCH AREAS - MANDATORY
 print "<FIELDSET class='rfield'><LEGEND>Research Areas:</LEGEND>" . LF;
 /** @todo refactor id of table */
-print "<TABLE id='research_areas' border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE id='research_areas' class='create'>" . LF;
 $research_areas = $_observatory->get_research_areas();
 $options = array("<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>",
 	"<OPTION id='add_other_area' value='100000'>Add other Research Area</OPTION>");
@@ -153,8 +153,8 @@ print "</TABLE></FIELDSET>" . LF;
 /** @todo add other targets */
 print "<FIELDSET class='rfield'><LEGEND>Targets:</LEGEND>" . LF;
 /** @todo refactor id of table */
-//print "<TABLE id='targets' border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+//print "<TABLE id='targets' class='create'>" . LF;
+print "<TABLE class='create'>" . LF;
 $targets = $_observatory->get_targets();
 $options = array("<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>");
 //$options = array("Please choose one or several by holding CTRL...", 
@@ -181,7 +181,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	    print "<INPUT type='hidden' name='add_obs_telescope_ids[" . $telescope_count . "]' value='". $telescope_id . "'>" . LF;
 	      
       	print "<FIELDSET class='rfield'><LEGEND>Telescope:</LEGEND>" . LF;
-      	print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+      	print "<TABLE class='create'>" . LF;
       	
       	//TRANSPORT THE NUMBER OF TELESCOPES FOR JQUERY
       	//print "<TR><INPUT type='hidden' name='telescopes' class='telescopes' value='".
@@ -264,9 +264,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 	       		print "<FIELDSET class='rfield'><LEGEND>Instrument:</LEGEND>" . LF;
       			print "<TABLE><TR><td><a href='' class='toggle_instrument'>Show Inputs</a></td></TR></TABLE>";
-      			/** this table has two classes!! class='rtable' */
-      			//print "<TABLE class='rtable' border='0' cellspacing='4' cellpadding='4' width='100%'>" . LF;
-      			print "<TABLE class='instrument rtable' border='0' cellspacing='4' cellpadding='4' width='100%'>" . LF;
+      			/** this table has two classes!! class='create' */
+      			//print "<TABLE class='create'>" . LF;
+      			print "<TABLE class='instrument create'>" . LF;
       			//TRANSPORT THE NUMBER OF INSTRUMENT FOR JQUERY
 //      			print "<TR><INPUT type='hidden' name='instruments' class='instruments' value='".
 //      				  count($_observatory->get_has_many("instruments", $telescope_id)) . "'></TR>";
@@ -348,6 +348,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				//Instrument Comments
 				printInputTextfieldRow("Instrument Comments", "add_obs_instrument_comments[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("comments", $telescope_id, $instrument_count), 50);
+				print "</TABLE>" . LF;
 
 				printAddRemoveButton($instrument_count, $_observatory->get_has_many("instruments", $telescope_id), "instrument");
 	      			
@@ -361,7 +362,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 //ADDITIONAL INFORMATION:
 print "<FIELDSET class='rfield'><LEGEND>Additional Information</LEGEND>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE class='create'>" . LF;
 //Further contacts
 printInputTextfieldRow("Further contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
 //Instrument comments

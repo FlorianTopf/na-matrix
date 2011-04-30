@@ -12,7 +12,7 @@ print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
 	
 /** @todo define new css rules for alternating BG color... */
-print "<CENTER><P><TABLE border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
+print "<TABLE class='viewall'>" . LF;
 print "<CAPTION><H3 align='center'>For details please click on Observatory entry name</H3></CAPTION>" . LF;
 print "<TR><TH>NAME</TH><TH>INSTITUTION</TH><TH>COUNTRY</TH><TH>E-MAIL</TH><TH>WEB</TH><TH>TELESCOPE-TYPE <i>(WAVELENGTH)</i></TH></TR>" . LF;
 
@@ -48,6 +48,6 @@ foreach($resources as $row)
 if(empty($resources))
 	print "<TR><H3>There are no Observatory entries</H3></TR>" . LF;
 
-print "</TABLE></P></CENTER>" . LF;
+print "</TABLE>" . LF;
 		
 ?>

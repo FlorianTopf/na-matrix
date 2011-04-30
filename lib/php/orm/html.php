@@ -284,26 +284,26 @@ function printAddRemoveButton($count, $amount, $class, $table=true)
 
 function printActionButton($action)
 {
-	nl();
+	//nl();
 	//Define the action buttons
-	print "<center><table>" . LF;
+	print "<div class='actionbutton'>" . LF;
 	//IF ACTION IS ADD
 	if ($action == "add")
-		print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
+		print "<input type='submit' name='push' value='Add Entry' class='submit'/>" . LF;
 	//IF ACTION IS EDIT
 	else if ($action == "edit")
-		print "<tr><td><input type='submit' name='push' value='Update Entry'></td></tr>" . LF;
-	print "</table></center>" . LF;
+		print "<input type='submit' name='push' value='Update Entry'/>" . LF;
+	print "</div>" . LF;
 }
 
 function printEditAllTable($name, $resources, $type)
 {
 	if (empty($resources))
-		print "<center><h3>There are no {$name} entries to edit.</h3></center>" . LF;	
+		print "<h3>There are no {$name} entries to edit.</h3>" . LF;	
 	else
 	{
-		print "<center><p><table border='1' cellpadding='4' width='100%' class='rtable'>" . LF;
-    	print "<caption><h3 align='center'>To edit please click on the {$name} name.</h3></caption>" . LF;
+		print "<table class='viewall'>" . LF;
+    	print "<caption><h3>To edit please click on the {$name} name.</h3></caption>" . LF;
     	print "<tr><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
     	foreach ($resources as $entry)
     	{
@@ -315,7 +315,7 @@ function printEditAllTable($name, $resources, $type)
         	print "<td>" . $entry["modification_date"] . "</td>";
         	print "</tr>" . LF;
     	}
-    	print "</table></P></center>" . LF;
+    	print "</table>" . LF;
 	}	
 }
 

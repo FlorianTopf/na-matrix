@@ -13,7 +13,7 @@ print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . 
 //show_message();
       
 print "<FIELDSET class='rfield'><LEGEND>Space Mission General:</LEGEND>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE class='create'>" . LF;
 
 //Space mission name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
@@ -43,7 +43,7 @@ print "</TABLE></FIELDSET>" . LF;
 
 //RESEARCH AREAS - MANDATORY
 print "<FIELDSET class='rfield'><LEGEND>Research Areas:</LEGEND>" . LF;
-print "<TABLE id='research_areas' border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE id='research_areas' class='create'>" . LF;
 $research_areas = $_spacemission->get_research_areas();
 $options = array("<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>",
 "<OPTION id='add_other_area' value='100000'>Add other Research Area</OPTION>");
@@ -54,7 +54,7 @@ print "</TABLE></FIELDSET>" . LF;
 //TARGETS - MANDATORY
 /** @todo add other targets */
 print "<FIELDSET class='rfield'><LEGEND>Targets:</LEGEND>" . LF;
-print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+print "<TABLE class='create'>" . LF;
 $targets = $_spacemission->get_targets();
 $options = array("<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>");
 printBigSelectListFromArray("Targets", "add_spa_target_ids[]", $_spacemission->get_has_many("targets"), 
@@ -78,7 +78,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
 
 		printAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
 		
-      	print "<TABLE border='1' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+      	print "<TABLE class='create'>" . LF;
        	/** @todo refactor the two hidden fields */
       	/** @todo make the same approach as with telescope count */
       	//TRANSPORT THE NUMBER OF SENSORS FOR JQUERY
@@ -111,8 +111,8 @@ if(is_array($_spacemission->get_has_many("sensors")))
 
 		//Science Goals - COMMENTED ATM BECAUSE STILL IN DISCUSSION
 //      		print "<FIELDSET class='rfield'><LEGEND>Science Goals:</LEGEND>" . LF;
-      			/** this table has two classes!! class='rtable' */
-//      		print "<TABLE class='science_goals' border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
+      			/** this table has two classes!! class='create' */
+//      		print "<TABLE class='science_goals create'>" . LF;
 //      		print "<TR><TD align='left' valign='middle' width='150px'>" .
 //            	  "<B><FONT color='red'>*</FONT> Science Goals:</B></TD>";
 //      		//print "<TD align='left'><SELECT name='add_spa_sci_goal_ids[]' id='add_spa_sci_goal_ids[]'" .
@@ -134,9 +134,9 @@ if(is_array($_spacemission->get_has_many("sensors")))
 
       	//Scientific Contacts
       	print "<FIELDSET class='rfield'><LEGEND>Scientific Contacts:</LEGEND>" . LF;
-      	//print "<TABLE border='0' cellspacing='4' cellpadding='4' class='rtable' width='100%'>" . LF;
-      	/** this table has two classes!! class='rtable' */
-      	print "<TABLE class='scientific_contacts rtable' border='0' cellspacing='4' cellpadding='4' width='100%'>" . LF;
+      	//print "<TABLE class='create'>" . LF;
+      	/** this table has two classes!! class='create' */
+      	print "<TABLE class='scientific_contacts create'>" . LF;
       	print "<TR><TH></TH><TH>Name</TH><TH>Email</TH><TH>Institution</TH></TR>";
       	
    		if(!is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
