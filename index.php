@@ -103,15 +103,15 @@
             else
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
-              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
+              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&amp;action=add'>Add entries</a></li>" . LF;
               print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li></ul>" .LF;
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
               print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
               print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
-              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'></li>" . LF;
+              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'/></li></ul>" . LF;
               if ($_SESSION["user_level"] >= 31)
               {
-                print "<img src='images/blank.gif' height='30' alt='blank'>";
+                print "<img src='images/blank.gif' height='30' alt='blank'/>";
                 print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></ul>" . LF;
               }
             }
