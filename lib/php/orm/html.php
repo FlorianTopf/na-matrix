@@ -68,7 +68,7 @@ function makeTR($content, $args="")
 function makeInputTitle($title, $info=NULL, $mandatory=false)
 {
 	$content = "<b>";
-	($mandatory == true) ? ($content .= "<font color='red'>*</font>") : ($content .= "&nbsp;&nbsp;");
+	($mandatory == true) ? ($content .= "<font color='#ff0000'>*</font>") : ($content .= "&nbsp;&nbsp;");
 	$content .= "&nbsp;" . $title . "</b>&nbsp;" . $info;
 	return $content;
 }
@@ -78,7 +78,7 @@ function makeInputText_($name, $value, $size=10, $class=NULL, $info=NULL)
 {
     $content = "<input name='" . $name . "' ";
 	if($class != NULL) $content .=  "class='" . $class . "' ";
- 	$content .= "value='" . $value . "' size='" . $size . "'>";
+ 	$content .= "value='" . $value . "' size='" . $size . "'/>";
     if($info != NULL ) $content .= "&nbsp;<b>" . $info . "</b>"; 
     return $content;
 }
@@ -87,7 +87,7 @@ function makeCheckBox($name, $value=false)
 {
 	$content = "<input name='" . $name . "' type='checkbox' value='1' ";
 	if($value) $content .= "checked='checked'";
-    $content .= "'>";
+    $content .= "/>";
     return $content;
 }
 
@@ -101,7 +101,7 @@ function makeSelectListFromArray_($name, $value, $items, $column, $options=array
 	foreach($items['id'] as $key => $item)
 	{
 		$content .= "<option value='" . $item . "'";
-		if ($item == $value) $content .= " selected";
+		if ($item == $value) $content .= " selected='selected'";
 		if(is_array($column))
 		    $content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</option>" . LF;
 		else
@@ -118,7 +118,7 @@ function makeSimpleSelectListFromArray_($name, $value, $items)
 	foreach($items as $item)
 	{
 		$content .= "<option value='" . $item . "'";
-		if ($item == $value) $content .= " selected";
+		if ($item == $value) $content .= " selected='selected'";
     	$content .= ">" . $item . "</option>" . LF;
 	}
 	$content .= "</select>";
@@ -210,7 +210,7 @@ function printInputTextfieldRow($title, $name, $value, $cols=60, $rows=2, $info=
 {	
 	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	
-	print "<td align='left'><textarea name='{$name}' type='text'" .
+	print "<td align='left'><textarea name='{$name}'" .
 	  	" cols='{$cols}' rows='{$rows}'>{$value}</textarea></td></tr>" . LF;
 }
 
@@ -234,7 +234,7 @@ function printTypeSelectListFromArray($title, $name, $value, $items, $column, $i
 	foreach($items['id'] as $key => $item)
 	{
 		print "<option value='" . $item . "'";
-		if ($item == $value) print " selected";
+		if ($item == $value) print " selected='selected'";
     	print ">" . $items[$column][$key] . "</option>" . LF;
 	}
 	if(array_key_exists("bottom", $options))
@@ -247,7 +247,7 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
 {
 	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	
-	print "<td align='left'><select name='{$name}' multiple size='10'>" . LF;
+	print "<td align='left'><select name='{$name}' multiple='multiple' size='10'>" . LF;
 	foreach($options as $option)
 		print $option;
 	foreach($items['id'] as $key => $item)
@@ -256,7 +256,7 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
 		//PROOF IF THIS IS AN ARRAY!
     	if(is_array($value))
     		if(in_array($item, $value))
-        		print " selected";
+        		print " selected='selected'";
     	print ">" . $items[$column][$key] . "</option>" . LF;
 	}
 	print "</select></td></tr>" . LF;
@@ -303,13 +303,13 @@ function printEditAllTable($name, $resources, $type)
 	else
 	{
 		print "<table class='viewall'>" . LF;
-    	print "<caption><h3>To edit please click on the {$name} name.</h3></caption>" . LF;
+    	print "<caption>To edit please click on the {$name} name</caption>" . LF;
     	print "<tr><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
     	foreach ($resources as $entry)
     	{
    			print "<tr align='center'>";
     		print "<td><a title='Click to edit' class='hand' " .
-              	"href='index.php?page=add&action=edit&id=" . $entry["id"] . "&res_type={$type}" .
+              	"href='index.php?page=add&amp;action=edit&amp;id=" . $entry["id"] . "&amp;res_type={$type}" .
               	"'>" . $entry["name"] . "</a></td>";
         	print "<td>" . $entry["creation_date"] . "</td>";
         	print "<td>" . $entry["modification_date"] . "</td>";

@@ -12,8 +12,8 @@ print "<input type='hidden' name='add_res_id' value='{$resource_id}'/>" . LF ;
 print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . LF ; 
 //show_message();
       
-print "<FIELDSET class='rfield'><LEGEND>Space Mission General:</LEGEND>" . LF;
-print "<TABLE class='create'>" . LF;
+print "<fieldset class='rfield'><legend>Space Mission General:</legend>" . LF;
+print "<table class='create'>" . LF;
 
 //Space mission name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
@@ -24,7 +24,7 @@ else
 
 //Mission agency - MANDATORY
 $agencies = $_spacemission->get_agencies();
-$options = array("<OPTION value=''>Please choose...</OPTION");
+$options = array("<option value=''>Please choose...</option>");
 printSelectListRowFromArray("Mission Agency", "add_spa_agency_id", $_spacemission->get_field("spa_mission_agency"), 
 	$agencies, array("acronym", "name"), NULL, TRUE, $options);
 
@@ -39,27 +39,27 @@ printInputTextRow("Web address", "add_spa_web_address", $_spacemission->get_fiel
 
 //Brief Description
 printInputTextfieldRow("Brief description", "add_spa_brief_desc", $_spacemission->get_field("spa_brief_description"), 65);
-print "</TABLE></FIELDSET>" . LF;
+print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
-print "<FIELDSET class='rfield'><LEGEND>Research Areas:</LEGEND>" . LF;
-print "<TABLE id='research_areas' class='create'>" . LF;
+print "<fieldset class='rfield'><legend>Research Areas:</legend>" . LF;
+print "<table id='research_areas' class='create'>" . LF;
 $research_areas = $_spacemission->get_research_areas();
-$options = array("<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>",
-"<OPTION id='add_other_area' value='100000'>Add other Research Area</OPTION>");
+$options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
+"<option id='add_other_area' value='100000'>Add other Research Area</option>");
 printBigSelectListFromArray("Research Areas", "add_spa_res_are_ids[]", 
 	$_spacemission->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
-print "</TABLE></FIELDSET>" . LF;
+print "</table></fieldset>" . LF;
 
 //TARGETS - MANDATORY
 /** @todo add other targets */
-print "<FIELDSET class='rfield'><LEGEND>Targets:</LEGEND>" . LF;
-print "<TABLE class='create'>" . LF;
+print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
+print "<table class='create'>" . LF;
 $targets = $_spacemission->get_targets();
-$options = array("<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>");
+$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
 printBigSelectListFromArray("Targets", "add_spa_target_ids[]", $_spacemission->get_has_many("targets"), 
 	$targets, "target_name", NULL, FALSE, $options);
-print "</TABLE></FIELDSET>" . LF;
+print "</table></fieldset>" . LF;
 
 //SENSORS
 //getting all necessary science goals only calling this once
@@ -73,16 +73,16 @@ if(is_array($_spacemission->get_has_many("sensors")))
 	{
 		/** @todo refactor the two hidden fields */
       	//TRANSPORT THE OLD NUMBER OF SENSORS VIA POST
-      	print "<INPUT type='hidden' name='add_spa_sensor_ids[" . $sensor_count . "]' value='". $sensor_id . "'>";
-      	print "<FIELDSET class='rfield'><LEGEND>Sensor:</LEGEND>" . LF;
+      	print "<input type='hidden' name='add_spa_sensor_ids[" . $sensor_count . "]' value='". $sensor_id . "'/>";
+      	print "<fieldset class='rfield'><legend>Sensor:</legend>" . LF;
 
 		printAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
 		
-      	print "<TABLE class='create'>" . LF;
+      	print "<table class='create'>" . LF;
        	/** @todo refactor the two hidden fields */
       	/** @todo make the same approach as with telescope count */
       	//TRANSPORT THE NUMBER OF SENSORS FOR JQUERY
-      	print "<TR><INPUT type='hidden' name='sensors' class='sensors' value='". count($_spacemission->get_has_many("sensors", NULL)) . "'></TR>";
+      	print "<tr><td></td><td><input type='hidden' name='sensors' class='sensors' value='". count($_spacemission->get_has_many("sensors", NULL)) . "'/></td></tr>";
       	
       	//Sensor Name:
       	/** @todo validate => MANDATORY, but we have a little problem here, you can leave the form empty! */
@@ -107,37 +107,37 @@ if(is_array($_spacemission->get_has_many("sensors")))
 		printInputTextRow("Web address", "add_spa_sen_web[{$sensor_count}]", $_spacemission->get_sensor("web_address", $sensor_count));
         //Sensor comments
 		printInputTextfieldRow("Sensor comments", "add_spa_sensor_com[{$sensor_count}]", $_spacemission->get_sensor("sensor_comments", $sensor_count), 65);
- 		print "</TABLE>" . LF;
+ 		print "</table>" . LF;
 
 		//Science Goals - COMMENTED ATM BECAUSE STILL IN DISCUSSION
-//      		print "<FIELDSET class='rfield'><LEGEND>Science Goals:</LEGEND>" . LF;
+//      		print "<fieldset class='rfield'><legend>Science Goals:</legend>" . LF;
       			/** this table has two classes!! class='create' */
-//      		print "<TABLE class='science_goals create'>" . LF;
-//      		print "<TR><TD align='left' valign='middle' width='150px'>" .
-//            	  "<B><FONT color='red'>*</FONT> Science Goals:</B></TD>";
-//      		//print "<TD align='left'><SELECT name='add_spa_sci_goal_ids[]' id='add_spa_sci_goal_ids[]'" .
-//      		//print "<TD align='left'><SELECT name='add_spa_sci_goal_ids[" . $sensor_count . "][]' id='add_spa_sci_goal_ids'" .
-//      		print "<TD align='left'><SELECT name='add_spa_sci_goal_ids[" . $sensor_count . "][]' " .
-//      			  "multiple size='6'>" . LF;
-//      		print "<OPTION value=''>Please choose one or several by holding CTRL...</OPTION>";
-//      		print "<OPTION class='add_other_goal' value='100000'>Add other Science Goal</OPTION>";
+//      		print "<table class='science_goals create'>" . LF;
+//      		print "<tr><td align='left' valign='middle' width='150px'>" .
+//            	  "<b><font color='red'>*</font> Science Goals:</b></td>";
+//      		//print "<td align='left'><select name='add_spa_sci_goal_ids[]' id='add_spa_sci_goal_ids[]'" .
+//      		//print "<td align='left'><select name='add_spa_sci_goal_ids[" . $sensor_count . "][]' id='add_spa_sci_goal_ids'" .
+//      		print "<td align='left'><select name='add_spa_sci_goal_ids[" . $sensor_count . "][]' " .
+//      			  "multiple='multiple' size='6'>" . LF;
+//      		print "<option value=''>Please choose one or several by holding CTRL...</option>";
+//      		print "<option class='add_other_goal' value='100000'>Add other Science Goal</option>";
 //			foreach($science_goals['id'] as $key => $value)
 //			{
-//				print "<OPTION value='" . $value . "'";
+//				print "<option value='" . $value . "'";
 //        		if(is_array($_spacemission->get_has_many("science_goals", $sensor_id)))
 //        			if (in_array($value, $_spacemission->get_has_many("science_goals", $sensor_id)))
 //          				print " selected";
-//        		print ">" . $science_goals['name'][$key] . "</OPTION>" . LF;
+//        		print ">" . $science_goals['name'][$key] . "</option>" . LF;
 //			}
-//      		print "</SELECT></TD></TR>" . LF;
-//      		print "</TABLE></FIELDSET>" . LF;
+//      		print "</select></td></tr>" . LF;
+//      		print "</table></fieldset>" . LF;
 
       	//Scientific Contacts
-      	print "<FIELDSET class='rfield'><LEGEND>Scientific Contacts:</LEGEND>" . LF;
-      	//print "<TABLE class='create'>" . LF;
+      	print "<fieldset class='rfield'><legend>Scientific Contacts:</legend>" . LF;
+      	//print "<table class='create'>" . LF;
       	/** this table has two classes!! class='create' */
-      	print "<TABLE class='scientific_contacts create'>" . LF;
-      	print "<TR><TH></TH><TH>Name</TH><TH>Email</TH><TH>Institution</TH></TR>";
+      	print "<table class='scientific_contacts create'>" . LF;
+      	print "<tr><th></th><th>Name</th><th>Email</th><th>Institution</th></tr>";
       	
    		if(!is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
 			$_spacemission->init_has_many("scientific_contacts", $sensor_id);
@@ -145,7 +145,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
    		if(is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
    			foreach($_spacemission->get_has_many("scientific_contacts", $sensor_id) as $contact_count => $contact_id)
    			{
-				print "<TR>";
+				print "<tr>";
 				printAddRemoveButton($contact_count, $_spacemission->get_has_many("scientific_contacts", $sensor_id), "contact", FALSE);
 
 				printInputTextCol("add_spa_sci_con_name[{$sensor_count}][{$contact_count}]", 
@@ -155,11 +155,11 @@ if(is_array($_spacemission->get_has_many("sensors")))
 				printInputTextCol("add_spa_sci_con_institution[{$sensor_count}][{$contact_count}]", 
 					$_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count), 30, "align='center'");
             	//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
-            	//"<INPUT type='hidden' name='add_spa_sci_con_ids[" . $sensor_count . "][" . $contact_count . "]' value='". $contact_id . "'>" .
-				print "</TR>";
+            	//"<input type='hidden' name='add_spa_sci_con_ids[" . $sensor_count . "][" . $contact_count . "]' value='". $contact_id . "'/>" .
+				print "</tr>";
       		}
-      	print "</TABLE></FIELDSET>" . LF;
-      	print "</FIELDSET>" . LF;
+      	print "</table></fieldset>" . LF;
+      	print "</fieldset>" . LF;
 	}
 	
 // Submit Button

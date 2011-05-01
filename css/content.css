@@ -44,6 +44,10 @@ p.home {
  	padding-bottom: 6px;
 }
 
+b.mandatory {
+	color: #ff0000;
+}
+	
 H1 {
 	font-size: 14px;
 	color: #172983;
@@ -178,6 +182,15 @@ table.viewall {
 	background-color: #f5f5dc;
 	border-collapse: collapse;
 	width: 100%;
+	text-align: center;
+}
+
+table.viewall caption {
+	color: #172983;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 table.viewall TH {
@@ -185,7 +198,6 @@ table.viewall TH {
 	border: 1px solid #000000;
 	color: #FFFFFF;
 	padding: 10px 5px;
-	text-align: center;
 }
 
 table.viewall tr.odd {

@@ -19,15 +19,18 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 	=> input type hidden => put it in div
 	=> div inline definition ist nicht erlaubt (divs for ps)
 	=> get rid of bloody tables
+	=> [] in input names are not allowed!
 * CSS 2.1 validation (refactor css, original rev384, rev393)
 	=> define standard paragraph (p)
 	=> refine content tables (only for add remove / toggle buttons undefined table)
+	   * table caption must be defined in view all
 	=> borders in browse are vanished in safari (define different tables)
 	=> content.css is remaining to be modified
 	=> colors MUST be HEX
 	=> UL definieren
 	=> Z-INDEX gelöscht (siehe typo3)
 	=> define divs for buttons
+	
 	
 * Removed comments in VIEWS (rev391)
 

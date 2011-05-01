@@ -217,7 +217,7 @@ class SpacemissionDAO extends ModelDAO
 				$result2 = self::$db->query($query2);
 				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 				$resources[$row["id"]]["agency"] = $row2["acronym"];
-				$resources[$row["id"]]["agency_web_address"] = $row2["web_address"];
+				$resources[$row["id"]]["agency_web_address"] = htmlentities($row2["web_address"]);
 				mysqli_free_result($result2);
 	
 				//Targets
@@ -229,7 +229,7 @@ class SpacemissionDAO extends ModelDAO
 					$query3 = "SELECT target_name FROM targets WHERE id=" . $row2["target_id"];
 					$result3 = self::$db->query($query3);
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
-					$resources[$row["id"]]["targets"][] = $row3["target_name"];
+					$resources[$row["id"]]["targets"][] = htmlentities($row3["target_name"]);
 					mysqli_free_result($result3);
 				}
 				mysqli_free_result($result2);

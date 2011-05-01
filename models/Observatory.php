@@ -141,7 +141,7 @@ class ObservatoryDAO extends ModelDAO
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
       			//$this->_countries[$key][] = $value;
-				$this->_countries[$key][$row['id']] = $value;
+				$this->_countries[$key][$row['id']] = htmlentities($value);
       	mysqli_free_result($result);
 
       	return $this->_countries;
@@ -404,7 +404,7 @@ class ObservatoryDAO extends ModelDAO
 				$query2 = "SELECT name FROM countries WHERE id=" . $row["country_id"];
 				$result2 = self::$db->query($query2);
 				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
-				$resources[$row["id"]]["country"] = $row2["name"];
+				$resources[$row["id"]]["country"] = htmlentities($row2["name"]);
 				mysqli_free_result($result2);
 				
 				//Hidden Fields				
@@ -426,13 +426,13 @@ class ObservatoryDAO extends ModelDAO
 					$result3 = self::$db->query($query3);
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
 					$telescope_type_id = $row3["telescope_type"];
-					$resources[$row["id"]]["wavelengths"][] = $row3["wavelength"];
+					$resources[$row["id"]]["wavelengths"][] = htmlentities($row3["wavelength"]);
 					mysqli_free_result($result3);
 
 					$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;
 					$result3 = self::$db->query($query3);
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
-					$resources[$row["id"]]["telescope_types"][] = $row3["name"];
+					$resources[$row["id"]]["telescope_types"][] = htmlentities($row3["name"]);
 					mysqli_free_result($result3);
 				}
 				mysqli_free_result($result2);	
