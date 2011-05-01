@@ -5,7 +5,6 @@
  * @author Florian Topf, Robert Stöckler
  *
  * @todo add filter & sort functionality & detailed view (show entry) & customised css table definition
- * @todo refactor ALL uppercase TAGS
  */
 
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
@@ -46,7 +45,7 @@ foreach($resources as $row)
 }
 
 if(empty($resources))
-	print "<tr><h3>There are no Observatory entries</h3></tr>" . LF;
+	print "<tr><td colspan='6'><h3>There are no Observatory entries</h3></td></tr>" . LF;
 
 print "</table>" . LF;
 		

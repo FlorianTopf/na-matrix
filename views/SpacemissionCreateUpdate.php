@@ -3,8 +3,6 @@
  * @file SpacemissionCreateUpdate.php
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
- * 
- * @todo refactor ALL uppercase TAGS
  */
 	 
 print "<div><input type='hidden' name='page' value='add'/>" . LF ;
