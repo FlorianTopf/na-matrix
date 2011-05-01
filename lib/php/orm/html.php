@@ -67,8 +67,7 @@ function makeTR($content, $args="")
 
 function makeInputTitle($title, $info=NULL, $mandatory=false)
 {
-	$content = "<b>";
-	($mandatory == true) ? ($content .= "<font color='#ff0000'>*</font>") : ($content .= "&nbsp;&nbsp;");
+	($mandatory == true) ? ($content = "<b class='red'>*</b><b>") : ($content = "<b>&nbsp;&nbsp;");
 	$content .= "&nbsp;" . $title . "</b>&nbsp;" . $info;
 	return $content;
 }

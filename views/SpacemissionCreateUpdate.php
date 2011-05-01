@@ -114,7 +114,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
       			/** this table has two classes!! class='create' */
 //      		print "<table class='science_goals create'>" . LF;
 //      		print "<tr><td align='left' valign='middle' width='150px'>" .
-//            	  "<b><font color='red'>*</font> Science Goals:</b></td>";
+//            	  "<b class='red'>*</b><b>&nbsp;Science Goals:</b></td>";
 //      		//print "<td align='left'><select name='add_spa_sci_goal_ids[]' id='add_spa_sci_goal_ids[]'" .
 //      		//print "<td align='left'><select name='add_spa_sci_goal_ids[" . $sensor_count . "][]' id='add_spa_sci_goal_ids'" .
 //      		print "<td align='left'><select name='add_spa_sci_goal_ids[" . $sensor_count . "][]' " .

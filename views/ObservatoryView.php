@@ -59,30 +59,30 @@ $link->close();
   	if ($_observatory->get_field("obs_institution"))
   		print "<p><b>Institution:&nbsp;</b>" . $_observatory->get_field("obs_institution") . "</p>" . LF;
   	if($_observatory->get_hidden_field("web_address"))
-  		print "<p><b>Web address:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
+  		print "<p><b>Web address:&nbsp;</b><b class='red'>Not Displayed</b></p>" . LF;
   	else if ($_observatory->get_field("obs_web_address"))
   		print "<p><b>Web address:&nbsp;</b><a href='" . $_observatory->get_field("obs_web_address") . "' target='_blank'>" .
   												   		$_observatory->get_field("obs_web_address") . "</a></p>" . LF;
   	if ($_observatory->get_field("obs_address"))
   		print "<p><b>Address:&nbsp;</b>" . ($_observatory->get_hidden_field("address") ?
-  			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_address")). "</p>" . LF;
+  			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_address")). "</p>" . LF;
   	if ($_observatory->get_hidden_field("zip_code"))
   		print "<p><b>ZIP code:&nbsp;</b>" . ($_observatory->get_hidden_field("zip_code") ?
-  			  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
+  			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
   	if ($_observatory->get_hidden_field("city"))
   		print "<p><b>City:&nbsp;</b>" . ($_observatory->get_hidden_field("city") ?
-  		 	  "<font color='#FF0000'>Not Displayed</font>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
+  		 	  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
 
   	$countries = $_observatory->get_countries();
   	print "<p><b>Country:&nbsp;</b>" . $countries['name'][$_observatory->get_field("obs_country_id")] . "</p>" . LF;
 
   	if ($_observatory->get_hidden_field("phone"))
-  		print "<p><b>Phone:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
+  		print "<p><b>Phone:&nbsp;</b><b class='red'>Not Displayed</b></p>" . LF;
   	else if ($_observatory->get_field("obs_phone"))
   		print "<p><b>Phone:&nbsp;</b>" . $_observatory->get_field("obs_phone") . "</p>" . LF;
 
   	if($_observatory->get_hidden_field("email"))
-  		print "<p><b>Email:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
+  		print "<p><b>Email:&nbsp;</b><b class='red'>Not Displayed</b></p>" . LF;
   	else if ($_observatory->get_field("obs_email"))
   		print "<p><b>Email:&nbsp;</b><a href='mailto:" . $_observatory->get_field("obs_email") . "'>" . $_observatory->get_field("obs_email") . "</a></p>" . LF;
 
@@ -102,7 +102,7 @@ $link->close();
 		$gps_are_null = true;
 
   	if($_observatory->get_hidden_field("latitude"))
-  		print "<p><b>Latitude:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>";
+  		print "<p><b>Latitude:&nbsp;</b><b class='red'>Not Displayed</b></p>";
   	else if (!$gps_are_null)
 		print "<p><b>Latitude:&nbsp;</b>" . "<a href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
   										"&amp;params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
@@ -114,7 +114,7 @@ $link->close();
   		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</a></p>" . LF ;
 
   	if($_observatory->get_hidden_field("longitude"))
-  		print "<p><b>Longitude:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>";
+  		print "<p><b>Longitude:&nbsp;</b><b class='red'>Not Displayed</b></p>";
   	else if (!$gps_are_null)
   		print "<p><b>Longitude:&nbsp;</b>" . "<a href='http://toolserver.org/~geohack/geohack.php?pagename=" . $_observatory->get_field("obs_name") .
   										"&amp;params=" . $_observatory->get_field_array("obs_latitude", "float")  . $geohack_lat_postfix .
@@ -155,7 +155,7 @@ $link->close();
   	print "<fieldset class='report'><legend><b>Scientific Contacts:</b></legend>" . LF;
   	print "<table class='view'>" . LF;
   	if($_observatory->get_hidden_field("scientific_contacts"))
-  		"<tr><td><font color='#FF0000'>Not Displayed</font></td></tr>";
+  		"<tr><td><b class='red'>Not Displayed</b></td></tr>";
   	else
   		if(is_array($_observatory->get_has_many("scientific_contacts", NULL)))
       		foreach($_observatory->get_has_many("scientific_contacts", NULL) as $key => $value)
@@ -273,7 +273,7 @@ $link->close();
 	    //OBSERVATORY Additional Information
 	    print "<fieldset class='report'><legend><b>Additional Information:</b></legend>" . LF;
 	    if ($_observatory->get_hidden_field('further_contacts'))
-	    	print "<p><b>Further contacts:&nbsp;</b><font color='#FF0000'>Not Displayed</font></p>" . LF;
+	    	print "<p><b>Further contacts:&nbsp;</b><b class='red'>Not Displayed</b></p>" . LF;
 	    else if ($_observatory->get_add_info('further_contacts'))
 	    	print "<p><b>Further contacts:&nbsp;</b>" . nl2br($_observatory->get_add_info('further_contacts')) . "</p>" . LF;
 		if ($_observatory->get_add_info('instrument_comments'))

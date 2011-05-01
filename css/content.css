@@ -44,7 +44,7 @@ p.home {
  	padding-bottom: 6px;
 }
 
-b.mandatory {
+b.red {
 	color: #ff0000;
 }
 	
@@ -214,6 +214,11 @@ table.viewall td {
 	background-color: #d3d3d3;
 	padding: 4px;
 	border: 1px solid #000000;
+}
+
+table.viewall td.red {
+	color: #ff0000;
+	font-weight: bold;
 }
 
 table.create {

@@ -24,11 +24,11 @@ foreach($resources as $row)
     print "<td>" . htmlentities($row["institution"]) . "</td>";
 	print "<td>" . htmlentities($row["country"]) . "</td>";
 	if($row["hide_email"])
-    	print "<td><font color='#FF0000'>Not Displayed</font></td>";
+    	print "<td class='red'>Not Displayed</td>";
     else
        	print "<td><a href='mailto:" . $row["email"] . "'>" . $row["email"] . "</a></td>";
 	if($row["hide_web_address"])
-		print "<td><font color='#ff0000'>Not Displayed</font></td>";
+		print "<td class='red'>Not Displayed</td>";
     elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
     	print "<td><a href='" . htmlentities($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
     else

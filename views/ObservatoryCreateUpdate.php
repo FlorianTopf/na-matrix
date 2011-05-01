@@ -61,7 +61,7 @@ printInputText("add_obs_latitude[cent]", $_observatory->get_field_array("obs_lat
 print "</td></tr>" . LF;
 /** @todo improve custom error labels, location in html */
 //custom error labels
-print "<tr><td></td><td>";
+print "<tr><td colspan='2'>";
 print "<label for='add_obs_latitude[degree]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_latitude[minutes]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_latitude[seconds]' class='error' style='display: none;'>Please enter a decimal number!</label>";
@@ -85,7 +85,7 @@ printInputText("add_obs_longitude[cent]", $_observatory->get_field_array("obs_lo
 print "</td></tr>" . LF;
 /** @todo improve custom error labels, location in html */
 //custom error labels
-print "<tr><td></td><td>";
+print "<tr><td colspan='2'>";
 print "<label for='add_obs_longitude[degree]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_longitude[minutes]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_longitude[seconds]' class='error' style='display: none;'>Please enter a decimal number!</label>";
@@ -129,9 +129,9 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 			$_observatory->get_scientific_contact("sci_con_email", $contact_count), 30, "align='center'");
 		printInputTextCol("add_obs_sci_con_institution[{$contact_count}]", 
 			$_observatory->get_scientific_contact("sci_con_institution", $contact_count), 30, "align='center'");
-		print "</tr>";
+		print "</tr>" .
 			//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
-            "<input type='hidden' name='add_obs_sci_con_ids[" . $contact_count . "]' value='". $contact_id . "'/>";
+            "<tr><td colspan='4'><input type='hidden' name='add_obs_sci_con_ids[" . $contact_count . "]' value='". $contact_id . "'/></td></tr>";
 	}
 print "</table></fieldset>" . LF;
 
@@ -251,8 +251,8 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		/** @todo improve custom error labels, location in html */
 	    /** @todo add custom error labels for all necessary inputs */
 	    //custom error labels
-	    print "<tr><td></td><td><label for='add_obs_diameter[". $telescope_count . "]' class='error' style='display: none;'>Please enter a float number!</label></td></tr>";
-	    //print "<tr><td></td><td><label for='add_obs_focallength[". $telescope_count . "]' class='error' style='display: none;'>Please enter a float number!</label></td></tr>";
+	    print "<tr><td colspan='2'><label for='add_obs_diameter[". $telescope_count . "]' class='error' style='display: none;'>Please enter a float number!</label></td></tr>";
+	    //print "<tr><td colspan='2'><label for='add_obs_focallength[". $telescope_count . "]' class='error' style='display: none;'>Please enter a float number!</label></td></tr>";
 	    print "</table>";
 	        
 	    //INSTRUMENTS
