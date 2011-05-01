@@ -110,12 +110,14 @@ IMG {
 
 /* CONTENT FIELDSETS */
 fieldset {
+	color: #000000;
 	margin: 1px;
 	border: 1px solid #000000;
 	background-color: #d3d3d3;
 }
 
 fieldset.report {
+	color: #000000;
 	margin: 5px;
 }
 
@@ -137,7 +139,6 @@ td {
 }*/
 
 table.page {
-	color: #000000;
 	background-color: #FFFFFF;
 	border-collapse: collapse;
 	border-style: none;
@@ -150,7 +151,6 @@ table.page td {
 }
 
 table.selector {
-	color: #000000;
 	background-color: #f5f5dc;
 	border-collapse: collapse;
 	border-style: none;
@@ -166,7 +166,6 @@ table.selector td {
 }
 
 table.view {
-	color: #000000;
 	background-color: #f5f5dc;
 	border-collapse: collapse;
 	width: 100%;
@@ -194,9 +193,9 @@ table.viewall caption {
 }
 
 table.viewall TH {
+	color: #FFFFFF;
 	background-color: #172983;
 	border: 1px solid #000000;
-	color: #FFFFFF;
 	padding: 10px 5px;
 }
 
@@ -222,9 +221,8 @@ table.viewall td.red {
 }
 
 table.create {
-	color: #000000;
 	background-color: #f5f5dc;
-	boder-style: none;
+	border-style: none;
 	border-collapse: collapse;
 	border-spacing: 4px;
 	width: 100%;
@@ -236,13 +234,11 @@ table.create td {
 }
 
 table.create th {
-	background-color: #172983;
 	color: #FFFFFF;
+	background-color: #172983;
 	padding: 10px 5px;
 	text-align: center;
 }
-
-/* BUTTONS AND UTILS */
 /*
 TD.odd {
 	background-color: #d3d3d3;
@@ -254,6 +250,7 @@ TD.even {
 	border: 1px solid #000000;
 } */
 
+/* BUTTONS AND UTILS */
 #help {
 	background-color: #d3d3d3;
 	text-align: left;
