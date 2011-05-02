@@ -70,7 +70,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * remove last telescope => empty fields
   * remove last instrument => empty fields
   * autocompleter for telescope name / instrument name (on existing similar names)
-  * SELECT LIST FOR PARTNER OBSERVATORIES => to make intelligent linkage!
+  * PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
   
 * Input validation in JQUERY for observatories (see comments in add.php)
   * other target - MANDATORY!
@@ -79,7 +79,6 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * instrument name - MANDATORY?
   * instrument type - MANDATORY?
   * check for type of values (critical review)!
-  * autocompleter for telescope / instrument name
 
 
 * Input form for space missions

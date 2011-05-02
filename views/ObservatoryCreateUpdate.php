@@ -276,7 +276,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 				//Instrument Name
 				printInputTextRow("Instrument Name", "add_obs_instrument_name[{$telescope_count}][{$instrument_count}]", 
-					$_observatory->get_instrument("instrument_name", $telescope_id, $instrument_count), 60);
+					$_observatory->get_instrument("instrument_name", $telescope_id, $instrument_count), 60, NULL, "instrument");
 
 				//Instrument Type
 				$options = array("top" => "<option value=''>Please select an Instrument Type</option>",

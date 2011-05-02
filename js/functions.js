@@ -209,6 +209,35 @@ $(document).ready(function(){
 		});
 	};
 	
+	//AUTOCOMPLETER FOR INSTRUMENT NAME
+	$.fn.instrument_completer = function() {
+		// don't navigate away from the field on tab when selecting an item
+		$(this).bind( "keydown", function( event ) {
+			if ( event.keyCode === $.ui.keyCode.TAB &&
+					$( this ).data( "autocomplete" ).menu.active ) {
+				event.preventDefault();
+			}
+		});
+		$(this).autocomplete({
+			source: function( request, response ) {
+				$.getJSON( "js/instrumentNames.php", {
+					term: extractLast( request.term )
+				}, response );
+			},
+			search: function() {
+				// custom minLength
+				var term = extractLast( this.value );
+				if ( term.length < 1 ) {
+					return false;
+				}
+			},
+			focus: function() {
+				// prevent value inserted on focus
+				return false;
+			}
+		});
+	};
+	
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 	
@@ -304,6 +333,12 @@ $(document).ready(function(){
 			var text = $(this).text();
 			$(this).text(
 				text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
+			return false;
+		});
+		
+		//CALLING AUTOCOMPLETER FOR INSTRUMENT NAME
+		$('input.instrument', newInstrument).each(function() {
+			$(this).instrument_completer();
 			return false;
 		});
 		
@@ -516,6 +551,12 @@ $(document).ready(function(){
 	//CALLING AUTOCOMPLETER FOR TELESCOPE NAME
 	$('input.telescope').each(function() {
 		$(this).telescope_completer();
+		return false;
+	});
+	
+	//CALLING AUTOCOMPLETER FOR INSTRUMENT NAME
+	$('input.instrument').each(function() {
+		$(this).instrument_completer();
 		return false;
 	});
 	
@@ -764,6 +805,12 @@ $(document).ready(function(){
 		//CALLING AUTOCOMPLETER FOR TELESCOPE NAME
         $('input.telescope', newTelescope).each(function() {
 			$(this).telescope_completer();
+			return false;
+		});
+        
+		//CALLING AUTOCOMPLETER FOR INSTRUMENT NAME
+        $('input.instrument', newTelescope).each(function() {
+			$(this).instrument_completer();
 			return false;
 		});
 
