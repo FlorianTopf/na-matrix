@@ -233,7 +233,7 @@ class ObservatoryDAO extends ModelDAO
 	 * @todo improve this a bit */
 	public function get_targets()
 	{
-		$query = "SELECT id, target_family, target_name FROM targets ORDER BY targets.target_family ASC";
+		$query = "SELECT id, target_family, target_name FROM targets ORDER BY targets.target_name ASC";
       	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)

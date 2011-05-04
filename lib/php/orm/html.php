@@ -246,7 +246,7 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
 {
 	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	
-	print "<td align='left'><select name='{$name}' multiple='multiple' size='10'>" . LF;
+	print "<td align='left'><select name='{$name}' multiple='multiple' size='15'>" . LF;
 	foreach($options as $option)
 		print $option;
 	foreach($items['id'] as $key => $item)
@@ -303,10 +303,10 @@ function printEditAllTable($name, $resources, $type)
 	{
 		print "<table class='viewall'>" . LF;
     	print "<caption>To edit please click on the {$name} name</caption>" . LF;
-    	print "<tr><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
+    	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
     	foreach ($resources as $entry)
     	{
-   			print "<tr align='center'>";
+   			print "<tr align='center'><td>" . $entry["id"] . "</td>";
     		print "<td><a title='Click to edit' class='hand' " .
               	"href='index.php?page=add&amp;action=edit&amp;id=" . $entry["id"] . "&amp;res_type={$type}" .
               	"'>" . $entry["name"] . "</a></td>";

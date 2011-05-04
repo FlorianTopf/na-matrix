@@ -393,8 +393,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`targets` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `target_family` VARCHAR(45) NOT NULL ,
-  `target_name` VARCHAR(45) NOT NULL ,
+  `target_family` VARCHAR(100) NOT NULL ,
+  `target_name` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 

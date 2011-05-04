@@ -185,7 +185,8 @@ $link->close();
     foreach($targets['id'] as $key => $value)
     	if(is_array($_observatory->get_has_many("targets", NULL)))
         	if (in_array($value, $_observatory->get_has_many("targets", NULL)))
-          		print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>";
+          		//print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>";
+          		print "<li>" . $targets['target_name'][$key] . "</li>";
     print "</ul></fieldset>" . LF;
 
     //OBSERVATORY Telescopes:
@@ -198,7 +199,6 @@ $link->close();
 	    {
 	    	print "<fieldset class='report'><legend><b>Telescope:&nbsp;" . $_observatory->get_telescope("telescope_name", $key) . "</b></legend>" . LF;
 	    	print "<p><b>Telescope Name:&nbsp;</b>" . $_observatory->get_telescope("telescope_name", $key) . "</p>" . LF;
-	    	//print "<p><b>Telescope Type:</b> " . $telescope_types['name'][$_observatory->get_telescope("telescope_type", $key) - 1] . "</p>" . LF;
 	    	print "<p><b>Telescope Type:&nbsp;</b>" . $telescope_types['name'][$_observatory->get_telescope("telescope_type", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("telescope_elements", $key))
 	    		print "<p><b>Telescope Elements:&nbsp;</b>" . $_observatory->get_telescope("telescope_elements", $key) . "</p>" . LF;
@@ -223,7 +223,6 @@ $link->close();
 	    		{
 	    			print "<fieldset><legend><b>Instrument:&nbsp;" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</b></legend>" . LF;
 	    			print "<p><b>Instrument Name:&nbsp;</b>" . $_observatory->get_instrument("instrument_name", $telescope_id, $key2) . "</p>" . LF;
-//	    			print "<p><b>Instrument Type:&nbsp;</b>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2) - 1] . "</p>" . LF;
 					print "<p><b>Instrument Type:&nbsp;</b>" . $instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("focal_position", $telescope_id, $key2))
 						print "<p><b>Focal Position:&nbsp;</b>" . $_observatory->get_instrument("focal_position", $telescope_id, $key2) . "</p>" . LF;
@@ -231,11 +230,9 @@ $link->close();
 	    				print "<p><b>Wavelength:&nbsp;</b>" . $_observatory->get_instrument("wavelength", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2))
 	    				print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2)) . " " .
-	    					  //$wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2) - 1] . "</p>" . LF;
 	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("wavelength_end", $telescope_id, $key2))
 	    				print "<p><b>Wavelength End:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_end", $telescope_id, $key2)) . " " .
-	    					  //$wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2) - 1] . "</p>" . LF;
 	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("spatial_resolution", $telescope_id, $key2))
 	    				print "<p><b>Spatial Resolution:&nbsp;</b>" . $_observatory->get_instrument("spatial_resolution", $telescope_id, $key2) . "</p>" . LF;

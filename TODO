@@ -1,11 +1,14 @@
 ROADMAP (MAY/JUNE 2011)
 * Finalize TARGETS / SCIENCE GOALS
 * Modify existing entries in running Matrix
+  *take care of describing old research areas / science goals with new research areas / targets
 * E-Mail and Telecon UCL
 * Add entries from old Matrix
 * Implement Questionnaire (Approve/Unapprove)
 * Implement Filters/Search Interface (JUNE 2011)
 * Develop Strategy for UPDATE Entry procedure (JUNE 2011)
+
+* INSTALL GOOGLE ANALYTICS
 
 
 BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be on the safe side)
@@ -71,6 +74,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * remove last instrument => empty fields
   * autocompleter for telescope name / instrument name (on existing similar names)
   * PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
+  * reorder comment fields locations in input form!
   
 * Input validation in JQUERY for observatories (see comments in add.php)
   * other target - MANDATORY!
