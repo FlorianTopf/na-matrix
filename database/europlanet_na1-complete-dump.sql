@@ -1024,7 +1024,7 @@ INSERT INTO `targets` (`id`, `target_family`, `target_name`) VALUES
 (133, 'SMALL BODIES/Asteroids/NEOs', 'Ganymed (Asteroid)'),
 (134, 'SMALL BODIES/Asteroids/NEOs', 'NEOs (Near-Earth Objects)'),
 (135, 'SMALL BODIES/Asteroids/Neptune Trojans', 'Neptune Trojans'),
-(136, 'SMALL BODIES/AsteroidsNEOs', 'Eros'),
+(136, 'SMALL BODIES/Asteroids/NEOs', 'Eros'),
 (137, 'SMALL BODIES/Centaurs', '2010 KZ39'),
 (138, 'SMALL BODIES/Centaurs', 'CENTAURS'),
 (139, 'SMALL BODIES/Comets', 'Churyumov-Gerasimenko'),
