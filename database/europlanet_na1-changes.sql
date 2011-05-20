@@ -2,7 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-
+/** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION 336 */
 
 TRUNCATE TABLE `users_statistics`;
@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS `europlanet_na1`.`pages_list` ;
 
 DROP TABLE IF EXISTS `europlanet_na1`.`users_levels` ;
 
-
+/** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION 401 */
 
 /* extend length of names */
@@ -70,9 +70,9 @@ UPDATE `europlanet_na1`.`targets` SET `target_family` = 'SMALL BODIES/TNOs', `ta
 UPDATE `europlanet_na1`.`targets` SET `target_family` = 'SMALL BODIES/TNOs/KBOs/Plutinos' WHERE `targets`.`id` =30 LIMIT 1 ;
 UPDATE `europlanet_na1`.`targets` SET `target_family` = 'STELLAR OBJECTS/Exoplanets' WHERE `targets`.`id` =47 LIMIT 1 ;
 /* delete pluto satellites */
-DELETE FROM `europlanet_na1_test`.`targets` WHERE `targets`.`id` = 29 LIMIT 1
+DELETE FROM `europlanet_na1`.`targets` WHERE `targets`.`id` = 29 LIMIT 1
 /* insert new targets */
-INSERT INTO `targets` (`id`, `target_family`, `target_name`) VALUES
+INSERT INTO `europlanet_na1`.`targets` (`id`, `target_family`, `target_name`) VALUES
 (54, 'ARTIFICIAL SATELLITES', 'ARTIFICIAL SATELLITES'),
 (55, 'ATMOSPHERIC PHENOMENA', 'ATMOSPHERIC PHENOMENA'),
 (56, 'COSMIC MICROWAVE BACKGROUND', 'COSMIC MICROWAVE BACKGROUND'),
@@ -237,6 +237,178 @@ INSERT INTO `targets` (`id`, `target_family`, `target_name`) VALUES
 (215, 'STELLAR OBJECTS/Extraterrestrial Life', 'EXTRATERRESTRIAL LIFE'),
 (216, 'SUN', 'SOLAR WIND'),
 (217, 'SUPERNOVAE/NOVAE', 'SUPERNOVAE/NOVAE');
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 416 */
+ALTER TABLE `europlanet_na1`.`research_areas` ADD COLUMN `domain` TEXT NOT NULL  AFTER `name` ;
+
+/** update old research areas */
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 1 (Planetary aurorae, planetary radio emissions, planetary space weather)' WHERE `research_areas`.`id` =1 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 2 (Small solar system objects: Astrometry, spectroscopy, stellar occultations, meteoroid impact effects)' WHERE `research_areas`.`id` =2 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 3 (Airless bodies in the solar system: Moon, Mercury, Galilean satellites)' WHERE `research_areas`.`id` =3 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'ATMOSPHERIC PHYSICS',
+`domain` = 'ATMOSPHERIC PHYSICS' WHERE `research_areas`.`id` =4 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Supernovae / Novae' WHERE `research_areas`.`id` =5 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Galaxies' WHERE `research_areas`.`id` =6 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Interstellar Medium' WHERE `research_areas`.`id` =7 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Exoplanets' WHERE `research_areas`.`id` =8 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'STELLAR PHYSICS',
+`domain` = 'STELLAR PHYSICS' WHERE `research_areas`.`id` =9 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Large Scale Structures' WHERE `research_areas`.`id` =10 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Solar Physics',
+`domain` = 'SPACE PHYSICS' WHERE `research_areas`.`id` =11 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'GEODESY',
+`domain` = 'GEODESY' WHERE `research_areas`.`id` =12 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'COSMOLOGY',
+`domain` = 'COSMOLOGY' WHERE `research_areas`.`id` =13 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Stellar Occultations',
+`domain` = 'OBSERVATIONAL ASTROPHYSICS' WHERE `research_areas`.`id` =14 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'PUBLIC OUTREACH / EDUCATION ETC.',
+`domain` = 'PUBLIC OUTREACH / EDUCATION ETC.' WHERE `research_areas`.`id` =15 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'ASTROPARTICLE PHYSICS',
+`domain` = 'ASTROPARTICLE PHYSICS' WHERE `research_areas`.`id` =16 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Black Holes' WHERE `research_areas`.`id` =17 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'ASTROBIOLOGY',
+`domain` = 'ASTROBIOLOGY' WHERE `research_areas`.`id` =18 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'ASTROCHEMISTRY',
+`domain` = 'ASTROCHEMISTRY' WHERE `research_areas`.`id` =19 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Physics of White Dwarfs, Neutron Stars etc.',
+`domain` = 'STELLAR PHYSICS' WHERE `research_areas`.`id` =20 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Orbital Mechanics',
+`domain` = 'CELESTIAL MECHANICS' WHERE `research_areas`.`id` =21 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Interplanetary Medium' WHERE `research_areas`.`id` =22 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Magnetospheric Physics',
+`domain` = 'SPACE PHYSICS' WHERE `research_areas`.`id` =23 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Variable Stars' WHERE `research_areas`.`id` =24 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Climatology',
+`domain` = 'ATMOSPHERIC PHYSICS' WHERE `research_areas`.`id` =25 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Instability phenomena in the universe' WHERE `research_areas`.`id` =26 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `domain` = 'OBSERVATIONAL ASTROPHYSICS' WHERE `research_areas`.`id` =27 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Astronomical Survey',
+`domain` = 'OBSERVATIONAL ASTROPHYSICS' WHERE `research_areas`.`id` =28 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Synoptic Meteorology',
+`domain` = 'ATMOSPHERIC PHYSICS' WHERE `research_areas`.`id` =29 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Small Solar System Objects' WHERE `research_areas`.`id` =30 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `domain` = 'OBSERVATIONAL ASTROPHYSICS' WHERE `research_areas`.`id` =31 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `domain` = 'OBSERVATIONAL ASTROPHYSICS' WHERE `research_areas`.`id` =32 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `domain` = 'COSMOLOGY' WHERE `research_areas`.`id` =33 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Solar System' WHERE `research_areas`.`id` =34 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Plasma Physics',
+`domain` = 'SPACE PHYSICS' WHERE `research_areas`.`id` =35 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Sun-Earth Interaction' WHERE `research_areas`.`id` =36 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Space Weather',
+`domain` = 'SPACE PHYSICS' WHERE `research_areas`.`id` =37 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Solar Wind Interaction' WHERE `research_areas`.`id` =38 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Earth''s Magnetic Environment' WHERE `research_areas`.`id` =39 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'High-Energy, VHE & UHE Gamma Ray Astronomy',
+`domain` = 'ASTROPARTICLE PHYSICS' WHERE `research_areas`.`id` =40 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Energetic Radiation' WHERE `research_areas`.`id` =41 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Iron Quasar' WHERE `research_areas`.`id` =42 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'The Observable Universe',
+`domain` = 'COSMOLOGY' WHERE `research_areas`.`id` =43 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Sunyaev-Zel''dovich effect' WHERE `research_areas`.`id` =44 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Cosmogony, Big Bang & Early Universe',
+`domain` = 'COSMOLOGY' WHERE `research_areas`.`id` =45 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Expansion of Universe' WHERE `research_areas`.`id` =46 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Beginning of Universe' WHERE `research_areas`.`id` =47 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Exotic Matter, Dark Matter & Energy',
+`domain` = 'COSMOLOGY' WHERE `research_areas`.`id` =48 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: X-rays' WHERE `research_areas`.`id` =49 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Observations of GRB' WHERE `research_areas`.`id` =50 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Deep Space' WHERE `research_areas`.`id` =51 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Quasars' WHERE `research_areas`.`id` =52 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Gamma-ray bursts' WHERE `research_areas`.`id` =53 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Star Formation',
+`domain` = 'STELLAR PHYSICS' WHERE `research_areas`.`id` =54 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Comets' WHERE `research_areas`.`id` =55 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Planets' WHERE `research_areas`.`id` =56 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Solar System Objects' WHERE `research_areas`.`id` =57 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Chemical Evolution',
+`domain` = 'ASTROCHEMISTRY' WHERE `research_areas`.`id` =58 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: X-ray emitting temperatures' WHERE `research_areas`.`id` =59 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Planetary Geology',
+`domain` = 'PLANETARY SCIENCES' WHERE `research_areas`.`id` =60 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Electromagnetic Radiation' WHERE `research_areas`.`id` =61 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Lunar Geology' WHERE `research_areas`.`id` =62 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Geochemistry',
+`domain` = 'ASTROCHEMISTRY' WHERE `research_areas`.`id` =63 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Investigation of magnetic activity of the Sun' WHERE `research_areas`.`id` =64 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'Stellar Structure',
+`domain` = 'STELLAR PHYSICS' WHERE `research_areas`.`id` =65 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Dark Matter' WHERE `research_areas`.`id` =66 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'INSTRUMENTATION',
+`domain` = 'INSTRUMENTATION' WHERE `research_areas`.`id` =67 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Atmospheric Observations' WHERE `research_areas`.`id` =68 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Radar Imaging' WHERE `research_areas`.`id` =69 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Military Defence' WHERE `research_areas`.`id` =70 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'PLANETARY SCIENCES',
+`domain` = 'PLANETARY SCIENCES' WHERE `research_areas`.`id` =71 LIMIT 1 ;
+/* insert new research areas */
+/* ALTER TABLE `europlanet_na1`.`research_areas`  AUTO_INCREMENT =72 */
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES
+(72, 'ASTROBIOLOGY', 'Abiogenesis (Astrobiology)'),
+(73, 'ASTROBIOLOGY', 'Biomarkers'),
+(74, 'ASTROBIOLOGY', 'Evolution of Life & Biodiversity'),
+(75, 'ASTROBIOLOGY', 'Exoplanetary Research (Astrobiology)'),
+(76, 'ASTROBIOLOGY', 'Life in the Solar System'),
+(77, 'ASTROBIOLOGY', 'Planetary Habitability'),
+(78, 'ASTROBIOLOGY', 'SETI - Search for Extra-Terrestrial Intelligence'),
+(79, 'ASTROBIOLOGY', 'Stellar, Planetary & Atmospheric Evolution'),
+(80, 'ASTROCHEMISTRY', 'Abiogenesis (Astrochemistry)'),
+(81, 'ASTROCHEMISTRY', 'Atomic & Molecular Astrophysics'),
+(82, 'ASTROCHEMISTRY', 'Cosmochemistry'),
+(83, 'ASTROCHEMISTRY', 'Nucleocosmochronology'),
+(84, 'ASTROPARTICLE PHYSICS', 'Cosmic Ray Physics (Astroparticle Physics)'),
+(85, 'ASTROPARTICLE PHYSICS', 'Neutrino Astronomy (Astroparticle Physics)'),
+(86, 'ASTROPARTICLE PHYSICS', 'Particle Physics  in Cosmology (Astroparticle Physics)'),
+(87, 'ASTROPARTICLE PHYSICS', 'Related Astrophysics - Supernovae, AGN etc.'),
+(88, 'ATMOSPHERIC PHYSICS', 'Aeronomy'),
+(89, 'ATMOSPHERIC PHYSICS', 'Atmospheric Dynamics & Circulation'),
+(90, 'ATMOSPHERIC PHYSICS', 'Atmospheric Energetics'),
+(91, 'ATMOSPHERIC PHYSICS', 'Physical & Chemical Processes in the Atmosphere'),
+(92, 'ATMOSPHERIC PHYSICS', 'Weather Forecasting'),
+(93, 'ATMOSPHERIC PHYSICS', 'Weather Systems'),
+(94, 'CELESTIAL MECHANICS', 'Astrometry'),
+(95, 'CELESTIAL MECHANICS', 'CELESTIAL MECHANICS'),
+(96, 'CELESTIAL MECHANICS', 'Celestial Navigation'),
+(97, 'CELESTIAL MECHANICS', 'Ephemerides'),
+(98, 'CELESTIAL MECHANICS', 'Lunar Theory'),
+(99, 'COSMOLOGY', 'Gravitational Physics'),
+(100, 'COSMOLOGY', 'Non-Standard Cosmology'),
+(101, 'COSMOLOGY', 'Particle Physics in Cosmology'),
+(102, 'COSMOLOGY', 'Structure Formation'),
+(103, 'COSMOLOGY', 'Ultimate Fate of the Universe'),
+(104, 'GEODESY', 'Cartography'),
+(105, 'GEODESY', 'Geodetic Astronomy'),
+(106, 'GEODESY', 'Photogrammetry'),
+(107, 'GEODESY', 'Physical Geodesy'),
+(108, 'GEODESY', 'Surveying'),
+(109, 'OBSERVATIONAL ASTROPHYSICS', 'Earth Monitoring'),
+(110, 'OBSERVATIONAL ASTROPHYSICS', 'Gamma Ray Astronomy'),
+(111, 'OBSERVATIONAL ASTROPHYSICS', 'Gravitational Wave Astronomy'),
+(112, 'OBSERVATIONAL ASTROPHYSICS', 'Neutrino Astronomy (Observational Astrophysics)'),
+(113, 'OBSERVATIONAL ASTROPHYSICS', 'OBSERVATIONAL ASTROPHYSICS'),
+(114, 'OBSERVATIONAL ASTROPHYSICS', 'Spectroscopy'),
+(115, 'OBSERVATIONAL ASTROPHYSICS', 'UV Astronomy'),
+(116, 'OBSERVATIONAL ASTROPHYSICS', 'X-Ray Astronomy'),
+(117, 'PLANETARY SCIENCES', 'Exoplanetary Research (Planetary Sciences)'),
+(118, 'PLANETARY SCIENCES', 'Geomorphology'),
+(119, 'PLANETARY SCIENCES', 'Planetary Astronomy'),
+(120, 'PLANETARY SCIENCES', 'Theoretical Planetology'),
+(121, 'SPACE PHYSICS', 'Cosmic Ray Physics (Space Physics)'),
+(122, 'SPACE PHYSICS', 'Heliospheric, Solar & Planetary Radio Emissions'),
+(123, 'SPACE PHYSICS', 'Physics of Shockwaves'),
+(124, 'SPACE PHYSICS', 'Planetary Aurorae'),
+(125, 'SPACE PHYSICS', 'SPACE PHYSICS'),
+(126, 'SPACE PHYSICS', 'Synchrotron Radiation'),
+(127, 'STELLAR PHYSICS', 'Accretion Disks'),
+(128, 'STELLAR PHYSICS', 'Asteroseismology'),
+(129, 'STELLAR PHYSICS', 'Plasma Physics (Stellar Physics)'),
+(130, 'STELLAR PHYSICS', 'Stellar Evolution');
+/* change table order */
+ALTER TABLE `europlanet_na1`.`research_areas` CHANGE COLUMN `domain` `domain` TEXT NOT NULL  AFTER `id` ;
+
+/** -------------------------------------------------------------------------------------------- */
 
 
 

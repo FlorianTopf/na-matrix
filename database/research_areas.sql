@@ -1,73 +1,131 @@
-INSERT INTO `research_areas` (`id`, `name`) VALUES
-(1, 'Key Area 1 (Planetary aurorae, planetary radio emissions, planetary space weather)'), /* deprecated */
-(2, 'Key Area 2 (Small solar system objects: Astrometry, spectroscopy, stellar occultations, meteoroid impact effects)'), /* depracated */
-(3, 'Key Area 3 (Airless bodies in the solar system: Moon, Mercury, Galilean satellites)'), /* deprecated */ 
-(4, 'Atmospheric Physics *'), /* ATMOSPHERICS PHYSICS/ATMOSPHERIC PHYSICS */
-(5, 'Supernovae / Novae'), /* deprecated */
-(6, 'Galaxies *'), /* deprecated */
-(7, 'Interstellar Medium *'), /* deprecated */
-(8, 'Exoplanets *'), /* deprecated */
-(9, 'Stellar Physics *'), /* STELLAR PHYSICS/STELLAR PHYSICS */
-(10, 'Large Scale Structures'), /* deprecated */
-(11, 'Solar Physics *'), /* SPACE PHYSICS/Solar Physics */
-(12, 'Geodesy *'), /* GEODESY/GEODESY */
-(13, 'Cosmology *'), /* COSMOLOGY/COSMOLOGY */
-(14, 'Stellar Occultations *'), /* OBSERVATIONAL ASTROPHYSICS/Stellar Occultations */
-(15, 'Public Outreach / Education etc. *'), /* PUBLIC OUTREACH / EDUCATION ETC./PUBLIC OUTREACH / EDUCATION ETC. */
-(16, 'Particle Physics *'), /* ASTROPARTICLE PHYSICS/ASTROPARTICLE PHYSICS */
-(17, 'Black Holes'), /* deprecated */
-(18, 'Astrobiology *'), /* ASTROBIOLOGY/ASTROBIOLOGY */
-(19, 'Astrochemistry *'), /* ASTROCHEMISTRY/ASTROCHEMISTRY */
-(20, 'Neutron Stars / Pulsars etc.'), /* STELLAR PHYSICS/Physics of White Dwarfs, Neutron Stars etc. */
-(21, 'Orbital Mechanics *'), /* CELESTIAL MECHANICS/Orbital Mechanics */
-(22, 'Interplanetary Medium *'), /* deprecated */
-(23, 'Magnetospheric Physics *'), /* SPACE PHYSICS/Magnetospheric Physics */
-(24, 'Variable Stars'), /* deprecated */
-(25, 'Climatology *'), /* ATMOSPHERIC PHYSICS/Climatology */
-(26, 'Instability phenomena in the universe'), /* deprecated */
-(27, 'Radio Astronomy'), /* OBSERVATIONAL ASTROPHYSICS/Radio Astronomy */
-(28, 'Sky Observation *'), /* OBSERVATIONAL ASTROPHYSICS/Astronomical Survey */
-(29, 'Meteorology *'), /* ATMOSPHERIC PHYSICS/Synoptic Meteorology */
-(30, 'Small Solar System Objects *'), /* deprecated */
-(31, 'Optical Astronomy'), /* OBSERVATIONAL ASTROPHYSICS/Optical Astronomy */
-(32, 'Infrared Astronomy'), /* OBSERVATIONAL ASTROPHYSICS/Infrared Astronomy */
-(33, 'Cosmic Microwave Background'), /* COSMOLOGY/Cosmic Microwave Background */
-(34, 'Solar System'), /* deprecated */
-(35, 'Plasma Physics *'), /* SPACE PHYSICS/Plasma Physics */
-(36, 'Sun-Earth Interaction'), /* deprecated */
-(37, 'Space Weather *'), /* SPACE PHYSICS/Space Weather */
-(38, 'Solar Wind Interaction'), /* deprecated */
-(39, 'Earth''s Magnetic Environment'), /* deprecated */
-(40, 'Gamma-ray emission'), /* ASTROPARTICLE PHYSICS/High-Energy, VHE & UHE Gamma Ray Astronomy */
-(41, 'Energetic Radiation'), /* deprecated */
-(42, 'Iron Quasar'), /* deprecated */ 
-(43, 'Determination of Hubble Constant'), /* COSMOLOGY/The Observable Universe */
-(44, 'Sunyaev-Zel''dovich effect'), /* deprecated */
-(45, 'Big Bang'), /* COSMOLOGY/Cosmogony, Big Bang & Early Universe */
-(46, 'Expansion of Universe'), /* deprecated */
-(47, 'Beginning of Universe'), /* deprecated */
-(48, 'Exotic Matter'), /* COSMOLOGY/Exotic Matter, Dark Matter & Energy */
-(49, 'X-rays'), /* deprecated */
-(50, 'Observations of GRB'), /* deprecated */
-(51, 'Deep Space *'), /* deprecated */
-(52, 'Quasars'), /* deprecated */
-(53, 'Gamma-ray bursts'), /* deprecated */
-(54, 'Creation of Stars'), /* STELLAR PHYSICS/Star Formation */
-(55, 'Comets'), /* deprecated */
-(56, 'Planets'), /* deprecated */
-(57, 'Solar System Objects *'), /* deprecated */
-(58, 'Creation of Chemical Elements'), /* ASTROCHEMISTRY/Chemical Evolution */
-(59, 'X-ray emitting temperatures'), /* deprecated */
-(60, 'Composition of Satellites'), /* PLANETARY SCIENCES/Planetary Geology */
-(61, 'Electromagnetic Radiation *'), /* deprecated */
-(62, 'Lunar Geology'), /* deprecated */
-(63, 'Geochemistry *'), /* ASTROCHEMISTRY/Geochemistry */
-(64, 'Investigation of magnetic activity of the Sun - including its generation, energy transfer and release of the magnetic energy.'), /* deprecated */
-(65, 'Stellar Interiors'), /* STELLAR PHYSICS/Stellar Structure */
-(66, 'Dark Matter'), /* deprecated */
-(67, 'Instrumentation *'), /* INSTRUMENTATION/INSTRUMENTATION */
-(68, 'Atmospheric Observations'), /* deprecated */
-(69, 'Radar Imaging'), /* deprecated */
-(70, 'Military Defence'), /* deprecated */
-(71, 'Planetary Science *'); /* PLANETARY SCIENCES/PLANETARY SCIENCES */
-
+INSERT INTO `research_areas` (`id`, `domain`, `name`) VALUES
+(1, '', 'DEPRECATED: Key Area 1 (Planetary aurorae, planetary radio emissions, planetary space weather)'),
+(2, '', 'DEPRECATED: Key Area 2 (Small solar system objects: Astrometry, spectroscopy, stellar occultations, meteoroid impact effects)'),
+(3, '', 'DEPRECATED: Key Area 3 (Airless bodies in the solar system: Moon, Mercury, Galilean satellites)'),
+(4, 'ATMOSPHERIC PHYSICS', 'ATMOSPHERIC PHYSICS'),
+(5, '', 'DEPRECATED: Supernovae / Novae'),
+(6, '', 'DEPRECATED: Galaxies'),
+(7, '', 'DEPRECATED: Interstellar Medium'),
+(8, '', 'DEPRECATED: Exoplanets'),
+(9, 'STELLAR PHYSICS', 'STELLAR PHYSICS'),
+(10, '', 'DEPRECATED: Large Scale Structures'),
+(11, 'SPACE PHYSICS', 'Solar Physics'),
+(12, 'GEODESY', 'GEODESY'),
+(13, 'COSMOLOGY', 'COSMOLOGY'),
+(14, 'OBSERVATIONAL ASTROPHYSICS', 'Stellar Occultations'),
+(15, 'PUBLIC OUTREACH / EDUCATION ETC.', 'PUBLIC OUTREACH / EDUCATION ETC.'),
+(16, 'ASTROPARTICLE PHYSICS', 'ASTROPARTICLE PHYSICS'),
+(17, '', 'DEPRECATED: Black Holes'),
+(18, 'ASTROBIOLOGY', 'ASTROBIOLOGY'),
+(19, 'ASTROCHEMISTRY', 'ASTROCHEMISTRY'),
+(20, 'STELLAR PHYSICS', 'Physics of White Dwarfs, Neutron Stars etc.'),
+(21, 'CELESTIAL MECHANICS', 'Orbital Mechanics'),
+(22, '', 'DEPRECATED: Interplanetary Medium'),
+(23, 'SPACE PHYSICS', 'Magnetospheric Physics'),
+(24, '', 'DEPRECATED: Variable Stars'),
+(25, 'ATMOSPHERIC PHYSICS', 'Climatology'),
+(26, '', 'DEPRECATED: Instability phenomena in the universe'),
+(27, 'OBSERVATIONAL ASTROPHYSICS', 'Radio Astronomy'),
+(28, 'OBSERVATIONAL ASTROPHYSICS', 'Astronomical Survey'),
+(29, 'ATMOSPHERIC PHYSICS', 'Synoptic Meteorology'),
+(30, '', 'DEPRECATED: Small Solar System Objects'),
+(31, 'OBSERVATIONAL ASTROPHYSICS', 'Optical Astronomy'),
+(32, 'OBSERVATIONAL ASTROPHYSICS', 'Infrared Astronomy'),
+(33, 'COSMOLOGY', 'Cosmic Microwave Background'),
+(34, '', 'DEPRECATED: Solar System'),
+(35, 'SPACE PHYSICS', 'Plasma Physics'),
+(36, '', 'DEPRECATED: Sun-Earth Interaction'),
+(37, 'SPACE PHYSICS', 'Space Weather'),
+(38, '', 'DEPRECATED: Solar Wind Interaction'),
+(39, '', 'DEPRECATED: Earth''s Magnetic Environment'),
+(40, 'ASTROPARTICLE PHYSICS', 'High-Energy, VHE & UHE Gamma Ray Astronomy'),
+(41, '', 'DEPRECATED: Energetic Radiation'),
+(42, '', 'DEPRECATED: Iron Quasar'),
+(43, 'COSMOLOGY', 'The Observable Universe'),
+(44, '', 'DEPRECATED: Sunyaev-Zel''dovich effect'),
+(45, 'COSMOLOGY', 'Cosmogony, Big Bang & Early Universe'),
+(46, '', 'DEPRECATED: Expansion of Universe'),
+(47, '', 'DEPRECATED: Beginning of Universe'),
+(48, 'COSMOLOGY', 'Exotic Matter, Dark Matter & Energy'),
+(49, '', 'DEPRECATED: X-rays'),
+(50, '', 'DEPRECATED: Observations of GRB'),
+(51, '', 'DEPRECATED: Deep Space'),
+(52, '', 'DEPRECATED: Quasars'),
+(53, '', 'DEPRECATED: Gamma-ray bursts'),
+(54, 'STELLAR PHYSICS', 'Star Formation'),
+(55, '', 'DEPRECATED: Comets'),
+(56, '', 'DEPRECATED: Planets'),
+(57, '', 'DEPRECATED: Solar System Objects'),
+(58, 'ASTROCHEMISTRY', 'Chemical Evolution'),
+(59, '', 'DEPRECATED: X-ray emitting temperatures'),
+(60, 'PLANETARY SCIENCES', 'Planetary Geology'),
+(61, '', 'DEPRECATED: Electromagnetic Radiation'),
+(62, '', 'DEPRECATED: Lunar Geology'),
+(63, 'ASTROCHEMISTRY', 'Geochemistry'),
+(64, '', 'DEPRECATED: Investigation of magnetic activity of the Sun'),
+(65, 'STELLAR PHYSICS', 'Stellar Structure'),
+(66, '', 'DEPRECATED: Dark Matter'),
+(67, 'INSTRUMENTATION', 'INSTRUMENTATION'),
+(68, '', 'DEPRECATED: Atmospheric Observations'),
+(69, '', 'DEPRECATED: Radar Imaging'),
+(70, '', 'DEPRECATED: Military Defence'),
+(71, 'PLANETARY SCIENCES', 'PLANETARY SCIENCES'),
+(72, 'ASTROBIOLOGY', 'Abiogenesis (Astrobiology)'),
+(73, 'ASTROBIOLOGY', 'Biomarkers'),
+(74, 'ASTROBIOLOGY', 'Evolution of Life & Biodiversity'),
+(75, 'ASTROBIOLOGY', 'Exoplanetary Research (Astrobiology)'),
+(76, 'ASTROBIOLOGY', 'Life in the Solar System'),
+(77, 'ASTROBIOLOGY', 'Planetary Habitability'),
+(78, 'ASTROBIOLOGY', 'SETI - Search for Extra-Terrestrial Intelligence'),
+(79, 'ASTROBIOLOGY', 'Stellar, Planetary & Atmospheric Evolution'),
+(80, 'ASTROCHEMISTRY', 'Abiogenesis (Astrochemistry)'),
+(81, 'ASTROCHEMISTRY', 'Atomic & Molecular Astrophysics'),
+(82, 'ASTROCHEMISTRY', 'Cosmochemistry'),
+(83, 'ASTROCHEMISTRY', 'Nucleocosmochronology'),
+(84, 'ASTROPARTICLE PHYSICS', 'Cosmic Ray Physics (Astroparticle Physics)'),
+(85, 'ASTROPARTICLE PHYSICS', 'Neutrino Astronomy (Astroparticle Physics)'),
+(86, 'ASTROPARTICLE PHYSICS', 'Particle Physics  in Cosmology (Astroparticle Physics)'),
+(87, 'ASTROPARTICLE PHYSICS', 'Related Astrophysics - Supernovae, AGN etc.'),
+(88, 'ATMOSPHERIC PHYSICS', 'Aeronomy'),
+(89, 'ATMOSPHERIC PHYSICS', 'Atmospheric Dynamics & Circulation'),
+(90, 'ATMOSPHERIC PHYSICS', 'Atmospheric Energetics'),
+(91, 'ATMOSPHERIC PHYSICS', 'Physical & Chemical Processes in the Atmosphere'),
+(92, 'ATMOSPHERIC PHYSICS', 'Weather Forecasting'),
+(93, 'ATMOSPHERIC PHYSICS', 'Weather Systems'),
+(94, 'CELESTIAL MECHANICS', 'Astrometry'),
+(95, 'CELESTIAL MECHANICS', 'CELESTIAL MECHANICS'),
+(96, 'CELESTIAL MECHANICS', 'Celestial Navigation'),
+(97, 'CELESTIAL MECHANICS', 'Ephemerides'),
+(98, 'CELESTIAL MECHANICS', 'Lunar Theory'),
+(99, 'COSMOLOGY', 'Gravitational Physics'),
+(100, 'COSMOLOGY', 'Non-Standard Cosmology'),
+(101, 'COSMOLOGY', 'Particle Physics in Cosmology'),
+(102, 'COSMOLOGY', 'Structure Formation'),
+(103, 'COSMOLOGY', 'Ultimate Fate of the Universe'),
+(104, 'GEODESY', 'Cartography'),
+(105, 'GEODESY', 'Geodetic Astronomy'),
+(106, 'GEODESY', 'Photogrammetry'),
+(107, 'GEODESY', 'Physical Geodesy'),
+(108, 'GEODESY', 'Surveying'),
+(109, 'OBSERVATIONAL ASTROPHYSICS', 'Earth Monitoring'),
+(110, 'OBSERVATIONAL ASTROPHYSICS', 'Gamma Ray Astronomy'),
+(111, 'OBSERVATIONAL ASTROPHYSICS', 'Gravitational Wave Astronomy'),
+(112, 'OBSERVATIONAL ASTROPHYSICS', 'Neutrino Astronomy (Observational Astrophysics)'),
+(113, 'OBSERVATIONAL ASTROPHYSICS', 'OBSERVATIONAL ASTROPHYSICS'),
+(114, 'OBSERVATIONAL ASTROPHYSICS', 'Spectroscopy'),
+(115, 'OBSERVATIONAL ASTROPHYSICS', 'UV Astronomy'),
+(116, 'OBSERVATIONAL ASTROPHYSICS', 'X-Ray Astronomy'),
+(117, 'PLANETARY SCIENCES', 'Exoplanetary Research (Planetary Sciences)'),
+(118, 'PLANETARY SCIENCES', 'Geomorphology'),
+(119, 'PLANETARY SCIENCES', 'Planetary Astronomy'),
+(120, 'PLANETARY SCIENCES', 'Theoretical Planetology'),
+(121, 'SPACE PHYSICS', 'Cosmic Ray Physics (Space Physics)'),
+(122, 'SPACE PHYSICS', 'Heliospheric, Solar & Planetary Radio Emissions'),
+(123, 'SPACE PHYSICS', 'Physics of Shockwaves'),
+(124, 'SPACE PHYSICS', 'Planetary Aurorae'),
+(125, 'SPACE PHYSICS', 'SPACE PHYSICS'),
+(126, 'SPACE PHYSICS', 'Synchrotron Radiation'),
+(127, 'STELLAR PHYSICS', 'Accretion Disks'),
+(128, 'STELLAR PHYSICS', 'Asteroseismology'),
+(129, 'STELLAR PHYSICS', 'Plasma Physics (Stellar Physics)'),
+(130, 'STELLAR PHYSICS', 'Stellar Evolution');

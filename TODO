@@ -1,8 +1,13 @@
 ROADMAP (MAY/JUNE 2011)
-* Finalize TARGETS / SCIENCE GOALS
+* Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS [OK]
+  * review targets and fix issues! [OK]
+  * introduce research area domain in database
+  * introduce brief description for research areas
 * Modify existing entries in running Matrix
-  *take care of describing old research areas / science goals with new research areas / targets
-* E-Mail and Telecon UCL
+  * take care of describing old research areas / science goals with new research areas / targets
+  * replace old research areas with new research areas AND targets!
+  * Display Research Area (Domain) in Add/Edit and VIEW
+* E-Mail and Telecon UCL => see minutes
 * Add entries from old Matrix
 * Implement Questionnaire (Approve/Unapprove)
 * Implement Filters/Search Interface (JUNE 2011)
@@ -29,7 +34,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 	
 * Removed comments in VIEWS (rev391)
 
-* Implement delete_resource() in spacemission model
+* Implement delete_resource() in spacemission model (implement delete button for admins)
 
 * Put FIREFOX/JS recommendation in footer
   * MODEL has to be proof if javascript is OFF (check with browser)
@@ -43,7 +48,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 
 * Running Database
-  * Review Science Goals / Research Areas (Robert, Manuel)
+  * Review Science Goals (Robert, Manuel)
    * Rewrite entries of europlanet_na1 database
  	 * comments to new fields (remove unnecessary comment fields:
  	    instrument comments)
@@ -68,11 +73,11 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * wavelength (written text? like radio, near-infrared..)
     * autocompleter + db table (acronym / name) [OK]
     * take only necessary jquery UI scripts + css (fix it!)
+    * DOESNT WORK when something is already in the input field (maybe because of missing delimiter ",")
   * spatial resolution => format?
   * spectral resolution => format?
   * remove last telescope => empty fields
   * remove last instrument => empty fields
-  * autocompleter for telescope name / instrument name (on existing similar names)
   * PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
   * reorder comment fields locations in input form!
   
@@ -103,6 +108,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   
 * ALL INPUT FORMS:
   * Add validation for existing names for all OTHER
+  * Implement brief description for research areas
 
    
 ** Browsing pages for observatories
@@ -151,6 +157,8 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * wavelength ranges (format documentation)
   * delete last sensor (remove name of sensor and it will be deleted)
   * other research areas => research comments
+  * UI FRAMEWORK: QPHP http://qphp.net/demo/ oder JQueryUI 
+    => research area / targets list (Data Grid / Selectable Rows)
     
 * Refactor all Javascript in functions.js
   * dynamic row adding routines (redundancy)

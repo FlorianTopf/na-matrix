@@ -1,4 +1,61 @@
+2011-05-19  ftopf
+
+    * research_areas.sql: Marked all research areas for upcoming update
+
+2011-05-09  ftopf
+
+    * europlanet_na1-complete-dump.sql, research_areas.sql: fixed .sql files to
+      comply with actual database (which will be modified in the upcoming
+      revisions)
+
+2011-05-04  ftopf
+
+    * europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1-dump-04-05-2011.sql, europlanet_na1.mwb, keywords.xls,
+      targets-new.csv, targets-new.txt, targets.sql: little typo in all targets
+      related files
+
+    * Observatory.php, ObservatoryView.php, Spacemission.php, TODO, csv2sql.awk,
+      europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1-dump-04-05-2011.sql, europlanet_na1.sql, html.php,
+      key_words.xls, keywords.xls, targets-new.csv, targets-new.txt,
+      targets.sql: Added new TARGETS to the database + modifications on existing
+      ones, adapted all necessary sql scripts, made some modifications with
+      displaying targets (inkluding bigger size of multiple selection fields),
+      Modified TODO, added complete running sql dump with some modifs (TO BE
+      IMPORTED IN THE RUNNING SERVER)
+
+2011-05-02  ftopf
+
+    * ObservatoryCreateUpdate.php, TODO, functions.js, instrumentNames.php:
+      Implemented autocompleter for instrument names (to start modifications of
+      entries asap)
+
+2011-05-01  ftopf
+
+    * ObservatoryCreateUpdate.php, ObservatoryViewAll.php,
+      SpacemissionCreateUpdate.php, SpacemissionViewAll.php: removed some todos
+      + fixed a remaining issue with STRICT
+
+    * content.css, main.css: Some little modifs/simplifications in css
+
+    * ObservatoryCreateUpdate.php, ObservatoryView.php, ObservatoryViewAll.php,
+      SpacemissionCreateUpdate.php, TODO, content.css, html.php: Fixed again a
+      lot of different validation errors (target, brackets in inputnames and
+      empty uls are remaining), Modified TODO
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryViewAll.php,
+      Spacemission.php, SpacemissionCreateUpdate.php, SpacemissionViewAll.php,
+      TODO, content.css, controller.inc.php, html.php: Fixed again a lot of
+      different validation errors (only font tag,target, brackets in inputnames
+      and empty uls are remaining), Modified TODO
+
+    * index.php: Fixed some little remaining validation errors
+
 2011-04-30  ftopf
+
+    * ChangeLog, TODO, key_words.xls: updated ChangeLog, TODO (has to be
+      refined), updated key_words.xls
 
     * ObservatoryCreateUpdate.php, ObservatoryView.php, ObservatoryViewAll.php,
       SpacemissionCreateUpdate.php, SpacemissionView.php,

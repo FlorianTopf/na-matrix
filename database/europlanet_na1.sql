@@ -138,6 +138,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`research_areas` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `domain` TEXT NOT NULL ,
   `name` TEXT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
