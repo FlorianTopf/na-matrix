@@ -28,7 +28,8 @@ class Controller
     	print " id='sel_spa' onchange=\"document.getElementById('main_form').submit()\"/>" .
           " <label for='sel_spa'><b>Space Mission</b></label></td></tr>" . LF;
     	
-    	print "</table></fieldset>";
+    	print "</table>";
+    	print "<p class='warning'>You must have JAVASCRIPT enabled to work with the Matrix!</p></fieldset>";
     	
     	if ($resource_type == NULL)
     		print "<h3>Please select a resource type</h3>" . LF;

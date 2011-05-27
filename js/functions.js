@@ -28,6 +28,8 @@ function extractLast( term ) {
 
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
+	//warning if javascript off
+	$('p.warning').remove();
 	//hide all .error labels, if costum labels are inserted in html
 	//$('.error').hide();
 	$('table.instrument').hide();

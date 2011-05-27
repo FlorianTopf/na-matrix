@@ -52,3 +52,11 @@ fieldset.error {
 	background-color: #ff0000;
 	border: 1px solid #ffa500;
 }
+
+p.warning {
+	font-weight: bold;
+	color: #ff0000;
+	/* background-color: #ffa500;
+	border: 1px solid #ffff00; */
+	text-align: center;
+}
