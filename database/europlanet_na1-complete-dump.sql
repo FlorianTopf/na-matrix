@@ -33,7 +33,6 @@ DROP TABLE IF EXISTS `additional_information`;
 CREATE TABLE IF NOT EXISTS `additional_information` (
   `id` int(10) unsigned NOT NULL,
   `further_contacts` text,
-  `instrument_comments` text,
   `additional_instruments` text,
   `array_description` text,
   `backend_description` text,

@@ -117,7 +117,6 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`additional_information` (
   `id` INT UNSIGNED NOT NULL ,
   `further_contacts` TEXT NULL DEFAULT NULL ,
-  `instrument_comments` TEXT NULL DEFAULT NULL ,
   `additional_instruments` TEXT NULL DEFAULT NULL ,
   `array_description` TEXT NULL DEFAULT NULL ,
   `backend_description` TEXT NULL DEFAULT NULL ,

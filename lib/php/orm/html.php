@@ -205,7 +205,7 @@ function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=N
 }
 
 /** @todo improve this a bit */
-function printInputTextfieldRow($title, $name, $value, $cols=60, $rows=2, $info=NULL, $mandatory=false) 
+function printInputTextfieldRow($title, $name, $value, $cols=65, $rows=3, $info=NULL, $mandatory=false) 
 {	
 	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory);	

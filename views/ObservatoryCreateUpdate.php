@@ -107,6 +107,8 @@ printSelectListRowFromArray("Timezone", "add_obs_timezone_id", $_observatory->ge
 printInputTextRow("Observatory Status", "add_obs_status", $_observatory->get_field("obs_observatory_status"));
 //Partner observatories
 printInputTextRow("Partner Observatories", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"));
+//General comments
+printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;
 
 //SCIENTIFIC CONTACTS
@@ -131,6 +133,9 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 			//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
             "<tr><td colspan='4'><input type='hidden' name='add_obs_sci_con_ids[" . $contact_count . "]' value='". $contact_id . "'/></td></tr>";
 	}
+print "</table><table class='create'>";
+//Further contacts
+printInputTextfieldRow("Further contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
 print "</table></fieldset>" . LF;
 
 //HIDDEN FIELDS:
@@ -149,6 +154,8 @@ $options = array("<option value=''>Please choose one or several by holding CTRL.
 	"<option id='add_other_area' value='100000'>Add other Research Area</option>");
 printBigSelectListFromArray("Research Areas", "add_obs_res_are_ids[]", 
 	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
+//Research comments
+printInputTextfieldRow("Research comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
 print "</table></fieldset>" . LF;
 
 //TARGETS: NOT MANDADORY
@@ -366,9 +373,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 print "<fieldset class='rfield'><legend>Additional Information</legend>" . LF;
 print "<table class='create'>" . LF;
 //Further contacts
-printInputTextfieldRow("Further contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
+//printInputTextfieldRow("Further contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
 //Instrument comments
-printInputTextfieldRow("Instrument comments", "add_obs_inst_com", $_observatory->get_add_info('instrument_comments'));
+//printInputTextfieldRow("Instrument comments", "add_obs_inst_com", $_observatory->get_add_info('instrument_comments'));
 //Additional instruments
 printInputTextfieldRow("Additional instruments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'));
 //Array description
@@ -376,9 +383,9 @@ printInputTextfieldRow("Array description", "add_obs_array_desc", $_observatory-
 //Backend description
 printInputTextfieldRow("Backend description", "add_obs_backend_desc", $_observatory->get_add_info('backend_description'));
 //Research comments
-printInputTextfieldRow("Research comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
+//printInputTextfieldRow("Research comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
 //General comments
-printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
+//printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;
 
 // Submit Button

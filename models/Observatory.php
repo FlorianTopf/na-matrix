@@ -1369,7 +1369,7 @@ class ObservatoryDAO extends ModelDAO
   	{
 		$query = "INSERT INTO additional_information VALUES (". $res_id  .",'" .
 			addslashes($_POST["add_obs_fur_con"]) . "','" .
-    		addslashes($_POST["add_obs_inst_com"]) . "','" .
+    		//addslashes($_POST["add_obs_inst_com"]) . "','" .
     		addslashes($_POST["add_obs_add_inst"]) . "','" .
     		addslashes($_POST["add_obs_array_desc"]) . "','" .
     		addslashes($_POST["add_obs_backend_desc"]) . "','" .
@@ -1400,7 +1400,7 @@ class ObservatoryDAO extends ModelDAO
   	{
   		$query = "UPDATE additional_information SET " .
 			"further_contacts='" . addslashes($_POST["add_obs_fur_con"]) . "'," .
-			"instrument_comments='" . addslashes($_POST["add_obs_inst_com"]) . "'," .
+			//"instrument_comments='" . addslashes($_POST["add_obs_inst_com"]) . "'," .
 			"additional_instruments='" . addslashes($_POST["add_obs_add_inst"]) . "'," .
 			"array_description='" . addslashes($_POST["add_obs_array_desc"]) . "'," .
 			"backend_description='" . addslashes($_POST["add_obs_backend_desc"]) . "'," .

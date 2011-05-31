@@ -409,7 +409,10 @@ INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES
 ALTER TABLE `europlanet_na1`.`research_areas` CHANGE COLUMN `domain` `domain` TEXT NOT NULL  AFTER `id` ;
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 427 */
+ALTER TABLE `additional_information` DROP `instrument_comments;
 
+/** -------------------------------------------------------------------------------------------- */
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
