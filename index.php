@@ -103,13 +103,14 @@
             else
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
-              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</A></li>" . LF;
-              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</A></li>" .LF;
-              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</A></li>" . LF;
-              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</A></li>" . LF;
-              print "<div align='center'><li><B>" . $_SESSION["user_name"] . " logged in</B></li></div>" . LF;
-              print "<div align='center'><li><A href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</A></li></div>" . LF;
-              print "<div align='center'><li><INPUT type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
+              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
+              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
+              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</a></li>" . LF;
+              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
+              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
+              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
+              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
+              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'></li></ul>" . LF;
 
               if ($_SESSION["user_level"] >= 31)
               {
