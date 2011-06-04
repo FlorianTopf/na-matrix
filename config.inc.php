@@ -16,17 +16,17 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 //  );
 
 //TEST SERVER
-//define("DOC_ROOT", "/Applications/XAMPP/htdocs/na1-matrix");
+define("DOC_ROOT", "/Applications/XAMPP/htdocs/na1-matrix");
 
-//REAL NA1 SERVER:	
-define("DOC_ROOT", "/users/iwf/europlanet/matrix");
+//REAL NA1 SERVER:
+//define("DOC_ROOT", "/users/iwf/europlanet/matrix");
 
 // Mail setup
 define("MAIL_SMTP", "smtp.oeaw.ac.at");
 define("MAIL_TO", "robert.stoeckler@oeaw.ac.at,florian.topf@oeaw.ac.at");
 define("MAIL_FROM", "robert.stoeckler@oeaw.ac.at");
 define("MAIL_REPLY", "robert.stoeckler@oeaw.ac.at");
-  
+
 // Set parameter values dependent on operating system
 if (strtoupper(substr(PHP_OS, 0, 3)) === "WIN")
 {
@@ -40,7 +40,7 @@ else
 // Maximum size for file uploads
 define("MAX_UPLOAD_SIZE", 200000);
 
-  
+
 // Account selection lists (for registration
 $user_titles = array("Dr.", "Prof.", "Ms.", "Mrs.", "Mr.");
 $usage_selection = array("scientific", "commercial", "educational",

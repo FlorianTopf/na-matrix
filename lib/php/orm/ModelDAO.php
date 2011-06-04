@@ -18,57 +18,92 @@ function __autoload($className) {
 	//echo "cft = ".$classFilePath.'/'.$classFileLongName;
 	if (file_exists($classFilePath.'/'.$classFileLongName))
    		require_once $classFilePath.'/'.$classFileLongName;
-   	else 
+   	else
    	 	throw new Exception("The class named $className does not exist !");
 }
 
 abstract class ModelDAO
 {
 	// common to all ModelDAO instances :
-	
+
 	static protected $db = NULL; // Singleton database connection
-	
+	static protected $dbTemp = NULL; // Singelton dbTemp connection
+	static protected $dbOldObs = NULL; //Singelton dbOldObs connection
+	static protected $dbOldSpa = NULL; //Singelton dbOldSpa connection
+
 	static protected $_daos; // List of all currently used DAOs
 	static private $_currentDaoName=''; // name of the current DAO
-	
+
 	private $_modelName; // Model name
-	
+
 	/** Array of column names from the mapped table */
 	protected $_fields = array();
-	
+
 	/** Array of all 1-N relations: can be overridden by subclasses */
 	protected $_hasMany = array();
-	
+
 //-----------------------------------------------------------------------------------------------------------
 
 	protected function __construct()
 	{
 		$this->_modelName = $this->getModelName(); // ex : 'ModelDAO' --> 'Model'
-		
+
 		if (self::$db == NULL)
-			self::$db = new DbConnector();
-			
-		self::set($this);		
+			self::$db = new DbConnector('');
+
+		if (self::$dbTemp == NULL)
+			self::$dbTemp = new DbConnector('Temp');
+
+		if (self::$dbOldObs == NULL)
+			self::$dbOldObs = new DbConnector('OldObs');
+
+		if (self::$dbOldSpa == NULL)
+			self::$dbOldSpa = new DbConnector('OldSpa');
+
+		self::set($this);
+
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	
+
 	static public function getDB()
 	{
 		return self::$db;
 	}
-	
+
+	static public function getDbTemp()
+	{
+		return self::$dbTemp;
+	}
+
+	static public function getDbOldObs()
+	{
+		return self::$dbOldObs;
+	}
+
+	static public function getDbOldSpa()
+	{
+		return self::$dbOldSpa;
+	}
+
+	static public function switchDb()
+	{
+		$temp = self::$db;
+		self::$db = self::$dbTemp;
+		self::$dbTemp = $temp;
+	}
+
 //-----------------------------------------------------------------------------------------------------------
-	
+
 	static private function set(ModelDAO $dao) {
 		self::$_daos[get_class($dao)] = $dao;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	
+
 	static public function getFromName($daoName) {
 		if (strtoupper(substr($daoName, -3)) != 'DAO') $daoName.='DAO';
-		if (!isset(self::$_daos[$daoName])) { 
+		if (!isset(self::$_daos[$daoName])) {
 			// create a new ModelDAO instance (will be UNIQUE and used by all other Models)
 //			echo "NEW ";
 //			echo "class = $daoName <br>";
@@ -78,19 +113,19 @@ abstract class ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	
+
 	static public function getCurrent() {
 		return self::$_daos[self::$_currentDaoName];
 	}
-	
+
 //-----------------------------------------------------------------------------------------------------------
-	
+
 	static public function setCurrent($daoName) {
 		self::$_currentDaoName = $daoName;
 	}
-	
+
 //-----------------------------------------------------------------------------------------------------------
-	
+
 	function getModelName() { // ex : for GroupDAO --> model is "Group"
 		return substr(get_class($this), 0,-3);
 	}
@@ -105,7 +140,7 @@ abstract class ModelDAO
 		else
 			return NULL;
 	}
-	
+
 //-----------------------------------------------------------------------------------------------------------
  	/** get fieldkeys from 1-N relations (_hasMany) */
  	public function get_has_many($x_field, $y_field=NULL)
@@ -137,9 +172,8 @@ abstract class ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	
-}
 
+}
 
 
 ?>

@@ -5,8 +5,8 @@
  * @author Florian Topf, Robert Stöckler
  */
 ?>
-   
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <?php
@@ -39,7 +39,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>   
+	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>
     <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="lib/js/jquery-ui-1.8.10.custom.min.js"></script>
@@ -103,12 +103,14 @@
             else
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
-              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&amp;action=add'>Add entries</a></li>" . LF;
-              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li></ul>" .LF;
-              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
-              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
-              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'/></li></ul>" . LF;
+              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</A></li>" . LF;
+              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</A></li>" .LF;
+              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</A></li>" . LF;
+              print "<li class='left-level-1-no'><A href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</A></li>" . LF;
+              print "<div align='center'><li><B>" . $_SESSION["user_name"] . " logged in</B></li></div>" . LF;
+              print "<div align='center'><li><A href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</A></li></div>" . LF;
+              print "<div align='center'><li><INPUT type='submit' class='cancel' name='logout' value='Log out'></li></div>" . LF;
+
               if ($_SESSION["user_level"] >= 31)
               {
                 print "<img src='images/blank.gif' height='30' alt='blank'/>";
@@ -127,6 +129,7 @@
         	<div id="middle-content">
 			<div id="middle-marker-box">
 			<div id="middle-marker">
+
         <?php
         //DEBUG:
 //		echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
@@ -137,21 +140,31 @@
   		$action = '';
   		$resource_id = '';
   		$resource_type = '';
-          
+  		$settings["is_user_res"] = FALSE;
+  		$settings["is_old_res"] = FALSE;
+  		//$is_user_res = FALSE;
+  		//$is_old_res = FALSE;
+
 		/** @todo refactor all $_REQUEST variables */
   		if(isset($_POST["page"]))
         {
         	if(isset($_GET["action"]))
 			{
 			    $action = $_GET["action"];
-			
+
 			    if ($action == "edit")
 			    {
-			      // GET RES ID and RES TYPE
-			      $resource_id = $_GET["id"];
-			      $resource_type = $_GET["res_type"];
+			    	// GET RES ID and RES TYPE
+			    	$resource_id = $_GET["id"];
+			    	$resource_type = $_GET["res_type"];
 			    }
-			    
+
+			    if (($action == "loadTemp") || ($action == "loadOldObs") || ($action == "loadOldSpa"))
+			    {
+			    	$resource_id = $_GET["id"];
+			    	$resource_type = $_GET["res_type"];
+			    }
+
 			    if ($action == "add")
     			{
       				// RESET RES ID and RES TYPE
@@ -159,29 +172,41 @@
     				$resource_type = NULL;
     			}
 			}
-			
+
 			//if selector was pressed
 			if(isset($_POST["add_res_type"]))
 			{
 				$resource_type = $_POST["add_res_type"];
 				$action = $_POST["action"];
 			}
-				
+
 			//if push in add/edit was pressed
 			if(isset($_POST["push"]))
 			{
 				$action = $_POST["push"];
 				$resource_type = $_POST["res_type"];
 				$resource_id= $_POST["add_res_id"];
+
+				//if a user submitted resource was loaded an push got pressed to save it to main DB
+				if ($_POST["is_user_res"])
+				{
+					$settings["is_user_res"] = TRUE;
+					$_POST["is_user_res"] = '0';
+				}
+				elseif($_POST["is_old_res"])
+				{
+					$settings["is_old_res"] = TRUE;
+					$_POST["is_old_res"] = '0';
+				}
 			}
-  		  	
-  		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id);
-  		  	
+
+  		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings);
+
           }
           else
             Controller::check("home");
         ?>
-        
+
         </div> <!-- middle-marker -->
         </div> <!-- middle-marker-box -->
         </div> <!-- middle-content -->

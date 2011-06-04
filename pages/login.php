@@ -7,7 +7,7 @@
 
   function authenticate($userid, $passwd)
   {
-  	$link = new DbConnector();
+  	$link = new DbConnector('');
 
     $query = "SELECT id, username, passwd, level FROM users_list WHERE " .
              "username = '" . $userid .

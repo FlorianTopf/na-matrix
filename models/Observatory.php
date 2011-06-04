@@ -10,9 +10,9 @@
  * @class Observatory
  *
  * @brief Represents the table observatories and access to it
- * 
- * @todo generalize error messages and send them via mail 
- * integrate set_message() with error by checking in controller each time 
+ *
+ * @todo generalize error messages and send them via mail
+ * integrate set_message() with error by checking in controller each time
  * if a SESSION error ocurred show_message()
  */
 class ObservatoryDAO extends ModelDAO
@@ -25,14 +25,14 @@ class ObservatoryDAO extends ModelDAO
 
 	/** Array for all countries */
 	protected $_countries = array();
-	
-	/** Array for latitude prefixes 
+
+	/** Array for latitude prefixes
 	 * @todo make a getter for this */
 	public $_latitudePrefixes = array("North", "South");
-	
+
 	/** Array for longitude prefixes
 	 * @todo make a getter for this */
-	public $_longitudePrefixes = array("East", "West");	
+	public $_longitudePrefixes = array("East", "West");
 
 	/** Array for all precipitation ranges */
 	protected $_precipitationRanges = array();
@@ -201,7 +201,7 @@ class ObservatoryDAO extends ModelDAO
 	{
 		if(isset($this->_scientificContacts[$x_field][$y_field]))
 			return htmlentities($this->_scientificContacts[$x_field][$y_field],ENT_QUOTES);
-		else 
+		else
 			return NULL;
 	}
 
@@ -380,11 +380,11 @@ class ObservatoryDAO extends ModelDAO
   /**
    * @fn get_all_resources()
    * @brief gets all existing resources observatory
-   * 
+   *
    * @param $page which page wants to display resources
-   * 
+   *
    * @return $resources array of resources
-   * 
+   *
    * @todo be aware that we will need filters here soon! (improve queries)
    */
 	public function get_all_resources($page)
@@ -394,7 +394,7 @@ class ObservatoryDAO extends ModelDAO
 			$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
 		elseif($page == "browse")
 			$query = "SELECT id, name, institution, web_address, country_id, email FROM observatories ORDER BY observatories.name";
-			
+
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
@@ -406,8 +406,8 @@ class ObservatoryDAO extends ModelDAO
 				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 				$resources[$row["id"]]["country"] = htmlentities($row2["name"]);
 				mysqli_free_result($result2);
-				
-				//Hidden Fields				
+
+				//Hidden Fields
 				$query2 = "SELECT web_address, email FROM hidden_fields WHERE id=" . $row["id"];
 				$result2 = self::$db->query($query2);
 				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
@@ -435,11 +435,11 @@ class ObservatoryDAO extends ModelDAO
 					$resources[$row["id"]]["telescope_types"][] = htmlentities($row3["name"]);
 					mysqli_free_result($result3);
 				}
-				mysqli_free_result($result2);	
+				mysqli_free_result($result2);
 			}
 		}
 		mysqli_free_result($result);
-		
+
 		return $resources;
 	}
 
@@ -615,6 +615,85 @@ class ObservatoryDAO extends ModelDAO
 				$this->_additionalInformation[$key] = stripslashes($value);
 		}
 		mysqli_free_result($result);
+
+	}
+
+
+//-----------------------------------------------------------------------------------------------------------
+  /**
+   * @fn get_old_resource($resource_id)
+   * @brief gets an existing resource OLD observatory
+   *
+   * @param $resource_id ID of the resource we want to have
+   *
+   * GLOBAL: $_POST array
+   */
+	public function get_old_resource($resource_id) {
+
+		//OLD NA1 - maintable Table:
+		$query = "SELECT * FROM maintable WHERE id=" . $resource_id;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach ($res as $key => $value)
+		{
+			if($key == "Name")
+				$this->_fields["obs_name"] = $value;
+			if($key == "Founded")
+				$this->_fields["obs_founded"] = $value;
+			if($key == "Institution")
+				$this->_fields["obs_institution"] = $value;
+			if($key == "URL")
+				$this->_fields["obs_web_address"] = $value;
+			if($key == "Country") // NO 100% match guaranteed! => as text to approx_position
+				$this->_fields["obs_approx_position"] = $value;
+			if($key == "Address")
+				$this->_fields["obs_address"] = $value;
+			if($key == "Phone")
+				$this->_fields["obs_phone"] = $value;
+			if($key == "email")
+				$this->_fields["obs_email"] = $value;
+			if($key == "Sciencecontactname")
+				$this->_scientificContacts["sci_con_name"][] = stripslashes($value);
+			if($key == "Sciencecontactnemail")
+				$this->_scientificContacts["sci_con_email"][] = stripslashes($value);
+			if($key == "Institution")
+				$this->_scientificContacts["sci_con_institution"][] = stripslashes($value);
+			if($key == "latitude")// NO 100% match guaranteed! => as text to approx_position
+				$this->_fields["obs_approx_position"] .= "; LAT:" . stripslashes($value);
+			if($key == "longitude")// NO 100% match guaranteed! => as text to approx_position
+				$this->_fields["obs_approx_position"] .= "; LON:" . stripslashes($value);
+			if($key == "meters")
+				$this->_fields["obs_sealevel_m"] = $value;
+			if($key == "precipitation")
+				$this->_fields["obs_approx_position"] .= "; Rain:" . stripslashes($value);
+			if($key == "clearnights")
+				$this->_fields["obs_approx_position"] .= "; Nights:" . stripslashes($value);
+			if($key == "timezone")
+			{
+				if($value >= 0)
+					$value += 1;
+				else
+					$value = (($value * -1) + 13);
+				$this->_fields["obs_timezone"] = $value;
+			}
+			if($key == "partners")
+				$this->_fields["obs_partner_observatories"] = stripslashes($value);
+			if($key == "comments")
+				$this->_additionalInformation["general_comments"] = stripslashes($value);
+		}
+
+		//OLD NA1 - instruments Table
+
+		//OLD NA1 - hiddenfields Table
+
+		//OLD NA1 - extrainstruments Table
+
+		//OLD NA1 - contact Table
+
+		//OLD NA1 - areaofresearch Table
 
 	}
 
@@ -884,7 +963,7 @@ class ObservatoryDAO extends ModelDAO
 
   						//SETTING THE POSTVAR TO empty string (for add_sci_cons)
   						$_POST["add_obs_sci_con_name"][$key] = "";
-  						
+
   						//DEBUG:
 //  						echo $query;
 //  						nl();
@@ -927,7 +1006,7 @@ class ObservatoryDAO extends ModelDAO
 	               addslashes($_POST["add_obs_sci_con_name"][$key]) . "','" .
 	               addslashes($_POST["add_obs_sci_con_email"][$key]) . "','" .
 	               addslashes($_POST["add_obs_sci_con_institution"][$key]) . "')";
-	               
+
 	       		//DEBUG:
 //  				echo $query;
 //  				nl();
@@ -986,7 +1065,7 @@ class ObservatoryDAO extends ModelDAO
    * GLOBAL: $_POST array
    *
    * THIS IS A 1ST ORDER TABLE
-   * 
+   *
    * @todo gives a notice on unset post vars (not checked boxes)
    */
    protected function update_hidden_fields($res_id)
@@ -1113,7 +1192,7 @@ class ObservatoryDAO extends ModelDAO
    * GLOBAL: $_POST array
    *
    * THIS IS A 2ND ORDER TABLE
-   * 
+   *
    * @todo adding new targets needed?
    */
    protected function add_targets($res_id)
@@ -1148,8 +1227,8 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 3RD ORDER TABLE
- * 
- * @todo implement INTELLIGENT DELETE like in update_sci_cons 
+ *
+ * @todo implement INTELLIGENT DELETE like in update_sci_cons
  */
 	protected function delete_telescopes($res_id)
 	{
@@ -1199,8 +1278,8 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 3RD ORDER TABLE
- * 
- * @todo implement INTELLIGENT UPDATE/ADD like in add_sci_cons 
+ *
+ * @todo implement INTELLIGENT UPDATE/ADD like in add_sci_cons
  */
 	protected function add_telescopes($res_id)
 	{

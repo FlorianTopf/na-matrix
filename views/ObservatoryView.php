@@ -17,7 +17,7 @@ include_once ('../lib/php/orm/DbConnector.php');
 require_once ('../lib/php/orm/ModelDAO.php');
 
 //DB CONNECTION:
-$link = new DbConnector();
+$link = new DbConnector('');
 
 $query = "SELECT name FROM observatories WHERE id=" . $_GET["id"];
 $result = $link->query($query);
@@ -27,7 +27,7 @@ $link->close();
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -296,7 +296,7 @@ $link->close();
 	    //if ($_observatory->get_add_info('general_comments'))
 	    //	print "<p><b>General comments:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('general_comments')) . "</p>" . LF;
 		print "</fieldset>" . LF;
-  
+
 ?>
 
 </body>

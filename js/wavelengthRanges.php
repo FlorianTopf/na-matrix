@@ -18,7 +18,7 @@ if (get_magic_quotes_gpc()) $q = stripslashes($q);
 include_once ('../lib/php/orm/DbConnector.php');
 
 //CREATE DATABASE CONNECTION
-$link = new DbConnector();
+$link = new DbConnector('');
 
 $query = "SELECT * FROM wavelength_ranges WHERE acronym LIKE '%$q%';";
 $result = $link->query($query);
@@ -27,7 +27,7 @@ if ($link->getNumRows($result) > 0)
 	$return = array();
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	{
-		array_push($return, array("id"=>$row['acronym'], "label"=>$row['acronym'] . 
+		array_push($return, array("id"=>$row['acronym'], "label"=>$row['acronym'] .
 		" [" . $row['name'] . "]" , "value" => strip_tags($row['acronym'])));
 	}
 }

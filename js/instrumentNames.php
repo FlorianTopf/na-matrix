@@ -18,7 +18,7 @@ if (get_magic_quotes_gpc()) $q = stripslashes($q);
 include_once ('../lib/php/orm/DbConnector.php');
 
 //CREATE DATABASE CONNECTION
-$link = new DbConnector();
+$link = new DbConnector('');
 
 $query = "SELECT DISTINCT instrument_name AS name FROM instruments WHERE instrument_name LIKE '%$q%';";
 $result = $link->query($query);

@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @file ObservatoryEditAll.php
  * @version $Id$
@@ -9,6 +9,6 @@ print "<div><input type='hidden' name='page' value='edit'/></div>" . LF ;
 //show_message();
 
 //Observatories
-printEditAllTable("Observatory", $resources, "obs")
-  
+printEditAllTable("Observatory", $resources, "obs");
+
 ?>
