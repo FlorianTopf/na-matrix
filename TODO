@@ -8,10 +8,12 @@ ROADMAP (MAY/JUNE 2011)
   * replace old research areas with new research areas AND targets!
   * Display Research Area (Domain) in Add/Edit and VIEW
 * E-Mail and Telecon UCL => see minutes
-* Add entries from old Matrix
-* Implement Questionnaire (Approve/Unapprove)
+* Add entries from old Matrix (OBS/SPA)
+* Implement load & add Old UCL entries functionality
+* Uncomment code (Implement Questionnaire (Approve/Unapprove))
 * Implement Filters/Search Interface (JUNE 2011)
 * Develop Strategy for UPDATE Entry procedure (JUNE 2011)
+* Implement Edit link button on browse site for admins
 
 * INSTALL GOOGLE ANALYTICS
 
@@ -30,8 +32,8 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 * CSS 2.1 validation (refactor css, original rev384, rev393)
 	=> define standard paragraph (p)
 	=> Z-INDEX gelöscht (siehe typo3)
-	
-	
+
+
 * Removed comments in VIEWS (rev391)
 
 * Implement delete_resource() in spacemission model (implement delete button for admins)
@@ -41,7 +43,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 * PRESENTATION:
   * remove functionality for science goals for the moment (add, show, spacemission)
-  
+
 * DOCUMENTATION:
   * update input_descriptions.txt (new research areas, more description)
   * Doxygen Information for new library classes etc.
@@ -53,14 +55,14 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
  	 * comments to new fields (remove unnecessary comment fields:
  	    instrument comments)
  	 * old telescope types to new instrument types
- 	 
+
 
 * Development Database
   * improve hidden fields / additional information (remove not necessary)
   * remove OTHER from Telescope Types / Instrument Types / Antenna Types!
   * introduce JOINS where necessary and usable
-  
-  
+
+
 ** Introduce Questionnaire form (entries must be approved afterwards) (JUNE 2011)
   * very user friendly! tooltips necessary (UI)
   * switch of all OTHER options (research areas etc.)
@@ -80,7 +82,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * remove last instrument => empty fields
   * PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
   * reorder comment fields locations in input form!
-  
+
 * Input validation in JQUERY for observatories (see comments in add.php)
   * other target - MANDATORY!
   * telescope name - MANDATORY?
@@ -98,26 +100,26 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * remove last sensor => empty fields
   * Add validation for OTHER science goals with inline error label
   * autocompleter for sensor type
-  
+
 * Input validation in JQUERY for space missions (see comments in add.php)
   * other target - MANDATORY!
   * sensor name - MANDATORY (array => THIS IS AN OPEN ISSUE!)
   * science goals are MANDATORY! (required)
   * validation for sensor web_address (URL)
   * check for type of values (critical review)!
-  
+
 * ALL INPUT FORMS:
   * Add validation for existing names for all OTHER
   * Implement brief description for research areas
 
-   
+
 ** Browsing pages for observatories
   * according to telecon inputs (standard / detail pages)
   * colorization of different observatories
   * show creation / modification date
   * links to the partner observatories (how to manage this?)
   * filter: country, telescope type
-  
+
 ** Browsing pages for space missions
   * according to telecon inputs (standard / detail pages)
   * don't forget to display agencies details
@@ -125,46 +127,46 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * show creation / modification date
   * filter: agency, target
 
- 
+
 ** ALL BROWSING PAGES
    * filter mechanisms with onchange events (Discuss with Manuel)
-   
+
 ** All VIEW PAGES
   * Implement table style for TEXTFIELDS (or make breaks)
-    
-    
+
+
 ** Search pages for space missions / observatories (JUNE 2011)
   * according to use cases and telecon inputs
   * wavelength searchable? (maybe dropdown for specific ranges)
   * colorization and listing in browsing pages (filters above)
   * search with GPS data!
-  
-  
+
+
 * E-Mail functionality for ADD / EDIT notification
   * add_obs/spa_keys => notification as array
 
 * E-Mail functionality for thrown ERROR (make a function)
   * summary of thrown error
   * set_message in models / show_message in controller!
-  
+
 
 * Add JQUERY Tooltips where user help is necessary (Questionnaire)
   * http://view.jqueryui.com/master/demos/tooltip/default.html
   * input fields format: web addresses, latitude, longitude,
-    research areas, targets, instrument properties, 
+    research areas, targets, instrument properties,
     camera properties, sensor properties, science goals, ..
   * input fields convention on: address, phone number
   * wavelength ranges (format documentation)
   * delete last sensor (remove name of sensor and it will be deleted)
   * other research areas => research comments
-  * UI FRAMEWORK: QPHP http://qphp.net/demo/ oder JQueryUI 
+  * UI FRAMEWORK: QPHP http://qphp.net/demo/ oder JQueryUI
     => research area / targets list (Data Grid / Selectable Rows)
-    
+
 * Refactor all Javascript in functions.js
   * dynamic row adding routines (redundancy)
   * refactor the double hidden_fields in CreateUpdate (Sensors)
   * maybe use -- again in remove fields
-  
+
 * Refactor classes in observatory.php, spacemission.php
   * MVC Pattern implementieren
     * VIEWS (all access through DAO) / CONTROLLER (frontcontroller)
