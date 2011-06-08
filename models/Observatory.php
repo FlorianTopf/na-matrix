@@ -683,17 +683,186 @@ class ObservatoryDAO extends ModelDAO
 				$this->_fields["obs_partner_observatories"] = stripslashes($value);
 			if($key == "comments")
 				$this->_additionalInformation["general_comments"] = stripslashes($value);
+			if($key == "oid")
+				$obsId = stripslashes($value);
 		}
 
 		//OLD NA1 - instruments Table
+		$query = "SELECT * FROM instruments WHERE oid=" . $obsId;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
 
-		//OLD NA1 - hiddenfields Table
+      	$maxTelescopeNumber = 0;
+      	foreach ($res as $key => $value)
+		{
+			$counter = 0;
+			if($key == "instrument")
+			{
+				$str = explode("<br>", $value);
+				foreach($str as $strValue)
+				{
+					$this->_telescopes["telescope_name"][] = stripslashes($strValue);
+					$counter++;
+				}
+			}
+			if($key == "type")
+			{
+				$str = explode("<br>", $value);
+				foreach($str as $strValue)
+				{
+					$this->_telescopes["comments"][] = "TelType: " . stripslashes($strValue) . LF;
+					$counter++;
+				}
+			}
+			if($key == "diameter")
+			{
+				$str = explode("<br>", $value);
+				foreach($str as $strValue)
+				{
+					$this->_telescopes["diameter_m"][] = floatval($strValue);
+					$counter++;
+				}
+			}
+			if($key == "focallength")
+			{
+				$str = explode("<br>", $value);
+				foreach($str as $strValue)
+				{
+					$this->_telescopes["focallength_m"][] = stripslashes($strValue);
+					$counter++;
+				}
+			}
+
+			if($counter > $maxTelescopeNumber)
+				$maxTelescopeNumber = $counter;
+		}
+		while($maxTelescopeNumber--)
+			$this->_hasMany["telescopes"][] = ""; //FIXMEE
 
 		//OLD NA1 - extrainstruments Table
+		$query = "SELECT * FROM extrainstruments WHERE oid=" . $obsId;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach ($res as $key => $value)
+		{
+			if($key == "furthurcommentsins")
+				$this->_telescopes["comments"][0] .=  stripslashes($strValue) . LF;
+
+			if($key == "additionalcommentsins")
+				$this->_additionalInformation["additional_instruments"] = stripslashes($value);
+
+			if($key == "arraydesc")
+				$this->_additionalInformation["array_description"] = stripslashes($value);
+
+			if($key == "backenddesc")
+				$this->_additionalInformation["backend_description"] = stripslashes($value);
+		}
 
 		//OLD NA1 - contact Table
+		$query = "SELECT * FROM contact WHERE oid=" . $obsId;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach ($res as $key => $value)
+		{
+			if($key == "FurthurContact")
+				$this->_additionalInformation["further_contacts"] = stripslashes($value);
+
+			if($key == "contactdata")
+			{
+				$this->_hiddenFields["address"] = $value;
+				$this->_hiddenFields["further_contacts"] = $value;
+				$this->_hiddenFields["city"] = $value;
+			}
+
+			if($key == "emailaddress")
+				$this->_hiddenFields["email"] = $value;
+
+			if($key == "phonenumber")
+				$this->_hiddenFields["phone"] = $value;
+
+			if($key == "postalcode")
+				$this->_hiddenFields["zip_code"] = $value;
+
+			if($key == "url")
+				$this->_hiddenFields["web_address"] = $value;
+
+			if($key == "sc")
+				$this->_hiddenFields["scientific_contacts"] = $value;
+
+			if($key == "gc")
+			{
+				$this->_hiddenFields["latitude"] = $value;
+				$this->_hiddenFields["longitude"] = $value;
+			}
+		}
 
 		//OLD NA1 - areaofresearch Table
+		$query = "SELECT * FROM areasofresearch WHERE oid=" . $obsId;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach($res as $key => $value)
+      	{
+			if($key == "keyresearch")
+				$this->_additionalInformation["research_comments"] = stripslashes($value) . LF;
+
+			if($key == "extraresearch")
+				$this->_additionalInformation["research_comments"] .= stripslashes($value) . LF;
+
+			if($key == "comments")
+				$this->_additionalInformation["research_comments"] .= stripslashes($value);
+      	}
+
+		//OLD NA1 - hiddenfields Table
+		$query = "SELECT * FROM hiddenfields WHERE oid=" . $obsId;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach($res as $key => $value)
+      	{
+			if($key == "Contact")
+				$this->_additionalInformation["further_contacts"] = stripslashes($value) . LF . $this->_additionalInformation["further_contacts"];
+
+			if($key == "email")
+				$this->_additionalInformation["further_contacts"] .= stripslashes($value) . LF;
+
+			if($key == "phone")
+				if(isset($this->_fields["obs_phone"]))
+					$this->_additionalInformation["further_contacts"] .= "Phone: " . stripslashes($value) . LF;
+				else
+					$this->_fields["obs_phone"] = stripslashes($value);
+
+			if($key == "zip")
+				$this->_fields["obs_zip_code"] = stripslashes($value);
+
+			if($key == "url")
+				if(isset($this->_fields["obs_web_address"]))
+					$this->_additionalInformation["further_contacts"] .= "Url: " . stripslashes($value) . LF;
+				else
+					$this->_fields["obs_web_address"] = stripslashes($value);
+
+			if($key == "sciconname")
+				$this->_additionalInformation["further_contacts"] .= stripslashes($value) . " - ";
+			if($key == "sciconcon")
+				$this->_additionalInformation["further_contacts"] .= stripslashes($value) . LF;
+
+			if($key == "latitude")
+				$this->_additionalInformation["further_contacts"] .= "Latitude: " . stripslashes($value) . " - ";
+			if($key == "longitude")
+				$this->_additionalInformation["further_contacts"] .= "Longitude: " . stripslashes($value);
+      	}
 
 	}
 
@@ -747,6 +916,8 @@ class ObservatoryDAO extends ModelDAO
         	addslashes($_POST["add_obs_status"]) . "','" .
         	addslashes($_POST["add_obs_partner"]) . "'," .
         	"NOW())";
+
+        //print "Debug: " . $query;
 
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
