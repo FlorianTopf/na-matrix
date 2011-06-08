@@ -9,7 +9,7 @@ include_once ('DbConfig.php');
 
 class DbConnector extends SystemComponent
 {
-	private $dbms; // the link to the DBMS (DataBase Management System)
+	private $dbms = NULL; // the link to the DBMS (DataBase Management System)
 
 	static public $CONFIG_TABLENAME_IS_PLURAL;
 
@@ -43,6 +43,27 @@ class DbConnector extends SystemComponent
 		{
 			echo "Database $db selection failed";
 			exit();
+		}
+	}
+
+	function checkDb($dbType)
+	{
+		$settings = parent::getSettings();
+		$host = $settings['dbhost' . $dbType];
+		$db = $settings['dbname' . $dbType];
+		$user = $settings['dbusername' . $dbType];
+		$pass = $settings['dbpassword' . $dbType];
+		$CONFIG_TABLENAME_IS_PLURAL = $settings['tablename_is_plural'];
+
+		// LOCAL VAR $dbms to check Db connection
+		$dbms = new mysqli($host, $user, $pass);
+
+		if (mysqli_connect_errno() || ($dbms->select_db($db) === FALSE))
+			return false;
+		else
+		{
+			$dbms->close();
+			return true;
 		}
 	}
 

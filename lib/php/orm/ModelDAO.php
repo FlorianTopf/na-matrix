@@ -27,7 +27,7 @@ abstract class ModelDAO
 	// common to all ModelDAO instances :
 
 	static protected $db = NULL; // Singleton database connection
-	static protected $dbTemp = NULL; // Singelton dbTemp connection
+	/*static protected $dbTemp = NULL; // Singelton dbTemp connection*/
 	static protected $dbOldObs = NULL; //Singelton dbOldObs connection
 	static protected $dbOldSpa = NULL; //Singelton dbOldSpa connection
 
@@ -47,17 +47,18 @@ abstract class ModelDAO
 	protected function __construct()
 	{
 		$this->_modelName = $this->getModelName(); // ex : 'ModelDAO' --> 'Model'
+		/** @todo */
 
 		if (self::$db == NULL)
 			self::$db = new DbConnector('');
 
-		if (self::$dbTemp == NULL)
-			self::$dbTemp = new DbConnector('Temp');
+		/*if ((self::$dbTemp == NULL) && DbConnector::checkDb('Temp'))
+			self::$dbTemp = new DbConnector('Temp');*/
 
-		if (self::$dbOldObs == NULL)
+		if ((self::$dbOldObs == NULL) && DbConnector::checkDb('OldObs'))
 			self::$dbOldObs = new DbConnector('OldObs');
 
-		if (self::$dbOldSpa == NULL)
+		if ((self::$dbOldSpa == NULL) && DbConnector::checkDb('OldSpa'))
 			self::$dbOldSpa = new DbConnector('OldSpa');
 
 		self::set($this);
@@ -71,10 +72,10 @@ abstract class ModelDAO
 		return self::$db;
 	}
 
-	static public function getDbTemp()
+	/*static public function getDbTemp()
 	{
 		return self::$dbTemp;
-	}
+	}*/
 
 	static public function getDbOldObs()
 	{

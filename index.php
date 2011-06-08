@@ -14,6 +14,7 @@
   require_once ('lib/php/functions.php');
   require_once ('lib/php/orm/html.php');
   require_once ('controller.inc.php');
+  require_once ('lib/php/orm/DbConnector.php');
 
   if (!isSet($_SESSION["user_id"]))
   {
@@ -105,8 +106,10 @@
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
               print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
               print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
-              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</a></li>" . LF;
-              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
+              /*if(DbConnector::checkDb('Temp'))
+              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</a></li>" . LF;*/
+              if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
+              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
               print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
               print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
@@ -160,7 +163,7 @@
 			    	$resource_type = $_GET["res_type"];
 			    }
 
-			    if (($action == "loadTemp") || ($action == "loadOldObs") || ($action == "loadOldSpa"))
+			    if (/*($action == "loadTemp") || */($action == "loadOldObs") || ($action == "loadOldSpa"))
 			    {
 			    	$resource_id = $_GET["id"];
 			    	$resource_type = $_GET["res_type"];
@@ -188,13 +191,13 @@
 				$resource_type = $_POST["res_type"];
 				$resource_id= $_POST["add_res_id"];
 
-				//if a user submitted resource was loaded an push got pressed to save it to main DB
-				if ($_POST["is_user_res"])
+				//if a user submitted resource was loaded an push got pressed to save it to main DB and delete OLD entry
+				/*if ($_POST["is_user_res"])
 				{
 					$settings["is_user_res"] = TRUE;
 					$_POST["is_user_res"] = '0';
-				}
-				elseif($_POST["is_old_res"])
+				}*/
+				if(isset($_POST["is_old_res"]) && $_POST["is_old_res"])
 				{
 					$settings["is_old_res"] = TRUE;
 					$_POST["is_old_res"] = '0';

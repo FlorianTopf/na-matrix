@@ -47,7 +47,7 @@ class Controller
     	 * 	over DAOs atm AND also all pages (except login)
     	 */
     	$link = new DbConnector('');
-    	$linkTemp = new DbConnector('Temp');
+    	//$linkTemp = new DbConnector('Temp');
 
     	$level = Acl::getAclForOption($page);
 
@@ -94,14 +94,14 @@ class Controller
 						include "views/ObservatoryCreateUpdate.php";
 					}
 
-					if($action == "loadTemp")
+					/*if($action == "loadTemp")
 					{
 						ModelDAO::switchDb();
 						$_observatory->get_resource($resource_id);
 						ModelDAO::switchDb();
 						print "<H4>You are about to add a USER submitted resource to the database!</H4>" . LF;
 						include "views/ObservatoryCreateUpdate.php";
-					}
+					}*/
 
 					if($action == "loadOldObs")
 					{
@@ -124,7 +124,7 @@ class Controller
 
            					 //print "DEBUG: Observatory reference tables added to main DB" . LF;
 
-           					 //DELETE entriy in user submission DB
+           					 /*//DELETE entry in user submission DB
            					 if ($settings["is_user_res"])
            					 {
 								 ModelDAO::switchDb();
@@ -132,13 +132,14 @@ class Controller
 								 //print "DEBUG: Observatory entry deleted in user submission DB" . LF;
 								 ModelDAO::switchDb();
 								 $settings["is_user_res"] = FALSE;
-           					 }
-           					 /*elseif($settings["is_old_res"])
-           					 {
-
-           					 	$observatory->del_old_resource($resource_id);
-           					 	$settings["is_old_res"] = FALSE;
            					 }*/
+           					 // DELETE entry in OLD NA1 DB
+           					 if($settings["is_old_res"])
+           					 {
+           					 	/** @todo del_old_resource YET TO BE implemented */
+           					 	//$observatory->del_old_resource($resource_id);
+           					 	$settings["is_old_res"] = FALSE;
+           					 }
 
             				print "<H4>The new Observatory has been added to the database!</H4>" . LF;
 
@@ -207,11 +208,12 @@ class Controller
             				/** @todo mail functionality, resource name, id and username*/
             				//mail_add($_POST["add_res_name"], $res_id, $_POST["add_contact_email"]);
             				/** @todo here we add some sexy backlinks */
-            				/*if($settings["is_old_res"])
+            				if($settings["is_old_res"])
            					 {
-           					 	$spacemission->del_old_resource($resource_id);
+           					 	/** @todo del_old_resource YET TO BE implemented */
+           					 	//$spacemission->del_old_resource($resource_id);
            					 	$settings["is_old_res"] = FALSE;
-           					 }*/
+           					 }
          				}
           				else
           				{
@@ -247,12 +249,12 @@ class Controller
     			break; }
     		break;
     		case "edit":
-    			if ($action == "viewTemp")
+    			/*if ($action == "viewTemp")
     			{
-    				/** todo: load Questionnaire data form */
+    				// @todo: load Questionnaire data form
 					include "views/ObservatoryEditAllTemp.php";
     				break;
-    			}
+    			}*/
     			switch($resource_type) {
     				case "obs":
     					if ($action == "viewOld")
