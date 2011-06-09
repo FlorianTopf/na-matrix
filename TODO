@@ -8,11 +8,12 @@ ROADMAP (MAY/JUNE 2011)
   * replace old research areas with new research areas AND targets!
   * Display Research Area (Domain) in Add/Edit and VIEW
 * E-Mail and Telecon UCL => see minutes
-* Add entries from old Matrix (OBS/SPA)
-* Implement load & add Old UCL entries functionality
-* Uncomment code (Implement Questionnaire (Approve/Unapprove))
+* Add entries from old Matrix (OBS) <= [PRIORITY]
+* Add entries from old Matrix (SPA) <= [PRIORITY]
+* Implement load & add Old UCL entries functionality [OK]
+* Uncomment code (Implement Questionnaire (Approve/Unapprove)) [OK]
 * Implement Filters/Search Interface (JUNE 2011)
-* Develop Strategy for UPDATE Entry procedure (JUNE 2011)
+* Develop Strategy for UPDATE Entry procedure (JUNE 2011) <= [PRIORITY]
 * Implement Edit link button on browse site for admins
 
 * INSTALL GOOGLE ANALYTICS
