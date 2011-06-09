@@ -10,9 +10,9 @@
  * @class Spacemission
  *
  * @brief Represents the table space_missions and access to it
- * 
- * @todo generalize error messages and send them via mail 
- * integrate set_message() with error by checking in controller each time 
+ *
+ * @todo generalize error messages and send them via mail
+ * integrate set_message() with error by checking in controller each time
  * if a SESSION error ocurred show_message()
  */
 class SpacemissionDAO extends ModelDAO
@@ -100,7 +100,7 @@ class SpacemissionDAO extends ModelDAO
 //		else
 //			return NULL;
 //	}
-	
+
 //-----------------------------------------------------------------------------------------------------------
 	/** initialize 1-N relation (_hasMany) if no entry is there */
 // 	public function init_has_many($x_field, $y_field)
@@ -186,16 +186,16 @@ class SpacemissionDAO extends ModelDAO
 		else
 			return NULL;
 	}
-	
+
 //-----------------------------------------------------------------------------------------------------------
   /**
    * @fn get_all_resources()
    * @brief gets all existing resources space mission
-   * 
+   *
    * @param $page which page wants to display resources
-   * 
+   *
    * @return $resources array of resources
-   * 
+   *
    * @todo be aware that we will need filters here soon! (improve queries)
    */
 	public function get_all_resources($page)
@@ -205,7 +205,7 @@ class SpacemissionDAO extends ModelDAO
 			$query = "SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
 		if($page == "browse")
 			$query = "SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name";
-			
+
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
@@ -219,7 +219,7 @@ class SpacemissionDAO extends ModelDAO
 				$resources[$row["id"]]["agency"] = $row2["acronym"];
 				$resources[$row["id"]]["agency_web_address"] = htmlentities($row2["web_address"]);
 				mysqli_free_result($result2);
-	
+
 				//Targets
 				$targets = array();
 				$query2 = "SELECT target_id FROM space_mission_to_targets WHERE space_mission_id=" . $row["id"];
@@ -236,10 +236,10 @@ class SpacemissionDAO extends ModelDAO
 			}
 		}
 		mysqli_free_result($result);
-		
+
 		return $resources;
 	}
-	
+
 
 //-----------------------------------------------------------------------------------------------------------
 /**
@@ -345,6 +345,86 @@ class SpacemissionDAO extends ModelDAO
 		}
 		mysqli_free_result($result);
 	}
+
+//-----------------------------------------------------------------------------------------------------------
+/**
+ * @fn get_old_resource($resource_id)
+   * @brief gets an Old NA1 DB space mission resource
+   *
+   * @param $resource_id ID of the resource we want to have
+   *
+   * GLOBAL: $_POST array
+   */
+	public function get_old_resource($resource_id) {
+
+		//OLD NA1 - maintable Table:
+		$query = "SELECT * FROM maintable WHERE id=" . $resource_id;
+      	$result = self::$dbOldSpa->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach ($res as $key => $value)
+		{
+			if($key == "Mission")
+				$this->_fields["spa_mission_name"] = stripslashes($value);
+			if($key == "Agency")
+				$this->_fields["spa_brief_description"] = "Agency: " . stripslashes($value) . LF;
+			if($key == "Launch")
+				$this->_fields["spa_launch_date"] = stripslashes($value);
+			if($key == "Death")
+				$this->_fields["spa_death_date"] = stripslashes($value);
+			if($key == "Orbit")
+				$this->_fields["spa_brief_description"] .= "Orbit: " . stripslashes($value) . LF;
+			if($key == "Notes")
+				$this->_fields["spa_brief_description"] .= "Notes: " . stripslashes($value) . LF;
+			if($key == "sid")
+				$spaId = stripslashes($value);
+		}
+
+		//OLD NA1 - sensors Table
+		$query = "SELECT * FROM sensors WHERE sid=" . $spaId;
+      	$result = self::$dbOldSpa->query($query);
+
+      	$counter = 0;
+      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+
+      		foreach ($row as $key => $value)
+      		{
+      			if($key == "sid")
+      				$this->_hasMany["sensors"][] = $counter;
+				if($key == "Sensor")
+      				$this->_sensors["sensor_name"][] = stripslashes($value);
+      			if($key == "Type")
+      				$this->_sensors["sensor_type"][] = stripslashes($value);
+      			if($key == "underlying")
+      				$this->_sensors["underlying"][] = stripslashes($value);
+      			if($key == "rangebegin")
+      				$this->_sensors["range_begin"][] = floatval($value);
+      			if($key == "rangeend")
+      				$this->_sensors["range_end"][] = ($value != "") ? floatval($value) : "";
+      			if($key == "units")
+      				$this->_sensors["units"][] = stripslashes($value);
+      			if($key == "measured")
+      				$this->_sensors["measured"][] = stripslashes($value);
+      			if($key == "resolution")
+      				$this->_sensors["resolution"][] = stripslashes($value);
+      			if($key == "fov")
+      				$this->_sensors["field_of_view"][] = stripslashes($value);
+      			if($key == "sciencegoals")
+      				$this->_sensors["sensor_comments"][] = "SciGoals: " . stripslashes($value) . LF;
+      			if($key == "prin_inv")
+      				$this->_scientificContacts["name"][$counter][] = stripslashes($value);
+      			if($key == "prin_inv_con")
+      				$this->_scientificContacts["email"][$counter][] = stripslashes($value);
+
+      		}
+      		$counter++;
+		}
+		mysqli_free_result($result);
+	}
+
 //-----------------------------------------------------------------------------------------------------------
   /**
    * @fn add_resource()
@@ -377,7 +457,7 @@ class SpacemissionDAO extends ModelDAO
 /**
    * @fn update_resource($res_id)
    * @brief updates an existing resource space mission
-   * 
+   *
    * @param $res_id ID of the resource we want to have
    *
    * @return $status mysql_status
@@ -563,6 +643,39 @@ class SpacemissionDAO extends ModelDAO
    	 		}
    	 	}
    }
+
+//-----------------------------------------------------------------------------------------------------------
+   /**
+   * @fn del_old_resource($resource_id);
+   * @brief DELETE Old NA1 DB spacemission entries for given $resource_id
+   *
+   * @param $resource_id ID of Space Mission where we want to delete
+   *
+   * GLOBAL: $_POST array
+   */
+	public function del_old_resource($resource_id)
+	{
+		// Get sid of OLD NA1 Spa resource
+		$query = "SELECT sid FROM maintable WHERE id=" . $resource_id;
+      	$result = self::$dbOldSpa->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+		// DELETE spacemission sensors Table entries of Old NA1 DB
+      	$query = "DELETE FROM sensors WHERE sensors.sid=" . $res["sid"] . ";";
+		self::$dbOldSpa->query($query);
+
+		// DELETE spacemission maintable Table entry of Old NA1 DB
+		$query = "DELETE FROM maintable WHERE maintable.id=" . $resource_id . ";";
+		self::$dbOldSpa->query($query);
+
+		$status = array("errno" => self::$dbOldSpa->errno(),
+			"error" => self::$dbOldSpa->error(),
+			"resource_id" => $resource_id);
+
+		return $status;
+	}
 
 //-----------------------------------------------------------------------------------------------------------
    /**

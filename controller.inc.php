@@ -136,8 +136,7 @@ class Controller
            					 // DELETE entry in OLD NA1 DB
            					 if($settings["is_old_res"])
            					 {
-           					 	/** @todo del_old_resource YET TO BE implemented */
-           					 	//$observatory->del_old_resource($resource_id);
+           					 	$_observatory->del_old_resource($resource_id);
            					 	$settings["is_old_res"] = FALSE;
            					 }
 
@@ -191,8 +190,9 @@ class Controller
 					if($action == "loadOldSpa")
 					{
 						/** @todo: load OLD Entries via dedicated spa object function, ADD into new DB, DEL OLD DB entry */
-						//$_spacemission->get_old_resource($resource_id);
-						//include "views/SpacemissionCreateUpdate.php";
+						$_spacemission->get_old_resource($resource_id);
+						print "<H4>You are about to add an OLD NA1 resource to the database!</H4>" . LF;
+						include "views/SpacemissionCreateUpdate.php";
 					}
 
 					if($action == "Add Entry")
@@ -210,8 +210,7 @@ class Controller
             				/** @todo here we add some sexy backlinks */
             				if($settings["is_old_res"])
            					 {
-           					 	/** @todo del_old_resource YET TO BE implemented */
-           					 	//$spacemission->del_old_resource($resource_id);
+           					 	$_spacemission->del_old_resource($resource_id);
            					 	$settings["is_old_res"] = FALSE;
            					 }
          				}

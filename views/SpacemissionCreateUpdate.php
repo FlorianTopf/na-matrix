@@ -1,15 +1,15 @@
-<?php 
+<?php
 /**
  * @file SpacemissionCreateUpdate.php
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
  */
-	 
+
 print "<div><input type='hidden' name='page' value='add'/>" . LF ;
-print "<input type='hidden' name='add_res_id' value='{$resource_id}'/>" . LF ; 
-print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . LF ; 
+print "<input type='hidden' name='add_res_id' value='{$resource_id}'/>" . LF ;
+print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . LF ;
 //show_message();
-      
+
 print "<fieldset class='rfield'><legend>Space Mission General:</legend>" . LF;
 print "<table class='create'>" . LF;
 
@@ -18,12 +18,12 @@ print "<table class='create'>" . LF;
 if($action == "edit")
 	printInputTextRow("Space Mission name", "update_spa_name", $_spacemission->get_field("spa_mission_name"), 80, NULL, NULL, TRUE);
 else
-	printInputTextRow("Space Mission name", "add_spa_name", "", 80, NULL, NULL, TRUE);
+	printInputTextRow("Space Mission name", "add_spa_name", $_spacemission->get_field("spa_mission_name"), 80, NULL, NULL, TRUE);
 
 //Mission agency - MANDATORY
 $agencies = $_spacemission->get_agencies();
 $options = array("<option value=''>Please choose...</option>");
-printSelectListRowFromArray("Mission Agency", "add_spa_agency_id", $_spacemission->get_field("spa_mission_agency"), 
+printSelectListRowFromArray("Mission Agency", "add_spa_agency_id", $_spacemission->get_field("spa_mission_agency"),
 	$agencies, array("acronym", "name"), NULL, TRUE, $options);
 
 //Launch date - FORMAT: YYYY-MM-DD - MANDATORY
@@ -45,7 +45,7 @@ print "<table id='research_areas' class='create'>" . LF;
 $research_areas = $_spacemission->get_research_areas();
 $options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
 "<option id='add_other_area' value='100000'>Add other Research Area</option>");
-printBigSelectListFromArray("Research Areas", "add_spa_res_are_ids[]", 
+printBigSelectListFromArray("Research Areas", "add_spa_res_are_ids[]",
 	$_spacemission->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
 print "</table></fieldset>" . LF;
 
@@ -55,17 +55,17 @@ print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_spacemission->get_targets();
 $options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
-printBigSelectListFromArray("Targets", "add_spa_target_ids[]", $_spacemission->get_has_many("targets"), 
+printBigSelectListFromArray("Targets", "add_spa_target_ids[]", $_spacemission->get_has_many("targets"),
 	$targets, "target_name", NULL, FALSE, $options);
 print "</table></fieldset>" . LF;
 
 //SENSORS
 //getting all necessary science goals only calling this once
 $science_goals = $_spacemission->get_science_goals();
-      
+
 if(!is_array($_spacemission->get_has_many("sensors")))
 	$_spacemission->init_has_many("sensors");
-      
+
 if(is_array($_spacemission->get_has_many("sensors")))
 	foreach($_spacemission->get_has_many("sensors") as $sensor_count => $sensor_id)
 	{
@@ -75,13 +75,13 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	print "<fieldset class='rfield'><legend>Sensor:</legend>" . LF;
 
 		printAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
-		
+
       	print "<table class='create'>" . LF;
        	/** @todo refactor the two hidden fields */
       	/** @todo make the same approach as with telescope count */
       	//TRANSPORT THE NUMBER OF SENSORS FOR JQUERY
       	print "<tr><td></td><td><input type='hidden' name='sensors' class='sensors' value='". count($_spacemission->get_has_many("sensors", NULL)) . "'/></td></tr>";
-      	
+
       	//Sensor Name:
       	/** @todo validate => MANDATORY, but we have a little problem here, you can leave the form empty! */
 		printInputTextRow("Sensor name", "add_spa_sen_name[{$sensor_count}]", $_spacemission->get_sensor("sensor_name", $sensor_count));
@@ -136,7 +136,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	/** this table has two classes!! class='create' */
       	print "<table class='scientific_contacts create'>" . LF;
       	print "<tr><th></th><th>Name</th><th>Email</th><th>Institution</th></tr>";
-      	
+
    		if(!is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
 			$_spacemission->init_has_many("scientific_contacts", $sensor_id);
 
@@ -146,11 +146,11 @@ if(is_array($_spacemission->get_has_many("sensors")))
 				print "<tr>";
 				printAddRemoveButton($contact_count, $_spacemission->get_has_many("scientific_contacts", $sensor_id), "contact", FALSE);
 
-				printInputTextCol("add_spa_sci_con_name[{$sensor_count}][{$contact_count}]", 
+				printInputTextCol("add_spa_sci_con_name[{$sensor_count}][{$contact_count}]",
 					$_spacemission->get_scientific_contact("name", $sensor_id, $contact_count), 30, "align='center'");
-				printInputTextCol("add_spa_sci_con_email[{$sensor_count}][{$contact_count}]", 
+				printInputTextCol("add_spa_sci_con_email[{$sensor_count}][{$contact_count}]",
 					$_spacemission->get_scientific_contact("email", $sensor_id, $contact_count), 30, "align='center'");
-				printInputTextCol("add_spa_sci_con_institution[{$sensor_count}][{$contact_count}]", 
+				printInputTextCol("add_spa_sci_con_institution[{$sensor_count}][{$contact_count}]",
 					$_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count), 30, "align='center'");
             	//TRANSPORT THE OLD NUMBER OF SCIENTIFIC CONTACTS VIA POST
             	//"<input type='hidden' name='add_spa_sci_con_ids[" . $sensor_count . "][" . $contact_count . "]' value='". $contact_id . "'/>" .
@@ -159,9 +159,24 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	print "</table></fieldset>" . LF;
       	print "</fieldset>" . LF;
 	}
-	
+
 // Submit Button
 //-----------------------------------------------------------------------------------------------------------
-printActionButton($action);
+//printActionButton($action);
+//Define the action buttons
+	print "<div class='actionbutton'>" . LF;
+	//IF ACTION IS ADD
+	if ($action == "add")
+		print "<input type='submit' name='push' value='Add Entry' class='submit'/>" . LF;
+	//IF ACTION IS loadOldObs
+	else if($action == "loadOldSpa")
+    {
+    	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
+     	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+    }
+	//IF ACTION IS EDIT
+	else if ($action == "edit")
+		print "<input type='submit' name='push' value='Update Entry'/>" . LF;
+	print "</div>" . LF;
 
 ?>
