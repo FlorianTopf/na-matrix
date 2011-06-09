@@ -1032,6 +1032,61 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
   /**
+   * @fn del_old_resource($resource_id)
+   * @brief deletes an existing observatory from OLD NA1 DB
+   *
+   * @param $resource_id ID of the observatory we want to delete
+   *
+   * @return $status mysql_status
+   *
+   * GLOBAL: $_POST array
+   */
+	public function del_old_resource($resource_id)
+	{
+		// Get oid of OLD NA1 Obs resource
+		$query = "SELECT oid FROM maintable WHERE id=" . $resource_id;
+      	$result = self::$dbOldObs->query($query);
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
+      		or die("<br>Error: No such Resource existing!</b>");
+      	mysqli_free_result($result);
+
+      	foreach($res as $key => $value)
+      		if($key == "oid")
+      			$obsId = $value;
+
+		// Delete areaofresearch Table entry
+		$query = "DELETE FROM areasofresearch WHERE areasofresearch.oid=" . $obsId . ";";
+		self::$dbOldObs->query($query);
+
+		// Delete contact Table entry
+		$query = "DELETE FROM contact WHERE contact.oid=" . $obsId . ";";
+		self::$dbOldObs->query($query);
+
+		// Delete extrainstruments Table entry
+		$query = "DELETE FROM extrainstruments WHERE extrainstruments.oid=" . $obsId . ";";
+		self::$dbOldObs->query($query);
+
+		// Delete hiddenfields Table entry
+		$query = "DELETE FROM hiddenfields WHERE hiddenfields.oid=" . $obsId . ";";
+		self::$dbOldObs->query($query);
+
+		// Delete instruments Table entry
+		$query = "DELETE FROM instruments WHERE instruments.oid=" . $obsId . ";";
+		self::$dbOldObs->query($query);
+
+		// Delete maintable Table entry
+		$query = "DELETE FROM maintable WHERE maintable.oid=" . $obsId . ";";
+		self::$dbOldObs->query($query);
+
+		$status = array("errno" => self::$dbOldObs->errno(),
+			"error" => self::$dbOldObs->error(),
+			"resource_id" => $resource_id);
+
+		return $status;
+	}
+
+//-----------------------------------------------------------------------------------------------------------
+  /**
    * @fn add_obs_keys($res_id, $action)
    * @brief ADD/UPD/DEL OBSERVATORIES KEY REFERENCE TABLE ENTRIES
    *
