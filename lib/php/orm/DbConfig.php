@@ -29,14 +29,14 @@ abstract class SystemComponent
 
 		//Old-Obs-NA1 DB settings:
 		$settings['dbhostOldObs'] = 'localhost';
-		$settings['dbusernameOldObs'] = 'europlanet_na1';
-		$settings['dbpasswordOldObs'] = 'europlanet%na1';
+		$settings['dbusernameOldObs'] = 'europla1_europla';
+		$settings['dbpasswordOldObs'] = '3n^ZPyXum*&u';
 		$settings['dbnameOldObs'] = 'europla1_obs';
 
 		//Old-Spa-NA1 DB settings:
 		$settings['dbhostOldSpa'] = 'localhost';
-		$settings['dbusernameOldSpa'] = 'europlanet_na1';
-		$settings['dbpasswordOldSpa'] = 'europlanet%na1';
+		$settings['dbusernameOldSpa'] = 'europla1_europla';
+		$settings['dbpasswordOldSpa'] = '3n^ZPyXum*&u';
 		$settings['dbnameOldSpa'] = 'europla1_spa';
 
 		$settings['tablename_is_plural'] = true;
