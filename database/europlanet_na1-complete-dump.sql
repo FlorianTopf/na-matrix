@@ -1340,7 +1340,7 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 (2, 'stoeckler', '530e90856e3fa433e5ad31f3359ea47e', 'Mr.', 'Robert', 'Stöckler', 'robert.stoeckler@oeaw.ac.at', 'Institut für Weltraumforschung', 'commercial', 31),
 (3, 'ftopf', '5e12806b179c04620320b332f205a80c', 'Mr.', 'Florian', 'Topf', 'florian.topf@oeaw.ac.at', 'Institut für Weltraumforschung', 'commercial', 31),
 (4, 'nagpal', '28e29334745b11450410d66f147239d7', 'Mr.', 'Parinesh', 'Nagpal', 'p.nagpal@ucl.ac.uk', 'UCL', 'scientific', 11),
-(5, 'smiller', '28e29334745b11450410d66f147239d7', 'Prof.', 'Steve', 'Miller', 's.miller@ucl.ac.uk', 'UCL', 'scientific', 11),
+(5, 'smiller', '28e29334745b11450410d66f147239d7', 'Prof.', 'Steve', 'Miller', 's.miller@ucl.ac.uk', 'UCL', 'scientific', 21),
 (6, 'mscherf', '9996535e07258a7bbfd8b132435c5962', 'Mr.', 'Manuel', 'Scherf', 'manuel.scherf@oeaw.ac.at', 'IWF-OeAW', 'scientific', 21);
 
 -- --------------------------------------------------------
@@ -1393,7 +1393,8 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 (8, 'microwave (SHF)', 'super high frequency'),
 (9, 'microwave (UHF)', 'ultra high frequency'),
 (10, 'submillimeter', 'terahertz frequency'),
-(11, 'infrared', 'infrared frequencies');
+(11, 'infrared', 'infrared frequencies'),
+(12, 'optical', 'visible light frequencies');
 
 -- --------------------------------------------------------
 

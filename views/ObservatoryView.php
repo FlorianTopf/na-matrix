@@ -165,9 +165,15 @@ $link->close();
       		{
 				print "<tr>";
 				print "<td><b>Name:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_name", $key)  . "</td>";
-				print "<td><b>Email:</b>&nbsp;<a href='mailto:" . $_observatory->get_scientific_contact("sci_con_email", $key) . "'>" .
+				if($_observatory->get_scientific_contact("sci_con_email", $key))
+					print "<td><b>Email:</b>&nbsp;<a href='mailto:" . $_observatory->get_scientific_contact("sci_con_email", $key) . "'>" .
 				  					$_observatory->get_scientific_contact("sci_con_email", $key) . "</a></td>";
-				print "<td><b>Institution:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_institution", $key) . "</td>";
+				else
+					print "<td>&nbsp;</td>";
+				if($_observatory->get_scientific_contact("sci_con_institution", $key))
+					print "<td><b>Institution:</b>&nbsp;" . $_observatory->get_scientific_contact("sci_con_institution", $key) . "</td>";
+				else 
+					print "<td>&nbsp;</td>";
 				print "</tr>";
       		}
     print "</table>";

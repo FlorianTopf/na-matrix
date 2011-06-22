@@ -1,3 +1,9 @@
+NEW ENTRIES IN THE DATABASE:
+Mauna Kea: http://en.wikipedia.org/wiki/Mauna_Kea_Observatories
+ESO: http://en.wikipedia.org/wiki/European_Southern_Observatory
+Rosetta Mission: http://www.esa.int/SPECIALS/Rosetta/index.html
+
+
 ROADMAP (MAY/JUNE 2011)
 * Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS [OK]
   * review targets and fix issues! [OK]
@@ -16,8 +22,11 @@ ROADMAP (MAY/JUNE 2011)
 * Develop Strategy for UPDATE Entry procedure (JUNE 2011) <= [PRIORITY]
 * Implement Edit link button on browse site for admins
 
-* INSTALL GOOGLE ANALYTICS
 
+* COMMENT OUT CODE FOR QUESTIONNAIRE (ATM)
+  * revision 435 changed files: models / pages / views
+  * critical check with revision 430 (manual merges were done)
+* IMPROVE ACL AND ACCESS SCRIPTS FOR LOADER OF OLD NA1 ENTRIES
 
 BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be on the safe side)
 * Watch out for MODEL functionality and TABLEFIELD class

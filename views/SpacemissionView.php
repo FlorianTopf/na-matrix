@@ -130,9 +130,15 @@ $link->close();
 				{
 					print "<tr>";
 					print "<td><b>Name:&nbsp;</b>" . $_spacemission->get_scientific_contact("name", $sensor_id, $contact_count) . "</td>";
-					print "<td><b>Email:&nbsp;</b><a href='mailto:" . $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "'>" .
-						  $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "</a></td>";
-					print "<td><b>Institution:&nbsp;</b>" . $_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count) . "</td>";
+					if($_spacemission->get_scientific_contact("email", $sensor_id, $contact_count))
+						print "<td><b>Email:&nbsp;</b><a href='mailto:" . $_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "'>" .
+						  	$_spacemission->get_scientific_contact("email", $sensor_id, $contact_count) . "</a></td>";
+					else
+						print "<td>&nbsp;</td>";
+					if($_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count))
+						print "<td><b>Institution:&nbsp;</b>" . $_spacemission->get_scientific_contact("institution", $sensor_id, $contact_count) . "</td>";
+					else
+						print "<td>&nbsp;</td>";
 					print "</tr>";
 				}
 			print "</table>";

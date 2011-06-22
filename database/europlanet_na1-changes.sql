@@ -413,6 +413,11 @@ ALTER TABLE `europlanet_na1`.`research_areas` CHANGE COLUMN `domain` `domain` TE
 ALTER TABLE `additional_information` DROP `instrument_comments;
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 450 */
+INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
+(12, 'optical', 'visible light frequencies');
+
+/** -------------------------------------------------------------------------------------------- */
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
