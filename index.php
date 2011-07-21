@@ -136,14 +136,16 @@
 
         <?php
         //DEBUG:
-//		echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
-//		echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . "- POST RES_TYPE: " . $_POST["res_type"] . "<br>";
-//		echo "RES_ID: GET: " . $_GET["id"] . "- POST: " . $_POST["add_res_id"] . "<br>";
-//		echo "POST PAGE: " . $_POST["page"] . "<br>";
-//		echo "PUSH PAGE: " . $_POST["push"] . "<br>";
+		//echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
+		//echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . "- POST RES_TYPE: " . $_POST["res_type"] . "<br>";
+		//echo "RES_ID: GET: " . $_GET["id"] . "- POST: " . $_POST["add_res_id"] . "<br>";
+		//echo "POST PAGE: " . $_POST["page"] . "<br>";
+		//echo "PUSH PAGE: " . $_POST["push"] . "<br>";
+		//echo "FILTER: " . $_POST["obs_filters"]["country"] . "<br>";
   		$action = '';
   		$resource_id = '';
   		$resource_type = '';
+  		$filters = array();
   		$settings["is_user_res"] = FALSE;
   		$settings["is_old_res"] = FALSE;
   		//$is_user_res = FALSE;
@@ -175,7 +177,7 @@
       				$resource_id = NULL;
     				$resource_type = NULL;
     			}
-			}
+			}	
 
 			//if selector was pressed
 			if(isset($_POST["add_res_type"]))
@@ -203,8 +205,15 @@
 					$_POST["is_old_res"] = '0';
 				}
 			}
-
-  		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings);
+			
+			if(isset($_POST["obs_filters"]))
+			{
+				foreach($_POST["obs_filters"] as $key => $value)
+					$filters[$key] = $value;
+			}
+			
+			
+  		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings, $filters);
 
           }
           else

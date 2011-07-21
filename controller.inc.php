@@ -38,7 +38,7 @@ class Controller
     	print "<input type='hidden' name='action' value='" . $action . "'/></div>" . LF ;
 	}
 
-	static function check($page, $action = NULL , $resource_type = NULL, $resource_id = NULL, $settings = NULL)
+	static function check($page, $action = NULL , $resource_type = NULL, $resource_id = NULL, $settings = NULL, $filters = array())
 	{
 		$userid = $_SESSION["user_id"];
     	$userlevel = $_SESSION["user_level"];
@@ -285,7 +285,7 @@ class Controller
     			switch ($resource_type) {
     				case "obs":
     					$_observatory = ModelDAO::getFromName("Observatory");
-    					$resources = $_observatory->get_all_resources($page);
+    					$resources = $_observatory->get_all_resources($page, $filters);
     					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryViewAll.php";
     					break;

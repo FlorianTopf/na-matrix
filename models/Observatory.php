@@ -387,13 +387,40 @@ class ObservatoryDAO extends ModelDAO
    *
    * @todo be aware that we will need filters here soon! (improve queries)
    */
-	public function get_all_resources($page)
+	public function get_all_resources($page, $filters = array())
 	{
 		$resources = array();
 		if($page == "edit")
 			$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
 		elseif($page == "browse")
-			$query = "SELECT id, name, institution, web_address, country_id, email FROM observatories ORDER BY observatories.name";
+		{
+			/** @TODO: Code not working! */
+			//$query = "SELECT observatories.id, name, institution, web_address, country_id, email ".
+			//"FROM observatories, telescopes, observatory_to_telescopes "; 
+			$query = "SELECT observatories.id, name, institution, web_address, country_id, email ".
+			"FROM observatories"; 
+			
+			//if(!empty($filters))
+			//	$query .= " WHERE ";
+				
+			if(!empty($filters["country"]))
+				$query .= "country_id=". $filters["country"];
+				
+			if(!empty($filters["country"]) && !empty($filters["telescope_type"]))
+				$query .= " AND ";
+				
+			if(!empty($filters["telescope_type"]))
+			{
+				$query .= "telescopes.telescope_type=". $filters["telescope_type"];
+				//$query .= " AND ";
+				//$query .= "observatory_to_telescopes.telescope_id = telescopes.id";
+				//$query .= " AND ";
+				//$query .= "observatory_to_telescopes.observatory_id = observatories.id";
+			}
+							
+			$query .= " ORDER BY observatories.name";
+		}
+			
 
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
