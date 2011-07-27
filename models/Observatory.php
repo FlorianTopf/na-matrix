@@ -394,14 +394,19 @@ class ObservatoryDAO extends ModelDAO
 			$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
 		elseif($page == "browse")
 		{
-			/** @TODO: Code not working! */
-			//$query = "SELECT observatories.id, name, institution, web_address, country_id, email ".
-			//"FROM observatories, telescopes, observatory_to_telescopes "; 
-			$query = "SELECT observatories.id, name, institution, web_address, country_id, email ".
-			"FROM observatories"; 
+			$query = "SELECT id, name, institution, web_address, " .
+			"country_id, email FROM observatories"; 
 			
-			//if(!empty($filters))
-			//	$query .= " WHERE ";
+			/** we have to check carefully when resetting the filters */
+			$filter_string = implode('', $filters); 
+			if(!empty($filter_string))
+				$query .= " WHERE ";
+				
+			//DEBUG:
+			//echo "Filter for Country:" . $filters["country"];
+			//nl();
+			//echo "Filter for Telescope Type:" . $filters["telescope_type"];
+			//nl();
 				
 			if(!empty($filters["country"]))
 				$query .= "country_id=". $filters["country"];
@@ -411,14 +416,15 @@ class ObservatoryDAO extends ModelDAO
 				
 			if(!empty($filters["telescope_type"]))
 			{
-				$query .= "telescopes.telescope_type=". $filters["telescope_type"];
-				//$query .= " AND ";
-				//$query .= "observatory_to_telescopes.telescope_id = telescopes.id";
-				//$query .= " AND ";
-				//$query .= "observatory_to_telescopes.observatory_id = observatories.id";
+				$query .= "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN ";
+				$query .= "(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))"; 	
 			}
 							
 			$query .= " ORDER BY observatories.name";
+			
+			//DEBUG:
+			//echo $query;
+			//nl();
 		}
 			
 

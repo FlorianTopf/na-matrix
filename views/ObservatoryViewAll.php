@@ -10,14 +10,48 @@
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
 	
+print "<table class='filter'>" . LF;
+print "<caption>Filter the content by selecting one of the Dropdown menus</caption>" . LF;
+//Country Filter
+$countries = $_observatory->get_countries();
+print "<tr><td class='title' colspan='2'><b>Filter by Country</b></td>";
+print "<td class='filter' colspan='4'><SELECT name='obs_filters[country]' onchange='this.form.submit()'>" . LF;
+print "<OPTION value=''>ALL</OPTION>";
+foreach($countries['id'] as $key => $value)
+{
+	print "<OPTION value='" . $value . "'";
+	if(isset($filters["country"]))
+		if ($value == $filters["country"]) print " selected";
+   	print ">" . $countries['name'][$key] . "</OPTION>" . LF;
+}
+print "</SELECT></td></tr>" . LF;
+//----
+//Telescope Type Filter
+$telescope_types = $_observatory->get_telescope_types();
+print "<tr><td class='title' colspan='2'><b>Filter by Telescope Type</b></td>";
+print "<td class='filter' colspan='4'><SELECT name='obs_filters[telescope_type]' onchange='this.form.submit()'>" . LF;
+print "<OPTION value=''>ALL</OPTION>";
+foreach($telescope_types['id'] as $key => $value)
+{
+	print "<OPTION value='" . $value . "'";
+	if(isset($filters["telescope_type"]))
+		if ($value == $filters["telescope_type"]) print " selected";
+   	print ">" . $telescope_types['name'][$key] . "</OPTION>" . LF;
+}
+print "</SELECT></td></tr></table>" . LF;
+//----
 /** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on Observatory entry name</caption>" . LF;
-print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGth)</i></th></tr>" . LF;
+print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
 
+$index = 0;
 foreach($resources as $row)
 {
-	print "<tr>";
+	if($index % 2) 
+		print "<tr class='even'>";
+	else
+		print "<tr class='odd'>";
 	print "<td><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
     print "<td>" . htmlentities($row["institution"]) . "</td>";
@@ -42,6 +76,8 @@ foreach($resources as $row)
    	}
 	print "</td>";
 	print "</tr>" . LF;
+	
+	$index++;
 }
 
 if(empty($resources))
