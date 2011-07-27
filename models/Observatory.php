@@ -444,8 +444,8 @@ class ObservatoryDAO extends ModelDAO
 			$query .= " ORDER BY observatories.name";
 			
 			//DEBUG:
-			echo $query;
-			nl();
+			//echo $query;
+			//nl();
 		}
 			
 

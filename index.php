@@ -212,6 +212,9 @@
 					$filters[$key] = $value;
 			}
 			
+			if(isset($_POST["reset_filters"]))
+				$filters = array();
+			
 			
   		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings, $filters);
 

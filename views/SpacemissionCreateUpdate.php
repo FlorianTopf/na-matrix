@@ -164,19 +164,19 @@ if(is_array($_spacemission->get_has_many("sensors")))
 //-----------------------------------------------------------------------------------------------------------
 //printActionButton($action);
 //Define the action buttons
-	print "<div class='actionbutton'>" . LF;
-	//IF ACTION IS ADD
-	if ($action == "add")
-		print "<input type='submit' name='push' value='Add Entry' class='submit'/>" . LF;
-	//IF ACTION IS loadOldObs
-	else if($action == "loadOldSpa")
-    {
-    	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
-     	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
-    }
-	//IF ACTION IS EDIT
-	else if ($action == "edit")
-		print "<input type='submit' name='push' value='Update Entry'/>" . LF;
-	print "</div>" . LF;
+print "<div class='actionbutton'>" . LF;
+//IF ACTION IS ADD
+if ($action == "add")
+	print "<input type='submit' name='push' value='Add Entry' class='submit'/>" . LF;
+//IF ACTION IS loadOldObs
+else if($action == "loadOldSpa")
+{
+   	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
+   	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+}
+//IF ACTION IS EDIT
+else if ($action == "edit")
+	print "<input type='submit' name='push' value='Update Entry'/>" . LF;
+print "</div>" . LF;
 
 ?>

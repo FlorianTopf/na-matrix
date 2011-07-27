@@ -67,8 +67,12 @@ print "</SELECT></td></tr>" . LF;
 //   	print ">" . $targets['target_name'][$key] . "</OPTION>" . LF;
 //}
 //print "</SELECT></td></tr>" . LF; 
-print "<table>";
-//---
+print "</table>";
+//----
+print "<center><table>";
+print "<tr><td><input type='submit' name='reset_filters' value='Reset Filters' class='submit'></td></tr>";
+print "</table></center>";
+//----
 
 /** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
