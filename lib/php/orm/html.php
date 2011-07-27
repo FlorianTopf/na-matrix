@@ -137,9 +137,9 @@ function printInputText($name, $value, $size=10, $class=NULL, $info=NULL)
 }
 
 
-function printSelectListFromArray($name, $value, $items, $column)
+function printSelectListFromArray($name, $value, $items, $column, $options=array())
 {
-	print makeSelectListFromArray_($name, $value, $items, $column);
+	print makeSelectListFromArray_($name, $value, $items, $column, $options);
 }
 
 
