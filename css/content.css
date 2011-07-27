@@ -176,9 +176,43 @@ table.view td {
 	padding: 4px;
 }
 
+table.filter {
+	color: #000000;
+	background-color: #f5f5dc; 
+	border-collapse: collapse;
+	width: 100%;
+	text-align: left;
+}
+
+table.filter td {
+	background-color: #d3d3d3;
+	padding: 4px;
+	border: 1px solid #ffffff;
+}
+
+table.filter td.title {
+	background-color: #d3d3d3;
+	padding: 4px;
+	border: 1px solid #ffffff;
+}
+
+table.filter td.filter {
+	background-color: #e6e6fA;
+	padding: 4px;
+	border: 1px solid #ffffff;
+}
+
+table.filter caption {
+	color: #172983;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
 table.viewall {
 	color: #000000;
-	background-color: #f5f5dc;
+	background-color: #f5f5dc; 
 	border-collapse: collapse;
 	width: 100%;
 	text-align: center;
@@ -195,24 +229,22 @@ table.viewall caption {
 table.viewall TH {
 	color: #FFFFFF;
 	background-color: #172983;
-	border: 1px solid #000000;
+	border: 1px solid #ffffff;
 	padding: 10px 5px;
 }
 
-table.viewall tr.odd {
+table.viewall tr.odd td {
 	background-color: #d3d3d3;
-	border: 1px solid #000000;
 }
 
-table.viewall tr.even {
+table.viewall tr.even td {
 	background-color: #e6e6fA;
-	border: 1px solid #000000;
 }
 
 table.viewall td {
 	background-color: #d3d3d3;
 	padding: 4px;
-	border: 1px solid #000000;
+	border: 1px solid #ffffff;
 }
 
 table.viewall td.red {
