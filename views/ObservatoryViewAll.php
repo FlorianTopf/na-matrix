@@ -38,8 +38,38 @@ foreach($telescope_types['id'] as $key => $value)
 		if ($value == $filters["telescope_type"]) print " selected";
    	print ">" . $telescope_types['name'][$key] . "</OPTION>" . LF;
 }
-print "</SELECT></td></tr></table>" . LF;
+print "</SELECT></td></tr>" . LF; 
 //----
+//Research Area Filter
+//$research_areas = $_observatory->get_research_areas();
+//print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";
+//print "<td class='filter' colspan='4'><SELECT name='obs_filters[research_area]' onchange='this.form.submit()'>" . LF;
+//print "<OPTION value=''>ALL</OPTION>";
+//foreach($research_areas['id'] as $key => $value)
+//{
+//	print "<OPTION value='" . $value . "'";
+//	if(isset($filters["research_area"]))
+//		if ($value == $filters["research_area"]) print " selected";
+//   	print ">" . $research_areas['name'][$key] . "</OPTION>" . LF;
+//}
+//print "</SELECT></td></tr>" . LF; 
+//----
+//Target Filter
+//$targets = $_observatory->get_targets();
+//print "<tr><td class='title' colspan='2'><b>Filter by Target</b></td>";
+//print "<td class='filter' colspan='4'><SELECT name='obs_filters[target]' onchange='this.form.submit()'>" . LF;
+//print "<OPTION value=''>ALL</OPTION>";
+//foreach($targets['id'] as $key => $value)
+//{
+//	print "<OPTION value='" . $value . "'";
+//	if(isset($filters["target"]))
+//		if ($value == $filters["target"]) print " selected";
+//   	print ">" . $targets['target_name'][$key] . "</OPTION>" . LF;
+//}
+//print "</SELECT></td></tr>" . LF; 
+print "<table>";
+//---
+
 /** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on Observatory entry name</caption>" . LF;

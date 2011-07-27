@@ -407,24 +407,45 @@ class ObservatoryDAO extends ModelDAO
 			//nl();
 			//echo "Filter for Telescope Type:" . $filters["telescope_type"];
 			//nl();
+			
+			$filter_queries = array();
 				
 			if(!empty($filters["country"]))
-				$query .= "country_id=". $filters["country"];
+				//$query .= "country_id=". $filters["country"];	
+				$filter_queries[] = "country_id=". $filters["country"];
 				
-			if(!empty($filters["country"]) && !empty($filters["telescope_type"]))
-				$query .= " AND ";
+			/** old style with only two filter types */
+			//if(!empty($filters["country"]) && !empty($filters["telescope_type"]))
+			//	$query .= " AND ";
 				
 			if(!empty($filters["telescope_type"]))
 			{
-				$query .= "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN ";
-				$query .= "(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))"; 	
+				//$query .= "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN ";
+				//$query .= "(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";	
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " . 
+					"(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))"; 	
+			}
+			
+			if(!empty($filters["research_area"]))
+			{
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_research_areas WHERE " .
+				"research_area_id=" . $filters["research_area"] . ")";
+			}
+			
+			if(!empty($filters["target"]))
+			{
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_targets WHERE " .
+				"target_id=" . $filters["target"] . ")";
 			}
 							
+			/** concatenating all filter queries with AND */
+			$query .= implode(" AND ", $filter_queries);
+			
 			$query .= " ORDER BY observatories.name";
 			
 			//DEBUG:
-			//echo $query;
-			//nl();
+			echo $query;
+			nl();
 		}
 			
 
