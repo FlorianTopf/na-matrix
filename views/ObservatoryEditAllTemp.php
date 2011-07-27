@@ -7,8 +7,8 @@
  *
  */
 
-print "<INPUT type='hidden' name='page' value='edit'>" . LF ;
-//print "<INPUT type='hidden' name='action' value='loadTemp'>" . LF ;
+print "<input type='hidden' name='page' value='edit'>" . LF ;
+//print "<input type='hidden' name='action' value='loadTemp'>" . LF ;
 //show_message();
 
 //Observatories only!
@@ -24,26 +24,32 @@ mysqli_free_result($result);
 
 if (count($res) == 0)
 {
-	print "<CENTER><H3>There are no USER Observatory entries " .
-		"to edit.</H3></CENTER>" . LF;
+	print "<center><h3>There are no USER Observatory entries " .
+		"to edit.</h3></center>" . LF;
 }
 else
 {
-	print "<CENTER><P><TABLE class='viewall'>" . LF;
-    print "<CAPTION><H3 align='center'>To edit & save a USER Questionnaire Entry please click on the Observatory name.</H3></CAPTION>" . LF;
-    print "<TR><TH>NAME</TH><TH>CREATION DATE</TH></TR>" . LF;
+	print "<center><p><table class='viewall'>" . LF;
+    print "<caption><h3 align='center'>To edit & save a USER Questionnaire Entry please click on the Observatory name.</h3></caption>" . LF;
+    print "<tr><th>NAME</th><th>CREATION DATE</th></tr>" . LF;
 
-    //print "<H3>Click on a the name to edit an Observatory entry</H3>" . LF;
+    //print "<h3>Click on a the name to edit an Observatory entry</h3>" . LF;
+    $index = 0;
     foreach ($res as $entry)
     {
-    	print "<TR align='center'>";
-    	print "<TD><A title='Click to edit' class='hand' " .
+    	if($index % 2) 
+			print "<tr class='even'>";
+		else
+			print "<tr class='odd'>";
+    	print "<td><a title='Click to edit' class='hand' " .
               "href='index.php?page=add&action=loadTemp&id=" . $entry["id"] . "&res_type=obs"  .
-              "'>" . $entry["name"] . "</A></TD>";
-        print "<TD>" . $entry["creation_date"] . "</TD>";
-        print "</TR>" . LF;
+              "'>" . $entry["name"] . "</a></td>";
+        print "<td>" . $entry["creation_date"] . "</td>";
+        print "</tr>" . LF;
+        
+        $index++;
     }
-	print "</TABLE></P></CENTER>" . LF;
+	print "</table></p></center>" . LF;
 }
 
 ?>
