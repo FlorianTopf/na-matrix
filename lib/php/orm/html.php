@@ -304,15 +304,22 @@ function printEditAllTable($name, $resources, $type)
 		print "<table class='viewall'>" . LF;
     	print "<caption>To edit please click on the {$name} name</caption>" . LF;
     	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
+    	$index = 0;
     	foreach ($resources as $entry)
     	{
-   			print "<tr align='center'><td>" . $entry["id"] . "</td>";
+   			if($index % 2) 
+				print "<tr class='even'>";
+			else
+				print "<tr class='odd'>";
+   			print "<td>" . $entry["id"] . "</td>";
     		print "<td><a title='Click to edit' class='hand' " .
               	"href='index.php?page=add&amp;action=edit&amp;id=" . $entry["id"] . "&amp;res_type={$type}" .
               	"'>" . $entry["name"] . "</a></td>";
         	print "<td>" . $entry["creation_date"] . "</td>";
         	print "<td>" . $entry["modification_date"] . "</td>";
         	print "</tr>" . LF;
+        	
+        	$index++;
     	}
     	print "</table>" . LF;
 	}	
