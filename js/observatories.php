@@ -17,6 +17,8 @@ $name = trim(strtolower($_GET['add_obs_name']));
 $link = new DbConnector('');
 
 $query = "SELECT * FROM observatories WHERE name='$name';";
+/** @todo maybe better */
+//$query = "SELECT * FROM observatories WHERE name LIKE '$name';";
 $result = $link->query($query);
 
 if ($link->getNumRows($result) > 0)
