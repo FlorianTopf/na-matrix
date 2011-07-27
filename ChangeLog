@@ -1,3 +1,125 @@
+2011-07-27  ftopf
+
+    * ObservatoryCreateUpdate.php: Some little adaptions
+
+    * Observatory.php, ObservatoryViewAll.php, SpacemissionCreateUpdate.php,
+      content.css, index.php: Some little adaptions; introduced reset filters
+      button
+
+    * ObservatoryCreateUpdate.php: Fixed html markup on occasion
+
+    * Observatory.php, ObservatoryViewAll.php: Rewrote filter enginge to work
+      with more than 2 options, introduced filters for research area and target,
+      but commented out atm, because research areas need to be fixed (length!)
+
+    * ObservatoryEditAllTemp.php: Fixed html markup on occasion, script not used
+      atm
+
+    * SpacemissionEditAllOld.php: Added even / odd rows for editallold
+      spacemissions
+
+    * ObservatoryEditAllOld.php: Added even / odd rows for editallold
+      observatories
+
+    * html.php: Added even / odd rows for editall observatories / spacemissions
+
+    * SpacemissionViewAll.php: Added even / odd rows for spacemissions browse
+
+    * content.css: Added even / odd rows css code
+
+    * Observatory.php, ObservatoryViewAll.php: Added first filters for browsing
+      observatories (Country, Telescope Type)
+
+    * html.php: Fixed html tag function printSelectListFromArray
+
+    * observatories.php: Test some new validation mechanism
+
+2011-07-21  ftopf
+
+    * Observatory.php, controller.inc.php, index.php: Added code snippets for
+      filters, NOT working atm!
+
+    * europlanet_na1_dump-27-06-2011.sql: Added old database dump
+
+2011-06-22  ftopf
+
+    * ObservatoryView.php, SpacemissionView.php, TODO,
+      europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1.mwb, europlanet_na1_dump-09-06-2011.sql,
+      europlanet_na1_dump-14-06-2011.sql, wavelength_ranges.sql: Added most
+      recent backups and little updates on base database structure. Little
+      modifications on VIEW for spacemissions and observatories, Modified TODO
+
+2011-06-14  ftopf
+
+    * DbConfig.php, config.inc.php: modified configs for running server
+
+2011-06-14  rst
+
+    * DbConfig.php: New Db config for Old NA1(UCL Student db)
+
+2011-06-09  rst
+
+    * TODO: updated TODO list
+
+    * Spacemission.php, SpacemissionCreateUpdate.php, controller.inc.php: Added
+      Spacemission::add_old_resource()Added Spacemission::del_old_resource()Now
+      ready to transfer Old NA1 UCL student Spacemission DB entries to new DB!
+
+    * Observatory.php, OldDbs, europla1_obs.sql, europla1_spa.sql: Added
+      Observatory::del_old_resource()Added database/OldDbs/...Now ready to
+      transfer Old NA1 UCL student OBSERVATORY DB entries to new DB!
+
+2011-06-08  rst
+
+    * Observatory.php: Observatory::get_old_resource() finished
+
+    * DbConnector.php, ModelDAO.php, controller.inc.php, index.php: Commented
+      load-save-delete questionnaire DB entries functionality
+
+2011-06-06  rst
+
+    * TODO: new todos added
+
+2011-06-04  ftopf
+
+    * index.php: Fixed manual merge fault, please write tags in lowercase and DO
+      NOT synchronize manually by defaul (only if an conflict occurs)
+
+2011-06-04  rst
+
+    * DbConfig.php, DbConnector.php, ModelDAO.php, Observatory.php,
+      ObservatoryCreateUpdate.php, ObservatoryEditAll.php,
+      ObservatoryEditAllOld.php, ObservatoryEditAllTemp.php,
+      ObservatoryView.php, SpacemissionEditAllOld.php, SpacemissionView.php,
+      config.inc.php, controller.inc.php, index.php, instrumentNames.php,
+      login.php, observatories.php, spacemissions.php, telescopeNames.php,
+      wavelengthRanges.php: Added USER submitted OBS resource load - save -
+      delete functionalityAdded OLD NA1 OBS resource load & save (OLD OBS delete
+      & OLD SPA load, save, delete still missing) functionality
+
+2011-05-31  ftopf
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryView.php,
+      europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1-dump-31-05-2011.sql, europlanet_na1.sql, html.php: Some
+      modifications on displaying comments, remote instrument comments from
+      additional informations block finally, adapted all related files
+
+2011-05-27  ftopf
+
+    * controller.inc.php, functions.js, validation.css: Added warning message,
+      when JS is off!
+
+2011-05-20  ftopf
+
+    * ChangeLog, TODO, csv2sql.awk, europlanet_na1-changes.sql,
+      europlanet_na1-complete-dump.sql, europlanet_na1-dump-20-05-2011.sql,
+      europlanet_na1.mwb, europlanet_na1.sql, keywords.xls,
+      research_areas-new.csv, research_areas-new.txt, research_areas.sql:
+      Integrated new research areas and adapted all sql files / dumps etc.,
+      modified keywords, TODO, ChangeLog => Deployment on Monday
+
 2011-05-19  ftopf
 
     * research_areas.sql: Marked all research areas for upcoming update
