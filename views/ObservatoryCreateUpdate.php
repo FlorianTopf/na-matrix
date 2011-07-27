@@ -388,28 +388,28 @@ printInputTextfieldRow("Backend description", "add_obs_backend_desc", $_observat
 //printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;
 
-    // Submit Button
-    //-----------------------------------------------------------------------------------------------------------
-    //Define the action buttons
-    print "<p><center><table>" . LF;
-    //IF ACTION IS ADD
-	if ($action == "add")
-		print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
-    //IF ACTION IS loadTemp so we know it $_POST["is_user_res"] = 1
-	if ($action == "loadTemp")
-    {
-		print "<input type='hidden' name='is_user_res' value='1'>" . LF ;
-		print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
-    }
-	elseif($action == "loadOldObs")
-    {
-    	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
-     	print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
-    }
-    //IF ACTION IS EDIT
-	else if ($action == "edit")
-		print "<tr><td><input type='submit' name='push' value='Update Entry'></td></tr>" . LF;
-	print "</table></center></p>" . LF;
+// Submit Button
+//-----------------------------------------------------------------------------------------------------------
+//Define the action buttons
+print "<div class='actionbutton'>" . LF;
+//IF ACTION IS ADD
+if ($action == "add")
+	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+//IF ACTION IS loadTemp so we know it $_POST["is_user_res"] = 1
+if ($action == "loadTemp")
+{
+	print "<input type='hidden' name='is_user_res' value='1'>" . LF ;
+	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+}
+elseif($action == "loadOldObs")
+{
+    print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
+    print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+}
+//IF ACTION IS EDIT
+else if ($action == "edit")
+	print "<input type='submit' name='push' value='Update Entry'>" . LF;
+print "</div>" . LF;
 
 
 ?>
