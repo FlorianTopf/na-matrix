@@ -391,25 +391,25 @@ print "</table></fieldset>" . LF;
     // Submit Button
     //-----------------------------------------------------------------------------------------------------------
     //Define the action buttons
-    print "<P><CENTER><TABLE>" . LF;
+    print "<p><center><table>" . LF;
     //IF ACTION IS ADD
 	if ($action == "add")
-		print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
+		print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
     //IF ACTION IS loadTemp so we know it $_POST["is_user_res"] = 1
 	if ($action == "loadTemp")
     {
-		print "<INPUT type='hidden' name='is_user_res' value='1'>" . LF ;
-		print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
+		print "<input type='hidden' name='is_user_res' value='1'>" . LF ;
+		print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
     }
 	elseif($action == "loadOldObs")
     {
-    	print "<INPUT type='hidden' name='is_old_res' value='1'>" . LF ;
-     	print "<TR><TD><INPUT type='submit' name='push' value='Add Entry' class='submit'></TD></TR>" . LF;
+    	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
+     	print "<tr><td><input type='submit' name='push' value='Add Entry' class='submit'></td></tr>" . LF;
     }
     //IF ACTION IS EDIT
 	else if ($action == "edit")
-		print "<TR><TD><INPUT type='submit' name='push' value='Update Entry'></TD></TR>" . LF;
-	print "</TABLE></CENTER></P>" . LF;
+		print "<tr><td><input type='submit' name='push' value='Update Entry'></td></tr>" . LF;
+	print "</table></center></p>" . LF;
 
 
 ?>
