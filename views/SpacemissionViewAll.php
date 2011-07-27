@@ -15,9 +15,13 @@ print "<table class='viewall'>" . LF;
 print "<caption>For details please click on Space Mission entry name</caption>" . LF;
 print "<tr><th>NAME</th><th>AGENCY</th><th>WEB</th><th>LAUNCH-DATE</th><th>DEATH-DATE</th><th>TARGETS</th></tr>" . LF;
 
+$index = 0;
 foreach($resources as $row)
 {
-	print "<tr>"; 
+	if($index % 2) 
+		print "<tr class='even'>";
+	else
+		print "<tr class='odd'>";
 	print "<td><span title='Click for more details' onclick=\"return openwin('views/SpacemissionView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["mission_name"]) . "</span></td>";
 	print "<td><a href='" . htmlentities($row["agency_web_address"]) . "' target='_blank'>" . htmlentities($row["agency"]) . "</a></td>";
@@ -34,6 +38,8 @@ foreach($resources as $row)
     }
 	print "</td>";
     print "</tr>" . LF;
+    
+    $index++;
 }
 
 if(empty($resources))
