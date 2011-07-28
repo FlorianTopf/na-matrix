@@ -36,26 +36,104 @@
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">print&lt; INPUTtype='hidden'<a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>='page'value='browse'&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#ae2a0bff90c6bbec09a4edc390db33a89">LF</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = &quot;SELECT id, <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>, institution, web_address, country_id, email FROM observatories ORDER BY <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = $link-&gt;query($query)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">print&lt; div &gt;&lt; inputtype='hidden'<a class="el" href="_spacemission_view_8php.html#a3d0730aa3e943e68f072c126abeb4fbb">name</a>='page'value='browse'/&gt;<br class="typebreak"/>
+&lt;/div &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#a20e3d92c66cf2790654a133f6840a2ca">LF</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#ad364aeb0b3108c3b63292d8276a4995a">$countries</a> = $_observatory-&gt;get_countries()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">print&lt; OPTIONvalue=''&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#a6a4d0751c47046460eb0fe8d7d5395cf">ALL&lt;/OPTION &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#a72fbced68c54f6e8e40a69814f43cb13">$telescope_types</a> = $_observatory-&gt;get_telescope_types()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a> = $_observatory-&gt;get_research_areas()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a> = $_observatory-&gt;get_targets()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_all_8php.html#a23e53dfd2b001b81c9946fa05ec90e6f">$index</a> = 0</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <dl class="version"><dt><b>Version:</b></dt><dd></dd></dl>
-<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_observatory_view_all_8php.html">ObservatoryViewAll.php</a> 329 2011-04-19 18:52:03Z ftopf </dd></dl>
+<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_observatory_view_all_8php.html">ObservatoryViewAll.php</a> 676 2011-07-28 12:37:58Z ftopf </dd></dl>
 <dl class="author"><dt><b>Author:</b></dt><dd>Florian Topf, Robert Stöckler</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000048">Todo:</a></b></dt><dd><p class="startdd">add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </p>
-<p class="enddd">implement <a class="el" href="class_observatory_d_a_o.html">ObservatoryDAO</a> usage </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000062">Todo:</a></b></dt><dd>add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </dd></dl>
 
 <p>Definition in file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
 <hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="af59a5f7cd609e592c41dc3643efd3c98"></a><!-- doxytag: member="ObservatoryViewAll.php::$query" ref="af59a5f7cd609e592c41dc3643efd3c98" args="" -->
+<a class="anchor" id="ad364aeb0b3108c3b63292d8276a4995a"></a><!-- doxytag: member="ObservatoryViewAll.php::$countries" ref="ad364aeb0b3108c3b63292d8276a4995a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$query = &quot;SELECT id, <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>, institution, web_address, country_id, email FROM observatories ORDER BY <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>&quot;</td>
+          <td class="memname">$countries = $_observatory-&gt;get_countries()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00016">16</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23e53dfd2b001b81c9946fa05ec90e6f"></a><!-- doxytag: member="ObservatoryViewAll.php::$index" ref="a23e53dfd2b001b81c9946fa05ec90e6f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$index = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00082">82</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac16f01191bdaf3d8b16fe1c6d26c9c43"></a><!-- doxytag: member="ObservatoryViewAll.php::$research_areas" ref="ac16f01191bdaf3d8b16fe1c6d26c9c43" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$research_areas = $_observatory-&gt;get_research_areas()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00044">44</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a1a34b2d5552ae77e4a8dcb13a8b593"></a><!-- doxytag: member="ObservatoryViewAll.php::$targets" ref="a9a1a34b2d5552ae77e4a8dcb13a8b593" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$targets = $_observatory-&gt;get_targets()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00058">58</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a72fbced68c54f6e8e40a69814f43cb13"></a><!-- doxytag: member="ObservatoryViewAll.php::$telescope_types" ref="a72fbced68c54f6e8e40a69814f43cb13" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$telescope_types = $_observatory-&gt;get_telescope_types()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00030">30</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a4d0751c47046460eb0fe8d7d5395cf"></a><!-- doxytag: member="ObservatoryViewAll.php::ALL&lt;/OPTION &gt;" ref="a6a4d0751c47046460eb0fe8d7d5395cf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">print&lt; OPTIONvalue=''&gt; ALL&lt;/OPTION &gt;</td>
         </tr>
       </table>
 </div>
@@ -65,39 +143,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a112ef069ddc0454086e3d1e6d8d55d07"></a><!-- doxytag: member="ObservatoryViewAll.php::$result" ref="a112ef069ddc0454086e3d1e6d8d55d07" args="" -->
+<a class="anchor" id="a20e3d92c66cf2790654a133f6840a2ca"></a><!-- doxytag: member="ObservatoryViewAll.php::LF" ref="a20e3d92c66cf2790654a133f6840a2ca" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$result = $link-&gt;query($query)</td>
+          <td class="memname">print&lt;caption&gt; For details please click on <a class="el" href="class_observatory.html">Observatory</a> entry <a class="el" href="_spacemission_view_8php.html#a3d0730aa3e943e68f072c126abeb4fbb">name</a>&lt;/caption&gt; <a class="el" href="_spacemission_view_all_8php.html#a4ddf29484bcfbe667648f07f22fad2a3">LF</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000063">Todo:</a></b></dt><dd>define new css rules for alternating BG color... </dd></dl>
 
-<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00021">21</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae2a0bff90c6bbec09a4edc390db33a89"></a><!-- doxytag: member="ObservatoryViewAll.php::LF" ref="ae2a0bff90c6bbec09a4edc390db33a89" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">print&lt;/TABLE&gt;&lt;/P&gt;&lt;/CENTER&gt; <a class="el" href="_spacemission_view_all_8php.html#a8a72df04d49627b4de65e917806d3cb5">LF</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000049">Todo:</a></b></dt><dd>define new css rules for alternating BG color... </dd></dl>
-
-<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00011">11</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_all_8php_source.html#l00010">10</a> of file <a class="el" href="_observatory_view_all_8php_source.html">ObservatoryViewAll.php</a>.</p>
 
 </div>
 </div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:24 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

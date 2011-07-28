@@ -43,11 +43,11 @@
 <a name="l00019"></a>00019 
 <a name="l00020"></a>00020     $from = <span class="stringliteral">&quot;-f&quot;</span> . <a class="code" href="config_8inc_8php.html#a1aafe8befaaf37537cc0c278fe69e8f1">MAIL_FROM</a>;
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022     $message = <span class="stringliteral">&quot;Dear &quot;</span> . $title . <span class="stringliteral">&quot; &quot;</span> . $lname . <span class="stringliteral">&quot;,&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00022"></a>00022     $message = <span class="stringliteral">&quot;Dear &quot;</span> . $title . <span class="stringliteral">&quot; &quot;</span> . $lname . <span class="stringliteral">&quot;,&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00023"></a>00023     $message .= <span class="stringliteral">&quot;you were registered for the NA1 Matrix. &quot;</span>;
 <a name="l00024"></a>00024     $message .= <span class="stringliteral">&quot;You may now access the server at http://europlanet-na1.oeaw.ac.at/matrix/ &quot;</span>;
-<a name="l00025"></a>00025     $message .= <span class="stringliteral">&quot;with username &quot;</span> . $uname . <span class="stringliteral">&quot; and the password &quot;</span> . $pword . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00026"></a>00026     $message .= <span class="stringliteral">&quot;Sincerely,&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <span class="stringliteral">&quot;The team&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00025"></a>00025     $message .= <span class="stringliteral">&quot;with username &quot;</span> . $uname . <span class="stringliteral">&quot; and the password &quot;</span> . $pword . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00026"></a>00026     $message .= <span class="stringliteral">&quot;Sincerely,&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <span class="stringliteral">&quot;The team&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028     mail($email, $subject, $message, $headers, $from);
 <a name="l00029"></a>00029   }
@@ -55,9 +55,9 @@
 <a name="l00031"></a>00031 
 <a name="l00032"></a><a class="code" href="registration_8php.html#acd2c67eaa4c97826b92c068f0e1286ed">00032</a>   global <a class="code" href="config_8inc_8php.html#aa4c7d44e5eac1cdfd7313edf848d6373">$user_titles</a>, <a class="code" href="config_8inc_8php.html#aadba2a12c78c897f7ea2187ca1e7da03">$usage_selection</a>;
 <a name="l00033"></a>00033 
-<a name="l00034"></a><a class="code" href="registration_8php.html#a8bb81b45550d452ef4093c4445905840">00034</a>   print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;registration&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00034"></a><a class="code" href="registration_8php.html#a81a7ac193c10b5133b9ad716d9dbf1b9">00034</a>   print <span class="stringliteral">&quot;&lt;div&gt;&lt;input type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;registration&#39;/&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036   print <span class="stringliteral">&quot;&lt;CENTER&gt;&lt;H2&gt;Account registration&lt;/H2&gt;&lt;/CENTER&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00036"></a>00036   print <span class="stringliteral">&quot;&lt;h2&gt;Account registration&lt;/h2&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038   <a class="code" href="functions_8php.html#abbabce1ca41285b6cd2cc4342c3f5119">varStore</a>(<span class="stringliteral">&quot;reg_uname&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);
 <a name="l00039"></a>00039   <a class="code" href="functions_8php.html#abbabce1ca41285b6cd2cc4342c3f5119">varStore</a>(<span class="stringliteral">&quot;reg_pwd&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);
@@ -91,9 +91,9 @@
 <a name="l00067"></a>00067       <a class="code" href="functions_8php.html#a1e355a5a8ac2ff176c96f6da79685eb8">set_message</a>(<span class="stringliteral">&quot;Missing affiliation&quot;</span>, <span class="stringliteral">&quot;warning&quot;</span>);
 <a name="l00068"></a>00068 
 <a name="l00069"></a>00069 <span class="comment">// Check if username already in use</span>
-<a name="l00070"></a>00070     <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT username FROM users_list&quot;</span>;
-<a name="l00071"></a>00071     <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00072"></a>00072     <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00070"></a>00070     <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT username FROM users_list&quot;</span>;
+<a name="l00071"></a>00071     <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00072"></a>00072     <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
 <a name="l00073"></a>00073     {
 <a name="l00074"></a>00074       <span class="keywordflow">if</span> (strtoupper(trim($_POST[<span class="stringliteral">&quot;reg_uname&quot;</span>])) == strtoupper($row[<span class="stringliteral">&quot;username&quot;</span>]))
 <a name="l00075"></a>00075       {
@@ -101,14 +101,14 @@
 <a name="l00077"></a>00077         <span class="keywordflow">break</span>;
 <a name="l00078"></a>00078       }
 <a name="l00079"></a>00079     }
-<a name="l00080"></a>00080     mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00080"></a>00080     mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082 <span class="comment">// Throw a warning and reload if needed</span>
 <a name="l00083"></a>00083     <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;warning&quot;</span>]) || isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;error&quot;</span>]))
-<a name="l00084"></a>00084       print <span class="stringliteral">&quot;&lt;SCRIPT&gt;document.main_form.submit()&lt;/SCRIPT&gt;&quot;</span>;
+<a name="l00084"></a>00084       print <span class="stringliteral">&quot;&lt;script type=&#39;text/javascript&#39;&gt;document.main_form.submit()&lt;/script&gt;&quot;</span>;
 <a name="l00085"></a>00085     <span class="keywordflow">else</span>
 <a name="l00086"></a>00086     {
-<a name="l00087"></a>00087       <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_list (`id`,`username`,`passwd`,&quot;</span> .
+<a name="l00087"></a>00087       <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_list (`id`,`username`,`passwd`,&quot;</span> .
 <a name="l00088"></a>00088                <span class="stringliteral">&quot;`title`,`fname`,`lname`,`email`,`affiliation`,&quot;</span> .
 <a name="l00089"></a>00089                <span class="stringliteral">&quot;`category`,`level`) VALUES(NULL,&#39;&quot;</span> .
 <a name="l00090"></a>00090                addslashes(trim($_POST[<span class="stringliteral">&quot;reg_uname&quot;</span>])) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
@@ -120,13 +120,13 @@
 <a name="l00096"></a>00096                addslashes(trim($_POST[<span class="stringliteral">&quot;reg_affiliation&quot;</span>])) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
 <a name="l00097"></a>00097                $_POST[<span class="stringliteral">&quot;reg_category&quot;</span>] . <span class="stringliteral">&quot;&#39;,21)&quot;</span>;
 <a name="l00098"></a>00098 
-<a name="l00099"></a>00099       <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00100"></a>00100       <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;affectedRows() &gt; 0)
+<a name="l00099"></a>00099       <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00100"></a>00100       <span class="keywordflow">if</span> (<a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;affectedRows() &gt; 0)
 <a name="l00101"></a>00101       {
-<a name="l00102"></a>00102         print <span class="stringliteral">&quot;Thank you for registering! &quot;</span> .
-<a name="l00103"></a>00103               <span class="stringliteral">&quot;A confirmation email has been sent to the specified address. &quot;</span> .
-<a name="l00104"></a>00104               <span class="stringliteral">&quot;If you do not receive this message, please contact &quot;</span> .
-<a name="l00105"></a>00105               <span class="stringliteral">&quot;&lt;A href=&#39;mailto:robert.stoeckler@oeaw.ac.at&#39;&gt;Robert.Stoeckler@OeAW.ac.at&lt;/A&gt;.&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00102"></a>00102         print <span class="stringliteral">&quot;&lt;p&gt;Thank you for registering!&lt;/p&gt;&quot;</span> .
+<a name="l00103"></a>00103               <span class="stringliteral">&quot;&lt;p&gt;A confirmation email has been sent to the specified address.&lt;/p&gt;&quot;</span> .
+<a name="l00104"></a>00104               <span class="stringliteral">&quot;&lt;p&gt;If you do not receive this message, please contact &quot;</span> .
+<a name="l00105"></a>00105               <span class="stringliteral">&quot;&lt;a href=&#39;mailto:robert.stoeckler@oeaw.ac.at&#39;&gt;robert.stoeckler@oeaw.ac.at&lt;/a&gt;.&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107         <a class="code" href="registration_8php.html#ad1a9f8ab97c381acba0cb9054cadaa71">mail_reg</a>($_POST[<span class="stringliteral">&quot;reg_email&quot;</span>], $_POST[<span class="stringliteral">&quot;reg_title&quot;</span>],
 <a name="l00108"></a>00108                  $_POST[<span class="stringliteral">&quot;reg_lname&quot;</span>], $_POST[<span class="stringliteral">&quot;reg_uname&quot;</span>], $_POST[<span class="stringliteral">&quot;reg_pwd&quot;</span>]);
@@ -142,76 +142,76 @@
 <a name="l00118"></a>00118   {
 <a name="l00119"></a>00119     <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;reg_title&quot;</span>] == <span class="stringliteral">&quot;&quot;</span>)
 <a name="l00120"></a>00120     {
-<a name="l00121"></a>00121       print <span class="stringliteral">&quot;In order to use the catalogue, you need to register for &quot;</span> .
+<a name="l00121"></a>00121       print <span class="stringliteral">&quot;&lt;p&gt;In order to use the catalogue, you need to register for &quot;</span> .
 <a name="l00122"></a>00122             <span class="stringliteral">&quot;a user account by filling out the form below (all fields &quot;</span> .
-<a name="l00123"></a>00123             <span class="stringliteral">&quot;need to be filled out).&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00124"></a>00124       print <span class="stringliteral">&quot;The information provided will only be used internally &quot;</span> .
+<a name="l00123"></a>00123             <span class="stringliteral">&quot;need to be filled out).&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00124"></a>00124       print <span class="stringliteral">&quot;&lt;p&gt;The information provided will only be used internally &quot;</span> .
 <a name="l00125"></a>00125             <span class="stringliteral">&quot;and for contacting you. No information will be forwarded &quot;</span> .
-<a name="l00126"></a>00126             <span class="stringliteral">&quot;to third parties without explicit consent from the user.&quot;</span> .
-<a name="l00127"></a>00127             <span class="stringliteral">&quot;&lt;P&gt;&lt;HR&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00126"></a>00126             <span class="stringliteral">&quot;to third parties without explicit consent from the user.&lt;/p&gt;&quot;</span> .
+<a name="l00127"></a>00127             <span class="stringliteral">&quot;&lt;p&gt;&lt;hr&gt;&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00128"></a>00128     }
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130 <span class="comment">// Store values in $_SESSION for retrieval on reload</span>
-<a name="l00131"></a>00131     print <span class="stringliteral">&quot;&lt;P&gt;&lt;TABLE class=&#39;main&#39; border=&#39;0&#39; cellpadding=&#39;4&#39; cellspacing=&#39;4&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00131"></a>00131     print <span class="stringliteral">&quot;&lt;p&gt;&lt;table class=&#39;page&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00132"></a>00132 
-<a name="l00133"></a>00133     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Title:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00134"></a>00134           <span class="stringliteral">&quot;&lt;TD&gt;&lt;SELECT name=&#39;reg_title&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00133"></a>00133     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Title:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00134"></a>00134           <span class="stringliteral">&quot;&lt;td&gt;&lt;select name=&#39;reg_title&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00135"></a>00135     <span class="keywordflow">foreach</span> (<a class="code" href="config_8inc_8php.html#aa4c7d44e5eac1cdfd7313edf848d6373">$user_titles</a> as $title)
 <a name="l00136"></a>00136     {
-<a name="l00137"></a>00137       print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $title . <span class="stringliteral">&quot;&#39;&quot;</span>;
+<a name="l00137"></a>00137       print <span class="stringliteral">&quot;&lt;option value=&#39;&quot;</span> . $title . <span class="stringliteral">&quot;&#39;&quot;</span>;
 <a name="l00138"></a>00138       <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;reg_title&quot;</span>] == $title) print <span class="stringliteral">&quot; selected&quot;</span>;
-<a name="l00139"></a>00139       print <span class="stringliteral">&quot;&gt;&quot;</span> . $title . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00139"></a>00139       print <span class="stringliteral">&quot;&gt;&quot;</span> . $title . <span class="stringliteral">&quot;&lt;/option&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00140"></a>00140     }
-<a name="l00141"></a>00141     print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00141"></a>00141     print <span class="stringliteral">&quot;&lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00142"></a>00142 
-<a name="l00143"></a>00143     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;First name:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00144"></a>00144           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT name=&#39;reg_fname&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
-<a name="l00145"></a>00145           $_POST[<span class="stringliteral">&quot;reg_fname&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00143"></a>00143     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;First name:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00144"></a>00144           <span class="stringliteral">&quot;&lt;td&gt;&lt;input name=&#39;reg_fname&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
+<a name="l00145"></a>00145           $_POST[<span class="stringliteral">&quot;reg_fname&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00146"></a>00146 
-<a name="l00147"></a>00147     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Last name:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00148"></a>00148           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT name=&#39;reg_lname&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
-<a name="l00149"></a>00149           $_POST[<span class="stringliteral">&quot;reg_lname&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00147"></a>00147     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Last name:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00148"></a>00148           <span class="stringliteral">&quot;&lt;td&gt;&lt;input name=&#39;reg_lname&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
+<a name="l00149"></a>00149           $_POST[<span class="stringliteral">&quot;reg_lname&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00150"></a>00150 
-<a name="l00151"></a>00151     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Affiliation:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00152"></a>00152           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT name=&#39;reg_affiliation&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
-<a name="l00153"></a>00153           $_POST[<span class="stringliteral">&quot;reg_affiliation&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00151"></a>00151     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Affiliation:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00152"></a>00152           <span class="stringliteral">&quot;&lt;td&gt;&lt;input name=&#39;reg_affiliation&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
+<a name="l00153"></a>00153           $_POST[<span class="stringliteral">&quot;reg_affiliation&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00154"></a>00154 
-<a name="l00155"></a>00155     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;E-mail:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00156"></a>00156           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT name=&#39;reg_email&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
-<a name="l00157"></a>00157           $_POST[<span class="stringliteral">&quot;reg_email&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00155"></a>00155     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;E-mail:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00156"></a>00156           <span class="stringliteral">&quot;&lt;td&gt;&lt;input name=&#39;reg_email&#39; size=&#39;30&#39; value=&#39;&quot;</span> .
+<a name="l00157"></a>00157           $_POST[<span class="stringliteral">&quot;reg_email&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00158"></a>00158 
-<a name="l00159"></a>00159     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Intended use:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00160"></a>00160           <span class="stringliteral">&quot;&lt;TD&gt;&lt;SELECT name=&#39;reg_category&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00159"></a>00159     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Intended use:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00160"></a>00160           <span class="stringliteral">&quot;&lt;td&gt;&lt;select name=&#39;reg_category&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00161"></a>00161     <span class="keywordflow">foreach</span> (<a class="code" href="config_8inc_8php.html#aadba2a12c78c897f7ea2187ca1e7da03">$usage_selection</a> as $use)
 <a name="l00162"></a>00162     {
-<a name="l00163"></a>00163       print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $use . <span class="stringliteral">&quot;&#39;&quot;</span>;
+<a name="l00163"></a>00163       print <span class="stringliteral">&quot;&lt;option value=&#39;&quot;</span> . $use . <span class="stringliteral">&quot;&#39;&quot;</span>;
 <a name="l00164"></a>00164       <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;reg_category&quot;</span>] == $use) print <span class="stringliteral">&quot; selected&quot;</span>;
-<a name="l00165"></a>00165       print <span class="stringliteral">&quot;&gt;&quot;</span> . $use . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00165"></a>00165       print <span class="stringliteral">&quot;&gt;&quot;</span> . $use . <span class="stringliteral">&quot;&lt;/option&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00166"></a>00166     }
-<a name="l00167"></a>00167     print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00167"></a>00167     print <span class="stringliteral">&quot;&lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00168"></a>00168 
-<a name="l00169"></a>00169     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;User name:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00170"></a>00170           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT name=&#39;reg_uname&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
+<a name="l00169"></a>00169     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;User name:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00170"></a>00170           <span class="stringliteral">&quot;&lt;td&gt;&lt;input name=&#39;reg_uname&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
 <a name="l00171"></a>00171           $_POST[<span class="stringliteral">&quot;reg_uname&quot;</span>] . <span class="stringliteral">&quot;&#39;&quot;</span> .
-<a name="l00172"></a>00172           <span class="stringliteral">&quot;&gt; (maximum 16 alphanumeric characters)&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00172"></a>00172           <span class="stringliteral">&quot;&gt; (maximum 16 alphanumeric characters)&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00173"></a>00173 
-<a name="l00174"></a>00174     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Password:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00175"></a>00175           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT type=&#39;password&#39; name=&#39;reg_pwd&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
+<a name="l00174"></a>00174     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Password:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00175"></a>00175           <span class="stringliteral">&quot;&lt;td&gt;&lt;input type=&#39;password&#39; name=&#39;reg_pwd&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
 <a name="l00176"></a>00176           $_POST[<span class="stringliteral">&quot;reg_pwd&quot;</span>] . <span class="stringliteral">&quot;&#39;&quot;</span> .
-<a name="l00177"></a>00177           <span class="stringliteral">&quot;&gt; (maximum 16 alphanumeric characters)&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00177"></a>00177           <span class="stringliteral">&quot;&gt; (maximum 16 alphanumeric characters)&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00178"></a>00178 
 <a name="l00179"></a>00179 <span class="comment">//---------- Password confirmation ------------------------------</span>
 <a name="l00180"></a>00180 
-<a name="l00181"></a>00181     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Confirm password:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00182"></a>00182           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT type=&#39;password&#39; name=&#39;reg_pwd2&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
+<a name="l00181"></a>00181     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Confirm password:&lt;/B&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00182"></a>00182           <span class="stringliteral">&quot;&lt;td&gt;&lt;input type=&#39;password&#39; name=&#39;reg_pwd2&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
 <a name="l00183"></a>00183           $_POST[<span class="stringliteral">&quot;reg_pwd2&quot;</span>] . <span class="stringliteral">&quot;&#39;&quot;</span> .
-<a name="l00184"></a>00184           <span class="stringliteral">&quot;&gt; (maximum 16 alphanumeric characters)&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00184"></a>00184           <span class="stringliteral">&quot;&gt; (maximum 16 alphanumeric characters)&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00185"></a>00185 
 <a name="l00186"></a>00186 <span class="comment">//------------------------------------------------------------</span>
 <a name="l00187"></a>00187 
-<a name="l00188"></a>00188     print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00188"></a>00188     print <span class="stringliteral">&quot;&lt;/table&gt;&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00189"></a>00189 
-<a name="l00190"></a>00190     print <span class="stringliteral">&quot;&lt;INPUT type=&#39;submit&#39; name=&#39;registration&#39; value=&#39;Register&#39;&gt;&lt;P&gt;&quot;</span>;
+<a name="l00190"></a>00190     print <span class="stringliteral">&quot;&lt;p&gt;&lt;input type=&#39;submit&#39; name=&#39;registration&#39; value=&#39;Register&#39;/&gt;&lt;/p&gt;&quot;</span>;
 <a name="l00191"></a>00191   }
 <a name="l00192"></a>00192 
 <a name="l00193"></a>00193   <span class="comment">//$link-&gt;close();</span>
@@ -219,7 +219,7 @@
 <a name="l00195"></a>00195 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:23 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

@@ -46,12 +46,14 @@ Inheritance diagram for DbConnector:<!-- endSectionHeader --></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#a095c5d389db211932136b53f25f39685">__construct</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#a04f7d55a52a194324a886086966a293c">__construct</a> ($dbType)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#a6786bfac3548d71a02178f884414a7d9">checkDb</a> ($dbType)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#a6b251c8058230359b2922377699c4f29">query</a> ($sql)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#aaf8e789036f518ea4523e095d1892e34">getLastInsertId</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#ab2eeb64cab360a0f09923108b55c9099">errno</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#a43b8d30b879d4f09ceb059b02af2bc02">error</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#a1289c8742f764b73b60011ce8339157d">affectedRows</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#ababe637358b00559ee3b9d212082bb4b">getNumRows</a> ($result)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -59,23 +61,24 @@ Static Public Attributes</h2></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00005">5</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00010">10</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a095c5d389db211932136b53f25f39685"></a><!-- doxytag: member="DbConnector::__construct" ref="a095c5d389db211932136b53f25f39685" args="()" -->
+<a class="anchor" id="a04f7d55a52a194324a886086966a293c"></a><!-- doxytag: member="DbConnector::__construct" ref="a04f7d55a52a194324a886086966a293c" args="($dbType)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">__construct </td>
           <td>(</td>
-          <td class="paramname">&#160;)</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"> <em>dbType</em>&#160;)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00011">11</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00016">16</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -94,7 +97,26 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00072">72</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00098">98</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6786bfac3548d71a02178f884414a7d9"></a><!-- doxytag: member="DbConnector::checkDb" ref="a6786bfac3548d71a02178f884414a7d9" args="($dbType)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">checkDb </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"> <em>dbType</em>&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00049">49</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -112,7 +134,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00078">78</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00110">110</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -130,7 +152,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00062">62</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00088">88</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -148,7 +170,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00067">67</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00093">93</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -166,7 +188,26 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00057">57</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00083">83</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ababe637358b00559ee3b9d212082bb4b"></a><!-- doxytag: member="DbConnector::getNumRows" ref="ababe637358b00559ee3b9d212082bb4b" args="($result)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getNumRows </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"> <em>result</em>&#160;)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00104">104</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -185,7 +226,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00045">45</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00070">70</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -201,7 +242,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00009">9</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
+<p>Definition at line <a class="el" href="_db_connector_8php_source.html#l00014">14</a> of file <a class="el" href="_db_connector_8php_source.html">DbConnector.php</a>.</p>
 
 </div>
 </div>
@@ -209,7 +250,7 @@ Static Public Attributes</h2></td></tr>
 <li>lib/php/orm/<a class="el" href="_db_connector_8php_source.html">DbConnector.php</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:24 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

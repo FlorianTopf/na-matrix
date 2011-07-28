@@ -29,559 +29,730 @@
 </div>
 <div class="contents">
 <a href="_spacemission_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
-<a name="l00016"></a><a class="code" href="class_spacemission_d_a_o.html">00016</a> <span class="keyword">class </span><a class="code" href="class_spacemission_d_a_o.html">SpacemissionDAO</a> <span class="keyword">extends</span> <a class="code" href="class_model_d_a_o.html">ModelDAO</a>
-<a name="l00017"></a>00017  {
-<a name="l00019"></a>00019         <span class="comment">//protected $_link = NULL;</span>
-<a name="l00020"></a>00020 
-<a name="l00022"></a><a class="code" href="class_spacemission_d_a_o.html#abf3f559f67fd6bdca04b272c655bbeb3">00022</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#abf3f559f67fd6bdca04b272c655bbeb3">$_fields</a> = array();
-<a name="l00023"></a>00023 
-<a name="l00025"></a><a class="code" href="class_spacemission_d_a_o.html#a8f7c79a5914e0ea2b0fa985b7445ee70">00025</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a8f7c79a5914e0ea2b0fa985b7445ee70">$_agencies</a> = array ();
-<a name="l00026"></a>00026 
-<a name="l00028"></a><a class="code" href="class_spacemission_d_a_o.html#a264f642444e5292484ad983a6fc53b78">00028</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a264f642444e5292484ad983a6fc53b78">$_researchAreas</a> = array ();
-<a name="l00029"></a>00029 
-<a name="l00031"></a><a class="code" href="class_spacemission_d_a_o.html#ab6118e3e818f20e2cc7f7b42b925159a">00031</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#ab6118e3e818f20e2cc7f7b42b925159a">$_targets</a> = array();
-<a name="l00032"></a>00032 
-<a name="l00034"></a><a class="code" href="class_spacemission_d_a_o.html#afd29f418addf0a6a22b5f8be5e55bb58">00034</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#afd29f418addf0a6a22b5f8be5e55bb58">$_scienceGoals</a> = array();
-<a name="l00035"></a>00035 
-<a name="l00037"></a><a class="code" href="class_spacemission_d_a_o.html#a9961184dcc533642a1231580107a9d6c">00037</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a9961184dcc533642a1231580107a9d6c">$_sensors</a> = array();
-<a name="l00038"></a>00038 
-<a name="l00040"></a><a class="code" href="class_spacemission_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">00040</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">$_scientificContacts</a> = array();
-<a name="l00041"></a>00041 
-<a name="l00045"></a><a class="code" href="class_spacemission_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">00045</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">$_hasMany</a> = array (
-<a name="l00046"></a>00046         <span class="stringliteral">&#39;research_areas&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
-<a name="l00047"></a>00047         <span class="stringliteral">&#39;targets&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
-<a name="l00048"></a>00048         <span class="stringliteral">&#39;sensors&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
-<a name="l00049"></a>00049         <span class="stringliteral">&#39;scientific_contacts&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
-<a name="l00050"></a>00050         <span class="stringliteral">&#39;science_goals&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>);
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00054"></a>00054 <span class="comment"></span><span class="comment">//      function __construct() {</span>
-<a name="l00055"></a>00055 <span class="comment">//               //creates database connection</span>
-<a name="l00056"></a>00056 <span class="comment">//               $this-&gt;_link = new DbConnector();</span>
-<a name="l00057"></a>00057 <span class="comment">//      }</span>
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00061"></a>00061 <span class="comment"></span><span class="comment">//      function __destruct() {</span>
-<a name="l00062"></a>00062 <span class="comment">//              //closes database connection</span>
-<a name="l00063"></a>00063 <span class="comment">//              $this-&gt;_link-&gt;close();</span>
-<a name="l00064"></a>00064 <span class="comment">//      }</span>
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00068"></a><a class="code" href="class_spacemission_d_a_o.html#aaca0dd9eb5f778961e89ba71984ca62d">00068</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#aaca0dd9eb5f778961e89ba71984ca62d">get_field</a>($field)
-<a name="l00069"></a>00069         {
-<a name="l00070"></a>00070                 <span class="keywordflow">if</span>(array_key_exists($field, $this-&gt;_fields))
-<a name="l00071"></a>00071                         <span class="keywordflow">return</span> htmlentities($this-&gt;_fields[$field],ENT_QUOTES);
-<a name="l00072"></a>00072                 <span class="keywordflow">else</span>
-<a name="l00073"></a>00073                         <span class="keywordflow">return</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
-<a name="l00074"></a>00074         }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00078"></a><a class="code" href="class_spacemission_d_a_o.html#ac58ec579a8eb8692a78c9ce25e0f8f9b">00078</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#ac58ec579a8eb8692a78c9ce25e0f8f9b">get_agencies</a>()
-<a name="l00079"></a>00079         {
-<a name="l00080"></a>00080                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM agencies&quot;</span>;
-<a name="l00081"></a>00081         <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00082"></a>00082         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00083"></a>00083                 <span class="keywordflow">foreach</span> ($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00084"></a>00084                                 $this-&gt;_agencies[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
-<a name="l00085"></a>00085         mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087         <span class="keywordflow">return</span> $this-&gt;_agencies;
-<a name="l00088"></a>00088         }
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00092"></a><a class="code" href="class_spacemission_d_a_o.html#ae3997a38e4397e48d0aa31c2c86ad1c5">00092</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#ae3997a38e4397e48d0aa31c2c86ad1c5">get_has_many</a>($x_field, $y_field)
-<a name="l00093"></a>00093         {
-<a name="l00094"></a>00094                 <span class="keywordflow">if</span>($y_field == <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)
-<a name="l00095"></a>00095                         <span class="keywordflow">return</span> $this-&gt;_hasMany[$x_field];
-<a name="l00096"></a>00096                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(isset($this-&gt;_hasMany[$x_field][$y_field]))
-<a name="l00097"></a>00097                         <span class="keywordflow">return</span> $this-&gt;_hasMany[$x_field][$y_field];
-<a name="l00098"></a>00098                 <span class="keywordflow">else</span>
-<a name="l00099"></a>00099                         <span class="keywordflow">return</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
-<a name="l00100"></a>00100         }
-<a name="l00101"></a>00101         
-<a name="l00102"></a>00102 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00104"></a><a class="code" href="class_spacemission_d_a_o.html#aec8d6878ab699e1ea8b0375b1efbbb28">00104</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#aec8d6878ab699e1ea8b0375b1efbbb28">init_has_many</a>($x_field, $y_field)
-<a name="l00105"></a>00105         {
-<a name="l00106"></a>00106                 <span class="keywordflow">if</span>($y_field == <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>)
-<a name="l00107"></a>00107                 {
-<a name="l00108"></a>00108                         $this-&gt;_hasMany[$x_field] = array();
-<a name="l00109"></a>00109                         array_push($this-&gt;_hasMany[$x_field], <span class="stringliteral">&quot;0&quot;</span>);
-<a name="l00110"></a>00110                 }
-<a name="l00111"></a>00111                 <span class="keywordflow">else</span>
-<a name="l00112"></a>00112                 {
-<a name="l00113"></a>00113                         $this-&gt;_hasMany[$x_field][$y_field] = array();
-<a name="l00114"></a>00114                         array_push($this-&gt;_hasMany[$x_field][$y_field], <span class="stringliteral">&quot;0&quot;</span>);
-<a name="l00115"></a>00115                 }
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117                 <span class="comment">//echo &quot;INIT HAS MANY: &quot; . $x_field . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00118"></a>00118         }
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00125"></a><a class="code" href="class_spacemission_d_a_o.html#a186bc83c5e3c643b4fa3973ad2607f78">00125</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a186bc83c5e3c643b4fa3973ad2607f78">get_research_areas</a>()
-<a name="l00126"></a>00126         {
-<a name="l00127"></a>00127                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM research_areas ORDER BY research_areas.name ASC&quot;</span>;
-<a name="l00128"></a>00128         <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00129"></a>00129         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00130"></a>00130             <span class="keywordflow">foreach</span> ($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00131"></a>00131                                 $this-&gt;_researchAreas[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
-<a name="l00132"></a>00132         mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134         <span class="keywordflow">return</span> $this-&gt;_researchAreas;
-<a name="l00135"></a>00135         }
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00141"></a><a class="code" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">00141</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">get_targets</a>()
-<a name="l00142"></a>00142         {
-<a name="l00143"></a>00143                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT id, target_family, target_name FROM targets ORDER BY targets.target_family ASC&quot;</span>;
-<a name="l00144"></a>00144         <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00145"></a>00145         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00146"></a>00146                 <span class="keywordflow">foreach</span> ($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00147"></a>00147                                 $this-&gt;_targets[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
-<a name="l00148"></a>00148         mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00149"></a>00149 
-<a name="l00150"></a>00150         <span class="keywordflow">return</span> $this-&gt;_targets;
-<a name="l00151"></a>00151         }
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00157"></a><a class="code" href="class_spacemission_d_a_o.html#a1051c6419270dc714570ce9383a4b4e9">00157</a> <span class="comment"></span>   <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a1051c6419270dc714570ce9383a4b4e9">get_science_goals</a>()
-<a name="l00158"></a>00158    {
-<a name="l00159"></a>00159                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM science_goals&quot;</span>;
-<a name="l00160"></a>00160         <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00161"></a>00161         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00162"></a>00162                         <span class="keywordflow">foreach</span>($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00163"></a>00163                                 $this-&gt;_scienceGoals[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
-<a name="l00164"></a>00164         mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166         <span class="keywordflow">return</span> $this-&gt;_scienceGoals;
-<a name="l00167"></a>00167    }
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00171"></a><a class="code" href="class_spacemission_d_a_o.html#a2b9c39c917a160f00592f33e09acc028">00171</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a2b9c39c917a160f00592f33e09acc028">get_sensor</a>($x_field, $y_field)
-<a name="l00172"></a>00172         {
-<a name="l00173"></a>00173                 <span class="keywordflow">if</span>(array_key_exists($x_field, $this-&gt;_sensors))
-<a name="l00174"></a>00174                         <span class="keywordflow">return</span> htmlentities($this-&gt;_sensors[$x_field][$y_field],ENT_QUOTES);
-<a name="l00175"></a>00175                 <span class="keywordflow">else</span>
-<a name="l00176"></a>00176                         <span class="keywordflow">return</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
-<a name="l00177"></a>00177         }
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00181"></a><a class="code" href="class_spacemission_d_a_o.html#a5a16bde695c76eb9f99d404703ce469a">00181</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a5a16bde695c76eb9f99d404703ce469a">get_scientific_contact</a>($x_field, $y_field, $z_field)
-<a name="l00182"></a>00182         {
-<a name="l00183"></a>00183                 <span class="keywordflow">if</span>(array_key_exists($x_field, $this-&gt;_scientificContacts))
-<a name="l00184"></a>00184                         <span class="keywordflow">return</span> htmlentities($this-&gt;_scientificContacts[$x_field][$y_field][$z_field],ENT_QUOTES);
-<a name="l00185"></a>00185                 <span class="keywordflow">else</span>
-<a name="l00186"></a>00186                         <span class="keywordflow">return</span> <a class="code" href="_observatory_create_update_8php.html#a985cd8b51065dd190f4a9ddd941c83ea">NULL</a>;
-<a name="l00187"></a>00187         }
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00198"></a><a class="code" href="class_spacemission_d_a_o.html#af4da44a32dcf8ff43358a8c3855688d8">00198</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#af4da44a32dcf8ff43358a8c3855688d8" title="gets an existing resource space mission">get_resource</a>(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>) {
-<a name="l00199"></a>00199                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM space_missions WHERE id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
-<a name="l00200"></a>00200         <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00201"></a>00201         <a class="code" href="_observatory_edit_all_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC)
-<a name="l00202"></a>00202              or die(<span class="stringliteral">&quot;&lt;br&gt;Error: No such Resource existing!&lt;/b&gt;&quot;</span>);
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204         <span class="comment">//SPACE MISSION TABLE</span>
-<a name="l00205"></a>00205                 <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_edit_all_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00206"></a>00206                         <span class="comment">//check if value is 0000-00-00 since we use DATE in the DB</span>
-<a name="l00207"></a>00207                         <span class="keywordflow">if</span>($value != <span class="stringliteral">&quot;0000-00-00&quot;</span>)
-<a name="l00208"></a>00208                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_$key&quot;</span>] = stripslashes($value);
-<a name="l00209"></a>00209                         <span class="keywordflow">else</span>
-<a name="l00210"></a>00210                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_$key&quot;</span>] = <span class="stringliteral">&#39;&#39;</span>;
-<a name="l00211"></a>00211 
-<a name="l00212"></a>00212                 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00213"></a>00213 
-<a name="l00214"></a>00214         <span class="comment">//Research Areas</span>
-<a name="l00215"></a>00215                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT research_area_id as research_areas FROM space_mission_to_research_areas &quot;</span> .
-<a name="l00216"></a>00216                 <span class="stringliteral">&quot;WHERE space_mission_to_research_areas.space_mission_id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
-<a name="l00217"></a>00217                 <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00220"></a>00220                         <span class="keywordflow">foreach</span> ($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00221"></a>00221                                 $this-&gt;_hasMany[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][] = $value;
-<a name="l00222"></a>00222 
-<a name="l00223"></a>00223                 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225                 <span class="comment">//Targets</span>
-<a name="l00226"></a>00226                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT target_id as targets FROM space_mission_to_targets &quot;</span> .
-<a name="l00227"></a>00227                 <span class="stringliteral">&quot;WHERE space_mission_to_targets.space_mission_id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
-<a name="l00228"></a>00228                 <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00229"></a>00229 
-<a name="l00230"></a>00230                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00231"></a>00231                         <span class="keywordflow">foreach</span>($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00232"></a>00232                                 $this-&gt;_hasMany[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][] = $value;
-<a name="l00233"></a>00233 
-<a name="l00234"></a>00234                 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236                 <span class="comment">//Sensor Table and according Science Goals/Scientific Contacts</span>
-<a name="l00237"></a>00237                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM sensors, space_mission_to_sensors &quot;</span> .
-<a name="l00238"></a>00238                 <span class="stringliteral">&quot;WHERE sensors.id=space_mission_to_sensors.sensor_id &quot;</span> .
-<a name="l00239"></a>00239                 <span class="stringliteral">&quot;AND space_mission_to_sensors.space_mission_id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
-<a name="l00240"></a>00240                 <span class="comment">//DEBUG:</span>
-<a name="l00241"></a>00241                 <span class="comment">//echo &quot;Sensor query: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00242"></a>00242                 <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00243"></a>00243 
-<a name="l00244"></a>00244                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00018"></a><a class="code" href="class_spacemission_d_a_o.html">00018</a> <span class="keyword">class </span><a class="code" href="class_spacemission_d_a_o.html">SpacemissionDAO</a> <span class="keyword">extends</span> <a class="code" href="class_model_d_a_o.html">ModelDAO</a>
+<a name="l00019"></a>00019  {
+<a name="l00021"></a>00021         <span class="comment">//protected $_link = NULL;</span>
+<a name="l00022"></a>00022 
+<a name="l00024"></a>00024         <span class="comment">//protected $_fields = array();</span>
+<a name="l00025"></a>00025 
+<a name="l00027"></a><a class="code" href="class_spacemission_d_a_o.html#a8f7c79a5914e0ea2b0fa985b7445ee70">00027</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a8f7c79a5914e0ea2b0fa985b7445ee70">$_agencies</a> = array();
+<a name="l00028"></a>00028 
+<a name="l00030"></a><a class="code" href="class_spacemission_d_a_o.html#a264f642444e5292484ad983a6fc53b78">00030</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a264f642444e5292484ad983a6fc53b78">$_researchAreas</a> = array();
+<a name="l00031"></a>00031 
+<a name="l00033"></a><a class="code" href="class_spacemission_d_a_o.html#ab6118e3e818f20e2cc7f7b42b925159a">00033</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#ab6118e3e818f20e2cc7f7b42b925159a">$_targets</a> = array();
+<a name="l00034"></a>00034 
+<a name="l00036"></a><a class="code" href="class_spacemission_d_a_o.html#afd29f418addf0a6a22b5f8be5e55bb58">00036</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#afd29f418addf0a6a22b5f8be5e55bb58">$_scienceGoals</a> = array();
+<a name="l00037"></a>00037 
+<a name="l00039"></a><a class="code" href="class_spacemission_d_a_o.html#a9961184dcc533642a1231580107a9d6c">00039</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a9961184dcc533642a1231580107a9d6c">$_sensors</a> = array();
+<a name="l00040"></a>00040 
+<a name="l00042"></a><a class="code" href="class_spacemission_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">00042</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">$_scientificContacts</a> = array();
+<a name="l00043"></a>00043 
+<a name="l00047"></a><a class="code" href="class_spacemission_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">00047</a>         <span class="keyword">protected</span> <a class="code" href="class_spacemission_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">$_hasMany</a> = array (
+<a name="l00048"></a>00048         <span class="stringliteral">&#39;research_areas&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
+<a name="l00049"></a>00049         <span class="stringliteral">&#39;targets&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
+<a name="l00050"></a>00050         <span class="stringliteral">&#39;sensors&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
+<a name="l00051"></a>00051         <span class="stringliteral">&#39;scientific_contacts&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>,
+<a name="l00052"></a>00052         <span class="stringliteral">&#39;science_goals&#39;</span> =&gt; <span class="stringliteral">&#39;&#39;</span>);
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00056"></a>00056 <span class="comment"></span><span class="comment">//      function __construct() {</span>
+<a name="l00057"></a>00057 <span class="comment">//               //creates database connection</span>
+<a name="l00058"></a>00058 <span class="comment">//               $this-&gt;_link = new DbConnector();</span>
+<a name="l00059"></a>00059 <span class="comment">//      }</span>
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00063"></a>00063 <span class="comment"></span><span class="comment">//      function __destruct() {</span>
+<a name="l00064"></a>00064 <span class="comment">//              //closes database connection</span>
+<a name="l00065"></a>00065 <span class="comment">//              $this-&gt;_link-&gt;close();</span>
+<a name="l00066"></a>00066 <span class="comment">//      }</span>
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00070"></a>00070 <span class="comment"></span><span class="comment">//      public function get_field($field)</span>
+<a name="l00071"></a>00071 <span class="comment">//      {</span>
+<a name="l00072"></a>00072 <span class="comment">//              if(array_key_exists($field, $this-&gt;_fields))</span>
+<a name="l00073"></a>00073 <span class="comment">//                      return htmlentities($this-&gt;_fields[$field],ENT_QUOTES);</span>
+<a name="l00074"></a>00074 <span class="comment">//              else</span>
+<a name="l00075"></a>00075 <span class="comment">//                      return NULL;</span>
+<a name="l00076"></a>00076 <span class="comment">//      }</span>
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00080"></a><a class="code" href="class_spacemission_d_a_o.html#ac58ec579a8eb8692a78c9ce25e0f8f9b">00080</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#ac58ec579a8eb8692a78c9ce25e0f8f9b">get_agencies</a>()
+<a name="l00081"></a>00081         {
+<a name="l00082"></a>00082                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM agencies&quot;</span>;
+<a name="l00083"></a>00083         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00084"></a>00084         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00085"></a>00085                 <span class="keywordflow">foreach</span> ($row as $key =&gt; $value)
+<a name="l00086"></a>00086                                 $this-&gt;_agencies[$key][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
+<a name="l00087"></a>00087         mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         <span class="keywordflow">return</span> $this-&gt;_agencies;
+<a name="l00090"></a>00090         }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00094"></a>00094 <span class="comment"></span><span class="comment">//      public function get_has_many($x_field, $y_field)</span>
+<a name="l00095"></a>00095 <span class="comment">//      {</span>
+<a name="l00096"></a>00096 <span class="comment">//              if($y_field == NULL)</span>
+<a name="l00097"></a>00097 <span class="comment">//                      return $this-&gt;_hasMany[$x_field];</span>
+<a name="l00098"></a>00098 <span class="comment">//              else if(isset($this-&gt;_hasMany[$x_field][$y_field]))</span>
+<a name="l00099"></a>00099 <span class="comment">//                      return $this-&gt;_hasMany[$x_field][$y_field];</span>
+<a name="l00100"></a>00100 <span class="comment">//              else</span>
+<a name="l00101"></a>00101 <span class="comment">//                      return NULL;</span>
+<a name="l00102"></a>00102 <span class="comment">//      }</span>
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00106"></a>00106 <span class="comment"></span><span class="comment">//      public function init_has_many($x_field, $y_field)</span>
+<a name="l00107"></a>00107 <span class="comment">//      {</span>
+<a name="l00108"></a>00108 <span class="comment">//              if($y_field == NULL)</span>
+<a name="l00109"></a>00109 <span class="comment">//              {</span>
+<a name="l00110"></a>00110 <span class="comment">//                      $this-&gt;_hasMany[$x_field] = array();</span>
+<a name="l00111"></a>00111 <span class="comment">//                      array_push($this-&gt;_hasMany[$x_field], &quot;0&quot;);</span>
+<a name="l00112"></a>00112 <span class="comment">//              }</span>
+<a name="l00113"></a>00113 <span class="comment">//              else</span>
+<a name="l00114"></a>00114 <span class="comment">//              {</span>
+<a name="l00115"></a>00115 <span class="comment">//                      $this-&gt;_hasMany[$x_field][$y_field] = array();</span>
+<a name="l00116"></a>00116 <span class="comment">//                      array_push($this-&gt;_hasMany[$x_field][$y_field], &quot;0&quot;);</span>
+<a name="l00117"></a>00117 <span class="comment">//              }</span>
+<a name="l00118"></a>00118 <span class="comment">//</span>
+<a name="l00119"></a>00119 <span class="comment">//              //echo &quot;INIT HAS MANY: &quot; . $x_field . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00120"></a>00120 <span class="comment">//      }</span>
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00126"></a><a class="code" href="class_spacemission_d_a_o.html#a186bc83c5e3c643b4fa3973ad2607f78">00126</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a186bc83c5e3c643b4fa3973ad2607f78">get_research_areas</a>()
+<a name="l00127"></a>00127         {
+<a name="l00128"></a>00128                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM research_areas ORDER BY research_areas.name ASC&quot;</span>;
+<a name="l00129"></a>00129         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00130"></a>00130         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00131"></a>00131             <span class="keywordflow">foreach</span> ($row as $key =&gt; $value)
+<a name="l00132"></a>00132                                 $this-&gt;_researchAreas[$key][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
+<a name="l00133"></a>00133         mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135         <span class="keywordflow">return</span> $this-&gt;_researchAreas;
+<a name="l00136"></a>00136         }
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00142"></a><a class="code" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">00142</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">get_targets</a>()
+<a name="l00143"></a>00143         {
+<a name="l00144"></a>00144                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT id, target_family, target_name FROM targets ORDER BY targets.target_name ASC&quot;</span>;
+<a name="l00145"></a>00145         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00146"></a>00146         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00147"></a>00147                 <span class="keywordflow">foreach</span> ($row as $key =&gt; $value)
+<a name="l00148"></a>00148                                 $this-&gt;_targets[$key][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
+<a name="l00149"></a>00149         mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151         <span class="keywordflow">return</span> $this-&gt;_targets;
+<a name="l00152"></a>00152         }
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00158"></a><a class="code" href="class_spacemission_d_a_o.html#a1051c6419270dc714570ce9383a4b4e9">00158</a> <span class="comment"></span>   <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a1051c6419270dc714570ce9383a4b4e9">get_science_goals</a>()
+<a name="l00159"></a>00159    {
+<a name="l00160"></a>00160                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM science_goals&quot;</span>;
+<a name="l00161"></a>00161         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00162"></a>00162         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00163"></a>00163                         <span class="keywordflow">foreach</span>($row as $key =&gt; $value)
+<a name="l00164"></a>00164                                 $this-&gt;_scienceGoals[$key][$row[<span class="stringliteral">&#39;id&#39;</span>]] = $value;
+<a name="l00165"></a>00165         mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167         <span class="keywordflow">return</span> $this-&gt;_scienceGoals;
+<a name="l00168"></a>00168    }
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00172"></a><a class="code" href="class_spacemission_d_a_o.html#a2b9c39c917a160f00592f33e09acc028">00172</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a2b9c39c917a160f00592f33e09acc028">get_sensor</a>($x_field, $y_field)
+<a name="l00173"></a>00173         {
+<a name="l00174"></a>00174                 <span class="keywordflow">if</span>(isset($this-&gt;_sensors[$x_field][$y_field]))
+<a name="l00175"></a>00175                         <span class="keywordflow">return</span> htmlentities($this-&gt;_sensors[$x_field][$y_field],ENT_QUOTES);
+<a name="l00176"></a>00176                 <span class="keywordflow">else</span>
+<a name="l00177"></a>00177                         <span class="keywordflow">return</span> <a class="code" href="_observatory_create_update_8php.html#a56fa6ea98bf46fdf4fb391a44cbce589">NULL</a>;
+<a name="l00178"></a>00178         }
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00182"></a><a class="code" href="class_spacemission_d_a_o.html#a5a16bde695c76eb9f99d404703ce469a">00182</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a5a16bde695c76eb9f99d404703ce469a">get_scientific_contact</a>($x_field, $y_field, $z_field)
+<a name="l00183"></a>00183         {
+<a name="l00184"></a>00184                 <span class="keywordflow">if</span>(isset($this-&gt;_scientificContacts[$x_field][$y_field][$z_field]))
+<a name="l00185"></a>00185                         <span class="keywordflow">return</span> htmlentities($this-&gt;_scientificContacts[$x_field][$y_field][$z_field],ENT_QUOTES);
+<a name="l00186"></a>00186                 <span class="keywordflow">else</span>
+<a name="l00187"></a>00187                         <span class="keywordflow">return</span> <a class="code" href="_observatory_create_update_8php.html#a56fa6ea98bf46fdf4fb391a44cbce589">NULL</a>;
+<a name="l00188"></a>00188         }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00202"></a><a class="code" href="class_spacemission_d_a_o.html#a72031ae3396a1e30616ba689177109e1">00202</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a72031ae3396a1e30616ba689177109e1" title="gets all existing resources space mission">get_all_resources</a>($page, <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a> = array())
+<a name="l00203"></a>00203         {
+<a name="l00204"></a>00204                 $resources = array();
+<a name="l00205"></a>00205                 <span class="keywordflow">if</span>($page == <span class="stringliteral">&quot;edit&quot;</span>)
+<a name="l00206"></a>00206                         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC&quot;</span>;
+<a name="l00207"></a>00207                 <span class="keywordflow">if</span>($page == <span class="stringliteral">&quot;browse&quot;</span>)
+<a name="l00208"></a>00208                 {
+<a name="l00209"></a>00209                         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions&quot;</span>;
+<a name="l00210"></a>00210 
+<a name="l00212"></a>00212                         $filter_string = implode(<span class="stringliteral">&#39;&#39;</span>, <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>); 
+<a name="l00213"></a>00213                         <span class="keywordflow">if</span>(!empty($filter_string))
+<a name="l00214"></a>00214                                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> .= <span class="stringliteral">&quot; WHERE &quot;</span>;
+<a name="l00215"></a>00215                                 
+<a name="l00216"></a>00216                         $filter_queries = array();
+<a name="l00217"></a>00217                         
+<a name="l00218"></a>00218                         <span class="keywordflow">if</span>(!empty(<a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;agency&quot;</span>]))
+<a name="l00219"></a>00219                                 $filter_queries[] = <span class="stringliteral">&quot;mission_agency=&quot;</span>. <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;agency&quot;</span>];
+<a name="l00220"></a>00220                                 
+<a name="l00221"></a>00221                         <span class="keywordflow">if</span>(!empty(<a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;research_area&quot;</span>]))
+<a name="l00222"></a>00222                         {
+<a name="l00223"></a>00223                                 $filter_queries[] = <span class="stringliteral">&quot;id IN (SELECT space_mission_id FROM space_mission_to_research_areas WHERE &quot;</span> .
+<a name="l00224"></a>00224                                 <span class="stringliteral">&quot;research_area_id=&quot;</span> . <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;research_area&quot;</span>] . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00225"></a>00225                         }
+<a name="l00226"></a>00226                         
+<a name="l00227"></a>00227                         <span class="keywordflow">if</span>(!empty(<a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;target&quot;</span>]))
+<a name="l00228"></a>00228                         {
+<a name="l00229"></a>00229                                 $filter_queries[] = <span class="stringliteral">&quot;id IN (SELECT space_mission_id FROM space_mission_to_targets WHERE &quot;</span> .
+<a name="l00230"></a>00230                                 <span class="stringliteral">&quot;target_id=&quot;</span> . <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;target&quot;</span>] . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00231"></a>00231                         }
+<a name="l00232"></a>00232                         
+<a name="l00234"></a>00234                         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> .= implode(<span class="stringliteral">&quot; AND &quot;</span>, $filter_queries);
+<a name="l00235"></a>00235                         
+<a name="l00236"></a>00236                         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> .= <span class="stringliteral">&quot; ORDER BY mission_name&quot;</span>;
+<a name="l00237"></a>00237                         
+<a name="l00238"></a>00238                         <span class="comment">//DEBUG:</span>
+<a name="l00239"></a>00239                         <span class="comment">//echo $query;</span>
+<a name="l00240"></a>00240                         <span class="comment">//nl();</span>
+<a name="l00241"></a>00241                 }
+<a name="l00242"></a>00242 
+<a name="l00243"></a>00243                 <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00244"></a>00244                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
 <a name="l00245"></a>00245                 {
-<a name="l00246"></a>00246                         <span class="comment">//for each sensor of the requested space mission</span>
-<a name="l00247"></a>00247                         <span class="keywordflow">foreach</span>($row as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; $value)
-<a name="l00249"></a>00249                                 <span class="keywordflow">if</span>($value != <span class="charliteral">&#39;0&#39;</span>)
-<a name="l00250"></a>00250                                 {
-<a name="l00251"></a>00251                                         <span class="keywordflow">if</span>(<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> == <span class="stringliteral">&#39;id&#39;</span>)
-<a name="l00252"></a>00252                                         {
-<a name="l00253"></a>00253                                                 <span class="comment">//save sensors id in sensors</span>
-<a name="l00254"></a>00254                                                 $this-&gt;_hasMany[<span class="stringliteral">&quot;sensors&quot;</span>][] = $value;
-<a name="l00255"></a>00255 
-<a name="l00256"></a>00256                                                 <span class="comment">//get all science goals from current sensor</span>
-<a name="l00257"></a>00257 <span class="comment">//                                              $query_1 = &quot;SELECT science_goal_id FROM sensor_to_science_goals WHERE sensor_id=&quot; . $value;</span>
-<a name="l00258"></a>00258 <span class="comment">//                                              //DEBUG:</span>
-<a name="l00259"></a>00259 <span class="comment">//                                              //echo &quot;Science Goals queries: &quot; . $query_1 . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00260"></a>00260 <span class="comment">//                                              $result_1 = self::$db-&gt;query($query_1);</span>
-<a name="l00261"></a>00261 <span class="comment">//</span>
-<a name="l00262"></a>00262 <span class="comment">//                                              while ($row_1 = mysqli_fetch_array($result_1, MYSQLI_ASSOC))</span>
-<a name="l00263"></a>00263 <span class="comment">//                                                      $this-&gt;_hasMany[&quot;science_goals&quot;][$value][] = $row_1[&quot;science_goal_id&quot;];</span>
-<a name="l00264"></a>00264 <span class="comment">//</span>
-<a name="l00265"></a>00265 <span class="comment">//                                              mysqli_free_result($result_1);</span>
-<a name="l00266"></a>00266 
-<a name="l00267"></a>00267                                                 <span class="comment">//get all scientific contacts from current sensor</span>
-<a name="l00268"></a>00268                                                 $query_2 = <span class="stringliteral">&quot;SELECT * FROM scientific_contacts, sensor_to_scientific_contacts &quot;</span> .
-<a name="l00269"></a>00269                                                 <span class="stringliteral">&quot;WHERE scientific_contacts.id=sensor_to_scientific_contacts.scientific_contact_id &quot;</span>.
-<a name="l00270"></a>00270                                                 <span class="stringliteral">&quot;AND sensor_to_scientific_contacts.sensor_id=&quot;</span> . $value;
-<a name="l00271"></a>00271                                                 <span class="comment">//DEBUG:</span>
-<a name="l00272"></a>00272                                                 <span class="comment">//echo &quot;Scientific Contacts queries: &quot; . $query_2 . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00273"></a>00273                                                 $result_2 = self::$db-&gt;query($query_2);
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275                                                 <span class="keywordflow">while</span> ($row_2 = mysqli_fetch_array($result_2, MYSQLI_ASSOC))
-<a name="l00276"></a>00276                                                 {
-<a name="l00277"></a>00277                                                         <span class="keywordflow">foreach</span>($row_2 as $sc_key =&gt; $sc_value)
-<a name="l00278"></a>00278                                                                 <span class="keywordflow">if</span>($sc_key == <span class="stringliteral">&#39;id&#39;</span>)
-<a name="l00279"></a>00279                                                                         $this-&gt;_hasMany[<span class="stringliteral">&quot;scientific_contacts&quot;</span>][$value][] = $sc_value;
-<a name="l00280"></a>00280                                                                 <span class="keywordflow">else</span>
-<a name="l00281"></a>00281                                                                         $this-&gt;_scientificContacts[$sc_key][$value][] = stripslashes($sc_value);
-<a name="l00282"></a>00282                                                 }
-<a name="l00283"></a>00283                                                 mysqli_free_result($result_2);
-<a name="l00284"></a>00284                                         }
-<a name="l00285"></a>00285                                         <span class="keywordflow">else</span>
-<a name="l00286"></a>00286                                                 $this-&gt;_sensors[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][] = stripslashes($value);
-<a name="l00287"></a>00287                                 }
-<a name="l00288"></a>00288                                 <span class="keywordflow">else</span>
-<a name="l00289"></a>00289                                         $this-&gt;_sensors[<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>][] = <span class="stringliteral">&#39;&#39;</span>;
-<a name="l00290"></a>00290                 }
-<a name="l00291"></a>00291                 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00292"></a>00292         }
-<a name="l00293"></a>00293 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00302"></a><a class="code" href="class_spacemission_d_a_o.html#a44e3878944a848c53bc46d9b260e2e2f">00302</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a44e3878944a848c53bc46d9b260e2e2f" title="adds a new resource space mission">add_resource</a>() {
-<a name="l00303"></a>00303                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_missions (&quot;</span> .
-<a name="l00304"></a>00304                 <span class="stringliteral">&quot;`id`,`mission_name`,`mission_agency`,`launch_date`,`death_date`,`web_address`, `brief_description`, `creation_date`)&quot;</span> .
-<a name="l00305"></a>00305                 <span class="stringliteral">&quot;VALUES(NULL,&#39;&quot;</span> .
-<a name="l00306"></a>00306         addslashes($_POST[<span class="stringliteral">&quot;add_spa_name&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00307"></a>00307         $_POST[<span class="stringliteral">&quot;add_spa_agency_id&quot;</span>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00308"></a>00308         $_POST[<span class="stringliteral">&quot;add_spa_launch&quot;</span>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00309"></a>00309         $_POST[<span class="stringliteral">&quot;add_spa_death&quot;</span>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00310"></a>00310         addslashes($_POST[<span class="stringliteral">&quot;add_spa_web_address&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00311"></a>00311         addslashes($_POST[<span class="stringliteral">&quot;add_spa_brief_desc&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00312"></a>00312         <span class="stringliteral">&quot;NOW())&quot;</span>;
+<a name="l00246"></a>00246                         $resources[$row[<span class="stringliteral">&quot;id&quot;</span>]] = $row;
+<a name="l00247"></a>00247                         <span class="keywordflow">if</span>($page == <span class="stringliteral">&quot;browse&quot;</span>)
+<a name="l00248"></a>00248                         {
+<a name="l00249"></a>00249                                 <span class="comment">//Mission Agency</span>
+<a name="l00250"></a>00250                                 $query2 = <span class="stringliteral">&quot;SELECT acronym, web_address FROM agencies WHERE id=&quot;</span> . $row[<span class="stringliteral">&quot;mission_agency&quot;</span>];
+<a name="l00251"></a>00251                                 $result2 = self::$db-&gt;query($query2);
+<a name="l00252"></a>00252                                 $row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+<a name="l00253"></a>00253                                 $resources[$row[<span class="stringliteral">&quot;id&quot;</span>]][<span class="stringliteral">&quot;agency&quot;</span>] = $row2[<span class="stringliteral">&quot;acronym&quot;</span>];
+<a name="l00254"></a>00254                                 $resources[$row[<span class="stringliteral">&quot;id&quot;</span>]][<span class="stringliteral">&quot;agency_web_address&quot;</span>] = htmlentities($row2[<span class="stringliteral">&quot;web_address&quot;</span>]);
+<a name="l00255"></a>00255                                 mysqli_free_result($result2);
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257                                 <span class="comment">//Targets</span>
+<a name="l00258"></a>00258                                 <a class="code" href="_observatory_create_update_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a> = array();
+<a name="l00259"></a>00259                                 $query2 = <span class="stringliteral">&quot;SELECT target_id FROM space_mission_to_targets WHERE space_mission_id=&quot;</span> . $row[<span class="stringliteral">&quot;id&quot;</span>];
+<a name="l00260"></a>00260                                 $result2 = self::$db-&gt;query($query2);
+<a name="l00261"></a>00261                                 <span class="keywordflow">while</span> ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
+<a name="l00262"></a>00262                                 {
+<a name="l00263"></a>00263                                         $query3 = <span class="stringliteral">&quot;SELECT target_name FROM targets WHERE id=&quot;</span> . $row2[<span class="stringliteral">&quot;target_id&quot;</span>];
+<a name="l00264"></a>00264                                         $result3 = self::$db-&gt;query($query3);
+<a name="l00265"></a>00265                                         $row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
+<a name="l00266"></a>00266                                         $resources[$row[<span class="stringliteral">&quot;id&quot;</span>]][<span class="stringliteral">&quot;targets&quot;</span>][] = htmlentities($row3[<span class="stringliteral">&quot;target_name&quot;</span>]);
+<a name="l00267"></a>00267                                         mysqli_free_result($result3);
+<a name="l00268"></a>00268                                 }
+<a name="l00269"></a>00269                                 mysqli_free_result($result2);
+<a name="l00270"></a>00270                         }
+<a name="l00271"></a>00271                 }
+<a name="l00272"></a>00272                 mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00273"></a>00273 
+<a name="l00274"></a>00274                 <span class="keywordflow">return</span> $resources;
+<a name="l00275"></a>00275         }
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00287"></a><a class="code" href="class_spacemission_d_a_o.html#af4da44a32dcf8ff43358a8c3855688d8">00287</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#af4da44a32dcf8ff43358a8c3855688d8" title="gets an existing resource space mission">get_resource</a>(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>) {
+<a name="l00288"></a>00288                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM space_missions WHERE id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
+<a name="l00289"></a>00289         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00290"></a>00290         <a class="code" href="_observatory_edit_all_old_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC)
+<a name="l00291"></a>00291              or die(<span class="stringliteral">&quot;&lt;br&gt;Error: No such Resource existing!&lt;/b&gt;&quot;</span>);
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293         <span class="comment">//SPACE MISSION TABLE</span>
+<a name="l00294"></a>00294                 <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_edit_all_old_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> as $key =&gt; $value)
+<a name="l00295"></a>00295                         <span class="comment">//check if value is 0000-00-00 since we use DATE in the DB</span>
+<a name="l00296"></a>00296                         <span class="keywordflow">if</span>($value != <span class="stringliteral">&quot;0000-00-00&quot;</span>)
+<a name="l00297"></a>00297                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_$key&quot;</span>] = stripslashes($value);
+<a name="l00298"></a>00298                         <span class="keywordflow">else</span>
+<a name="l00299"></a>00299                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_$key&quot;</span>] = <span class="stringliteral">&#39;&#39;</span>;
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301                 mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00302"></a>00302 
+<a name="l00303"></a>00303         <span class="comment">//Research Areas</span>
+<a name="l00304"></a>00304                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT research_area_id as research_areas FROM space_mission_to_research_areas &quot;</span> .
+<a name="l00305"></a>00305                 <span class="stringliteral">&quot;WHERE space_mission_to_research_areas.space_mission_id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
+<a name="l00306"></a>00306                 <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00307"></a>00307 
+<a name="l00308"></a>00308                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00309"></a>00309                         <span class="keywordflow">foreach</span> ($row as $key =&gt; $value)
+<a name="l00310"></a>00310                                 $this-&gt;_hasMany[$key][] = $value;
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312                 mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
 <a name="l00313"></a>00313 
-<a name="l00314"></a>00314         self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00315"></a>00315         $status = array(<span class="stringliteral">&quot;errno&quot;</span> =&gt; self::$db-&gt;errno(),
-<a name="l00316"></a>00316                         <span class="stringliteral">&quot;error&quot;</span> =&gt; self::$db-&gt;error(),
-<a name="l00317"></a>00317                         <span class="stringliteral">&quot;res_id&quot;</span> =&gt; self::$db-&gt;getLastInsertId());
+<a name="l00314"></a>00314                 <span class="comment">//Targets</span>
+<a name="l00315"></a>00315                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT target_id as targets FROM space_mission_to_targets &quot;</span> .
+<a name="l00316"></a>00316                 <span class="stringliteral">&quot;WHERE space_mission_to_targets.space_mission_id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
+<a name="l00317"></a>00317                 <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
 <a name="l00318"></a>00318 
-<a name="l00319"></a>00319         <span class="keywordflow">return</span> $status;
-<a name="l00320"></a>00320         }
-<a name="l00321"></a>00321 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00332"></a><a class="code" href="class_spacemission_d_a_o.html#a961cb38dec2e082f1c3986b31fa99944">00332</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a961cb38dec2e082f1c3986b31fa99944" title="updates an existing resource space mission">update_resource</a>($res_id) {
-<a name="l00333"></a>00333                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;UPDATE space_missions SET &quot;</span> .
-<a name="l00334"></a>00334                 <span class="stringliteral">&quot;mission_name=&#39;&quot;</span> . addslashes($_POST[<span class="stringliteral">&quot;update_spa_name&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00335"></a>00335                 <span class="stringliteral">&quot;mission_agency=&#39;&quot;</span> . $_POST[<span class="stringliteral">&quot;add_spa_agency_id&quot;</span>] . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00336"></a>00336                 <span class="stringliteral">&quot;launch_date=&#39;&quot;</span> . $_POST[<span class="stringliteral">&quot;add_spa_launch&quot;</span>] . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00337"></a>00337                 <span class="stringliteral">&quot;death_date=&#39;&quot;</span> . $_POST[<span class="stringliteral">&quot;add_spa_death&quot;</span>] . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00338"></a>00338                 <span class="stringliteral">&quot;web_address=&#39;&quot;</span> . addslashes($_POST[<span class="stringliteral">&quot;add_spa_web_address&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00339"></a>00339                 <span class="stringliteral">&quot;brief_description=&#39;&quot;</span> . addslashes($_POST[<span class="stringliteral">&quot;add_spa_brief_desc&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
-<a name="l00340"></a>00340                 <span class="stringliteral">&quot;modification_date=NOW() &quot;</span> .
-<a name="l00341"></a>00341                 <span class="stringliteral">&quot;WHERE id=&quot;</span> . $res_id;
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00344"></a>00344             $status = array(<span class="stringliteral">&quot;errno&quot;</span> =&gt; self::$db-&gt;errno(),
-<a name="l00345"></a>00345                         <span class="stringliteral">&quot;error&quot;</span> =&gt; self::$db-&gt;error(),
-<a name="l00346"></a>00346                         <span class="stringliteral">&quot;res_id&quot;</span> =&gt; $res_id);
-<a name="l00347"></a>00347 
-<a name="l00348"></a>00348                 <span class="keywordflow">return</span> $status;
-<a name="l00349"></a>00349         }
-<a name="l00350"></a>00350 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00362"></a><a class="code" href="class_spacemission_d_a_o.html#a46cd5f59508fe4424112ecee17aefa28">00362</a> <span class="comment"></span>        function <a class="code" href="class_spacemission_d_a_o.html#a46cd5f59508fe4424112ecee17aefa28" title="ADD/UPD/DEL SPACE MISSIONS KEY REFERENCE TABLE ENTRIES.">add_spa_keys</a>($res_id, <a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a>)
-<a name="l00363"></a>00363         {
-<a name="l00364"></a>00364                 <span class="comment">// ------------------------------------------------------------</span>
-<a name="l00365"></a>00365         <span class="comment">// ADD/UPD/DEL (space_mission_to_research_areas &amp; research_areas)</span>
-<a name="l00366"></a>00366             <span class="comment">//called via EDIT</span>
-<a name="l00367"></a>00367             <span class="keywordflow">if</span> (<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Update Entry&quot;</span>)
-<a name="l00368"></a>00368             {
-<a name="l00369"></a>00369               $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448" title="DELETE space_mission_to_research_areas TABLE ENTRIES for given $res_id.">delete_res_areas</a>($res_id);
-<a name="l00370"></a>00370             }
-<a name="l00371"></a>00371             <span class="comment">//called VIA ADD/EDIT</span>
-<a name="l00372"></a>00372             $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134" title="INSERT space_mission_to_research_areas TABLE ENTRIES for given $res_id.">add_res_areas</a>($res_id);
-<a name="l00373"></a>00373 
-<a name="l00374"></a>00374                 <span class="comment">// ------------------------------------------------------------</span>
-<a name="l00375"></a>00375         <span class="comment">// ADD/UPD/DEL (space_mission_to_targets &amp; targets)</span>
-<a name="l00376"></a>00376         <span class="keywordflow">if</span> (<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Update Entry&quot;</span>)
-<a name="l00377"></a>00377                 {
-<a name="l00378"></a>00378                   $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d" title="DELETE space_mission_to_targes TABLE ENTRIES for given $res_id.">delete_targets</a>($res_id);
-<a name="l00379"></a>00379         }
-<a name="l00380"></a>00380         $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0" title="INSERT space_mission_to_targes &amp;amp; targets TABLE ENTRIES for given $res_id.">add_targets</a>($res_id);
-<a name="l00381"></a>00381 
-<a name="l00382"></a>00382         <span class="comment">// ------------------------------------------------------------</span>
-<a name="l00383"></a>00383         <span class="comment">// ADD/UPD/DEL (space_mission_to_sensors &amp; sensors)</span>
-<a name="l00384"></a>00384         <span class="keywordflow">if</span> (<a class="code" href="index_8php.html#a99993f49e7b2e810a4fd3868dda603d7">$action</a> == <span class="stringliteral">&quot;Update Entry&quot;</span>)
-<a name="l00385"></a>00385         {
-<a name="l00386"></a>00386                 $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c" title="DELETE sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">delete_sensors</a>($res_id);
-<a name="l00387"></a>00387         }
-<a name="l00388"></a>00388         $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48" title="INSERT sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">add_sensors</a>($res_id);
-<a name="l00389"></a>00389 
-<a name="l00390"></a>00390         }
-<a name="l00391"></a>00391 
-<a name="l00392"></a>00392 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00401"></a><a class="code" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48">00401</a> <span class="comment"></span>   <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48" title="INSERT sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">add_sensors</a>($res_id)
-<a name="l00402"></a>00402    {
-<a name="l00403"></a>00403                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_spa_sen_name&quot;</span>]))
-<a name="l00404"></a>00404                 {
-<a name="l00405"></a>00405 
-<a name="l00406"></a>00406                         <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_spa_sen_name&quot;</span>] as <a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> =&gt; <a class="code" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a>)
-<a name="l00407"></a>00407                         {
-<a name="l00408"></a>00408                                 <span class="comment">//Check if this sensor fieldset is filled</span>
-<a name="l00409"></a>00409                                 <span class="keywordflow">if</span>(<a class="code" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a> != <span class="stringliteral">&#39;&#39;</span>)
-<a name="l00410"></a>00410                                 {
-<a name="l00411"></a>00411 
-<a name="l00412"></a>00412                                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO sensors (`id`,`sensor_name`,`sensor_type`,`underlying`,`range_begin`,&quot;</span> .
-<a name="l00413"></a>00413                                    <span class="stringliteral">&quot;`range_end`,`units`,`measured`,`resolution`,`field_of_view`,`web_address`, `sensor_comments`) VALUES (NULL,&#39;&quot;</span> .
-<a name="l00414"></a>00414                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_name&quot;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00415"></a>00415                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_type&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00416"></a>00416                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_under&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00417"></a>00417                                               $_POST[<span class="stringliteral">&quot;add_spa_sen_range_beg&quot;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00418"></a>00418                                               $_POST[<span class="stringliteral">&quot;add_spa_sen_range_end&quot;</span>][<a class="code" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00419"></a>00419                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_units&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00420"></a>00420                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_measured&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00421"></a>00421                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_resolution&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00422"></a>00422                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_fov&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00423"></a>00423                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_web&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00424"></a>00424                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sensor_com&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;)&quot;</span>;
-<a name="l00425"></a>00425 
-<a name="l00426"></a>00426                                 <span class="comment">//DEBUG:</span>
-<a name="l00427"></a>00427                                 <span class="comment">//echo &quot;Main Query: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00428"></a>00428 
-<a name="l00429"></a>00429                                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00430"></a>00430                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00431"></a>00431                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting new entry in sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00432"></a>00432 
-<a name="l00433"></a>00433                         <span class="comment">//Save sensor id for additional queries</span>
-<a name="l00434"></a>00434                         $sensor_id = self::$db-&gt;getLastInsertId();
-<a name="l00435"></a>00435 
-<a name="l00436"></a>00436                                 <span class="comment">//Space Mission to Sensors</span>
-<a name="l00437"></a>00437                                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_mission_to_sensors (`space_mission_id`,`sensor_id`)&quot;</span> .
-<a name="l00438"></a>00438                                 <span class="stringliteral">&quot;VALUES (&quot;</span> . $res_id . <span class="stringliteral">&quot;,&quot;</span> .  $sensor_id . <span class="stringliteral">&quot;)&quot;</span>;
-<a name="l00439"></a>00439 
-<a name="l00440"></a>00440                                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00441"></a>00441                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00442"></a>00442                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting new entry in space_mission_to_sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00443"></a>00443 
-<a name="l00444"></a>00444                         <span class="comment">//Sensor to Science Goals</span>
-<a name="l00445"></a>00445                         <span class="comment">//new Science Goals</span>
-<a name="l00446"></a>00446 <span class="comment">//                      if(isset($_POST[&quot;add_sci_goal&quot;][$key]))</span>
-<a name="l00447"></a>00447 <span class="comment">//                      {</span>
-<a name="l00448"></a>00448 <span class="comment">//                              foreach($_POST[&quot;add_sci_goal&quot;][$key] as $id =&gt; $new_sci_goal)</span>
-<a name="l00449"></a>00449 <span class="comment">//                              {</span>
-<a name="l00450"></a>00450 <span class="comment">//                                      if($new_sci_goal != &#39;&#39;)</span>
-<a name="l00451"></a>00451 <span class="comment">//                                      {</span>
-<a name="l00452"></a>00452 <span class="comment">//                                              $query = &quot;INSERT INTO science_goals (&quot; .</span>
-<a name="l00453"></a>00453 <span class="comment">//                                                      &quot;`id`,`acronym`,`name`)&quot;. &quot; VALUES (NULL, &#39;&quot; .</span>
-<a name="l00454"></a>00454 <span class="comment">//                                                      addslashes($_POST[&quot;add_sci_acro&quot;][$key][$id]) . &quot;&#39;, &#39;&quot; .</span>
-<a name="l00455"></a>00455 <span class="comment">//                                              addslashes($new_sci_goal) . &quot;&#39;)&quot;;</span>
-<a name="l00456"></a>00456 <span class="comment">//</span>
-<a name="l00457"></a>00457 <span class="comment">//                                              self::$db-&gt;query($query);</span>
-<a name="l00458"></a>00458 <span class="comment">//                                              if (self::$db-&gt;errno() != 0)</span>
-<a name="l00459"></a>00459 <span class="comment">//                                                      print &quot;&lt;H4&gt;Error inserting new entry in science_goals!&lt;/H4&gt;&quot; . LF;</span>
-<a name="l00460"></a>00460 <span class="comment">//</span>
-<a name="l00461"></a>00461 <span class="comment">//                                              //push new id into add_spa_sci_goal_ids</span>
-<a name="l00462"></a>00462 <span class="comment">//                                              /** @todo we need to check if the array is existing or put validation in JS */</span>
-<a name="l00463"></a>00463 <span class="comment">//                                                      array_push($_POST[&quot;add_spa_sci_goal_ids&quot;][$key], self::$db-&gt;getLastInsertId());</span>
-<a name="l00464"></a>00464 <span class="comment">//                                      }</span>
-<a name="l00465"></a>00465 <span class="comment">//                              }</span>
-<a name="l00466"></a>00466 <span class="comment">//                      }</span>
-<a name="l00467"></a>00467 <span class="comment">//</span>
-<a name="l00468"></a>00468 <span class="comment">//                      if(isset($_POST[&quot;add_spa_sci_goal_ids&quot;][$key]))</span>
-<a name="l00469"></a>00469 <span class="comment">//                              foreach($_POST[&quot;add_spa_sci_goal_ids&quot;][$key] as $sci_goal_id)</span>
-<a name="l00470"></a>00470 <span class="comment">//                              {</span>
-<a name="l00471"></a>00471 <span class="comment">//                                      //check if sci goal id is not empty and 100000 (other)</span>
-<a name="l00472"></a>00472 <span class="comment">//                                      /** @todo maybe obsolete */</span>
-<a name="l00473"></a>00473 <span class="comment">//                                      if(($sci_goal_id != &#39;&#39;) &amp;&amp; ($sci_goal_id != 100000))</span>
-<a name="l00474"></a>00474 <span class="comment">//                                      {</span>
-<a name="l00475"></a>00475 <span class="comment">//                                              $query = &quot;INSERT INTO sensor_to_science_goals (`sensor_id`,`science_goal_id`) &quot; .</span>
-<a name="l00476"></a>00476 <span class="comment">//                                              &quot;VALUES (&quot; . $sensor_id . &quot;,&quot; . $sci_goal_id . &quot;)&quot;;</span>
-<a name="l00477"></a>00477 <span class="comment">//                                              //DEBUG:</span>
-<a name="l00478"></a>00478 <span class="comment">//                                              //echo &quot;sensor_to_science_goals - Query: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00479"></a>00479 <span class="comment">//                                              self::$db-&gt;query($query);</span>
-<a name="l00480"></a>00480 <span class="comment">//                                      if (self::$db-&gt;errno() != 0)</span>
-<a name="l00481"></a>00481 <span class="comment">//                                              print &quot;&lt;H4&gt;Error inserting new entry in sensors_to_science_goals!&lt;/H4&gt;&quot; . LF;</span>
-<a name="l00482"></a>00482 <span class="comment">//                                      }</span>
-<a name="l00483"></a>00483 <span class="comment">//                                      }</span>
-<a name="l00484"></a>00484 
-<a name="l00485"></a>00485                                 <span class="comment">//Scientific Contacts</span>
-<a name="l00486"></a>00486                                 <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_spa_sci_con_name&quot;</span>][$key] as $sci_con_key =&gt; $sci_con_line)
-<a name="l00487"></a>00487                                 {
-<a name="l00488"></a>00488                                         <span class="comment">// check if a name is written in the line</span>
-<a name="l00489"></a>00489                                         <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;add_spa_sci_con_name&quot;</span>][$key][$sci_con_key] != <span class="stringliteral">&quot;&quot;</span>)
-<a name="l00490"></a>00490                                         {
-<a name="l00491"></a>00491 
-<a name="l00492"></a>00492                                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO scientific_contacts VALUES (NULL,&#39;&quot;</span> .
-<a name="l00493"></a>00493                                         addslashes($_POST[<span class="stringliteral">&quot;add_spa_sci_con_name&quot;</span>][$key][$sci_con_key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00494"></a>00494                                         addslashes($_POST[<span class="stringliteral">&quot;add_spa_sci_con_email&quot;</span>][$key][$sci_con_key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
-<a name="l00495"></a>00495                                         addslashes($_POST[<span class="stringliteral">&quot;add_spa_sci_con_institution&quot;</span>][$key][$sci_con_key]) . <span class="stringliteral">&quot;&#39;)&quot;</span>;
-<a name="l00496"></a>00496 
-<a name="l00497"></a>00497                                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00498"></a>00498                                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00499"></a>00499                                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting scientific_contacts!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00500"></a>00500 
-<a name="l00501"></a>00501                                         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO sensor_to_scientific_contacts VALUES (&quot;</span> . $sensor_id .
-<a name="l00502"></a>00502                                                      <span class="stringliteral">&quot;,&quot;</span> . self::$db-&gt;getLastInsertId() . <span class="stringliteral">&quot;)&quot;</span>;
-<a name="l00503"></a>00503 
-<a name="l00504"></a>00504                                         self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00505"></a>00505                                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00506"></a>00506                                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting sensor_to_scientific_contacts!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00507"></a>00507                                         }
-<a name="l00508"></a>00508                                 }
-<a name="l00509"></a>00509                                 }
-<a name="l00510"></a>00510                         }
-<a name="l00511"></a>00511                 }
-<a name="l00512"></a>00512    }
-<a name="l00513"></a>00513 
-<a name="l00514"></a>00514 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00523"></a><a class="code" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c">00523</a> <span class="comment"></span>   <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c" title="DELETE sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">delete_sensors</a>($res_id)
-<a name="l00524"></a>00524    {
-<a name="l00525"></a>00525         <span class="comment">//Space Mission To Sensors</span>
-<a name="l00526"></a>00526      <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM space_mission_to_sensors WHERE &quot;</span> .
-<a name="l00527"></a>00527                <span class="stringliteral">&quot;space_mission_id=&quot;</span> . $res_id;
-<a name="l00528"></a>00528 
-<a name="l00529"></a>00529      <span class="comment">//DEBUG:</span>
-<a name="l00530"></a>00530      <span class="comment">//echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00531"></a>00531          self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00532"></a>00532          <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00533"></a>00533                       print <span class="stringliteral">&quot;&lt;H4&gt;Error deleting entry in space_mission_to_sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00534"></a>00534 
-<a name="l00535"></a>00535          <span class="comment">//Sensor</span>
-<a name="l00536"></a>00536          <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_spa_sensor_ids&quot;</span>]))
-<a name="l00537"></a>00537            <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_spa_sensor_ids&quot;</span>] as $sen_id)
-<a name="l00538"></a>00538            {
-<a name="l00539"></a>00539          <span class="comment">//we need to check for empty values (because of cloning hidden fields)</span>
-<a name="l00540"></a>00540          <span class="keywordflow">if</span>($sen_id != <span class="stringliteral">&#39;&#39;</span>)
-<a name="l00541"></a>00541          {
-<a name="l00542"></a>00542 
-<a name="l00543"></a>00543                 <span class="comment">//Scientific Contacts</span>
-<a name="l00544"></a>00544                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM scientific_contacts WHERE id IN &quot;</span> . <span class="stringliteral">&quot;</span>
-<a name="l00545"></a>00545 <span class="stringliteral">                (SELECT scientific_contact_id FROM sensor_to_scientific_contacts WHERE sensor_id=&quot;</span> . $sen_id . <span class="stringliteral">&quot;)&quot;</span>;
-<a name="l00546"></a>00546                         <span class="comment">//DEBUG:</span>
-<a name="l00547"></a>00547                 <span class="comment">//echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00548"></a>00548                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00549"></a>00549                 <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00550"></a>00550                         print <span class="stringliteral">&quot;&lt;H4&gt;Error deleting entry in sensor_to_scientific_contacts!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00551"></a>00551 
-<a name="l00552"></a>00552 
-<a name="l00553"></a>00553                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM sensors WHERE id=&quot;</span> . $sen_id;
-<a name="l00554"></a>00554 
-<a name="l00555"></a>00555                 <span class="comment">//DEBUG:</span>
-<a name="l00556"></a>00556                 <span class="comment">//echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00557"></a>00557                 <span class="comment">//echo &quot;SEN_ID&quot; . $sen_id . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00558"></a>00558                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00559"></a>00559                 <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00560"></a>00560                         print <span class="stringliteral">&quot;&lt;H4&gt;Error deleting entry in sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00561"></a>00561 
-<a name="l00562"></a>00562                 <span class="comment">//Sensor to Science Goals (maybe obsolete)</span>
-<a name="l00563"></a>00563 <span class="comment">//              $query = &quot;DELETE FROM sensor_to_science_goals WHERE sensor_id=&quot; . $sen_id;</span>
-<a name="l00564"></a>00564 <span class="comment">//                      //DEBUG:</span>
-<a name="l00565"></a>00565 <span class="comment">//              //echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
-<a name="l00566"></a>00566 <span class="comment">//              self::$db-&gt;query($query);</span>
-<a name="l00567"></a>00567 <span class="comment">//              if (mysqli_errno(self::$db) != 0)</span>
-<a name="l00568"></a>00568 <span class="comment">//                      print &quot;&lt;H4&gt;Error deleting entry in sensor_to_science_goals!&lt;/H4&gt;&quot; . LF;</span>
-<a name="l00569"></a>00569 
-<a name="l00570"></a>00570          }
-<a name="l00571"></a>00571            }
-<a name="l00572"></a>00572    }
-<a name="l00573"></a>00573 
-<a name="l00574"></a>00574 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00583"></a><a class="code" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134">00583</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134" title="INSERT space_mission_to_research_areas TABLE ENTRIES for given $res_id.">add_res_areas</a>($res_id)
-<a name="l00584"></a>00584     {
-<a name="l00585"></a>00585                 <span class="comment">//adding new areas</span>
-<a name="l00586"></a>00586                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_res_are&quot;</span>]))
-<a name="l00587"></a>00587                 {
-<a name="l00588"></a>00588                         <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_res_are&quot;</span>] as $new_res_are)
-<a name="l00589"></a>00589                         {
-<a name="l00590"></a>00590                                 <span class="comment">//insert new area in research_areas</span>
-<a name="l00592"></a>00592 <span class="comment"></span>                                <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO research_areas (&quot;</span> .
-<a name="l00593"></a>00593                                 <span class="stringliteral">&quot;`id`,`name`)&quot;</span>. <span class="stringliteral">&quot; VALUES (NULL, &#39;&quot;</span> .
-<a name="l00594"></a>00594                                 addslashes($new_res_are) . <span class="stringliteral">&quot;&#39;)&quot;</span>;
+<a name="l00319"></a>00319                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00320"></a>00320                         <span class="keywordflow">foreach</span>($row as $key =&gt; $value)
+<a name="l00321"></a>00321                                 $this-&gt;_hasMany[$key][] = $value;
+<a name="l00322"></a>00322 
+<a name="l00323"></a>00323                 mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00324"></a>00324 
+<a name="l00325"></a>00325                 <span class="comment">//Sensor Table and according Science Goals/Scientific Contacts</span>
+<a name="l00326"></a>00326                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM sensors, space_mission_to_sensors &quot;</span> .
+<a name="l00327"></a>00327                 <span class="stringliteral">&quot;WHERE sensors.id=space_mission_to_sensors.sensor_id &quot;</span> .
+<a name="l00328"></a>00328                 <span class="stringliteral">&quot;AND space_mission_to_sensors.space_mission_id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
+<a name="l00329"></a>00329                 <span class="comment">//DEBUG:</span>
+<a name="l00330"></a>00330                 <span class="comment">//echo &quot;Sensor query: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00331"></a>00331                 <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00332"></a>00332 
+<a name="l00333"></a>00333                 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00334"></a>00334                 {
+<a name="l00335"></a>00335                         <span class="comment">//for each sensor of the requested space mission</span>
+<a name="l00336"></a>00336                         <span class="keywordflow">foreach</span>($row as $key =&gt; $value)
+<a name="l00337"></a>00337                                 <span class="comment">//check if value is 0 since we use FLOAT in the DB</span>
+<a name="l00338"></a>00338                                 <span class="keywordflow">if</span>($value != <span class="charliteral">&#39;0&#39;</span>)
+<a name="l00339"></a>00339                                 {
+<a name="l00340"></a>00340                                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&#39;id&#39;</span>)
+<a name="l00341"></a>00341                                         {
+<a name="l00342"></a>00342                                                 <span class="comment">//save sensors id in sensors</span>
+<a name="l00343"></a>00343                                                 $this-&gt;_hasMany[<span class="stringliteral">&quot;sensors&quot;</span>][] = $value;
+<a name="l00344"></a>00344 
+<a name="l00345"></a>00345                                                 <span class="comment">//get all science goals from current sensor</span>
+<a name="l00346"></a>00346 <span class="comment">//                                              $query_1 = &quot;SELECT science_goal_id FROM sensor_to_science_goals WHERE sensor_id=&quot; . $value;</span>
+<a name="l00347"></a>00347 <span class="comment">//                                              //DEBUG:</span>
+<a name="l00348"></a>00348 <span class="comment">//                                              //echo &quot;Science Goals queries: &quot; . $query_1 . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00349"></a>00349 <span class="comment">//                                              $result_1 = self::$db-&gt;query($query_1);</span>
+<a name="l00350"></a>00350 <span class="comment">//</span>
+<a name="l00351"></a>00351 <span class="comment">//                                              while ($row_1 = mysqli_fetch_array($result_1, MYSQLI_ASSOC))</span>
+<a name="l00352"></a>00352 <span class="comment">//                                                      $this-&gt;_hasMany[&quot;science_goals&quot;][$value][] = $row_1[&quot;science_goal_id&quot;];</span>
+<a name="l00353"></a>00353 <span class="comment">//</span>
+<a name="l00354"></a>00354 <span class="comment">//                                              mysqli_free_result($result_1);</span>
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356                                                 <span class="comment">//get all scientific contacts from current sensor</span>
+<a name="l00357"></a>00357                                                 $query_2 = <span class="stringliteral">&quot;SELECT * FROM scientific_contacts, sensor_to_scientific_contacts &quot;</span> .
+<a name="l00358"></a>00358                                                 <span class="stringliteral">&quot;WHERE scientific_contacts.id=sensor_to_scientific_contacts.scientific_contact_id &quot;</span>.
+<a name="l00359"></a>00359                                                 <span class="stringliteral">&quot;AND sensor_to_scientific_contacts.sensor_id=&quot;</span> . $value;
+<a name="l00360"></a>00360                                                 <span class="comment">//DEBUG:</span>
+<a name="l00361"></a>00361                                                 <span class="comment">//echo &quot;Scientific Contacts queries: &quot; . $query_2 . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00362"></a>00362                                                 $result_2 = self::$db-&gt;query($query_2);
+<a name="l00363"></a>00363 
+<a name="l00364"></a>00364                                                 <span class="keywordflow">while</span> ($row_2 = mysqli_fetch_array($result_2, MYSQLI_ASSOC))
+<a name="l00365"></a>00365                                                 {
+<a name="l00366"></a>00366                                                         <span class="keywordflow">foreach</span>($row_2 as $sc_key =&gt; $sc_value)
+<a name="l00367"></a>00367                                                                 <span class="keywordflow">if</span>($sc_key == <span class="stringliteral">&#39;id&#39;</span>)
+<a name="l00368"></a>00368                                                                         $this-&gt;_hasMany[<span class="stringliteral">&quot;scientific_contacts&quot;</span>][$value][] = $sc_value;
+<a name="l00369"></a>00369                                                                 <span class="keywordflow">else</span>
+<a name="l00370"></a>00370                                                                         $this-&gt;_scientificContacts[$sc_key][$value][] = stripslashes($sc_value);
+<a name="l00371"></a>00371                                                 }
+<a name="l00372"></a>00372                                                 mysqli_free_result($result_2);
+<a name="l00373"></a>00373                                         }
+<a name="l00374"></a>00374                                         <span class="keywordflow">else</span>
+<a name="l00375"></a>00375                                                 $this-&gt;_sensors[$key][] = stripslashes($value);
+<a name="l00376"></a>00376                                 }
+<a name="l00377"></a>00377                                 <span class="keywordflow">else</span>
+<a name="l00378"></a>00378                                         $this-&gt;_sensors[$key][] = <span class="stringliteral">&#39;&#39;</span>;
+<a name="l00379"></a>00379                 }
+<a name="l00380"></a>00380                 mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00381"></a>00381         }
+<a name="l00382"></a>00382 
+<a name="l00383"></a>00383 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00392"></a><a class="code" href="class_spacemission_d_a_o.html#a8d62f6aebbfe8eefd40b3e6cb5bd93e6">00392</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a8d62f6aebbfe8eefd40b3e6cb5bd93e6" title="gets an Old NA1 DB space mission resource">get_old_resource</a>(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>) {
+<a name="l00393"></a>00393 
+<a name="l00394"></a>00394                 <span class="comment">//OLD NA1 - maintable Table:</span>
+<a name="l00395"></a>00395                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM maintable WHERE id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
+<a name="l00396"></a>00396         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00397"></a>00397         <a class="code" href="_observatory_edit_all_old_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC)
+<a name="l00398"></a>00398                 or die(<span class="stringliteral">&quot;&lt;br&gt;Error: No such Resource existing!&lt;/b&gt;&quot;</span>);
+<a name="l00399"></a>00399         mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00400"></a>00400 
+<a name="l00401"></a>00401         <span class="keywordflow">foreach</span> (<a class="code" href="_observatory_edit_all_old_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> as $key =&gt; $value)
+<a name="l00402"></a>00402                 {
+<a name="l00403"></a>00403                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Mission&quot;</span>)
+<a name="l00404"></a>00404                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_mission_name&quot;</span>] = stripslashes($value);
+<a name="l00405"></a>00405                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Agency&quot;</span>)
+<a name="l00406"></a>00406                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_brief_description&quot;</span>] = <span class="stringliteral">&quot;Agency: &quot;</span> . stripslashes($value) . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00407"></a>00407                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Launch&quot;</span>)
+<a name="l00408"></a>00408                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_launch_date&quot;</span>] = stripslashes($value);
+<a name="l00409"></a>00409                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Death&quot;</span>)
+<a name="l00410"></a>00410                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_death_date&quot;</span>] = stripslashes($value);
+<a name="l00411"></a>00411                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Orbit&quot;</span>)
+<a name="l00412"></a>00412                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_brief_description&quot;</span>] .= <span class="stringliteral">&quot;Orbit: &quot;</span> . stripslashes($value) . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00413"></a>00413                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Notes&quot;</span>)
+<a name="l00414"></a>00414                                 $this-&gt;_fields[<span class="stringliteral">&quot;spa_brief_description&quot;</span>] .= <span class="stringliteral">&quot;Notes: &quot;</span> . stripslashes($value) . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00415"></a>00415                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;sid&quot;</span>)
+<a name="l00416"></a>00416                                 $spaId = stripslashes($value);
+<a name="l00417"></a>00417                 }
+<a name="l00418"></a>00418 
+<a name="l00419"></a>00419                 <span class="comment">//OLD NA1 - sensors Table</span>
+<a name="l00420"></a>00420                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT * FROM sensors WHERE sid=&quot;</span> . $spaId;
+<a name="l00421"></a>00421         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00422"></a>00422 
+<a name="l00423"></a>00423         $counter = 0;
+<a name="l00424"></a>00424         <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00425"></a>00425                 {
+<a name="l00426"></a>00426 
+<a name="l00427"></a>00427                 <span class="keywordflow">foreach</span> ($row as $key =&gt; $value)
+<a name="l00428"></a>00428                 {
+<a name="l00429"></a>00429                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;sid&quot;</span>)
+<a name="l00430"></a>00430                                 $this-&gt;_hasMany[<span class="stringliteral">&quot;sensors&quot;</span>][] = $counter;
+<a name="l00431"></a>00431                                 <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Sensor&quot;</span>)
+<a name="l00432"></a>00432                                 $this-&gt;_sensors[<span class="stringliteral">&quot;sensor_name&quot;</span>][] = stripslashes($value);
+<a name="l00433"></a>00433                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;Type&quot;</span>)
+<a name="l00434"></a>00434                                 $this-&gt;_sensors[<span class="stringliteral">&quot;sensor_type&quot;</span>][] = stripslashes($value);
+<a name="l00435"></a>00435                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;underlying&quot;</span>)
+<a name="l00436"></a>00436                                 $this-&gt;_sensors[<span class="stringliteral">&quot;underlying&quot;</span>][] = stripslashes($value);
+<a name="l00437"></a>00437                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;rangebegin&quot;</span>)
+<a name="l00438"></a>00438                                 $this-&gt;_sensors[<span class="stringliteral">&quot;range_begin&quot;</span>][] = floatval($value);
+<a name="l00439"></a>00439                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;rangeend&quot;</span>)
+<a name="l00440"></a>00440                                 $this-&gt;_sensors[<span class="stringliteral">&quot;range_end&quot;</span>][] = ($value != <span class="stringliteral">&quot;&quot;</span>) ? floatval($value) : <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00441"></a>00441                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;units&quot;</span>)
+<a name="l00442"></a>00442                                 $this-&gt;_sensors[<span class="stringliteral">&quot;units&quot;</span>][] = stripslashes($value);
+<a name="l00443"></a>00443                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;measured&quot;</span>)
+<a name="l00444"></a>00444                                 $this-&gt;_sensors[<span class="stringliteral">&quot;measured&quot;</span>][] = stripslashes($value);
+<a name="l00445"></a>00445                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;resolution&quot;</span>)
+<a name="l00446"></a>00446                                 $this-&gt;_sensors[<span class="stringliteral">&quot;resolution&quot;</span>][] = stripslashes($value);
+<a name="l00447"></a>00447                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;fov&quot;</span>)
+<a name="l00448"></a>00448                                 $this-&gt;_sensors[<span class="stringliteral">&quot;field_of_view&quot;</span>][] = stripslashes($value);
+<a name="l00449"></a>00449                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;sciencegoals&quot;</span>)
+<a name="l00450"></a>00450                                 $this-&gt;_sensors[<span class="stringliteral">&quot;sensor_comments&quot;</span>][] = <span class="stringliteral">&quot;SciGoals: &quot;</span> . stripslashes($value) . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00451"></a>00451                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;prin_inv&quot;</span>)
+<a name="l00452"></a>00452                                 $this-&gt;_scientificContacts[<span class="stringliteral">&quot;name&quot;</span>][$counter][] = stripslashes($value);
+<a name="l00453"></a>00453                         <span class="keywordflow">if</span>($key == <span class="stringliteral">&quot;prin_inv_con&quot;</span>)
+<a name="l00454"></a>00454                                 $this-&gt;_scientificContacts[<span class="stringliteral">&quot;email&quot;</span>][$counter][] = stripslashes($value);
+<a name="l00455"></a>00455 
+<a name="l00456"></a>00456                 }
+<a name="l00457"></a>00457                 $counter++;
+<a name="l00458"></a>00458                 }
+<a name="l00459"></a>00459                 mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00460"></a>00460         }
+<a name="l00461"></a>00461 
+<a name="l00462"></a>00462 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00471"></a><a class="code" href="class_spacemission_d_a_o.html#a44e3878944a848c53bc46d9b260e2e2f">00471</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a44e3878944a848c53bc46d9b260e2e2f" title="adds a new resource space mission">add_resource</a>() {
+<a name="l00472"></a>00472                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_missions (&quot;</span> .
+<a name="l00473"></a>00473                 <span class="stringliteral">&quot;`id`,`mission_name`,`mission_agency`,`launch_date`,`death_date`,`web_address`, `brief_description`, `creation_date`)&quot;</span> .
+<a name="l00474"></a>00474                 <span class="stringliteral">&quot;VALUES(NULL,&#39;&quot;</span> .
+<a name="l00475"></a>00475         addslashes($_POST[<span class="stringliteral">&quot;add_spa_name&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00476"></a>00476         $_POST[<span class="stringliteral">&quot;add_spa_agency_id&quot;</span>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00477"></a>00477         $_POST[<span class="stringliteral">&quot;add_spa_launch&quot;</span>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00478"></a>00478         $_POST[<span class="stringliteral">&quot;add_spa_death&quot;</span>] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00479"></a>00479         addslashes($_POST[<span class="stringliteral">&quot;add_spa_web_address&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00480"></a>00480         addslashes($_POST[<span class="stringliteral">&quot;add_spa_brief_desc&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00481"></a>00481         <span class="stringliteral">&quot;NOW())&quot;</span>;
+<a name="l00482"></a>00482 
+<a name="l00483"></a>00483         self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00484"></a>00484         $status = array(<span class="stringliteral">&quot;errno&quot;</span> =&gt; self::$db-&gt;errno(),
+<a name="l00485"></a>00485                         <span class="stringliteral">&quot;error&quot;</span> =&gt; self::$db-&gt;error(),
+<a name="l00486"></a>00486                         <span class="stringliteral">&quot;res_id&quot;</span> =&gt; self::$db-&gt;getLastInsertId());
+<a name="l00487"></a>00487 
+<a name="l00488"></a>00488         <span class="keywordflow">return</span> $status;
+<a name="l00489"></a>00489         }
+<a name="l00490"></a>00490 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00501"></a><a class="code" href="class_spacemission_d_a_o.html#a961cb38dec2e082f1c3986b31fa99944">00501</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#a961cb38dec2e082f1c3986b31fa99944" title="updates an existing resource space mission">update_resource</a>($res_id) {
+<a name="l00502"></a>00502                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;UPDATE space_missions SET &quot;</span> .
+<a name="l00503"></a>00503                 <span class="stringliteral">&quot;mission_name=&#39;&quot;</span> . addslashes($_POST[<span class="stringliteral">&quot;update_spa_name&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00504"></a>00504                 <span class="stringliteral">&quot;mission_agency=&#39;&quot;</span> . $_POST[<span class="stringliteral">&quot;add_spa_agency_id&quot;</span>] . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00505"></a>00505                 <span class="stringliteral">&quot;launch_date=&#39;&quot;</span> . $_POST[<span class="stringliteral">&quot;add_spa_launch&quot;</span>] . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00506"></a>00506                 <span class="stringliteral">&quot;death_date=&#39;&quot;</span> . $_POST[<span class="stringliteral">&quot;add_spa_death&quot;</span>] . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00507"></a>00507                 <span class="stringliteral">&quot;web_address=&#39;&quot;</span> . addslashes($_POST[<span class="stringliteral">&quot;add_spa_web_address&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00508"></a>00508                 <span class="stringliteral">&quot;brief_description=&#39;&quot;</span> . addslashes($_POST[<span class="stringliteral">&quot;add_spa_brief_desc&quot;</span>]) . <span class="stringliteral">&quot;&#39;,&quot;</span> .
+<a name="l00509"></a>00509                 <span class="stringliteral">&quot;modification_date=NOW() &quot;</span> .
+<a name="l00510"></a>00510                 <span class="stringliteral">&quot;WHERE id=&quot;</span> . $res_id;
+<a name="l00511"></a>00511 
+<a name="l00512"></a>00512                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00513"></a>00513             $status = array(<span class="stringliteral">&quot;errno&quot;</span> =&gt; self::$db-&gt;errno(),
+<a name="l00514"></a>00514                         <span class="stringliteral">&quot;error&quot;</span> =&gt; self::$db-&gt;error(),
+<a name="l00515"></a>00515                         <span class="stringliteral">&quot;res_id&quot;</span> =&gt; $res_id);
+<a name="l00516"></a>00516 
+<a name="l00517"></a>00517                 <span class="keywordflow">return</span> $status;
+<a name="l00518"></a>00518         }
+<a name="l00519"></a>00519 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00529"></a><a class="code" href="class_spacemission_d_a_o.html#a46cd5f59508fe4424112ecee17aefa28">00529</a> <span class="comment"></span>        function <a class="code" href="class_spacemission_d_a_o.html#a46cd5f59508fe4424112ecee17aefa28" title="ADD/UPD/DEL SPACE MISSIONS KEY REFERENCE TABLE ENTRIES.">add_spa_keys</a>($res_id, $action)
+<a name="l00530"></a>00530         {
+<a name="l00531"></a>00531                 <span class="comment">// ------------------------------------------------------------</span>
+<a name="l00532"></a>00532         <span class="comment">// ADD/UPD/DEL (space_mission_to_research_areas &amp; research_areas)</span>
+<a name="l00533"></a>00533             <span class="comment">//called via EDIT</span>
+<a name="l00534"></a>00534             <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;Update Entry&quot;</span>)
+<a name="l00535"></a>00535             {
+<a name="l00536"></a>00536               $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448" title="DELETE space_mission_to_research_areas TABLE ENTRIES for given $res_id.">delete_res_areas</a>($res_id);
+<a name="l00537"></a>00537             }
+<a name="l00538"></a>00538             <span class="comment">//called VIA ADD/EDIT</span>
+<a name="l00539"></a>00539             $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134" title="INSERT space_mission_to_research_areas TABLE ENTRIES for given $res_id.">add_res_areas</a>($res_id);
+<a name="l00540"></a>00540 
+<a name="l00541"></a>00541                 <span class="comment">// ------------------------------------------------------------</span>
+<a name="l00542"></a>00542         <span class="comment">// ADD/UPD/DEL (space_mission_to_targets &amp; targets)</span>
+<a name="l00543"></a>00543         <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;Update Entry&quot;</span>)
+<a name="l00544"></a>00544                 {
+<a name="l00545"></a>00545                   $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d" title="DELETE space_mission_to_targes TABLE ENTRIES for given $res_id.">delete_targets</a>($res_id);
+<a name="l00546"></a>00546         }
+<a name="l00547"></a>00547         $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0" title="INSERT space_mission_to_targes &amp;amp; targets TABLE ENTRIES for given $res_id.">add_targets</a>($res_id);
+<a name="l00548"></a>00548 
+<a name="l00549"></a>00549         <span class="comment">// ------------------------------------------------------------</span>
+<a name="l00550"></a>00550         <span class="comment">// ADD/UPD/DEL (space_mission_to_sensors &amp; sensors)</span>
+<a name="l00551"></a>00551         <span class="keywordflow">if</span> ($action == <span class="stringliteral">&quot;Update Entry&quot;</span>)
+<a name="l00552"></a>00552         {
+<a name="l00553"></a>00553                 $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c" title="DELETE sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">delete_sensors</a>($res_id);
+<a name="l00554"></a>00554         }
+<a name="l00555"></a>00555         $this-&gt;<a class="code" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48" title="INSERT sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">add_sensors</a>($res_id);
+<a name="l00556"></a>00556 
+<a name="l00557"></a>00557         }
+<a name="l00558"></a>00558 
+<a name="l00559"></a>00559 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00568"></a><a class="code" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48">00568</a> <span class="comment"></span>   <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#ad714c6b9be9a2b2d268db0a467fdba48" title="INSERT sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">add_sensors</a>($res_id)
+<a name="l00569"></a>00569    {
+<a name="l00570"></a>00570                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_spa_sen_name&quot;</span>]))
+<a name="l00571"></a>00571                 {
+<a name="l00572"></a>00572 
+<a name="l00573"></a>00573                         <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_spa_sen_name&quot;</span>] as $key =&gt; <a class="code" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a>)
+<a name="l00574"></a>00574                         {
+<a name="l00575"></a>00575                                 <span class="comment">//Check if this sensor fieldset is filled</span>
+<a name="l00576"></a>00576                                 <span class="keywordflow">if</span>(<a class="code" href="observatories_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a> != <span class="stringliteral">&#39;&#39;</span>)
+<a name="l00577"></a>00577                                 {
+<a name="l00578"></a>00578 
+<a name="l00579"></a>00579                                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO sensors (`id`,`sensor_name`,`sensor_type`,`underlying`,`range_begin`,&quot;</span> .
+<a name="l00580"></a>00580                                    <span class="stringliteral">&quot;`range_end`,`units`,`measured`,`resolution`,`field_of_view`,`web_address`, `sensor_comments`) VALUES (NULL,&#39;&quot;</span> .
+<a name="l00581"></a>00581                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_name&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00582"></a>00582                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_type&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00583"></a>00583                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_under&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00584"></a>00584                                               $_POST[<span class="stringliteral">&quot;add_spa_sen_range_beg&quot;</span>][$key] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00585"></a>00585                                               $_POST[<span class="stringliteral">&quot;add_spa_sen_range_end&quot;</span>][$key] . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00586"></a>00586                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_units&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00587"></a>00587                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_measured&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00588"></a>00588                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_resolution&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00589"></a>00589                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_fov&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00590"></a>00590                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sen_web&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00591"></a>00591                                    addslashes($_POST[<span class="stringliteral">&quot;add_spa_sensor_com&quot;</span>][$key]) . <span class="stringliteral">&quot;&#39;)&quot;</span>;
+<a name="l00592"></a>00592 
+<a name="l00593"></a>00593                                 <span class="comment">//DEBUG:</span>
+<a name="l00594"></a>00594                                 <span class="comment">//echo &quot;Main Query: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
 <a name="l00595"></a>00595 
-<a name="l00596"></a>00596                                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00596"></a>00596                                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
 <a name="l00597"></a>00597                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00598"></a>00598                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting new entry in research_areas!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00598"></a>00598                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting new entry in sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00599"></a>00599 
-<a name="l00600"></a>00600                                 <span class="comment">//push new id into add_obs_res_are_ids</span>
-<a name="l00601"></a>00601                                 array_push($_POST[<span class="stringliteral">&quot;add_spa_res_are_ids&quot;</span>], self::$db-&gt;getLastInsertId());
-<a name="l00602"></a>00602                         }
-<a name="l00603"></a>00603                 }
-<a name="l00604"></a>00604 
-<a name="l00605"></a>00605                 <span class="keywordflow">foreach</span> ($_POST[<span class="stringliteral">&quot;add_spa_res_are_ids&quot;</span>] as $res_are_id)
-<a name="l00606"></a>00606             {
-<a name="l00607"></a>00607                         <span class="comment">//check if res id is empty and 100000 (other)</span>
-<a name="l00608"></a>00608                 <span class="keywordflow">if</span>(($res_are_id != <span class="stringliteral">&#39;&#39;</span>) &amp;&amp; ($res_are_id != 100000))
-<a name="l00609"></a>00609                 {
-<a name="l00610"></a>00610                         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_mission_to_research_areas VALUES (&quot;</span> . $res_id .
-<a name="l00611"></a>00611                         <span class="stringliteral">&quot;,&quot;</span> . $res_are_id . <span class="stringliteral">&quot;)&quot;</span>;
-<a name="l00612"></a>00612 
-<a name="l00613"></a>00613                         self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00614"></a>00614                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00615"></a>00615                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting in space_mission_to_research_areas!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00616"></a>00616                 }
-<a name="l00617"></a>00617             }
-<a name="l00618"></a>00618     }
-<a name="l00619"></a>00619 
-<a name="l00620"></a>00620 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00629"></a><a class="code" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448">00629</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448" title="DELETE space_mission_to_research_areas TABLE ENTRIES for given $res_id.">delete_res_areas</a>($res_id)
-<a name="l00630"></a>00630     {
-<a name="l00631"></a>00631       <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM space_mission_to_research_areas WHERE &quot;</span> .
-<a name="l00632"></a>00632                <span class="stringliteral">&quot;space_mission_id=&quot;</span> . $res_id;
-<a name="l00633"></a>00633           self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00634"></a>00634     }
-<a name="l00635"></a>00635 
-<a name="l00636"></a>00636 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00648"></a><a class="code" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0">00648</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0" title="INSERT space_mission_to_targes &amp;amp; targets TABLE ENTRIES for given $res_id.">add_targets</a>($res_id)
-<a name="l00649"></a>00649     {
-<a name="l00652"></a>00652         <span class="comment">//if there is any entry given</span>
-<a name="l00653"></a>00653                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_spa_target_ids&quot;</span>]))
-<a name="l00654"></a>00654                         <span class="keywordflow">foreach</span> ($_POST[<span class="stringliteral">&quot;add_spa_target_ids&quot;</span>] as $target_id)
-<a name="l00655"></a>00655                 {
-<a name="l00656"></a>00656                                 <span class="comment">//if there is something choosen except first entry (explaination)</span>
-<a name="l00657"></a>00657                         <span class="keywordflow">if</span> ($target_id != <span class="stringliteral">&#39;&#39;</span>)
-<a name="l00658"></a>00658                                 {
-<a name="l00659"></a>00659                                 <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_mission_to_targets VALUES (&quot;</span> . $res_id .
-<a name="l00660"></a>00660                                              <span class="stringliteral">&quot;,&quot;</span> . $target_id . <span class="stringliteral">&quot;)&quot;</span>;
-<a name="l00661"></a>00661 
-<a name="l00662"></a>00662                                 self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00663"></a>00663                                 <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
-<a name="l00664"></a>00664                                         print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting in space_mission_to_targets!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00665"></a>00665                                 }
-<a name="l00666"></a>00666                 }
-<a name="l00667"></a>00667     }
-<a name="l00668"></a>00668 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
-<a name="l00680"></a><a class="code" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d">00680</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d" title="DELETE space_mission_to_targes TABLE ENTRIES for given $res_id.">delete_targets</a>($res_id)
-<a name="l00681"></a>00681     {
-<a name="l00682"></a>00682       <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM space_mission_to_targets WHERE &quot;</span> .
-<a name="l00683"></a>00683                            <span class="stringliteral">&quot;space_mission_id=&quot;</span> . $res_id;
-<a name="l00684"></a>00684           self::$db-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00685"></a>00685     }
-<a name="l00686"></a>00686 
-<a name="l00687"></a>00687  }
-<a name="l00688"></a>00688 
-<a name="l00689"></a>00689 ?&gt;
+<a name="l00600"></a>00600                         <span class="comment">//Save sensor id for additional queries</span>
+<a name="l00601"></a>00601                         $sensor_id = self::$db-&gt;getLastInsertId();
+<a name="l00602"></a>00602 
+<a name="l00603"></a>00603                                 <span class="comment">//Space Mission to Sensors</span>
+<a name="l00604"></a>00604                                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_mission_to_sensors (`space_mission_id`,`sensor_id`)&quot;</span> .
+<a name="l00605"></a>00605                                 <span class="stringliteral">&quot;VALUES (&quot;</span> . $res_id . <span class="stringliteral">&quot;,&quot;</span> .  $sensor_id . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00606"></a>00606 
+<a name="l00607"></a>00607                                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00608"></a>00608                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00609"></a>00609                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting new entry in space_mission_to_sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00610"></a>00610 
+<a name="l00611"></a>00611                         <span class="comment">//Sensor to Science Goals</span>
+<a name="l00612"></a>00612                         <span class="comment">//new Science Goals</span>
+<a name="l00613"></a>00613 <span class="comment">//                      if(isset($_POST[&quot;add_sci_goal&quot;][$key]))</span>
+<a name="l00614"></a>00614 <span class="comment">//                      {</span>
+<a name="l00615"></a>00615 <span class="comment">//                              foreach($_POST[&quot;add_sci_goal&quot;][$key] as $id =&gt; $new_sci_goal)</span>
+<a name="l00616"></a>00616 <span class="comment">//                              {</span>
+<a name="l00617"></a>00617 <span class="comment">//                                      if($new_sci_goal != &#39;&#39;)</span>
+<a name="l00618"></a>00618 <span class="comment">//                                      {</span>
+<a name="l00619"></a>00619 <span class="comment">//                                              $query = &quot;INSERT INTO science_goals (&quot; .</span>
+<a name="l00620"></a>00620 <span class="comment">//                                                      &quot;`id`,`acronym`,`name`)&quot;. &quot; VALUES (NULL, &#39;&quot; .</span>
+<a name="l00621"></a>00621 <span class="comment">//                                                      addslashes($_POST[&quot;add_sci_acro&quot;][$key][$id]) . &quot;&#39;, &#39;&quot; .</span>
+<a name="l00622"></a>00622 <span class="comment">//                                              addslashes($new_sci_goal) . &quot;&#39;)&quot;;</span>
+<a name="l00623"></a>00623 <span class="comment">//</span>
+<a name="l00624"></a>00624 <span class="comment">//                                              self::$db-&gt;query($query);</span>
+<a name="l00625"></a>00625 <span class="comment">//                                              if (self::$db-&gt;errno() != 0)</span>
+<a name="l00626"></a>00626 <span class="comment">//                                                      print &quot;&lt;H4&gt;Error inserting new entry in science_goals!&lt;/H4&gt;&quot; . LF;</span>
+<a name="l00627"></a>00627 <span class="comment">//</span>
+<a name="l00628"></a>00628 <span class="comment">//                                              //push new id into add_spa_sci_goal_ids</span>
+<a name="l00630"></a>00630 <span class="comment"></span><span class="comment">//                                                      array_push($_POST[&quot;add_spa_sci_goal_ids&quot;][$key], self::$db-&gt;getLastInsertId());</span>
+<a name="l00631"></a>00631 <span class="comment">//                                      }</span>
+<a name="l00632"></a>00632 <span class="comment">//                              }</span>
+<a name="l00633"></a>00633 <span class="comment">//                      }</span>
+<a name="l00634"></a>00634 <span class="comment">//</span>
+<a name="l00635"></a>00635 <span class="comment">//                      if(isset($_POST[&quot;add_spa_sci_goal_ids&quot;][$key]))</span>
+<a name="l00636"></a>00636 <span class="comment">//                              foreach($_POST[&quot;add_spa_sci_goal_ids&quot;][$key] as $sci_goal_id)</span>
+<a name="l00637"></a>00637 <span class="comment">//                              {</span>
+<a name="l00638"></a>00638 <span class="comment">//                                      //check if sci goal id is not empty and 100000 (other)</span>
+<a name="l00640"></a>00640 <span class="comment"></span><span class="comment">//                                      if(($sci_goal_id != &#39;&#39;) &amp;&amp; ($sci_goal_id != 100000))</span>
+<a name="l00641"></a>00641 <span class="comment">//                                      {</span>
+<a name="l00642"></a>00642 <span class="comment">//                                              $query = &quot;INSERT INTO sensor_to_science_goals (`sensor_id`,`science_goal_id`) &quot; .</span>
+<a name="l00643"></a>00643 <span class="comment">//                                              &quot;VALUES (&quot; . $sensor_id . &quot;,&quot; . $sci_goal_id . &quot;)&quot;;</span>
+<a name="l00644"></a>00644 <span class="comment">//                                              //DEBUG:</span>
+<a name="l00645"></a>00645 <span class="comment">//                                              //echo &quot;sensor_to_science_goals - Query: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00646"></a>00646 <span class="comment">//                                              self::$db-&gt;query($query);</span>
+<a name="l00647"></a>00647 <span class="comment">//                                      if (self::$db-&gt;errno() != 0)</span>
+<a name="l00648"></a>00648 <span class="comment">//                                              print &quot;&lt;H4&gt;Error inserting new entry in sensors_to_science_goals!&lt;/H4&gt;&quot; . LF;</span>
+<a name="l00649"></a>00649 <span class="comment">//                                      }</span>
+<a name="l00650"></a>00650 <span class="comment">//                                      }</span>
+<a name="l00651"></a>00651 
+<a name="l00652"></a>00652                                 <span class="comment">//Scientific Contacts</span>
+<a name="l00653"></a>00653                                 <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_spa_sci_con_name&quot;</span>][$key] as $sci_con_key =&gt; $sci_con_line)
+<a name="l00654"></a>00654                                 {
+<a name="l00655"></a>00655                                         <span class="comment">// check if a name is written in the line</span>
+<a name="l00656"></a>00656                                         <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;add_spa_sci_con_name&quot;</span>][$key][$sci_con_key] != <span class="stringliteral">&quot;&quot;</span>)
+<a name="l00657"></a>00657                                         {
+<a name="l00658"></a>00658 
+<a name="l00659"></a>00659                                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO scientific_contacts VALUES (NULL,&#39;&quot;</span> .
+<a name="l00660"></a>00660                                         addslashes($_POST[<span class="stringliteral">&quot;add_spa_sci_con_name&quot;</span>][$key][$sci_con_key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00661"></a>00661                                         addslashes($_POST[<span class="stringliteral">&quot;add_spa_sci_con_email&quot;</span>][$key][$sci_con_key]) . <span class="stringliteral">&quot;&#39;,&#39;&quot;</span> .
+<a name="l00662"></a>00662                                         addslashes($_POST[<span class="stringliteral">&quot;add_spa_sci_con_institution&quot;</span>][$key][$sci_con_key]) . <span class="stringliteral">&quot;&#39;)&quot;</span>;
+<a name="l00663"></a>00663 
+<a name="l00664"></a>00664                                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00665"></a>00665                                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00666"></a>00666                                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting scientific_contacts!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00667"></a>00667 
+<a name="l00668"></a>00668                                         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO sensor_to_scientific_contacts VALUES (&quot;</span> . $sensor_id .
+<a name="l00669"></a>00669                                                      <span class="stringliteral">&quot;,&quot;</span> . self::$db-&gt;getLastInsertId() . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00670"></a>00670 
+<a name="l00671"></a>00671                                         self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00672"></a>00672                                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00673"></a>00673                                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting sensor_to_scientific_contacts!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00674"></a>00674                                         }
+<a name="l00675"></a>00675                                 }
+<a name="l00676"></a>00676                                 }
+<a name="l00677"></a>00677                         }
+<a name="l00678"></a>00678                 }
+<a name="l00679"></a>00679    }
+<a name="l00680"></a>00680 
+<a name="l00681"></a>00681 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00690"></a><a class="code" href="class_spacemission_d_a_o.html#affa01be331e980e20e1c5a6cd43639db">00690</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="class_spacemission_d_a_o.html#affa01be331e980e20e1c5a6cd43639db" title="DELETE Old NA1 DB spacemission entries for given $resource_id.">del_old_resource</a>(<a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>)
+<a name="l00691"></a>00691         {
+<a name="l00692"></a>00692                 <span class="comment">// Get sid of OLD NA1 Spa resource</span>
+<a name="l00693"></a>00693                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT sid FROM maintable WHERE id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>;
+<a name="l00694"></a>00694         <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00695"></a>00695         <a class="code" href="_observatory_edit_all_old_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC)
+<a name="l00696"></a>00696                 or die(<span class="stringliteral">&quot;&lt;br&gt;Error: No such Resource existing!&lt;/b&gt;&quot;</span>);
+<a name="l00697"></a>00697         mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00698"></a>00698 
+<a name="l00699"></a>00699                 <span class="comment">// DELETE spacemission sensors Table entries of Old NA1 DB</span>
+<a name="l00700"></a>00700         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM sensors WHERE sensors.sid=&quot;</span> . <a class="code" href="_observatory_edit_all_old_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a>[<span class="stringliteral">&quot;sid&quot;</span>] . <span class="stringliteral">&quot;;&quot;</span>;
+<a name="l00701"></a>00701                 <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00702"></a>00702 
+<a name="l00703"></a>00703                 <span class="comment">// DELETE spacemission maintable Table entry of Old NA1 DB</span>
+<a name="l00704"></a>00704                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM maintable WHERE maintable.id=&quot;</span> . <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a> . <span class="stringliteral">&quot;;&quot;</span>;
+<a name="l00705"></a>00705                 <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00706"></a>00706 
+<a name="l00707"></a>00707                 $status = array(<span class="stringliteral">&quot;errno&quot;</span> =&gt; <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;errno(),
+<a name="l00708"></a>00708                         <span class="stringliteral">&quot;error&quot;</span> =&gt; <a class="code" href="_spacemission_edit_all_old_8php.html#a42f2e9900e96b6a6448272066c11ac42">self::$dbOldSpa</a>-&gt;error(),
+<a name="l00709"></a>00709                         <span class="stringliteral">&quot;resource_id&quot;</span> =&gt; <a class="code" href="index_8php.html#aa45e17a8afdaf8baa571793ebcfdbdca">$resource_id</a>);
+<a name="l00710"></a>00710 
+<a name="l00711"></a>00711                 <span class="keywordflow">return</span> $status;
+<a name="l00712"></a>00712         }
+<a name="l00713"></a>00713 
+<a name="l00714"></a>00714 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00723"></a><a class="code" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c">00723</a> <span class="comment"></span>   <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c" title="DELETE sensors &amp;amp; space_mission_to_sensors TABLE ENTRIES for given $res_id.">delete_sensors</a>($res_id)
+<a name="l00724"></a>00724    {
+<a name="l00725"></a>00725         <span class="comment">//Space Mission To Sensors</span>
+<a name="l00726"></a>00726      <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM space_mission_to_sensors WHERE &quot;</span> .
+<a name="l00727"></a>00727                <span class="stringliteral">&quot;space_mission_id=&quot;</span> . $res_id;
+<a name="l00728"></a>00728 
+<a name="l00729"></a>00729      <span class="comment">//DEBUG:</span>
+<a name="l00730"></a>00730      <span class="comment">//echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00731"></a>00731          self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00732"></a>00732          <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00733"></a>00733                       print <span class="stringliteral">&quot;&lt;H4&gt;Error deleting entry in space_mission_to_sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00734"></a>00734 
+<a name="l00735"></a>00735          <span class="comment">//Sensor</span>
+<a name="l00736"></a>00736          <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_spa_sensor_ids&quot;</span>]))
+<a name="l00737"></a>00737            <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_spa_sensor_ids&quot;</span>] as $sen_id)
+<a name="l00738"></a>00738            {
+<a name="l00739"></a>00739          <span class="comment">//we need to check for empty values (because of cloning hidden fields)</span>
+<a name="l00740"></a>00740          <span class="keywordflow">if</span>($sen_id != <span class="stringliteral">&#39;&#39;</span>)
+<a name="l00741"></a>00741          {
+<a name="l00742"></a>00742 
+<a name="l00743"></a>00743                 <span class="comment">//Scientific Contacts</span>
+<a name="l00744"></a>00744                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM scientific_contacts WHERE id IN &quot;</span> . <span class="stringliteral">&quot;</span>
+<a name="l00745"></a>00745 <span class="stringliteral">                (SELECT scientific_contact_id FROM sensor_to_scientific_contacts WHERE sensor_id=&quot;</span> . $sen_id . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00746"></a>00746                         <span class="comment">//DEBUG:</span>
+<a name="l00747"></a>00747                 <span class="comment">//echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00748"></a>00748                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00749"></a>00749                 <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00750"></a>00750                         print <span class="stringliteral">&quot;&lt;H4&gt;Error deleting entry in sensor_to_scientific_contacts!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00751"></a>00751 
+<a name="l00752"></a>00752 
+<a name="l00753"></a>00753                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM sensors WHERE id=&quot;</span> . $sen_id;
+<a name="l00754"></a>00754 
+<a name="l00755"></a>00755                 <span class="comment">//DEBUG:</span>
+<a name="l00756"></a>00756                 <span class="comment">//echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00757"></a>00757                 <span class="comment">//echo &quot;SEN_ID&quot; . $sen_id . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00758"></a>00758                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00759"></a>00759                 <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00760"></a>00760                         print <span class="stringliteral">&quot;&lt;H4&gt;Error deleting entry in sensors!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00761"></a>00761 
+<a name="l00762"></a>00762                 <span class="comment">//Sensor to Science Goals (maybe obsolete)</span>
+<a name="l00763"></a>00763 <span class="comment">//              $query = &quot;DELETE FROM sensor_to_science_goals WHERE sensor_id=&quot; . $sen_id;</span>
+<a name="l00764"></a>00764 <span class="comment">//                      //DEBUG:</span>
+<a name="l00765"></a>00765 <span class="comment">//              //echo &quot;TEST: &quot; . $query . &quot;&lt;br&gt;&quot;;</span>
+<a name="l00766"></a>00766 <span class="comment">//              self::$db-&gt;query($query);</span>
+<a name="l00767"></a>00767 <span class="comment">//              if (mysqli_errno(self::$db) != 0)</span>
+<a name="l00768"></a>00768 <span class="comment">//                      print &quot;&lt;H4&gt;Error deleting entry in sensor_to_science_goals!&lt;/H4&gt;&quot; . LF;</span>
+<a name="l00769"></a>00769 
+<a name="l00770"></a>00770          }
+<a name="l00771"></a>00771            }
+<a name="l00772"></a>00772    }
+<a name="l00773"></a>00773 
+<a name="l00774"></a>00774 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00783"></a><a class="code" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134">00783</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#a3664cf2338a202965629a2e0acc24134" title="INSERT space_mission_to_research_areas TABLE ENTRIES for given $res_id.">add_res_areas</a>($res_id)
+<a name="l00784"></a>00784     {
+<a name="l00785"></a>00785                 <span class="comment">//adding new areas</span>
+<a name="l00786"></a>00786                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_res_are&quot;</span>]))
+<a name="l00787"></a>00787                 {
+<a name="l00788"></a>00788                         <span class="keywordflow">foreach</span>($_POST[<span class="stringliteral">&quot;add_res_are&quot;</span>] as $new_res_are)
+<a name="l00789"></a>00789                         {
+<a name="l00790"></a>00790                                 <span class="comment">//insert new area in research_areas</span>
+<a name="l00792"></a>00792 <span class="comment"></span>                                <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO research_areas (&quot;</span> .
+<a name="l00793"></a>00793                                 <span class="stringliteral">&quot;`id`,`name`)&quot;</span>. <span class="stringliteral">&quot; VALUES (NULL, &#39;&quot;</span> .
+<a name="l00794"></a>00794                                 addslashes($new_res_are) . <span class="stringliteral">&quot;&#39;)&quot;</span>;
+<a name="l00795"></a>00795 
+<a name="l00796"></a>00796                                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00797"></a>00797                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00798"></a>00798                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting new entry in research_areas!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00799"></a>00799 
+<a name="l00800"></a>00800                                 <span class="comment">//push new id into add_obs_res_are_ids</span>
+<a name="l00801"></a>00801                                 array_push($_POST[<span class="stringliteral">&quot;add_spa_res_are_ids&quot;</span>], self::$db-&gt;getLastInsertId());
+<a name="l00802"></a>00802                         }
+<a name="l00803"></a>00803                 }
+<a name="l00804"></a>00804 
+<a name="l00805"></a>00805                 <span class="keywordflow">foreach</span> ($_POST[<span class="stringliteral">&quot;add_spa_res_are_ids&quot;</span>] as $res_are_id)
+<a name="l00806"></a>00806             {
+<a name="l00807"></a>00807                         <span class="comment">//check if res id is empty and 100000 (other)</span>
+<a name="l00808"></a>00808                 <span class="keywordflow">if</span>(($res_are_id != <span class="stringliteral">&#39;&#39;</span>) &amp;&amp; ($res_are_id != 100000))
+<a name="l00809"></a>00809                 {
+<a name="l00810"></a>00810                         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_mission_to_research_areas VALUES (&quot;</span> . $res_id .
+<a name="l00811"></a>00811                         <span class="stringliteral">&quot;,&quot;</span> . $res_are_id . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00812"></a>00812 
+<a name="l00813"></a>00813                         self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00814"></a>00814                         <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00815"></a>00815                                 print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting in space_mission_to_research_areas!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00816"></a>00816                 }
+<a name="l00817"></a>00817             }
+<a name="l00818"></a>00818     }
+<a name="l00819"></a>00819 
+<a name="l00820"></a>00820 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00829"></a><a class="code" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448">00829</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448" title="DELETE space_mission_to_research_areas TABLE ENTRIES for given $res_id.">delete_res_areas</a>($res_id)
+<a name="l00830"></a>00830     {
+<a name="l00831"></a>00831       <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM space_mission_to_research_areas WHERE &quot;</span> .
+<a name="l00832"></a>00832                <span class="stringliteral">&quot;space_mission_id=&quot;</span> . $res_id;
+<a name="l00833"></a>00833           self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00834"></a>00834     }
+<a name="l00835"></a>00835 
+<a name="l00836"></a>00836 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00848"></a><a class="code" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0">00848</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#ae397bee56fc67a69c747827be3470ec0" title="INSERT space_mission_to_targes &amp;amp; targets TABLE ENTRIES for given $res_id.">add_targets</a>($res_id)
+<a name="l00849"></a>00849     {
+<a name="l00852"></a>00852         <span class="comment">//if there is any entry given</span>
+<a name="l00853"></a>00853                 <span class="keywordflow">if</span>(isset($_POST[<span class="stringliteral">&quot;add_spa_target_ids&quot;</span>]))
+<a name="l00854"></a>00854                         <span class="keywordflow">foreach</span> ($_POST[<span class="stringliteral">&quot;add_spa_target_ids&quot;</span>] as $target_id)
+<a name="l00855"></a>00855                 {
+<a name="l00856"></a>00856                                 <span class="comment">//if there is something choosen except first entry (explaination)</span>
+<a name="l00857"></a>00857                         <span class="keywordflow">if</span> ($target_id != <span class="stringliteral">&#39;&#39;</span>)
+<a name="l00858"></a>00858                                 {
+<a name="l00859"></a>00859                                 <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO space_mission_to_targets VALUES (&quot;</span> . $res_id .
+<a name="l00860"></a>00860                                              <span class="stringliteral">&quot;,&quot;</span> . $target_id . <span class="stringliteral">&quot;)&quot;</span>;
+<a name="l00861"></a>00861 
+<a name="l00862"></a>00862                                 self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00863"></a>00863                                 <span class="keywordflow">if</span> (self::$db-&gt;errno() != 0)
+<a name="l00864"></a>00864                                         print <span class="stringliteral">&quot;&lt;H4&gt;Error inserting in space_mission_to_targets!&lt;/H4&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00865"></a>00865                                 }
+<a name="l00866"></a>00866                 }
+<a name="l00867"></a>00867     }
+<a name="l00868"></a>00868 <span class="comment">//-----------------------------------------------------------------------------------------------------------</span>
+<a name="l00880"></a><a class="code" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d">00880</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d" title="DELETE space_mission_to_targes TABLE ENTRIES for given $res_id.">delete_targets</a>($res_id)
+<a name="l00881"></a>00881     {
+<a name="l00882"></a>00882       <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;DELETE FROM space_mission_to_targets WHERE &quot;</span> .
+<a name="l00883"></a>00883                            <span class="stringliteral">&quot;space_mission_id=&quot;</span> . $res_id;
+<a name="l00884"></a>00884           self::$db-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00885"></a>00885     }
+<a name="l00886"></a>00886 
+<a name="l00887"></a>00887  }
+<a name="l00888"></a>00888 
+<a name="l00889"></a>00889 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:23 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

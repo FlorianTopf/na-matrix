@@ -193,6 +193,7 @@ class SpacemissionDAO extends ModelDAO
    * @brief gets all existing resources space mission
    *
    * @param $page which page wants to display resources
+   * @param $filters array of values to be used as filter on the database
    *
    * @return $resources array of resources
    *

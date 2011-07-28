@@ -74,11 +74,11 @@ Here is a list of all struct and union fields with links to the structures/union
 : <a class="el" href="class_model_d_a_o.html#a6f16580436dcc05d11d17a24d43fda50">ModelDAO</a>
 </li>
 <li>$_fields
-: <a class="el" href="class_spacemission_d_a_o.html#abf3f559f67fd6bdca04b272c655bbeb3">SpacemissionDAO</a>
-, <a class="el" href="class_observatory_d_a_o.html#abf3f559f67fd6bdca04b272c655bbeb3">ObservatoryDAO</a>
+: <a class="el" href="class_model_d_a_o.html#abf3f559f67fd6bdca04b272c655bbeb3">ModelDAO</a>
 </li>
 <li>$_hasMany
-: <a class="el" href="class_observatory_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">ObservatoryDAO</a>
+: <a class="el" href="class_model_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">ModelDAO</a>
+, <a class="el" href="class_observatory_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">ObservatoryDAO</a>
 , <a class="el" href="class_spacemission_d_a_o.html#a6f060750106b1d1b60aff8d63ae9a2eb">SpacemissionDAO</a>
 </li>
 <li>$_hiddenFields
@@ -90,19 +90,25 @@ Here is a list of all struct and union fields with links to the structures/union
 <li>$_instrumentTypes
 : <a class="el" href="class_observatory_d_a_o.html#a1412b307b03cf7b8d6b5b64060134242">ObservatoryDAO</a>
 </li>
+<li>$_latitudePrefixes
+: <a class="el" href="class_observatory_d_a_o.html#a7de5748be0388b3c81c2e6c1bbd2cb63">ObservatoryDAO</a>
+</li>
+<li>$_longitudePrefixes
+: <a class="el" href="class_observatory_d_a_o.html#afc1b0cd643ef005fa22e52fd4cb9741e">ObservatoryDAO</a>
+</li>
 <li>$_precipitationRanges
 : <a class="el" href="class_observatory_d_a_o.html#a590d80b6157cbdbdabaad9ce5db6c140">ObservatoryDAO</a>
 </li>
 <li>$_researchAreas
-: <a class="el" href="class_spacemission_d_a_o.html#a264f642444e5292484ad983a6fc53b78">SpacemissionDAO</a>
-, <a class="el" href="class_observatory_d_a_o.html#a264f642444e5292484ad983a6fc53b78">ObservatoryDAO</a>
+: <a class="el" href="class_observatory_d_a_o.html#a264f642444e5292484ad983a6fc53b78">ObservatoryDAO</a>
+, <a class="el" href="class_spacemission_d_a_o.html#a264f642444e5292484ad983a6fc53b78">SpacemissionDAO</a>
 </li>
 <li>$_scienceGoals
 : <a class="el" href="class_spacemission_d_a_o.html#afd29f418addf0a6a22b5f8be5e55bb58">SpacemissionDAO</a>
 </li>
 <li>$_scientificContacts
-: <a class="el" href="class_spacemission_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">SpacemissionDAO</a>
-, <a class="el" href="class_observatory_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">ObservatoryDAO</a>
+: <a class="el" href="class_observatory_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">ObservatoryDAO</a>
+, <a class="el" href="class_spacemission_d_a_o.html#a9afe19f49ed360b2159ec8835754b03d">SpacemissionDAO</a>
 </li>
 <li>$_sensors
 : <a class="el" href="class_spacemission_d_a_o.html#a9961184dcc533642a1231580107a9d6c">SpacemissionDAO</a>
@@ -129,12 +135,18 @@ Here is a list of all struct and union fields with links to the structures/union
 <li>$db
 : <a class="el" href="class_model_d_a_o.html#a1fa3127fc82f96b1436d871ef02be319">ModelDAO</a>
 </li>
+<li>$dbOldObs
+: <a class="el" href="class_model_d_a_o.html#a2a0edb8cab4778ccc61ae7018826e08d">ModelDAO</a>
+</li>
+<li>$dbOldSpa
+: <a class="el" href="class_model_d_a_o.html#a42f2e9900e96b6a6448272066c11ac42">ModelDAO</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
 <li>__construct()
-: <a class="el" href="class_db_connector.html#a095c5d389db211932136b53f25f39685">DbConnector</a>
+: <a class="el" href="class_db_connector.html#a04f7d55a52a194324a886086966a293c">DbConnector</a>
 , <a class="el" href="class_model_d_a_o.html#a095c5d389db211932136b53f25f39685">ModelDAO</a>
 </li>
 </ul>
@@ -182,7 +194,10 @@ Here is a list of all struct and union fields with links to the structures/union
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>check()
-: <a class="el" href="class_controller.html#a43fcda1e45cbeb2d78ee8d6e55020e22">Controller</a>
+: <a class="el" href="class_controller.html#af046fa3f6ac7ef626768e54bd9d9ec9d">Controller</a>
+</li>
+<li>checkDb()
+: <a class="el" href="class_db_connector.html#a6786bfac3548d71a02178f884414a7d9">DbConnector</a>
 </li>
 <li>close()
 : <a class="el" href="class_db_connector.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">DbConnector</a>
@@ -191,6 +206,13 @@ Here is a list of all struct and union fields with links to the structures/union
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>del_old_resource()
+: <a class="el" href="class_observatory_d_a_o.html#affa01be331e980e20e1c5a6cd43639db">ObservatoryDAO</a>
+, <a class="el" href="class_spacemission_d_a_o.html#affa01be331e980e20e1c5a6cd43639db">SpacemissionDAO</a>
+</li>
+<li>del_resource()
+: <a class="el" href="class_observatory_d_a_o.html#af011c73a16dbe99659a596b7906b441d">ObservatoryDAO</a>
+</li>
 <li>delete_res_areas()
 : <a class="el" href="class_observatory_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448">ObservatoryDAO</a>
 , <a class="el" href="class_spacemission_d_a_o.html#a120cca0e7428c67cf87c8fbaaaaab448">SpacemissionDAO</a>
@@ -199,8 +221,8 @@ Here is a list of all struct and union fields with links to the structures/union
 : <a class="el" href="class_spacemission_d_a_o.html#ad53645643921ede13e0d9d28e28b5d8c">SpacemissionDAO</a>
 </li>
 <li>delete_targets()
-: <a class="el" href="class_observatory_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d">ObservatoryDAO</a>
-, <a class="el" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d">SpacemissionDAO</a>
+: <a class="el" href="class_spacemission_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d">SpacemissionDAO</a>
+, <a class="el" href="class_observatory_d_a_o.html#a2f86f5b9c53589ba9077619b9443ea3d">ObservatoryDAO</a>
 </li>
 <li>delete_telescopes()
 : <a class="el" href="class_observatory_d_a_o.html#a82a7787ea2a6ed86e7dd55abecd0c999">ObservatoryDAO</a>
@@ -232,6 +254,10 @@ Here is a list of all struct and union fields with links to the structures/union
 <li>get_agencies()
 : <a class="el" href="class_spacemission_d_a_o.html#ac58ec579a8eb8692a78c9ce25e0f8f9b">SpacemissionDAO</a>
 </li>
+<li>get_all_resources()
+: <a class="el" href="class_spacemission_d_a_o.html#a72031ae3396a1e30616ba689177109e1">SpacemissionDAO</a>
+, <a class="el" href="class_observatory_d_a_o.html#a72031ae3396a1e30616ba689177109e1">ObservatoryDAO</a>
+</li>
 <li>get_antenna_types()
 : <a class="el" href="class_observatory_d_a_o.html#aeba21ab180f9dc19a158c5a8370627fe">ObservatoryDAO</a>
 </li>
@@ -242,15 +268,13 @@ Here is a list of all struct and union fields with links to the structures/union
 : <a class="el" href="class_observatory_d_a_o.html#ab097a08b6dc05d5f5f0e378020e77b02">ObservatoryDAO</a>
 </li>
 <li>get_field()
-: <a class="el" href="class_observatory_d_a_o.html#aaca0dd9eb5f778961e89ba71984ca62d">ObservatoryDAO</a>
-, <a class="el" href="class_spacemission_d_a_o.html#aaca0dd9eb5f778961e89ba71984ca62d">SpacemissionDAO</a>
+: <a class="el" href="class_model_d_a_o.html#aaca0dd9eb5f778961e89ba71984ca62d">ModelDAO</a>
 </li>
 <li>get_field_array()
 : <a class="el" href="class_observatory_d_a_o.html#aa5a8fc7d502384dffaa34e887cbe77d0">ObservatoryDAO</a>
 </li>
 <li>get_has_many()
-: <a class="el" href="class_observatory_d_a_o.html#ae3997a38e4397e48d0aa31c2c86ad1c5">ObservatoryDAO</a>
-, <a class="el" href="class_spacemission_d_a_o.html#ae3997a38e4397e48d0aa31c2c86ad1c5">SpacemissionDAO</a>
+: <a class="el" href="class_model_d_a_o.html#ae4def1a1d8c2364f5d6d7a76b7ecb2ea">ModelDAO</a>
 </li>
 <li>get_hidden_field()
 : <a class="el" href="class_observatory_d_a_o.html#a3cd4382c99de94058751003bd9ebcb60">ObservatoryDAO</a>
@@ -263,6 +287,10 @@ Here is a list of all struct and union fields with links to the structures/union
 </li>
 <li>get_instrument_types()
 : <a class="el" href="class_observatory_d_a_o.html#a4a0a7e0d964e1a586b5d19f065ecd84f">ObservatoryDAO</a>
+</li>
+<li>get_old_resource()
+: <a class="el" href="class_spacemission_d_a_o.html#a8d62f6aebbfe8eefd40b3e6cb5bd93e6">SpacemissionDAO</a>
+, <a class="el" href="class_observatory_d_a_o.html#a8d62f6aebbfe8eefd40b3e6cb5bd93e6">ObservatoryDAO</a>
 </li>
 <li>get_precipitation_ranges()
 : <a class="el" href="class_observatory_d_a_o.html#a229ab91b4d8acbacfcc97837c28ba6e1">ObservatoryDAO</a>
@@ -286,8 +314,8 @@ Here is a list of all struct and union fields with links to the structures/union
 : <a class="el" href="class_spacemission_d_a_o.html#a2b9c39c917a160f00592f33e09acc028">SpacemissionDAO</a>
 </li>
 <li>get_targets()
-: <a class="el" href="class_observatory_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">ObservatoryDAO</a>
-, <a class="el" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">SpacemissionDAO</a>
+: <a class="el" href="class_spacemission_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">SpacemissionDAO</a>
+, <a class="el" href="class_observatory_d_a_o.html#ace817061c7896f32a9bcc918038ca4d1">ObservatoryDAO</a>
 </li>
 <li>get_telescope()
 : <a class="el" href="class_observatory_d_a_o.html#aaa14a309215bb41bde632b052081bdc4">ObservatoryDAO</a>
@@ -310,6 +338,12 @@ Here is a list of all struct and union fields with links to the structures/union
 <li>getDB()
 : <a class="el" href="class_model_d_a_o.html#a38cf6caf7e0d9540360bfe07ba167e54">ModelDAO</a>
 </li>
+<li>getDbOldObs()
+: <a class="el" href="class_model_d_a_o.html#a820b883c5b1ef0a691e4c66c390e7c2f">ModelDAO</a>
+</li>
+<li>getDbOldSpa()
+: <a class="el" href="class_model_d_a_o.html#a7334e7f1a16821c0e32dcdcf305db5d4">ModelDAO</a>
+</li>
 <li>getFromName()
 : <a class="el" href="class_model_d_a_o.html#a60a00c2be2dbdcd1e29b9b1753d96f85">ModelDAO</a>
 </li>
@@ -318,6 +352,9 @@ Here is a list of all struct and union fields with links to the structures/union
 </li>
 <li>getModelName()
 : <a class="el" href="class_model_d_a_o.html#a7cd2e13f50fbc61e846e5980f02371f8">ModelDAO</a>
+</li>
+<li>getNumRows()
+: <a class="el" href="class_db_connector.html#ababe637358b00559ee3b9d212082bb4b">DbConnector</a>
 </li>
 <li>getSettings()
 : <a class="el" href="class_system_component.html#add73bf6b0780050975be54171f29132c">SystemComponent</a>
@@ -330,8 +367,7 @@ Here is a list of all struct and union fields with links to the structures/union
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>init_has_many()
-: <a class="el" href="class_observatory_d_a_o.html#aec8d6878ab699e1ea8b0375b1efbbb28">ObservatoryDAO</a>
-, <a class="el" href="class_spacemission_d_a_o.html#aec8d6878ab699e1ea8b0375b1efbbb28">SpacemissionDAO</a>
+: <a class="el" href="class_model_d_a_o.html#a8f27a65e8b0cdfcc5746f2698023d0d7">ModelDAO</a>
 </li>
 </ul>
 
@@ -353,6 +389,9 @@ Here is a list of all struct and union fields with links to the structures/union
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>setCurrent()
 : <a class="el" href="class_model_d_a_o.html#a535cb5880e23a4ddc75190528badb5fb">ModelDAO</a>
+</li>
+<li>switchDb()
+: <a class="el" href="class_model_d_a_o.html#a5676c61489a3d358a7b516e81aec58a6">ModelDAO</a>
 </li>
 </ul>
 
@@ -380,7 +419,7 @@ Here is a list of all struct and union fields with links to the structures/union
 </li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:24 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

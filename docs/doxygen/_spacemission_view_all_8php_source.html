@@ -29,72 +29,99 @@
 </div>
 <div class="contents">
 <a href="_spacemission_view_all_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php 
-<a name="l00011"></a><a class="code" href="_spacemission_view_all_8php.html#a8a72df04d49627b4de65e917806d3cb5">00011</a> print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;browse&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> ;
-<a name="l00012"></a>00012 <span class="comment">//show_message();</span>
-<a name="l00013"></a>00013         
-<a name="l00015"></a>00015 print <span class="stringliteral">&quot;&lt;CENTER&gt;&lt;P&gt;&lt;TABLE border=&#39;1&#39; cellpadding=&#39;4&#39; class=&#39;rtable&#39; width=&#39;100%&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00016"></a>00016 print <span class="stringliteral">&quot;&lt;CAPTION&gt;&lt;H3 align=&#39;center&#39;&gt;For details please click on Space Mission entry name&lt;/H3&gt;&lt;/CAPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00017"></a>00017 print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TH&gt;NAME&lt;/TH&gt;&lt;TH&gt;AGENCY&lt;/TH&gt;&lt;TH&gt;WEB&lt;/TH&gt;&lt;TH&gt;LAUNCH-DATE&lt;/TH&gt;&lt;TH&gt;DEATH-DATE&lt;/TH&gt;&lt;TH&gt;TARGETS&lt;/TH&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="_spacemission_view_all_8php.html#af59a5f7cd609e592c41dc3643efd3c98">00019</a> <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name&quot;</span>;
-<a name="l00020"></a>00020 <span class="comment">//$result = mysqli_query($link, $query);</span>
-<a name="l00021"></a><a class="code" href="_spacemission_view_all_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">00021</a> <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00022"></a>00022 <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
-<a name="l00023"></a>00023 {
-<a name="l00024"></a>00024         <span class="comment">//Mission Agency</span>
-<a name="l00025"></a>00025         $query2 = <span class="stringliteral">&quot;SELECT acronym, web_address FROM agencies WHERE id=&quot;</span> . $row[<span class="stringliteral">&quot;mission_agency&quot;</span>];
-<a name="l00026"></a>00026         <span class="comment">//$result2 = mysqli_query($link, $query2);</span>
-<a name="l00027"></a>00027         $result2 = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query($query2);
-<a name="l00028"></a>00028         $row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
-<a name="l00029"></a>00029         $agency = $row2[<span class="stringliteral">&quot;acronym&quot;</span>];
-<a name="l00030"></a>00030         $agency_web_address = $row2[<span class="stringliteral">&quot;web_address&quot;</span>];
-<a name="l00031"></a>00031         mysqli_free_result($result2);
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033         <span class="comment">//Targets</span>
-<a name="l00034"></a>00034         <a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a> = array();
-<a name="l00035"></a>00035         $query2 = <span class="stringliteral">&quot;SELECT target_id FROM space_mission_to_targets WHERE space_mission_id=&quot;</span> . $row[<span class="stringliteral">&quot;id&quot;</span>];
-<a name="l00036"></a>00036         <span class="comment">//$result2 = mysqli_query($link, $query2);</span>
-<a name="l00037"></a>00037         $result2 = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query($query2);
-<a name="l00038"></a>00038         <span class="keywordflow">while</span> ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
-<a name="l00039"></a>00039         {
-<a name="l00040"></a>00040                 $query3 = <span class="stringliteral">&quot;SELECT target_name FROM targets WHERE id=&quot;</span> . $row2[<span class="stringliteral">&quot;target_id&quot;</span>];
-<a name="l00041"></a>00041                 <span class="comment">//$result3 = mysqli_query($link, $query3);</span>
-<a name="l00042"></a>00042                 $result3 = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query($query3);
-<a name="l00043"></a>00043                 $row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
-<a name="l00044"></a>00044                 <a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a>[] = $row3[<span class="stringliteral">&quot;target_name&quot;</span>];
-<a name="l00045"></a>00045                 mysqli_free_result($result3);
-<a name="l00046"></a>00046         }
-<a name="l00047"></a>00047         mysqli_free_result($result2);
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049         <span class="comment">//HTML</span>
-<a name="l00050"></a>00050         print <span class="stringliteral">&quot;&lt;TR align=&#39;center&#39;&gt;&quot;</span>; 
-<a name="l00051"></a>00051         print <span class="stringliteral">&quot;&lt;TD&gt;&lt;SPAN title=&#39;Click for more details&#39; onclick=\&quot;return openwin(&#39;views/SpacemissionView.php?&quot;</span> .
-<a name="l00052"></a>00052                 <span class="stringliteral">&quot;id=&quot;</span> . $row[<span class="stringliteral">&quot;id&quot;</span>] . <span class="stringliteral">&quot;&#39;)\&quot; class=&#39;hand&#39;&gt;&quot;</span> . stripslashes($row[<span class="stringliteral">&quot;mission_name&quot;</span>]) . <span class="stringliteral">&quot;&lt;/SPAN&gt;&lt;/TD&gt;&quot;</span>;
-<a name="l00053"></a>00053     <span class="comment">//print &quot;&lt;TD&gt;&lt;SPAN title=&#39;Click for more details&#39; class=&#39;hand&#39;&gt;&quot; . stripslashes($row[&quot;mission_name&quot;]) . &quot;&lt;/SPAN&gt;&lt;/TD&gt;&quot;;</span>
-<a name="l00054"></a>00054         print <span class="stringliteral">&quot;&lt;TD&gt;&lt;A href=&#39;&quot;</span> . $agency_web_address . <span class="stringliteral">&quot;&#39; target=&#39;_blank&#39;&gt;&quot;</span> . $agency . <span class="stringliteral">&quot;&lt;/A&gt;&lt;/TD&gt;&quot;</span>;
-<a name="l00055"></a>00055         <span class="keywordflow">if</span>(<a class="code" href="functions_8php.html#acba17f96058bbeb5dda60312de95e3e8">isValidURL</a>($row[<span class="stringliteral">&quot;web_address&quot;</span>]))
-<a name="l00056"></a>00056                 print <span class="stringliteral">&quot;&lt;TD&gt;&lt;A href=&#39;&quot;</span> . $row[<span class="stringliteral">&quot;web_address&quot;</span>] . <span class="stringliteral">&quot;&#39; target=&#39;_blank&#39;&gt;&lt;img width=&#39;30&#39; border=&#39;0&#39; src=&#39;images/globe.png&#39;&gt;&lt;/A&gt;&lt;/TD&gt;&quot;</span>;
-<a name="l00057"></a>00057         <span class="keywordflow">else</span>
-<a name="l00058"></a>00058         print <span class="stringliteral">&quot;&lt;TD&gt;&lt;/TD&gt;&quot;</span>;
-<a name="l00059"></a>00059         print <span class="stringliteral">&quot;&lt;TD&gt;&quot;</span> . $row[<span class="stringliteral">&quot;launch_date&quot;</span>] . <span class="stringliteral">&quot;&lt;/TD&gt;&quot;</span>;
-<a name="l00060"></a>00060         print <span class="stringliteral">&quot;&lt;TD&gt;&quot;</span> . (($row[<span class="stringliteral">&quot;death_date&quot;</span>] == <span class="stringliteral">&quot;0000-00-00&quot;</span>) ? <span class="stringliteral">&quot;&quot;</span> : $row[<span class="stringliteral">&quot;death_date&quot;</span>]) . <span class="stringliteral">&quot;&lt;/TD&gt;&quot;</span>;
-<a name="l00061"></a>00061         print <span class="stringliteral">&quot;&lt;TD&gt;&quot;</span>;
-<a name="l00062"></a>00062     <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#a8396d1333dd7a69dedc8ae081d25819f">$targets</a> as $target)
-<a name="l00063"></a>00063     {
-<a name="l00064"></a>00064         print $target . <span class="stringliteral">&quot;&lt;br&gt;&quot;</span>;
-<a name="l00065"></a>00065     }
-<a name="l00066"></a>00066         print <span class="stringliteral">&quot;&lt;/TD&gt;&quot;</span>;
-<a name="l00067"></a>00067     print <span class="stringliteral">&quot;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00068"></a>00068 }
-<a name="l00069"></a>00069 <span class="keywordflow">if</span>(!<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>)
-<a name="l00070"></a>00070         print <span class="stringliteral">&quot;&lt;H3 align=&#39;center&#39;&gt;There are no Space Mission entries&lt;/H3&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00071"></a>00071 mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
-<a name="l00072"></a>00072 print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;/P&gt;&lt;/CENTER&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 ?&gt;
+<a name="l00010"></a><a class="code" href="_spacemission_view_all_8php.html#a4ddf29484bcfbe667648f07f22fad2a3">00010</a> print <span class="stringliteral">&quot;&lt;div&gt;&lt;input type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;browse&#39;/&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> ;
+<a name="l00011"></a>00011 <span class="comment">//show_message();</span>
+<a name="l00012"></a>00012         
+<a name="l00013"></a>00013 print <span class="stringliteral">&quot;&lt;table class=&#39;filter&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00014"></a>00014 print <span class="stringliteral">&quot;&lt;caption&gt;Filter the content by selecting one of the Dropdown menus&lt;/caption&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00015"></a>00015 <span class="comment">//Space Agency Filter</span>
+<a name="l00016"></a><a class="code" href="_spacemission_view_all_8php.html#afdec3eba83e53f938bca356326641ba8">00016</a> <a class="code" href="_spacemission_create_update_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a> = <a class="code" href="_spacemission_edit_all_old_8php.html#aa5f9ba793996fc658abdc590689be687">$_spacemission</a>-&gt;get_agencies();
+<a name="l00017"></a>00017 print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td class=&#39;title&#39; colspan=&#39;2&#39;&gt;&lt;b&gt;Filter by Space Agency&lt;/b&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00018"></a>00018 print <span class="stringliteral">&quot;&lt;td class=&#39;filter&#39; colspan=&#39;4&#39;&gt;&lt;SELECT name=&#39;spa_filters[agency]&#39; onchange=&#39;this.form.submit()&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00019"></a><a class="code" href="_spacemission_view_all_8php.html#ad4fa4b11e4a1010cad21a254b7866cf4">00019</a> print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&#39;&gt;ALL&lt;/OPTION&gt;&quot;</span>;
+<a name="l00020"></a>00020 <span class="keywordflow">foreach</span>(<a class="code" href="_spacemission_create_update_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a>[<span class="stringliteral">&#39;id&#39;</span>] as $key =&gt; $value)
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022         print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $value . <span class="stringliteral">&quot;&#39;&quot;</span>;
+<a name="l00023"></a>00023         <span class="keywordflow">if</span>(isset(<a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;agency&quot;</span>]))
+<a name="l00024"></a>00024                 <span class="keywordflow">if</span> ($value == <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;agency&quot;</span>]) print <span class="stringliteral">&quot; selected&quot;</span>;
+<a name="l00025"></a>00025         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_spacemission_create_update_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a>[<span class="stringliteral">&#39;acronym&#39;</span>][$key] . <span class="stringliteral">&quot; (&quot;</span> . <a class="code" href="_spacemission_create_update_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a>[<span class="stringliteral">&#39;name&#39;</span>][$key]. <span class="stringliteral">&quot;)&quot;</span> . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00028"></a>00028 <span class="comment">//----</span>
+<a name="l00029"></a>00029 <span class="comment">//Research Area Filter</span>
+<a name="l00030"></a><a class="code" href="_spacemission_view_all_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">00030</a> <a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a> = <a class="code" href="_spacemission_edit_all_old_8php.html#aa5f9ba793996fc658abdc590689be687">$_spacemission</a>-&gt;get_research_areas();
+<a name="l00031"></a>00031 print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td class=&#39;title&#39; colspan=&#39;2&#39;&gt;&lt;b&gt;Filter by Research Area&lt;/b&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00032"></a>00032 print <span class="stringliteral">&quot;&lt;td class=&#39;filter&#39; colspan=&#39;4&#39;&gt;&lt;SELECT name=&#39;spa_filters[research_area]&#39; onchange=&#39;this.form.submit()&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00033"></a>00033 print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&#39;&gt;ALL&lt;/OPTION&gt;&quot;</span>;
+<a name="l00034"></a>00034 <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a>[<span class="stringliteral">&#39;id&#39;</span>] as $key =&gt; $value)
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036         print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $value . <span class="stringliteral">&quot;&#39;&quot;</span>;
+<a name="l00037"></a>00037         <span class="keywordflow">if</span>(isset(<a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;research_area&quot;</span>]))
+<a name="l00038"></a>00038                 <span class="keywordflow">if</span> ($value == <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;research_area&quot;</span>]) print <span class="stringliteral">&quot; selected&quot;</span>;
+<a name="l00039"></a>00039         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_observatory_create_update_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a>[<span class="stringliteral">&#39;name&#39;</span>][$key] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00040"></a>00040 }
+<a name="l00041"></a>00041 print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>; 
+<a name="l00042"></a>00042 <span class="comment">//----</span>
+<a name="l00043"></a>00043 <span class="comment">//Target Filter</span>
+<a name="l00044"></a><a class="code" href="_spacemission_view_all_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">00044</a> <a class="code" href="_observatory_create_update_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a> = <a class="code" href="_spacemission_edit_all_old_8php.html#aa5f9ba793996fc658abdc590689be687">$_spacemission</a>-&gt;get_targets();
+<a name="l00045"></a>00045 print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td class=&#39;title&#39; colspan=&#39;2&#39;&gt;&lt;b&gt;Filter by Target&lt;/b&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00046"></a>00046 print <span class="stringliteral">&quot;&lt;td class=&#39;filter&#39; colspan=&#39;4&#39;&gt;&lt;SELECT name=&#39;spa_filters[target]&#39; onchange=&#39;this.form.submit()&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00047"></a>00047 print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&#39;&gt;ALL&lt;/OPTION&gt;&quot;</span>;
+<a name="l00048"></a>00048 <span class="keywordflow">foreach</span>(<a class="code" href="_observatory_create_update_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a>[<span class="stringliteral">&#39;id&#39;</span>] as $key =&gt; $value)
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050         print <span class="stringliteral">&quot;&lt;OPTION value=&#39;&quot;</span> . $value . <span class="stringliteral">&quot;&#39;&quot;</span>;
+<a name="l00051"></a>00051         <span class="keywordflow">if</span>(isset(<a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;target&quot;</span>]))
+<a name="l00052"></a>00052                 <span class="keywordflow">if</span> ($value == <a class="code" href="index_8php.html#ae222f32233a38635bef58d24a13c9df5">$filters</a>[<span class="stringliteral">&quot;target&quot;</span>]) print <span class="stringliteral">&quot; selected&quot;</span>;
+<a name="l00053"></a>00053         print <span class="stringliteral">&quot;&gt;&quot;</span> . <a class="code" href="_observatory_create_update_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a>[<span class="stringliteral">&#39;target_name&#39;</span>][$key] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 print <span class="stringliteral">&quot;&lt;/SELECT&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>; 
+<a name="l00056"></a>00056 print <span class="stringliteral">&quot;&lt;/table&gt;&quot;</span>;
+<a name="l00057"></a>00057 <span class="comment">//----</span>
+<a name="l00058"></a>00058 print <span class="stringliteral">&quot;&lt;center&gt;&lt;table&gt;&quot;</span>;
+<a name="l00059"></a>00059 print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;input type=&#39;submit&#39; name=&#39;reset_filters&#39; value=&#39;Reset Filters&#39; class=&#39;submit&#39;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span>;
+<a name="l00060"></a>00060 print <span class="stringliteral">&quot;&lt;/table&gt;&lt;/center&gt;&quot;</span>;
+<a name="l00061"></a>00061 <span class="comment">//----</span>
+<a name="l00062"></a>00062 
+<a name="l00064"></a>00064 print <span class="stringliteral">&quot;&lt;table class=&#39;viewall&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00065"></a>00065 print <span class="stringliteral">&quot;&lt;caption&gt;For details please click on Space Mission entry name&lt;/caption&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00066"></a>00066 print <span class="stringliteral">&quot;&lt;tr&gt;&lt;th&gt;NAME&lt;/th&gt;&lt;th&gt;AGENCY&lt;/th&gt;&lt;th&gt;WEB&lt;/th&gt;&lt;th&gt;LAUNCH-DATE&lt;/th&gt;&lt;th&gt;DEATH-DATE&lt;/th&gt;&lt;th&gt;TARGETS&lt;/th&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00067"></a>00067 
+<a name="l00068"></a><a class="code" href="_spacemission_view_all_8php.html#a23e53dfd2b001b81c9946fa05ec90e6f">00068</a> <a class="code" href="_observatory_view_all_8php.html#a23e53dfd2b001b81c9946fa05ec90e6f">$index</a> = 0;
+<a name="l00069"></a>00069 <span class="keywordflow">foreach</span>($resources as $row)
+<a name="l00070"></a>00070 {
+<a name="l00071"></a>00071         <span class="keywordflow">if</span>(<a class="code" href="_observatory_view_all_8php.html#a23e53dfd2b001b81c9946fa05ec90e6f">$index</a> % 2) 
+<a name="l00072"></a>00072                 print <span class="stringliteral">&quot;&lt;tr class=&#39;even&#39;&gt;&quot;</span>;
+<a name="l00073"></a>00073         <span class="keywordflow">else</span>
+<a name="l00074"></a>00074                 print <span class="stringliteral">&quot;&lt;tr class=&#39;odd&#39;&gt;&quot;</span>;
+<a name="l00075"></a>00075         print <span class="stringliteral">&quot;&lt;td&gt;&lt;span title=&#39;Click for more details&#39; onclick=\&quot;return openwin(&#39;views/SpacemissionView.php?&quot;</span> .
+<a name="l00076"></a>00076                 <span class="stringliteral">&quot;id=&quot;</span> . $row[<span class="stringliteral">&quot;id&quot;</span>] . <span class="stringliteral">&quot;&#39;)\&quot; class=&#39;hand&#39;&gt;&quot;</span> . stripslashes($row[<span class="stringliteral">&quot;mission_name&quot;</span>]) . <span class="stringliteral">&quot;&lt;/span&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00077"></a>00077         print <span class="stringliteral">&quot;&lt;td&gt;&lt;a href=&#39;&quot;</span> . htmlentities($row[<span class="stringliteral">&quot;agency_web_address&quot;</span>]) . <span class="stringliteral">&quot;&#39; target=&#39;_blank&#39;&gt;&quot;</span> . htmlentities($row[<span class="stringliteral">&quot;agency&quot;</span>]) . <span class="stringliteral">&quot;&lt;/a&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00078"></a>00078         <span class="keywordflow">if</span>(<a class="code" href="html_8php.html#acba17f96058bbeb5dda60312de95e3e8">isValidURL</a>($row[<span class="stringliteral">&quot;web_address&quot;</span>])) <span class="comment">//if(url_exists($row[&quot;web_address&quot;])) /** @todo check performance with more than 100 entries! */</span>
+<a name="l00079"></a>00079                 print <span class="stringliteral">&quot;&lt;td&gt;&lt;a href=&#39;&quot;</span> . htmlentities($row[<span class="stringliteral">&quot;web_address&quot;</span>]) . <span class="stringliteral">&quot;&#39; target=&#39;_blank&#39;&gt;&lt;img width=&#39;30&#39; src=&#39;images/globe.png&#39; alt=&#39;globe&#39;/&gt;&lt;/a&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00080"></a>00080         <span class="keywordflow">else</span>
+<a name="l00081"></a>00081         print <span class="stringliteral">&quot;&lt;td&gt;&lt;/td&gt;&quot;</span>;
+<a name="l00082"></a>00082         print <span class="stringliteral">&quot;&lt;td&gt;&quot;</span> . $row[<span class="stringliteral">&quot;launch_date&quot;</span>] . <span class="stringliteral">&quot;&lt;/td&gt;&quot;</span>;
+<a name="l00083"></a>00083         print <span class="stringliteral">&quot;&lt;td&gt;&quot;</span> . (($row[<span class="stringliteral">&quot;death_date&quot;</span>] == <span class="stringliteral">&quot;0000-00-00&quot;</span>) ? <span class="stringliteral">&quot;&quot;</span> : $row[<span class="stringliteral">&quot;death_date&quot;</span>]) . <span class="stringliteral">&quot;&lt;/td&gt;&quot;</span>;
+<a name="l00084"></a>00084         print <span class="stringliteral">&quot;&lt;td&gt;&quot;</span>;
+<a name="l00085"></a>00085     <span class="keywordflow">foreach</span>($row[<span class="stringliteral">&quot;targets&quot;</span>] as $target)
+<a name="l00086"></a>00086     {
+<a name="l00087"></a>00087         print $target . <span class="stringliteral">&quot;&lt;br/&gt;&quot;</span>;
+<a name="l00088"></a>00088     }
+<a name="l00089"></a>00089         print <span class="stringliteral">&quot;&lt;/td&gt;&quot;</span>;
+<a name="l00090"></a>00090     print <span class="stringliteral">&quot;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00091"></a>00091     
+<a name="l00092"></a>00092     <a class="code" href="_observatory_view_all_8php.html#a23e53dfd2b001b81c9946fa05ec90e6f">$index</a>++;
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 <span class="keywordflow">if</span>(empty($resources))
+<a name="l00096"></a>00096         print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td colspan=&#39;6&#39;&gt;&lt;h3&gt;There are no Space Mission entries&lt;/h3&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00097"></a>00097         
+<a name="l00098"></a>00098 print <span class="stringliteral">&quot;&lt;/table&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:23 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

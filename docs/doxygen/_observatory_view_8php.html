@@ -36,75 +36,51 @@
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = new <a class="el" href="class_db_connector.html">DbConnector</a>()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a> = new <a class="el" href="class_db_connector.html">DbConnector</a>('')</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = &quot;id&quot;]</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = $link-&gt;query($query)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a49a8a4009b02e49717caa88b128affc5">$res</a> = mysqli_fetch_array($result, MYSQLI_ASSOC)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">print $res[&quot;name&quot;]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#ad198674f0ec29d0335bcf03c52305d07">$_observatory</a> = ModelDAO::getFromName(&quot;Observatory&quot;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">print&lt; FIELDSETclass='report'&gt;<br class="typebreak"/>
-&lt; LEGEND &gt;&lt; B &gt; <a class="el" href="class_observatory.html">Observatory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a12468f28947189455bdb71eba3cf7843">General</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">print&lt; P &gt;&lt; B &gt; <a class="el" href="class_observatory.html">Observatory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a74671768ff0565476a6d5a24ee86f18d">name</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">print&lt; fieldsetclass='report'&gt;<br class="typebreak"/>
+&lt; legend &gt;&lt; b &gt; <a class="el" href="class_observatory.html">Observatory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a840b5b040db651561575e2bbe053344f">General</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">print&lt; p &gt;&lt; b &gt; <a class="el" href="class_observatory.html">Observatory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a8cb386b8d980a3dc858c0f9beddbd1c6">name</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">if($_observatory-&gt;<br class="typebreak"/>
 get_hidden_field(&quot;web_address&quot;)) <br class="typebreak"/>
-print&quot;&lt;P&gt;&lt;B&gt;Web <a class="el" href="_spacemission_view_8php.html#a9a3662c9c13cd3d91ab4e3fc806c2bf7">address</a>&lt;/B&gt;<br class="typebreak"/>
-&lt;fontcolor='#FF0000'&gt; Not <br class="typebreak"/>
-Displayed&lt;/font&gt;&lt;/P&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a3d5bf6a39dc840437b080a010bdae3b6">LF</a></td></tr>
+print&quot;&lt;p&gt;&lt;b&gt;Web <a class="el" href="_spacemission_view_8php.html#a711c8b09717ab754f15d1ceffac68109">address</a>&lt;/b&gt;<br class="typebreak"/>
+&lt;bclass='red'&gt; Not Displayed<br class="typebreak"/>
+&lt;/b&gt;&lt;/p&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a1a523fdc3ae7dc397310d8d4d1ef3891">LF</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">else&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a4eb255c1cc15b24dcddb7443b8d399c8">$geohack_lat_postfix</a> = &quot;_S_&quot;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">else&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a0ea4327586c6f3ad5040dec97abd3ca8">$geohack_lon_postfix</a> = &quot;_W_&quot;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a8423e7278dde917bd51bc393d58cd789">$gps_are_null</a> = false</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">if($_observatory-&gt;<br class="typebreak"/>
 get_hidden_field(&quot;latitude&quot;)) <br class="typebreak"/>
-print&quot;&lt;P&gt;&lt;B&gt;Latitude&lt;/B&gt;<br class="typebreak"/>
-&lt;fontcolor='#FF0000'&gt; Not <br class="typebreak"/>
-Displayed&lt;/font&gt;&lt;/P&gt; else if <br class="typebreak"/>
-(!$gps_are_null) print&quot;&lt; P &gt;<br class="typebreak"/>
-&lt; B &gt;Latitude&lt;/B &gt;&lt; Ahref='http:&quot;&amp;params=&quot;.$_observatory-&gt;<br class="typebreak"/>
+print&quot;&lt;p&gt;&lt;b&gt;Latitude&lt;/b&gt;<br class="typebreak"/>
+&lt;bclass='red'&gt; Not Displayed<br class="typebreak"/>
+&lt;/b&gt;&lt;/p&gt; else if <br class="typebreak"/>
+(!$gps_are_null) print&quot;&lt; p &gt;<br class="typebreak"/>
+&lt; b &gt;Latitude&lt;/b &gt;&lt; ahref='http:&quot;&amp;amp;params=&quot;.$_observatory-&gt;<br class="typebreak"/>
  get_field_array(&quot;obs_latitude&quot;,&quot;float&quot;).$geohack_lat_postfix.$_observatory-&gt;<br class="typebreak"/>
 get_field_array(&quot;obs_longitude&quot;float <br class="typebreak"/>
 $geohack_lon_postfix _blank <br class="typebreak"/>
 $_observatory get_field_array(&quot;obs_latitude&quot;,&quot;seconds&quot;).&quot;'' <br class="typebreak"/>
 &quot;.$_observatory-&gt;<br class="typebreak"/>
 get_field_array(&quot;obs_latitude&quot;cent <br class="typebreak"/>
-else if(!$gps_are_null) print&quot;<br class="typebreak"/>
-&lt;P&gt;&lt;B&gt;Longitude&lt;/B&gt;&lt;Ahref='http:&quot;&amp;params=&quot;.$_observatory-&gt;<br class="typebreak"/>
- get_field_array <br class="typebreak"/>
-(&quot;obs_latitude&quot;,&quot;float&quot;).$geohack_lat_postfix.$_observatory-&gt;<br class="typebreak"/>
-get_field_array(&quot;obs_longitude&quot; <br class="typebreak"/>
-float $geohack_lon_postfix <br class="typebreak"/>
-_blank $_observatory <br class="typebreak"/>
-get_field_array <br class="typebreak"/>
-(&quot;obs_longitude&quot;,&quot;seconds&quot;).&quot;''&quot;.$_observatory-&gt;<br class="typebreak"/>
-get_field_array(&quot;obs_longitude&quot; <br class="typebreak"/>
-cent id range range id range <br class="typebreak"/>
-range id timezone report <br class="typebreak"/>
-rtable else if (is_array($_observatory-&gt;<br class="typebreak"/>
-get_has_many(&quot;scientific_contacts&quot;, <br class="typebreak"/>
-NULL))) foreach($_observatory-&gt;<br class="typebreak"/>
-get_has_many(&quot;scientific_contacts&quot; <br class="typebreak"/>
-NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a3ac9f525c8f10f20de78a53bd3f09f86">$key</a> = &quot;&lt;/TABLE&gt;&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">print&lt; FIELDSETclass='report'&gt;<br class="typebreak"/>
-&lt; LEGEND &gt;&lt; B &gt; Research&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a58ee3d27dd60ade2e93677f5cbe1363a">Areas</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a> = $_observatory-&gt;get_research_areas()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">print&lt; FIELDSETclass='report'&gt;<br class="typebreak"/>
-&lt; LEGEND &gt;&lt; B &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a7b447be05dc09b077bd59cc7b4b6ebd7">Targets</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a> = $_observatory-&gt;get_targets()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a72fbced68c54f6e8e40a69814f43cb13">$telescope_types</a> = $_observatory-&gt;get_telescope_types()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#aff7cdae99b15cf213deb71005f9974b9">$antenna_types</a> = $_observatory-&gt;get_antenna_types()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#aabfdec3c73401480f7c7b730509521cf">$instrument_types</a> = $_observatory-&gt;get_instrument_types()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a16fdb9f4af3bab65b9a15d8c93c18855">$wavelength_units</a> = $_observatory-&gt;get_wavelength_units()</td></tr>
+red&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_observatory_view_8php.html#a1b5dc4a56eb9f99cee4cab8271413c18">http</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <dl class="version"><dt><b>Version:</b></dt><dd></dd></dl>
-<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_observatory_view_8php.html">ObservatoryView.php</a> 333 2011-04-19 21:21:56Z ftopf </dd></dl>
+<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_observatory_view_8php.html">ObservatoryView.php</a> 541 2011-06-22 21:54:55Z ftopf </dd></dl>
 <dl class="author"><dt><b>Author:</b></dt><dd>Florian Topf, Robert Stöckler</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000047">Todo:</a></b></dt><dd><p class="startdd">improve if clauses when we want to hide fields which are not given </p>
-<p class="enddd">improve includes a bit </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000061">Todo:</a></b></dt><dd><p class="startdd">improve if clauses when we want to hide fields which are not given </p>
+<p>improve includes a bit </p>
+<p class="enddd">empty tables (without tr), empty lists (without li), a href targets are NOT allowed with xhtml strict </p>
 </dd></dl>
 <dl class="version"><dt><b>Version:</b></dt><dd></dd></dl>
-<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_spacemission_view_8php.html">SpacemissionView.php</a> 335 2011-04-20 08:51:48Z ftopf </dd></dl>
+<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_spacemission_view_8php.html">SpacemissionView.php</a> 541 2011-06-22 21:54:55Z ftopf </dd></dl>
 <dl class="author"><dt><b>Author:</b></dt><dd>Florian Topf, Robert Stöckler</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000054">Todo:</a></b></dt><dd><p class="startdd">improve if clauses when we want to hide fields which are not given </p>
-<p class="enddd">improve includes a bit </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000066">Todo:</a></b></dt><dd><p class="startdd">improve if clauses when we want to hide fields which are not given </p>
+<p>improve includes a bit </p>
+<p class="enddd">empty tables (without tr), empty lists (without li), a href targets are NOT allowed with xhtml strict </p>
 </dd></dl>
 
 <p>Definition in file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
@@ -120,22 +96,7 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00047">47</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aff7cdae99b15cf213deb71005f9974b9"></a><!-- doxytag: member="ObservatoryView.php::$antenna_types" ref="aff7cdae99b15cf213deb71005f9974b9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$antenna_types = $_observatory-&gt;get_antenna_types()</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00190">190</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00050">50</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -150,7 +111,7 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00090">90</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00093">93</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -165,7 +126,7 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00094">94</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00097">97</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -180,37 +141,7 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00097">97</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aabfdec3c73401480f7c7b730509521cf"></a><!-- doxytag: member="ObservatoryView.php::$instrument_types" ref="aabfdec3c73401480f7c7b730509521cf" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$instrument_types = $_observatory-&gt;get_instrument_types()</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00191">191</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3ac9f525c8f10f20de78a53bd3f09f86"></a><!-- doxytag: member="ObservatoryView.php::$key" ref="a3ac9f525c8f10f20de78a53bd3f09f86" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">if (is_array($_observatory-&gt;get_has_many(&quot;telescopes&quot;, NULL))) foreach($_observatory-&gt;get_has_many(&quot;telescopes&quot; NULL as $key = &quot;&lt;/TABLE&gt;&quot;</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00158">158</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00100">100</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -219,13 +150,13 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$link = new <a class="el" href="class_db_connector.html">DbConnector</a>()</td>
+          <td class="memname">$link = new <a class="el" href="class_db_connector.html">DbConnector</a>('')</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00018">18</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00020">20</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -240,7 +171,7 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00020">20</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00022">22</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -255,22 +186,7 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00022">22</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac16f01191bdaf3d8b16fe1c6d26c9c43"></a><!-- doxytag: member="ObservatoryView.php::$research_areas" ref="ac16f01191bdaf3d8b16fe1c6d26c9c43" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$research_areas = $_observatory-&gt;get_research_areas()</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00172">172</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00024">24</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
@@ -285,132 +201,72 @@ NULL as&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00021">21</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00023">23</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9a1a34b2d5552ae77e4a8dcb13a8b593"></a><!-- doxytag: member="ObservatoryView.php::$targets" ref="a9a1a34b2d5552ae77e4a8dcb13a8b593" args="" -->
+<a class="anchor" id="a840b5b040db651561575e2bbe053344f"></a><!-- doxytag: member="ObservatoryView.php::General" ref="a840b5b040db651561575e2bbe053344f" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$targets = $_observatory-&gt;get_targets()</td>
+          <td class="memname">print&lt;fieldsetclass='report'&gt;&lt;legend&gt;&lt;b&gt; <a class="el" href="class_observatory.html">Observatory</a> <a class="el" href="_spacemission_view_8php.html#a2275f22490e4e4a8daee866157d3062f">General</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00181">181</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00055">55</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a72fbced68c54f6e8e40a69814f43cb13"></a><!-- doxytag: member="ObservatoryView.php::$telescope_types" ref="a72fbced68c54f6e8e40a69814f43cb13" args="" -->
+<a class="anchor" id="a1b5dc4a56eb9f99cee4cab8271413c18"></a><!-- doxytag: member="ObservatoryView.php::http" ref="a1b5dc4a56eb9f99cee4cab8271413c18" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$telescope_types = $_observatory-&gt;get_telescope_types()</td>
+          <td class="memname">if ($_observatory-&gt;get_hidden_field(&quot;latitude&quot;)) print&quot;&lt;p&gt;&lt;b&gt;Latitude&lt;/b&gt;&lt;bclass='red'&gt; Not Displayed&lt;/b&gt;&lt;/p&gt; else if (!$gps_are_null) print&quot;&lt;p&gt;&lt;b&gt;Latitude&lt;/b&gt;&lt;ahref='http:&quot;&amp;amp;params=&quot;.$_observatory-&gt; get_field_array (&quot;obs_latitude&quot;,&quot;float&quot;).$geohack_lat_postfix.$_observatory-&gt;get_field_array(&quot;obs_longitude&quot; float $geohack_lon_postfix _blank $_observatory get_field_array (&quot;obs_latitude&quot;,&quot;seconds&quot;).&quot;'' &quot;.$_observatory-&gt;get_field_array(&quot;obs_latitude&quot; cent red <a class="el" href="_observatory_view_8php.html#a1b5dc4a56eb9f99cee4cab8271413c18">http</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00189">189</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00113">113</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a16fdb9f4af3bab65b9a15d8c93c18855"></a><!-- doxytag: member="ObservatoryView.php::$wavelength_units" ref="a16fdb9f4af3bab65b9a15d8c93c18855" args="" -->
+<a class="anchor" id="a1a523fdc3ae7dc397310d8d4d1ef3891"></a><!-- doxytag: member="ObservatoryView.php::LF" ref="a1a523fdc3ae7dc397310d8d4d1ef3891" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$wavelength_units = $_observatory-&gt;get_wavelength_units()</td>
+          <td class="memname">if ($_observatory-&gt;get_hidden_field(&quot;email&quot;)) print&quot;&lt;p&gt;&lt;b&gt;Email&lt;/b&gt;&lt;bclass='red'&gt; Not Displayed&lt;/b&gt;&lt;/p&gt; <a class="el" href="_spacemission_view_all_8php.html#a4ddf29484bcfbe667648f07f22fad2a3">LF</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00192">192</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00061">61</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a58ee3d27dd60ade2e93677f5cbe1363a"></a><!-- doxytag: member="ObservatoryView.php::Areas" ref="a58ee3d27dd60ade2e93677f5cbe1363a" args="" -->
+<a class="anchor" id="a8cb386b8d980a3dc858c0f9beddbd1c6"></a><!-- doxytag: member="ObservatoryView.php::name" ref="a8cb386b8d980a3dc858c0f9beddbd1c6" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">print&lt;FIELDSETclass='report'&gt;&lt;LEGEND&gt;&lt;B&gt; Research <a class="el" href="_spacemission_view_8php.html#a09e121f793b8c1c580fb58642cfa662b">Areas</a></td>
+          <td class="memname">print&lt;p&gt;&lt;b&gt; <a class="el" href="class_observatory.html">Observatory</a> <a class="el" href="_spacemission_view_8php.html#a3d0730aa3e943e68f072c126abeb4fbb">name</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00171">171</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a12468f28947189455bdb71eba3cf7843"></a><!-- doxytag: member="ObservatoryView.php::General" ref="a12468f28947189455bdb71eba3cf7843" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">print&lt;FIELDSETclass='report'&gt;&lt;LEGEND&gt;&lt;B&gt; <a class="el" href="class_observatory.html">Observatory</a> <a class="el" href="_spacemission_view_8php.html#a0ccaaaf8993e8c0342fe9fea3828265e">General</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00052">52</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3d5bf6a39dc840437b080a010bdae3b6"></a><!-- doxytag: member="ObservatoryView.php::LF" ref="a3d5bf6a39dc840437b080a010bdae3b6" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">print&lt;/FIELDSET&gt; <a class="el" href="_spacemission_view_all_8php.html#a8a72df04d49627b4de65e917806d3cb5">LF</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00058">58</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a74671768ff0565476a6d5a24ee86f18d"></a><!-- doxytag: member="ObservatoryView.php::name" ref="a74671768ff0565476a6d5a24ee86f18d" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">print&lt;P&gt;&lt;B&gt; <a class="el" href="class_observatory.html">Observatory</a> <a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00053">53</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b447be05dc09b077bd59cc7b4b6ebd7"></a><!-- doxytag: member="ObservatoryView.php::Targets" ref="a7b447be05dc09b077bd59cc7b4b6ebd7" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">print&lt;FIELDSETclass='report'&gt;&lt;LEGEND&gt;&lt;B&gt; <a class="el" href="_spacemission_view_8php.html#af4790569312f5619c383eefb308ab35c">Targets</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00180">180</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
+<p>Definition at line <a class="el" href="_observatory_view_8php_source.html#l00056">56</a> of file <a class="el" href="_observatory_view_8php_source.html">ObservatoryView.php</a>.</p>
 
 </div>
 </div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:24 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

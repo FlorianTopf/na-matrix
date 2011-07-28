@@ -382,6 +382,7 @@ class ObservatoryDAO extends ModelDAO
    * @brief gets all existing resources observatory
    *
    * @param $page which page wants to display resources
+   * @param $filters array of values to be used as filter on the database
    *
    * @return $resources array of resources
    *
@@ -1040,7 +1041,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
   /**
-   * @fn del_resource($resourceå_id)
+   * @fn del_resource($resource_id)
    * @brief deletes an existing observatory
    *
    * @param $resource_id ID of the observatory we want to delete

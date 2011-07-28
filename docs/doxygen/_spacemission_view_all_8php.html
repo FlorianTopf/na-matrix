@@ -36,26 +36,88 @@
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">print&lt; INPUTtype='hidden'<a class="el" href="_spacemission_view_8php.html#a70609071cb2efd1c1f5ccd5f21b9a8a7">name</a>='page'value='browse'&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#a8a72df04d49627b4de65e917806d3cb5">LF</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = &quot;SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = $link-&gt;query($query)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">print&lt; div &gt;&lt; inputtype='hidden'<a class="el" href="_spacemission_view_8php.html#a3d0730aa3e943e68f072c126abeb4fbb">name</a>='page'value='browse'/&gt;<br class="typebreak"/>
+&lt;/div &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#a4ddf29484bcfbe667648f07f22fad2a3">LF</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#afdec3eba83e53f938bca356326641ba8">$agencies</a> = $_spacemission-&gt;get_agencies()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">print&lt; OPTIONvalue=''&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#ad4fa4b11e4a1010cad21a254b7866cf4">ALL&lt;/OPTION &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#ac16f01191bdaf3d8b16fe1c6d26c9c43">$research_areas</a> = $_spacemission-&gt;get_research_areas()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#a9a1a34b2d5552ae77e4a8dcb13a8b593">$targets</a> = $_spacemission-&gt;get_targets()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_spacemission_view_all_8php.html#a23e53dfd2b001b81c9946fa05ec90e6f">$index</a> = 0</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <dl class="version"><dt><b>Version:</b></dt><dd></dd></dl>
-<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_spacemission_view_all_8php.html">SpacemissionViewAll.php</a> 329 2011-04-19 18:52:03Z ftopf </dd></dl>
+<dl class="rcs"><dt><b>Id:</b></dt><dd><a class="el" href="_spacemission_view_all_8php.html">SpacemissionViewAll.php</a> 678 2011-07-28 13:57:16Z ftopf </dd></dl>
 <dl class="author"><dt><b>Author:</b></dt><dd>Florian Topf, Robert Stöckler</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000055">Todo:</a></b></dt><dd><p class="startdd">add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </p>
-<p class="enddd">implement <a class="el" href="class_spacemission_d_a_o.html">SpacemissionDAO</a> usage </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000067">Todo:</a></b></dt><dd>add filter &amp; sort functionality &amp; detailed view (show entry) &amp; customised css table definition </dd></dl>
 
 <p>Definition in file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
 <hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="af59a5f7cd609e592c41dc3643efd3c98"></a><!-- doxytag: member="SpacemissionViewAll.php::$query" ref="af59a5f7cd609e592c41dc3643efd3c98" args="" -->
+<a class="anchor" id="afdec3eba83e53f938bca356326641ba8"></a><!-- doxytag: member="SpacemissionViewAll.php::$agencies" ref="afdec3eba83e53f938bca356326641ba8" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$query = &quot;SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name&quot;</td>
+          <td class="memname">$agencies = $_spacemission-&gt;get_agencies()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00016">16</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23e53dfd2b001b81c9946fa05ec90e6f"></a><!-- doxytag: member="SpacemissionViewAll.php::$index" ref="a23e53dfd2b001b81c9946fa05ec90e6f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$index = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00068">68</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac16f01191bdaf3d8b16fe1c6d26c9c43"></a><!-- doxytag: member="SpacemissionViewAll.php::$research_areas" ref="ac16f01191bdaf3d8b16fe1c6d26c9c43" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$research_areas = $_spacemission-&gt;get_research_areas()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00030">30</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a1a34b2d5552ae77e4a8dcb13a8b593"></a><!-- doxytag: member="SpacemissionViewAll.php::$targets" ref="a9a1a34b2d5552ae77e4a8dcb13a8b593" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$targets = $_spacemission-&gt;get_targets()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00044">44</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4fa4b11e4a1010cad21a254b7866cf4"></a><!-- doxytag: member="SpacemissionViewAll.php::ALL&lt;/OPTION &gt;" ref="ad4fa4b11e4a1010cad21a254b7866cf4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">print&lt;OPTIONvalue=''&gt; ALL&lt;/OPTION &gt;</td>
         </tr>
       </table>
 </div>
@@ -65,39 +127,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a112ef069ddc0454086e3d1e6d8d55d07"></a><!-- doxytag: member="SpacemissionViewAll.php::$result" ref="a112ef069ddc0454086e3d1e6d8d55d07" args="" -->
+<a class="anchor" id="a4ddf29484bcfbe667648f07f22fad2a3"></a><!-- doxytag: member="SpacemissionViewAll.php::LF" ref="a4ddf29484bcfbe667648f07f22fad2a3" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$result = $link-&gt;query($query)</td>
+          <td class="memname">print&lt;tr&gt;&lt;th&gt; NAME&lt;/th&gt;&lt;th&gt; AGENCY&lt;/th&gt;&lt;th&gt; WEB&lt;/th&gt;&lt;th&gt; LAUNCH DATE&lt;/th&gt;&lt;th&gt; DEATH DATE&lt;/th&gt;&lt;th&gt; TARGETS&lt;/th&gt;&lt;/tr&gt; <a class="el" href="_spacemission_view_all_8php.html#a4ddf29484bcfbe667648f07f22fad2a3">LF</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000068">Todo:</a></b></dt><dd>define new css rules for alternating BG color... </dd></dl>
 
-<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00021">21</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8a72df04d49627b4de65e917806d3cb5"></a><!-- doxytag: member="SpacemissionViewAll.php::LF" ref="a8a72df04d49627b4de65e917806d3cb5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">print&lt;TR&gt;&lt;TH&gt; NAME&lt;/TH&gt;&lt;TH&gt; AGENCY&lt;/TH&gt;&lt;TH&gt; WEB&lt;/TH&gt;&lt;TH&gt; LAUNCH DATE&lt;/TH&gt;&lt;TH&gt; DEATH DATE&lt;/TH&gt;&lt;TH&gt; TARGETS&lt;/TH&gt;&lt;/TR&gt; <a class="el" href="_spacemission_view_all_8php.html#a8a72df04d49627b4de65e917806d3cb5">LF</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000056">Todo:</a></b></dt><dd>define new css rules for alternating BG color... </dd></dl>
-
-<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00011">11</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
+<p>Definition at line <a class="el" href="_spacemission_view_all_8php_source.html#l00010">10</a> of file <a class="el" href="_spacemission_view_all_8php_source.html">SpacemissionViewAll.php</a>.</p>
 
 </div>
 </div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:24 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>

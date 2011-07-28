@@ -54,22 +54,22 @@
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031     $from = <span class="stringliteral">&quot;-f&quot;</span> . <a class="code" href="config_8inc_8php.html#a1aafe8befaaf37537cc0c278fe69e8f1">MAIL_FROM</a>;
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033     $message = <span class="stringliteral">&quot;Dear &quot;</span> . $uname . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00034"></a>00034     $message .= <span class="stringliteral">&quot;Your password has been reset to: &quot;</span>. $pword . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00033"></a>00033     $message = <span class="stringliteral">&quot;Dear &quot;</span> . $uname . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00034"></a>00034     $message .= <span class="stringliteral">&quot;Your password has been reset to: &quot;</span>. $pword . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00035"></a>00035     $message .= <span class="stringliteral">&quot;You may now access the server at http://europlanet-na1.oeaw.ac.at/matrix/ &quot;</span>;
-<a name="l00036"></a>00036     $message .= <span class="stringliteral">&quot;with username &quot;</span> . $uname . <span class="stringliteral">&quot; and the new password.&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00036"></a>00036     $message .= <span class="stringliteral">&quot;with username &quot;</span> . $uname . <span class="stringliteral">&quot; and the new password.&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00037"></a>00037     $message .= <span class="stringliteral">&quot;You can change your account details, including your password, any time via &quot;</span>;
-<a name="l00038"></a>00038     $message .= <span class="stringliteral">&quot;&#39;My Account&#39; beneath the &#39;Log out&#39; button. &quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00039"></a>00039     $message .= <span class="stringliteral">&quot;Sincerely,&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <span class="stringliteral">&quot;The team&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00038"></a>00038     $message .= <span class="stringliteral">&quot;&#39;My Account&#39; beneath the &#39;Log out&#39; button. &quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00039"></a>00039     $message .= <span class="stringliteral">&quot;Sincerely,&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <span class="stringliteral">&quot;The team&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041     mail($email, $subject, $message, $headers, $from);
 <a name="l00042"></a>00042   }
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 <span class="comment">//----------------------------------------------------------------------</span>
 <a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="reset_8php.html#af5713710935b521f15a18f186c4333f4">00046</a>   print <span class="stringliteral">&quot;&lt;CENTER&gt;&lt;H2&gt;Password reset&lt;/H2&gt;&lt;/CENTER&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00046"></a><a class="code" href="reset_8php.html#a52ac2955307cad7d4873b8c98a91d2c3">00046</a>   print <span class="stringliteral">&quot;&lt;h2&gt;Password reset&lt;/h2&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048   print <span class="stringliteral">&quot;&lt;INPUT type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;reset&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00048"></a>00048   print <span class="stringliteral">&quot;&lt;div&gt;&lt;input type=&#39;hidden&#39; name=&#39;page&#39; value=&#39;reset&#39;/&gt;&lt;/div&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00049"></a>00049 
 <a name="l00050"></a>00050   <a class="code" href="functions_8php.html#abbabce1ca41285b6cd2cc4342c3f5119">varStore</a>(<span class="stringliteral">&quot;res_uname&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);
 <a name="l00051"></a>00051 
@@ -85,9 +85,9 @@
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062     <span class="comment">// checks if uname exists</span>
 <a name="l00063"></a>00063     $user_exists = 0;
-<a name="l00064"></a>00064         <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT username, email FROM users_list&quot;</span>;
-<a name="l00065"></a>00065     <a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00066"></a>00066     <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
+<a name="l00064"></a>00064         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;SELECT username, email FROM users_list&quot;</span>;
+<a name="l00065"></a>00065     <a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a> = <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00066"></a>00066     <span class="keywordflow">while</span> ($row = mysqli_fetch_array(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>, MYSQLI_ASSOC))
 <a name="l00067"></a>00067     {
 <a name="l00068"></a>00068       <span class="keywordflow">if</span> (strtoupper(trim($_POST[<span class="stringliteral">&quot;res_uname&quot;</span>])) == strtoupper($row[<span class="stringliteral">&quot;username&quot;</span>]))
 <a name="l00069"></a>00069       {
@@ -96,7 +96,7 @@
 <a name="l00072"></a>00072         <span class="keywordflow">break</span>;
 <a name="l00073"></a>00073       }
 <a name="l00074"></a>00074     }
-<a name="l00075"></a>00075     mysqli_free_result(<a class="code" href="observatories_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
+<a name="l00075"></a>00075     mysqli_free_result(<a class="code" href="instrument_names_8php.html#a112ef069ddc0454086e3d1e6d8d55d07">$result</a>);
 <a name="l00076"></a>00076 
 <a name="l00077"></a>00077     <span class="keywordflow">if</span> ($user_exists == 0)
 <a name="l00078"></a>00078     {
@@ -105,20 +105,20 @@
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082     <span class="comment">// Throw a warning and reload if needed ELSE change pw &amp; send mail</span>
 <a name="l00083"></a>00083     <span class="keywordflow">if</span> (isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;warning&quot;</span>]) || isSet(<a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;error&quot;</span>]))
-<a name="l00084"></a>00084       print <span class="stringliteral">&quot;&lt;SCRIPT&gt;document.main_form.submit()&lt;/SCRIPT&gt;&quot;</span>;
+<a name="l00084"></a>00084       print <span class="stringliteral">&quot;&lt;script type=&#39;text/javascript&#39;&gt;document.main_form.submit()&lt;/script&gt;&quot;</span>;
 <a name="l00085"></a>00085     <span class="keywordflow">else</span>
 <a name="l00086"></a>00086     {
 <a name="l00087"></a>00087       $res_pwd = <a class="code" href="reset_8php.html#a63ef8ab24dac8f6871d4b5509464b8e5">randPw</a>();
-<a name="l00088"></a>00088       <a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;UPDATE users_list SET passwd=&#39;&quot;</span>. md5(trim($res_pwd)) .<span class="stringliteral">&quot;&#39; WHERE username=&#39;&quot;</span>. trim($_POST[<span class="stringliteral">&quot;res_uname&quot;</span>]) .<span class="stringliteral">&quot;&#39;&quot;</span>;
-<a name="l00089"></a>00089       <a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="observatories_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00090"></a>00090       <span class="keywordflow">if</span> (<a class="code" href="observatories_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;affectedRows() &gt; 0)
+<a name="l00088"></a>00088       <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;UPDATE users_list SET passwd=&#39;&quot;</span>. md5(trim($res_pwd)) .<span class="stringliteral">&quot;&#39; WHERE username=&#39;&quot;</span>. trim($_POST[<span class="stringliteral">&quot;res_uname&quot;</span>]) .<span class="stringliteral">&quot;&#39;&quot;</span>;
+<a name="l00089"></a>00089       <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00090"></a>00090       <span class="keywordflow">if</span> (<a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;affectedRows() &gt; 0)
 <a name="l00091"></a>00091       {
-<a name="l00092"></a>00092         print <span class="stringliteral">&quot;Your password has been reset! &quot;</span> .
+<a name="l00092"></a>00092         print <span class="stringliteral">&quot;&lt;p&gt;Your password has been reset! &quot;</span> .
 <a name="l00093"></a>00093               <span class="stringliteral">&quot;An email containing your new password has been sent to the &quot;</span> .
-<a name="l00094"></a>00094               <span class="stringliteral">&quot;email address accosiated to your account. &quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00094"></a>00094               <span class="stringliteral">&quot;email address accosiated to your account.&lt;p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00095"></a>00095 
-<a name="l00096"></a>00096         print <span class="stringliteral">&quot;If you do not receive this mail, please contact &quot;</span> .
-<a name="l00097"></a>00097               <span class="stringliteral">&quot;&lt;A href=&#39;mailto:robert.stoeckler@oeaw.ac.at&#39;&gt;Robert.Stoeckler@oeaw.ac.at&lt;/A&gt;.&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00096"></a>00096         print <span class="stringliteral">&quot;&lt;p&gt;If you do not receive this mail, please contact &quot;</span> .
+<a name="l00097"></a>00097               <span class="stringliteral">&quot;&lt;a href=&#39;mailto:robert.stoeckler@oeaw.ac.at&#39;&gt;robert.stoeckler@oeaw.ac.at&lt;/a&gt;.&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00098"></a>00098 
 <a name="l00099"></a>00099         <a class="code" href="reset_8php.html#a5738cba9c7d855d16bbed9a629c0156f">mailReset</a>($res_mail, $_POST[<span class="stringliteral">&quot;res_uname&quot;</span>], $res_pwd);
 <a name="l00100"></a>00100       }
@@ -135,22 +135,22 @@
 <a name="l00111"></a>00111   {
 <a name="l00112"></a>00112     <span class="keywordflow">if</span> ($_POST[<span class="stringliteral">&quot;res_uname&quot;</span>] == <span class="stringliteral">&quot;&quot;</span>)
 <a name="l00113"></a>00113     {
-<a name="l00114"></a>00114       print <span class="stringliteral">&quot;In order to reset your password, you need to provide your &quot;</span> .
-<a name="l00115"></a>00115             <span class="stringliteral">&quot;Login name at the input field below. &quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00116"></a>00116       print <span class="stringliteral">&quot;An email containing your new password will be send to the &quot;</span> .
-<a name="l00117"></a>00117             <span class="stringliteral">&quot;email address associated to your account. &quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00114"></a>00114       print <span class="stringliteral">&quot;&lt;p&gt;In order to reset your password, you need to provide your &quot;</span> .
+<a name="l00115"></a>00115             <span class="stringliteral">&quot;Login name at the input field below.&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00116"></a>00116       print <span class="stringliteral">&quot;&lt;p&gt;An email containing your new password will be send to the &quot;</span> .
+<a name="l00117"></a>00117             <span class="stringliteral">&quot;email address associated to your account.&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00118"></a>00118     }
 <a name="l00119"></a>00119 
 <a name="l00120"></a>00120     <span class="comment">// Store values in $_SESSION for retrieval on reload</span>
-<a name="l00121"></a>00121     print <span class="stringliteral">&quot;&lt;P&gt;&lt;TABLE class=&#39;main&#39; border=&#39;0&#39; cellpadding=&#39;4&#39; cellspacing=&#39;4&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00121"></a>00121     print <span class="stringliteral">&quot;&lt;p&gt;&lt;table class=&#39;page&#39;&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00122"></a>00122 
-<a name="l00123"></a>00123     print <span class="stringliteral">&quot;&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Login name:&lt;/B&gt;&lt;/TD&gt;&quot;</span> .
-<a name="l00124"></a>00124           <span class="stringliteral">&quot;&lt;TD&gt;&lt;INPUT name=&#39;res_uname&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
+<a name="l00123"></a>00123     print <span class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Login name:&lt;/b&gt;&lt;/td&gt;&quot;</span> .
+<a name="l00124"></a>00124           <span class="stringliteral">&quot;&lt;td&gt;&lt;input name=&#39;res_uname&#39; size=&#39;16&#39; value=&#39;&quot;</span> .
 <a name="l00125"></a>00125           $_POST[<span class="stringliteral">&quot;res_uname&quot;</span>] . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> .
-<a name="l00126"></a>00126           <span class="stringliteral">&quot;&lt;/TD&gt;&lt;/TR&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
+<a name="l00126"></a>00126           <span class="stringliteral">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
 <a name="l00127"></a>00127 
-<a name="l00128"></a>00128     print <span class="stringliteral">&quot;&lt;/TABLE&gt;&lt;P&gt;&quot;</span> . <a class="code" href="account_8php.html#a391c6fcaa96bcc4a461a312e1aa04628">LF</a>;
-<a name="l00129"></a>00129     print <span class="stringliteral">&quot;&lt;INPUT type=&#39;submit&#39; name=&#39;reset&#39; value=&#39;Reset&#39;&gt;&lt;P&gt;&quot;</span>;
+<a name="l00128"></a>00128     print <span class="stringliteral">&quot;&lt;/table&gt;&lt;/p&gt;&quot;</span> . <a class="code" href="account_8php.html#a4eabf75216feae504d36fd083bc0eb3d">LF</a>;
+<a name="l00129"></a>00129     print <span class="stringliteral">&quot;&lt;p&gt;&lt;input type=&#39;submit&#39; name=&#39;reset&#39; value=&#39;Reset&#39;&gt;&lt;/p&gt;&quot;</span>;
 <a name="l00130"></a>00130   }
 <a name="l00131"></a>00131 
 <a name="l00132"></a>00132   <span class="comment">//$link-&gt;close();</span>
@@ -158,7 +158,7 @@
 <a name="l00134"></a>00134 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 21 2011 15:35:18 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:23 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
