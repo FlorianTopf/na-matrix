@@ -10,6 +10,56 @@
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
 	
+print "<table class='filter'>" . LF;
+print "<caption>Filter the content by selecting one of the Dropdown menus</caption>" . LF;
+//Space Agency Filter
+$agencies = $_spacemission->get_agencies();
+print "<tr><td class='title' colspan='2'><b>Filter by Space Agency</b></td>";
+print "<td class='filter' colspan='4'><SELECT name='spa_filters[agency]' onchange='this.form.submit()'>" . LF;
+print "<OPTION value=''>ALL</OPTION>";
+foreach($agencies['id'] as $key => $value)
+{
+	print "<OPTION value='" . $value . "'";
+	if(isset($filters["agency"]))
+		if ($value == $filters["agency"]) print " selected";
+   	print ">" . $agencies['acronym'][$key] . " (" . $agencies['name'][$key]. ")" . "</OPTION>" . LF;
+}
+print "</SELECT></td></tr>" . LF;
+//----
+//Research Area Filter
+$research_areas = $_spacemission->get_research_areas();
+print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";
+print "<td class='filter' colspan='4'><SELECT name='spa_filters[research_area]' onchange='this.form.submit()'>" . LF;
+print "<OPTION value=''>ALL</OPTION>";
+foreach($research_areas['id'] as $key => $value)
+{
+	print "<OPTION value='" . $value . "'";
+	if(isset($filters["research_area"]))
+		if ($value == $filters["research_area"]) print " selected";
+   	print ">" . $research_areas['name'][$key] . "</OPTION>" . LF;
+}
+print "</SELECT></td></tr>" . LF; 
+//----
+//Target Filter
+$targets = $_spacemission->get_targets();
+print "<tr><td class='title' colspan='2'><b>Filter by Target</b></td>";
+print "<td class='filter' colspan='4'><SELECT name='spa_filters[target]' onchange='this.form.submit()'>" . LF;
+print "<OPTION value=''>ALL</OPTION>";
+foreach($targets['id'] as $key => $value)
+{
+	print "<OPTION value='" . $value . "'";
+	if(isset($filters["target"]))
+		if ($value == $filters["target"]) print " selected";
+   	print ">" . $targets['target_name'][$key] . "</OPTION>" . LF;
+}
+print "</SELECT></td></tr>" . LF; 
+print "</table>";
+//----
+print "<center><table>";
+print "<tr><td><input type='submit' name='reset_filters' value='Reset Filters' class='submit'></td></tr>";
+print "</table></center>";
+//----
+
 /** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on Space Mission entry name</caption>" . LF;

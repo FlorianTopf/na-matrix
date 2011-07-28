@@ -24,10 +24,10 @@ class SpacemissionDAO extends ModelDAO
 	//protected $_fields = array();
 
 	/** Array for all agencies */
-	protected $_agencies = array ();
+	protected $_agencies = array();
 
 	/** Array for all research areas */
-	protected $_researchAreas = array ();
+	protected $_researchAreas = array();
 
 	/** Array for all targets */
 	protected $_targets = array();
@@ -189,7 +189,7 @@ class SpacemissionDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
   /**
-   * @fn get_all_resources()
+   * @fn get_all_resources($page, $filters)
    * @brief gets all existing resources space mission
    *
    * @param $page which page wants to display resources
@@ -198,13 +198,46 @@ class SpacemissionDAO extends ModelDAO
    *
    * @todo be aware that we will need filters here soon! (improve queries)
    */
-	public function get_all_resources($page)
+	public function get_all_resources($page, $filters = array())
 	{
 		$resources = array();
 		if($page == "edit")
 			$query = "SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
 		if($page == "browse")
-			$query = "SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions ORDER BY mission_name";
+		{
+			$query = "SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions";
+
+			/** we have to check carefully when resetting the filters */
+			$filter_string = implode('', $filters); 
+			if(!empty($filter_string))
+				$query .= " WHERE ";
+				
+			$filter_queries = array();
+			
+			if(!empty($filters["agency"]))
+				$filter_queries[] = "mission_agency=". $filters["agency"];
+				
+			if(!empty($filters["research_area"]))
+			{
+				$filter_queries[] = "id IN (SELECT space_mission_id FROM space_mission_to_research_areas WHERE " .
+				"research_area_id=" . $filters["research_area"] . ")";
+			}
+			
+			if(!empty($filters["target"]))
+			{
+				$filter_queries[] = "id IN (SELECT space_mission_id FROM space_mission_to_targets WHERE " .
+				"target_id=" . $filters["target"] . ")";
+			}
+			
+			/** concatenating all filter queries with AND */
+			$query .= implode(" AND ", $filter_queries);
+			
+			$query .= " ORDER BY mission_name";
+			
+			//DEBUG:
+			//echo $query;
+			//nl();
+		}
 
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))

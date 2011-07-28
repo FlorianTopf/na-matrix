@@ -291,7 +291,7 @@ class Controller
     					break;
     				case "spa":
     					$_spacemission = ModelDAO::getFromName("Spacemission");
-    					$resources = $_spacemission->get_all_resources($page);
+    					$resources = $_spacemission->get_all_resources($page, $filters);
     					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionViewAll.php";
     					break;

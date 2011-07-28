@@ -378,7 +378,7 @@ class ObservatoryDAO extends ModelDAO
 
 //-----------------------------------------------------------------------------------------------------------
   /**
-   * @fn get_all_resources()
+   * @fn get_all_resources($page, $filters)
    * @brief gets all existing resources observatory
    *
    * @param $page which page wants to display resources

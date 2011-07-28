@@ -212,6 +212,12 @@
 					$filters[$key] = $value;
 			}
 			
+			if(isset($_POST["spa_filters"]))
+			{
+				foreach($_POST["spa_filters"] as  $key => $value)
+					$filters[$key] = $value;
+			}
+			
 			if(isset($_POST["reset_filters"]))
 				$filters = array();
 			

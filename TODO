@@ -128,18 +128,20 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   [OK] colorization of different observatories 
   * show creation / modification date
   * links to the partner observatories (how to manage this?)
-  [OK] filter: country, telescope type 
+  [OK] filter: country, telescope type, research area, target
+  * quick search for observatory name (with autocompleter)
 
 ** Browsing pages for space missions
   * according to telecon inputs (standard / detail pages)
   * don't forget to display agencies details
   [OK] colorization of different agencies 
   * show creation / modification date
-  * filter: agency, target
+  [OK] filter: agency, research area, target
+  * quick search for spacemission name (with autocompleter)
 
 
 ** ALL BROWSING PAGES
-   * filter mechanisms with onchange events (Discuss with Manuel)
+  [OK] filter mechanisms with onchange events (Discuss with Manuel)
 
 ** All VIEW PAGES
   * Implement table style for TEXTFIELDS (or make breaks)
