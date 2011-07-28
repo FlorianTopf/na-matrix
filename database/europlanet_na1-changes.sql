@@ -418,6 +418,10 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 (12, 'optical', 'visible light frequencies');
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 671 */
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 1 (..)' WHERE `research_areas`.`id` =1 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 2 (..)' WHERE `research_areas`.`id` =2 LIMIT 1 ;
+UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 3 (..)' WHERE `research_areas`.`id` =3 LIMIT 1 ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
