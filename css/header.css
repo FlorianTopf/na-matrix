@@ -1,7 +1,6 @@
 /* HEADER */
 #header {
 	position: relative;
-	left: 0;
 	height: 190px;
 	background-image: url(./../images/banner_head.gif);
 	background-repeat: repeat-y;
