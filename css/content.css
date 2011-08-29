@@ -1,11 +1,58 @@
 /* CONTENT SINGLE ELEMENTS */
-H1,H2,H3,H4,H5,H6 {
+/* Attention: Only one H1 element here at the frontpage */
+H1 {
+	font-size: 14px;
+	color: #172983;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #216821;
+	padding: 0 0 3px 0;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
+
+H2,H3,H4,H5,H6 {
 	color: #172983;
 	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+H2 {
+	font-size: 14px;
+}
+
+H3 {
+	font-size: 12px;
+}
+
+H4 {
+	font-size: 11px;
+}
+/*
+H5 {
+	font-size: 10px;
+	color: #172983;
+}
+
+H6 {
+	font-size: 9px;
+	color: #333333;
+	font-weight: normal;
+}
+*/
+
+H1.menu-header {
 	margin-left: 0;
 	margin-right: 0;
-/*	margin-top: 20px; */
 	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #000000;
+	text-transform: uppercase;
+	text-align: left;
 }
 
 A {
@@ -46,52 +93,6 @@ p.home {
 
 b.red {
 	color: #ff0000;
-}
-	
-H1 {
-	font-size: 14px;
-	color: #172983;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #216821;
-	padding: 0 0 3px 0;
-	margin-bottom: 15px;
-}
-
-H2,H3,H4,H5,H6 {
-	margin-bottom: 10px;
-}
-
-H2 {
-	font-size: 14px;
-}
-
-H3 {
-	font-size: 12px;
-}
-
-H4 {
-	font-size: 11px;
-}
-/*
-H5 {
-	font-size: 10px;
-	color: #172983;
-}
-
-H6 {
-	font-size: 9px;
-	color: #333333;
-	font-weight: normal;
-}
-*/
-
-H1.menu-header {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	color: #000000;
-	text-transform: uppercase;
-	text-align: left;
 }
 
 UL {
