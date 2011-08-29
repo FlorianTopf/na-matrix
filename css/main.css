@@ -1,9 +1,9 @@
 /* MAIN */
 body {
-	font-family: verdana, arial;
+	font-family: verdana, arial, sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 8pt;
+	font-size: 11px; 
 	text-align: left;
 	margin: 25px auto;
 	padding: 0;
@@ -33,7 +33,6 @@ body.report {
 
 #content-wrapper {
 	position: relative;
-	left: 0;
 	width: 100%;
 	height: auto;
 	background-color: #FFFFFF;
