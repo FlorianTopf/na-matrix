@@ -122,7 +122,9 @@
               }
             }
           ?>
-
+			  <h1 class="menu-header"></h1>
+			  <ul><li class="left-level-1-no"><a href="http://europlanet-na1.oeaw.ac.at/">RETURN TO NA1 WEBSITE</a></li></ul>
+			  <h1 class="menu-header"></h1>
               <img src="images/blank.gif" height="30" alt="blank"/>
               <ul><li class="left-level-1-center"><b>Developed by</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></li></ul>
             </div> <!--  left-menu -->
