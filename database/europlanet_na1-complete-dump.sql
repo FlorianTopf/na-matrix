@@ -1394,8 +1394,8 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 (9, 'microwave (UHF)', 'ultra high frequency'),
 (10, 'submillimeter', 'terahertz frequency'),
 (11, 'infrared (IR)', 'infrared frequencies'),
-(12, 'optical', 'visible light frequencies');
-(13, 'ultraviolet (UV)', 'ultraviolet light frequencies')
+(12, 'optical', 'visible light frequencies'),
+(13, 'ultraviolet (UV)', 'ultraviolet light frequencies');
 
 -- --------------------------------------------------------
 
