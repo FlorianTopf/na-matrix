@@ -423,6 +423,11 @@ UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 1 (.
 UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 2 (..)' WHERE `research_areas`.`id` =2 LIMIT 1 ;
 UPDATE `europlanet_na1`.`research_areas` SET `name` = 'DEPRECATED: Key Area 3 (..)' WHERE `research_areas`.`id` =3 LIMIT 1 ;
 
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 687 */
+UPDATE  `europlanet_na1`.`wavelength_ranges` SET  `acronym` =  'infrared (IR)' WHERE  `wavelength_ranges`.`id` =11;
+INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
+(13, 'ultraviolet (UV)', 'ultraviolet light frequencies')
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
