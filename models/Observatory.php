@@ -1233,6 +1233,10 @@ class ObservatoryDAO extends ModelDAO
 
 					$query = "INSERT INTO observatory_to_scientific_contacts VALUES (" . $res_id .
          	 			"," . $sci_con_id . ")";
+					
+					//DEBUG:
+					echo $query;
+					nl();
 
 					self::$db->query($query);
 					if (self::$db->errno() != 0)
