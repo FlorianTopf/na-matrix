@@ -5,9 +5,12 @@ Rosetta Mission: http://www.esa.int/SPECIALS/Rosetta/index.html
 
 
 ROADMAP (MAY/JUNE 2011)
-[OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS 
-  [OK] review targets and fix issues! 
-  [OK] introduce research area domain in database 
+
+[pending] SQL: 'foraign key constrained faild' at UPDATE scientific contact(both Observatory and Sensor),
+               telescope, instrument, sensor at function 'init_has_many'
+[OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
+  [OK] review targets and fix issues!
+  [OK] introduce research area domain in database
   * introduce brief description for research areas
 * Modify existing entries in running Matrix
   * take care of describing old research areas / science goals with new research areas / targets
@@ -16,8 +19,8 @@ ROADMAP (MAY/JUNE 2011)
 * E-Mail and Telecon UCL => see minutes
 * Add entries from old Matrix (OBS) <= [PRIORITY]
 * Add entries from old Matrix (SPA) <= [PRIORITY]
-[OK] Implement load & add Old UCL entries functionality 
-[OK] Uncomment code (Implement Questionnaire (Approve/Unapprove)) 
+[OK] Implement load & add Old UCL entries functionality
+[OK] Uncomment code (Implement Questionnaire (Approve/Unapprove))
 * Implement Filters/Search Interface (JUNE 2011)
 * Develop Strategy for UPDATE Entry procedure (JUNE 2011) <= [PRIORITY]
 * Implement Edit link button on browse site for admins
@@ -83,7 +86,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * add other targets (db functionality)
   * error labels for diameter (and other inputs) must be better!
   * wavelength (written text? like radio, near-infrared..)
-    [OK] autocompleter + db table (acronym / name) 
+    [OK] autocompleter + db table (acronym / name)
     * take only necessary jquery UI scripts + css (fix it!)
     * DOESNT WORK when something is already in the input field (maybe because of missing delimiter ",")
   * spatial resolution => format?
@@ -125,7 +128,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 ** Browsing pages for observatories
   * according to telecon inputs (standard / detail pages)
-  [OK] colorization of different observatories 
+  [OK] colorization of different observatories
   * show creation / modification date
   * links to the partner observatories (how to manage this?)
   [OK] filter: country, telescope type, research area, target
@@ -134,7 +137,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 ** Browsing pages for space missions
   * according to telecon inputs (standard / detail pages)
   * don't forget to display agencies details
-  [OK] colorization of different agencies 
+  [OK] colorization of different agencies
   * show creation / modification date
   [OK] filter: agency, research area, target
   * quick search for spacemission name (with autocompleter)
