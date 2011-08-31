@@ -1227,6 +1227,10 @@ class ObservatoryDAO extends ModelDAO
   		if(is_array($_POST["add_obs_sci_con_ids"]))
 			foreach ($_POST["add_obs_sci_con_ids"] as $key => $sci_con_id)
 			{
+				//intermediate solution for $sci_con_id=0;
+				if ($sci_con_id == 0)
+					break;
+				
 				// check if a name is written in the line
 				if (!empty($_POST["add_obs_sci_con_name"][$key]))
 				{
