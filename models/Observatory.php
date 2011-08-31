@@ -1246,8 +1246,8 @@ class ObservatoryDAO extends ModelDAO
   						$_POST["add_obs_sci_con_name"][$key] = "";
 
   						//DEBUG:
-//  						echo $query;
-//  						nl();
+  						echo $query;
+  						nl();
 
   						self::$db->query($query);
   						if (self::$db->errno() != 0)
@@ -1289,8 +1289,8 @@ class ObservatoryDAO extends ModelDAO
 	               addslashes($_POST["add_obs_sci_con_institution"][$key]) . "')";
 
 	       		//DEBUG:
-//  				echo $query;
-//  				nl();
+  				echo $query;
+  				nl();
 
 	            self::$db->query($query);
 			    if (self::$db->errno() != 0)
