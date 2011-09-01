@@ -1215,10 +1215,7 @@ class ObservatoryDAO extends ModelDAO
    * THIS IS A 3RD ORDER TABLE
    */
   	protected function update_sci_cons($res_id)
-  	{
-		echo "TEST!";
-		nl();
-  		
+  	{	
   		$query = "DELETE FROM observatory_to_scientific_contacts WHERE " .
 	               "observatory_id=" . $res_id;
 	    self::$db->query($query);
