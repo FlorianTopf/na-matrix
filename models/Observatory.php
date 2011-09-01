@@ -1236,8 +1236,8 @@ class ObservatoryDAO extends ModelDAO
          	 			"," . $sci_con_id . ")";
 					
 					//DEBUG:
-					echo $query;
-					nl();
+					//echo $query;
+					//nl();
 
 					self::$db->query($query);
 					if (self::$db->errno() != 0)
@@ -1254,8 +1254,8 @@ class ObservatoryDAO extends ModelDAO
   						$_POST["add_obs_sci_con_name"][$key] = "";
 
   						//DEBUG:
-  						echo $query;
-  						nl();
+  						//echo $query;
+  						//nl();
 
   						self::$db->query($query);
   						if (self::$db->errno() != 0)
