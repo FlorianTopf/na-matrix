@@ -6,7 +6,7 @@ Rosetta Mission: http://www.esa.int/SPECIALS/Rosetta/index.html
 
 ROADMAP (MAY/JUNE 2011)
 
-[pending] SQL: 'foraign key constrained faild' at UPDATE scientific contact(both Observatory and Sensor),
+[pending] SQL: 'foreign key constrained faild' at UPDATE scientific contact(both Observatory and Sensor),
                telescope, instrument, sensor at function 'init_has_many'
 [OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
   [OK] review targets and fix issues!
