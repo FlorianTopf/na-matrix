@@ -9,5 +9,4 @@ INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
 (8, 'Conical'),
 (9, 'Cylindrical'),
 (10, 'Horn'),
-(11, 'Parabolic'),
-(12, 'Other');
+(11, 'Parabolic');
