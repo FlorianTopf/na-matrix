@@ -429,6 +429,23 @@ UPDATE  `europlanet_na1`.`wavelength_ranges` SET  `acronym` =  'infrared (IR)' W
 INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 (13, 'ultraviolet (UV)', 'ultraviolet light frequencies')
 
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 704 */
+UPDATE  `europlanet_na1`.`instrument_types` SET  `name` =  'Spectrograph' WHERE  `instrument_types`.`id` =1;
+DELETE FROM `europlanet_na1`.`telescope_types` WHERE `telescope_types`.`id`=9;
+DELETE FROM `europlanet_na1`.`telescope_types` WHERE `telescope_types`.`id`=9;
+UPDATE `europlanet_na1`.`telescopes` SET `antenna_type` = '1' WHERE `telescopes`.`antenna_type` =12;
+DELETE FROM `europlanet_na1`.`antenna_types` WHERE `antenna_types`.`id` = 12
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXX */
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXX */
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXX */
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

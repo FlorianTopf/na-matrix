@@ -479,7 +479,8 @@ INSERT INTO `instrument_types` (`id`, `name`) VALUES
 (3, 'Polarimeter'),
 (4, 'Riometer'),
 (5, 'Camera'),
-(6, 'Other');
+(6, 'Other'),
+(7, 'Heterodyne Receiver');
 
 -- --------------------------------------------------------
 
@@ -1254,17 +1255,16 @@ INSERT INTO `telescope_types` (`id`, `name`) VALUES
 (6, 'Dobson'),
 (7, 'Refracting Telescope'),
 (8, 'Binocular Telescope'),
-(9, 'Spectrograph'),
 (10, 'Radio Telescope'),
 (11, 'Underground Telescope'),
-(12, 'Interferometer'),
 (13, 'Magnetometer'),
 (14, 'Riometer'),
 (15, 'Other'),
 (16, 'Newton-Cassegrain'),
 (17, 'Reflecting Telescope'),
 (18, 'Schmidt'),
-(19, 'Gregorian Telescope');
+(19, 'Gregorian Telescope'),
+(20, 'Solar Telescope');
 
 -- --------------------------------------------------------
 

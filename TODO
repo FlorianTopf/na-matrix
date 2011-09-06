@@ -1,12 +1,14 @@
-NEW ENTRIES IN THE DATABASE:
+NEW ENTRIES IN THE DATABASE: (Are they now finished?)
 Mauna Kea: http://en.wikipedia.org/wiki/Mauna_Kea_Observatories
 ESO: http://en.wikipedia.org/wiki/European_Southern_Observatory
 Rosetta Mission: http://www.esa.int/SPECIALS/Rosetta/index.html
 
+FORMAT CONVENTIONS:
+https://docs.google.com/document/d/1hvVi8se0xMOc3KD9RsDJJR7J5fPUwaEN0b9Xt/edit?hl=en_US
 
-ROADMAP (MAY/JUNE 2011)
+ROADMAP (2011)
 
-[pending] SQL: 'foreign key constrained faild' at UPDATE scientific contact(both Observatory and Sensor),
+[PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor),
                telescope, instrument, sensor at function 'init_has_many'
 [OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
   [OK] review targets and fix issues!
@@ -17,24 +19,27 @@ ROADMAP (MAY/JUNE 2011)
   * replace old research areas with new research areas AND targets!
   * Display Research Area (Domain) in Add/Edit and VIEW
 * E-Mail and Telecon UCL => see minutes
-* Add entries from old Matrix (OBS) <= [PRIORITY]
-* Add entries from old Matrix (SPA) <= [PRIORITY]
+[LOW PRIORITY] Add entries from old Matrix (OBS)
+[LOW PRIORITY] Add entries from old Matrix (SPA)
 [OK] Implement load & add Old UCL entries functionality
 [OK] Uncomment code (Implement Questionnaire (Approve/Unapprove))
-* Implement Filters/Search Interface (JUNE 2011)
-* Develop Strategy for UPDATE Entry procedure (JUNE 2011) <= [PRIORITY]
+[OK] Implement Filters on Browse Page (JUNE 2011)
+[HIGH PRIORITY] Implement Search Interface / Interactive Map (SEPTEMBER 2011)
+[LOW PRIORITY][OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
 * Implement Edit link button on browse site for admins
 
-
+[LOW PRIORITY]
 * COMMENT OUT CODE FOR QUESTIONNAIRE (ATM)
   * revision 435 changed files: models / pages / views
   * critical check with revision 430 (manual merges were done)
 * IMPROVE ACL AND ACCESS SCRIPTS FOR LOADER OF OLD NA1 ENTRIES
 
+
 BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be on the safe side)
 * Watch out for MODEL functionality and TABLEFIELD class
 
 * CODING STANDARD!
+  * Removed comments in VIEWS (rev391)
 
 * HTML 4.01 transitional => XHTML 1.0 strict conversion with validator
 	=> target NOT allowed => use JS
@@ -46,8 +51,6 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 	=> define standard paragraph (p)
 	=> Z-INDEX gelöscht (siehe typo3)
 
-
-* Removed comments in VIEWS (rev391)
 
 * Implement delete_resource() in spacemission model (implement delete button for admins)
 
@@ -64,19 +67,18 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 * Running Database
   * Review Science Goals (Robert, Manuel)
-   * Rewrite entries of europlanet_na1 database
- 	 * comments to new fields (remove unnecessary comment fields:
- 	    instrument comments)
- 	 * old telescope types to new instrument types
+   [OK] Rewrite entries of europlanet_na1 database
+ 	 [OK] comments to new fields (remove unnecessary comment fields: instrument comments)
+ 	 [OK] old telescope types to new instrument types
 
 
 * Development Database
-  * improve hidden fields / additional information (remove not necessary)
-  * remove OTHER from Telescope Types / Instrument Types / Antenna Types!
+  [OK] improve hidden fields / additional information (remove not necessary)
+  [HIGH PRIORITY] remove OTHER from Telescope Types / Instrument Types
   * introduce JOINS where necessary and usable
 
 
-** Introduce Questionnaire form (entries must be approved afterwards) (JUNE 2011)
+[LOW PRIORITY] Introduce Questionnaire form (entries must be approved afterwards) (JUNE 2011)
   * very user friendly! tooltips necessary (UI)
   * switch of all OTHER options (research areas etc.)
   * maybe modify database (use a second one OR make flags)
@@ -85,7 +87,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 * Input form for observatories
   * add other targets (db functionality)
   * error labels for diameter (and other inputs) must be better!
-  * wavelength (written text? like radio, near-infrared..)
+  [HIGH PRIORITY] wavelength (written text? like radio, near-infrared..)
     [OK] autocompleter + db table (acronym / name)
     * take only necessary jquery UI scripts + css (fix it!)
     * DOESNT WORK when something is already in the input field (maybe because of missing delimiter ",")
@@ -136,7 +138,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 ** Browsing pages for space missions
   * according to telecon inputs (standard / detail pages)
-  * don't forget to display agencies details
+  [OK] don't forget to display agencies details
   [OK] colorization of different agencies
   * show creation / modification date
   [OK] filter: agency, research area, target
@@ -147,7 +149,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   [OK] filter mechanisms with onchange events (Discuss with Manuel)
 
 ** All VIEW PAGES
-  * Implement table style for TEXTFIELDS (or make breaks)
+  [OK] Implement table style for TEXTFIELDS (or make breaks)
 
 
 ** Search pages for space missions / observatories (JUNE 2011)

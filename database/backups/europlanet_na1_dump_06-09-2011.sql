@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 06, 2011 at 02:13 PM
+-- Generation Time: Sep 06, 2011 at 05:32 PM
 -- Server version: 5.1.47
 -- PHP Version: 5.3.3
 
@@ -70,7 +70,7 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (25, '', '', '', '', '', ''),
 (26, '', '', '', '', '', ''),
 (27, '', 'Bombonera\r\nSuper Polaris\r\nComet-Catcher with stellar CCD', '', '', '3SSS UNICORN-Project', ''),
-(28, '', 'Spectrometer\r\nPhotometer', '', '', 'Property of various universities/institutes\r\nwww.iac.es/adjuntos/cci/ottable.pdf\r\n(Go to link for further details)', ''),
+(28, '', 'Several Spectrometer and Photometer are used as backends at each Telescope', '', '', '', 'Property of various universities/institutes: http://www.iac.es/adjuntos/cci/ottable.pdf\r\n(Go to link for further details)'),
 (29, 'Charles Wrench\r\ncharles.wrench@stfc.ac.uk', '3GHz Doppler-polarisation radar\r\nCloud radar systems\r\nMeteorological sensors\r\nHigh power UV lidar', '', '', '', ''),
 (30, '', 'Meade telescopes\r\nTransit telescope\r\n408 MHz pulsar telescope\r\nCelestrons', '', '', '', ''),
 (32, '', 'Meade cadiotropic 10 inch (0.25m)\r\nDavies reftractor 8 inch (0.2m)\r\nMalta binoculars 6 inch (0.15m)\r\nWatson refractor 4.2 inch (0.11m)\r\nCoronado solar telescope 1.5 inch (0.04m)', '', '', '', 'Science Outreach: Open sessions for public (Tuesdays and Saturdays)'),
@@ -186,8 +186,7 @@ INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
 (8, 'Conical'),
 (9, 'Cylindrical'),
 (10, 'Horn'),
-(11, 'Parabolic'),
-(12, 'Other');
+(11, 'Parabolic');
 
 -- --------------------------------------------------------
 
@@ -609,7 +608,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=190 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=191 ;
 
 --
 -- Dumping data for table `instruments`
@@ -735,7 +734,8 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (186, 'Optec SSP-5A single channel photoelectric photometer', 6, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, 'Hamamatsu R1414 phototube', 'Johnson UBV filters'),
 (187, 'DSI-2 Color CCD camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '752x582 pixel', 0, 0, 0, 'Sony EXview HAD CCD, Sensor (ICX429AKL)', ''),
 (188, 'Apogee ALTA U47+', 5, '', '', 322.000000, 6, 810.000000, 6, '', '', '', '', 0, '1024x1024 pixel', 0, 0, 0, 'E2V CCD47-10 back illuminated. 13 micron per pixel', 'OPTEC IFW filter wheel, Johnson UBVRI, Strömgren uvbyHbeta, RGB filters'),
-(189, 'Apogee ALTA U47+', 5, '', '', 322.000000, 6, 810.000000, 6, '', '', '', '', 0, '1024x1024 pixel', 0, 0, 0, 'E2V CCD47-10 back illuminated. 13 micron per pixel', 'OPTEC IFW filter wheel, Johnson UBVRI, Strömgren uvbyHbeta, RGB filters');
+(189, 'Apogee ALTA U47+', 5, '', '', 322.000000, 6, 810.000000, 6, '', '', '', '', 0, '1024x1024 pixel', 0, 0, 0, 'E2V CCD47-10 back illuminated. 13 micron per pixel', 'OPTEC IFW filter wheel, Johnson UBVRI, Strömgren uvbyHbeta, RGB filters'),
+(190, 'Fabry-Perot Interferometer', 2, '', '630.0 nm', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Meridional and vertical winds and neutral temperatures derived from FPI measurements of OI (630.0 nm) emission.');
 
 -- --------------------------------------------------------
 
@@ -755,13 +755,13 @@ CREATE TABLE IF NOT EXISTS `instrument_types` (
 --
 
 INSERT INTO `instrument_types` (`id`, `name`) VALUES
-(1, 'Spectrometer'),
+(1, 'Spectrograph'),
 (2, 'Interferometer'),
 (3, 'Polarimeter'),
 (4, 'Riometer'),
 (5, 'Camera'),
 (6, 'Other'),
-(7, 'Heterodyne receiver');
+(7, 'Heterodyne Receiver');
 
 -- --------------------------------------------------------
 
@@ -825,14 +825,14 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (18, 'Belogradchik', 0, '', 'http://www.astro.bas.bg/~aobel', '', '', '', 33, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, NULL, '', '2011-02-28 17:33:33', NULL),
 (19, 'Turku-Kevola Observatory', 0, '', '', '', '', '', 72, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, NULL, '', '2011-02-28 17:35:34', NULL),
 (20, 'Byurakan Astrophysical Observatory', 1946, '', 'http://www.bao.am/', 'Byurakan Astrophysical Observatory, Byurakan 378433, Aragatzotn province Armenia', '378433', 'Byurakan', 11, '', 'director@bao.sci.am', 40.350833, 44.241667, '', 1709, 1, 1, 5, NULL, '', '2011-02-28 21:47:22', NULL),
-(21, 'Sondrestrom Research Facility', 1983, 'SRI International; National Science Foundation; Denmark Meteorological Institute', 'http://isr.sri.com/', 'Greenland', '', '', 85, '650-859-5343', 'sandie.avlakeotes@sri.com', 67.000000, 309.000000, '', 74, 7, 7, 16, '', 'SVALBARD, EISCAT, Arecibo, Millstone Hill', '2011-02-28 21:58:27', '2011-05-30 15:13:34'),
+(21, 'Sondrestrom Research Facility', 1983, 'SRI International; National Science Foundation; Denmark Meteorological Institute', 'http://isr.sri.com/', 'Greenland', '', '', 85, '650-859-5343', 'sandie.avlakeotes@sri.com', 67.000000, 309.000000, '', 74, 7, 7, 16, '', 'SVALBARD, EISCAT, Arecibo, Millstone Hill', '2011-02-28 21:58:27', '2011-09-06 16:07:39'),
 (22, 'Yebes Astronomical Centre (Centro Astronomico de Yebes)', 0, 'National Astronomical Observatory, Spanish Grand Scientific Facility', 'http://www.fomento.es/', 'Guadalajara', '', 'Yebes', 192, '', '', 40.516667, -3.083331, '', 980, 7, 6, 2, '', '', '2011-02-28 22:07:40', '2011-04-06 12:34:41'),
 (23, 'Madrid Deep Space Communications Complex', 0, 'NASA Deep Space Network, Instituto Nacional de Tecnica Aerospacial', 'http://insa.org/node/112', 'Robledo de Chavela', '', 'Madrid', 192, '0034 91 867 7000', '', 40.000000, 4.000000, '', 0, 1, 1, 2, NULL, 'Canberra DSCC, Goldstone DSCC', '2011-02-28 22:32:05', NULL),
 (24, 'Observatori Fabra', 1904, 'Reial Academia de Ciencies I Arts de Barcelona', 'http://www.fabra.cat', '', '', 'Barcelona', 192, '', '', 41.700000, 2.200000, '', 415, 1, 1, 2, NULL, '', '2011-02-28 22:38:06', NULL),
 (25, 'Observatorio Monte Deva', 0, '', 'http://www.observatoriomontedeva.com/', 'Monte Deva, Gijon', '', '', 192, '985 096 630', '', 43.483331, -5.599992, '', 423, 7, 7, 2, '', '', '2011-02-28 22:47:38', '2011-04-06 12:47:30'),
 (26, 'E Pozuelo Observatory', 0, '', 'http://www.nto.org/observatorio.html', 'Pozuelo', '', 'Madrid', 192, '', '', 40.433331, 0.000000, '', 730, 7, 7, 2, '', '', '2011-02-28 22:53:49', '2011-04-06 13:06:21'),
 (27, 'Piera Observatory', 0, '', 'http://www.astrogea.org/jguarro/index.html', 'Piera, Anoia', '', '', 192, '', '', 0.000000, 0.000000, '', 0, 1, 1, 2, '', '', '2011-02-28 22:59:33', '2011-04-06 13:16:12'),
-(28, 'Observatorio del Teide', 0, 'Instituto de Astrofisica de Canarias', 'http://www.iac.es/eno.php?op1=3&lang=en', 'Observatoria del Teide (Tenerife), Instituto de Astrofisica de Canarias C/ Via Lactea, s / n 38200 - La Laguna (Tenerife), Espana', '38200', 'Tenerife', 192, '34/922 329 110', 'teide@iac.es', 28.300000, -16.500000, '', 2, 1, 1, 2, NULL, 'Various (Europe)', '2011-02-28 23:09:42', '2011-02-28 23:47:51'),
+(28, 'Observatorio del Teide', 1964, 'Instituto de Astrofisica de Canarias', 'http://www.iac.es/eno.php?op1=3&lang=en', 'Instituto de Astrofisica de Canarias, Via Lactea, 38200 - La Laguna (Tenerife)', '38200', 'La Laguna', 192, '+34 922 329 110', 'teide@iac.es', 28.300000, -16.509722, 'Tenerife, La Orotavam Fasnia, Güímar', 2390, 7, 7, 2, '', 'European Nothern Observatory Network', '2011-02-28 23:09:42', '2011-09-06 15:42:11'),
 (29, 'Chilbolton Observatory', 1967, 'Chilbolton Group of RAL Space, STFC Rutherford Appleton Laboratory', 'http://www.chilbolton.rl.ac.uk/facilities.htm', 'Chilbolton Observatory Drove Road, Chilbolton, Nr Stockbridge, Hants SO20 6BJ', 'SO20 6BJ', '', 217, '(01264) 860391', '', 51.133333, -1.433333, '', 82, 1, 1, 1, NULL, '', '2011-02-28 23:16:48', NULL),
 (30, 'Glasgow University Observatory', 0, 'University of Glasgow', 'http://www.astro.gla.ac.uk/observatory/observ.shtml', 'Acre Road (main observatory) / Cochno (outstation); Glasgow, Edinburgh', '', 'Glasgow', 217, '(0141) 581 4322/3', '', 55.899997, -4.299997, '', 50, 1, 1, 1, NULL, '', '2011-02-28 23:25:01', '2011-02-28 23:47:21'),
 (32, 'Keele Observatory', 1962, 'Keele University', 'http://www.astro.keele.ac.uk/~obs/', 'Keele University, Newcastle-under-Lyme', '', '', 217, '', 'obsvisits@phys.keele.ac.uk', 53.000000, -2.266667, '', 202, 1, 1, 1, NULL, '', '2011-02-28 23:41:54', '2011-02-28 23:46:26'),
@@ -1434,10 +1434,9 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (19, 33),
 (20, 34),
 (20, 35),
-(21, 304),
-(21, 305),
-(21, 306),
-(21, 307),
+(21, 367),
+(21, 368),
+(21, 369),
 (22, 170),
 (22, 171),
 (22, 172),
@@ -1450,11 +1449,10 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (26, 180),
 (26, 181),
 (27, 182),
-(28, 54),
-(28, 55),
-(28, 56),
-(28, 57),
-(28, 58),
+(28, 363),
+(28, 364),
+(28, 365),
+(28, 366),
 (29, 59),
 (30, 60),
 (30, 61),
@@ -2946,7 +2944,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=363 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=370 ;
 
 --
 -- Dumping data for table `telescopes`
@@ -2977,11 +2975,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `telescope_e
 (44, NULL, 10, NULL, 26.000000, '', 1, '', NULL, 1, NULL, 1, NULL),
 (45, NULL, 10, NULL, 34.000000, '', 1, '', NULL, 1, NULL, 1, NULL),
 (46, NULL, 10, NULL, 70.000000, '', 1, '', NULL, 1, NULL, 1, NULL),
-(54, NULL, 15, NULL, 1.200000, '', 1, 'Robotic', NULL, 1, NULL, 1, NULL),
-(55, NULL, 12, NULL, 0.000000, '', 1, '', NULL, 1, NULL, 1, NULL),
-(56, NULL, 15, NULL, 1.550000, '', 1, 'Infrared', NULL, 1, NULL, 1, NULL),
-(57, NULL, 15, NULL, 1.500000, '', 1, 'Solar', NULL, 1, NULL, 1, NULL),
-(58, NULL, 15, NULL, 0.400000, '', 1, 'Optical', NULL, 1, NULL, 1, NULL),
 (59, NULL, 10, NULL, 25.000000, '', 1, '', NULL, 1, NULL, 1, NULL),
 (60, NULL, 15, NULL, 0.500000, '', 1, 'Grubb Parsons', NULL, 1, NULL, 1, NULL),
 (61, NULL, 10, NULL, 3.000000, '', 1, 'HI', NULL, 1, NULL, 1, NULL),
@@ -3076,10 +3069,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `telescope_e
 (301, '91cm Telescope', 2, 0, 0.910000, '4.143', 1, '', 0.000000, 1, 0.000000, 1, ''),
 (302, '61cm Telescope', 2, 0, 0.610000, '1.21', 1, '', 0.000000, 1, 0.000000, 1, ''),
 (303, 'ATP2 Telescope', 5, 0, 0.800000, '2.4', 1, '', 0.000000, 1, 0.000000, 1, ''),
-(304, 'Incoherent scatter radar', 10, 0, 32.000000, '', 11, 'infrared, ', 0.000000, 1, 0.000000, 1, 'Direct measurement of ionospheric electron-number density, ion velocity, and electron and ion temperatures along the radar beam.'),
-(305, 'Three-Frequency Riometers', 14, 0, 0.000000, '', 1, '24 Hz, 30 Hz, 31 MHz', 0.000000, 1, 0.000000, 1, ''),
-(306, 'Three-Axis Magnetometer', 13, 0, 0.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'Three-axis flux-gate magnetometers are sensitive to variations of the ionospheric electric current and to induced ground currents.'),
-(307, 'Fabry-Perot Interferometer', 12, 0, 0.000000, '', 1, '630.0 nm', 0.000000, 1, 0.000000, 1, 'Meridional and vertical winds and neutral temperatures derived from FPI measurements of OI (630.0 nm) emission.'),
 (308, 'Troughton Equatorial Telescope', 7, 0, 0.250000, '0.9144', 1, '', 0.000000, 1, 0.000000, 1, 'Historic 10-inch equatorial refractor built by Grubb brothers (Dublin) in 1885. Used mostly for visual and video work.'),
 (309, 'Planewave CDK 17-inch Corrected Hall-Dirkham Astrograph', 17, 0, 0.430000, 'f/6.8', 1, '', 0.000000, 1, 0.000000, 1, 'Auxiliary Telescope: 10.6 cm f/5.0 apochromatic reflector\r\nGuide Telescope: Equinox 120ED guidescope'),
 (311, 'UH 88-inch Telescope ', 17, 0, 2.200000, '22.6', 1, 'optical, infrared, ', 0.000000, 1, 0.000000, 1, ''),
@@ -3096,30 +3085,37 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `telescope_e
 (328, 'Submillimeter Array', 10, 8, 6.000000, '', 11, 'submillimeter, ', 230.000000, 5, 690.000000, 5, 'Detailed specifications of the SMA: http://sma1.sma.hawaii.edu/specs.html'),
 (329, 'APEX Telescope', 10, 1, 12.000000, '8 f/D', 11, 'submillimeter, ', 211.000000, 5, 1390.000000, 5, '\r\n'),
 (330, 'VLBA Antenna', 10, 1, 25.000000, '8.85', 11, 'microwave (UHF) - (EHF) ', 312.000000, 1, 90.000000, 5, 'Observational Status: http://www.vlba.nrao.edu/astro/obstatus/current'),
-(335, 'VISTA - Visible and Infrared Survey Telescope for Astronomy', 5, 1, 4.100000, 'f/1', 12, 'infrared, ', 130.350006, 1, 352.700012, 6, ''),
-(336, 'VST - VLT Survey Telescope', 2, 1, 2.650000, '14.4', 12, 'ultraviolet, optical, ', 299.799988, 1, 999.299988, 6, 'Cooperation of Osservatorio Astronomico di Capodimonte (OAC) and  European Southern Observatory (ESO)\r\n'),
-(337, 'E-ELT - European Extremely Large Telescope', 17, 1, 39.299999, 'f/10 - f/2', 12, 'optical, infrared (IR), ', 12.500000, 6, 999.299988, 6, ''),
-(342, 'BAT 6', 5, 1, 6.000000, '24', 12, 'infrared (IR), optical, ultraviolet (UV), ', 30.000000, 1, 999.299988, 6, 'located near Mt.Pastukhova at an altitude of 2070m '),
-(343, 'RATAN-600', 10, 895, 600.000000, '', 12, 'radiowaves, microwaves, ', 610.000000, 1, 30.000000, 5, ''),
-(344, 'Zeiss-1000', 5, 1, 1.000000, '13.3', 12, 'infrared (IR), optical, ultraviolet (UV), ', 30.000000, 1, 999.299988, 6, ''),
-(345, 'Zeis-600', 2, 1, 0.600000, '', 12, '', 0.000000, 1, 0.000000, 1, ''),
+(335, 'VISTA - Visible and Infrared Survey Telescope for Astronomy', 5, 1, 4.100000, 'f/1', 1, 'infrared, ', 130.350006, 1, 352.700012, 6, ''),
+(336, 'VST - VLT Survey Telescope', 2, 1, 2.650000, '14.4', 1, 'ultraviolet, optical, ', 299.799988, 1, 999.299988, 6, 'Cooperation of Osservatorio Astronomico di Capodimonte (OAC) and  European Southern Observatory (ESO)\r\n'),
+(337, 'E-ELT - European Extremely Large Telescope', 17, 1, 39.299999, 'f/10 - f/2', 1, 'optical, infrared (IR), ', 12.500000, 6, 999.299988, 6, ''),
+(342, 'BAT 6', 5, 1, 6.000000, '24', 1, 'infrared (IR), optical, ultraviolet (UV), ', 30.000000, 1, 999.299988, 6, 'located near Mt.Pastukhova at an altitude of 2070m '),
+(343, 'RATAN-600', 10, 895, 600.000000, '', 1, 'radiowaves, microwaves, ', 610.000000, 1, 30.000000, 5, ''),
+(344, 'Zeiss-1000', 5, 1, 1.000000, '13.3', 1, 'infrared (IR), optical, ultraviolet (UV), ', 30.000000, 1, 999.299988, 6, ''),
+(345, 'Zeis-600', 2, 1, 0.600000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
 (346, 'ALMA 12m Telescope', 10, 54, 12.000000, '', 11, 'microwave (EHF), submillimeter, ', 0.000000, 1, 0.000000, 1, 'Can be used together as Interferometer.'),
 (347, 'ALMA 7m Telescope', 10, 12, 7.000000, '', 11, 'microwave (EHF), submillimeter, ', 0.000000, 1, 0.000000, 1, 'Can be used together as Interferometer.'),
 (348, 'IRAM 30m telescope', 10, 1, 30.000000, '', 11, 'microwave (EHF), submillimeter, ', 83.000000, 5, 348.000000, 5, ''),
-(349, '125-cm Richey Chretien', 5, 1, 1.250000, '1/13', 12, 'optical, ', 0.000000, 1, 0.000000, 1, 'FOV = 30 arcmin'),
-(350, '70-cm meniscus', 15, 1, 0.700000, '1/3', 12, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'FOV = 6 degree'),
-(351, '50-cm reflector', 17, 1, 0.500000, '1/12', 12, '', 0.000000, 1, 0.000000, 1, ''),
-(352, '40-cm Zeiss refractor', 7, 1, 0.400000, '1/17.5', 12, '', 0.000000, 1, 0.000000, 1, ''),
-(353, '40-cm Zeiss double astrograph', 7, 1, 0.400000, '1/7', 12, '', 0.000000, 1, 0.000000, 1, 'FOV = 6 degree'),
-(354, '36-cm Zeiss Schmidt', 17, 1, 0.360000, '1/1.5', 12, '', 0.000000, 1, 0.000000, 1, 'FOV = 7.5 degree'),
-(355, '53-cm Coronograph', 15, 0, 0.000000, '', 12, '', 0.000000, 1, 0.000000, 1, ''),
-(356, '44-cm Coelostat', 15, 0, 0.440000, '', 12, '', 0.000000, 1, 0.000000, 1, ''),
-(357, 'Celestron EdgeHD 9,25', 7, 1, 0.235000, '2.35 m', 12, 'optical, infrared (IR), ', 0.000000, 1, 0.000000, 1, ''),
-(358, 'Maksutov-Cassegrain', 4, 1, 0.300000, '4.8', 12, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 43 arcsec/mm'),
-(359, 'MEADE ETX-125', 4, 1, 0.127000, '1.9', 12, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 108 arcsec/mm'),
-(360, 'MEADE, 14'' LX200', 5, 1, 0.356000, '3.556', 12, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 58 arcsec/mm'),
-(361, 'Kreiken Telescope', 15, 1, 0.406000, '4.064', 12, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 51 arcsec/mm'),
-(362, 'Coudé Refractor', 7, 1, 0.150000, '2.25', 12, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 92 arcsec/mm\r\n\r\nSolar projection lens and screen for Sun spot observations, Contarex photo camera, Lyott H-alpha monochromator');
+(349, '125-cm Richey Chretien', 5, 1, 1.250000, '1/13', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'FOV = 30 arcmin'),
+(350, '70-cm meniscus', 15, 1, 0.700000, '1/3', 1, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'FOV = 6 degree'),
+(351, '50-cm reflector', 17, 1, 0.500000, '1/12', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(352, '40-cm Zeiss refractor', 7, 1, 0.400000, '1/17.5', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(353, '40-cm Zeiss double astrograph', 7, 1, 0.400000, '1/7', 1, '', 0.000000, 1, 0.000000, 1, 'FOV = 6 degree'),
+(354, '36-cm Zeiss Schmidt', 17, 1, 0.360000, '1/1.5', 1, '', 0.000000, 1, 0.000000, 1, 'FOV = 7.5 degree'),
+(355, '53-cm Coronograph', 15, 0, 0.000000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(356, '44-cm Coelostat', 15, 0, 0.440000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(357, 'Celestron EdgeHD 9,25', 7, 1, 0.235000, '2.35 m', 1, 'optical, infrared (IR), ', 0.000000, 1, 0.000000, 1, ''),
+(358, 'Maksutov-Cassegrain', 4, 1, 0.300000, '4.8', 1, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 43 arcsec/mm'),
+(359, 'MEADE ETX-125', 4, 1, 0.127000, '1.9', 1, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 108 arcsec/mm'),
+(360, 'MEADE, 14'' LX200', 5, 1, 0.356000, '3.556', 1, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 58 arcsec/mm'),
+(361, 'Kreiken Telescope', 15, 1, 0.406000, '4.064', 1, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 51 arcsec/mm'),
+(362, 'Coudé Refractor', 7, 1, 0.150000, '2.25', 1, 'infrared (IR), optical, ultraviolet (UV), ', 0.000000, 1, 0.000000, 1, 'Image scale: 92 arcsec/mm\r\n\r\nSolar projection lens and screen for Sun spot observations, Contarex photo camera, Lyott H-alpha monochromator'),
+(363, 'STELLA/SES Robotic Telescope', 17, 0, 1.200000, 'f/8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(364, 'Carlos Sánchez Telescope (TCS)', 2, 0, 1.550000, 'f/13.8', 1, 'infrared (IR),', 0.000000, 1, 0.000000, 1, ''),
+(365, 'GREGOR Telescope', 20, 0, 1.500000, '55.6', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(366, 'Optical Telescope Array (OTA)', 17, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Robotic Telescope which is part of SLOOH Space Camera (http://www.slooh.com)'),
+(367, 'Incoherent scatter radar', 10, 0, 32.000000, '', 11, 'infrared, ', 0.000000, 1, 0.000000, 1, 'Direct measurement of ionospheric electron-number density, ion velocity, and electron and ion temperatures along the radar beam.'),
+(368, 'Three-Frequency Riometers', 14, 0, 0.000000, '', 1, '24 Hz, 30 Hz, 31 MHz', 0.000000, 1, 0.000000, 1, ''),
+(369, 'Three-Axis Magnetometer', 13, 0, 0.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'Three-axis flux-gate magnetometers are sensitive to variations of the ionospheric electric current and to induced ground currents.');
 
 -- --------------------------------------------------------
 
@@ -3260,7 +3256,8 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (358, 186),
 (359, 187),
 (360, 188),
-(361, 189);
+(361, 189),
+(367, 190);
 
 -- --------------------------------------------------------
 
@@ -3273,7 +3270,7 @@ CREATE TABLE IF NOT EXISTS `telescope_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `telescope_types`
@@ -3288,17 +3285,16 @@ INSERT INTO `telescope_types` (`id`, `name`) VALUES
 (6, 'Dobson'),
 (7, 'Refracting Telescope'),
 (8, 'Binocular Telescope'),
-(9, 'Spectrograph'),
 (10, 'Radio Telescope'),
 (11, 'Underground Telescope'),
-(12, 'Interferometer'),
 (13, 'Magnetometer'),
 (14, 'Riometer'),
 (15, 'Other'),
 (16, 'Newton-Cassegrain'),
 (17, 'Reflecting Telescope'),
 (18, 'Schmidt'),
-(19, 'Gregorian Telescope');
+(19, 'Gregorian Telescope'),
+(20, 'Solar Telescope');
 
 -- --------------------------------------------------------
 
@@ -3391,7 +3387,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1032 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1068 ;
 
 --
 -- Dumping data for table `users_statistics`
@@ -4428,7 +4424,43 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (1028, 1, 'home', '2011-09-05 18:44:16'),
 (1029, 1, 'browse', '2011-09-06 08:11:28'),
 (1030, 1, 'browse', '2011-09-06 08:11:29'),
-(1031, 1, 'home', '2011-09-06 12:34:59');
+(1031, 1, 'home', '2011-09-06 12:34:59'),
+(1032, 1, 'home', '2011-09-06 14:40:09'),
+(1033, 1, 'login', '2011-09-06 14:40:14'),
+(1034, 3, 'login', '2011-09-06 14:40:15'),
+(1035, 3, 'edit', '2011-09-06 14:40:21'),
+(1036, 3, 'edit', '2011-09-06 14:40:25'),
+(1037, 3, 'add', '2011-09-06 14:42:44'),
+(1038, 3, 'edit', '2011-09-06 14:42:59'),
+(1039, 3, 'edit', '2011-09-06 14:43:01'),
+(1040, 3, 'add', '2011-09-06 14:43:13'),
+(1041, 3, 'home', '2011-09-06 14:45:36'),
+(1042, 3, 'add', '2011-09-06 14:45:39'),
+(1043, 3, 'edit', '2011-09-06 14:45:41'),
+(1044, 3, 'edit', '2011-09-06 14:45:43'),
+(1045, 3, 'add', '2011-09-06 14:45:45'),
+(1046, 3, 'edit', '2011-09-06 14:46:05'),
+(1047, 3, 'add', '2011-09-06 14:46:07'),
+(1048, 3, 'add', '2011-09-06 15:42:11'),
+(1049, 3, 'edit', '2011-09-06 15:42:16'),
+(1050, 3, 'edit', '2011-09-06 15:42:18'),
+(1051, 3, 'add', '2011-09-06 15:42:19'),
+(1052, 3, 'edit', '2011-09-06 15:45:47'),
+(1053, 3, 'edit', '2011-09-06 15:45:49'),
+(1054, 3, 'add', '2011-09-06 15:46:06'),
+(1055, 3, 'edit', '2011-09-06 15:46:10'),
+(1056, 3, 'add', '2011-09-06 15:46:24'),
+(1057, 3, 'browse', '2011-09-06 15:56:42'),
+(1058, 3, 'browse', '2011-09-06 15:56:44'),
+(1059, 3, 'edit', '2011-09-06 16:04:42'),
+(1060, 3, 'edit', '2011-09-06 16:04:43'),
+(1061, 3, 'add', '2011-09-06 16:04:45'),
+(1062, 3, 'edit', '2011-09-06 16:06:46'),
+(1063, 3, 'add', '2011-09-06 16:06:50'),
+(1064, 3, 'add', '2011-09-06 16:07:39'),
+(1065, 3, 'edit', '2011-09-06 16:07:42'),
+(1066, 3, 'edit', '2011-09-06 16:07:45'),
+(1067, 3, 'add', '2011-09-06 16:07:46');
 
 -- --------------------------------------------------------
 
