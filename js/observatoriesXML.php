@@ -21,8 +21,9 @@ $parnode = $dom->appendChild($node);
 $link = new DbConnector('');
 
 //Select necessary rows in the Observatories table
-$query = "SELECT id, name, latitude, longitude FROM observatories"; 
+$query = "SELECT id, name, latitude, longitude FROM observatories WHERE longitude != 0.000000 AND latitude != 0.000000"; 
 $result = $link->query($query);
+//this is not the correct error
 if (!$result) {  
   die('Invalid query: ' . mysql_error());
 } 
