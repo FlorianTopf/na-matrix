@@ -41,9 +41,9 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>
-	<script type="text/javascript" 
-    src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxTPZYElJSBeBUeMSX5xXgq6lLjHthSAk20WnZ_iuuzhMt60X_ukms-AUg">
-    </script>
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAmUaRTS1vArcWknFju4fDxxQuw8BGbK7LiOhs5kpiaFAJeSLuVxSm1VWGiwXwQGRwDtoO7Q_0kJZtgw" 
+	type="text/javascript">
+	</script>
     <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="lib/js/jquery-ui-1.8.10.custom.min.js"></script>
