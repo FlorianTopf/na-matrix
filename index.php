@@ -41,13 +41,16 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>
+	<script type="text/javascript" 
+    src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxTPZYElJSBeBUeMSX5xXgq6lLjHthSAk20WnZ_iuuzhMt60X_ukms-AUg">
+    </script>
     <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="lib/js/jquery-ui-1.8.10.custom.min.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
   </head>
 
-  <body>
+<body onunload="GUnload()">
   <div id="outer-wrapper">
     <div id="banner-top"></div>
 	<div id="header">
@@ -90,6 +93,7 @@
               <ul>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=home">Home</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=browse">Browse Matrix</a></li>
+                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Observatory Map (Alpha)</a></li>
               </ul>
 
           <?php

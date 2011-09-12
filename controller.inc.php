@@ -301,6 +301,9 @@ class Controller
     				default:
     					break; }
     			break;
+    		case "map":
+    			include "views/ObservatoryMapAll.php";
+    			break;
     		default:
     			include "pages/" . $page . ".php";
     			break;

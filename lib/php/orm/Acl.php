@@ -13,6 +13,7 @@ class Acl
 	static private $_acl = array(
 	'add' => 21,
 	'browse' => 0,
+	'map' => 0,
 	'edit' => 21,
 	'home' => 0,
 	'login' => 0,
