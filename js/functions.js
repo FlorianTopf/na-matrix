@@ -17,135 +17,163 @@ function openwin(content)
   return false;
 }
 
-//SOME VARS FOR GOOGLE MAPS
-//move them to the main part
+//-----------------------------------------------------------------------------------------------------------
+//SOME VARIABLES FOR GOOGLE MAPS
+//User Location
 var initialLocation;
+//Standard Locations
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
+//Flag for User Location Support
 var browserSupportFlag =  new Boolean();
+//Custom Icons (maybe introduce new ones)
+var customIcons = {
+	      myLocation: {
+	        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+	        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+	      },
+	      observatory: {
+	        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+	        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+	      }
+};
 
-var iconBlue = new GIcon(); 
-iconBlue.image = 'http://labs.google.com/ridefinder/images/mm_20_blue.png';
-iconBlue.shadow = 'http://labs.google.com/ridefinder/images/mm_20_shadow.png';
-iconBlue.iconSize = new GSize(12, 20);
-iconBlue.shadowSize = new GSize(22, 20);
-iconBlue.iconAnchor = new GPoint(6, 20);
-iconBlue.infoWindowAnchor = new GPoint(5, 1);
-
-var iconRed = new GIcon(); 
-iconRed.image = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
-iconRed.shadow = 'http://labs.google.com/ridefinder/images/mm_20_shadow.png';
-iconRed.iconSize = new GSize(12, 20);
-iconRed.shadowSize = new GSize(22, 20);
-iconRed.iconAnchor = new GPoint(6, 20);
-iconRed.infoWindowAnchor = new GPoint(5, 1);
-
-//var customIcons = [];
-//customIcons["restaurant"] = iconBlue;
-//customIcons["bar"] = iconRed;
-
-//Google Maps Integration Testing
+//Google Maps Integration Testing (Google Maps Api v3)
 
 //Note that using Google Gears requires loading the Javascript
 //at http://code.google.com/apis/gears/gears_init.js
-$(document).bind('mapIsReady', function() {
-    if (GBrowserIsCompatible()) {    	
-//    	 var myOptions = {
-//    	    zoom: 6,
-//    	    mapTypeId: google.maps.MapTypeId.ROADMAP
-//    	  };
+$(document).bind('mapIsReady', function() {   	
+	var myOptions = {
+        zoom: 4,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
     	
-    	var map = new GMap2(document.getElementById("map"));
-        /** @todo take better controls, improve functionality */
-    	map.addControl(new GSmallMapControl());
-        map.addControl(new GMapTypeControl());
-        map.enableScrollWheelZoom();
+    //Generate Map
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
+    //Generate Infowindow
+    var infoWindow = new google.maps.InfoWindow;
         
-        //Set User Location
-        // Try W3C Geolocation (Preferred)
-        if(navigator.geolocation) {
-          browserSupportFlag = true;
-          navigator.geolocation.getCurrentPosition(function(position) {
-            initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-            map.setCenter(initialLocation, 4);
-            var marker = createMarker(initialLocation, "Your current location", "blue");
-            map.addOverlay(marker);
-          }, function() {
-            handleNoGeolocation(browserSupportFlag);
-          });
+    //Set User Location
+    //Variables for marker
+    var html = "<b>Your current location</b>";
+    var icon = customIcons["myLocation"];
+    // Try W3C Geolocation (Preferred)
+    if(navigator.geolocation) {
+    	browserSupportFlag = true;
+        navigator.geolocation.getCurrentPosition(function(position) {
+        	initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        	map.setCenter(initialLocation, 4);
+        	// Set marker at User Location
+        	var marker = new google.maps.Marker({
+        		map: map,
+        		position: initialLocation,
+        		icon: icon.icon,
+        		shadow: icon.shadow
+        	});
+        	bindInfoWindow(marker, map, infoWindow, html);
+        }, function() {
+        	handleNoGeolocation(browserSupportFlag);	
+        });
         // Try Google Gears Geolocation
         } else if (google.gears) {
-          browserSupportFlag = true;
-          var geo = google.gears.factory.create('beta.geolocation');
-          geo.getCurrentPosition(function(position) {
-            initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
-            map.setCenter(initialLocation, 4);
-            var marker = createMarker(initialLocation, "Your current location", "blue");
-            map.addOverlay(marker);
-          }, function() {
-            handleNoGeoLocation(browserSupportFlag);
-          });
+        	browserSupportFlag = true;
+        	var geo = google.gears.factory.create('beta.geolocation');
+        	geo.getCurrentPosition(function(position) {
+        		initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
+        		map.setCenter(initialLocation, 4);
+        		// Set marker at User Location
+        		var marker = new google.maps.Marker({
+        			map: map,
+        			position: initialLocation,
+        			icon: icon.icon,
+        			shadow: icon.shadow
+        		});
+        		bindInfoWindow(marker, map, infoWindow, html);
+        	}, function() {
+        		handleNoGeoLocation(browserSupportFlag);
+        	});
         // Browser doesn't support Geolocation
         } else {
-          browserSupportFlag = false;
-          handleNoGeolocation(browserSupportFlag);
+        	browserSupportFlag = false;
+        	handleNoGeolocation(browserSupportFlag);
         }
-        
-        //map.setCenter(new GLatLng(47.614495, -122.341861), 1);
 
-        GDownloadUrl("js/observatoriesXML.php", function(data) {
-          var xml = GXml.parse(data);
-          var markers = xml.documentElement.getElementsByTagName("marker");
-          for (var i = 0; i < markers.length; i++) {
-            var name = markers[i].getAttribute("name");
-            //var address = markers[i].getAttribute("address");
-            //var type = markers[i].getAttribute("type");
-            var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
-                                    parseFloat(markers[i].getAttribute("lng")));
-            //var marker = createMarker(point, name, address, type);
-            var marker = createMarker(point, name, "red");
-            map.addOverlay(marker);
-          }
-        });
-      }
+        //Fetch Observatory Locations from Database
+    	downloadUrl("js/observatoriesXML.php", function(data) {
+    		var xml = parseXml(data);
+    		var markers = xml.documentElement.getElementsByTagName("marker");
+    		for (var i = 0; i < markers.length; i++) {
+    			var name = markers[i].getAttribute("name");
+    			var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
+    					parseFloat(markers[i].getAttribute("lng")));
+    			var id = markers[i].getAttribute("id");
+    			//Set information for infowindow
+    			var html = "<h3>" + name + "</h3>" + 
+    				"<center><b><a href=\"#\" onClick=\"return openwin('views/ObservatoryView.php?" +
+    				"id=" + id + "')\" class='hand'>Click here for details</b></center>"; 
+    			var icon = customIcons["observatory"];
+    			//Set marker for Observatory
+    			var marker = new google.maps.Marker({
+    				map: map,
+    				position: point,
+    				icon: icon.icon,
+    				shadow: icon.shadow
+    			});
+    			bindInfoWindow(marker, map, infoWindow, html);
+    		}
+    	});
 });
 
 //HELPER FUNCTIONS for GOOGLE MAPS
 function handleNoGeolocation(errorFlag) {
-    //unbedingt bessere default plätze definieren
+	//unbedingt bessere default plätze definieren
 	if (errorFlag == true) {
-      alert("Geolocation service failed.");
-      initialLocation = newyork;
+		alert("Geolocation service failed.");
+		initialLocation = newyork;
     } else {
-      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-      initialLocation = siberia;
+    	alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+    	initialLocation = siberia;
     }
     map.setCenter(initialLocation);
-  }
-
-//function createMarker(point, name, address, type) {
-//var marker = new GMarker(point, customIcons[type]);
-//var html = "<b>" + name + "</b> <br/>" + address;
-//GEvent.addListener(marker, 'click', function() {
-//marker.openInfoWindowHtml(html);
-//});
-//return marker;
-//}
-
-/** @todo improve description infos */
-function createMarker(point, name, type) {
-    if(type == "blue")
-    	var marker = new GMarker(point, iconBlue);
-    if(type == "red")
-    	var marker = new GMarker(point, iconRed);    
-    //unbedingt info über die view URL geben! (am besten mit open win)
-    var html = "<b>" + name + "</b>";
-    GEvent.addListener(marker, 'click', function() {
-      marker.openInfoWindowHtml(html);
-    });
-    return marker;
 }
 
+function bindInfoWindow(marker, map, infoWindow, html) {
+	google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.setContent(html);
+		infoWindow.open(map, marker);
+    });
+}
+
+function downloadUrl(url, callback) {
+	var request = window.ActiveXObject ?
+		new ActiveXObject('Microsoft.XMLHTTP') :
+        new XMLHttpRequest;
+		
+	request.onreadystatechange = function() {
+		if (request.readyState == 4) {
+			request.onreadystatechange = doNothing;
+			callback(request.responseText, request.status);
+		}
+	};
+
+    request.open('GET', url, true);
+    request.send(null);
+}
+
+function parseXml(str) {
+	if (window.ActiveXObject) {
+		var doc = new ActiveXObject('Microsoft.XMLDOM');
+		doc.loadXML(str);
+		return doc;
+	} else if (window.DOMParser) {
+		return (new DOMParser).parseFromString(str, 'text/xml');
+		
+	}
+}
+
+function doNothing() {}
+
+//-----------------------------------------------------------------------------------------------------------
 //HELPER FUNCTIONS for AUTOCOMPLETER
 function split( val ) {
 	return val.split( /,\s*/ );

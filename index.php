@@ -41,8 +41,9 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>
-	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAmUaRTS1vArcWknFju4fDxxQuw8BGbK7LiOhs5kpiaFAJeSLuVxSm1VWGiwXwQGRwDtoO7Q_0kJZtgw" 
-	type="text/javascript">
+	<!-- Add new AJAX loader from google when available -->
+	<script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?sensor=true">
 	</script>
     <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>
@@ -50,7 +51,7 @@
     <script type="text/javascript" src="js/functions.js"></script>
   </head>
 
-<body onunload="GUnload()">
+<body>
   <div id="outer-wrapper">
     <div id="banner-top"></div>
 	<div id="header">

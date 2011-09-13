@@ -23,9 +23,9 @@ $link = new DbConnector('');
 //Select necessary rows in the Observatories table
 $query = "SELECT id, name, latitude, longitude FROM observatories WHERE longitude != 0.000000 AND latitude != 0.000000"; 
 $result = $link->query($query);
-//this is not the correct error
+//Error message for query
 if (!$result) {  
-  die('Invalid query: ' . mysql_error());
+  die('Invalid query: ' . $link->error(););
 } 
 
 header("Content-type: text/xml"); 
@@ -35,6 +35,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
   //ADD TO XML DOCUMENT NODE  
   $node = $dom->createElement("marker");  
   $newnode = $parnode->appendChild($node);
+  $newnode->setAttribute("id", $row['id']);
   $newnode->setAttribute("name", utf8_encode($row['name']));
   $newnode->setAttribute("lat", $row['latitude']);  
   $newnode->setAttribute("lng", $row['longitude']);  
