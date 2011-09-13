@@ -25,7 +25,7 @@ $query = "SELECT id, name, latitude, longitude FROM observatories WHERE longitud
 $result = $link->query($query);
 //Error message for query
 if (!$result) {  
-  die('Invalid query: ' . $link->error(););
+  die('Invalid query: ' . $link->error());
 } 
 
 header("Content-type: text/xml"); 
