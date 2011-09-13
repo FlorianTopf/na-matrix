@@ -9,7 +9,8 @@
 
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
-	
+
+print "<h2>There are " . $resources_count . " Space Missions listed in the Matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
 print "<caption>Filter the content by selecting one of the Dropdown menus</caption>" . LF;
 //Space Agency Filter

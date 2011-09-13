@@ -102,6 +102,10 @@ $(document).bind('mapIsReady', function() {
     	downloadUrl("js/observatoriesXML.php", function(data) {
     		var xml = parseXml(data);
     		var markers = xml.documentElement.getElementsByTagName("marker");
+    		//Amount of Observatories
+    		var markersCountHtml =  "<h2>There are " + markers.length + " Observatories with GPS data listed in the Matrix</h2>";
+    		//Add it to DIV
+    		document.getElementById("numObservatories").innerHTML = markersCountHtml;
     		for (var i = 0; i < markers.length; i++) {
     			var name = markers[i].getAttribute("name");
     			var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
@@ -121,7 +125,7 @@ $(document).bind('mapIsReady', function() {
     			});
     			bindInfoWindow(marker, map, infoWindow, html);
     		}
-    	});
+    	});  	
 });
 
 //HELPER FUNCTIONS for GOOGLE MAPS

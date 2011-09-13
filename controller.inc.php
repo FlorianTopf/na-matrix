@@ -286,12 +286,14 @@ class Controller
     				case "obs":
     					$_observatory = ModelDAO::getFromName("Observatory");
     					$resources = $_observatory->get_all_resources($page, $filters);
+    					$resources_count = count($resources);
     					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryViewAll.php";
     					break;
     				case "spa":
     					$_spacemission = ModelDAO::getFromName("Spacemission");
     					$resources = $_spacemission->get_all_resources($page, $filters);
+    					$resources_count = count($resources);
     					self::printSelector($page, $action, $resource_type);
     					include "views/SpacemissionViewAll.php";
     					break;

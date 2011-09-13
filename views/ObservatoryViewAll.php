@@ -9,7 +9,8 @@
 
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
-	
+
+print "<h2>There are " . $resources_count . " Observatories listed in the Matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
 print "<caption>Filter the content by selecting one of the Dropdown menus</caption>" . LF;
 //Country Filter
@@ -74,7 +75,6 @@ print "<tr><td><input type='submit' name='reset_filters' value='Reset Filters' c
 print "</table></center>";
 //----
 
-/** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on Observatory entry name</caption>" . LF;
 print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
