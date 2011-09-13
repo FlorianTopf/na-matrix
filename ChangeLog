@@ -1,4 +1,224 @@
+2011-09-13  ftopf
+
+    * ObservatoryMapAll.php, ObservatoryViewAll.php, SpacemissionViewAll.php,
+      TODO, controller.inc.php, functions.js: updated TODO, introduced count of
+      observatories and space missions in browse, introduced count of
+      observatories in interactive map
+
+    * _acl_8php.html, _acl_8php_source.html, _db_config_8php.html,
+      _db_config_8php_source.html, _db_connector_8php.html,
+      _db_connector_8php_source.html, _model_d_a_o_8php.html,
+      _model_d_a_o_8php_source.html, _observatory_8php.html,
+      _observatory_8php_source.html, _observatory_create_update_8php.html,
+      _observatory_create_update_8php_source.html,
+      _observatory_edit_all_8php.html, _observatory_edit_all_8php_source.html,
+      _observatory_edit_all_old_8php.html,
+      _observatory_edit_all_old_8php_source.html,
+      _observatory_edit_all_temp_8php.html,
+      _observatory_edit_all_temp_8php_source.html,
+      _observatory_map_all_8php.html, _observatory_map_all_8php_source.html,
+      _observatory_view_8php.html, _observatory_view_8php_source.html,
+      _observatory_view_all_8php.html, _observatory_view_all_8php_source.html,
+      _spacemission_8php.html, _spacemission_8php_source.html,
+      _spacemission_create_update_8php.html,
+      _spacemission_create_update_8php_source.html,
+      _spacemission_edit_all_8php.html, _spacemission_edit_all_8php_source.html,
+      _spacemission_edit_all_old_8php.html,
+      _spacemission_edit_all_old_8php_source.html, _spacemission_view_8php.html,
+      _spacemission_view_8php_source.html, _spacemission_view_all_8php.html,
+      _spacemission_view_all_8php_source.html, account_8php.html,
+      account_8php_source.html, all_24.html, all_6c.html, all_6e.html,
+      all_6f.html, all_77.html, annotated.html, class_acl.html,
+      class_controller.html, class_db_connector.html, class_model_d_a_o.html,
+      class_observatory.html, class_observatory_d_a_o.html,
+      class_spacemission.html, class_spacemission_d_a_o.html,
+      class_system_component.html, classes.html, config_8inc_8php.html,
+      config_8inc_8php_source.html, controller_8inc_8php.html,
+      controller_8inc_8php_source.html, files.html, files_6f.html,
+      functions.html, functions_8php.html, functions_8php_source.html,
+      functions_func.html, functions_vars.html, globals.html, globals_enum.html,
+      globals_func.html, globals_vars.html, hierarchy.html, home_8php.html,
+      home_8php_source.html, html_8php.html, html_8php_source.html,
+      index_8php.html, index_8php_source.html, instrument_names_8php.html,
+      instrument_names_8php_source.html, login_8php.html,
+      login_8php_source.html, logout_8php.html, logout_8php_source.html,
+      main.html, observatories_8php.html, observatories_8php_source.html,
+      observatories_x_m_l_8php.html, observatories_x_m_l_8php_source.html,
+      pages.html, registration_8php.html, registration_8php_source.html,
+      reset_8php.html, reset_8php_source.html, search.js,
+      spacemissions_8php.html, spacemissions_8php_source.html,
+      telescope_names_8php.html, telescope_names_8php_source.html, todo.html,
+      tree.html, variables_24.html, variables_6c.html, variables_6e.html,
+      variables_6f.html, variables_77.html, wavelength_ranges_8php.html,
+      wavelength_ranges_8php_source.html: Updated Doxygen Documentation
+
+    * ObservatoryMapAll.php, TODO, content.css, db_structure.txt,
+      europlanet_na1.mwb, index.php, keywords-NEW.xls, keywords-OLD.txt,
+      keywords.txt, keywords.xls, na1-timeline-apr11.png,
+      research_areas-OLD.csv, research_areas.csv, science_goals-OLD.csv,
+      science_goals.csv, targets-OLD.csv, targets.csv: updated TODO (still not
+      100% finished), reworked some comments, little modifications in css,
+      updated all documentations, database structure
+
+    * observatoriesXML.php: corrected syntax error
+
+    * functions.js, index.php, observatoriesXML.php: Complete rework of google
+      maps code, using v3 now. Added Infowindow link to details
+
+    * functions.js: added some comments
+
+2011-09-12  ftopf
+
+    * ObservatoryMapAll.php, observatoriesXML.php: Some little fixes and
+      comments, extended sql query
+
+    * ObservatoryMapAll.php, europlanet_na1_dump_12-09-2011.sql: Added current
+      database backup + increased size of map
+
+    * ObservatoryMapAll.php: Modified Description Text of Map
+
+    * index.php: Added correct Google Maps API Key
+
+    * .project, Acl.php, ObservatoryMapAll.php, TODO, controller.inc.php,
+      functions.js, index.php, observatoriesXML.php: Commited ALPHA version of
+      Google Interactive Map. Some things are still ugly and basically there is
+      no functionality besides displaying all Geodata with Google Maps. Modified
+      TODO accordingly
+
+2011-09-06  ftopf
+
+    * anntena_types.sql: Forgot antenna_types base script
+
+    * TODO, europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1_dump_06-09-2011.sql, input_descriptions.txt,
+      instrument_types.sql, telescope_types.sql: Modified TODO (still not
+      finished completely);Some DB changes on instrument types, telescope types,
+      antenna types, added most recent dump of running database
+
+    * TODO, europla1_obs_dump_06-09-2011.sql, europla1_spa_dump_06-09-2011.sql,
+      europlanet_na1_dump_06-09-2011.sql, europlanet_privileges-oldDb.sql:
+      Modified TODO; added database backups (inkluding old databases); added
+      privileges for old databases
+
+2011-09-01  ftopf
+
+    * Observatory.php: removed debug message.
+
+    * Observatory.php: removed debug message.
+
+2011-08-31  rst
+
+    * TODO: updated TODO: SQL update foraign key constraint failed at
+      init_has_many function
+
+2011-08-31  ftopf
+
+    * europlanet_na1_dump_31-08-2011.sql: added new database backup from running
+      server
+
+    * Observatory.php: intermediate solution for $sci_con_id=0, when UPDATE is
+      triggered, without a prior scientific contact
+
+    * Observatory.php: debug messages for scientific contacts (temp)
+
+    * Observatory.php: debug messages for scientific contacts (temp)
+
+    * Observatory.php: debug messages for scientific contacts (temp)
+
+2011-08-30  ftopf
+
+    * europlanet_na1-complete-dump.sql: fixed typo in complete dump
+
+    * europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      wavelength_ranges.sql: updated wavelength ranges due to requirements,
+      running sql dump coming soon
+
+    * favicon.ico: new epn favicon
+
+2011-08-29  ftopf
+
+    * index.php: integrated return to na1 page button
+
+    * home.php: synchronised css styles of all europlanet sites pt. 3 corr
+
+    * content.css: synchronised css styles of all europlanet sites pt. 3
+
+    * footer.css, main.css: synchronised css styles of all europlanet sites pt.
+      2
+
+    * content.css, footer.css, header.css, style.css, top.css: synchronised css
+      styles of all europlanet sites
+
+2011-07-28  ftopf
+
+    * Observatory.php, Spacemission.php, _acl_8php.html, _acl_8php_source.html,
+      _db_config_8php.html, _db_config_8php_source.html,
+      _db_connector_8php.html, _db_connector_8php_source.html,
+      _model_d_a_o_8php.html, _model_d_a_o_8php_source.html,
+      _observatory_8php.html, _observatory_8php_source.html,
+      _observatory_create_update_8php.html,
+      _observatory_create_update_8php_source.html,
+      _observatory_edit_all_8php.html, _observatory_edit_all_8php_source.html,
+      _observatory_edit_all_old_8php.html,
+      _observatory_edit_all_old_8php_source.html,
+      _observatory_edit_all_temp_8php.html,
+      _observatory_edit_all_temp_8php_source.html, _observatory_view_8php.html,
+      _observatory_view_8php_source.html, _observatory_view_all_8php.html,
+      _observatory_view_all_8php_source.html, _spacemission_8php.html,
+      _spacemission_8php_source.html, _spacemission_create_update_8php.html,
+      _spacemission_create_update_8php_source.html,
+      _spacemission_edit_all_8php.html, _spacemission_edit_all_8php_source.html,
+      _spacemission_edit_all_old_8php.html,
+      _spacemission_edit_all_old_8php_source.html, _spacemission_view_8php.html,
+      _spacemission_view_8php_source.html, _spacemission_view_all_8php.html,
+      _spacemission_view_all_8php_source.html, account_8php.html,
+      account_8php_source.html, all_24.html, all_5f.html, all_61.html,
+      all_63.html, all_64.html, all_66.html, all_67.html, all_68.html,
+      all_69.html, all_6c.html, all_6d.html, all_6e.html, all_6f.html,
+      all_70.html, all_73.html, all_74.html, all_75.html, all_77.html,
+      annotated.html, class_acl.html, class_controller.html,
+      class_db_connector.html, class_model_d_a_o.html, class_observatory.html,
+      class_observatory_d_a_o.html, class_spacemission.html,
+      class_spacemission_d_a_o.html, class_system_component.html, classes.html,
+      config_8inc_8php.html, config_8inc_8php_source.html,
+      controller_8inc_8php.html, controller_8inc_8php_source.html,
+      enums_64.html, files.html, files_68.html, files_69.html, files_6f.html,
+      files_73.html, files_74.html, files_77.html, functions.html,
+      functions_5f.html, functions_63.html, functions_64.html,
+      functions_67.html, functions_69.html, functions_6d.html,
+      functions_6e.html, functions_70.html, functions_73.html,
+      functions_75.html, functions_77.html, functions_8php.html,
+      functions_8php_source.html, functions_func.html, functions_vars.html,
+      globals.html, globals_enum.html, globals_func.html, globals_vars.html,
+      hierarchy.html, home_8php.html, home_8php_source.html, html_8php.html,
+      html_8php_source.html, index_8php.html, index_8php_source.html,
+      instrument_names_8php.html, instrument_names_8php_source.html,
+      login_8php.html, login_8php_source.html, logout_8php.html,
+      logout_8php_source.html, main.html, observatories_8php.html,
+      observatories_8php_source.html, pages.html, registration_8php.html,
+      registration_8php_source.html, reset_8php.html, reset_8php_source.html,
+      search.js, spacemissions_8php.html, spacemissions_8php_source.html,
+      telescope_names_8php.html, telescope_names_8php_source.html, todo.html,
+      tree.html, variables_24.html, variables_61.html, variables_63.html,
+      variables_64.html, variables_66.html, variables_67.html,
+      variables_68.html, variables_6c.html, variables_6e.html,
+      variables_74.html, variables_75.html, wavelength_ranges_8php.html,
+      wavelength_ranges_8php_source.html: updated doxygen documentation
+
+    * Observatory.php, Spacemission.php, SpacemissionViewAll.php, TODO,
+      controller.inc.php, index.php: Comments in Observatory.php, Introduced
+      Agency, Research Area and Target filter for spacemissions
+
+    * europlanet_na1-changes.sql, europlanet_na1_dump-28-07-2011.sql: Added new
+      database backup, modified names for Key Area 1-3 to fit the maximum length
+      of research areas, please see research_areas.sql for the original names
+
+    * ObservatoryViewAll.php: Uncommented filters for Research Areas and Targets
+      in ObservatoryViewAll
+
 2011-07-27  ftopf
+
+    * ChangeLog, TODO: Modified TODO / ChangeLog
 
     * ObservatoryCreateUpdate.php: Some little adaptions
 
