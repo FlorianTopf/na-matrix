@@ -19,7 +19,7 @@ information</b> on an observatory by clicking on one of the <b>red markers</b>. 
 is in experimental state and not fully functioning.
 </p>";
 
-print "<div id='map' style='width: 775px; height: 450px'></div>" . LF ;
+print "<div id='map' style='width: 778px; height: 450px'></div>" . LF ;
 print "<script>$(document).trigger('mapIsReady');</script>" . LF;
 
 ?>

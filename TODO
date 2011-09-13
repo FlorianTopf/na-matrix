@@ -1,8 +1,3 @@
-NEW ENTRIES IN THE DATABASE: (Are they now finished?)
-Mauna Kea: http://en.wikipedia.org/wiki/Mauna_Kea_Observatories
-ESO: http://en.wikipedia.org/wiki/European_Southern_Observatory
-Rosetta Mission: http://www.esa.int/SPECIALS/Rosetta/index.html
-
 FORMAT CONVENTIONS:
 https://docs.google.com/document/d/1hvVi8se0xMOc3KD9RsDJJR7J5fPUwaEN0b9Xt/edit?hl=en_US
 
@@ -25,6 +20,9 @@ ROADMAP (2011)
 [OK] Uncomment code (Implement Questionnaire (Approve/Unapprove))
 [OK] Implement Filters on Browse Page (JUNE 2011)
 [HIGH PRIORITY] Implement Search Interface / Interactive Map (SEPTEMBER 2011)
+  [OK] display current user location 
+  
+	
 [LOW PRIORITY][OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
 * Implement Edit link button on browse site for admins
 
@@ -150,14 +148,15 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 ** All VIEW PAGES
   [OK] Implement table style for TEXTFIELDS (or make breaks)
+  * Check if some fields are still listed, even if there is no information
+    given
 
 
 ** Search pages for space missions / observatories (JUNE 2011)
   * according to use cases and telecon inputs
   * wavelength searchable? (maybe dropdown for specific ranges)
   * colorization and listing in browsing pages (filters above)
-  * search with GPS data!
-  * Interactive map for Observatories
+  * search with GPS data! (see Roadmap - Interactive Map)
 
 
 * E-Mail functionality for ADD / EDIT notification
@@ -168,7 +167,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * set_message in models / show_message in controller!
 
 
-* Add JQUERY Tooltips where user help is necessary (Questionnaire)
+[MEDIUM PRIORITY] Add JQUERY Tooltips where user help is necessary (Questionnaire)
   * http://view.jqueryui.com/master/demos/tooltip/default.html
   * input fields format: web addresses, latitude, longitude,
     research areas, targets, instrument properties,
@@ -180,16 +179,16 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * UI FRAMEWORK: QPHP http://qphp.net/demo/ oder JQueryUI
     => research area / targets list (Data Grid / Selectable Rows)
 
-* Refactor all Javascript in functions.js
+[LOW PRIORITY] Refactor all Javascript in functions.js
   * dynamic row adding routines (redundancy)
   * refactor the double hidden_fields in CreateUpdate (Sensors)
   * maybe use -- again in remove fields
 
-* Refactor classes in observatory.php, spacemission.php
+[LOW PRIORITY] Refactor classes in observatory.php, spacemission.php
   * MVC Pattern implementieren
     * VIEWS (all access through DAO) / CONTROLLER (frontcontroller)
   * ORM Pattern implementieren für die models
   	* DAO / Object => abstract base class (singleton)
 
-* ADD all entries from OLD Matrix, inlcuding the new entries from UCL (if missing)
+[MED PRIORITY] ADD all entries from OLD Matrix, inlcuding the new entries from UCL (if missing)
   * extra work! (take old excel list as support)

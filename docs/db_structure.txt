@@ -1,206 +1,662 @@
----+++++ NEW Database Structure Documentation (21.04.2011):
-   * *User logging System*
-      * users_statistics
-	     * id INT(10)
-		 * user INT(10) FK:users_list:id
-		 * page INT(10) FK:pages_list:id
-		 * epoch DATETIME
-      * users_list
-	     * id INT(10)
-		 * username TEXT
-		 * passwd TEXT
-		 * title TEXT
-		 * fname TEXT
-		 * lname TEXT
-		 * email TEXT
-		 * affiliation TEXT
-		 * category TEXT
-		 * level INT(10) FK:users_levels:level
+===Database europlanet_na1
 
+== Table structure for table additional_information
 
-   * *Space Mission Structure:* 
-      * space_missions 
-         * id INT
-         * mission_name TEXT
-         * mission_agency INT FK:agencies:id
-         * launch_date DATE
-         * death_date DATE
-         * web_adress TEXT
-         * brief_description TEXT
-         * creation_date DATETIME
-         * modification_date DATETIME
-      * agencies 
-         * id INT
-         * acronym VARCHAR(20)
-         * name TEXT
-         * web_address TEXT
-      * targets 
-         * id INT
-         * target_family VARCHAR(45)
-         * target_name VARCHAR(45)
-      * sensors
-         * id INT
-         * sensor_name TEXT
-         * sensor_type TEXT
-         * underlying TEXT
-         * range_begin FLOAT
-         * range_end FLOAT
-         * units TEXT
-         * measured TEXT
-         * resolution TEXT
-         * field_of_view TEXT
-         * web_address TEXT
-         * sensor_comments TEXT
-      * science_goals
-	     * id INT
-		 * acronym VARCHAR(5)
-		 * name TEXT
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|further_contacts|text|Yes|NULL
+|additional_instruments|text|Yes|NULL
+|array_description|text|Yes|NULL
+|backend_description|text|Yes|NULL
+|research_comments|text|Yes|NULL
+|general_comments|text|Yes|NULL
+== Table structure for table additional_information
 
-   * *REFERENCE TABLES:*
-      * space_mission_to_target 
-         * space_mission_id INT FK:space_missions:id
-         * target_id INT FK:targets:id
-      * space_mission_to_research_areas 
-         * space_mission_id INT FK:space_missions:id
-         * research_area_id INT FK:research_areas:id
-      * space_mission_to_sensors 
-         * space_mission_id INT FK:space_missions:id
-         * sensor_id INT FK:sensors:id
-      * sensor_to_scientific_contacts 
-         * sensor_id INT FK:sensors:id
-         * scientific_contact_id INT FK:scientific_contacts:id
-      * sensor_to_science_goals
-         * sensor_id INT FK:sensors:id
-         * science_goal_id INT FK:science_goals:id
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|further_contacts|text|Yes|NULL
+|additional_instruments|text|Yes|NULL
+|array_description|text|Yes|NULL
+|backend_description|text|Yes|NULL
+|research_comments|text|Yes|NULL
+|general_comments|text|Yes|NULL
+== Table structure for table agencies
 
-		 
-   * *Observatories Structure* 
-      * observatories 
-         * id INT
-         * name TEXT
-         * founded INT
-         * institution TEXT
-         * web_address TEXT
-         * address TEXT
-         * zip_code VARCHAR(10)
-         * city TEXT
-         * country_id INT FK:countries:id
-         * phone VARCHAR(22)
-         * email TEXT
-         * latitude DOUBLE(10,6)
-         * longitude DOUBLE(10,6)
-         * approx_position TEXT
-         * sealevel_m INT
-         * precipitation INT FK:precipitation_ranges:id
-         * clear_nights INT FK:clearnights_ranges:id
-         * timezone INT FK:timezones:id
-         * instruments_number INT FK:number_of_instruments:id
-         * partner_observatories TEXT
-         * creation_date DATETIME
-         * modification_date DATETIME
-      * countries 
-         * id INT
-         * acronym VARCHAR(5)
-         * name TEXT
-      * precipitation_ranges 
-         * id INT
-         * range VARCHAR(20)
-      * clearnights_ranges 
-         * id INT
-         * range VARCHAR(20)
-      * timezones 
-         * id INT
-         * timezones VARCHAR(10)
-      * research_areas 
-         * id INT
-         * name TEXT
-      * instruments 
-         * id INT
-         * instrument_name TEXT
-         * instrument_type INT FK:instrument_types:id
-         * focal_position TEXT
-         * wavelength TEXT
-         * wavelength_begin FLOAT(10,6)
-         * wavelength_b_unit INT FK:wavelength_units:id
-         * wavelength_end FLOAT(10,6)
-         * wavelength_e_unit INT FK:wavelength_units:id
-         * field_of_view TEXT
-         * spatial_resolution TEXT
-         * spectral_resolution TEXT
-         * polarisation TEXT
-         * comments TEXT
-      * instrument_types 
-         * id INT
-         * name TEXT
-      * scientific_contacts 
-         * id INT
-         * name TEXT
-         * email TEXT
-         * institution TEXT
-      * telescopes
-         * id INT
-         * telescope_name TEXT
-         * telescope_type INT FK:telescope_types:id
-         * telescope_elements INT
-         * diameter_m FLOAT(10,6)
-         * focallength_m VARCHAR(10)
-         * antenna_type INT FK:antenna_types:id
-         * wavelength TEXT
-         * wavelength_begin FLOAT(10,6)
-         * wavelength_b_unit INT FK:wavelength_units:id
-         * wavelength_end FLOAT(10,6)
-         * wavelength_e_unit INT FK:wavelength_units:id
-         * comments TEXT
-      * telescope_types
-        * id INT
-        * name TEXT
-      * antenna_types
-        * id INT
-        * antenna_type TEXT
-      * wavelength_units
-        * id INT
-        * wavelength_unit TEXT
-      * additional_information 
-         * id INT FK:observatories:id
-         * further_contacts TEXT
-         * instrument_comments TEXT
-         * additional_instruments TEXT
-         * array_description TEXT
-         * backend_description TEXT
-         * research_comments TEXT
-         * general_comments TEXT
-      * hidden_fields 
-         * id INT FK:observatories:id
-         * web_address BOOL
-         * address BOOL
-         * zip_code BOOL
-         * city BOOL
-         * phone BOOL
-         * email BOOL
-         * latitude BOOL
-         * longitude BOOL
-         * scientific_contacts BOOL
-         * further_contacts BOOL
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|varchar(20)|No|
+|name|text|No|
+|web_address|text|No|
+== Table structure for table agencies
 
-   * *REFERENCE TABLES*
-      * observatory_to_research_areas
-         * observatory_id INT FK:observatories:id
-         * research_area_id INT FK:research_areas:id
-      * observatory_to_telescopes
-         * observatory_id INT FK:observatories:id
-         * telescope_id INT FK:telescopes:id
-      * observatory_to_scientific_contacts
-         * observatory_id INT FK:observatories:id
-         * scientific_contact_id INT FK:scientific_contacts:id
-	  * observatory_to_targets
-	     * observatory_id INT FK:observatories:id
-		 * target_id INT FK:targets:id
-      * telescope_to_instruments
-         * telescope_id INT FK:telescopes:id
-         * instrument_id INT FK:instruments:id
-         
-    * *Helper Tables*
-       * wavelength_ranges
-          * id
-          * acronym TEXT
-          * name TEXT 
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|varchar(20)|No|
+|name|text|No|
+|web_address|text|No|
+== Table structure for table antenna_types
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|antenna_type|text|No|
+== Table structure for table antenna_types
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|antenna_type|text|No|
+== Table structure for table clearnights_ranges
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|range|varchar(20)|No|
+== Table structure for table clearnights_ranges
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|range|varchar(20)|No|
+== Table structure for table countries
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|varchar(5)|No|
+|name|text|No|
+== Table structure for table countries
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|varchar(5)|No|
+|name|text|No|
+== Table structure for table hidden_fields
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|web_address|tinyint(1)|No|0
+|address|tinyint(1)|No|0
+|zip_code|tinyint(1)|No|0
+|city|tinyint(1)|No|0
+|phone|tinyint(1)|No|0
+|email|tinyint(1)|No|0
+|latitude|tinyint(1)|No|0
+|longitude|tinyint(1)|No|0
+|scientific_contacts|tinyint(1)|No|0
+|further_contacts|tinyint(1)|No|0
+== Table structure for table hidden_fields
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|web_address|tinyint(1)|No|0
+|address|tinyint(1)|No|0
+|zip_code|tinyint(1)|No|0
+|city|tinyint(1)|No|0
+|phone|tinyint(1)|No|0
+|email|tinyint(1)|No|0
+|latitude|tinyint(1)|No|0
+|longitude|tinyint(1)|No|0
+|scientific_contacts|tinyint(1)|No|0
+|further_contacts|tinyint(1)|No|0
+== Table structure for table instruments
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|instrument_name|text|Yes|NULL
+|instrument_type|int(10) |No|
+|focal_position|text|Yes|NULL
+|wavelength|text|Yes|NULL
+|wavelength_begin|float(10,6)|Yes|NULL
+|wavelength_b_unit|int(10) |No|
+|wavelength_end|float(10,6)|Yes|NULL
+|wavelength_e_unit|int(10) |No|
+|spatial_resolution|text|Yes|NULL
+|spectral_resolution|text|Yes|NULL
+|polarisation|text|Yes|NULL
+|field_of_view|text|Yes|NULL
+|max_frames_per_sec|float|Yes|NULL
+|frame_size|text|Yes|NULL
+|min_exposure_time|float|Yes|NULL
+|max_exposure_time|float|Yes|NULL
+|color_bw_chip|tinyint(1)|Yes|NULL
+|ccd_chip_type|text|Yes|NULL
+|comments|text|Yes|NULL
+== Table structure for table instruments
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|instrument_name|text|Yes|NULL
+|instrument_type|int(10) |No|
+|focal_position|text|Yes|NULL
+|wavelength|text|Yes|NULL
+|wavelength_begin|float(10,6)|Yes|NULL
+|wavelength_b_unit|int(10) |No|
+|wavelength_end|float(10,6)|Yes|NULL
+|wavelength_e_unit|int(10) |No|
+|spatial_resolution|text|Yes|NULL
+|spectral_resolution|text|Yes|NULL
+|polarisation|text|Yes|NULL
+|field_of_view|text|Yes|NULL
+|max_frames_per_sec|float|Yes|NULL
+|frame_size|text|Yes|NULL
+|min_exposure_time|float|Yes|NULL
+|max_exposure_time|float|Yes|NULL
+|color_bw_chip|tinyint(1)|Yes|NULL
+|ccd_chip_type|text|Yes|NULL
+|comments|text|Yes|NULL
+== Table structure for table instrument_types
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+== Table structure for table instrument_types
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+== Table structure for table observatories
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+|founded|int(11)|Yes|NULL
+|institution|text|Yes|NULL
+|web_address|text|Yes|NULL
+|address|text|Yes|NULL
+|zip_code|varchar(10)|Yes|NULL
+|city|text|Yes|NULL
+|country_id|int(10) |No|
+|phone|varchar(22)|Yes|NULL
+|email|text|No|
+|latitude|double(10,6)|Yes|NULL
+|longitude|double(10,6)|Yes|NULL
+|approx_position|text|Yes|NULL
+|sealevel_m|int(11)|Yes|NULL
+|precipitation|int(10) |Yes|NULL
+|clear_nights|int(10) |Yes|NULL
+|timezone|int(10) |Yes|NULL
+|observatory_status|text|Yes|NULL
+|partner_observatories|text|Yes|NULL
+|creation_date|datetime|No|
+|modification_date|datetime|Yes|NULL
+== Table structure for table observatories
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+|founded|int(11)|Yes|NULL
+|institution|text|Yes|NULL
+|web_address|text|Yes|NULL
+|address|text|Yes|NULL
+|zip_code|varchar(10)|Yes|NULL
+|city|text|Yes|NULL
+|country_id|int(10) |No|
+|phone|varchar(22)|Yes|NULL
+|email|text|No|
+|latitude|double(10,6)|Yes|NULL
+|longitude|double(10,6)|Yes|NULL
+|approx_position|text|Yes|NULL
+|sealevel_m|int(11)|Yes|NULL
+|precipitation|int(10) |Yes|NULL
+|clear_nights|int(10) |Yes|NULL
+|timezone|int(10) |Yes|NULL
+|observatory_status|text|Yes|NULL
+|partner_observatories|text|Yes|NULL
+|creation_date|datetime|No|
+|modification_date|datetime|Yes|NULL
+== Table structure for table observatory_to_research_areas
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**research_area_id**//|int(10) |No|
+== Table structure for table observatory_to_research_areas
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**research_area_id**//|int(10) |No|
+== Table structure for table observatory_to_scientific_contacts
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**scientific_contact_id**//|int(10) |No|
+== Table structure for table observatory_to_scientific_contacts
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**scientific_contact_id**//|int(10) |No|
+== Table structure for table observatory_to_targets
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**target_id**//|int(10) |No|
+== Table structure for table observatory_to_targets
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**target_id**//|int(10) |No|
+== Table structure for table observatory_to_telescopes
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**telescope_id**//|int(10) |No|
+== Table structure for table observatory_to_telescopes
+
+|------
+|Field|Type|Null|Default
+|------
+|//**observatory_id**//|int(10) |No|
+|//**telescope_id**//|int(10) |No|
+== Table structure for table precipitation_ranges
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|range|varchar(20)|No|
+== Table structure for table precipitation_ranges
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|range|varchar(20)|No|
+== Table structure for table research_areas
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|domain|text|No|
+|name|text|No|
+== Table structure for table research_areas
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|domain|text|No|
+|name|text|No|
+== Table structure for table science_goals
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|varchar(5)|No|
+|name|text|No|
+== Table structure for table science_goals
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|varchar(5)|No|
+|name|text|No|
+== Table structure for table scientific_contacts
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+|email|text|No|
+|institution|text|Yes|NULL
+== Table structure for table scientific_contacts
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+|email|text|No|
+|institution|text|Yes|NULL
+== Table structure for table sensors
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|sensor_name|text|No|
+|sensor_type|text|No|
+|underlying|text|Yes|NULL
+|range_begin|float|Yes|NULL
+|range_end|float|Yes|NULL
+|units|text|Yes|NULL
+|measured|text|Yes|NULL
+|resolution|text|Yes|NULL
+|field_of_view|text|Yes|NULL
+|web_address|text|Yes|NULL
+|sensor_comments|text|Yes|NULL
+== Table structure for table sensors
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|sensor_name|text|No|
+|sensor_type|text|No|
+|underlying|text|Yes|NULL
+|range_begin|float|Yes|NULL
+|range_end|float|Yes|NULL
+|units|text|Yes|NULL
+|measured|text|Yes|NULL
+|resolution|text|Yes|NULL
+|field_of_view|text|Yes|NULL
+|web_address|text|Yes|NULL
+|sensor_comments|text|Yes|NULL
+== Table structure for table sensor_to_science_goals
+
+|------
+|Field|Type|Null|Default
+|------
+|//**sensor_id**//|int(10) |No|
+|//**science_goal_id**//|int(10) |No|
+== Table structure for table sensor_to_science_goals
+
+|------
+|Field|Type|Null|Default
+|------
+|//**sensor_id**//|int(10) |No|
+|//**science_goal_id**//|int(10) |No|
+== Table structure for table sensor_to_scientific_contacts
+
+|------
+|Field|Type|Null|Default
+|------
+|//**sensor_id**//|int(10) |No|
+|//**scientific_contact_id**//|int(10) |No|
+== Table structure for table sensor_to_scientific_contacts
+
+|------
+|Field|Type|Null|Default
+|------
+|//**sensor_id**//|int(10) |No|
+|//**scientific_contact_id**//|int(10) |No|
+== Table structure for table space_missions
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|mission_name|text|No|
+|mission_agency|int(10) |No|
+|launch_date|date|No|
+|death_date|date|Yes|NULL
+|web_address|text|No|
+|brief_description|text|Yes|NULL
+|creation_date|datetime|No|
+|modification_date|datetime|Yes|NULL
+== Table structure for table space_missions
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|mission_name|text|No|
+|mission_agency|int(10) |No|
+|launch_date|date|No|
+|death_date|date|Yes|NULL
+|web_address|text|No|
+|brief_description|text|Yes|NULL
+|creation_date|datetime|No|
+|modification_date|datetime|Yes|NULL
+== Table structure for table space_mission_to_research_areas
+
+|------
+|Field|Type|Null|Default
+|------
+|//**space_mission_id**//|int(10) |No|
+|//**research_area_id**//|int(10) |No|
+== Table structure for table space_mission_to_research_areas
+
+|------
+|Field|Type|Null|Default
+|------
+|//**space_mission_id**//|int(10) |No|
+|//**research_area_id**//|int(10) |No|
+== Table structure for table space_mission_to_sensors
+
+|------
+|Field|Type|Null|Default
+|------
+|//**space_mission_id**//|int(10) |No|
+|//**sensor_id**//|int(10) |No|
+== Table structure for table space_mission_to_sensors
+
+|------
+|Field|Type|Null|Default
+|------
+|//**space_mission_id**//|int(10) |No|
+|//**sensor_id**//|int(10) |No|
+== Table structure for table space_mission_to_targets
+
+|------
+|Field|Type|Null|Default
+|------
+|//**space_mission_id**//|int(10) |No|
+|//**target_id**//|int(10) |No|
+== Table structure for table space_mission_to_targets
+
+|------
+|Field|Type|Null|Default
+|------
+|//**space_mission_id**//|int(10) |No|
+|//**target_id**//|int(10) |No|
+== Table structure for table targets
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|target_family|varchar(100)|No|
+|target_name|varchar(100)|No|
+== Table structure for table targets
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|target_family|varchar(100)|No|
+|target_name|varchar(100)|No|
+== Table structure for table telescopes
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|telescope_name|text|Yes|NULL
+|telescope_type|int(10) |No|
+|telescope_elements|int(10) |Yes|NULL
+|diameter_m|float(10,6)|Yes|NULL
+|focallength_m|varchar(10)|Yes|NULL
+|antenna_type|int(10) |No|
+|wavelength|text|Yes|NULL
+|wavelength_begin|float(10,6)|Yes|NULL
+|wavelength_b_unit|int(10) |No|
+|wavelength_end|float(10,6)|Yes|NULL
+|wavelength_e_unit|int(10) |No|
+|comments|text|Yes|NULL
+== Table structure for table telescopes
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|telescope_name|text|Yes|NULL
+|telescope_type|int(10) |No|
+|telescope_elements|int(10) |Yes|NULL
+|diameter_m|float(10,6)|Yes|NULL
+|focallength_m|varchar(10)|Yes|NULL
+|antenna_type|int(10) |No|
+|wavelength|text|Yes|NULL
+|wavelength_begin|float(10,6)|Yes|NULL
+|wavelength_b_unit|int(10) |No|
+|wavelength_end|float(10,6)|Yes|NULL
+|wavelength_e_unit|int(10) |No|
+|comments|text|Yes|NULL
+== Table structure for table telescope_to_instruments
+
+|------
+|Field|Type|Null|Default
+|------
+|//**telescope_id**//|int(10) |No|
+|//**instrument_id**//|int(10) |No|
+== Table structure for table telescope_to_instruments
+
+|------
+|Field|Type|Null|Default
+|------
+|//**telescope_id**//|int(10) |No|
+|//**instrument_id**//|int(10) |No|
+== Table structure for table telescope_types
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+== Table structure for table telescope_types
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|name|text|No|
+== Table structure for table timezones
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|timezone|varchar(10)|No|
+== Table structure for table timezones
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|timezone|varchar(10)|No|
+== Table structure for table users_list
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|username|text|No|
+|passwd|text|Yes|NULL
+|title|text|Yes|NULL
+|fname|text|Yes|NULL
+|lname|text|Yes|NULL
+|email|text|Yes|NULL
+|affiliation|text|Yes|NULL
+|category|text|No|
+|level|int(10) |No|
+== Table structure for table users_list
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|username|text|No|
+|passwd|text|Yes|NULL
+|title|text|Yes|NULL
+|fname|text|Yes|NULL
+|lname|text|Yes|NULL
+|email|text|Yes|NULL
+|affiliation|text|Yes|NULL
+|category|text|No|
+|level|int(10) |No|
+== Table structure for table users_statistics
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|user|int(10) |No|
+|page|varchar(45)|No|
+|epoch|datetime|No|
+== Table structure for table users_statistics
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|user|int(10) |No|
+|page|varchar(45)|No|
+|epoch|datetime|No|
+== Table structure for table wavelength_ranges
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|text|No|
+|name|text|No|
+== Table structure for table wavelength_ranges
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|acronym|text|No|
+|name|text|No|
+== Table structure for table wavelength_units
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|wavelength_unit|varchar(10)|No|
+== Table structure for table wavelength_units
+
+|------
+|Field|Type|Null|Default
+|------
+|//**id**//|int(10) |No|
+|wavelength_unit|varchar(10)|No|

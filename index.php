@@ -94,7 +94,7 @@
               <ul>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=home">Home</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=browse">Browse Matrix</a></li>
-                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Observatory Map (Alpha)</a></li>
+                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Observatory Map (Prototype)</a></li>
               </ul>
 
           <?php
@@ -111,10 +111,14 @@
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
               print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
               print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
-              /*if(DbConnector::checkDb('Temp'))
-              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</a></li>" . LF;*/
-              if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
-              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
+              /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
+              if ($_SESSION["user_level"] >= 31)
+              {
+              	/*if(DbConnector::checkDb('Temp'))
+              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</a></li>" . LF;*/
+              	if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
+              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
+              }
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
               print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
               print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
