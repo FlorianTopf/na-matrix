@@ -18,6 +18,7 @@ function openwin(content)
 }
 
 //SOME VARS FOR GOOGLE MAPS
+//move them to the main part
 var initialLocation;
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
@@ -111,7 +112,8 @@ $(document).bind('mapIsReady', function() {
 
 //HELPER FUNCTIONS for GOOGLE MAPS
 function handleNoGeolocation(errorFlag) {
-    if (errorFlag == true) {
+    //unbedingt bessere default plätze definieren
+	if (errorFlag == true) {
       alert("Geolocation service failed.");
       initialLocation = newyork;
     } else {
@@ -136,6 +138,7 @@ function createMarker(point, name, type) {
     	var marker = new GMarker(point, iconBlue);
     if(type == "red")
     	var marker = new GMarker(point, iconRed);    
+    //unbedingt info über die view URL geben! (am besten mit open win)
     var html = "<b>" + name + "</b>";
     GEvent.addListener(marker, 'click', function() {
       marker.openInfoWindowHtml(html);
