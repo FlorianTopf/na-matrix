@@ -311,31 +311,34 @@
 <a name="l00301"></a>00301                                 <span class="keywordflow">default</span>:
 <a name="l00302"></a>00302                                         <span class="keywordflow">break</span>; }
 <a name="l00303"></a>00303                         <span class="keywordflow">break</span>;
-<a name="l00304"></a>00304                 <span class="keywordflow">default</span>:
-<a name="l00305"></a>00305                         include <span class="stringliteral">&quot;pages/&quot;</span> . $page . <span class="stringliteral">&quot;.php&quot;</span>;
+<a name="l00304"></a>00304                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;map&quot;</span>:
+<a name="l00305"></a>00305                         include <span class="stringliteral">&quot;views/ObservatoryMapAll.php&quot;</span>;
 <a name="l00306"></a>00306                         <span class="keywordflow">break</span>;
-<a name="l00307"></a>00307                 }
-<a name="l00308"></a>00308                 }
-<a name="l00309"></a>00309                 <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;close();
-<a name="l00310"></a>00310         }
-<a name="l00311"></a>00311 
-<a name="l00312"></a><a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">00312</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">write_stats</a>(<a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page)
-<a name="l00313"></a>00313         {
-<a name="l00314"></a>00314         $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
-<a name="l00315"></a>00315 
-<a name="l00316"></a>00316         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_statistics VALUES (NULL, &quot;</span> .
-<a name="l00317"></a>00317              $userid . <span class="stringliteral">&quot;, &#39;&quot;</span> . $page . <span class="stringliteral">&quot;&#39;, NOW())&quot;</span>;
+<a name="l00307"></a>00307                 <span class="keywordflow">default</span>:
+<a name="l00308"></a>00308                         include <span class="stringliteral">&quot;pages/&quot;</span> . $page . <span class="stringliteral">&quot;.php&quot;</span>;
+<a name="l00309"></a>00309                         <span class="keywordflow">break</span>;
+<a name="l00310"></a>00310                 }
+<a name="l00311"></a>00311                 }
+<a name="l00312"></a>00312                 <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;close();
+<a name="l00313"></a>00313         }
+<a name="l00314"></a>00314 
+<a name="l00315"></a><a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">00315</a>         <span class="keyword">static</span> function <a class="code" href="class_controller.html#ac250e91fe0768674c77515581215fd0d">write_stats</a>(<a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>, $page)
+<a name="l00316"></a>00316         {
+<a name="l00317"></a>00317         $userid = <a class="code" href="logout_8php.html#a5f545b9684799a00f7a14442205b98e3">$_SESSION</a>[<span class="stringliteral">&quot;user_id&quot;</span>];
 <a name="l00318"></a>00318 
-<a name="l00319"></a>00319         <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
-<a name="l00320"></a>00320   }
+<a name="l00319"></a>00319         <a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a> = <span class="stringliteral">&quot;INSERT INTO users_statistics VALUES (NULL, &quot;</span> .
+<a name="l00320"></a>00320              $userid . <span class="stringliteral">&quot;, &#39;&quot;</span> . $page . <span class="stringliteral">&quot;&#39;, NOW())&quot;</span>;
 <a name="l00321"></a>00321 
-<a name="l00322"></a>00322 
-<a name="l00323"></a>00323 }
+<a name="l00322"></a>00322         <a class="code" href="instrument_names_8php.html#a5d346e31b75d916e3bac9cb193bfc97f">$link</a>-&gt;query(<a class="code" href="instrument_names_8php.html#af59a5f7cd609e592c41dc3643efd3c98">$query</a>);
+<a name="l00323"></a>00323   }
 <a name="l00324"></a>00324 
-<a name="l00325"></a>00325 ?&gt;
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326 }
+<a name="l00327"></a>00327 
+<a name="l00328"></a>00328 ?&gt;
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jul 28 2011 16:03:23 for NA1-Matrix by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 13 2011 18:00:01 for NA1-Matrix by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.2 </small></address>
 </body>
