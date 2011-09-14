@@ -5,6 +5,8 @@
  * @author Florian Topf, Robert Stöckler
  *
  * @todo maybe improve this ugly trigger on DIV
+ * @todo we have to think about the future, 
+ * there must be a possibility to load only visible markers at zoom level
  */
 
 print "<div><input type='hidden' name='page' value='map'/></div>" . LF ;
