@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.0.1
+-- version 3.3.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2011 at 01:51 PM
--- Server version: 5.1.37
--- PHP Version: 5.3.0
+-- Generation Time: Sep 14, 2011 at 03:37 PM
+-- Server version: 5.1.47
+-- PHP Version: 5.3.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `antenna_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `antenna_type` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `antenna_types`
@@ -108,8 +108,7 @@ INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
 (8, 'Conical'),
 (9, 'Cylindrical'),
 (10, 'Horn'),
-(11, 'Parabolic'),
-(12, 'Other');
+(11, 'Parabolic');
 
 -- --------------------------------------------------------
 
@@ -467,14 +466,14 @@ CREATE TABLE IF NOT EXISTS `instrument_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `instrument_types`
 --
 
 INSERT INTO `instrument_types` (`id`, `name`) VALUES
-(1, 'Spectrometer'),
+(1, 'Spectrograph'),
 (2, 'Interferometer'),
 (3, 'Polarimeter'),
 (4, 'Riometer'),
@@ -1240,7 +1239,7 @@ CREATE TABLE IF NOT EXISTS `telescope_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `telescope_types`
@@ -1376,7 +1375,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
   `acronym` text NOT NULL,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `wavelength_ranges`
