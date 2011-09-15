@@ -23,13 +23,13 @@ mysqli_free_result($result);
 
 if (count($res) == 0)
 {
-	print "<center><h3>There are no OLD Observatory entries " .
-		"to edit.</h3></center>" . LF;
+	print "<h3>There are no OLD Observatory entries " .
+		"to edit.</h3>" . LF;
 }
 else
 {
-	print "<center><p><table class='viewall'>" . LF;
-    print "<caption><h3 align='center'>To edit & save an OLD Observatory Entry please click on the Observatory name.</h3></caption>" . LF;
+	print "<table class='viewall'>" . LF;
+    print "<caption>To edit & save an OLD Observatory entry please click on the Observatory name</caption>" . LF;
     print "<tr><th>NAME</th><th>INSTITUTION</th></tr>" . LF;
 
     $index = 0;
@@ -47,7 +47,7 @@ else
         
         $index++;
     }
-	print "</table></p></center>" . LF;
+	print "</table>" . LF;
 }
 
 ?>

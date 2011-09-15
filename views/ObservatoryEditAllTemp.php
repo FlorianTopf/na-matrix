@@ -4,7 +4,8 @@
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
  *
- *
+ * @todo adapt everything to be consistent with other edit pages
+ * activate everything, if necessary in controller, dbconfig etc.
  */
 
 print "<input type='hidden' name='page' value='edit'>" . LF ;
@@ -24,13 +25,13 @@ mysqli_free_result($result);
 
 if (count($res) == 0)
 {
-	print "<center><h3>There are no USER Observatory entries " .
-		"to edit.</h3></center>" . LF;
+	print "<h3>There are no USER Observatory entries " .
+		"to edit.</h3>" . LF;
 }
 else
 {
-	print "<center><p><table class='viewall'>" . LF;
-    print "<caption><h3 align='center'>To edit & save a USER Questionnaire Entry please click on the Observatory name.</h3></caption>" . LF;
+	print "<table class='viewall'>" . LF;
+    print "<caption>To edit & save a USER Questionnaire entry please click on the Observatory name</caption>" . LF;
     print "<tr><th>NAME</th><th>CREATION DATE</th></tr>" . LF;
 
     //print "<h3>Click on a the name to edit an Observatory entry</h3>" . LF;
@@ -49,7 +50,7 @@ else
         
         $index++;
     }
-	print "</table></p></center>" . LF;
+	print "</table>" . LF;
 }
 
 ?>

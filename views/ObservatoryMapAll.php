@@ -23,7 +23,7 @@ is in experimental state and not fully functioning.
 
 
 print "<div id='numObservatories'></div>";
-print "<div id='map' style='width: 778px; height: 450px'></div>" . LF ;
+print "<div id='map' style='width: 775px; height: 450px'></div>" . LF ;
 print "<script>$(document).trigger('mapIsReady');</script>" . LF;
 
 ?>

@@ -23,13 +23,13 @@ mysqli_free_result($result);
 
 if (count($res) == 0)
 {
-	print "<center><h3>There are no OLD Spacemission entries " .
-		"to edit.</h3></center>" . LF;
+	print "<h3>There are no OLD Spacemission entries " .
+		"to edit.</h3>" . LF;
 }
 else
 {
-	print "<center><p><table class='viewall'>" . LF;
-    print "<caption><h3 align='center'>To edit & save an OLD Spacemission Entry please click on the Spacemission name.</H3></CAPTION>" . LF;
+	print "<table class='viewall'>" . LF;
+    print "<caption>To edit & save an OLD Spacemission entry please click on the Spacemission name</CAPTION>" . LF;
     print "<tr><th>MISSION</th><th>AGENCY</th></tr>" . LF;
 
     $index = 0;
@@ -47,7 +47,7 @@ else
         
         $index++;
     }
-	print "</table></p></center>" . LF;
+	print "</table>" . LF;
 }
 
 ?>

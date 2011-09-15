@@ -13,61 +13,67 @@ print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 print "<h2>There are " . $resources_count . " Observatories listed in the Matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
 print "<caption>Filter the content by selecting one of the Dropdown menus</caption>" . LF;
+//Name Filter (with autocompleter)
+print "<tr><td class='title' colspan='2'><b>Filter by Name</b></td>";
+print "<td class='filter' colspan='4'><input name='obs_name' class='obs_name' value='' size='80'/>" . LF;
+/** @todo integrate dropdown menu which will be triggered by autocompleter */
+print "<input class='obs_id' name='obs_id' type='hidden' />";
+print "</td></tr>";
 //Country Filter
 $countries = $_observatory->get_countries();
 print "<tr><td class='title' colspan='2'><b>Filter by Country</b></td>";
-print "<td class='filter' colspan='4'><SELECT name='obs_filters[country]' onchange='this.form.submit()'>" . LF;
-print "<OPTION value=''>ALL</OPTION>";
+print "<td class='filter' colspan='4'><select name='obs_filters[country]' onchange='this.form.submit()'>" . LF;
+print "<option value=''>ALL</option>";
 foreach($countries['id'] as $key => $value)
 {
-	print "<OPTION value='" . $value . "'";
+	print "<option value='" . $value . "'";
 	if(isset($filters["country"]))
 		if ($value == $filters["country"]) print " selected";
-   	print ">" . $countries['name'][$key] . "</OPTION>" . LF;
+   	print ">" . $countries['name'][$key] . "</option>" . LF;
 }
-print "</SELECT></td></tr>" . LF;
+print "</select></td></tr>" . LF;
 //----
 //Telescope Type Filter
 $telescope_types = $_observatory->get_telescope_types();
 print "<tr><td class='title' colspan='2'><b>Filter by Telescope Type</b></td>";
-print "<td class='filter' colspan='4'><SELECT name='obs_filters[telescope_type]' onchange='this.form.submit()'>" . LF;
-print "<OPTION value=''>ALL</OPTION>";
+print "<td class='filter' colspan='4'><select name='obs_filters[telescope_type]' onchange='this.form.submit()'>" . LF;
+print "<option value=''>ALL</option>";
 foreach($telescope_types['id'] as $key => $value)
 {
-	print "<OPTION value='" . $value . "'";
+	print "<option value='" . $value . "'";
 	if(isset($filters["telescope_type"]))
 		if ($value == $filters["telescope_type"]) print " selected";
-   	print ">" . $telescope_types['name'][$key] . "</OPTION>" . LF;
+   	print ">" . $telescope_types['name'][$key] . "</option>" . LF;
 }
-print "</SELECT></td></tr>" . LF; 
+print "</select></td></tr>" . LF; 
 //----
 //Research Area Filter
 $research_areas = $_observatory->get_research_areas();
 print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";
-print "<td class='filter' colspan='4'><SELECT name='obs_filters[research_area]' onchange='this.form.submit()'>" . LF;
-print "<OPTION value=''>ALL</OPTION>";
+print "<td class='filter' colspan='4'><select name='obs_filters[research_area]' onchange='this.form.submit()'>" . LF;
+print "<option value=''>ALL</option>";
 foreach($research_areas['id'] as $key => $value)
 {
-	print "<OPTION value='" . $value . "'";
+	print "<option value='" . $value . "'";
 	if(isset($filters["research_area"]))
 		if ($value == $filters["research_area"]) print " selected";
-   	print ">" . $research_areas['name'][$key] . "</OPTION>" . LF;
+   	print ">" . $research_areas['name'][$key] . "</option>" . LF;
 }
-print "</SELECT></td></tr>" . LF; 
+print "</select></td></tr>" . LF; 
 //----
 //Target Filter
 $targets = $_observatory->get_targets();
 print "<tr><td class='title' colspan='2'><b>Filter by Target</b></td>";
-print "<td class='filter' colspan='4'><SELECT name='obs_filters[target]' onchange='this.form.submit()'>" . LF;
-print "<OPTION value=''>ALL</OPTION>";
+print "<td class='filter' colspan='4'><select name='obs_filters[target]' onchange='this.form.submit()'>" . LF;
+print "<option value=''>ALL</option>";
 foreach($targets['id'] as $key => $value)
 {
-	print "<OPTION value='" . $value . "'";
+	print "<option value='" . $value . "'";
 	if(isset($filters["target"]))
 		if ($value == $filters["target"]) print " selected";
-   	print ">" . $targets['target_name'][$key] . "</OPTION>" . LF;
+   	print ">" . $targets['target_name'][$key] . "</option>" . LF;
 }
-print "</SELECT></td></tr>" . LF; 
+print "</select></td></tr>" . LF; 
 print "</table>";
 //----
 print "<center><table>";

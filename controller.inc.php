@@ -258,6 +258,7 @@ class Controller
     				case "obs":
     					if ($action == "viewOld")
     					{
+    						self::printSelector($page, $action, $resource_type);
     						include "views/ObservatoryEditAllOld.php";
     						break;
     					}
@@ -269,6 +270,7 @@ class Controller
     				case "spa":
     					if ($action == "viewOld")
     					{
+    						self::printSelector($page, $action, $resource_type);
     						include "views/SpacemissionEditAllOld.php";
     						break;
     					}
