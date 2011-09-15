@@ -1,8 +1,10 @@
 <?php
 /**
- * Input Validation Procedure
+ * Input Validation / Autocompleter Procedure
  * Tests if an Observatory name already exists
- * called by validate in functions.js
+ *  called by validate in functions.js
+ * Makes a selection of Observatory names according to user input
+ *  called by autocomplete in function.js
  *
  * @file observatories.php
  * @version $Id$
@@ -11,18 +13,42 @@
 
 include_once ('../lib/php/orm/DbConnector.php');
 
-$name = trim(strtolower($_GET['add_obs_name']));
-
 //CREATE DATABASE CONNECTION
 $link = new DbConnector('');
 
-$query = "SELECT * FROM observatories WHERE name='$name';";
-/** @todo maybe better */
+if(isset($_GET["extend"]))
+{
+	// no term passed - just exit early with no response
+	if (empty($_GET['term'])) exit ;
+		$name = strtolower($_GET["term"]);
+	// remove slashes if they were magically added
+	if (get_magic_quotes_gpc()) $name = stripslashes($name);
+		$query = "SELECT id, name FROM observatories WHERE name LIKE '%$name%';";
+}
+else
+{
+	$name = trim(strtolower($_GET['add_obs_name']));
+	$query = "SELECT id FROM observatories WHERE name='$name';";
+}
+	
+/** @todo maybe better for proofing existance of name */
 //$query = "SELECT * FROM observatories WHERE name LIKE '$name';";
 $result = $link->query($query);
 
 if ($link->getNumRows($result) > 0)
-	$output = false;
+{
+	if(isset($_GET["extend"]))
+	{
+		$output = array();
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+			array_push($output, array("id"=>$row['id'], "label"=>$row['name'],
+				 "value" => strip_tags($row['name'])));
+		}
+	}
+	else {
+		$output = false; }
+}
 else
 	$output = true;
 

@@ -47,6 +47,8 @@ function ws($howMany=1)
 // *****************************
 // HTML GENERAL TAG function
 // *****************************
+
+
 function makeTAG($TAG, $content, $args="") 
 {
     return ('<'.$TAG.' '.$args.'>'.$content.'</'.$TAG.'>');
@@ -55,6 +57,8 @@ function makeTAG($TAG, $content, $args="")
 // *****************************
 // HTML TAG TAGS functions
 // *****************************
+
+
 function makeTR($content, $args="") 
 {
     return makeTAG("tr",$content,$args);
@@ -64,6 +68,7 @@ function makeTR($content, $args="")
 // *****************************
 // HTML FORM FUNCTIONS
 // ***************************** 
+
 
 function makeInputTitle($title, $info=NULL, $mandatory=false)
 {
@@ -261,6 +266,7 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
 	print "</select></td></tr>" . LF;
 }
 
+
 function printAddRemoveButton($count, $amount, $class, $table=true)
 {
 	if($table)
@@ -281,6 +287,7 @@ function printAddRemoveButton($count, $amount, $class, $table=true)
 	}
 }
 
+
 function printActionButton($action)
 {
 	//nl();
@@ -294,6 +301,7 @@ function printActionButton($action)
 		print "<input type='submit' name='push' value='Update Entry'/>" . LF;
 	print "</div>" . LF;
 }
+
 
 function printEditAllTable($name, $resources, $type)
 {
@@ -324,6 +332,35 @@ function printEditAllTable($name, $resources, $type)
     	print "</table>" . LF;
 	}	
 }
+
+/** @todo maybe make with other function */
+//function printFilterOptions($title, $name, $value, $items)
+//{
+//	print "<tr><td class='title' colspan='2'><b>Filter by " . $title "</b></td>";
+//	print "<td class='filter' colspan='4'><select name='" . $name . "' onchange='this.form.submit()'>" . LF;
+//	print "<option value=''>ALL</option>";
+//	foreach($research_areas['id'] as $key => $item)
+//	{
+//		print "<option value='" . $value . "'";
+//		if(isset($filters["research_area"]))
+//			if ($value == $filters["research_area"]) print " selected";
+//   		print ">" . $research_areas['name'][$key] . "</option>" . LF;
+//	}
+//	print "</select></td></tr>" . LF; 
+//}
+
+//function makeSimpleSelectListFromArray_($name, $value, $items)
+//{
+//	$content =  "<select name='". $name ."'>" . LF;
+//	foreach($items as $item)
+//	{
+//		$content .= "<option value='" . $item . "'";
+//		if ($item == $value) $content .= " selected='selected'";
+//    	$content .= ">" . $item . "</option>" . LF;
+//	}
+//	$content .= "</select>";
+//	return $content;
+//}
 
 
 ?>

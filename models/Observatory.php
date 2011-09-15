@@ -410,6 +410,9 @@ class ObservatoryDAO extends ModelDAO
 			//nl();
 			
 			$filter_queries = array();
+			
+			if(!empty($filters["id"]))
+				$filter_queries[] = "id=" . $filters["id"];
 				
 			if(!empty($filters["country"]))
 				//$query .= "country_id=". $filters["country"];	
