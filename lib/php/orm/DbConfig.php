@@ -22,10 +22,10 @@ abstract class SystemComponent
 //		$settings['dbname'] = 'europlanet_na1_test';
 
 		//Temporary Questionnaire DB settings:
-		$settings['dbhostTemp'] = 'localhost';
-		$settings['dbusernameTemp'] = 'europlanet_na1';
-		$settings['dbpasswordTemp'] = 'europlanet%na1';
-		$settings['dbnameTemp'] = 'europlanet_na1_temp';
+//		$settings['dbhostTemp'] = 'localhost';
+//		$settings['dbusernameTemp'] = 'europlanet_na1';
+//		$settings['dbpasswordTemp'] = 'europlanet%na1';
+//		$settings['dbnameTemp'] = 'europlanet_na1_temp';
 
 		//Old-Obs-NA1 DB settings:
 		$settings['dbhostOldObs'] = 'localhost';
