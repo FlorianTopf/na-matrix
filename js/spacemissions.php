@@ -16,7 +16,8 @@ $name = trim(strtolower($_GET['add_spa_name']));
 //CREATE DATABASE CONNECTION
 $link = new DbConnector('');
 
-$query = "SELECT * FROM space_missions WHERE mission_name='$name';";
+$query = "SELECT id FROM space_missions WHERE mission_name='$name';"
+//$query = "SELECT * FROM space_missions WHERE mission_name='$name';";
 $result = $link->query($query);
 
 if ($link->getNumRows($result) > 0)

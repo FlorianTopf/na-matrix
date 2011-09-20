@@ -1,4 +1,29 @@
+2011-09-15  ftopf
+
+    * Observatory.php, ObservatoryViewAll.php, functions.js, html.php,
+      observatories.php: Introduced autocompleter for Observatory names, which
+      works together with all filters, added dummy function at html for giving a
+      printFilter function in the future
+
+    * ObservatoryEditAllOld.php, ObservatoryEditAllTemp.php,
+      ObservatoryMapAll.php, ObservatoryViewAll.php, SpacemissionEditAllOld.php,
+      controller.inc.php: Little cosmetics on MAP and all EDIT pages
+
+    * DbConfig.php: Commented out questionnaire connection info
+
+2011-09-14  ftopf
+
+    * ObservatoryMapAll.php: Added TODO to map
+
+    * europlanet_na1-complete-dump.sql: Adapted complete dump to new
+      keywordlists
+
+    * europlanet_na1-dump_14-09-2011.sql: Added new complete dump after hardware
+      failure at webserver
+
 2011-09-13  ftopf
+
+    * ChangeLog: Modified ChangeLog
 
     * ObservatoryMapAll.php, ObservatoryViewAll.php, SpacemissionViewAll.php,
       TODO, controller.inc.php, functions.js: updated TODO, introduced count of

@@ -140,7 +140,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * show creation / modification date
   * links to the partner observatories (how to manage this?)
   [OK] filter: country, telescope type, research area, target
-  * quick search for observatory name (with autocompleter)
+  [OK] quick search for observatory name (with autocompleter)
 
 ** Browsing pages for space missions
   * according to telecon inputs (standard / detail pages)
