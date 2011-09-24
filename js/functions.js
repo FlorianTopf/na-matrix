@@ -193,6 +193,13 @@ function extractLast( term ) {
 //-----------------------------------------------------------------------------------------------------------
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
+	//prevent that a user hits enter when in form (for add/edit and browse)
+	$(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
 	//warning if javascript off
 	$('p.warning').remove();
 	//hide all .error labels, if costum labels are inserted in html
@@ -721,6 +728,7 @@ $(document).ready(function(){
 					$( this ).data( "autocomplete" ).menu.active ) {
 				event.preventDefault();
 			}
+			/** @todo we have to reset the filter somehow, when input is removed */
 		});
 		$(this).autocomplete({
 			//not fully clear! callback, how can we get the json string?
