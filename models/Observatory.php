@@ -651,6 +651,16 @@ class ObservatoryDAO extends ModelDAO
 						}
 						mysqli_free_result($result_1);
 					}
+					elseif ($key == 'wavelength') /** check for entries and put semicolon (autocomplete) */
+					{
+						$value = trim($value); //remove whitespaces at the beginning/end
+						if (substr($value, -1) != ",") //check if last char is not semicolon
+							$value = $value . ", "; //add semicolon
+						else 
+							$value = $value . " ";
+						$this->_telescopes[$key][] = stripslashes($value);
+						
+					}
 					else
 						$this->_telescopes[$key][] = stripslashes($value);
 				}

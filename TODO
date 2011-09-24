@@ -96,7 +96,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   [HIGH PRIORITY] wavelength (written text? like radio, near-infrared..)
     [OK] autocompleter + db table (acronym / name)
     * take only necessary jquery UI scripts + css (fix it!)
-    * DOESNT WORK when something is already in the input field (maybe because of missing delimiter ",")
+    [OK] DOESNT WORK when something is already in the input field (maybe because of missing delimiter ",")
   * spatial resolution => format?
   * spectral resolution => format?
   * remove last telescope => empty fields
@@ -121,6 +121,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * remove last sensor => empty fields
 [OBSOLETE] Add validation for OTHER science goals with inline error label
   * autocompleter for sensor type
+  [OK] autocompleter for wavelength
 
 * Input validation in JQUERY for space missions (see comments in add.php)
   * other target - MANDATORY!

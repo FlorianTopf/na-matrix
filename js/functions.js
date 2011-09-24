@@ -5,10 +5,13 @@
  *
  * @todo refactor every jquery function (see JQUERY API http://api.jquery.com/)
  * @todo there is a certain problem with validating IDs, which lets us only providing them AFTER
- * dynamic rows routines
+ * 		 dynamic rows routines
  * @todo improve regular expressions where possible
+ * @todo check every .each function and return false, cause it will break iteration, 
+ * 		 see: http://api.jquery.com/jQuery.each/
  */
 
+//OPENWIN for VIEW single resource
 function openwin(content)
 {
   W=window.open(content,'RESULTS','status=yes,menubar=yes,hotkeys=no,resizable=yes,scrollbars=yes,width=650,height=600');
@@ -187,6 +190,7 @@ function extractLast( term ) {
 	return split( term ).pop();
 }
 
+//-----------------------------------------------------------------------------------------------------------
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
 	//warning if javascript off
@@ -499,6 +503,12 @@ $(document).ready(function(){
 			return false;
 		});
 		
+		//CALLING AUTOCOMPLETER FOR WAVELENGTH
+        $('input.wavelength', newInstrument).each(function() {
+			$(this).wavelength_completer();
+			return false;
+		});
+		
 		//CALLING AUTOCOMPLETER FOR INSTRUMENT NAME
 		$('input.instrument', newInstrument).each(function() {
 			$(this).instrument_completer();
@@ -755,19 +765,22 @@ $(document).ready(function(){
     //CALLING AUTOCOMPLETER FOR WAVELENGTH
 	$('input.wavelength').each(function() {
 		$(this).wavelength_completer();
-		return false;
+		/** @todo check this with documentation, do we need return? */
+		//return false;
 	});
 	
 	//CALLING AUTOCOMPLETER FOR TELESCOPE NAME
 	$('input.telescope').each(function() {
 		$(this).telescope_completer();
-		return false;
+		/** @todo check this with documentation, do we need return? */
+		//return false;
 	});
 	
 	//CALLING AUTOCOMPLETER FOR INSTRUMENT NAME
 	$('input.instrument').each(function() {
 		$(this).instrument_completer();
-		return false;
+		/** @todo check this with documentation, do we need return? */
+		//return false;
 	});
 	
     //REMOVE EXISTING TELESCOPES IN EDIT

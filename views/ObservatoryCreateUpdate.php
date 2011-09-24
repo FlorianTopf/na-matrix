@@ -225,7 +225,6 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$_observatory->get_telescope("antenna_type", $telescope_count), $antenna_types, "antenna_type", NULL, FALSE, $options);
 
 		//Wavelength
-	    /** @todo add JQUERY/DB support for autocomplete */
 		printInputTextRow("Wavelength", "add_obs_wavelength[{$telescope_count}]",
 			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength");
 
@@ -296,9 +295,8 @@ if(is_array($_observatory->get_has_many("telescopes")))
 					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 40);
 
 	        	//Wavelength
-	        	/** @todo add JQUERY/DB support for autocomplete (with other class than for telescopes!) */
 				printInputTextRow("Wavelength", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40);
+					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength");
 
 	        	/** @todo how to implement validation here? */
 	        	//Wavelength Begin
