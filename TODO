@@ -1,5 +1,18 @@
 ROADMAP (2011)
 
+[URGEND] OBS_Questionaire:
+ * add new 'europlante_na1_q' DB
+ * alter 'observatories' table: add 'user_id'
+ * add models/Observatory.php function 'set_user_id(int)'
+ * add lib/php/orm/Acl.php user_level for 'add_obs_q' (level = 11?)
+ * add connect info for 'europlante_na1_q' to lib/php/orm/DbConfig.php
+ * add Q_DbConnector to lib/php/orm/ModelDAO.php
+   * add function set_Q_Db() and unset_Q_Db()
+ * add 'add_obs_q' page flow in controller.inc.php
+   * set_Q_Db() - insert entry(new page with static capture('I am not a bot')?) - set_user_id() - unset_Q_Db()
+ * add obs_q link index.php, attention to display by user levels
+
+
 [PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor),
                telescope, instrument, sensor at function 'init_has_many'
 [OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
@@ -19,7 +32,7 @@ ROADMAP (2011)
 [OK] Implement Filters on Browse Page (JUNE 2011)
 [HIGH PRIORITY] Implement Search Interface / Interactive Map (SEPTEMBER 2011)
 See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
-  [OK] display current user location 
+  [OK] display current user location
    * Distinguish between RADIO/OPTICAL, discuss Information to be displayed in Info box
    * HIDDEN FIELDS OK? (latitude/longitude)
    [OK] Integrate link to observatory view (with openwin) in google maps info box
@@ -27,9 +40,9 @@ See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
    * Improve Icons
    * SEARCH IN THE MAPS, discuss filters/searchtools to be implemented
      See: http://code.google.com/intl/de/apis/maps/articles/phpsqlsearch_v3.html
-  
-  
-	
+
+
+
 [LOW PRIORITY][OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
 * Implement Edit link button on browse site for admins
 
@@ -198,4 +211,3 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
     * VIEWS (all access through DAO) / CONTROLLER (frontcontroller)
   * ORM Pattern implementieren für die models
   	* DAO / Object => abstract base class (singleton)
- 
