@@ -77,6 +77,42 @@ class Controller
 
     		switch ($page) {
     		case "add":
+    			// ------------------- Questionnaire Start ----------------------
+    			if ($_SESSION["user_level"] == 11)
+    			{
+    				$_observatory = ModelDAO::getFromName("Observatory");
+					/** get resource! */
+
+					if($action == "add")
+					{
+						//self::printSelector($page, $action, $resource_type);
+						include "views/ObservatoryCreateUpdate.php";
+					}
+
+					if($action == "Add Entry")
+				 	{
+				 	    //NEW: WITH ACCESS CLASS
+          				$status = $_observatory->add_resource();
+          				//print "DEBUG: Observatory added to main DB" . LF;
+          				if ($status["errno"] == 0)
+          				{
+            				$res_id = $status["res_id"];
+            				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
+           					 $_observatory->add_obs_keys($res_id, $action);
+
+            				print "<H4>The new Observatory has been added to the database!</H4>" . LF;
+
+            				/** @todo here we add some sexy backlinks */
+          				}
+          				else
+          				{
+            				print "<h4>" . $status["error"] . "</h4>" . LF;
+            				return;
+          				}
+				 	}
+				 	break;
+    			}
+    			// ---------------------Questionnaire Stop --------------------
 				switch ($resource_type) {
 				case "obs":
 					//$_observatory = new ObservatoryDAO();

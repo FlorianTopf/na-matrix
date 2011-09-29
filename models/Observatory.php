@@ -396,62 +396,70 @@ class ObservatoryDAO extends ModelDAO
 		elseif($page == "browse")
 		{
 			$query = "SELECT id, name, institution, web_address, " .
-			"country_id, email FROM observatories"; 
-			
+			"country_id, email FROM observatories";
+
 			/** we have to check carefully when resetting the filters */
-			$filter_string = implode('', $filters); 
-			if(!empty($filter_string))
-				$query .= " WHERE ";
-				
+			$filter_string = implode('', $filters);
+
+			// --------------- Questionnaire Start -----------------
+			if ($_SESSION["user_level"] >= 21)
+			{
+				if(!empty($filter_string))
+					$query .= " WHERE ";
+			}
+			else
+				$query .= " WHERE observatories.approved = 1 ";
+			// --------------- Questionnaire End -----------------
+
 			//DEBUG:
 			//echo "Filter for Country:" . $filters["country"];
 			//nl();
 			//echo "Filter for Telescope Type:" . $filters["telescope_type"];
 			//nl();
-			
+
 			$filter_queries = array();
-			
+
 			if(!empty($filters["id"]))
 				$filter_queries[] = "id=" . $filters["id"];
-				
+
 			if(!empty($filters["country"]))
-				//$query .= "country_id=". $filters["country"];	
+				//$query .= "country_id=". $filters["country"];
 				$filter_queries[] = "country_id=". $filters["country"];
-				
+
 			/** old style with only two filter types */
 			//if(!empty($filters["country"]) && !empty($filters["telescope_type"]))
 			//	$query .= " AND ";
-				
+
 			if(!empty($filters["telescope_type"]))
 			{
 				//$query .= "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN ";
-				//$query .= "(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";	
-				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " . 
-					"(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))"; 	
+				//$query .= "(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
+					"(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";
 			}
-			
+
 			if(!empty($filters["research_area"]))
 			{
 				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_research_areas WHERE " .
 				"research_area_id=" . $filters["research_area"] . ")";
 			}
-			
+
 			if(!empty($filters["target"]))
 			{
 				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_targets WHERE " .
 				"target_id=" . $filters["target"] . ")";
 			}
-							
+
 			/** concatenating all filter queries with AND */
 			$query .= implode(" AND ", $filter_queries);
-			
+
 			$query .= " ORDER BY observatories.name";
-			
+
 			//DEBUG:
 			//echo $query;
 			//nl();
 		}
-			
+
 
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
@@ -656,10 +664,10 @@ class ObservatoryDAO extends ModelDAO
 						$value = trim($value); //remove whitespaces at the beginning/end
 						if (substr($value, -1) != ",") //check if last char is not semicolon
 							$value = $value . ", "; //add semicolon
-						else 
+						else
 							$value = $value . " ";
 						$this->_telescopes[$key][] = stripslashes($value);
-						
+
 					}
 					else
 						$this->_telescopes[$key][] = stripslashes($value);
@@ -956,13 +964,19 @@ class ObservatoryDAO extends ModelDAO
                                                         $_POST["add_obs_longitude"]["minutes"],
                                                         $_POST["add_obs_longitude"]["seconds"],
                                                         $_POST["add_obs_longitude"]["cent"]);
+		// ------------- Questionnaire Start -------------
+        if ($_SESSION["user_level"] >= 21)
+        	$approved = 1;
+        else
+        	$approved = 0;
+        // ------------- Questionnaire End ---------------
 
 		$query = "INSERT INTO observatories (" .
   			"`id`,`name`,`founded`,`institution`,`web_address`,`address`,`zip_code`," .
   			"`city`,`country_id`,`phone`,`email`,`latitude`,`longitude`,`approx_position`," .
 			"`sealevel_m`,`precipitation`,`clear_nights`,`timezone`," .
 			"`observatory_status`," .
-  			"`partner_observatories`, `creation_date`)" .
+  			"`partner_observatories`, `creation_date`, `user_id`, `approved`)" .
   			"VALUES (NULL,'" .
         	addslashes($_POST["add_obs_name"]) . "','" .
         	$_POST["add_obs_founded"] . "','" .
@@ -983,7 +997,10 @@ class ObservatoryDAO extends ModelDAO
         	$_POST["add_obs_timezone_id"] . "','" .
         	addslashes($_POST["add_obs_status"]) . "','" .
         	addslashes($_POST["add_obs_partner"]) . "'," .
-        	"NOW())";
+        	"NOW()" . ",'" .
+			$_SESSION["user_id"] . "','" .   // Questionnaire
+			$approved .						 // Questionnaire
+			"')";
 
         //print "Debug: " . $query;
 
@@ -1020,6 +1037,13 @@ class ObservatoryDAO extends ModelDAO
                                                         $_POST["add_obs_longitude"]["seconds"],
                                                         $_POST["add_obs_longitude"]["cent"]);
 
+		// ------------- Questionnaire Start -------------
+        if ($_SESSION["user_level"] >= 21)
+        	$approved = 1;
+        else
+        	$approved = 0;
+        // ------------- Questionnaire End ---------------
+
 		$query = "UPDATE observatories SET " .
 			//We get another POST VAR for the name if EDIT
 	  		"name='" . addslashes($_POST["update_obs_name"]) . "'," .
@@ -1041,7 +1065,9 @@ class ObservatoryDAO extends ModelDAO
 	  		"timezone='" . addslashes($_POST["add_obs_timezone_id"]) . "'," .
 	  		"observatory_status='" . addslashes($_POST["add_obs_status"]) . "'," .
 	  		"partner_observatories='" . addslashes($_POST["add_obs_partner"]) . "'," .
-			"modification_date=NOW() " .
+			"modification_date=NOW()," .
+			"user_id='" . $_SESSION["user_id"] . "'," .
+			"approved='" . $approved . "' " .
 	  		"WHERE id=" . $res_id;
 
 		self::$db->query($query);
@@ -1228,7 +1254,7 @@ class ObservatoryDAO extends ModelDAO
    * THIS IS A 3RD ORDER TABLE
    */
   	protected function update_sci_cons($res_id)
-  	{	
+  	{
   		$query = "DELETE FROM observatory_to_scientific_contacts WHERE " .
 	               "observatory_id=" . $res_id;
 	    self::$db->query($query);
@@ -1240,14 +1266,14 @@ class ObservatoryDAO extends ModelDAO
 				//intermediate solution for $sci_con_id=0;
 				if ($sci_con_id == 0)
 					break;
-				
+
 				// check if a name is written in the line
 				if (!empty($_POST["add_obs_sci_con_name"][$key]))
 				{
 
 					$query = "INSERT INTO observatory_to_scientific_contacts VALUES (" . $res_id .
          	 			"," . $sci_con_id . ")";
-					
+
 					//DEBUG:
 					//echo $query;
 					//nl();
@@ -1750,7 +1776,7 @@ class ObservatoryDAO extends ModelDAO
   	{
 		$query = "INSERT INTO additional_information VALUES (". $res_id  .",'" .
 			addslashes($_POST["add_obs_fur_con"]) . "','" .
-    		//addslashes($_POST["add_obs_inst_com"]) . "','" .
+    		//addslashes($_POST["add_obs_inst_com"]) . "','" .  // FIXXXME TOGGLE COMMENT
     		addslashes($_POST["add_obs_add_inst"]) . "','" .
     		addslashes($_POST["add_obs_array_desc"]) . "','" .
     		addslashes($_POST["add_obs_backend_desc"]) . "','" .

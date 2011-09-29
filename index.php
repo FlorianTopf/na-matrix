@@ -104,13 +104,15 @@
               print "<ul><li class='left-level-1-center'>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
               print "<li class='left-level-1-center'>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
               print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li>" . LF;
-              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" .LF;
+              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration_q'>Register</a></li>" . LF;
+              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" . LF;
 			}
             else
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
               print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
-              print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
+              if ($_SESSION["user_level"] >= 21)
+              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
               /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
               if ($_SESSION["user_level"] >= 31)
               {
@@ -188,7 +190,7 @@
       				$resource_id = NULL;
     				$resource_type = NULL;
     			}
-			}	
+			}
 
 			//if selector was pressed
 			if(isset($_POST["add_res_type"]))
@@ -216,23 +218,23 @@
 					$_POST["is_old_res"] = '0';
 				}
 			}
-			
+
 			if(isset($_POST["obs_filters"]))
 			{
 				foreach($_POST["obs_filters"] as $key => $value)
 					$filters[$key] = $value;
 			}
-			
+
 			if(isset($_POST["spa_filters"]))
 			{
 				foreach($_POST["spa_filters"] as  $key => $value)
 					$filters[$key] = $value;
 			}
-			
+
 			if(isset($_POST["reset_filters"]))
 				$filters = array();
-			
-			
+
+
   		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings, $filters);
 
           }

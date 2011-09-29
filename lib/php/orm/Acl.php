@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @file Acl.php
  * @version $Id$
@@ -9,9 +9,9 @@ class Acl
 {
 	static private $_isUserLogged=FALSE; // default = no user logged
 	static private $_user=NULL; // default = no user
-	
+
 	static private $_acl = array(
-	'add' => 21,
+	'add' => 11,
 	'browse' => 0,
 	'map' => 0,
 	'edit' => 21,
@@ -20,24 +20,25 @@ class Acl
 	'logout' => 0,
 	'account' => 11,
 	'reset' => 0,
-	'registration' => 31
+	'registration' => 31,
+	'registration_q' => 0
 	);
-	
+
 	static private $_profiles = array(
 	'anonymous' => 0,
 	'browsing' => 11,
 	'processing' => 21,
 	'superuser' => 31,
 	);
-	
-	static function getAclForOption($option) 
+
+	static function getAclForOption($option)
 	{
-		if (isset(self::$_acl[$option])) 
+		if (isset(self::$_acl[$option]))
 			return self::$_acl[$option];
 		else
 			return -1;
 	}
-	
+
 }
 
 
