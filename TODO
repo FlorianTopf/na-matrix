@@ -21,11 +21,12 @@ ROADMAP (2011)
 
 1 DB Solution:
  * add a way to register annonymus as user level 11 only (with capture!!!)
-   * add pages/registration_q.php (alter user_level selector!!!)
-   * add registration_q to lib/php/orm/Acl.php list, user_level 0
-     * alter add to user_level 11
-   * alter index.php to show registration_q to user_level 0
-   * index.php MUST NOT show edit/add_old_entrie for user_level < 21!
+   * add pages/registration_q.php (alter user_level selector!!!) [OK]
+     * add capture [MISSING!]
+   * add registration_q to lib/php/orm/Acl.php list, user_level 0 [OK]
+     * alter add to user_level 11 [OK]
+   * alter index.php to show registration_q to user_level 0 [OK]
+   * index.php MUST NOT show edit/add_old_entrie for user_level < 21! [OK]
  * add 'approved' [bool] & 'user_id' [int] field to 'observatories' (set allready existing entries to 1)
    * alter every INSERT/UPDATE SQL statment to 'observatories' table! (models/Observatory.php add_resource() & update_resource)
    * add/update resource sets 'approved' to 1 only when user_level > 11! (models/Observatory.php add_resource() & update_resource)
