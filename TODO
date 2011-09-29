@@ -1,16 +1,22 @@
 ROADMAP (2011)
 
-[URGEND] OBS_Questionaire:
+[URGENT] OBS_Questionaire:
  * add new 'europlante_na1_q' DB
  * alter 'observatories' table: add 'user_id'
  * add models/Observatory.php function 'set_user_id(int)'
  * add lib/php/orm/Acl.php user_level for 'add_obs_q' (level = 11?)
+ 	=> Ja das Questionnaire kann level 11 haben, aber die ACL überprüft nur die Seiten
+ 	   und die Seite die verwendet werden muss steht nun auf 21, hier muss eine gute
+ 	   Lösung gefunden werden.
  * add connect info for 'europlante_na1_q' to lib/php/orm/DbConfig.php
  * add Q_DbConnector to lib/php/orm/ModelDAO.php
    * add function set_Q_Db() and unset_Q_Db()
  * add 'add_obs_q' page flow in controller.inc.php
    * set_Q_Db() - insert entry(new page with static capture('I am not a bot')?) - set_user_id() - unset_Q_Db()
+     => Der page flow sollte eigentlich dann genauso auf die CreateUpdate View verweisen!
  * add obs_q link index.php, attention to display by user levels
+   => Das könnte die zwischenlösung für das ACL problem sein, allerdings darf der User niemals die Möglichkeit
+      haben in die echte Database was reinzuschreiben
 
 
 [PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor),
