@@ -1,6 +1,7 @@
 ROADMAP (2011)
 
 [URGENT] OBS_Questionaire:
+2 DB Solution:
  * add new 'europlante_na1_q' DB
  * alter 'observatories' table: add 'user_id'
  * add models/Observatory.php function 'set_user_id(int)'
@@ -14,9 +15,18 @@ ROADMAP (2011)
  * add 'add_obs_q' page flow in controller.inc.php
    * set_Q_Db() - insert entry(new page with static capture('I am not a bot')?) - set_user_id() - unset_Q_Db()
      => Der page flow sollte eigentlich dann genauso auf die CreateUpdate View verweisen!
- * add obs_q link index.php, attention to display by user levels
+ * add way to register annonymus as only level 11 (ONLY 'europlanet_na1' - 'user_list' is used!!!), add obs_q link index.php, attention to display by user levels
    => Das könnte die zwischenlösung für das ACL problem sein, allerdings darf der User niemals die Möglichkeit
       haben in die echte Database was reinzuschreiben
+
+1 DB Solution:
+ * add a way to register annonymus as user level 11 only (with capture!!!)
+   * add pages/registration_q.php (alter user_level selector!!!)
+   * add registration_q to lib/php/orm/Acl.php list, user_level 0
+ * add 'approved' [bool] & 'user_id' [int] field to 'observatories' (set allready existing entries to 1)
+   * alter every INSERT/UPDATE SQL statment to 'observatories' table! (models/Observatory.php add_resource() & update_resource)
+   * add/update resource sets 'approved' to 1 only when user_level > 11! (models/Observatory.php add_resource() & update_resource)
+ * prevent approved = 0 entries from beeing displayed (models/Observatory.php - get_all_resources() & get_resource())
 
 
 [PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor),
