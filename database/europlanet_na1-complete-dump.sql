@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.5
+-- version 3.2.0.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 14, 2011 at 03:37 PM
--- Server version: 5.1.47
--- PHP Version: 5.3.3
+-- Generation Time: Oct 04, 2011 at 09:45 AM
+-- Server version: 5.1.37
+-- PHP Version: 5.3.0
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -509,8 +509,10 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   `timezone` int(10) unsigned DEFAULT NULL,
   `observatory_status` text,
   `partner_observatories` text,
+  `user_id` int(11) NOT NULL DEFAULT '0',
   `creation_date` datetime NOT NULL,
   `modification_date` datetime DEFAULT NULL,
+  `approved` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `country_id` (`country_id`),
   KEY `precipitation_id` (`precipitation`),

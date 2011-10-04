@@ -438,6 +438,15 @@ UPDATE `europlanet_na1`.`telescopes` SET `antenna_type` = '1' WHERE `telescopes`
 DELETE FROM `europlanet_na1`.`antenna_types` WHERE `antenna_types`.`id` = 12
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 739 */
+ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `user_id` INT(11) NOT NULL DEFAULT 0 AFTER `partner_observatories`;
+ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `approved` TINYINT(1) NULL DEFAULT FALSE AFTER `modification_date`;
+UPDATE `europlanet_na1`.`observatories` SET `observatories`.`approved`=1;
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXX */
+
+/** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */
 
 /** -------------------------------------------------------------------------------------------- */

@@ -106,7 +106,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 [HIGH PRIORITY] Introduce Questionnaire form (entries must be approved afterwards) (see above)
   * very user friendly! tooltips necessary (UI)
   * switch off all OTHER options (research areas etc.)
-  * modify database (make flags)
+  [OK] modify database (make flags)
   * implement a state-of-the-art CAPTCHA
 
 * Input form for observatories
@@ -138,7 +138,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * field of view, resolution, measured => format?
   * range_begin, range_end => high precision float?
   * remove last sensor => empty fields
-[OBSOLETE] Add validation for OTHER science goals with inline error label
+  [OBSOLETE] Add validation for OTHER science goals with inline error label
   * autocompleter for sensor type
   [OK] autocompleter for wavelength
 
