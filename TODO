@@ -50,6 +50,7 @@ See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
 
 [LOW PRIORITY][OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
 * Implement Edit link button on browse site for admins
+* Clean up DbConnector.php No need for different DB Types anymore!
 
 [LOW PRIORITY]
 * COMMENT OUT CODE FOR QUESTIONNAIRE (ATM)
