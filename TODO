@@ -1,37 +1,22 @@
-ROADMAP (2011)
+ROADMAP (Autumn 2011)
 
-[URGENT] OBS_Questionaire:
+[URGENT] OBS_QUESTIONNAIRE:
 2 DB Solution:
- * add new 'europlante_na1_q' DB
- * alter 'observatories' table: add 'user_id'
- * add models/Observatory.php function 'set_user_id(int)'
- * add lib/php/orm/Acl.php user_level for 'add_obs_q' (level = 11?)
- 	=> Ja das Questionnaire kann level 11 haben, aber die ACL überprüft nur die Seiten
- 	   und die Seite die verwendet werden muss steht nun auf 21, hier muss eine gute
- 	   Lösung gefunden werden.
- * add connect info for 'europlante_na1_q' to lib/php/orm/DbConfig.php
- * add Q_DbConnector to lib/php/orm/ModelDAO.php
-   * add function set_Q_Db() and unset_Q_Db()
- * add 'add_obs_q' page flow in controller.inc.php
-   * set_Q_Db() - insert entry(new page with static capture('I am not a bot')?) - set_user_id() - unset_Q_Db()
-     => Der page flow sollte eigentlich dann genauso auf die CreateUpdate View verweisen!
- * add way to register annonymus as only level 11 (ONLY 'europlanet_na1' - 'user_list' is used!!!), add obs_q link index.php, attention to display by user levels
-   => Das könnte die zwischenlösung für das ACL problem sein, allerdings darf der User niemals die Möglichkeit
-      haben in die echte Database was reinzuschreiben
+ [PENDING] remove old CODE (e.g. DbConfig.php)
 
 1 DB Solution:
- * add a way to register annonymus as user level 11 only (STILL NEEDS CAPTURE!!!)
-   * add pages/registration_q.php (alter user_level selector!!!) [OK]
-     * add capture [MISSING!]
-   * add registration_q to lib/php/orm/Acl.php list, user_level 0 [OK]
-     * alter add to user_level 11 [OK]
-   * alter index.php to show registration_q to user_level 0 [OK]
-   * index.php MUST NOT show edit/add_old_entrie for user_level < 21! [OK]
- * add 'approved' [bool] & 'user_id' [int] field to 'observatories' (set allready existing entries to 1) [OK]
-   * alter every INSERT/UPDATE SQL statment to 'observatories' table! (models/Observatory.php add_resource() & update_resource) [OK]
-   * add/update resource sets 'approved' to 1 only when user_level > 11! (models/Observatory.php add_resource() & update_resource) [OK]
- * prevent approved = 0 entries from beeing displayed (models/Observatory.php - get_all_resources()) [OK]
-   * added 'WHERE observatories.approved = 1' to lib/observatoriesXML.php Map query [OK]
+[PENDING] add a way to register anonymous as user level 11 only (REFACTOR REGISTRATION & LOGIN)
+  [OK] add pages/registration_q.php (alter user_level selector!!!)
+    [PENDING] add CAPTCHA for registration
+  [OK] add registration_q to lib/php/orm/Acl.php list, user_level 0
+    [OK] alter add to user_level 11
+  [OK] alter index.php to show registration_q to user_level 0
+  [OK] index.php MUST NOT show edit/add_old_entry for user_level < 21!
+[OK] add 'approved' [bool] & 'user_id' [int] field to 'observatories' (set already existing entries to 1, user_id=admin)
+  [OK] alter every INSERT/UPDATE SQL statement to 'observatories' table! (models/Observatory.php add_resource() & update_resource)
+  [OK] add/update resource sets 'approved' to 1 only when user_level > 11! (models/Observatory.php add_resource() & update_resource)
+[OK] prevent approved = 0 entries from beeing displayed (models/Observatory.php - get_all_resources())
+  [OK] added 'WHERE observatories.approved = 1' to lib/observatoriesXML.php Map query
 
 
 [PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor),
@@ -61,7 +46,6 @@ See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
    * Improve Icons
    * SEARCH IN THE MAPS, discuss filters/searchtools to be implemented
      See: http://code.google.com/intl/de/apis/maps/articles/phpsqlsearch_v3.html
-
 
 
 [LOW PRIORITY][OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
@@ -118,10 +102,10 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * introduce JOINS where necessary and usable
 
 
-[LOW PRIORITY] Introduce Questionnaire form (entries must be approved afterwards) (JUNE 2011)
+[HIGH PRIORITY] Introduce Questionnaire form (entries must be approved afterwards) (see above)
   * very user friendly! tooltips necessary (UI)
-  * switch of all OTHER options (research areas etc.)
-  * maybe modify database (use a second one OR make flags)
+  * switch off all OTHER options (research areas etc.)
+  * modify database (make flags)
   * implement a state-of-the-art CAPTCHA
 
 * Input form for observatories
