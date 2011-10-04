@@ -81,7 +81,7 @@
 
     // Throw a warning and reload if needed ELSE change pw & send mail
     if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
-      print "<script type='text/javascript'>document.main_form.submit()</script>";
+       print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {
       $res_pwd = randPw();

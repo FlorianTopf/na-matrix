@@ -1,8 +1,10 @@
 <?php
 /**
- * @file registration.php
+ * @file registration_q.php
  * @version $Id:$
  * @author Florian Topf, Robert Stöckler
+ * 
+ * @todo merge this with the other registration form
  */
 
   function mail_reg($email, $title, $lname, $uname, $pword)
@@ -27,7 +29,19 @@
 
     mail($email, $subject, $message, $headers, $from);
   }
-
+  
+  
+  // reCaptcha Library
+  require_once ('lib/php/recaptchalib.php');
+  
+  // Get a key from https://www.google.com/recaptcha/admin/create
+  $publickey = "6Lc2qMgSAAAAAGPZ2AOE86N8B7GltDk7RejaIZyU";
+  $privatekey = "6Lc2qMgSAAAAAEOCHaEUXVT3sz8cug7z19LDRYdE";
+  
+  # the response from reCAPTCHA
+  $resp = null;
+  # the error code from reCAPTCHA, if any
+  $error = null;
 
   global $user_titles, $usage_selection;
 
@@ -48,10 +62,26 @@
   show_message();
 
   //$link = new DbConnector();
-
+  
   if (isSet($_POST["registration_q"]))
-  {
-    if (trim($_POST["reg_uname"]) == "")
+  { 	
+     # was there a reCAPTCHA response?
+     if (isset($_POST["recaptcha_response_field"])) {
+        $resp = recaptcha_check_answer ($privatekey,
+                                        $_SERVER["REMOTE_ADDR"],
+                                        $_POST["recaptcha_challenge_field"],
+                                        $_POST["recaptcha_response_field"]);
+
+        if ($resp->is_valid) {
+                echo "You got it!";
+        } else {
+                # set the error code so that we can display it
+                set_message("You entered the captcha wrong!", "warning");
+                $error = $resp->error;
+        }
+     }  	
+  	
+  	if (trim($_POST["reg_uname"]) == "")
       set_message("Missing user name", "warning");
     if (trim($_POST["reg_pwd"]) == "")
       set_message("Missing password", "warning");
@@ -64,7 +94,7 @@
     else if (trim($_POST["reg_email"]) == "")
       set_message("Missing email address", "warning");
     else if (trim($_POST["reg_affiliation"]) == "")
-      set_message("Missing affiliation", "warning");
+      set_message("Missing affiliation", "warning");      
 
 // Check if username already in use
     $query = "SELECT username FROM users_list";
@@ -81,7 +111,7 @@
 
 // Throw a warning and reload if needed
     if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
-      print "<script type='text/javascript'>document.main_form.submit()</script>";
+      print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {
       $query = "INSERT INTO users_list (`id`,`username`,`passwd`," .
@@ -118,7 +148,7 @@
   {
     if ($_POST["reg_title"] == "")
     {
-      print "<p>In order to use the catalogue, you need to register for " .
+      print "<p>In order to use the matrix, you need to register for " .
             "a user account by filling out the form below (all fields " .
             "need to be filled out).</p>" . LF;
       print "<p>The information provided will only be used internally " .
@@ -186,6 +216,9 @@
 //------------------------------------------------------------
 
     print "</table></p>" . LF;
+    
+    //display reCaptcha
+    echo recaptcha_get_html($publickey, $error);
 
     print "<p><input type='submit' name='registration_q' value='Register'/></p>";
   }

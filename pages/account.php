@@ -53,7 +53,7 @@
 
 // Throw a warning and reload if needed
     if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
-      print "<SCRIPT>document.main_form.submit()</SCRIPT>";
+    	print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {
       $query = "UPDATE users_list SET " .
@@ -89,9 +89,9 @@
           "<td><select name='acc_title'>" . LF;
     foreach ($user_titles as $title)
     {
-      print "<OPTION value='" . $title . "'";
+      print "<option value='" . $title . "'";
       if ($_POST["acc_title"] == $title) print " selected";
-      print ">" . $title . "</OPTION>" . LF;
+      print ">" . $title . "</option>" . LF;
     }
     print "</select></td></tr>" . LF;
 
@@ -115,9 +115,9 @@
           "<td><select name='acc_category'>" . LF;
     foreach ($usage_selection as $use)
     {
-      print "<OPTION value='" . $use . "'";
+      print "<option value='" . $use . "'";
       if ($_POST["acc_category"] == $use) print " selected";
-      print ">" . $use . "</OPTION>" . LF;
+      print ">" . $use . "</option>" . LF;
     }
     print "</select></td></tr>" . LF;
 

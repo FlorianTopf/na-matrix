@@ -103,8 +103,9 @@
               print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
               print "<ul><li class='left-level-1-center'>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
               print "<li class='left-level-1-center'>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
-              print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li>" . LF;
-              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration_q'>Register</a></li>" . LF;
+              print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li></ul>" . LF;
+              print "<h1 class='menu-header'></h1>" . LF;
+              print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration_q'>Register a new<br/> account</a></li>" . LF;
               print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" . LF;
 			}
             else

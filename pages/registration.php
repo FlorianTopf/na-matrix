@@ -81,7 +81,7 @@
 
 // Throw a warning and reload if needed
     if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
-      print "<script type='text/javascript'>document.main_form.submit()</script>";
+       print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {
       $query = "INSERT INTO users_list (`id`,`username`,`passwd`," .
@@ -118,7 +118,7 @@
   {
     if ($_POST["reg_title"] == "")
     {
-      print "<p>In order to use the catalogue, you need to register for " .
+      print "<p>In order to use the matrix, you need to register for " .
             "a user account by filling out the form below (all fields " .
             "need to be filled out).</p>" . LF;
       print "<p>The information provided will only be used internally " .
