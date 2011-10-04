@@ -150,6 +150,12 @@ print "<fieldset class='rfield'><legend>Research Areas:</legend>" . LF;
 /** @todo refactor id of table */
 print "<table id='research_areas' class='create'>" . LF;
 $research_areas = $_observatory->get_research_areas();
+
+// ---------------- Questionnaire Start ----------------------
+if ($_SESSION["user_level"] <= 11)
+	$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
+else
+// ---------------- Questionnaire End ----------------------
 $options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
 	"<option id='add_other_area' value='100000'>Add other Research Area</option>");
 printBigSelectListFromArray("Research Areas", "add_obs_res_are_ids[]",
@@ -201,6 +207,11 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		printInputTextRow("Telescope Name", "add_obs_telescope_name[{$telescope_count}]",
 			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope");
 
+		//  ---------------- Questionnaire Start ----------------------
+		if ($_SESSION["user_level"] <= 11)
+			$options = array("top" => "<option value=''>Please select a Telescope Type</option>");
+		else
+		//  ---------------- Questionnaire End ----------------------
 		//Telescope Type
 		$options = array("top" => "<option value=''>Please select a Telescope Type</option>",
 			"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
@@ -219,6 +230,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		printInputTextRow("Focallength", "add_obs_focallength[{$telescope_count}]",
 			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m/F]");
 
+		//  ---------------- Questionnaire Start ----------------------
+		if (!($_SESSION["user_level"] <= 11))
+		//  ---------------- Questionnaire End ----------------------
 		//Antenna Type
 		$options = array("bottom" => "<option class='add_antenna_type' value='100000'>Add other Type</option>");
 		printTypeSelectListFromArray("Antenna Type", "add_obs_antenna_type_id[{$telescope_count}]",
@@ -284,6 +298,11 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				printInputTextRow("Instrument Name", "add_obs_instrument_name[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("instrument_name", $telescope_id, $instrument_count), 60, NULL, "instrument");
 
+				//  ---------------- Questionnaire Start ----------------------
+				if ($_SESSION["user_level"] <= 11)
+					$options = array("top" => "<option value=''>Please select an Instrument Type</option>");
+				else
+				//  ---------------- Questionnaire End ----------------------
 				//Instrument Type
 				$options = array("top" => "<option value=''>Please select an Instrument Type</option>",
 				"bottom" => "<option class='add_instrument_type' value='100000'>Add other Instrument Type</option>");
