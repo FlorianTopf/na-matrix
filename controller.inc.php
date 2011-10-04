@@ -47,7 +47,6 @@ class Controller
     	 * 	over DAOs atm AND also all pages (except login)
     	 */
     	$link = new DbConnector('');
-    	//$linkTemp = new DbConnector('Temp');
 
     	$level = Acl::getAclForOption($page);
 
@@ -59,7 +58,6 @@ class Controller
 
     	if ($userlevel < $level)
     	{
-      		//mysqli_close($link);
       		if ($_SESSION["user_id"] == 1)
       		{
         		print "<p>This page is only available for entitled users.</p>" . LF;
@@ -71,7 +69,7 @@ class Controller
     	else
     	{
     	   	self::write_stats($link, $page);
-    //  	mysqli_close($link);
+
     		/** @todo add optional mail functionality */
 	//      mail_page($page);
 
@@ -100,7 +98,7 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
            					 $_observatory->add_obs_keys($res_id, $action);
 
-            				print "<H4>The new Observatory has been added to the database!</H4>" . LF;
+            				print "<H4>Thank You! </br>Your Entry has been submitted and once validated will be added to the database</H4>" . LF;
 
             				/** @todo here we add some sexy backlinks */
           				}
@@ -130,15 +128,6 @@ class Controller
 						include "views/ObservatoryCreateUpdate.php";
 					}
 
-					/*if($action == "loadTemp")
-					{
-						ModelDAO::switchDb();
-						$_observatory->get_resource($resource_id);
-						ModelDAO::switchDb();
-						print "<H4>You are about to add a USER submitted resource to the database!</H4>" . LF;
-						include "views/ObservatoryCreateUpdate.php";
-					}*/
-
 					if($action == "loadOldObs")
 					{
 						/** @todo: load OLD Entries via dedicated obs object function */
@@ -160,15 +149,6 @@ class Controller
 
            					 //print "DEBUG: Observatory reference tables added to main DB" . LF;
 
-           					 /*//DELETE entry in user submission DB
-           					 if ($settings["is_user_res"])
-           					 {
-								 ModelDAO::switchDb();
-								 $_observatory->del_resource($resource_id);
-								 //print "DEBUG: Observatory entry deleted in user submission DB" . LF;
-								 ModelDAO::switchDb();
-								 $settings["is_user_res"] = FALSE;
-           					 }*/
            					 // DELETE entry in OLD NA1 DB
            					 if($settings["is_old_res"])
            					 {
@@ -284,12 +264,6 @@ class Controller
     			break; }
     		break;
     		case "edit":
-    			/*if ($action == "viewTemp")
-    			{
-    				// @todo: load Questionnaire data form
-					include "views/ObservatoryEditAllTemp.php";
-    				break;
-    			}*/
     			switch($resource_type) {
     				case "obs":
     					if ($action == "viewOld")
