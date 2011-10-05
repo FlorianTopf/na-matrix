@@ -408,7 +408,12 @@ class ObservatoryDAO extends ModelDAO
 					$query .= " WHERE ";
 			}
 			else
+			{
 				$query .= " WHERE observatories.approved = 1 ";
+				
+				if(!empty($filter_string))
+					$query .= "AND ";
+			}
 			// --------------- Questionnaire End -----------------
 
 			//DEBUG:
@@ -456,8 +461,8 @@ class ObservatoryDAO extends ModelDAO
 			$query .= " ORDER BY observatories.name";
 
 			//DEBUG:
-			//echo $query;
-			//nl();
+			echo $query;
+			nl();
 		}
 
 
@@ -1067,7 +1072,7 @@ class ObservatoryDAO extends ModelDAO
 	  		"observatory_status='" . addslashes($_POST["add_obs_status"]) . "'," .
 	  		"partner_observatories='" . addslashes($_POST["add_obs_partner"]) . "'," .
 			"modification_date=NOW()," .
-			"user_id='" . $_SESSION["user_id"] . "'," .
+			//"user_id='" . $_SESSION["user_id"] . "'," .
 			"approved='" . $approved . "' " .
 	  		"WHERE id=" . $res_id;
 
