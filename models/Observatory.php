@@ -1007,7 +1007,8 @@ class ObservatoryDAO extends ModelDAO
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
 			"error" => self::$db->error(),
-			"res_id" => self::$db->getLastInsertId());
+			"res_id" => self::$db->getLastInsertId(), 
+			"res_name" => $_POST["add_obs_name"]);
 
 		return $status;
 	}
@@ -1073,7 +1074,8 @@ class ObservatoryDAO extends ModelDAO
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
 			"error" => self::$db->error(),
-			"res_id" => $res_id);
+			"res_id" => $res_id, 
+			"res_name" => $_POST["update_obs_name"]);
 
 		return $status;
 	}

@@ -186,19 +186,19 @@
 
   function mail_add($name, $id, $email)
   {
-//    ini_set("SMTP", MAIL_SMTP);
-//
-//    $subject = "Europlanet catalogue: new or updated entry";
-//    $headers = "From: " . MAIL_FROM . "\n";
-//    $headers .= "Reply-To: " . MAIL_REPLY;
-//    $from = "-f" . MAIL_FROM;
-//
-//    $message = "User " . $_SESSION["user_name"] .
-//               " added or updated the entry '" .
-//               $name . "' (resource id: " . $id . "); contact email is " .
-//               $email . "\n";
+    ini_set("SMTP", MAIL_SMTP);
 
-    //mail(MAIL_TO, $subject, $message, $headers, $from);
+    $subject = "Europlanet NA1 Matrix: new or updated entry";
+    $headers = "From: " . MAIL_FROM . "\n";
+    $headers .= "Reply-To: " . MAIL_REPLY;
+    $from = "-f" . MAIL_FROM;
+
+    $message = "User " . $_SESSION["user_name"] .
+               " added or updated the entry '" .
+               $name . "' (resource id: " . $id . "); contact email is " .
+               $email . "\n";
+
+    mail(MAIL_TO, $subject, $message, $headers, $from);
   }
 
 ?>

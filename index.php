@@ -117,8 +117,6 @@
               /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
               if ($_SESSION["user_level"] >= 31)
               {
-              	/*if(DbConnector::checkDb('Temp'))
-              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewTemp'>Add USER entries</a></li>" . LF;*/
               	if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
               		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
               }

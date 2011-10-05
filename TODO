@@ -7,7 +7,7 @@ ROADMAP (Autumn 2011)
 1 DB Solution:
 [PENDING] add a way to register anonymous as user level 11 only (REFACTOR REGISTRATION & LOGIN)
   [OK] add pages/registration_q.php (alter user_level selector!!!)
-    [PENDING] add CAPTCHA for registration
+    [OK] add CAPTCHA for registration
   [OK] add registration_q to lib/php/orm/Acl.php list, user_level 0
     [OK] alter add to user_level 11
   [OK] alter index.php to show registration_q to user_level 0
@@ -15,8 +15,11 @@ ROADMAP (Autumn 2011)
 [OK] add 'approved' [bool] & 'user_id' [int] field to 'observatories' (set already existing entries to 1, user_id=admin)
   [OK] alter every INSERT/UPDATE SQL statement to 'observatories' table! (models/Observatory.php add_resource() & update_resource)
   [OK] add/update resource sets 'approved' to 1 only when user_level > 11! (models/Observatory.php add_resource() & update_resource)
+  	[PENDING] approved flag in edit list
 [OK] prevent approved = 0 entries from beeing displayed (models/Observatory.php - get_all_resources())
   [OK] added 'WHERE observatories.approved = 1' to lib/observatoriesXML.php Map query
+[PENDING] EDIT for users (only with their entries)
+[OK] implement E-Mail notification for adding questionnaire entries
 
 
 [PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor),
@@ -105,9 +108,9 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 [HIGH PRIORITY] Introduce Questionnaire form (entries must be approved afterwards) (see above)
   * very user friendly! tooltips necessary (UI)
-  * switch off all OTHER options (research areas etc.)
+  [OK] switch off all OTHER options (research areas etc.)
   [OK] modify database (make flags)
-  * implement a state-of-the-art CAPTCHA
+  [OK] implement a state-of-the-art CAPTCHA
 
 * Input form for observatories
   * add other targets (db functionality)

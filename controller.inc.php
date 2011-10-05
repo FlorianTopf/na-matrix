@@ -95,12 +95,16 @@ class Controller
           				if ($status["errno"] == 0)
           				{
             				$res_id = $status["res_id"];
+            				$res_name = $status["res_name"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
            					 $_observatory->add_obs_keys($res_id, $action);
 
             				print "<H4>Thank You! </br>Your Entry has been submitted and once validated will be added to the database</H4>" . LF;
 
             				/** @todo here we add some sexy backlinks */
+            				
+            				/** mail functionality, resource name, id and username */
+            				mail_add($res_name, $res_id, $_SESSION["user_name"]);
           				}
           				else
           				{
@@ -158,6 +162,9 @@ class Controller
 
             				print "<H4>The new Observatory has been added to the database!</H4>" . LF;
 
+            				 /** @todo mail functionality, resource name, id and username*/
+            				//mail_add($res_name, $res_id, $_SESSION["user_name"]);
+            				
             				/** @todo here we add some sexy backlinks */
           				}
           				else
@@ -178,6 +185,10 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_observatory->add_obs_keys($res_id, $action);
             				print "<h4>The Observatory has been updated in the database!</h4>" . LF;
+            				
+            				/** @todo mail functionality, resource name, id and username*/
+            				//mail_add($res_name, $res_id, $_SESSION["user_name"]);
+            				
             				/** @todo here we add some sexy backlinks */
           				}
           				else
@@ -221,9 +232,12 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_spacemission->add_spa_keys($res_id, $action);
             				print "<h4>The new Space Mission has been added to the database!</h4>" . LF;
+            				
             				/** @todo mail functionality, resource name, id and username*/
-            				//mail_add($_POST["add_res_name"], $res_id, $_POST["add_contact_email"]);
+            				//mail_add($res_name, $res_id, $_SESSION["user_name"]);
+            				
             				/** @todo here we add some sexy backlinks */
+            				
             				if($settings["is_old_res"])
            					 {
            					 	$_spacemission->del_old_resource($resource_id);
@@ -248,8 +262,10 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_spacemission->add_spa_keys($res_id, $action);
             				print "<h4>The Space Mission has been updated in the database!</h4>" . LF;
+            				
             				/** @todo mail functionality, resource name, id and username*/
-            				//mail_add($_POST["add_res_name"], $res_id, $_POST["add_contact_email"]);
+            				//mail_add($res_name, $res_id, $_SESSION["user_name"]);
+            				
             				/** @todo here we add some sexy backlinks */
           				}
           				else
