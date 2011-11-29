@@ -32,12 +32,12 @@ var browserSupportFlag =  new Boolean();
 //Custom Icons (maybe introduce new ones)
 var customIcons = {
 	      myLocation: {
-	        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
-	        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+	        icon: 'images/mm_20_blue.png',
+	        shadow: 'images/mm_20_shadow.png'
 	      },
 	      observatory: {
-	        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
-	        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+	        icon: 'images/mm_20_red.png',
+	        shadow: 'images/mm_20_shadow.png'
 	      }
 };
 
@@ -106,7 +106,8 @@ $(document).bind('mapIsReady', function() {
     		var xml = parseXml(data);
     		var markers = xml.documentElement.getElementsByTagName("marker");
     		//Amount of Observatories
-    		var markersCountHtml =  "<h2>There are " + markers.length + " Observatories with GPS data listed in the Matrix</h2>";
+    		var markersCountHtml =  "<h2>There are " + markers.length + 
+    		" Ground-based Facilities with GPS data listed in the Matrix</h2>";
     		//Add it to DIV
     		document.getElementById("numObservatories").innerHTML = markersCountHtml;
     		for (var i = 0; i < markers.length; i++) {

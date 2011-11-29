@@ -58,7 +58,7 @@ $link->close();
 	print "<p><b>Agency:</b>&nbsp;<a href='" . $agencies['web_address'][$_spacemission->get_field("spa_mission_agency")] .
 		  "' target='_blank'>" . $agencies['acronym'][$_spacemission->get_field("spa_mission_agency")] . "</a></p>" . LF;
 	print "<p><b>Launch Date:&nbsp;</b>" . $_spacemission->get_field("spa_launch_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;
-	print "<p><b>Death Date:&nbsp;</b>" . $_spacemission->get_field("spa_death_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;
+	print "<p><b>Mission End:&nbsp;</b>" . $_spacemission->get_field("spa_death_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;
 	print "<p><b>Web address:&nbsp;</b><a href='" . $_spacemission->get_field("spa_web_address") . "' target='_blank'>" . $_spacemission->get_field("spa_web_address") . "</a></p>" . LF;
 	print "<p><b>Brief description:&nbsp;</b>" . nl2br($_spacemission->get_field("spa_brief_description")) . "</p>" . LF;
 	print "</fieldset>" . LF;

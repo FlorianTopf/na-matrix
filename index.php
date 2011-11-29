@@ -82,7 +82,7 @@
 
     <div id="top">
 		<div id="top-menu-img"><img src="images/top_menu_img.gif" width="527" height="19" alt="top menu" title="top menu" /></div>
-			<div id="top-menu">NA1-MATRIX of ground-based &amp; space-based observatories</div>
+			<div id="top-menu">NA1-MATRIX of ground-based facilities &amp; space missions</div>
 		<div id="top-menu-bottom-img"><img src="images/bottom_menu_img.gif" width="527" height="19" alt="top menu" title="top menu" /></div>
 	</div>
 
@@ -94,7 +94,7 @@
               <ul>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=home">Home</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=browse">Browse Matrix</a></li>
-                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Observatory Map (Prototype)</a></li>
+                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Ground-based Facility Map (Prototype)</a></li>
               </ul>
 
           <?php

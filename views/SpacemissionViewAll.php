@@ -64,7 +64,7 @@ print "</table></center>";
 /** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on Space Mission entry name</caption>" . LF;
-print "<tr><th>NAME</th><th>AGENCY</th><th>WEB</th><th>LAUNCH-DATE</th><th>DEATH-DATE</th><th>TARGETS</th></tr>" . LF;
+print "<tr><th>NAME</th><th>AGENCY</th><th>WEB</th><th>LAUNCH DATE</th><th>MISSION END</th><th>TARGETS</th></tr>" . LF;
 
 $index = 0;
 foreach($resources as $row)

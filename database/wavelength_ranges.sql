@@ -13,4 +13,7 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 (12, 'optical', 'visible light frequencies');
 INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
-(13, 'ultraviolet (UV)', 'ultraviolet light frequencies')
+(13, 'ultraviolet (UV)', 'ultraviolet light frequencies');
+INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
+(NULL, 'x-rays', 'x-ray frequencies'),
+(NULL, 'gamma-rays', 'gamma-ray frequencies');

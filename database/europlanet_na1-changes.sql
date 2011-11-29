@@ -444,7 +444,10 @@ ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `approved` TINYINT(1) NU
 UPDATE `europlanet_na1`.`observatories` SET `observatories`.`approved`=1;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 873 */
+INSERT INTO  `europlanet_na1`.`wavelength_ranges` (`id` , `acronym` , `name`) VALUES
+(NULL, 'x-rays', 'x-ray frequencies'),
+(NULL, 'gamma-rays', 'gamma-ray frequencies');
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

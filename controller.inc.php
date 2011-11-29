@@ -21,7 +21,7 @@ class Controller
     	print "<tr><td><input type='radio' name='add_res_type' value='obs'";
    		if ($resource_type == "obs") print " checked='checked'";
     	print " id='sel_obs' onchange=\"document.getElementById('main_form').submit()\"/>" .
-          " <label for='sel_obs'><b>Observatory</b></label></td>" . LF;
+          " <label for='sel_obs'><b>Ground-based Facility</b></label></td>" . LF;
 
    		print "<td><input type='radio' name='add_res_type' value='spa'";
     	if ($resource_type == "spa") print " checked='checked'";

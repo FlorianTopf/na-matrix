@@ -10,9 +10,9 @@
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
 
-print "<h2>There are " . $resources_count . " Observatories listed in the Matrix</h2>" . LF;
+print "<h2>There are " . $resources_count . " Ground-based Facilities listed in the Matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
-print "<caption>Filter the content by selecting one of the Dropdown menus or Type an Observatory name to Search</caption>" . LF;
+print "<caption>Filter the content by selecting one of the Dropdown menus or Type an Facility name to Search</caption>" . LF;
 //----
 //Name Search (with autocompleter)
 print "<tr><td class='title' colspan='2'><b>Search by Name</b></td>";
@@ -86,7 +86,7 @@ print "</table></center>";
 //----
 
 print "<table class='viewall'>" . LF;
-print "<caption>For details please click on Observatory entry name</caption>" . LF;
+print "<caption>For details please click on Ground-based facility entry name</caption>" . LF;
 print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
 
 $index = 0;

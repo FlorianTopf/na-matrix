@@ -30,7 +30,7 @@ printSelectListRowFromArray("Mission Agency", "add_spa_agency_id", $_spacemissio
 printInputTextRow("Launch Date", "add_spa_launch", $_spacemission->get_field("spa_launch_date"), 12, "[YYYY-MM-DD]", NULL, TRUE);
 
 //Death date - FORMAT: YYYY-MM-DD
-printInputTextRow("Death Date", "add_spa_death", $_spacemission->get_field("spa_death_date"), 12, "[YYYY-MM-DD]", NULL, FALSE);
+printInputTextRow("Mission End", "add_spa_death", $_spacemission->get_field("spa_death_date"), 12, "[YYYY-MM-DD]", NULL, FALSE);
 
 //Web address
 printInputTextRow("Web address", "add_spa_web_address", $_spacemission->get_field("spa_web_address"), 80, "[http://...]", NULL, FALSE);
