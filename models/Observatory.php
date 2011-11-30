@@ -392,7 +392,16 @@ class ObservatoryDAO extends ModelDAO
 	{
 		$resources = array();
 		if($page == "edit")
-			$query = "SELECT id, name, creation_date, modification_date FROM observatories ORDER BY modification_date DESC";
+		{
+			$query = "SELECT id, name, creation_date, modification_date FROM observatories";
+			/** @todo this is actually for user edits */
+//			if(!empty($filters))
+//				$query .= " WHERE user_id=" . $filters["user_id"];
+//					
+//			$query .= " ORDER BY modification_date DESC";
+//			
+//			print $query . nl();
+		}
 		elseif($page == "browse")
 		{
 			$query = "SELECT id, name, institution, web_address, " .
@@ -443,11 +452,13 @@ class ObservatoryDAO extends ModelDAO
 					"(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";
 			}
 			
-//			if(!empty($filters["diameter_m"]))
-//			{
-//				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
-//					"(SELECT id FROM telescopes WHERE diameter_m=" . $filters["diameter_m"] . "))";
-//			}
+			if(!empty($filters["diameter_sign"]))
+			{
+				/** @todo sort functions if necessary => put in browse sort functions */
+				//$filters["diameter_m"] = ">2";
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
+					"(SELECT id FROM telescopes WHERE diameter_m" . $filters["diameter_sign"] . "))";
+			}
 
 			if(!empty($filters["research_area"]))
 			{
