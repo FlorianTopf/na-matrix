@@ -29,7 +29,7 @@ if (count($res) == 0)
 else
 {
 	print "<table class='viewall'>" . LF;
-    print "<caption>To edit & save an OLD Observatory entry please click on the Observatory name</caption>" . LF;
+    print "<caption>To edit & save an OLD ground-based facility entry please click on the according name</caption>" . LF;
     print "<tr><th>NAME</th><th>INSTITUTION</th></tr>" . LF;
 
     $index = 0;

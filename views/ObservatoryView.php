@@ -52,7 +52,7 @@ $link->close();
   	$_observatory->get_resource($_GET["id"]);
 
 	//OBSERVATORY GENERAL:
-  	print "<fieldset class='report'><legend><b>Observatory General:</b></legend>" . LF;
+  	print "<fieldset class='report'><legend><b>Ground-based facility General</b></legend>" . LF;
   	print "<p><b>Observatory name:&nbsp;</b>" .	$_observatory->get_field("obs_name") . "</p>" . LF;
   	if ($_observatory->get_field("obs_founded"))
   		print "<p><b>Year founded:&nbsp;</b>" . $_observatory->get_field("obs_founded") . "</p>" . LF;
@@ -145,10 +145,10 @@ $link->close();
   	print "<p><b>Timezone:</b>&nbsp;" . $timezones['timezone'][$timezone] . "&nbsp;[GMT+/-]</p>" . LF;
 
 	if ($_observatory->get_field("obs_observatory_status"))
-		print "<p><b>Observatory Status:</b>&nbsp;" . $_observatory->get_field("obs_observatory_status") . "</p>" . LF;
+		print "<p><b>Facility status:</b>&nbsp;" . $_observatory->get_field("obs_observatory_status") . "</p>" . LF;
 
 	if ($_observatory->get_field("obs_partner_observatories"))
-  		print "<p><b>Partner observatories:</b>&nbsp;" . $_observatory->get_field("obs_partner_observatories") . "</p>" . LF;
+  		print "<p><b>Partner/Umbrella facilities:</b>&nbsp;" . $_observatory->get_field("obs_partner_observatories") . "</p>" . LF;
   		
 	if ($_observatory->get_add_info('general_comments'))
 		print "<p><b>General comments:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('general_comments')) . "</p>" . LF;

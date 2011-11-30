@@ -107,7 +107,7 @@ $(document).bind('mapIsReady', function() {
     		var markers = xml.documentElement.getElementsByTagName("marker");
     		//Amount of Observatories
     		var markersCountHtml =  "<h2>There are " + markers.length + 
-    		" Ground-based Facilities with GPS data listed in the Matrix</h2>";
+    		" ground-based facilities with GPS data listed in the matrix</h2>";
     		//Add it to DIV
     		document.getElementById("numObservatories").innerHTML = markersCountHtml;
     		for (var i = 0; i < markers.length; i++) {

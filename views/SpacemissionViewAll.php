@@ -10,9 +10,9 @@
 print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 //show_message();
 
-print "<h2>There are " . $resources_count . " Space Missions listed in the Matrix</h2>" . LF;
+print "<h2>There are " . $resources_count . " space missions listed in the matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
-print "<caption>Filter the content by selecting one of the Dropdown menus</caption>" . LF;
+print "<caption>Filter the content by selecting one of the dropdown menus</caption>" . LF;
 //Space Agency Filter
 $agencies = $_spacemission->get_agencies();
 print "<tr><td class='title' colspan='2'><b>Filter by Space Agency</b></td>";
@@ -63,7 +63,7 @@ print "</table></center>";
 
 /** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
-print "<caption>For details please click on Space Mission entry name</caption>" . LF;
+print "<caption>For details please click on space mission entry name</caption>" . LF;
 print "<tr><th>NAME</th><th>AGENCY</th><th>WEB</th><th>LAUNCH DATE</th><th>MISSION END</th><th>TARGETS</th></tr>" . LF;
 
 $index = 0;
@@ -94,7 +94,7 @@ foreach($resources as $row)
 }
 
 if(empty($resources))
-	print "<tr><td colspan='6'><h3>There are no Space Mission entries</h3></td></tr>" . LF;
+	print "<tr><td colspan='6'><h3>There are no space mission entries</h3></td></tr>" . LF;
 	
 print "</table>" . LF;
 

@@ -10,16 +10,16 @@ print "<input type='hidden' name='add_res_id' value='{$resource_id}'/>" . LF;
 print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . LF;
 //show_message();
 
-print "<fieldset class='rfield'><legend>Observatory General:</legend>" . LF;
+print "<fieldset class='rfield'><legend>Ground-based facility General</legend>" . LF;
 print "<table class='create'>" . LF;
 
 
 //Observatory name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
 if($action == "edit")
-	printInputTextRow("Observatory name", "update_obs_name", $_observatory->get_field("obs_name"), 80, NULL, NULL, TRUE);
+	printInputTextRow("Facility name", "update_obs_name", $_observatory->get_field("obs_name"), 80, NULL, NULL, TRUE);
 else
-	printInputTextRow("Observatory name", "add_obs_name", $_observatory->get_field("obs_name"), 80, NULL, NULL, TRUE);
+	printInputTextRow("Facility name", "add_obs_name", $_observatory->get_field("obs_name"), 80, NULL, NULL, TRUE);
 
 //Year founded - check if is an YEAR
 printInputTextRow("Year founded", "add_obs_founded", $_observatory->get_field("obs_founded"), 4, "[YYYY]", "add_obs_founded");
@@ -105,9 +105,9 @@ printSelectListRowFromArray("Clear nights", "add_obs_clearnights_id", $_observat
 $timezones = $_observatory->get_timezones();
 printSelectListRowFromArray("Timezone", "add_obs_timezone_id", $_observatory->get_field("obs_timezone"), $timezones, "timezone", "[GMT+/-]");
 //Observatory Status
-printInputTextRow("Observatory Status", "add_obs_status", $_observatory->get_field("obs_observatory_status"));
-//Partner observatories
-printInputTextRow("Partner Observatories", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"));
+printInputTextRow("Facility status", "add_obs_status", $_observatory->get_field("obs_observatory_status"));
+//Partner Facilities
+printInputTextRow("Partner/Umbrella facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"));
 //General comments
 printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;

@@ -310,7 +310,7 @@ function printEditAllTable($name, $resources, $type)
 	else
 	{
 		print "<table class='viewall'>" . LF;
-    	print "<caption>To edit please click on the {$name} name</caption>" . LF;
+    	print "<caption>To edit please click on the name of the {$name}</caption>" . LF;
     	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
     	$index = 0;
     	foreach ($resources as $entry)

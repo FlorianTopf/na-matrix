@@ -29,7 +29,7 @@ if (count($res) == 0)
 else
 {
 	print "<table class='viewall'>" . LF;
-    print "<caption>To edit & save an OLD Spacemission entry please click on the Spacemission name</CAPTION>" . LF;
+    print "<caption>To edit & save an OLD space mission entry please click on the according name</CAPTION>" . LF;
     print "<tr><th>MISSION</th><th>AGENCY</th></tr>" . LF;
 
     $index = 0;

@@ -9,6 +9,6 @@ print "<div><input type='hidden' name='page' value='edit'/></div>" . LF ;
 //show_message();
 
 //Space Missions
-printEditAllTable("Space Mission", $resources, "spa");
+printEditAllTable("space mission", $resources, "spa");
 
 ?>
