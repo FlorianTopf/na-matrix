@@ -121,7 +121,7 @@
 //    $headers .= "Reply-To: DHConsultancy@skynet.be";
 //    $from = "-fDHConsultancy@skynet.be";
 //
-//    if (isSet($_SESSION["user_name"]))
+//    if (isset($_SESSION["user_name"]))
 //    {
 //      $user = $_SESSION["user_name"];
 //    }
@@ -155,17 +155,17 @@
 
   function show_message()
   {
-    if (isSet($_SESSION["message"]))
+    if (isset($_SESSION["message"]))
     {
       print "<FIELDSET class ='message'>" . $_SESSION["message"] . "</FIELDSET><P>" . LF;
       unSet($_SESSION["message"]);
     }
-    else if (isSet($_SESSION["warning"]))
+    else if (isset($_SESSION["warning"]))
     {
       print "<FIELDSET class ='warning'>" . $_SESSION["warning"] . "</FIELDSET><P>" . LF;
       unSet($_SESSION["warning"]);
     }
-    else if (isSet($_SESSION["error"]))
+    else if (isset($_SESSION["error"]))
     {
 //      ini_set("SMTP", MAIL_SMTP);
 //
@@ -184,21 +184,22 @@
     }
   }
 
-  function mail_add($name, $id, $email)
-  {
-    ini_set("SMTP", MAIL_SMTP);
-
-    $subject = "Europlanet NA1 Matrix: new or updated entry";
-    $headers = "From: " . MAIL_FROM . "\n";
-    $headers .= "Reply-To: " . MAIL_REPLY;
-    $from = "-f" . MAIL_FROM;
-
-    $message = "User " . $_SESSION["user_name"] .
-               " added or updated the entry '" .
-               $name . "' (resource id: " . $id . "); contact email is " .
-               $email . "\n";
-
-    mail(MAIL_TO, $subject, $message, $headers, $from);
-  }
+//  function mail_add($name, $id, $email)
+//  {
+//    ini_set("SMTP", MAIL_SMTP);
+//
+//    $subject = "Europlanet NA1 Matrix: new or updated entry";
+//    
+//    $headers = "From: " . MAIL_FROM . "\n";
+//    $headers .= "Reply-To: " . MAIL_REPLY;
+//    $from = "-f" . MAIL_FROM;
+//
+//    $message = "User " . $_SESSION["user_name"] .
+//               " added or updated the entry '" .
+//               $name . "' (resource id: " . $id . "); contact email is " .
+//               $email . "\n";
+//
+//    mail(MAIL_TO, $subject, $message, $headers, $from);
+//  }
 
 ?>
