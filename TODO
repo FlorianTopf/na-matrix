@@ -49,7 +49,7 @@ See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
    * HIDDEN FIELDS OK? (latitude/longitude)
    [OK] Integrate link to observatory view (with openwin) in google maps info box
    [OK] Take care of NOT existing latitude/longitude
-   * Improve Icons
+   [OK] Improve Icons
    * SEARCH IN THE MAPS, discuss filters/searchtools to be implemented
      See: http://code.google.com/intl/de/apis/maps/articles/phpsqlsearch_v3.html
 
@@ -84,8 +84,8 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 * Implement delete_resource() in spacemission model (implement delete button for admins)
 
-* Put FIREFOX/JS recommendation in footer
-  * MODEL has to be proof if javascript is OFF (check with browser)
+[PENDING] Put FIREFOX/JS recommendation in footer
+  [OK] MODEL has to be proof if javascript is OFF (check with browser)
 
 * PRESENTATION:
   * remove functionality for science goals for the moment (add, show, spacemission)
@@ -174,7 +174,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   [OK] colorization of different agencies
   * show creation / modification date
   [OK] filter: agency, research area, target
-  * quick search for spacemission name (with autocompleter)
+  [OK] quick search for spacemission name (with autocompleter)
 
 
 ** ALL BROWSING PAGES

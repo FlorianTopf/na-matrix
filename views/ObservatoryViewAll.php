@@ -51,6 +51,23 @@ foreach($telescope_types['id'] as $key => $value)
 }
 print "</select></td></tr>" . LF; 
 //----
+//Diameter Filter
+print "<tr><td class='title' colspan='2'><b>Filter by Telescope Diameter</b></td>";
+print "<td class='filter' colspan='4'><select name='obs_filters[diameter_m]' onchange='this.form.submit()'>" . LF;
+print "<option value='greater'>>=";
+if(isset($filters["diameter_m"]))
+	if ($filters["diameter_m"] == "greater") print " selected";
+print "</option>";
+print "<option value='smaller'><";
+if(isset($filters["diameter_m"]))
+	if ($filters["diameter_m"] == "smaller") print " selected";
+print "</option>";
+print "</select>";
+//print "<input name='obs_filters[diameter_m]'" .
+//	(isset($filters["diameter_m"]) ? "value='" . $filters["diameter_m"] . "'" : "value=''") . 
+//	" size='20'/>"
+print "</td></tr>" . LF; 
+//----
 //Research Area Filter
 $research_areas = $_observatory->get_research_areas();
 print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";

@@ -442,6 +442,12 @@ class ObservatoryDAO extends ModelDAO
 				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
 					"(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";
 			}
+			
+//			if(!empty($filters["diameter_m"]))
+//			{
+//				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
+//					"(SELECT id FROM telescopes WHERE diameter_m=" . $filters["diameter_m"] . "))";
+//			}
 
 			if(!empty($filters["research_area"]))
 			{
