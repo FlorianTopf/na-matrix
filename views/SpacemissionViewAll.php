@@ -12,7 +12,17 @@ print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 
 print "<h2>There are " . $resources_count . " space missions listed in the matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
-print "<caption>Filter the content by selecting one of the dropdown menus</caption>" . LF;
+print "<caption>Filter the content by selecting one of the dropdown menus or type a mission name to search</caption>" . LF;
+//----
+//Name Search (with autocompleter)
+print "<tr><td class='title' colspan='2'><b>Search by Name</b></td>";
+print "<td class='filter' colspan='4'><input name='spa_filters[name]' class='spa_name'" .
+(isset($filters["name"]) ? "value='" . $filters["name"] . "'" : "value=''") . " size='80'/>" . LF;
+/** this value is manipulated by jquery */
+print "<input name='spa_filters[id]' class='spa_id' type='hidden'" . 
+(isset($filters["id"]) ? "value='" . $filters["id"] . "'" : "value=''") . "/>";
+print "</td></tr>" . LF;
+//----
 //Space Agency Filter
 $agencies = $_spacemission->get_agencies();
 print "<tr><td class='title' colspan='2'><b>Filter by Space Agency</b></td>";

@@ -12,7 +12,7 @@ print "<div><input type='hidden' name='page' value='browse'/></div>" . LF ;
 
 print "<h2>There are " . $resources_count . " ground-based facilities listed in the matrix</h2>" . LF;
 print "<table class='filter'>" . LF;
-print "<caption>Filter the content by selecting one of the dropdown menus or type an facility name to search</caption>" . LF;
+print "<caption>Filter the content by selecting one of the dropdown menus or type a facility name to search</caption>" . LF;
 //----
 //Name Search (with autocompleter)
 print "<tr><td class='title' colspan='2'><b>Search by Name</b></td>";

@@ -1051,7 +1051,55 @@ $(document).ready(function(){
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-
+    //ROUTINES for BROWSE OBSERVATORY
+    //CALLING AUTOCOMPLETER FOR OBSERVATORY NAME
+    $('input.spa_name').each(function() {
+    	$(this).bind( "keydown", function( event ) {
+			if ( event.keyCode === $.ui.keyCode.TAB &&
+					$( this ).data( "autocomplete" ).menu.active ) {
+				event.preventDefault();
+			}
+			/** @todo we have to reset the filter somehow, when input is removed */
+		});
+		$(this).autocomplete({
+			//not fully clear! callback, how can we get the json string?
+			source: function( request, response ) {
+				$.getJSON( "js/spacemissions.php?extend=true", 
+						//special datatype (object: name/value pairs)
+						{ term: extractLast( request.term ) }, 
+						response );
+			},
+			search: function() {
+				// custom minLength
+				var term = extractLast( this.value );
+				if ( term.length < 1 ) {
+					return false;
+				}
+			},
+			focus: function() {
+				// prevent value inserted on focus
+				return false;
+			},
+			select: function(event, ui) {
+				var terms = split(this.value);
+				// remove the current input
+				terms.pop();
+				// add the selected item
+				terms.push(ui.item.value);
+				// add id to hidden field
+				$('input.spa_id').val(ui.item.id);
+				//not sure about this action (maybe we need commented stuff)
+				//terms.push(" ");
+				//this.value = terms.join( ", ");
+				this.value = terms;
+				// we already submit here, when value is selected
+				$("#main_form").submit();
+				return false;
+			}
+		});
+		//return false;
+    });    
+    
     //ROUTINES for EDIT SPACE MISSION - SENSORS
     //REMOVE EXISTING SENSORS IN EDIT
     $('a.remove_sensor').click(function() {

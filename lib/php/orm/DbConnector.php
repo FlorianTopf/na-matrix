@@ -6,6 +6,7 @@
  */
 
 include_once ('DbConfig.php');
+include_once ('html.php');
 
 class DbConnector extends SystemComponent
 {

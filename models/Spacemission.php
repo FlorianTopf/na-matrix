@@ -215,6 +215,9 @@ class SpacemissionDAO extends ModelDAO
 				
 			$filter_queries = array();
 			
+			if(!empty($filters["id"]))
+				$filter_queries[] = "id=" . $filters["id"];
+			
 			if(!empty($filters["agency"]))
 				$filter_queries[] = "mission_agency=". $filters["agency"];
 				
