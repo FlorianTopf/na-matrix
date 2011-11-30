@@ -63,7 +63,7 @@
 
   //$link = new DbConnector();
   
-  if (isSet($_POST["registration_q"]))
+  if (isset($_POST["registration_q"]))
   { 	
      # was there a reCAPTCHA response?
      if (isset($_POST["recaptcha_response_field"])) {
@@ -110,7 +110,7 @@
     mysqli_free_result($result);
 
 // Throw a warning and reload if needed
-    if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
+    if (isset($_SESSION["warning"]) || isset($_SESSION["error"]))
       print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {

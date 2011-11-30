@@ -53,7 +53,7 @@
 
   //$link = newDbConnector();
 
-  if (isSet($_POST["reset"]))
+  if (isset($_POST["reset"]))
   {
   	if (trim($_POST["res_uname"]) == "")
   	  set_message("Missing user name", "warning");
@@ -80,7 +80,7 @@
     }
 
     // Throw a warning and reload if needed ELSE change pw & send mail
-    if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
+    if (isset($_SESSION["warning"]) || isset($_SESSION["error"]))
        print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {

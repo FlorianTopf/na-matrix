@@ -41,7 +41,7 @@
 
 <?php
 
-  if (!isSet($_POST["userid"]))
+  if (!isset($_POST["userid"]))
   {
     print "User " . $_SESSION["user_name"] . " succesfully logged in!" . LF;
   }

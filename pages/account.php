@@ -38,7 +38,7 @@
   varStore("acc_affiliation", "");
   varStore("acc_category", "");
 
-  if (isSet($_POST["update"]))
+  if (isset($_POST["update"]))
   {
     if (trim($_POST["acc_fname"]) == "")
       set_message("Missing first name", "warning");
@@ -52,7 +52,7 @@
       set_message("Passwords don't match", "warning");
 
 // Throw a warning and reload if needed
-    if (isSet($_SESSION["warning"]) || isSet($_SESSION["error"]))
+    if (isset($_SESSION["warning"]) || isset($_SESSION["error"]))
     	print "<script type='text/javascript'>document.getElementById('main_form').submit()</script>";
     else
     {
