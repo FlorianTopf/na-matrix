@@ -2,8 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `europlanet_na1` ;
-CREATE SCHEMA IF NOT EXISTS `europlanet_na1` DEFAULT CHARACTER SET latin1 ;
 USE `europlanet_na1` ;
 
 -- -----------------------------------------------------
@@ -25,7 +23,7 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`users_list` (
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 AUTO_INCREMENT = 43
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -46,7 +44,7 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`users_statistics` (
     ON DELETE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1921
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8;
 
 
 

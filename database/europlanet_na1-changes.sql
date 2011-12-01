@@ -450,7 +450,8 @@ INSERT INTO  `europlanet_na1`.`wavelength_ranges` (`id` , `acronym` , `name`) VA
 (NULL, 'gamma-rays', 'gamma-ray frequencies');
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 896 */
+ALTER DATABASE europlanet_na1 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

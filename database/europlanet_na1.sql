@@ -3,7 +3,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 DROP SCHEMA IF EXISTS `europlanet_na1` ;
-CREATE SCHEMA IF NOT EXISTS `europlanet_na1` DEFAULT CHARACTER SET latin1 ;
+CREATE SCHEMA IF NOT EXISTS `europlanet_na1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `europlanet_na1` ;
 
 -- -----------------------------------------------------
