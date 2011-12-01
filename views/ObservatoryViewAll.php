@@ -117,7 +117,7 @@ foreach($resources as $row)
 	else
 		print "<tr class='odd'>";
 	print "<td><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
-		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
+		"id=" . $row["id"] . "')\" class='hand'>" . htmlentities(stripslashes($row["name"])) . "</span></td>";
     print "<td>" . htmlentities($row["institution"]) . "</td>";
 	print "<td>" . htmlentities($row["country"]) . "</td>";
 	if($row["hide_email"])

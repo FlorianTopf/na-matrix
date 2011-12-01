@@ -32,7 +32,7 @@ $link->close();
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <title>NA1-Matrix: <?php print $res["name"]  ?></title>
+  <title>NA1-Matrix: <?php print htmlentities($res["name"])  ?></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
   <link rel="stylesheet" type="text/css" href="../css/style.css"/>
