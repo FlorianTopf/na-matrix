@@ -32,8 +32,8 @@ $link->close();
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <title>NA1-Matrix: <?php print $res["mission_name"]  ?></title>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+  <title>NA1-Matrix: <?php print htmlentities($res["mission_name"])  ?></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
   <link rel="stylesheet" type="text/css" href="../css/style.css"/>
 <!--    <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>-->
