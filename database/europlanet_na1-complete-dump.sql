@@ -21,7 +21,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 DROP SCHEMA IF EXISTS `europlanet_na1_test` ;
 CREATE SCHEMA IF NOT EXISTS `europlanet_na1_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `europlanet_na1` ;
+USE `europlanet_na1_test` ;
 
 -- --------------------------------------------------------
 
