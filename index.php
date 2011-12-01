@@ -13,29 +13,30 @@
   require_once ('config.inc.php');
   require_once ('lib/php/functions.php');
   require_once ('lib/php/orm/html.php');
+//  require_once 'lib/php/mvc/HttpRequest.php';
   require_once ('controller.inc.php');
   require_once ('lib/php/orm/DbConnector.php');
 
-  if (!isSet($_SESSION["user_id"]))
+  if (!isset($_SESSION["user_id"]))
   {
     $_SESSION["user_id"] = 1;
     $_SESSION["user_name"] = "anonymous";
     $_SESSION["user_level"] = 0;
   }
 
-  if (isSet($_SESSION["page"]))
+  if (isset($_SESSION["page"]))
   {
     $_POST["page"] = $_SESSION["page"];
     unSet($_SESSION["page"]);
   }
-  if (isSet($_POST["login"])) $_POST["page"] = "login";
-  if (isSet($_POST["logout"])) $_POST["page"] = "logout";
+  if (isset($_POST["login"])) $_POST["page"] = "login";
+  if (isset($_POST["logout"])) $_POST["page"] = "logout";
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title>NA1-Matrix</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   	<meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
@@ -71,9 +72,9 @@
 	<form action="<?php print $_SERVER["PHP_SELF"]; ?>" id="main_form" enctype="multipart/form-data" method="post">
 
     <?php
-      if (!isSet($_POST["page"]))
+      if (!isset($_POST["page"]))
       {
-        if (isSet($_GET["page"]))
+        if (isset($_GET["page"]))
           $_POST["page"] = $_GET["page"];
         else
           print "<div><input name='page' type='hidden'/></div>" . LF;
@@ -112,7 +113,7 @@
             {
               print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
               print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
-              if ($_SESSION["user_level"] >= 21)
+             if ($_SESSION["user_level"] >= 21)
               	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
               /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
               if ($_SESSION["user_level"] >= 31)
@@ -154,6 +155,7 @@
 		//echo "POST PAGE: " . $_POST["page"] . "<br>";
 		//echo "PUSH PAGE: " . $_POST["push"] . "<br>";
 		//echo "FILTER: " . $_POST["obs_filters"]["country"] . "<br>";
+		/** @todo refactor all $_REQUEST variables => move them into controller */
   		$action = '';
   		$resource_id = '';
   		$resource_type = '';
@@ -162,8 +164,10 @@
   		$settings["is_old_res"] = FALSE;
   		//$is_user_res = FALSE;
   		//$is_old_res = FALSE;
+  		
+  		/** @todo a possible improvement of the controlling mechanism new request handler */
+  		//request = new HttpRequest();
 
-		/** @todo refactor all $_REQUEST variables */
   		if(isset($_POST["page"]))
         {
         	if(isset($_GET["action"]))
