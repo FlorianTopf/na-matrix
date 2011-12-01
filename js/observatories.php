@@ -9,6 +9,9 @@
  * @file observatories.php
  * @version $Id$
  * @author Florian Topf
+ * 
+ * Problems with UTF8 and database:
+ * using utf8_decode and utf8_encode at the moment
  */
 
 include_once ('../lib/php/orm/DbConnector.php');
@@ -20,7 +23,7 @@ if(isset($_GET["extend"]))
 {
 	// no term passed - just exit early with no response
 	if (empty($_GET['term'])) exit ;
-		$name = strtolower($_GET["term"]);
+	$name = strtolower(utf8_decode($_GET["term"]));
 	// remove slashes if they were magically added
 	if (get_magic_quotes_gpc()) $name = stripslashes($name);
 		$query = "SELECT id, name FROM observatories WHERE name LIKE '%$name%';";
@@ -42,8 +45,9 @@ if ($link->getNumRows($result) > 0)
 		$output = array();
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
-			array_push($output, array("id"=>$row['id'], "label"=>$row['name'],
-				 "value" => strip_tags($row['name'])));
+			array_push($output, array("id" => $row['id'], 
+				"label" => utf8_encode($row['name']), 
+				"value" => strip_tags(utf8_encode($row['name']))));
 		}
 	}
 	else {
