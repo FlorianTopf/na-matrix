@@ -135,7 +135,7 @@ foreach($resources as $row)
     {	
     	print $type;
         if($row["wavelengths"][$key] != '')
-        	print " (<i>" . $row["wavelengths"][$key] . "</i>)";
+        	print " (<i>" . trim($row["wavelengths"][$key], " ,") . "</i>)";
 		print "<br/>";
    	}
 	print "</td>";

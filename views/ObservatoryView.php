@@ -219,11 +219,13 @@ $link->close();
 	    	if ($_observatory->get_telescope("telescope_elements", $key))
 	    		print "<p><b>Telescope Elements:&nbsp;</b>" . $_observatory->get_telescope("telescope_elements", $key) . "</p>" . LF;
 	    	if ($_observatory->get_telescope("diameter_m", $key))
-	    		print "<p><b>Diameter:&nbsp;</b>" . clean_num($_observatory->get_telescope("diameter_m", $key)) . "&nbsp;[m]</p>" . LF;
+	    		print "<p><b>Diameter/Aperture:&nbsp;</b>" . clean_num($_observatory->get_telescope("diameter_m", $key)) . "&nbsp;[m]</p>" . LF;
 	    	if ($_observatory->get_telescope("focallength_m", $key))
 	    		print "<p><b>Focallength:&nbsp;</b>" . $_observatory->get_telescope("focallength_m", $key) . "&nbsp;[m]</p>" . LF;
 	    	if ($antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] != "---")
 	    		print "<p><b>Antenna Type:&nbsp;</b>" . $antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] . "</p>" . LF;
+	    	if ($_observatory->get_telescope("wavelength", $key))
+	    		print "<p><b>Wavelength:&nbsp;</b>" . trim($_observatory->get_telescope("wavelength", $key), " ,") . LF;
 	    	if ($_observatory->get_telescope("wavelength_begin", $key))
 	    		print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_b_unit", $key)] . "</p>" . LF;
