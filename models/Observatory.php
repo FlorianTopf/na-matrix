@@ -66,6 +66,9 @@ class ObservatoryDAO extends ModelDAO
 
 	/** Array for all wavelength units */
 	protected $_wavelengthUnits = array();
+	
+	/** Array for all wavelength ranges */
+	protected $_wavelengthRanges = array();
 
 	/** Array of column names for telescopes */
 	protected $_telescopes = array();
@@ -302,7 +305,22 @@ class ObservatoryDAO extends ModelDAO
       	return $this->_wavelengthUnits;
  	}
 
+//-----------------------------------------------------------------------------------------------------------
+ 	/** get wavelength ranges from table
+ 	 * @todo improve this a bit */
+ 	public function get_wavelength_ranges()
+ 	{
+ 		$query = "SELECT id, acronym FROM wavelength_ranges";
+ 		$result = self::$db->query($query);
+ 		
+ 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+      		foreach ($row as $key => $value)
+      			$this->_wavelengthRanges[$key][$row['id']] = $value;
+      	mysqli_free_result($result);
 
+      	return $this->_wavelengthRanges;
+ 	}
+ 	
 //-----------------------------------------------------------------------------------------------------------
  /** get a field from instruments */
 	public function get_instrument($x_field, $y_field, $z_field)
@@ -458,6 +476,13 @@ class ObservatoryDAO extends ModelDAO
 				//$filters["diameter_m"] = ">2";
 				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
 					"(SELECT id FROM telescopes WHERE diameter_m" . $filters["diameter_sign"] . "))";
+			}
+			
+			if(!empty($filters["wavelength_range"]))
+			{
+				/** @todo sort functions if necessary => put in browse sort functions */
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
+					"(SELECT id FROM telescopes WHERE wavelength LIKE '%" . $filters["wavelength_range"] . "%'))";
 			}
 
 			if(!empty($filters["research_area"]))

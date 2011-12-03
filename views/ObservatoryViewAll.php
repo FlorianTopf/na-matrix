@@ -71,6 +71,20 @@ print "</option></select>";
 //	" size='20'/>";
 print "</td></tr>" . LF; 
 //----
+//Wavelength Ranges Filter
+$wavelength_ranges = $_observatory->get_wavelength_ranges();
+print "<tr><td class='title' colspan='2'><b>Filter by Wavelength Ranges</b></td>";
+print "<td class='filter' colspan='4'><select name='obs_filters[wavelength_range]' onchange='this.form.submit()'>" . LF;
+print "<option value=''>ALL</option>";
+foreach($wavelength_ranges['id'] as $key => $value)
+{
+	print "<option value='" . $wavelength_ranges['acronym'][$key] . "'";
+	if(isset($filters["wavelength_range"]))
+		if ($wavelength_ranges['acronym'][$key] == $filters["wavelength_range"]) print " selected";
+   	print ">" . $wavelength_ranges['acronym'][$key] . "</option>" . LF;
+}
+print "</select></td></tr>" . LF; 
+//----
 //Research Area Filter
 $research_areas = $_observatory->get_research_areas();
 print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";
