@@ -121,7 +121,8 @@ print "</table></center>";
 
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on ground-based facility entry name</caption>" . LF;
-print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
+//print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
+print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
 
 $index = 0;
 foreach($resources as $row)
@@ -130,14 +131,14 @@ foreach($resources as $row)
 		print "<tr class='even'>";
 	else
 		print "<tr class='odd'>";
-	print "<td><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
+	print "<td width='250px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . htmlentities(stripslashes($row["name"])) . "</span></td>";
-    print "<td>" . htmlentities($row["institution"]) . "</td>";
+    print "<td width='150px'>" . htmlentities($row["institution"]) . "</td>";
 	print "<td>" . htmlentities($row["country"]) . "</td>";
-	if($row["hide_email"])
-    	print "<td class='red'>Not Displayed</td>";
-    else
-       	print "<td><a href='mailto:" . $row["email"] . "'>" . $row["email"] . "</a></td>";
+//	if($row["hide_email"])
+//    	print "<td class='red'>Not Displayed</td>";
+//    else
+//       	print "<td><a href='mailto:" . $row["email"] . "'>" . $row["email"] . "</a></td>";
 	if($row["hide_web_address"])
 		print "<td class='red'>Not Displayed</td>";
     elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
@@ -147,7 +148,9 @@ foreach($resources as $row)
     print "<td>";
     foreach($row["telescope_types"] as $key => $type)
     {	
-    	print $type;
+    	print "<b>";
+		($row["diameter_m"][$key] != 0) ? print $row["diameter_m"][$key] : print " ";
+    	print $type . "</b>";
         if($row["wavelengths"][$key] != '')
         	print " (<i>" . trim($row["wavelengths"][$key], " ,") . "</i>)";
 		print "<br/>";

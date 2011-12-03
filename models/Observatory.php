@@ -535,11 +535,12 @@ class ObservatoryDAO extends ModelDAO
 				$result2 = self::$db->query($query2);
 				while ($row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 				{
-					$query3 = "SELECT telescope_type, wavelength FROM telescopes WHERE id=" . $row2["telescope_id"];
+					$query3 = "SELECT telescope_type, wavelength, diameter_m FROM telescopes WHERE id=" . $row2["telescope_id"];
 					$result3 = self::$db->query($query3);
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
 					$telescope_type_id = $row3["telescope_type"];
 					$resources[$row["id"]]["wavelengths"][] = htmlentities($row3["wavelength"]);
+					$resources[$row["id"]]["diameter_m"][] = htmlentities(clean_num($row3["diameter_m"]) . " m ");
 					mysqli_free_result($result3);
 
 					$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;
