@@ -690,5 +690,10 @@ INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES
 INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'MHz');
 INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'GHz');
 INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'THz');
+INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, '&Aring;');
+INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'nm');
+INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, '&micro;m');
+INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'mm');
+INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'cm');
 
 COMMIT;

@@ -3,6 +3,8 @@ http://europlanet-na1.oeaw.ac.at/matrix/docs/doxygen/index.html
 
 ROADMAP (Autumn 2011)
 
+[URGENT] Rethink ACL and SECURITY CONCEPT (ACL, INDEX, CONTROLLER) => parts are models!!
+
 [URGENT] OBS_QUESTIONNAIRE:
 2 DB Solution:
  [PENDING] remove old CODE (e.g. DbConfig.php)
@@ -184,6 +186,7 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   [OK] Implement table style for TEXTFIELDS (or make breaks)
   * Check if some fields are still listed, even if there is no information
     given
+  * Check if there is an URL in the info, and make a hyperlink
 
 
 [HIGH PRIORITY] Search pages for space missions / observatories (JUNE 2011)

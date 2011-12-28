@@ -227,10 +227,10 @@ $link->close();
 	    	if ($_observatory->get_telescope("wavelength", $key))
 	    		print "<p><b>Wavelength:&nbsp;</b>" . trim($_observatory->get_telescope("wavelength", $key), " ,") . LF;
 	    	if ($_observatory->get_telescope("wavelength_begin", $key))
-	    		print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
+	    		print "<p><b>Wavelength/Freq Begin:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_b_unit", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("wavelength_end", $key))
-	    		print "<p><b>Wavelength End:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_end", $key)) . " " .
+	    		print "<p><b>Wavelength/Freq End:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_end", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_e_unit", $key)] . "</p>" . LF;
 			if ($_observatory->get_telescope("comments", $key))
 	    		print "<p><b>Telescope Comments:&nbsp;</b><br/>" . nl2br($_observatory->get_telescope("comments", $key)) . "</p>" . LF;

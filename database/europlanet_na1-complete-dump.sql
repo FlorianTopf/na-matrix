@@ -1423,7 +1423,12 @@ INSERT INTO `wavelength_units` (`id`, `wavelength_unit`) VALUES
 (3, 'KHz'),
 (4, 'MHz'),
 (5, 'GHz'),
-(6, 'THz');
+(6, 'THz'),
+(7, '&Aring;'),
+(8, 'nm'),
+(9, '&micro;m'),
+(10, 'mm'),
+(11, 'cm');
 
 --
 -- Constraints for dumped tables

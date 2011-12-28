@@ -242,9 +242,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		printInputTextRow("Wavelength", "add_obs_wavelength[{$telescope_count}]",
 			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength");
 
-	    //Wavelength Begin
+	    //Wavelength/Freq Begin
 	    print "<tr>";
-		printInputTitleCol("Wavelength Begin");
+		printInputTitleCol("Wavelength/Freq Begin");
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_b[{$telescope_count}]", $_observatory->get_telescope("wavelength_begin", $telescope_count), 10, "number");
 		ws(3);
@@ -252,9 +252,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$wavelength_units, "wavelength_unit");
 		print "</td></tr>" . LF;
 
-		//Wavelength End
+		//Wavelength/Freq End
 	    print "<tr>";
-		printInputTitleCol("Wavelength End");
+		printInputTitleCol("Wavelength/Freq End");
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_e[{$telescope_count}]", $_observatory->get_telescope("wavelength_end", $telescope_count), 10, "number");
 		ws(3);
@@ -320,7 +320,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	        	/** @todo how to implement validation here? */
 	        	//Wavelength Begin
 		  		print "<tr>";
-				printInputTitleCol("Wavelength Begin");
+				printInputTitleCol("Wavelength/Freq Begin");
 				print "<td align='left'>";
 				printInputText("add_obs_instrument_wavelength_b[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_begin", $telescope_id, $instrument_count), 10, "number");
@@ -332,7 +332,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	      		/** @todo how to implement validation here? */
 	      		//Wavelength End
 		  		print "<tr>";
-				printInputTitleCol("Wavelength End");
+				printInputTitleCol("Wavelength/Freq End");
 				print "<td align='left'>";
 				printInputText("add_obs_instrument_wavelength_e[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_end", $telescope_id, $instrument_count), 10, "number");
