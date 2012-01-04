@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `additional_information` (
   `general_comments` text,
   PRIMARY KEY (`id`),
   KEY `observatory_id_4` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `additional_information`
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `agencies` (
   `name` text NOT NULL,
   `web_address` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `agencies`
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `antenna_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `antenna_type` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `antenna_types`
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `clearnights_ranges` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `range` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `clearnights_ranges`
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
   `acronym` varchar(5) NOT NULL,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=233 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=233 ;
 
 --
 -- Dumping data for table `countries`
@@ -409,7 +409,7 @@ CREATE TABLE IF NOT EXISTS `hidden_fields` (
   `further_contacts` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `observatory_id_5` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `hidden_fields`
@@ -448,7 +448,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `instruments`
@@ -466,7 +466,7 @@ CREATE TABLE IF NOT EXISTS `instrument_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `instrument_types`
@@ -519,7 +519,7 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   KEY `precipitation_id` (`precipitation`),
   KEY `clear_nights_id` (`clear_nights`),
   KEY `timezone_id` (`timezone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `observatories`
@@ -539,7 +539,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_research_areas` (
   PRIMARY KEY (`observatory_id`,`research_area_id`),
   KEY `observatory_id_3` (`observatory_id`),
   KEY `research_area_id_1` (`research_area_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `observatory_to_research_areas`
@@ -559,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_scientific_contacts` (
   PRIMARY KEY (`observatory_id`,`scientific_contact_id`),
   KEY `observatory_id_1` (`observatory_id`),
   KEY `scientific_contact_id_1` (`scientific_contact_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `observatory_to_scientific_contacts`
@@ -579,7 +579,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_targets` (
   PRIMARY KEY (`observatory_id`,`target_id`),
   KEY `observatory_id_7` (`observatory_id`),
   KEY `target_id_1` (`target_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `observatory_to_targets`
@@ -599,7 +599,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_telescopes` (
   PRIMARY KEY (`observatory_id`,`telescope_id`),
   KEY `observatory_id_2` (`observatory_id`),
   KEY `telescope_id_1` (`telescope_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `observatory_to_telescopes`
@@ -617,7 +617,7 @@ CREATE TABLE IF NOT EXISTS `precipitation_ranges` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `range` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `precipitation_ranges`
@@ -644,7 +644,7 @@ CREATE TABLE IF NOT EXISTS `research_areas` (
   `domain` text NOT NULL,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=131 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=131 ;
 
 --
 -- Dumping data for table `research_areas`
@@ -756,7 +756,7 @@ CREATE TABLE IF NOT EXISTS `science_goals` (
   `acronym` varchar(5) NOT NULL,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `science_goals`
@@ -781,7 +781,7 @@ CREATE TABLE IF NOT EXISTS `scientific_contacts` (
   `email` text NOT NULL,
   `institution` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `scientific_contacts`
@@ -809,7 +809,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
   `web_address` text,
   `sensor_comments` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `sensors`
@@ -829,7 +829,7 @@ CREATE TABLE IF NOT EXISTS `sensor_to_science_goals` (
   PRIMARY KEY (`sensor_id`,`science_goal_id`),
   KEY `sensor_id_3` (`sensor_id`),
   KEY `science_goal_id` (`science_goal_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sensor_to_science_goals`
@@ -849,7 +849,7 @@ CREATE TABLE IF NOT EXISTS `sensor_to_scientific_contacts` (
   PRIMARY KEY (`sensor_id`,`scientific_contact_id`),
   KEY `sensor_id_2` (`sensor_id`),
   KEY `scientific_contact_id_2` (`scientific_contact_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sensor_to_scientific_contacts`
@@ -875,7 +875,7 @@ CREATE TABLE IF NOT EXISTS `space_missions` (
   `modification_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `mission_agency_id` (`mission_agency`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `space_missions`
@@ -895,7 +895,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_research_areas` (
   PRIMARY KEY (`space_mission_id`,`research_area_id`),
   KEY `space_mission_id_3` (`space_mission_id`),
   KEY `research_area_id_2` (`research_area_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `space_mission_to_research_areas`
@@ -915,7 +915,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_sensors` (
   PRIMARY KEY (`space_mission_id`,`sensor_id`),
   KEY `space_mission_id_1` (`space_mission_id`),
   KEY `sensor_id_1` (`sensor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `space_mission_to_sensors`
@@ -935,7 +935,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_targets` (
   PRIMARY KEY (`space_mission_id`,`target_id`),
   KEY `space_mission_id_2` (`space_mission_id`),
   KEY `target_id_2` (`target_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `space_mission_to_targets`
@@ -954,7 +954,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
   `target_family` varchar(100) NOT NULL,
   `target_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=218 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=218 ;
 
 --
 -- Dumping data for table `targets`
@@ -1204,7 +1204,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `telescopes`
@@ -1224,7 +1224,7 @@ CREATE TABLE IF NOT EXISTS `telescope_to_instruments` (
   PRIMARY KEY (`telescope_id`,`instrument_id`),
   KEY `telescope_id_2` (`telescope_id`),
   KEY `instrument_id_1` (`instrument_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `telescope_to_instruments`
@@ -1242,7 +1242,7 @@ CREATE TABLE IF NOT EXISTS `telescope_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `telescope_types`
@@ -1279,7 +1279,7 @@ CREATE TABLE IF NOT EXISTS `timezones` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `timezone` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `timezones`
@@ -1331,7 +1331,7 @@ CREATE TABLE IF NOT EXISTS `users_list` (
   `category` text NOT NULL,
   `level` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `users_list`
@@ -1359,7 +1359,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `users_statistics`
@@ -1378,7 +1378,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
   `acronym` text NOT NULL,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `wavelength_ranges`
@@ -1412,7 +1412,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_units` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `wavelength_unit` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `wavelength_units`
