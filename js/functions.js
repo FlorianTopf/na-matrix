@@ -195,12 +195,12 @@ function extractLast( term ) {
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
 	//prevent that a user hits enter when in form (for add/edit and browse)
-	$(window).keydown(function(event){
-	    if(event.keyCode == 13) {
-	      event.preventDefault();
-	      return false;
-	    }
-	  });
+//	$(window).keydown(function(event){
+//	    if(event.keyCode == 13) {
+//	      event.preventDefault();
+//	      return false;
+//	    }
+//	  });
 	//warning if javascript off
 	$('p.warning').remove();
 	//hide all .error labels, if costum labels are inserted in html

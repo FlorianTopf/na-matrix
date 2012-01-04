@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2012 at 10:45 AM
+-- Generation Time: Jan 04, 2012 at 11:52 AM
 -- Server version: 5.1.58
 -- PHP Version: 5.3.8
 
@@ -732,7 +732,7 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (236, 'Marconi EEV CCD', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '0.9x0.6 degree', 0, '540x380', 0, 0, 0, 'EEV-CCD02-06-1-206,', ''),
 (237, 'Finger Lake Instruments', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '42x42 arcmin', 0, '1024x1024', 0, 0, 0, '', ''),
 (238, 'Finger Lake Instruments', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '22x22 arcmin', 0, '1024x1024', 0, 0, 0, '', ''),
-(241, 'BFOSC - Bologna Faint Object Spectrograph & Camera', 9, '', 'optical, ', 330.000000, 1, 1100.000000, 1, '0.58 arsec/pixel', '4200 (max.)', '', '13 x 12.6 arcmin', 0, '1300 x 1340', 0, 0, 0, 'EEV LN/1300-EB/1', 'The slit wheel, mounted on the telescope focal plane, can hold 7 different slits, with one of the apertures intentionally left empty to allow direct image acquisition. At present four different slits are available: 1.5", 2", 2.5" and 5", a special 2" slit for echelle spectra and a mask to be used for polarimetry.\r\nThe slit length is as large as the usable field while the echelle slit is 9" long. \r\nThe filter wheel also has seven available positions. At present, the following filters can be mounted:\r\nU, B, V, R, I - Johnson-Kron-Cousin filters\r\nG, R, Z, I - Thuan-Gunn filters.\r\n\r\nA cross-disperser (#10, #11, #12) can also be mounted on the filter wheel and used with the echelle grism #9 to allow medium dispersion spectroscopy. A differential filter, used as an order separator, is mounted on the filter wheel in conjuction with grism #13. Two Hartmann masks can also be mounted to control the camera focusing. A table of available grisms can be found in the user manual: http://www.bo.astro.it/~loiano/TechPage/bfosceng/BFOSC.html');
+(241, 'BFOSC - Bologna Faint Object Spectrograph & Camera', 8, '', 'optical, ', 330.000000, 1, 1100.000000, 1, '0.58 arsec/pixel', '4200 (max.)', '', '13 x 12.6 arcmin', 0, '1300 x 1340', 0, 0, 0, 'EEV LN/1300-EB/1', 'The slit wheel, mounted on the telescope focal plane, can hold 7 different slits, with one of the apertures intentionally left empty to allow direct image acquisition. At present four different slits are available: 1.5", 2", 2.5" and 5", a special 2" slit for echelle spectra and a mask to be used for polarimetry.\r\nThe slit length is as large as the usable field while the echelle slit is 9" long. \r\nThe filter wheel also has seven available positions. At present, the following filters can be mounted:\r\nU, B, V, R, I - Johnson-Kron-Cousin filters\r\nG, R, Z, I - Thuan-Gunn filters.\r\n\r\nA cross-disperser (#10, #11, #12) can also be mounted on the filter wheel and used with the echelle grism #9 to allow medium dispersion spectroscopy. A differential filter, used as an order separator, is mounted on the filter wheel in conjuction with grism #13. Two Hartmann masks can also be mounted to control the camera focusing. A table of available grisms can be found in the user manual: http://www.bo.astro.it/~loiano/TechPage/bfosceng/BFOSC.html');
 
 -- --------------------------------------------------------
 
@@ -758,8 +758,7 @@ INSERT INTO `instrument_types` (`id`, `name`) VALUES
 (5, 'Camera'),
 (6, 'Other'),
 (7, 'Heterodyne Receiver'),
-(8, 'Spectrograph & Camera'),
-(9, 'Spectrograph & Camera');
+(8, 'Spectrograph & Camera');
 
 -- --------------------------------------------------------
 

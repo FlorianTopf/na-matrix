@@ -58,12 +58,12 @@ print "<option value=''>ALL</option>";
 print "<option value='>=2'";
 if(isset($filters["diameter_sign"]))
 	if ($filters["diameter_sign"] == ">=2") print " selected";
-print ">>= 2";
+print ">>= 2 m";
 print "</option>";
 print "<option value='<2'";
 if(isset($filters["diameter_sign"]))
 	if ($filters["diameter_sign"] == "<2") print " selected";
-print ">< 2";
+print ">< 2 m";
 print "</option></select>";
 /** @todo integrate textfield => ajax call */
 //print "<input name='obs_filters[diameter_m]'" .

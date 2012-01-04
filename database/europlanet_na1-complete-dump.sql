@@ -479,7 +479,8 @@ INSERT INTO `instrument_types` (`id`, `name`) VALUES
 (4, 'Riometer'),
 (5, 'Camera'),
 (6, 'Other'),
-(7, 'Heterodyne Receiver');
+(7, 'Heterodyne Receiver'),
+(8, 'Spectrograph & Camera');
 
 -- --------------------------------------------------------
 
