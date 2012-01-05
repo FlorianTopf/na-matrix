@@ -256,7 +256,7 @@
             <a href="http://europa.eu/index_en.htm">Project supported <br />by the European Union</a>
           </div>
           <div id="footer-text">
-            <b>Contact the Team: </b><br/><a href="mailto:florian.topf@oeaw.ac.at">Florian Topf</a> | <a href="mailto:robert.stoeckler@oeaw.ac.at">Robert Stoeckler</a> | <a href="mailto:manuel.scherf@oeaw.ac.at">Manuel Scherf</a>
+            <b>Contact the Team: </b><br/><a href="mailto:florian.topf@oeaw.ac.at">Florian Topf</a> | <a href="mailto:manuel.scherf@oeaw.ac.at">Manuel Scherf</a>
           </div> <!-- footer-text -->
         </div> <!-- footer-box -->
       </div> <!-- footer -->

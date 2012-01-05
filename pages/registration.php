@@ -22,8 +22,8 @@
     $message = "Dear " . $title . " " . $lname . "," . LF . LF;
     $message .= "you were registered for the NA1 Matrix. ";
     $message .= "You may now access the server at http://europlanet-na1.oeaw.ac.at/matrix/ ";
-    $message .= "with username " . $uname . " and the password " . $pword . LF . LF . LF;
-    $message .= "Sincerely," . LF . LF . LF . "The team" . LF . LF;
+    $message .= "with username " . $uname . " and the password that you specified." . LF . LF . LF;
+    $message .= "Sincerely," . LF . LF . "The team" . LF . LF;
 
     mail($email, $subject, $message, $headers, $from);
   }
@@ -102,7 +102,7 @@
         print "<p>Thank you for registering!</p>" .
               "<p>A confirmation email has been sent to the specified address.</p>" .
               "<p>If you do not receive this message, please contact " .
-              "<a href='mailto:robert.stoeckler@oeaw.ac.at'>robert.stoeckler@oeaw.ac.at</a>.</p>" . LF;
+              "<a href='mailto:" . MAIL_FROM . "'>" . MAIL_FROM . "</a>.</p>" . LF;
 
         mail_reg($_POST["reg_email"], $_POST["reg_title"],
                  $_POST["reg_lname"], $_POST["reg_uname"], $_POST["reg_pwd"]);
