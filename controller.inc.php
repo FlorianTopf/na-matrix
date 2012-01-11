@@ -3,6 +3,8 @@
  * @file controller.inc.php
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
+ * 
+ * @todo refactor the whole switch statements! (we have some redudancy here)
  */
 
 include_once ('lib/php/orm/DbConnector.php');
@@ -18,12 +20,12 @@ class Controller
 		print "<fieldset class='rfield'><legend>Resource Selection:</legend>" . LF;
     	print "<table class='selector'>" . LF;
 
-    	print "<tr><td><input type='radio' name='add_res_type' value='obs'";
+    	print "<tr><td><input type='radio' id='add_res_type' name='add_res_type' value='obs'";
    		if ($resource_type == "obs") print " checked='checked'";
     	print " id='sel_obs' onchange=\"document.getElementById('main_form').submit()\"/>" .
           " <label for='sel_obs'><b>Ground-based Facility</b></label></td>" . LF;
 
-   		print "<td><input type='radio' name='add_res_type' value='spa'";
+   		print "<td><input type='radio' id='add_res_type' name='add_res_type' value='spa'";
     	if ($resource_type == "spa") print " checked='checked'";
     	print " id='sel_spa' onchange=\"document.getElementById('main_form').submit()\"/>" .
           " <label for='sel_spa'><b>Space Mission</b></label></td></tr>" . LF;
@@ -73,6 +75,7 @@ class Controller
     		/** @todo add optional mail functionality */
 	//      mail_page($page);
 
+    		/** @todo this switch statement needs to be approved, since it will be extended in the future */
     		switch ($page) {
     		case "add":
     			// ------------------- Questionnaire Start ----------------------
@@ -80,7 +83,12 @@ class Controller
     			{
     				$_observatory = ModelDAO::getFromName("Observatory");
 					/** get resource! */
-
+    				if($action == "edit")
+					{
+						$_observatory->get_resource($resource_id);
+						include "views/ObservatoryCreateUpdate.php";
+					}
+					
 					if($action == "add")
 					{
 						//self::printSelector($page, $action, $resource_type);
@@ -99,7 +107,7 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
            					 $_observatory->add_obs_keys($res_id, $action);
 
-            				print "<H4>Thank You! </br>Your Entry has been submitted and once validated will be added to the database</H4>" . LF;
+            				print "<h4>Thank You! </br>Your Entry has been submitted and once validated it will be added to the database</h4>" . LF;
 
             				/** @todo here we add some sexy backlinks */
             				
@@ -112,7 +120,32 @@ class Controller
             				return;
           				}
 				 	}
-				 	break;
+				 	
+    				if($action == "Update Entry")
+				 	{
+				 	    //print "UPDATE OBSERVATORY<BR>";
+				 		//NEW: WITH ACCESS CLASS
+          				$status = $_observatory->update_resource($resource_id);
+          				if ($status["errno"] == 0)
+          				{
+            				$res_id = $status["res_id"];
+            				$res_name = $status["res_name"];
+            				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
+            				$_observatory->add_obs_keys($res_id, $action);
+            				print "<h4>Thank You! </br>The Observatory has been updated in the database!</h4>" . LF;
+            				
+            				/** @todo mail functionality, resource name, id and username*/
+            				mail_add($res_name, $res_id, $_SESSION["user_name"]);
+            				
+            				/** @todo here we add some sexy backlinks */
+          				}
+          				else
+          				{
+            				print "<h4>" . $status["error"] . "</h4>" . LF;
+            				return;
+          				}
+				 	}
+				    break;  
     			}
     			// ---------------------Questionnaire Stop --------------------
 				switch ($resource_type) {
@@ -136,7 +169,7 @@ class Controller
 					{
 						/** @todo: load OLD Entries via dedicated obs object function */
 						$_observatory->get_old_resource($resource_id);
-						print "<H4>You are about to add an OLD NA1 resource to the database!</H4>" . LF;
+						print "<h4>You are about to add an OLD NA1 resource to the database!</h4>" . LF;
 						include "views/ObservatoryCreateUpdate.php";
 					}
 
@@ -148,6 +181,7 @@ class Controller
           				if ($status["errno"] == 0)
           				{
             				$res_id = $status["res_id"];
+            				//$res_name = $status["res_name"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
            					 $_observatory->add_obs_keys($res_id, $action);
 
@@ -160,7 +194,7 @@ class Controller
            					 	$settings["is_old_res"] = FALSE;
            					 }
 
-            				print "<H4>The new Observatory has been added to the database!</H4>" . LF;
+            				print "<h4>The new Observatory has been added to the database!</h4>" . LF;
 
             				 /** @todo mail functionality, resource name, id and username*/
             				//mail_add($res_name, $res_id, $_SESSION["user_name"]);
@@ -182,6 +216,7 @@ class Controller
           				if ($status["errno"] == 0)
           				{
             				$res_id = $status["res_id"];
+            				//$res_name = $status["res_name"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_observatory->add_obs_keys($res_id, $action);
             				print "<h4>The Observatory has been updated in the database!</h4>" . LF;
@@ -218,7 +253,7 @@ class Controller
 					{
 						/** @todo: load OLD Entries via dedicated spa object function, ADD into new DB, DEL OLD DB entry */
 						$_spacemission->get_old_resource($resource_id);
-						print "<H4>You are about to add an OLD NA1 resource to the database!</H4>" . LF;
+						print "<h4>You are about to add an OLD NA1 resource to the database!</h4>" . LF;
 						include "views/SpacemissionCreateUpdate.php";
 					}
 
@@ -229,6 +264,7 @@ class Controller
           				if ($status["errno"] == 0)
           				{
             				$res_id = $status["res_id"];
+            				//$res_name = $status["res_name"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_spacemission->add_spa_keys($res_id, $action);
             				print "<h4>The new Space Mission has been added to the database!</h4>" . LF;
@@ -259,6 +295,7 @@ class Controller
           				if ($status["errno"] == 0)
           				{
             				$res_id = $status["res_id"];
+            				//$res_name = $status["res_name"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_spacemission->add_spa_keys($res_id, $action);
             				print "<h4>The Space Mission has been updated in the database!</h4>" . LF;
@@ -280,6 +317,16 @@ class Controller
     			break; }
     		break;
     		case "edit":
+    			// ------------------- Questionnaire Start ----------------------
+    			if ($_SESSION["user_level"] == 11)
+    			{
+				   $_observatory = ModelDAO::getFromName("Observatory");
+				   $filters = array('user_id' => $_SESSION["user_id"]);
+				   $resources = $_observatory->get_all_resources($page, $filters);
+				   include "views/ObservatoryEditAll.php";
+				   break;
+    			}
+    			// ---------------------Questionnaire Stop --------------------
     			switch($resource_type) {
     				case "obs":
     					if ($action == "viewOld")
@@ -350,6 +397,25 @@ class Controller
              $userid . ", '" . $page . "', NOW())";
 
     	$link->query($query);
+  	}
+  	
+  /** @todo improve this function / we need users E-Mail Address here */
+  static function mail_add($name, $id, $email)
+  {
+    ini_set("SMTP", MAIL_SMTP);
+
+    $subject = "Europlanet NA1 Matrix: new or updated entry";
+    
+    $headers = "From: " . MAIL_FROM . "\n";
+    $headers .= "Reply-To: " . MAIL_REPLY;
+    $from = "-f" . MAIL_FROM;
+
+    $message = "User " . $_SESSION["user_name"] .
+               " added or updated the entry '" .
+               $name . "' (resource id: " . $id . "); contact email is " .
+               $email . "\n";
+
+    mail(MAIL_TO, $subject, $message, $headers, $from);
   }
 
 
