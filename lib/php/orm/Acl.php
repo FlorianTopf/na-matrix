@@ -14,7 +14,7 @@ class Acl
 	'add' => 11,
 	'browse' => 0,
 	'map' => 0,
-	'edit' => 21,
+	'edit' => 11,
 	'home' => 0,
 	'login' => 0,
 	'logout' => 0,

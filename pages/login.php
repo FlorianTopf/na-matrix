@@ -9,7 +9,7 @@
   {
   	$link = new DbConnector('');
 
-    $query = "SELECT id, username, passwd, level FROM users_list WHERE " .
+    $query = "SELECT id, username, passwd, email, level FROM users_list WHERE " .
              "username = '" . $userid .
              "' AND passwd = '" . md5($passwd) . "' LIMIT 1";
     $result = $link->query($query);
@@ -19,6 +19,7 @@
       $id = $user["id"];
       $_SESSION["user_name"] = $user["username"];
       $_SESSION["user_level"] = intval($user["level"]);
+      $_SESSION["email"] = $user["email"];
     }
     else
     {
