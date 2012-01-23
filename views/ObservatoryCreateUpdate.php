@@ -248,7 +248,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_b[{$telescope_count}]", $_observatory->get_telescope("wavelength_begin", $telescope_count), 10, "number");
 		ws(3);
-		printSelectListFromArray("add_obs_wavelength_b_unit[{$telescope_count}]", $_observatory->get_telescope("wavelength_begin", $telescope_count),
+		printSelectListFromArray("add_obs_wavelength_b_unit[{$telescope_count}]", $_observatory->get_telescope("wavelength_b_unit", $telescope_count),
 			$wavelength_units, "wavelength_unit");
 		print "</td></tr>" . LF;
 
