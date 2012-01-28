@@ -69,6 +69,7 @@
       </div>
       <div id="header-img"></div>
     </div>
+    
 	<form action="<?php print $_SERVER["PHP_SELF"]; ?>" id="main_form" enctype="multipart/form-data" method="post">
 
     <?php
@@ -88,167 +89,168 @@
 	</div>
 
     <div id="content-wrapper">
-            <div id="left">
-		    <div id="left-content">
-		    <div id="left-menu-box">
+      <div id="left">
+	    <div id="left-content">
+		  <div id="left-menu-box">
             <div id="left-menu">
               <ul>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=home">Home</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=browse">Browse Matrix</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Ground-based Facility Map (Prototype)</a></li>
               </ul>
-
-          <?php
-          	if ($_SESSION["user_id"] <= 1)
-            {
-              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<ul><li class='left-level-1-center'>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
-              print "<li class='left-level-1-center'>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
-              print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li></ul>" . LF;
-              print "<h1 class='menu-header'></h1>" . LF;
-              print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration_q'>Register a new<br/> account</a></li>" . LF;
-              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" . LF;
-			}
-            else
-            {
-              print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
-              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
-             if ($_SESSION["user_level"] >= 21)
-              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
-              /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
-              if ($_SESSION["user_level"] >= 31)
-              {
-              	if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
-              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
-              }
-              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
-              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
-              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
-              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'></li></ul>" . LF;
-
-              if ($_SESSION["user_level"] >= 31)
-              {
-                print "<img src='images/blank.gif' height='30' alt='blank'/>";
-                print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></ul>" . LF;
-              }
-            }
-          ?>
+              <?php
+	            if ($_SESSION["user_id"] <= 1)
+	            {
+	              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
+	              print "<ul><li class='left-level-1-center'>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
+	              print "<li class='left-level-1-center'>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
+	              print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li></ul>" . LF;
+	              print "<h1 class='menu-header'></h1>" . LF;
+	              print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration_q'>Register a new<br/> account</a></li>" . LF;
+	              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" . LF;
+				}
+	            else
+	            {
+	              print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
+	              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
+	             if ($_SESSION["user_level"] >= 21)
+	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
+	              /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
+	              if ($_SESSION["user_level"] >= 31)
+	              {
+	              	if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
+	              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
+	              }
+	              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
+	              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
+	              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
+	              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'></li></ul>" . LF;
+	
+	              if ($_SESSION["user_level"] >= 31)
+	              {
+	                print "<img src='images/blank.gif' height='30' alt='blank'/>";
+	                print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration'>Register a new<br/> account</a></li></ul>" . LF;
+	              }
+	            }
+              ?>
 			  <h1 class="menu-header"></h1>
-			  <ul><li class="left-level-1-no"><a href="http://europlanet-na1.oeaw.ac.at/">RETURN TO NA1 WEBSITE</a></li></ul>
+			  <ul>
+			    <li class="left-level-1-no"><a href="http://europlanet-na1.oeaw.ac.at/">RETURN TO NA1 WEBSITE</a></li>
+			  </ul>
 			  <h1 class="menu-header"></h1>
               <img src="images/blank.gif" height="30" alt="blank"/>
-              <ul><li class="left-level-1-center"><b>Developed by</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></li></ul>
+              <ul>
+                <li class="left-level-1-center"><b>Developed by</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></li>
+              </ul>
             </div> <!--  left-menu -->
-            </div> <!--  left-menu-box -->
-            </div> <!--  left-content -->
-            </div> <!-- left -->
-			<div id="middle">
-        	<div id="middle-content">
-			<div id="middle-marker-box">
-			<div id="middle-marker">
-
-        <?php
-        //DEBUG:
-		//echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
-		//echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . "- POST RES_TYPE: " . $_POST["res_type"] . "<br>";
-		//echo "RES_ID: GET: " . $_GET["id"] . "- POST: " . $_POST["add_res_id"] . "<br>";
-		//echo "POST PAGE: " . $_POST["page"] . "<br>";
-		//echo "PUSH PAGE: " . $_POST["push"] . "<br>";
-		//echo "FILTER: " . $_POST["obs_filters"]["country"] . "<br>";
-		/** @todo refactor all $_REQUEST variables => move them into controller */
-  		$action = '';
-  		$resource_id = '';
-  		$resource_type = '';
-  		$filters = array();
-  		$settings["is_user_res"] = FALSE;
-  		$settings["is_old_res"] = FALSE;
-  		//$is_user_res = FALSE;
-  		//$is_old_res = FALSE;
-  		
-  		/** @todo a possible improvement of the controlling mechanism new request handler */
-  		//request = new HttpRequest();
-
-  		if(isset($_POST["page"]))
-        {
-        	if(isset($_GET["action"]))
-			{
-			    $action = $_GET["action"];
-
-			    if ($action == "edit")
-			    {
-			    	// GET RES ID and RES TYPE
-			    	$resource_id = $_GET["id"];
-			    	$resource_type = $_GET["res_type"];
-			    }
-
-			    if (/*($action == "loadTemp") || */($action == "loadOldObs") || ($action == "loadOldSpa"))
-			    {
-			    	$resource_id = $_GET["id"];
-			    	$resource_type = $_GET["res_type"];
-			    }
-
-			    if ($action == "add")
-    			{
-      				// RESET RES ID and RES TYPE
-      				$resource_id = NULL;
-    				$resource_type = NULL;
-    			}
-			}
-
-			//if selector was pressed
-			if(isset($_POST["add_res_type"]))
-			{
-				$resource_type = $_POST["add_res_type"];
-				$action = $_POST["action"];
-			}
-
-			//if push in add/edit was pressed
-			if(isset($_POST["push"]))
-			{
-				$action = $_POST["push"];
-				$resource_type = $_POST["res_type"];
-				$resource_id= $_POST["add_res_id"];
-
-				//if a user submitted resource was loaded an push got pressed to save it to main DB and delete OLD entry
-				/*if ($_POST["is_user_res"])
+          </div> <!--  left-menu-box -->
+        </div> <!--  left-content -->
+      </div> <!-- left -->
+	  <div id="middle">
+        <div id="middle-content">
+		  <div id="middle-marker-box">
+		    <div id="middle-marker">
+	        <?php
+	        //DEBUG:
+			//echo "ACTION: GET: " . $_GET["action"] . "- POST: " . $_POST["action"] . "<br>";
+			//echo "POST ADD_RES_TYPE: " . $_POST["add_res_type"] . "- POST RES_TYPE: " . $_POST["res_type"] . "<br>";
+			//echo "RES_ID: GET: " . $_GET["id"] . "- POST: " . $_POST["add_res_id"] . "<br>";
+			//echo "POST PAGE: " . $_POST["page"] . "<br>";
+			//echo "PUSH PAGE: " . $_POST["push"] . "<br>";
+			//echo "FILTER: " . $_POST["obs_filters"]["country"] . "<br>";
+			/** @todo refactor all $_REQUEST variables => move them into controller */
+	  		$action = '';
+	  		$resource_id = '';
+	  		$resource_type = '';
+	  		$filters = array();
+	  		$settings["is_user_res"] = FALSE;
+	  		$settings["is_old_res"] = FALSE;
+	  		//$is_user_res = FALSE;
+	  		//$is_old_res = FALSE;
+	  		
+	  		/** @todo a possible improvement of the controlling mechanism new request handler */
+	  		//request = new HttpRequest();
+	
+	  		if(isset($_POST["page"]))
+	        {
+	        	if(isset($_GET["action"]))
 				{
-					$settings["is_user_res"] = TRUE;
-					$_POST["is_user_res"] = '0';
-				}*/
-				if(isset($_POST["is_old_res"]) && $_POST["is_old_res"])
-				{
-					$settings["is_old_res"] = TRUE;
-					$_POST["is_old_res"] = '0';
+				    $action = $_GET["action"];
+	
+				    if ($action == "edit")
+				    {
+				    	// GET RES ID and RES TYPE
+				    	$resource_id = $_GET["id"];
+				    	$resource_type = $_GET["res_type"];
+				    }
+	
+				    if (/*($action == "loadTemp") || */($action == "loadOldObs") || ($action == "loadOldSpa"))
+				    {
+				    	$resource_id = $_GET["id"];
+				    	$resource_type = $_GET["res_type"];
+				    }
+	
+				    if ($action == "add")
+	    			{
+	      				// RESET RES ID and RES TYPE
+	      				$resource_id = NULL;
+	    				$resource_type = NULL;
+	    			}
 				}
-			}
-
-			if(isset($_POST["obs_filters"]))
-			{
-				foreach($_POST["obs_filters"] as $key => $value)
-					$filters[$key] = $value;
-			}
-
-			if(isset($_POST["spa_filters"]))
-			{
-				foreach($_POST["spa_filters"] as  $key => $value)
-					$filters[$key] = $value;
-			}
-
-			if(isset($_POST["reset_filters"]))
-				$filters = array();
-
-
-  		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings, $filters);
-
-          }
-          else
-            Controller::check("home");
-        ?>
-
-        </div> <!-- middle-marker -->
-        </div> <!-- middle-marker-box -->
+	
+				//if selector was pressed
+				if(isset($_POST["add_res_type"]))
+				{
+					$resource_type = $_POST["add_res_type"];
+					$action = $_POST["action"];
+				}
+	
+				//if push in add/edit was pressed
+				if(isset($_POST["push"]))
+				{
+					$action = $_POST["push"];
+					$resource_type = $_POST["res_type"];
+					$resource_id= $_POST["add_res_id"];
+	
+					//if a user submitted resource was loaded an push got pressed to save it to main DB and delete OLD entry
+					/*if ($_POST["is_user_res"])
+					{
+						$settings["is_user_res"] = TRUE;
+						$_POST["is_user_res"] = '0';
+					}*/
+					if(isset($_POST["is_old_res"]) && $_POST["is_old_res"])
+					{
+						$settings["is_old_res"] = TRUE;
+						$_POST["is_old_res"] = '0';
+					}
+				}
+	
+				if(isset($_POST["obs_filters"]))
+				{
+					foreach($_POST["obs_filters"] as $key => $value)
+						$filters[$key] = $value;
+				}
+	
+				if(isset($_POST["spa_filters"]))
+				{
+					foreach($_POST["spa_filters"] as  $key => $value)
+						$filters[$key] = $value;
+				}
+	
+				if(isset($_POST["reset_filters"]))
+					$filters = array();
+	
+	
+	  		  	Controller::check($_POST["page"], $action, $resource_type, $resource_id, $settings, $filters);
+	
+	          }
+	          else
+	            Controller::check("home");
+	        ?>
+            </div> <!-- middle-marker -->
+          </div> <!-- middle-marker-box -->
         </div> <!-- middle-content -->
-        </div> <!-- middle -->
+      </div> <!-- middle -->
       <div id="footer">
         <div id="footer-box">
           <div id="ue">
