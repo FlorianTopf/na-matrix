@@ -29,14 +29,6 @@ H3 {
 	font-size: 12px;
 }
 
-H3.report {
-	color: #172983;
-	text-align: left;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	font-size: 12px;
-}
-
 H4 {
 	font-size: 11px;
 }
@@ -104,13 +96,6 @@ b.red {
 }
 
 UL {
-	list-style-type: disc;
-	list-style-position: outside;
-	padding-left: 20px;
-}
-
-UL.home {
-	margin: 10px;
 	list-style-type: disc;
 	list-style-position: outside;
 	padding-left: 20px;
@@ -203,6 +188,7 @@ table.filter {
 table.filter td {
 	background-color: #d3d3d3;
 	padding: 4px;
+	border: 1px solid #ffffff;
 }
 
 table.filter td.title {
@@ -271,7 +257,7 @@ table.create {
 	background-color: #f5f5dc;
 	border-style: none;
 	border-collapse: collapse;
-	border-spacing: 2px;
+	border-spacing: 4px;
 	width: 100%;
 }
 
