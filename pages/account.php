@@ -3,6 +3,8 @@
  * @file account.php
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
+ * 
+ * /** @todo muss noch an den allgemeinen style angepasst werden (code+design)
  */
 
   global $user_titles, $usage_selection;
@@ -97,15 +99,15 @@
 
     print "<tr><td><b>First name:</b></td>" .
           "<td><input name='acc_fname' size='30'" .
-          " value='" . $_POST["acc_fname"] . "'></td></tr>" . LF;
+          " value='" . htmlentities($_POST["acc_fname"]) . "'></td></tr>" . LF;
 
     print "<tr><td><b>Last name:</b></td>" .
           "<td><input name='acc_lname' size='30'" .
-          " value='" . $_POST["acc_lname"] . "'></td></tr>" . LF;
+          " value='" . htmlentities($_POST["acc_lname"]) . "'></td></tr>" . LF;
 
     print "<tr><td><b>Affiliation:</b></td>" .
           "<td><input name='acc_affiliation' size='30'" .
-          " value='" . $_POST["acc_affiliation"] . "'></td></tr>" . LF;
+          " value='" . htmlentities($_POST["acc_affiliation"]) . "'></td></tr>" . LF;
 
     print "<tr><td><b>E-mail:</b></td>" .
           "<td><input name='acc_email' size='30'" .
