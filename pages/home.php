@@ -42,5 +42,5 @@ European planetary science.
 
 <p class="home">
 <b>This website exists to aid in the organisation of collaborative efforts between astronomers world-wide.
-It provides a database of current and proposed space missions and observatories that are designed for Planetary Science.
+It provides a database of current and proposed space missions and ground-based facilities that are designed for Planetary Science.
 </b></p>
