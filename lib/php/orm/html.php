@@ -322,7 +322,7 @@ function printEditAllTable($name, $resources, $type)
    			print "<td>" . $entry["id"] . "</td>";
     		print "<td><a title='Click to edit' class='hand' " .
               	"href='index.php?page=add&amp;action=edit&amp;id=" . $entry["id"] . "&amp;res_type={$type}" .
-              	"'>" . htmlentities($entry["name"]) . "</a></td>";
+              	"'>" . $entry["name"] . "</a></td>";
         	print "<td>" . $entry["creation_date"] . "</td>";
         	print "<td>" . $entry["modification_date"] . "</td>";
         	print "</tr>" . LF;

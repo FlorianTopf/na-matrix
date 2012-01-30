@@ -32,7 +32,7 @@ $link->close();
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <title>NA1-Matrix: <?php print htmlentities($res["name"])  ?></title>
+  <title>NA1-Matrix: <?php print $res["name"]  ?></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
   <link rel="stylesheet" type="text/css" href="../css/style.css"/>
@@ -66,10 +66,10 @@ $link->close();
   	if ($_observatory->get_field("obs_address"))
   		print "<p><b>Address:&nbsp;</b>" . ($_observatory->get_hidden_field("address") ?
   			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_address")). "</p>" . LF;
-  	if ($_observatory->get_hidden_field("zip_code"))
+  	if ($_observatory->get_field("obs_zip_code"))
   		print "<p><b>ZIP code:&nbsp;</b>" . ($_observatory->get_hidden_field("zip_code") ?
   			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
-  	if ($_observatory->get_hidden_field("city"))
+  	if ($_observatory->get_field("obs_city"))
   		print "<p><b>City:&nbsp;</b>" . ($_observatory->get_hidden_field("city") ?
   		 	  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
 
@@ -233,7 +233,7 @@ $link->close();
 	    		print "<p><b>Wavelength/Freq End:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_end", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_e_unit", $key)] . "</p>" . LF;
 			if ($_observatory->get_telescope("comments", $key))
-	    		print "<p><b>Telescope Comments:&nbsp;</b><br/>" . nl2br($_observatory->get_telescope("comments", $key)) . "</p>" . LF;
+				print "<p><b>Telescope Comments:&nbsp;</b><br/>" . nl2br($_observatory->get_telescope("comments", $key)) . "</p>" . LF;
 
 	    	//OBSERVATORY Instruments:
 	    	if(is_array($_observatory->get_has_many("instruments", $telescope_id)))

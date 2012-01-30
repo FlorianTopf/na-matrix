@@ -39,6 +39,8 @@ class DbConnector extends SystemComponent
 		    printf("Mysql DBMS Connection failed: %s\n", mysqli_connect_error());
 		 	exit();
 		}
+		
+		$this->dbms->set_charset("utf8");
 
 		if ($this->dbms->select_db($db) === FALSE)
 		{

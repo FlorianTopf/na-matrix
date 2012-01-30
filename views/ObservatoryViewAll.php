@@ -132,9 +132,9 @@ foreach($resources as $row)
 	else
 		print "<tr class='odd'>";
 	print "<td width='250px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
-		"id=" . $row["id"] . "')\" class='hand'>" . htmlentities(stripslashes($row["name"])) . "</span></td>";
-    print "<td width='150px'>" . htmlentities($row["institution"]) . "</td>";
-	print "<td>" . htmlentities($row["country"]) . "</td>";
+		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
+    print "<td width='150px'>" . stripslashes($row["institution"]) . "</td>";
+	print "<td>" . stripslashes($row["country"]) . "</td>";
 //	if($row["hide_email"])
 //    	print "<td class='red'>Not Displayed</td>";
 //    else
@@ -142,7 +142,7 @@ foreach($resources as $row)
 	if($row["hide_web_address"])
 		print "<td class='red'>Not Displayed</td>";
     elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
-    	print "<td><a href='" . htmlentities($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
+    	print "<td><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
     else
     	print "<td></td>";
     print "<td>";

@@ -14,6 +14,8 @@
  * @todo generalize error messages and send them via mail
  * integrate set_message() with error by checking in controller each time
  * if a SESSION error ocurred show_message()
+ * 
+ * @todo check all htmlentities occurences, they are not needed in some cases!
  */
 class ObservatoryDAO extends ModelDAO
  {
@@ -118,7 +120,7 @@ class ObservatoryDAO extends ModelDAO
 //	public function get_field($field)
 //	{
 //		if(array_key_exists($field, $this->_fields))
-//			return htmlentities($this->_fields[$field],ENT_QUOTES);
+//			return $this->_fields[$field];
 //		else
 //			return NULL;
 //	}
@@ -144,7 +146,7 @@ class ObservatoryDAO extends ModelDAO
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
       			//$this->_countries[$key][] = $value;
-				$this->_countries[$key][$row['id']] = htmlentities($value);
+				$this->_countries[$key][$row['id']] = $value;
       	mysqli_free_result($result);
 
       	return $this->_countries;
@@ -160,7 +162,7 @@ class ObservatoryDAO extends ModelDAO
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_precipitationRanges[$key][] = $value;
-				$this->_precipitationRanges[$key][$row['id']] = htmlentities($value);
+				$this->_precipitationRanges[$key][$row['id']] = $value;
       	mysqli_free_result($result);
 
       	return $this->_precipitationRanges;
@@ -176,7 +178,7 @@ class ObservatoryDAO extends ModelDAO
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
 				//$this->_clearnightsRanges[$key][] = $value;
-				$this->_clearnightsRanges[$key][$row['id']] = htmlentities($value);
+				$this->_clearnightsRanges[$key][$row['id']] = $value;
       	mysqli_free_result($result);
 
       	return $this->_clearnightsRanges;
@@ -203,7 +205,7 @@ class ObservatoryDAO extends ModelDAO
 	public function get_scientific_contact($x_field, $y_field)
 	{
 		if(isset($this->_scientificContacts[$x_field][$y_field]))
-			return htmlentities($this->_scientificContacts[$x_field][$y_field],ENT_QUOTES);
+			return $this->_scientificContacts[$x_field][$y_field];
 		else
 			return NULL;
 	}
@@ -252,7 +254,7 @@ class ObservatoryDAO extends ModelDAO
 	public function get_telescope($x_field, $y_field)
 	{
 		if(isset($this->_telescopes[$x_field][$y_field]))
-			return htmlentities($this->_telescopes[$x_field][$y_field],ENT_QUOTES);
+			return $this->_telescopes[$x_field][$y_field];
 		else
 			return NULL;
 	}
@@ -326,7 +328,7 @@ class ObservatoryDAO extends ModelDAO
 	public function get_instrument($x_field, $y_field, $z_field)
 	{
 		if(isset($this->_instruments[$x_field][$y_field][$z_field]))
-			return htmlentities($this->_instruments[$x_field][$y_field][$z_field],ENT_QUOTES);
+			return $this->_instruments[$x_field][$y_field][$z_field];
 		else
 			return NULL;
 	}
@@ -359,7 +361,7 @@ class ObservatoryDAO extends ModelDAO
 	public function get_add_info($field)
 	{
 		if(array_key_exists($field, $this->_additionalInformation))
-			return htmlentities($this->_additionalInformation[$field],ENT_QUOTES);
+			return $this->_additionalInformation[$field];
 		else
 			return NULL;
 	}
@@ -517,7 +519,7 @@ class ObservatoryDAO extends ModelDAO
 				$query2 = "SELECT name FROM countries WHERE id=" . $row["country_id"];
 				$result2 = self::$db->query($query2);
 				$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
-				$resources[$row["id"]]["country"] = htmlentities($row2["name"]);
+				$resources[$row["id"]]["country"] = $row2["name"];
 				mysqli_free_result($result2);
 
 				//Hidden Fields
@@ -539,14 +541,14 @@ class ObservatoryDAO extends ModelDAO
 					$result3 = self::$db->query($query3);
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
 					$telescope_type_id = $row3["telescope_type"];
-					$resources[$row["id"]]["wavelengths"][] = htmlentities($row3["wavelength"]);
-					$resources[$row["id"]]["diameter_m"][] = htmlentities(clean_num($row3["diameter_m"]) . " m ");
+					$resources[$row["id"]]["wavelengths"][] = $row3["wavelength"];
+					$resources[$row["id"]]["diameter_m"][] = clean_num($row3["diameter_m"] . " m ");
 					mysqli_free_result($result3);
 
 					$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;
 					$result3 = self::$db->query($query3);
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
-					$resources[$row["id"]]["telescope_types"][] = htmlentities($row3["name"]);
+					$resources[$row["id"]]["telescope_types"][] = $row3["name"];
 					mysqli_free_result($result3);
 				}
 				mysqli_free_result($result2);
