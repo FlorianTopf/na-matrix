@@ -140,7 +140,11 @@
 			  <h1 class="menu-header"></h1>
               <img src="images/blank.gif" height="30" alt="blank"/>
               <ul>
-                <li class="left-level-1-center"><b>Developed by</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a></li>
+                <li class="left-level-1-center">
+                	<b>Developed by</b><br /><a href="http://www.iwf.oeaw.ac.at/">IWF Graz Team</a>
+                	<b>and</b>
+                	<a href="http://www.phys.ucl.ac.uk/">UCL London Team</a>
+                </li>
               </ul>
             </div> <!--  left-menu -->
           </div> <!--  left-menu-box -->
