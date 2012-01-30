@@ -542,7 +542,7 @@ class ObservatoryDAO extends ModelDAO
 					$row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
 					$telescope_type_id = $row3["telescope_type"];
 					$resources[$row["id"]]["wavelengths"][] = $row3["wavelength"];
-					$resources[$row["id"]]["diameter_m"][] = clean_num($row3["diameter_m"] . " m ");
+					$resources[$row["id"]]["diameter_m"][] = clean_num($row3["diameter_m"]) . " m ";
 					mysqli_free_result($result3);
 
 					$query3 = "SELECT name FROM telescope_types WHERE id=" . $telescope_type_id;

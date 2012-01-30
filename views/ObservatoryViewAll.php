@@ -131,7 +131,7 @@ foreach($resources as $row)
 		print "<tr class='even'>";
 	else
 		print "<tr class='odd'>";
-	print "<td width='250px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
+	print "<td width='260px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
     print "<td width='150px'>" . stripslashes($row["institution"]) . "</td>";
 	print "<td>" . stripslashes($row["country"]) . "</td>";
@@ -151,8 +151,8 @@ foreach($resources as $row)
     	print "<b>";
 		($row["diameter_m"][$key] != 0) ? print $row["diameter_m"][$key] : print " ";
     	print $type . "</b>";
-        if($row["wavelengths"][$key] != '')
-        	print " (<i>" . trim($row["wavelengths"][$key], " ,") . "</i>)";
+       if($row["wavelengths"][$key] != ", " && $row["wavelengths"][$key] != "")
+        	print " (<i>" . trim($row["wavelengths"][$key], ", ") . "</i>)";
 		print "<br/>";
    	}
 	print "</td>";

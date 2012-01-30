@@ -196,10 +196,10 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
   * search with GPS data! (see Roadmap - Interactive Map)
 
 
-[LOW PRIORITY] E-Mail functionality for ADD / EDIT notification
+[MEDIUM PRIORITY] E-Mail functionality for ADD / EDIT notification
   * add_obs/spa_keys => notification as array
 
-[LOW PRIORITY] E-Mail functionality for thrown ERROR (make a function)
+[MEDIUM PRIORITY] E-Mail functionality for thrown ERROR (make a function)
   * summary of thrown error
   * set_message in models / show_message in controller!
 

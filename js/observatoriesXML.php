@@ -37,7 +37,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
   $node = $dom->createElement("marker");
   $newnode = $parnode->appendChild($node);
   $newnode->setAttribute("id", $row['id']);
-  $newnode->setAttribute("name", utf8_encode($row['name']));
+  $newnode->setAttribute("name", $row['name']);
   $newnode->setAttribute("lat", $row['latitude']);
   $newnode->setAttribute("lng", $row['longitude']);
 }

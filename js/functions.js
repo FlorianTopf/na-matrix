@@ -311,7 +311,26 @@ $(document).ready(function(){
 				"add_spa_target_ids[]": "Please choose target(s)!"
 		}
 	});
-
+	
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+/** @todo here we may try to improve the selection with asynchronous request */	
+//	$("input#add_res_type").change(function() {
+//		alert('YUHU');
+//	    // we want to store the values from the form input box, then send via ajax below  
+//	    var fname     = $('#fname').attr('value');   
+//	        $.ajax({  
+//	            type: "POST",  
+//	            url: "ajax.php",  
+//	            data: "fname="+ fname +"& lname="+ lname,  
+//	            success: function(){  
+//	                $('form#submit').hide(function(){$('div.success').fadeIn();});  
+//	  
+//	            }  
+//	        });  
+//	    return false;  
+//	});  
+	
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 	
