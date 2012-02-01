@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 30, 2012 at 10:44 AM
+-- Generation Time: Feb 01, 2012 at 11:22 AM
 -- Server version: 5.1.58
 -- PHP Version: 5.3.8
 
@@ -47,7 +47,7 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (2, 'Dr Peter Thomas (observatory manager)\r\npkt@ulo.ucl.ac.uk', 'Solar View 50mm\r\nJoynson 6-inch refractor', '', '', 'New Metre-Class Telescope Project currently underway to acquire large modern telescope with remote and robotic observing capabilities\r\n(aperture 1m)', ''),
 (3, '', '', '', '', '', ''),
 (4, '', 'Meteor camera cluster: 3xWatec 902DM2S video cams +2x3.8mm + 1x6mm lenses, 45% sky coverage. Commisioned 2005. \r\nPolar Bear pole-staring camera cluster: 3xStarlight Express H16 CCD+3x Nikor 85mm lenses, covers ~10 deg around NCP. Commisioned 2008.', '', '', '', ''),
-(5, '', '', '', '', '', ''),
+(5, '', 'A 140mm (F/7) TEC 140 APO telescope and Takahashi SKY-90 F5.6 doublet fluoriet telescope also available.\r\n\r\nAdditional camera: The Imaging Source DMK 21 Monochrome USB CCD, 640x480 pixels. An Icx618 CCD chip has been inserted instead of the original CCD, so the camera is 2x as sensitive.', '', '', '', ''),
 (6, '', '', '', '', '', ''),
 (7, '', '', '', '', '', ''),
 (8, '', '', '', '', '', ''),
@@ -59,7 +59,7 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (14, '', '', '', '', '', ''),
 (15, '', '', '', '', '', ''),
 (16, '', '', '', '', '', ''),
-(17, '', '', '', '', '', ''),
+(17, '', 'A 13-cm refractor on an AP600 mount is housed in a second "dome" (a roll-away shed).', '', '', '', 'BHO cooperate with professional astronomers and fellow amateur astronomers to observe Delta Scuti Stars and Eclipsing Binary Stars.'),
 (18, '', '', '', '', '', ''),
 (19, '', '', '', '', '', ''),
 (20, 'HARUTYUNIAN Haik A., Dr.\r\n(Director) hhayk@bao.sci.am', 'SCORPIO Focal Reducer\r\nVAGR Integral Field Spectrograph', '', '', 'Undertook research on:\r\nDetection of extragalactic objects with UV continuum  \r\nSearch for flare stars', ''),
@@ -610,7 +610,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=279 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=282 ;
 
 --
 -- Dumping data for table `instruments`
@@ -707,9 +707,7 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (202, 'SBIG STL-6303E', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '18x24 arcmin', 0, '3072x2048', 0, 0, 0, 'KAF-6303E/LE', ''),
 (203, 'Apogee Alta U47 16Bit', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '55x55 arcmin', 0, '1024x1024', 0, 0, 0, '', ''),
 (204, 'Apogee Alta U900 camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '18x18 arcmin', 0, '3056x3056', 0, 0, 0, 'Kodak KAF-09000', ''),
-(205, 'SBIG ST-7XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 4, '765 x 510', 3600, 0.12, 1, 'KAF-0402ME', 'BVR Custom Scientific Photometric filters and SBIG CFW9 Filter Wheel.'),
 (206, 'Starlight Xpress SXVR-H36', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '4904x3280', 0, 0, 0, 'Kodak KAI16000M', 'Filters: Starlight Xpress + Astronomik LRGB 50mm'),
-(207, 'Artemis Art-4021', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '2048 x 2048', 0, 0.0001, 1, 'Kodak KAI4021', '3 additional astro-cameras'),
 (208, 'Fabry-Perot Interferometer', 2, '', '630.0 nm', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Meridional and vertical winds and neutral temperatures derived from FPI measurements of OI (630.0 nm) emission.'),
 (209, 'CCD ST-7', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '765x510', 0, 0, 1, 'CCD KAF0400', 'SBIG CFW-8 Color Filter Wheel'),
 (210, 'CCD 2000XCM', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1600x1200', 0, 0, 1, 'Kodak KAI-2020CM + TI TC-237', 'SBIG CFW-8 Color Filter Wheel'),
@@ -746,7 +744,9 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (275, 'AIMPOL (ARIES Imaging Polarimeter)', 3, '', 'optical, ', 445.000000, 8, 658.000000, 8, '', '', 'linear polarisation in BVR bands', '2 arcmin', 0, '1024 x 1024', 0, 0, 1, 'Tektronics 1k CCD with 24 micron pixel size', 'Using the 104-cm telescope, AIMPOL can measure polarisation of a 13 magnitude star in a 2 minute exposure time with 0.18 percent accuracy. \r\nPerformance of this instrument is described by Rautela et al. (2002).'),
 (276, 'ATCFP (ARIES Three Channel Fast Phototmeter)', 5, '', 'optical, ', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 1, '', 'For details on the instrument and science\r\nrefer to the theses by Joshi S. (2005), Girish V. (2005), Ashoka B. N. (2005)'),
 (277, 'AIP (ARIES Infrared Photometer)', 5, '', 'infrared (IR), ', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 1, '', ''),
-(278, 'ACS (ARIES CCD spectrograph)', 1, '', 'optical, ', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1024 x 1024', 0, 0, 0, 'Tektronics 1k CCD with 24 micron pixel size', 'This HR-320 spectrograph is used with the Tek 1k CCD detector to take low resolution spectra of bright stars up to 12 mag. It uses circular aperture and is best suited for estimating continuum and broad (EW 10 angstrom or higher) emission features in stars or astronomical objects.');
+(278, 'ACS (ARIES CCD spectrograph)', 1, '', 'optical, ', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1024 x 1024', 0, 0, 0, 'Tektronics 1k CCD with 24 micron pixel size', 'This HR-320 spectrograph is used with the Tek 1k CCD detector to take low resolution spectra of bright stars up to 12 mag. It uses circular aperture and is best suited for estimating continuum and broad (EW 10 angstrom or higher) emission features in stars or astronomical objects.'),
+(280, 'SBIG ST-7XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 4, '765 x 510', 3600, 0.12, 1, 'KAF-0402ME', 'BVR Custom Scientific Photometric filters (Johnson BV - Cousins R) and SBIG CFW9 Filter Wheel.'),
+(281, 'SBIG STL-11000M-C2', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '4008 x 2672', 3600, 0.001, 1, 'Kodak KAI-11000M, Class 2', 'Built-in 5-position, 50-mm filter wheel which has been fitted with the following 2-inch filters:\r\n1. Hutech IDAS Light pollution suppression (LPS) filter with IGAD Coating\r\n2. Baader L filter\r\n3. Baader R filter\r\n4. Baader G filter\r\n5. Baader B filter\r\n\r\nExtra available 2-inch filters for the "Hubble pallet":\r\n-Astrodon Narrowband H-alpha 3-nm filter 50 mm\r\n-Astrodon Narrowband OIII 3-nm filter 50 mm\r\n-Astrodon Narrowband fSII 3-nm filter 50 mm \r\n\r\nThe SBIG camera has the Astrodon-MOAG-A and the SBIG AOL/STL installed, providing ADAPTIVE OPTICS WITH OFF-AXIS GUIDING.\r\nGuiding camera: Lodestar Autoguider or internal autoguider chip.');
 
 -- --------------------------------------------------------
 
@@ -819,9 +819,9 @@ CREATE TABLE IF NOT EXISTS `observatories` (
 INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_address`, `address`, `zip_code`, `city`, `country_id`, `phone`, `email`, `latitude`, `longitude`, `approx_position`, `sealevel_m`, `precipitation`, `clear_nights`, `timezone`, `observatory_status`, `partner_observatories`, `user_id`, `creation_date`, `modification_date`, `approved`) VALUES
 (1, 'IRAM 30m telescope', 1984, 'Institut de Radioastronomie Millimétrique (IRAM)', 'http://www.iram-institute.org', 'Avenida Divina Pastora 7, 18012, Granada', '18012', 'Granada', 192, '+34-958-80-5454', 'info@iram.fr', 37.068414, -3.398753, 'Pico Veleta, Sierra Nevada Andalusia', 2850, 7, 7, 2, '', 'Plateau de Bure Interferometer (also operated by IRAM)', 0, '2011-02-25 14:10:58', '2011-09-01 13:30:49', 1),
 (2, 'University of London Observatory (ULO)', 1929, 'University College London', 'http://www.ulo.ucl.ac.uk/', '553 Watford Way, Mill Hill London NW7 2QS', 'NW7 2QS', 'London', 217, '+44-203-108-1613', 'kathryn.goldsmith@ucl.ac.uk', 51.600000, -0.233331, '', 78, 7, 7, 1, '', '', 0, '2011-02-25 14:50:57', '2011-12-07 13:50:42', 1),
-(3, 'A81 Balzaretto Observatory', 2005, 'Private persons', 'http://digilander.libero.it/A81_Observatory/', 'Via Giuseppe Balzaretto 184', '', 'Rome', 103, '+39-6-664-11076', 'lor_franco@libero.it', 41.869992, 12.403306, '', 70, 6, 7, 2, '', '', 0, '2011-02-25 15:10:01', '2011-12-07 13:57:56', 1),
+(3, 'A81 Balzaretto Observatory', 2005, 'Privately owned', 'http://digilander.libero.it/A81_Observatory/', 'Via Giuseppe Balzaretto 184', '', 'Rome', 103, '+39-6-664-11076', 'lor_franco@libero.it', 41.869992, 12.403306, '', 70, 6, 7, 2, '', '', 0, '2011-02-25 15:10:01', '2012-01-30 14:09:08', 1),
 (4, 'Armagh Observatory', 1790, 'Armagh Observatory', 'http://www.arm.ac.uk', 'College Hill', 'BT61 9DG', 'Armagh', 217, '+44-2837-522928', 'info@arm.ac.uk', 54.353056, -6.649717, '', 60, 6, 2, 1, '', '', 0, '2011-02-25 15:19:53', '2011-12-07 13:59:10', 1),
-(5, 'Abre Los Ojos', 2008, 'private owned', 'http://www.AbreLosOjos.be', '', '', '', 21, '', 'info@AbreLosOjos.be', 0.000000, 0.000000, '', 50, 7, 7, 2, '', '', 0, '2011-02-25 15:29:48', '2011-12-07 14:01:47', 1),
+(5, 'Abre Los Ojos', 2008, 'Privately owned', 'http://www.AbreLosOjos.be', '', '', '', 192, '', 'info@AbreLosOjos.be', 0.000000, 0.000000, 'Nearest airport: Alicante', 50, 7, 7, 2, '', '', 0, '2011-02-25 15:29:48', '2012-01-30 16:09:19', 1),
 (6, 'European Incoherent Scatter Facility (EISCAT), Tromso', 0, 'EISCAT', 'http://www.eiscat.se/', '', '', 'Tromso', 199, '', '', 69.583331, 19.233331, '', 86, 1, 1, 1, '', 'EISCAT Kiruna, EISCAT Sodankylä, EISCAT Longyearbyen', 0, '2011-02-26 15:47:58', '2011-12-07 14:02:10', 1),
 (7, 'European Incoherent Scatter Facility (EISCAT), Kiruna', 0, 'EISCAT', 'http://www.eiscat.se/', '', '', 'Kiruna', 199, '', '', 67.866667, 20.433333, '', 418, 1, 1, 1, NULL, 'EISCAT Tromso, EISCAT Sodankylä, EISCAT Longyearbyen', 0, '2011-02-26 15:57:57', NULL, 1),
 (8, 'European Incoherent Scatter Facility (EISCAT), Longyearbyen', 0, 'EISCAT', 'http://www.eiscat.se/', '', '', 'Longyearbyen', 199, '', '', 78.150000, 16.016667, '', 445, 1, 1, 1, NULL, 'EISCAT Kiruna, EISCAT Sodankylä, EISCAT Tromso', 0, '2011-02-26 16:05:34', NULL, 1),
@@ -833,7 +833,7 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (14, 'Nyrola', 0, '', 'http://www.ursa.fi/sirius/nytt/nytt@info.html', '', '', '', 72, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, NULL, '', 0, '2011-02-26 17:38:47', NULL, 1),
 (15, 'Pises observatory', 0, '', 'http://pisesobservatoire.free.fr/', '', '', '', 73, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, '', '', 0, '2011-02-26 17:49:39', '2011-12-07 14:05:28', 1),
 (16, 'Hamberg-Bergedorf', 0, '', 'http://www.hs.uni-hamburg.de/', 'Hamburg Observatory, Gojenbergsweg 112, 21029 Hamburg ', '', '', 81, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, '', '', 0, '2011-02-26 17:57:32', '2011-12-07 14:24:55', 1),
-(17, 'Beersel Hills Observatory', 0, '', 'http://users.skynet.be/bho/index.htm', '', '', '', 21, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, '', '', 0, '2011-02-28 17:21:02', '2011-12-07 14:26:19', 1),
+(17, 'Beersel Hills Observatory (BHO)', 1998, 'Privately owned', 'http://users.skynet.be/bho/index.htm', '', '', 'Beersel', 21, '', 'paulvancauteren@skynet.be', 50.760117, 4.303492, 'Beersel is a village appoximately 10km southwest of Brussels.', 0, 7, 7, 2, '', '', 0, '2011-02-28 17:21:02', '2012-01-30 13:47:21', 1),
 (18, 'Belogradchik', 0, '', 'http://www.astro.bas.bg/~aobel', '', '', '', 33, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, '', '', 0, '2011-02-28 17:33:33', '2011-12-07 14:28:01', 1),
 (19, 'Turku-Kevola Observatory', 0, '', '', '', '', '', 72, '', '', 0.000000, 0.000000, '', 0, 1, 1, 1, '', '', 0, '2011-02-28 17:35:34', '2011-12-07 14:29:01', 1),
 (20, 'Byurakan Astrophysical Observatory', 1946, '', 'http://www.bao.am/', 'Byurakan Astrophysical Observatory, Byurakan 378433, Aragatzotn province Armenia', '378433', 'Byurakan', 11, '', 'director@bao.sci.am', 40.350831, 44.241667, '', 1709, 1, 1, 5, '', '', 0, '2011-02-28 21:47:22', '2011-12-07 14:30:16', 1),
@@ -1280,6 +1280,7 @@ INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
 (13, 50),
 (15, 63),
 (16, 63),
+(17, 210),
 (20, 63),
 (23, 2),
 (23, 50),
@@ -1478,10 +1479,10 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (2, 405),
 (2, 406),
 (2, 407),
-(3, 408),
+(3, 649),
 (4, 409),
 (4, 410),
-(5, 411),
+(5, 650),
 (6, 412),
 (6, 413),
 (7, 8),
@@ -1503,8 +1504,8 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (15, 415),
 (15, 416),
 (15, 417),
-(17, 418),
-(17, 419),
+(17, 646),
+(17, 647),
 (18, 420),
 (18, 421),
 (18, 422),
@@ -2891,7 +2892,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=644 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=651 ;
 
 --
 -- Dumping data for table `telescopes`
@@ -2975,18 +2976,14 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `telescope_e
 (405, 'Celestron C14 14-inch Reflector', 3, 2, 0.356000, '3.910', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (406, 'Allen 24-inch Reflector', 5, 0, 0.600000, '7', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (407, 'Radcliffe 18/24-inch Double Refractor', 7, 0, 0.600000, '7', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
-(408, 'Meade LX200 GPS', 3, 0, 0.203000, '2', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (409, 'Troughton Equatorial Telescope', 7, 0, 0.250000, '0.9144', 1, ', ', 0.000000, 1, 0.000000, 1, 'Historic 10-inch equatorial refractor built by Grubb brothers (Dublin) in 1885. Used mostly for visual and video work.'),
 (410, 'Planewave CDK 17-inch Corrected Hall-Dirkham Astrograph', 17, 0, 0.430000, 'f/6.8', 1, ', ', 0.000000, 1, 0.000000, 1, 'Auxiliary Telescope: 10.6 cm f/5.0 apochromatic reflector\r\nGuide Telescope: Equinox 120ED guidescope'),
-(411, '', 3, 0, 0.355000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (412, '', 10, 0, 40.000000, '', 1, '214.3-234.7 MHz, ', 0.000000, 1, 0.000000, 1, ''),
 (413, '', 10, 0, 32.000000, '', 1, '921.0-933.5 MHz, ', 0.000000, 1, 0.000000, 1, ''),
 (414, '', 3, 0, 0.000000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (415, '', 3, 0, 0.000000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (416, '', 3, 0, 0.000000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (417, '', 2, 0, 0.000000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
-(418, '', 15, 0, 0.400000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
-(419, '', 15, 0, 0.000000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (420, '', 2, 0, 0.600000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (421, '', 3, 0, 0.000000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
 (422, '', 2, 0, 0.150000, '', 1, ', ', 0.000000, 1, 0.000000, 1, ''),
@@ -3065,7 +3062,11 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `telescope_e
 (634, '104-cm Sampurnanand Telescope (SNT)', 5, 1, 1.040000, 'f/13', 1, 'ultraviolet (UV), optical, infrared (IR), ', 300.000000, 8, 1000.000000, 8, 'Focal plane instruments:\r\n- Cassegrain plate holder,\r\n- Meinel camera,\r\n- photoelectric photometer,\r\n- near-infrared photometer, \r\n- laboratory spectrum scanner, \r\n- CCD chips of sizes 384x576, 1024x1024 and 2048x2048 pixels. For spectrophotometric observtions, an optical multi-channel analyzer with 1024 pixel Reticon array as detector is also available.\r\n\r\nThe filter set available at ARIES is Johnsons UBV and Cousins RI.'),
 (635, '130-cm Devasthal Fast Optical Telescope (DFOT)', 5, 1, 1.300000, 'f/4', 1, 'infrared (IR), optical, ultraviolet (UV), ', 300.000000, 8, 1000.000000, 8, 'Note: DFOT is located at Devasthal, altitude 2450 m AMSL, Lat. 29.38°, Long. 79.68°\r\n\r\nThree CCD cameras are currently available with the telescope for obtaining images of the celestial sky. The cameras are:\r\n(1) 2048x2048 pixels, 13.5 micron pixel size conventional back-illuminated, deep thermoelectrically cooled (-800 C) CCD,\r\n(2) 512x512 pixels, 16 micron pixel size electron multiplying frame transfer back-illuminated, deep thermoelectrically cooled (-900 C) CCD,\r\n(3) 3326x2504 pixels, 5.4 micron, front illuminated, thermoelectrically cooled (-300 C) conventional CCD. The first two cameras use high quantum efficiency E2V chip, assembled by ANDOR with low read noise electronics. The third camera is from SBIG using Kodak chip.'),
 (638, 'PIRATE Mark II (PlaneWave Instruments CDK17 )', 21, 0, 0.430000, 'f/6.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Main Camera (since September 2011)\r\nSBIG camera STX-16803\r\nKAF-16803 CCD, 4096 x 4096 pixels @ 9μm\r\n42 arc min field of view\r\n5 position filter wheel'),
-(643, 'Alan Cooper Telescope', 3, 0, 0.400000, 'f/10', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'The telescope is a 16-inch Meade LX200.');
+(643, 'Alan Cooper Telescope', 3, 0, 0.400000, 'f/10', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'The telescope is a 16-inch Meade LX200.'),
+(646, '180-mm telescope', 22, 0, 0.180000, '', 1, 'optical, ', 420.000000, 8, 810.000000, 8, 'The 180mm APO refractor is housed in a 4-m rotating aluminium dome (manufactured by Roger Van Huffel), on an AP1200 mount. An SBIG-ST10XME CCD camera is at the prime focus. The camera is equipped with a filter wheel with BVRI filters (Bessel specifications).\r\nDouble-star measurements are performed with the CCD camera or a bifilar micrometer.'),
+(647, '40-cm telescope', 1, 0, 0.400000, 'f/5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'The 40-cm Newtonian reflector was previously housed in the 4-m dome but was recently moved to a darker site.'),
+(649, 'Meade LX200 GPS', 3, 0, 0.203000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(650, '20-inch telescope', 21, 0, 0.508000, 'f/6.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'A PlaneWave Instruments 20" CDK Carbon Fiber Truss Telescope on a Paramount ME mount.\r\n');
 
 -- --------------------------------------------------------
 
@@ -3176,9 +3177,7 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (405, 202),
 (406, 203),
 (407, 204),
-(408, 205),
 (410, 206),
-(411, 207),
 (426, 208),
 (436, 209),
 (436, 210),
@@ -3215,7 +3214,9 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (634, 275),
 (634, 276),
 (634, 277),
-(634, 278);
+(634, 278),
+(649, 280),
+(650, 281);
 
 -- --------------------------------------------------------
 
@@ -3227,7 +3228,7 @@ CREATE TABLE IF NOT EXISTS `telescope_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `telescope_types`
@@ -3252,7 +3253,8 @@ INSERT INTO `telescope_types` (`id`, `name`) VALUES
 (18, 'Schmidt'),
 (19, 'Gregorian Telescope'),
 (20, 'Solar Telescope'),
-(21, 'Corrected Dall-Kirkham Astrograph');
+(21, 'Corrected Dall-Kirkham Astrograph'),
+(22, 'Apochromatic refractor');
 
 -- --------------------------------------------------------
 
@@ -3346,7 +3348,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4040 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4157 ;
 
 --
 -- Dumping data for table `users_statistics`
@@ -7391,7 +7393,124 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (4036, 1, 'home', '2012-01-30 04:24:51'),
 (4037, 1, 'home', '2012-01-30 04:24:51'),
 (4038, 1, 'home', '2012-01-30 10:06:55'),
-(4039, 1, 'home', '2012-01-30 10:06:55');
+(4039, 1, 'home', '2012-01-30 10:06:55'),
+(4040, 1, 'browse', '2012-01-30 12:47:56'),
+(4041, 1, 'browse', '2012-01-30 12:47:58'),
+(4042, 1, 'browse', '2012-01-30 12:48:11'),
+(4043, 1, 'browse', '2012-01-30 12:48:21'),
+(4044, 1, 'browse', '2012-01-30 12:48:25'),
+(4045, 1, 'browse', '2012-01-30 12:48:27'),
+(4046, 1, 'browse', '2012-01-30 12:49:08'),
+(4047, 1, 'login', '2012-01-30 12:49:27'),
+(4048, 1, 'browse', '2012-01-30 12:49:31'),
+(4049, 1, 'login', '2012-01-30 12:49:38'),
+(4050, 9, 'login', '2012-01-30 12:49:39'),
+(4051, 9, 'browse', '2012-01-30 12:49:48'),
+(4052, 9, 'browse', '2012-01-30 12:49:50'),
+(4053, 9, 'browse', '2012-01-30 12:49:51'),
+(4054, 9, 'browse', '2012-01-30 12:50:45'),
+(4055, 9, 'edit', '2012-01-30 12:53:19'),
+(4056, 9, 'edit', '2012-01-30 12:53:21'),
+(4057, 9, 'add', '2012-01-30 12:53:28'),
+(4058, 9, 'add', '2012-01-30 13:36:10'),
+(4059, 9, 'browse', '2012-01-30 13:36:22'),
+(4060, 9, 'edit', '2012-01-30 13:38:33'),
+(4061, 9, 'edit', '2012-01-30 13:38:44'),
+(4062, 9, 'add', '2012-01-30 13:39:05'),
+(4063, 9, 'edit', '2012-01-30 13:44:46'),
+(4064, 9, 'edit', '2012-01-30 13:44:48'),
+(4065, 9, 'add', '2012-01-30 13:45:09'),
+(4066, 9, 'add', '2012-01-30 13:47:21'),
+(4067, 9, 'browse', '2012-01-30 13:47:49'),
+(4068, 9, 'edit', '2012-01-30 13:51:29'),
+(4069, 9, 'edit', '2012-01-30 13:51:31'),
+(4070, 9, 'add', '2012-01-30 13:51:37'),
+(4071, 9, 'add', '2012-01-30 14:02:18'),
+(4072, 9, 'browse', '2012-01-30 14:02:26'),
+(4073, 9, 'edit', '2012-01-30 14:06:37'),
+(4074, 9, 'edit', '2012-01-30 14:06:39'),
+(4075, 9, 'add', '2012-01-30 14:08:44'),
+(4076, 9, 'add', '2012-01-30 14:09:08'),
+(4077, 9, 'browse', '2012-01-30 14:09:27'),
+(4078, 9, 'edit', '2012-01-30 14:28:57'),
+(4079, 9, 'edit', '2012-01-30 14:29:01'),
+(4080, 9, 'add', '2012-01-30 14:29:05'),
+(4081, 1, 'home', '2012-01-30 14:57:06'),
+(4082, 1, 'browse', '2012-01-30 14:57:09'),
+(4083, 1, 'login', '2012-01-30 14:57:14'),
+(4084, 3, 'login', '2012-01-30 14:57:14'),
+(4085, 3, 'browse', '2012-01-30 14:57:16'),
+(4086, 1, 'login', '2012-01-30 15:44:59'),
+(4087, 9, 'login', '2012-01-30 15:44:59'),
+(4088, 9, 'edit', '2012-01-30 15:45:01'),
+(4089, 9, 'edit', '2012-01-30 15:45:03'),
+(4090, 9, 'add', '2012-01-30 15:45:07'),
+(4091, 1, 'browse', '2012-01-30 15:46:04'),
+(4092, 1, 'browse', '2012-01-30 15:46:06'),
+(4093, 1, 'browse', '2012-01-30 15:46:10'),
+(4094, 9, 'add', '2012-01-30 16:09:19'),
+(4095, 9, 'browse', '2012-01-30 16:09:26'),
+(4096, 9, 'edit', '2012-01-30 16:16:13'),
+(4097, 9, 'edit', '2012-01-30 16:16:14'),
+(4098, 9, 'browse', '2012-01-30 16:41:20'),
+(4099, 9, 'add', '2012-01-30 16:43:53'),
+(4100, 1, 'home', '2012-01-30 17:35:13'),
+(4101, 1, 'browse', '2012-01-30 17:35:15'),
+(4102, 1, 'browse', '2012-01-30 17:35:16'),
+(4103, 1, 'home', '2012-01-30 17:56:24'),
+(4104, 1, 'browse', '2012-01-30 17:56:26'),
+(4105, 1, 'browse', '2012-01-30 17:56:28'),
+(4106, 1, 'login', '2012-01-30 17:56:46'),
+(4107, 3, 'login', '2012-01-30 17:56:46'),
+(4108, 3, 'edit', '2012-01-30 17:56:48'),
+(4109, 3, 'edit', '2012-01-30 17:56:50'),
+(4110, 3, 'add', '2012-01-30 17:56:55'),
+(4111, 3, 'home', '2012-01-30 17:56:58'),
+(4112, 9, 'browse', '2012-01-30 18:25:49'),
+(4113, 9, 'logout', '2012-01-30 18:27:54'),
+(4114, 1, 'home', '2012-01-30 18:27:55'),
+(4115, 1, 'logout', '2012-01-30 18:27:57'),
+(4116, 1, 'home', '2012-01-30 18:27:57'),
+(4117, 1, 'home', '2012-01-30 20:45:36'),
+(4118, 1, 'home', '2012-01-30 20:45:37'),
+(4119, 1, 'browse', '2012-01-30 20:45:39'),
+(4120, 1, 'browse', '2012-01-30 20:45:40'),
+(4121, 1, 'browse', '2012-01-30 20:45:41'),
+(4122, 1, 'home', '2012-01-30 20:45:42'),
+(4123, 1, 'browse', '2012-01-30 20:45:46'),
+(4124, 1, 'home', '2012-01-30 20:45:47'),
+(4125, 1, 'browse', '2012-01-30 20:55:15'),
+(4126, 1, 'browse', '2012-01-30 21:07:17'),
+(4127, 1, 'browse', '2012-01-30 21:07:19'),
+(4128, 1, 'map', '2012-01-30 21:07:46'),
+(4129, 1, 'browse', '2012-01-30 21:07:54'),
+(4130, 1, 'browse', '2012-01-30 21:07:56'),
+(4131, 1, 'browse', '2012-01-30 21:08:01'),
+(4132, 1, 'home', '2012-01-30 21:17:51'),
+(4133, 1, 'browse', '2012-01-30 21:17:53'),
+(4134, 1, 'browse', '2012-01-30 21:17:55'),
+(4135, 1, 'browse', '2012-01-30 21:17:59'),
+(4136, 1, 'browse', '2012-01-30 21:19:09'),
+(4137, 1, 'browse', '2012-01-30 21:26:46'),
+(4138, 1, 'browse', '2012-01-30 21:32:50'),
+(4139, 1, 'browse', '2012-01-30 21:38:11'),
+(4140, 1, 'browse', '2012-01-30 21:40:57'),
+(4141, 1, 'browse', '2012-01-30 21:56:07'),
+(4142, 1, 'browse', '2012-01-30 21:56:15'),
+(4143, 1, 'browse', '2012-01-30 21:56:24'),
+(4144, 1, 'home', '2012-01-31 03:25:16'),
+(4145, 1, 'map', '2012-01-31 07:30:14'),
+(4146, 1, 'home', '2012-01-31 10:15:03'),
+(4147, 1, 'home', '2012-01-31 10:15:03'),
+(4148, 1, 'map', '2012-01-31 11:06:18'),
+(4149, 1, 'registration_q', '2012-01-31 17:17:56'),
+(4150, 1, 'home', '2012-02-01 06:59:09'),
+(4151, 1, 'browse', '2012-02-01 07:37:50'),
+(4152, 1, 'browse', '2012-02-01 07:37:50'),
+(4153, 1, 'home', '2012-02-01 10:37:13'),
+(4154, 1, 'home', '2012-02-01 10:37:14'),
+(4155, 1, 'home', '2012-02-01 11:04:36'),
+(4156, 1, 'home', '2012-02-01 11:04:36');
 
 -- --------------------------------------------------------
 
