@@ -466,7 +466,9 @@ INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES
 INSERT INTO `europlanet_na1`.`wavelength_units` (`id`, `wavelength_unit`) VALUES (NULL, 'cm');
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 975 */
+UPDATE  `europlanet_na1`.`research_areas` SET  `domain` =  'GENERAL ASTRONOMY',
+`name` =  'GENERAL ASTRONOMY' WHERE  `research_areas`.`id` =131 LIMIT 1 ;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

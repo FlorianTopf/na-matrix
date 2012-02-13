@@ -16,9 +16,9 @@ print "<table class='create'>" . LF;
 //Space mission name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
 if($action == "edit")
-	printInputTextRow("Space Mission name", "update_spa_name", $_spacemission->get_field("spa_mission_name"), 80, NULL, NULL, TRUE);
+	printInputTextRow("Space Mission Name", "update_spa_name", $_spacemission->get_field("spa_mission_name"), 80, NULL, NULL, TRUE);
 else
-	printInputTextRow("Space Mission name", "add_spa_name", $_spacemission->get_field("spa_mission_name"), 80, NULL, NULL, TRUE);
+	printInputTextRow("Space Mission Name", "add_spa_name", $_spacemission->get_field("spa_mission_name"), 80, NULL, NULL, TRUE);
 
 //Mission agency - MANDATORY
 $agencies = $_spacemission->get_agencies();
@@ -33,10 +33,10 @@ printInputTextRow("Launch Date", "add_spa_launch", $_spacemission->get_field("sp
 printInputTextRow("Mission End", "add_spa_death", $_spacemission->get_field("spa_death_date"), 12, "[YYYY-MM-DD]", NULL, FALSE);
 
 //Web address
-printInputTextRow("Web address", "add_spa_web_address", $_spacemission->get_field("spa_web_address"), 80, "[http://...]", NULL, FALSE);
+printInputTextRow("Web Address", "add_spa_web_address", $_spacemission->get_field("spa_web_address"), 80, "[http://...]", NULL, FALSE);
 
 //Brief Description
-printInputTextfieldRow("Brief description", "add_spa_brief_desc", $_spacemission->get_field("spa_brief_description"), 65);
+printInputTextfieldRow("Brief Description", "add_spa_brief_desc", $_spacemission->get_field("spa_brief_description"), 65);
 print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
@@ -84,15 +84,15 @@ if(is_array($_spacemission->get_has_many("sensors")))
 
       	//Sensor Name:
       	/** @todo validate => MANDATORY, but we have a little problem here, you can leave the form empty! */
-		printInputTextRow("Sensor name", "add_spa_sen_name[{$sensor_count}]", $_spacemission->get_sensor("sensor_name", $sensor_count));
+		printInputTextRow("Sensor Name", "add_spa_sen_name[{$sensor_count}]", $_spacemission->get_sensor("sensor_name", $sensor_count));
       	//Sensor Type:
-		printInputTextRow("Sensor type", "add_spa_sen_type[{$sensor_count}]", $_spacemission->get_sensor("sensor_type", $sensor_count));
+		printInputTextRow("Sensor Type", "add_spa_sen_type[{$sensor_count}]", $_spacemission->get_sensor("sensor_type", $sensor_count));
       	//Underlying Instrumentation:
 		printInputTextRow("Underlying Instrumentation", "add_spa_sen_under[{$sensor_count}]", $_spacemission->get_sensor("underlying", $sensor_count));
       	//Range begin: VALIDATION uses standard message
-		printInputTextRow("Range begin", "add_spa_sen_range_beg[{$sensor_count}]", $_spacemission->get_sensor("range_begin", $sensor_count), 10, NULL, "number");
+		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", $_spacemission->get_sensor("range_begin", $sensor_count), 10, NULL, "number");
       	//Range end: VALIDATION uses standard message
-		printInputTextRow("Range end", "add_spa_sen_range_end[{$sensor_count}]", $_spacemission->get_sensor("range_end", $sensor_count), 10, NULL, "number");
+		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", $_spacemission->get_sensor("range_end", $sensor_count), 10, NULL, "number");
       	//Units:
 		printInputTextRow("Units", "add_spa_sen_units[{$sensor_count}]", $_spacemission->get_sensor("units", $sensor_count), 30);
       	//Measured:
@@ -102,9 +102,9 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	//Field of View:
 		printInputTextRow("Field of View", "add_spa_sen_fov[{$sensor_count}]", $_spacemission->get_sensor("field_of_view", $sensor_count), 60);
         //Web address
-		printInputTextRow("Web address", "add_spa_sen_web[{$sensor_count}]", $_spacemission->get_sensor("web_address", $sensor_count));
+		printInputTextRow("Web Address", "add_spa_sen_web[{$sensor_count}]", $_spacemission->get_sensor("web_address", $sensor_count));
         //Sensor comments
-		printInputTextfieldRow("Sensor comments", "add_spa_sensor_com[{$sensor_count}]", $_spacemission->get_sensor("sensor_comments", $sensor_count), 65);
+		printInputTextfieldRow("Sensor Comments", "add_spa_sensor_com[{$sensor_count}]", $_spacemission->get_sensor("sensor_comments", $sensor_count), 65);
  		print "</table>" . LF;
 
 		//Science Goals - COMMENTED ATM BECAUSE STILL IN DISCUSSION

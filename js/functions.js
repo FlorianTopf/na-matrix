@@ -9,6 +9,7 @@
  * @todo improve regular expressions where possible
  * @todo check every .each function and return false, cause it will break iteration, 
  * 		 see: http://api.jquery.com/jQuery.each/
+ * @todo we need to clean up the JS libraries, since it gets more and more complicated
  */
 
 //OPENWIN for VIEW single resource
@@ -201,6 +202,13 @@ $(document).ready(function(){
 //	      return false;
 //	    }
 //	  });
+	
+	//enabling tooltips
+	$('#middle-marker *').tooltip({
+	showURL: false,
+	showBody: " - "
+	});
+	
 	//warning if javascript off
 	$('p.warning').remove();
 	//hide all .error labels, if costum labels are inserted in html

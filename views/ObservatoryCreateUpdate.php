@@ -3,6 +3,8 @@
  * @file ObservatoryCreateUpdate.php
  * @version $Id$
  * @author Florian Topf, Robert Stöckler
+ * 
+ * NEW TOOLTIPS ADDED!!
  */
 
 print "<div><input type='hidden' name='page' value='add'/>" . LF;
@@ -10,29 +12,54 @@ print "<input type='hidden' name='add_res_id' value='{$resource_id}'/>" . LF;
 print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . LF;
 //show_message();
 
-print "<fieldset class='rfield'><legend>Ground-based facility General</legend>" . LF;
+print "<fieldset class='rfield'><legend>Ground-based Facility General</legend>" . LF;
 print "<table class='create'>" . LF;
 
+//Here we will add the introduction how to work with the matrix!
 
-//Observatory name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
+//Observatory Name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
+$name_tooltip = "Facility Name - Please fill in the name of your facility. Please be aware that this is a 
+MANDATORY FIELD.<br/>If the facility is privately owned, and has no specific name, <br/>you can simply 
+fill in &quot;private facility&quot;.<br/><b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;";
 if($action == "edit")
-	printInputTextRow("Facility name", "update_obs_name", $_observatory->get_field("obs_name"), 80, NULL, NULL, TRUE);
+	printInputTextRow("Facility Name", "update_obs_name", $_observatory->get_field("obs_name"), 
+			80, NULL, NULL, TRUE, $name_tooltip);
 else
-	printInputTextRow("Facility name", "add_obs_name", $_observatory->get_field("obs_name"), 80, NULL, NULL, TRUE);
+	printInputTextRow("Facility Name", "add_obs_name", $_observatory->get_field("obs_name"), 
+			80, NULL, NULL, TRUE, $name_tooltip);
 
-//Year founded - check if is an YEAR
-printInputTextRow("Year founded", "add_obs_founded", $_observatory->get_field("obs_founded"), 4, "[YYYY]", "add_obs_founded");
+//Year Founded - check if it is a YEAR
+$year_tooltip = "Year Founded - Please insert the year [YYYY] the facility was founded. 
+<br/><b>Example:</b> &quot;1968&quot;";
+printInputTextRow("Year Founded", "add_obs_founded", $_observatory->get_field("obs_founded"), 
+			4, "[YYYY]", "add_obs_founded", FALSE, $year_tooltip);
 //Institution
-printInputTextRow("Institution", "add_obs_institution", $_observatory->get_field("obs_institution"));
-//Web address
-printInputTextRow("Web address", "add_obs_web_address", $_observatory->get_field("obs_web_address"), 80, "[http://...]");
+$institution_tooltip = "Institution - Please insert the institution/owner of the facility.<br/>
+If it is privately owned, you can simply fill in &quot;privately owned facility&quot;. <br/><b>Example:</b> 
+&quot;Space Research Institute, Austrian Academy of Sciences&quot;";
+printInputTextRow("Institution", "add_obs_institution", $_observatory->get_field("obs_institution"),
+			80, NULL, NULL, FALSE, $institution_tooltip);
+//Web Address
+$web_tooltip = "Web Address - Please insert the web address of the facility.<br/>
+Please be aware that this has to be a valid URL.<br/><b>Example:</b> &quot;http://www.jach.hawaii.edu/JCMT/&quot;";
+printInputTextRow("Web Address", "add_obs_web_address", $_observatory->get_field("obs_web_address"), 
+			80, "[http://...]", NULL, FALSE, $web_tooltip);
 //Address
-printInputTextRow("Address", "add_obs_address", $_observatory->get_field("obs_address"));
-//ZIP code
-printInputTextRow("ZIP code", "add_obs_zip_code", $_observatory->get_field("obs_zip_code"), 10);
-//City
-printInputTextRow("City", "add_obs_city",  $_observatory->get_field("obs_city"), 30);
+$address_tooltip = "Address - Please insert the address of your facility.</br> 
+i.e. the street name and name number, the city/area, and the ZIP code.<br/>
+<b>Example:</b> &quot;650 North A&#39;ohoku Place Hilo, 96720, Hawaii&quot;";
+printInputTextRow("Address", "add_obs_address", $_observatory->get_field("obs_address"), 
+			80, NULL, NULL, FALSE, $address_tooltip);
+// ---------------- Obsolete => Will be removed ----------------------
+if ($_SESSION["user_level"] > 11)
+{
+	//ZIP Code
+	printInputTextRow("ZIP Code", "add_obs_zip_code", $_observatory->get_field("obs_zip_code"), 10);
+	//City
+	printInputTextRow("City", "add_obs_city",  $_observatory->get_field("obs_city"), 30);
+}
+// ---------------- Obsolete => Will be removed----------------------
 //Country - MANDATORY
 $countries = $_observatory->get_countries();
 $options = array("<option value=''>Please choose...</option>");
@@ -92,24 +119,24 @@ print "<label for='add_obs_longitude[cent]' class='error' style='display: none;'
 print "</td></tr>";
 
 //Approximate position
-printInputTextRow("Approximate position", "add_obs_position", $_observatory->get_field("obs_approx_position"));
+printInputTextRow("Approximate Position", "add_obs_position", $_observatory->get_field("obs_approx_position"));
 //Sealevel
 printInputTextRow("Sealevel", "add_obs_sealevel", $_observatory->get_field("obs_sealevel_m"), 10, "[m]");
 //Precipitation range
 $p_ranges = $_observatory->get_precipitation_ranges();
-printSelectListRowFromArray("Precipitiation range", "add_obs_precip_id", $_observatory->get_field("obs_precipitation"), $p_ranges, "range", "[mm/Y]");
+printSelectListRowFromArray("Precipitiation Range", "add_obs_precip_id", $_observatory->get_field("obs_precipitation"), $p_ranges, "range", "[mm/Y]");
 //Clear nights
 $c_ranges = $_observatory->get_clearnights_ranges();
-printSelectListRowFromArray("Clear nights", "add_obs_clearnights_id", $_observatory->get_field("obs_clear_nights"), $c_ranges, "range", "[D]");
+printSelectListRowFromArray("Clear Nights", "add_obs_clearnights_id", $_observatory->get_field("obs_clear_nights"), $c_ranges, "range", "[D]");
 //Timezone
 $timezones = $_observatory->get_timezones();
 printSelectListRowFromArray("Timezone", "add_obs_timezone_id", $_observatory->get_field("obs_timezone"), $timezones, "timezone", "[GMT+/-]");
 //Observatory Status
-printInputTextRow("Facility status", "add_obs_status", $_observatory->get_field("obs_observatory_status"));
+printInputTextRow("Facility Status", "add_obs_status", $_observatory->get_field("obs_observatory_status"));
 //Partner Facilities
-printInputTextRow("Partner/Umbrella facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"));
+printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"));
 //General comments
-printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
+printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;
 
 //SCIENTIFIC CONTACTS
@@ -136,7 +163,7 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 	}
 print "</table><table class='create'>";
 //Further contacts
-printInputTextfieldRow("Further contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
+printInputTextfieldRow("Further Contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
 print "</table></fieldset>" . LF;
 
 //HIDDEN FIELDS:
@@ -161,7 +188,7 @@ $options = array("<option value=''>Please choose one or several by holding CTRL.
 printBigSelectListFromArray("Research Areas", "add_obs_res_are_ids[]",
 	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
 //Research comments
-printInputTextfieldRow("Research comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
+printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
 print "</table></fieldset>" . LF;
 
 //TARGETS: NOT MANDADORY
@@ -228,7 +255,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 	    //Focallength
 		printInputTextRow("Focallength", "add_obs_focallength[{$telescope_count}]",
-			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m/F]");
+			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or F-Ratio");
 
 		//  ---------------- Questionnaire Start ----------------------
 		if (!($_SESSION["user_level"] <= 11))
@@ -239,12 +266,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$_observatory->get_telescope("antenna_type", $telescope_count), $antenna_types, "antenna_type", NULL, FALSE, $options);
 
 		//Wavelength
-		printInputTextRow("Wavelength", "add_obs_wavelength[{$telescope_count}]",
+		printInputTextRow("Wavelength Region", "add_obs_wavelength[{$telescope_count}]",
 			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength");
 
 	    //Wavelength/Freq Begin
 	    print "<tr>";
-		printInputTitleCol("Wavelength/Freq Begin");
+		printInputTitleCol("Wavelength or Freq. Begin");
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_b[{$telescope_count}]", $_observatory->get_telescope("wavelength_begin", $telescope_count), 10, "number");
 		ws(3);
@@ -254,7 +281,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 		//Wavelength/Freq End
 	    print "<tr>";
-		printInputTitleCol("Wavelength/Freq End");
+		printInputTitleCol("Wavelength or Freq. End");
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_e[{$telescope_count}]", $_observatory->get_telescope("wavelength_end", $telescope_count), 10, "number");
 		ws(3);
@@ -314,13 +341,13 @@ if(is_array($_observatory->get_has_many("telescopes")))
 					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 40);
 
 	        	//Wavelength
-				printInputTextRow("Wavelength", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
+				printInputTextRow("Wavelength Region", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength");
 
 	        	/** @todo how to implement validation here? */
 	        	//Wavelength Begin
 		  		print "<tr>";
-				printInputTitleCol("Wavelength/Freq Begin");
+				printInputTitleCol("Wavelength or Freq. Begin");
 				print "<td align='left'>";
 				printInputText("add_obs_instrument_wavelength_b[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_begin", $telescope_id, $instrument_count), 10, "number");
@@ -332,7 +359,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	      		/** @todo how to implement validation here? */
 	      		//Wavelength End
 		  		print "<tr>";
-				printInputTitleCol("Wavelength/Freq End");
+				printInputTitleCol("Wavelength or Freq. End");
 				print "<td align='left'>";
 				printInputText("add_obs_instrument_wavelength_e[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_end", $telescope_id, $instrument_count), 10, "number");
@@ -354,22 +381,22 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				printInputTextRow("Field of View", "add_obs_instrument_field_of_view[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("field_of_view", $telescope_id, $instrument_count), 40);
 		        //Max Frames per sec
-				printInputTextRow("MAX frames", "add_obs_instrument_max_frames[{$telescope_count}][{$instrument_count}]",
+				printInputTextRow("MAX Frames", "add_obs_instrument_max_frames[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("max_frames_per_sec", $telescope_id, $instrument_count), 10, "[per second]&nbsp;(Camera)");
 				//Frame size
-				printInputTextRow("Frame size", "add_obs_instrument_frame_size[{$telescope_count}][{$instrument_count}]",
+				printInputTextRow("Frame Size", "add_obs_instrument_frame_size[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("frame_size", $telescope_id, $instrument_count), 20, "[pixel*pixel]&nbsp;(Camera)");
 				//Max exposure time
-				printInputTextRow("MAX exposure time", "add_obs_instrument_max_exposure[{$telescope_count}][{$instrument_count}]",
+				printInputTextRow("MAX Exposure Time", "add_obs_instrument_max_exposure[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("max_exposure_time", $telescope_id, $instrument_count), 10, "[seconds]&nbsp;(Camera)");
 				//Min exposure time
-				printInputTextRow("MIN exposure time", "add_obs_instrument_min_exposure[{$telescope_count}][{$instrument_count}]",
+				printInputTextRow("MIN Exposure Time", "add_obs_instrument_min_exposure[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("min_exposure_time", $telescope_id, $instrument_count), 10, "[seconds]&nbsp;(Camera)");
 				//Color / B/W chip
-				printCheckBoxRow("Only B/W chip?", "add_obs_instrument_bw_chip[{$telescope_count}][{$instrument_count}]",
+				printCheckBoxRow("Only B/W Chip?", "add_obs_instrument_bw_chip[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("color_bw_chip", $telescope_id, $instrument_count), "(Camera)");
 				//CCD chip type
-				printInputTextRow("CCD chip type", "add_obs_instrument_chip_type[{$telescope_count}][{$instrument_count}]",
+				printInputTextRow("CCD Chip Type", "add_obs_instrument_chip_type[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("ccd_chip_type", $telescope_id, $instrument_count), 50, "(Camera)");
 				//Instrument Comments
 				printInputTextfieldRow("Instrument Comments", "add_obs_instrument_comments[{$telescope_count}][{$instrument_count}]",
@@ -394,11 +421,11 @@ print "<table class='create'>" . LF;
 //Instrument comments
 //printInputTextfieldRow("Instrument comments", "add_obs_inst_com", $_observatory->get_add_info('instrument_comments'));
 //Additional instruments
-printInputTextfieldRow("Additional instruments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'));
+printInputTextfieldRow("Additional Instruments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'));
 //Array description
-printInputTextfieldRow("Array description", "add_obs_array_desc", $_observatory->get_add_info('array_description'));
+printInputTextfieldRow("Array Description", "add_obs_array_desc", $_observatory->get_add_info('array_description'));
 //Backend description
-printInputTextfieldRow("Backend description", "add_obs_backend_desc", $_observatory->get_add_info('backend_description'));
+printInputTextfieldRow("Backend Description", "add_obs_backend_desc", $_observatory->get_add_info('backend_description'));
 //Research comments
 //printInputTextfieldRow("Research comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
 //General comments

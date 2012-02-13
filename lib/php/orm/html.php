@@ -154,9 +154,9 @@ function printSimpleSelectListFromArray($name, $value, $items)
 }
 
 
-function printInputTitleCol($title, $info=NULL, $mandatory=false)
+function printInputTitleCol($title, $info=NULL, $mandatory=false, $tooltip="")
 {
-	print makeTAG("td", makeInputTitle($title, $info, $mandatory), "align='left'");
+	print makeTAG("td", makeInputTitle($title, $info, $mandatory), "align='left' title='" . $tooltip . "'");
 }
 
 
@@ -192,7 +192,7 @@ function printmultipleCheckBoxRow($name, $items)
 	$iterator = 0;
 	foreach ($items as $key => $value)
 	{
-		print "<td align='center'><b>". ucfirst(str_replace("_", " ", $key)) . "&nbsp;</b>" .
+		print "<td align='center'><b>". ucwords(str_replace("_", " ", $key)) . "&nbsp;</b>" .
 		makeCheckBox($name . "_" . $iterator, $value);
     	print "</td>" . LF;
     	$iterator++;
@@ -200,11 +200,13 @@ function printmultipleCheckBoxRow($name, $items)
 	print "</tr>" . LF;
 }
 
-/** @todo improve this a bit */
-function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=NULL, $mandatory=false) 
+/** @todo improve this a bit 
+ *  @todo we have to rearrange the various options you may add
+ * */
+function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=NULL, $mandatory=false, $tooltip="") 
 {	
 	print "<tr>";
-	printInputTitleCol($title, $info, $mandatory);
+	printInputTitleCol($title, $info, $mandatory, $tooltip);
 	printInputTextCol($name, $value, $size, NULL, $class, NULL);
     print "</tr>" . LF;
 }
