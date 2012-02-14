@@ -111,7 +111,9 @@ class Controller
 
             				/** @todo here we add some sexy backlinks */
             				
-            				/** mail functionality, resource name, id and username */
+            				/** @todo mail functionality, resource name, id and username 
+            				 * we need to add here also a mail functionality for the user (to be approved) 
+            				 * */
             				self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
           				}
           				else
@@ -134,7 +136,9 @@ class Controller
             				$_observatory->add_obs_keys($res_id, $action);
             				print "<h4>Thank You! </br>The Observatory has been updated in the database!</h4>" . LF;
             				
-            				/** @todo mail functionality, resource name, id and username*/
+            				/** @todo mail functionality, resource name, id and username
+            				 * we need to add here also a mail functionality for the user (to be approved)
+            				 * */
             				self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
@@ -417,7 +421,7 @@ class Controller
                $res_name . "' (resource id: " . $res_id . "); contact email is " .
                $email . "\n";
 
-    mail(MAIL_TO, $subject, $message, $headers, $from);
+    mail(MAIL_TO_ADD, $subject, $message, $headers, $from);
   }
 
 
