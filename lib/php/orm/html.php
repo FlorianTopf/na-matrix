@@ -212,19 +212,19 @@ function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=N
 }
 
 /** @todo improve this a bit */
-function printInputTextfieldRow($title, $name, $value, $cols=65, $rows=3, $info=NULL, $mandatory=false) 
+function printInputTextfieldRow($title, $name, $value, $cols=65, $rows=3, $info=NULL, $mandatory=false, $tooltip="") 
 {	
 	print "<tr>";
-	printInputTitleCol($title, $info, $mandatory);	
+	printInputTitleCol($title, $info, $mandatory, $tooltip);	
 	print "<td align='left'><textarea name='{$name}'" .
 	  	" cols='{$cols}' rows='{$rows}'>{$value}</textarea></td></tr>" . LF;
 }
 
 /** @todo improve this a bit */
-function printSelectListRowFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array())
+function printSelectListRowFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array(), $tooltip="")
 {
 	print "<tr>";
-	printInputTitleCol($title, $info, $mandatory);	
+	printInputTitleCol($title, $info, $mandatory, $tooltip);	
 	printSelectListColFromArray($name, $value, $items, $column, $options);
 	print "</tr>" . LF;
 }

@@ -61,18 +61,36 @@ if ($_SESSION["user_level"] > 11)
 }
 // ---------------- Obsolete => Will be removed----------------------
 //Country - MANDATORY
+$country_tooltip = "Country - Please insert the country name where the facility is located.<br/>
+Please be aware that this is a MANDATORY FIELD.<br/>
+<b>Example:</b> &quot;United Kingdom&quot;";
 $countries = $_observatory->get_countries();
 $options = array("<option value=''>Please choose...</option>");
-printSelectListRowFromArray("Country", "add_obs_country_id",
-	$_observatory->get_field("obs_country_id"), $countries, "name", NULL, TRUE, $options);
+printSelectListRowFromArray("Country", "add_obs_country_id", $_observatory->get_field("obs_country_id"), 
+			$countries, "name", NULL, TRUE, $options, $country_tooltip);
 //Phone
-printInputTextRow("Phone", "add_obs_phone", $_observatory->get_field("obs_phone"), 30);
+$phone_tooltip = "Phone - Please insert the phone-number in the following way:</br>
+[+XX-YYY-ZZZ-ZZZZ] with X=country code, Y=area code, Z=local number.</br>
+<b>Example:</b> &quot;+56-51-205-600&quot;";
+printInputTextRow("Phone", "add_obs_phone", $_observatory->get_field("obs_phone"), 
+			30, NULL, NULL, FALSE, $phone_tooltip);
 //Email
-printInputTextRow("Email", "add_obs_email", $_observatory->get_field("obs_email"), 30);
+$email_tooltip = "Email - Please insert your email-address</br>
+(or at least the email-address of the potential contact person).</br> 
+Please be aware that the email-address has to be valid.</br>
+<b>Example:</b> &quot;john.doe@example.com&quot;";
+printInputTextRow("Email", "add_obs_email", $_observatory->get_field("obs_email"), 
+			30, NULL, NULL, FALSE, $email_tooltip);
 
-//Latitude
+//Latitude			
+$gps_tooltip = "Please insert the geographic position of the facility,</br> 
+ideally in World Geodetic System 1984 (WGS84) format.</br>
+If the geographic position is in any other format, </br>the position on the map can differ up to more than 100 m.</br>
+Both, latitude & longitude should be entered in Degree (&deg;), Minutes (&#39;),</br> Seconds (&#39;&#39;), and hundredths of a Second (&#39;&#39;&#39;).</br>
+So if you want to enter 56&deg;21&#39;23.1&#39;&#39; &#8212; [56]&deg; [21]&#39; [23]&#39;&#39; [10]&#39;&#39;&#39;";
+$lat_tooltip = "Latitude - " . $gps_tooltip;
 print "<tr>";
-printInputTitleCol("Latitude");
+printInputTitleCol("Latitude", NULL, FALSE, $lat_tooltip);
 print "<td align='left'>";
 printSimpleSelectListFromArray("add_obs_latitude[prefix]", $_observatory->get_field_array("obs_latitude", "prefix"),
 	$_observatory->_latitudePrefixes);
@@ -95,8 +113,9 @@ print "<label for='add_obs_latitude[cent]' class='error' style='display: none;'>
 print "</td></tr>";
 
 //Longitude
+$long_tooltip = "Longitude - " . $gps_tooltip; 
 print "<tr>";
-printInputTitleCol("Longitude");
+printInputTitleCol("Longitude", NULL, FALSE, $long_tooltip);
 print "<td align='left'>";
 printSimpleSelectListFromArray("add_obs_longitude[prefix]", $_observatory->get_field_array("obs_longitude", "prefix"),
 	$_observatory->_longitudePrefixes);
@@ -119,24 +138,61 @@ print "<label for='add_obs_longitude[cent]' class='error' style='display: none;'
 print "</td></tr>";
 
 //Approximate position
-printInputTextRow("Approximate Position", "add_obs_position", $_observatory->get_field("obs_approx_position"));
+$pos_tooltip = "Approximate Position - Please insert an approximate position of the facility.</br>
+This is a good option if you do not want to publish the exact position of the </br>
+facility in geographic coordinates (see input above) for any reason.</br>
+The approximate position should be some local information, </br>
+like a city or region where the facility is located.</br>
+An approximate position for the Observatory Lustb&uuml;hel near Graz, Austria</br> would therefore e.g. be the city of Graz.</br>
+If you have a mobile observing facility, then you can also state this here.</br> <b>Example:</b> &quot;Mobile facility, generally located near Graz.&quot;";
+printInputTextRow("Approximate Position", "add_obs_position", $_observatory->get_field("obs_approx_position"), 
+			80, NULL, NULL, FALSE, $pos_tooltip);
 //Sealevel
-printInputTextRow("Sealevel", "add_obs_sealevel", $_observatory->get_field("obs_sealevel_m"), 10, "[m]");
+$sealevel_tooltip = "Sealevel - Please insert the mean sealevel (MSL) of the facility (in meters above sealevel).</br>
+<b>Example:</b> &quot;353&quot;";
+printInputTextRow("Sealevel", "add_obs_sealevel", $_observatory->get_field("obs_sealevel_m"), 
+			10, "[m]", NULL, FALSE, $sealevel_tooltip);
 //Precipitation range
+$p_tooltip = "Precipitation Range - Please choose the precipitation range of the region of your facility,</br>
+i.e. the precipitation per year in millimeters. If it is not given, unclear, </br>
+or you just mean it is not worth being displayed, please leave the default value (&quot;---&quot;).";
 $p_ranges = $_observatory->get_precipitation_ranges();
-printSelectListRowFromArray("Precipitiation Range", "add_obs_precip_id", $_observatory->get_field("obs_precipitation"), $p_ranges, "range", "[mm/Y]");
+printSelectListRowFromArray("Precipitiation Range", "add_obs_precip_id", $_observatory->get_field("obs_precipitation"), 
+			$p_ranges, "range", "[mm/Y]", FALSE, array(), $p_tooltip);
 //Clear nights
+$c_tooltip = "Clear Nights - Please choose the clear nights of the region of your facility,</br>
+i.e. nights (or days in case of e.g. solar observatories)</br> in which reasonable observations are possible.
+If it is not given, unclear, </br>or you just mean it is not worth being displayed, please leave the default value (&quot;---&quot;).";
 $c_ranges = $_observatory->get_clearnights_ranges();
-printSelectListRowFromArray("Clear Nights", "add_obs_clearnights_id", $_observatory->get_field("obs_clear_nights"), $c_ranges, "range", "[D]");
+printSelectListRowFromArray("Clear Nights", "add_obs_clearnights_id", $_observatory->get_field("obs_clear_nights"), 
+			$c_ranges, "range", "[D]", FALSE, array(), $c_tooltip);
 //Timezone
+$time_tooltip = "Timezone - Please select the timezone of the region of your facility. </br>
+Please be aware that the timezone is in Greenwich Mean Time (GMT) plus/minus hours, </br>
+i.e. originally the mean solar time at Royal Observatory London in Greenwich, UK.</br>
+So the Royal Observatory’s timezone is &quot;GMT+00&quot;.";
 $timezones = $_observatory->get_timezones();
-printSelectListRowFromArray("Timezone", "add_obs_timezone_id", $_observatory->get_field("obs_timezone"), $timezones, "timezone", "[GMT+/-]");
-//Observatory Status
-printInputTextRow("Facility Status", "add_obs_status", $_observatory->get_field("obs_observatory_status"));
+printSelectListRowFromArray("Timezone", "add_obs_timezone_id", $_observatory->get_field("obs_timezone"),
+			$timezones, "timezone", "[GMT+/-]", FALSE, array(), $time_tooltip);
+//Facility Status
+$status_tooltip = "Facility Status - Please insert the status, of your facility, i.e. if it is active in research, </br>
+just for public outreach, inoperative, or anything else.</br>
+<b>Example:</b> &quot;Currently under construction&quot;";
+printInputTextRow("Facility Status", "add_obs_status", $_observatory->get_field("obs_observatory_status"), 
+			80, NULL, NULL, FALSE, $status_tooltip);
 //Partner Facilities
-printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"));
+$partner_tooltip = "Partner/Umbrella Facilities - Please insert potential partner observatories/facilities and/or partner institutions.</br>
+If there are more than one, please separate them with commas and a blank character.</br>
+<b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;;</br>
+<b>Example for more than one partner observatory:</b> &quot;Observatory Kanzelh&ouml;he,</br>
+Observatory Hvar, Observatory Lustb&uuml;hel";
+printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"),
+			80, NULL, NULL, FALSE, $partner_tooltip);
 //General comments
-printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
+$comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no typographic conventions.</br>
+<b>Example:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
+printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'),
+			65, 3, NULL, FALSE, $comm_tooltip);
 print "</table></fieldset>" . LF;
 
 //SCIENTIFIC CONTACTS

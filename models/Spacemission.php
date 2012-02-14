@@ -15,7 +15,7 @@
  * integrate set_message() with error by checking in controller each time
  * if a SESSION error ocurred show_message()
  * 
- * @todo check all htmlentities occurences, they are not needed in some cases!
+ * @todo check all htmlentities/htmlspecialchars occurences!!
  */
 class SpacemissionDAO extends ModelDAO
  {
@@ -72,7 +72,7 @@ class SpacemissionDAO extends ModelDAO
 // 	public function get_field($field)
 //	{
 //		if(array_key_exists($field, $this->_fields))
-//			return $this->_fields[$field];
+//			return htmlspecialchars($this->_fields[$field], ENT_QUOTES);
 //		else
 //			return NULL;
 //	}
@@ -174,7 +174,7 @@ class SpacemissionDAO extends ModelDAO
 	public function get_sensor($x_field, $y_field)
 	{
 		if(isset($this->_sensors[$x_field][$y_field]))
-			return $this->_sensors[$x_field][$y_field];
+			return htmlspecialchars($this->_sensors[$x_field][$y_field], ENT_QUOTES);
 		else
 			return NULL;
 	}
@@ -184,7 +184,7 @@ class SpacemissionDAO extends ModelDAO
 	public function get_scientific_contact($x_field, $y_field, $z_field)
 	{
 		if(isset($this->_scientificContacts[$x_field][$y_field][$z_field]))
-			return $this->_scientificContacts[$x_field][$y_field][$z_field];
+			return htmlspecialchars($this->_scientificContacts[$x_field][$y_field][$z_field], ENT_QUOTES);
 		else
 			return NULL;
 	}

@@ -129,7 +129,7 @@ abstract class ModelDAO
 	public function get_field($field)
 	{
 		if(array_key_exists($field, $this->_fields))
-			return $this->_fields[$field];
+			return htmlspecialchars($this->_fields[$field], ENT_QUOTES);
 		else
 			return NULL;
 	}
