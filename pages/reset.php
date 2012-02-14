@@ -24,8 +24,8 @@
 
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
-    $headers = "From: " . MAIL_FROM . "\n";
-    $headers .= 'Cc: ' . MAIL_TO . "\r\n";
+    $headers .= "From: " . MAIL_FROM . "\n";
+    $headers .= 'Bcc: ' . MAIL_TO . "\r\n";
     $headers .= "Reply-To: " . MAIL_REPLY;
 
     $from = "-f" . MAIL_FROM;
@@ -94,7 +94,7 @@
               "email address accosiated to your account.<p>" . LF;
 
         print "<p>If you do not receive this mail, please contact " .
-              "<a href='mailto:robert.stoeckler@oeaw.ac.at'>robert.stoeckler@oeaw.ac.at</a>.</p>" . LF;
+              "<a href='mailto:florian.topf@oeaw.ac.at'>florian.topf@oeaw.ac.at</a>.</p>" . LF;
 
         mailReset($res_mail, $_POST["res_uname"], $res_pwd);
       }

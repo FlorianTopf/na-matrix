@@ -196,9 +196,17 @@ printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get
 print "</table></fieldset>" . LF;
 
 //SCIENTIFIC CONTACTS
-print "<fieldset class='rfield'><legend>Scientific Contacts:</legend>" . LF;
+//maybe improve this tooltip a bit!
+$contact_tooltip = "Scientific Contacts - Please insert a scientific contact of the facility,</br>
+i.e. someone who should be contacted for scientific purposes,</br>
+like participation in an observation campaign. </br>Please be aware that the email-address has to be valid.</br>
+You can add 1 to N scientific contacts by clicking ADD.</br>
+Removing an entry is handled by clicking DEL</br> (only appears after one has clicked on ADD)</br>
+or clearing the fields of the added entry manually.</br>
+<b>Example:</b> Name &quot;John Doe&quot;, Email &quot;john.doe@example.com&quot;,</br> Institution &quot;Fantasia Institute&quot;";
+print "<fieldset class='rfield'><legend th title='". $contact_tooltip ."'>Scientific Contacts:</legend>" . LF;
 print "<table class='create'>" . LF;
-print "<tr><th></th><th>Name</th><th>Email</th><th>Institution</th></tr>";
+print "<tr><th title='". $contact_tooltip ."'></th><th title='". $contact_tooltip ."'>Name</th><th>Email</th><th>Institution</th></tr>";
 if(!is_array($_observatory->get_has_many("scientific_contacts")))
 	$_observatory->init_has_many("scientific_contacts");
 //PROOF IF THERE IS AN ARRAY!
@@ -219,17 +227,40 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 	}
 print "</table><table class='create'>";
 //Further contacts
-printInputTextfieldRow("Further Contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
+$furcon_tooltip = "Further Contacts - Please feel free to write any sort of contact information text in this box.</br>
+There are no typographic conventions.</br>
+<b>Example:</b> &quot;For data enquiries, please visit our website: http://www.example.com/data&quot;";
+printInputTextfieldRow("Further Contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'),
+			65, 3, NULL, FALSE, $furcon_tooltip);
 print "</table></fieldset>" . LF;
 
 //HIDDEN FIELDS:
-print "<fieldset class='rfield'><legend>Hidden Fields: You may want to hide some contact information</legend>" . LF;
+//maybe improve this tooltip a bit!
+$hidden_tooltip = "Hidden Fields - In case you want to hide some of the contact information you have</br> entered above, 
+please click on the relevant boxes below.</br>
+<b>Example:</b> By clicking on &quot;Email&quot;, the email-address WILL NOT</br>
+be displayed in the public database, even if you have filled out</br>
+the corresponding input-field &quot;Email&quot; above.</br>
+In that case, only the administrators of the matrix will have</br> the knowledge of the email-address.";
+print "<fieldset class='rfield'><legend title='". $hidden_tooltip . "'>Hidden Fields: You may want to hide some contact information</legend>" . LF;
 print "<table class='create'>" . LF;
 printMultipleCheckBoxRow("add_obs_hide", $_observatory->get_hidden_fields());
 print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
-print "<fieldset class='rfield'><legend>Research Areas:</legend>" . LF;
+$research_tooltip = "Areas of Interest - Please select research areas of interest. If interested in every research field,
+or if research in every</br> field is potentially possible with the facility please choose &quot;General Astronomy&quot;,</br>
+which subsumes every research area, i.e. if choosing &quot;General Astronomy&quot; the facility will</br> appear under every search via &quot;Filter by Areas of Research&quot;.</br>
+Choosing more than one area of interest is possible by holding the key <b>CTRL</b> or <b>CMD</b>.</br> Please be aware that this field is MANDATORY.</br>
+&quot;Areas of Interest&quot; are intending two different purposes:</br>
+<b>i)</b> <i>Mainly for observatories hosted by scientific institutions:</i></br> &quot;Areas of Interest&quot; is virtually identical with &quot;Research Areas&quot;,
+i.e. the scientific area for </br>which the facility is intended and viable.</br>
+<b>ii)</b> <i>Mainly for privately owned facilities:</i></br>
+&quot;Areas of Interest&quot; represents (besides potential &quot;Research Areas&quot;) scientific fields,</br> in which the owner is &quot;interested&quot; in.</br>
+<b>Example:</b> If you want to observe exoplanets you are advised to add &quot;Exoplanetary Research&quot; to</br> your &quot;Areas of Interest&quot;. 
+If someone is planning to organize combined observations of exoplanets,</br>
+this person can search for potentially interested persons via the search engine of the matrix,</br> will find you and maybe contact you to participate.";
+print "<fieldset class='rfield'><legend>Areas of Interest:</legend>" . LF;
 /** @todo refactor id of table */
 print "<table id='research_areas' class='create'>" . LF;
 $research_areas = $_observatory->get_research_areas();
@@ -241,10 +272,13 @@ else
 // ---------------- Questionnaire End ----------------------
 $options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
 	"<option id='add_other_area' value='100000'>Add other Research Area</option>");
-printBigSelectListFromArray("Research Areas", "add_obs_res_are_ids[]",
-	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
+printBigSelectListFromArray("Areas of Interest", "add_obs_res_are_ids[]",
+	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options, $research_tooltip);
 //Research comments
-printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
+$rescomm_tooltip = "Research Comments - Please feel free to write any comments on your areas of interest. There are no format conventions.</br>
+<b>Example:</b> &quot;Involved in the Stellar Occultation Network&quot;";
+printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'),
+			65, 3, NULL, FALSE, $rescomm_tooltip);
 print "</table></fieldset>" . LF;
 
 //TARGETS: NOT MANDADORY

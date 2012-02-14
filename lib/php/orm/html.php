@@ -249,10 +249,10 @@ function printTypeSelectListFromArray($title, $name, $value, $items, $column, $i
 }
 
 /** @todo improve this a bit */
-function printBigSelectListFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array())
+function printBigSelectListFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array(), $tooltip="")
 {
 	print "<tr>";
-	printInputTitleCol($title, $info, $mandatory);	
+	printInputTitleCol($title, $info, $mandatory, $tooltip);	
 	print "<td align='left'><select name='{$name}' multiple='multiple' size='15'>" . LF;
 	foreach($options as $option)
 		print $option;

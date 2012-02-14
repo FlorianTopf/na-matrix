@@ -66,12 +66,12 @@ $link->close();
   	if ($_observatory->get_field("obs_address"))
   		print "<p><b>Address:&nbsp;</b>" . ($_observatory->get_hidden_field("address") ?
   			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_address")). "</p>" . LF;
-  	if ($_observatory->get_field("obs_zip_code"))
-  		print "<p><b>ZIP code:&nbsp;</b>" . ($_observatory->get_hidden_field("zip_code") ?
-  			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
-  	if ($_observatory->get_field("obs_city"))
-  		print "<p><b>City:&nbsp;</b>" . ($_observatory->get_hidden_field("city") ?
-  		 	  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
+//  	if ($_observatory->get_field("obs_zip_code"))
+//  		print "<p><b>ZIP code:&nbsp;</b>" . ($_observatory->get_hidden_field("zip_code") ?
+//  			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
+//  	if ($_observatory->get_field("obs_city"))
+//  		print "<p><b>City:&nbsp;</b>" . ($_observatory->get_hidden_field("city") ?
+//  		 	  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
 
   	$countries = $_observatory->get_countries();
   	print "<p><b>Country:&nbsp;</b>" . $countries['name'][$_observatory->get_field("obs_country_id")] . "</p>" . LF;
@@ -183,8 +183,8 @@ $link->close();
 		print "<p><b>Further contacts:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('further_contacts')) . "</p>" . LF;
   	print "</fieldset>" . LF;
 
-  	//OBSERVATORY Research Areas:
-  	print "<fieldset class='report'><legend><b>Research Areas:</b></legend><ul>" . LF;
+  	//OBSERVATORY Areas of Interest:
+  	print "<fieldset class='report'><legend><b>Areas of Interest:</b></legend><ul>" . LF;
 	$research_areas = $_observatory->get_research_areas();
     foreach($research_areas['id'] as $key => $value)
     	if(is_array($_observatory->get_has_many("research_areas", NULL)))

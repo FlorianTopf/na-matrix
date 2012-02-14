@@ -79,8 +79,6 @@ class ObservatoryDAO extends ModelDAO
 	protected $_hiddenFields = array (
 	'web_address' => 0,
 	'address' => 0,
-	'zip_code' => 0,
-	'city' => 0,
 	'phone' => 0,
 	'email' => 0,
 	'latitude' => 0,
@@ -1020,6 +1018,9 @@ class ObservatoryDAO extends ModelDAO
         else
         	$approved = 0;
         // ------------- Questionnaire End ---------------
+        /** @todo remove this later!! */
+        $_POST["add_obs_zip_code"] = "";
+        $_POST["add_obs_city"] = "";
 
 		$query = "INSERT INTO observatories (" .
   			"`id`,`name`,`founded`,`institution`,`web_address`,`address`,`zip_code`," .
@@ -1094,6 +1095,9 @@ class ObservatoryDAO extends ModelDAO
         else
         	$approved = 0;
         // ------------- Questionnaire End ---------------
+        /** @todo remove this later!! */
+        $_POST["add_obs_zip_code"] = "";
+        $_POST["add_obs_city"] = "";
 
 		$query = "UPDATE observatories SET " .
 			//We get another POST VAR for the name if EDIT
@@ -1421,8 +1425,8 @@ class ObservatoryDAO extends ModelDAO
 		$query = "INSERT INTO hidden_fields VALUES (". $res_id  .",'" .
 	    	checkbox_value("add_obs_hide_0") . "','" .
 	    	checkbox_value("add_obs_hide_1") . "','" .
-	    	checkbox_value("add_obs_hide_2") . "','" .
-	    	checkbox_value("add_obs_hide_3") . "','" .
+//	    	checkbox_value("add_obs_hide_2") . "','" .
+//	    	checkbox_value("add_obs_hide_3") . "','" .
 	    	checkbox_value("add_obs_hide_4") . "','" .
 	    	checkbox_value("add_obs_hide_5") . "','" .
 	    	checkbox_value("add_obs_hide_6") . "','" .
@@ -1453,8 +1457,8 @@ class ObservatoryDAO extends ModelDAO
 		$query = "UPDATE hidden_fields SET " .
 	  		"web_address='" . checkbox_value("add_obs_hide_0") . "'," .
 	  		"address='" . checkbox_value("add_obs_hide_1") . "'," .
-	  		"zip_code='" . checkbox_value("add_obs_hide_2") . "'," .
-	  		"city='" . checkbox_value("add_obs_hide_3") . "'," .
+//	  		"zip_code='" . checkbox_value("add_obs_hide_2") . "'," .
+//	  		"city='" . checkbox_value("add_obs_hide_3") . "'," .
 	  		"phone='" . checkbox_value("add_obs_hide_4") . "'," .
 	  		"email='" . checkbox_value("add_obs_hide_5") . "'," .
 	  		"latitude='" . checkbox_value("add_obs_hide_6") . "'," .

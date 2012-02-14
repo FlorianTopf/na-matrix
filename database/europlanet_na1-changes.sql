@@ -471,7 +471,8 @@ UPDATE  `europlanet_na1`.`research_areas` SET  `domain` =  'GENERAL ASTRONOMY',
 `name` =  'GENERAL ASTRONOMY' WHERE  `research_areas`.`id` =131 LIMIT 1 ;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 993 */
+ALTER TABLE `hidden_fields` DROP `zip_code`, DROP `city`;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

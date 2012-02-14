@@ -112,7 +112,7 @@ class Controller
             				/** @todo here we add some sexy backlinks */
             				
             				/** mail functionality, resource name, id and username */
-            				Controller::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
           				}
           				else
           				{
@@ -135,7 +135,7 @@ class Controller
             				print "<h4>Thank You! </br>The Observatory has been updated in the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				Controller::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -197,7 +197,7 @@ class Controller
             				print "<h4>The new Observatory has been added to the database!</h4>" . LF;
 
             				 /** @todo mail functionality, resource name, id and username*/
-            				//Controller::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -222,7 +222,7 @@ class Controller
             				print "<h4>The Observatory has been updated in the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				//Controller::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -270,7 +270,7 @@ class Controller
             				print "<h4>The new Space Mission has been added to the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				//Controller::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
             				
@@ -301,7 +301,7 @@ class Controller
             				print "<h4>The Space Mission has been updated in the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				//Controller::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -406,13 +406,15 @@ class Controller
 
     $subject = "Europlanet NA1 Matrix: new or updated entry";
     
-    $headers = "From: " . MAIL_FROM . "\n";
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
+    $headers .= "From: " . MAIL_FROM . "\n";
     $headers .= "Reply-To: " . MAIL_REPLY;
     $from = "-f" . MAIL_FROM;
 
     $message = "User " . $user_name .
                " added or updated the entry '" .
-               $res_name . "' (resource id: " . $id . "); contact email is " .
+               $res_name . "' (resource id: " . $res_id . "); contact email is " .
                $email . "\n";
 
     mail(MAIL_TO, $subject, $message, $headers, $from);
