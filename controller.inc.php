@@ -107,14 +107,13 @@ class Controller
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
            					 $_observatory->add_obs_keys($res_id, $action);
 
-            				print "<h4>Thank You! </br>Your Entry has been submitted and once validated it will be added to the database</h4>" . LF;
+            				print "<h3>Thank You!</h3>";
+           					print "<h4>Your entry has been submitted and once validated it will be added to the database.</h4>" . LF;
+            				print "<h4>You will receive an E-Mail notification after approval of your provided information.</h4>" . LF;
 
             				/** @todo here we add some sexy backlinks */
             				
-            				/** @todo mail functionality, resource name, id and username 
-            				 * we need to add here also a mail functionality for the user (to be approved) 
-            				 * */
-            				self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				self::mail_notification($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
           				}
           				else
           				{
@@ -134,12 +133,12 @@ class Controller
             				$res_name = $status["res_name"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
             				$_observatory->add_obs_keys($res_id, $action);
-            				print "<h4>Thank You! </br>The Observatory has been updated in the database!</h4>" . LF;
             				
-            				/** @todo mail functionality, resource name, id and username
-            				 * we need to add here also a mail functionality for the user (to be approved)
-            				 * */
-            				self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				print "<h3>Thank You!</h3>";
+            				print "<h4>Your entry has been updated in the database and needs to be validated again.</h4>" . LF;
+            				print "<h4>You will be notifid by E-Mail once the information is approved.</h4>";
+            				
+            				self::mail_notification($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"], false);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -201,7 +200,7 @@ class Controller
             				print "<h4>The new Observatory has been added to the database!</h4>" . LF;
 
             				 /** @todo mail functionality, resource name, id and username*/
-            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_notification($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -226,7 +225,7 @@ class Controller
             				print "<h4>The Observatory has been updated in the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_notification($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -274,7 +273,7 @@ class Controller
             				print "<h4>The new Space Mission has been added to the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_notification($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
             				
@@ -305,7 +304,7 @@ class Controller
             				print "<h4>The Space Mission has been updated in the database!</h4>" . LF;
             				
             				/** @todo mail functionality, resource name, id and username*/
-            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            				//self::mail_notification($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -403,28 +402,46 @@ class Controller
     	$link->query($query);
   	}
   	
-  /** @todo improve this function / we need users E-Mail Address here */
-  static function mail_add($res_name, $res_id, $user_name, $email)
+  /** 
+   * @fn update_sci_cons($res_id)
+   * @brief Mail functionality for add or update in the questionnaire procedure.
+   * Admins will get "entry needs approval"
+   * 
+   * @param string $res_name
+   * @param int $res_id
+   * @param string $user_name
+   * @param string $email
+   * @param boolean $add
+   */
+  static function mail_notification($res_name, $res_id, $user_name, $email, $add=TRUE)
   {
     ini_set("SMTP", MAIL_SMTP);
 
-    $subject = "Europlanet NA1 Matrix: new or updated entry";
+    if($add)
+    	$subject = "Europlanet NA1 Matrix: new entry";
+    else 
+    	$subject = "Europlanet NA1 Matrix: updated entry";
     
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
     $headers .= "From: " . MAIL_FROM . "\n";
     $headers .= "Reply-To: " . MAIL_REPLY;
     $from = "-f" . MAIL_FROM;
 
-    $message = "User " . $user_name .
-               " added or updated the entry '" .
-               $res_name . "' (resource id: " . $res_id . "); contact email is " .
-               $email . "\n";
+    $message = "User " . $user_name;
+    
+    if($add)
+    	$message .= " added the entry '";
+    else
+    	$message .= " updated the entry '";
+               
+    $message .= $res_name . "' (resource id: " . $res_id . "); contact email is " .
+                $email . "\n";
+                
+    $message .= "This entry needs to be reviewed and approved!\n";
 
     mail(MAIL_TO_ADD, $subject, $message, $headers, $from);
   }
-
-
 }
 
 ?>

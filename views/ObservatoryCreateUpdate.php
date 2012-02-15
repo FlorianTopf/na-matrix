@@ -12,6 +12,17 @@ print "<input type='hidden' name='add_res_id' value='{$resource_id}'/>" . LF;
 print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . LF;
 //show_message();
 
+print "<h3 class='red'>The NA1 Matrix is currently in a testing phase. If you stumble upon any problems or errors, 
+please feel free to inform the team listed at the bottom of this page.</h3>";
+print "<h3>Important information:</h3>";
+print "<p>Please be aware that every field marked with a <b>red asterisk</b> (<b class='red'>*</b>) is a <b>mandatory</b> field, these are &quot;Facility name&quot;, 
+&quot;Country&quot;, “Areas of Interest&quot;, and at least one telescope (&quot;Telescope Name&quot;, &quot;Telescope Type&quot;, “Wavelength Region&quot;, 
+&quot;Diameter/Aperture&quot;).</br> The facility can not be added until valid information is provided for each mandatory field! 
+All other fields are optional. Only the fields you have entered will be shown in the details window of your entry.</br>
+By mouse over the name of the input-field (e.g. mouse over &quot;Facility name&quot;) tool tips and examples of potential 
+inputs will appear. Please be aware that the standard formats of the inputs are Arabic numbers and Latin letters; 
+in float numbers the decimal places should be separated with &quot;.&quot;, e.g. &quot;8.9&quot;.</p>";
+
 print "<fieldset class='rfield'><legend>Ground-based Facility General</legend>" . LF;
 print "<table class='create'>" . LF;
 
