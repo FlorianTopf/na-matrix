@@ -10,11 +10,12 @@ class Acl
 	static private $_isUserLogged=FALSE; // default = no user logged
 	static private $_user=NULL; // default = no user
 
-	static private $_acl = array(
+	
+	static private $_aclPages = array(
 	'add' => 11,
 	'browse' => 0,
 	'map' => 0,
-	'edit' => 21,
+	'edit' => 11,
 	'home' => 0,
 	'login' => 0,
 	'logout' => 0,
@@ -22,6 +23,10 @@ class Acl
 	'reset' => 0,
 	'registration' => 31,
 	'registration_q' => 0
+	);
+	
+	/** @todo add acl for actions */
+	static private $aclActions = array(
 	);
 
 	static private $_profiles = array(
@@ -35,10 +40,10 @@ class Acl
 	'superuser' => 31,
 	);
 
-	static function getAclForOption($option)
+	static function getAclForPages($option)
 	{
-		if (isset(self::$_acl[$option]))
-			return self::$_acl[$option];
+		if (isset(self::$_aclPages[$option]))
+			return self::$_aclPages[$option];
 		else
 			return -1;
 	}

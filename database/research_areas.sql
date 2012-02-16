@@ -90,4 +90,5 @@ INSERT INTO `research_areas` (`id`, `domain`, `name`) VALUES
 (127, 'STELLAR PHYSICS', 'Accretion Disks'),
 (128, 'STELLAR PHYSICS', 'Asteroseismology'),
 (129, 'STELLAR PHYSICS', 'Plasma Physics (Stellar Physics)'),
-(130, 'STELLAR PHYSICS', 'Stellar Evolution');
+(130, 'STELLAR PHYSICS', 'Stellar Evolution'),
+(131, 'GENERAL ASTRONOMY', 'GENERAL ASTRONOMY');

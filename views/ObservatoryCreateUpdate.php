@@ -24,9 +24,7 @@ inputs will appear. Please be aware that the standard formats of the inputs are 
 in float numbers the decimal places should be separated with &quot;.&quot;, e.g. &quot;8.9&quot;.</p>";
 
 print "<fieldset class='rfield'><legend>Ground-based Facility General</legend>" . LF;
-print "<table class='create'>" . LF;
-
-//Here we will add the introduction how to work with the matrix!
+print "<table class='create'>" . LF; 
 
 //Observatory Name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
@@ -63,7 +61,7 @@ i.e. the street name and name number, the city/area, and the ZIP code.<br/>
 printInputTextRow("Address", "add_obs_address", $_observatory->get_field("obs_address"), 
 			80, NULL, NULL, FALSE, $address_tooltip);
 // ---------------- Obsolete => Will be removed ----------------------
-if ($_SESSION["user_level"] > 11)
+if ($_SESSION["user_level"] >= 21)
 {
 	//ZIP Code
 	printInputTextRow("ZIP Code", "add_obs_zip_code", $_observatory->get_field("obs_zip_code"), 10);
@@ -272,8 +270,8 @@ i.e. the scientific area for </br>which the facility is intended and viable.</br
 If someone is planning to organize combined observations of exoplanets,</br>
 this person can search for potentially interested persons via the search engine of the matrix,</br> will find you and maybe contact you to participate.";
 print "<fieldset class='rfield'><legend>Areas of Interest:</legend>" . LF;
-/** @todo refactor id of table */
 print "<table id='research_areas' class='create'>" . LF;
+//print "<table class='create'>" . LF;
 $research_areas = $_observatory->get_research_areas();
 
 // ---------------- Questionnaire Start ----------------------
@@ -295,7 +293,6 @@ print "</table></fieldset>" . LF;
 //TARGETS: NOT MANDADORY
 /** @todo add other targets */
 print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
-/** @todo refactor id of table */
 //print "<table id='targets' class='create'>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_observatory->get_targets();
@@ -304,6 +301,9 @@ $options = array("<option value=''>Please choose one or several by holding CTRL.
 //"<option id='other' value='100000'>Add other Target</option>");
 printBigSelectListFromArray("Targets", "add_obs_target_ids[]", $_observatory->get_has_many("targets"),
 	$targets, "target_name", NULL, FALSE, $options);
+//Target comments
+printInputTextfieldRow("Target Comments", "add_obs_target_com", $_observatory->get_add_info('target_comments'),
+			65, 3, NULL, FALSE);
 print "</table></fieldset>" . LF;
 
 //TELESCOPES: at least 1 ENTRY MANDATORY! (JQUERY)
@@ -345,6 +345,10 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
 		printTypeSelectListFromArray("Telescope Type", "add_obs_telescope_type_id[{$telescope_count}]",
 		 $_observatory->get_telescope("telescope_type", $telescope_count), $telescope_types, "name", NULL, FALSE, $options);
+		 
+		//Mobile Flag
+		printCheckBoxRow("Mobile Station?", "add_obs_mobile_flag[{$telescope_count}]",
+			$_observatory->get_telescope("mobile_flag", $telescope_count));
 
 	    //Telescope Elements
 		printInputTextRow("Telescope Elements", "add_obs_telescope_elements[{$telescope_count}]",
@@ -359,10 +363,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or F-Ratio");
 
 		//  ---------------- Questionnaire Start ----------------------
-		if (!($_SESSION["user_level"] <= 11))
-		//  ---------------- Questionnaire End ----------------------
+		if ($_SESSION["user_level"] <= 11)
+			$options = array();
 		//Antenna Type
-		$options = array("bottom" => "<option class='add_antenna_type' value='100000'>Add other Type</option>");
+	    else
+	    //  ---------------- Questionnaire End ----------------------
+			$options = array("bottom" => "<option class='add_antenna_type' value='100000'>Add other Type</option>");
 		printTypeSelectListFromArray("Antenna Type", "add_obs_antenna_type_id[{$telescope_count}]",
 			$_observatory->get_telescope("antenna_type", $telescope_count), $antenna_types, "antenna_type", NULL, FALSE, $options);
 
@@ -432,8 +438,8 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				else
 				//  ---------------- Questionnaire End ----------------------
 				//Instrument Type
-				$options = array("top" => "<option value=''>Please select an Instrument Type</option>",
-				"bottom" => "<option class='add_instrument_type' value='100000'>Add other Instrument Type</option>");
+					$options = array("top" => "<option value=''>Please select an Instrument Type</option>",
+						"bottom" => "<option class='add_instrument_type' value='100000'>Add other Instrument Type</option>");
 				printTypeSelectListFromArray("Instrument Type", "add_obs_instrument_type_id[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("instrument_type", $telescope_id, $instrument_count), $instrument_types, "name", NULL, FALSE, $options);
 
@@ -533,28 +539,71 @@ printInputTextfieldRow("Backend Description", "add_obs_backend_desc", $_observat
 //printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;
 
+//FEEDBACK for Administrators
+print "<fieldset class='rfield'><legend>Feedback for Administrators</legend>" . LF;
+print "<table class='create'>" . LF;
+//Feedback
+printInputTextfieldRow("Feedback", "add_obs_feedback", $_observatory->get_add_info('feedback'));
+print "</table></fieldset>" . LF;
+
+//ADMINISTRATION TOOLS
+if($_SESSION["user_level"] >= 31)
+{
+	print "<fieldset class='rfield'><legend>Administration Tools</legend>" . LF;
+	print "<table class='create'>" . LF;
+	$columns = array ("fname", "lname");
+	$options = array("<option value='NULL'>---</option>");
+	printSelectListRowFromArray("Assign Users", "add_obs_user_id", $_observatory->get_field("obs_user_id"), 
+			 $_observatory->get_users(), $columns, NULL, false, $options);
+	print "</table></fieldset>" . LF;
+}
+
 // Submit Button
 //-----------------------------------------------------------------------------------------------------------
 //Define the action buttons
 print "<div class='actionbutton'>" . LF;
+/** @todo a little hack with GET here! */
+if(isset($_GET["approve"]))
+	print "<input type='submit' name='push' value='Submit to User' class='submit'>" . LF;
+else
+	print "<input type='submit' name='push' value='Save for Later' class='submit'>" . LF;
 //IF ACTION IS ADD
-if ($action == "add")
-	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
-//IF ACTION IS loadTemp so we know it $_POST["is_user_res"] = 1
-if ($action == "loadTemp")
+if($action == "add")
 {
-	print "<input type='hidden' name='is_user_res' value='1'>" . LF ;
 	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+	print "<input type='hidden' name='is_add' value='1'>" . LF ;
 }
-elseif($action == "loadOldObs")
+//IF ACTION IS loadTemp
+//else if($action == "loadTemp")
+//{
+//	print "<input type='hidden' name='is_user_res' value='1'>" . LF ;
+//	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+//}
+//IF ACTION IS loadOldObs
+else if($action == "loadOldObs")
 {
     print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
     print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+    print "<input type='hidden' name='is_add' value='1'>" . LF ;
+    
+    if($_SESSION["user_level"] >= 31)
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='push' value='Delete Old Entry'>" . LF;
 }
 //IF ACTION IS EDIT
-else if ($action == "edit")
-	print "<input type='submit' name='push' value='Update Entry'>" . LF;
-print "</div>" . LF;
+else if($action == "edit")
+{
+	/** @todo a little hack with GET here! */
+	if(isset($_GET["approve"]))
+		print "<input type='submit' name='push' value='Add to Database'>" . LF;
+	else
+		print "<input type='submit' name='push' value='Update Entry'>" . LF;
+		
+	print "<input type='hidden' name='is_edit' value='1'>" . LF ;
+	
+	if($_SESSION["user_level"] >= 31)
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='push' value='Delete Entry'>" . LF;
+}
 
+print "</div>" . LF;
 
 ?>

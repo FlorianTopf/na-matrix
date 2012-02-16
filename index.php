@@ -115,13 +115,19 @@
 	            {
 	              print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
 	              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
-	             if ($_SESSION["user_level"] >= 21)
+	              if ($_SESSION["user_level"] >= 21)
+	              {
 	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
+	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=approve&res_type=obs'>Approve entries</a></li>" . LF;
+	              }	
+	              if ($_SESSION["user_level"] == 11)
+	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>My entries</a></li>" . LF;
+	             
 	              /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
 	              if ($_SESSION["user_level"] >= 31)
 	              {
 	              	if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
-	              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li></ul>" . LF;
+	              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li>" . LF;	
 	              }
 	              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
 	              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
@@ -171,6 +177,8 @@
 	  		$filters = array();
 	  		$settings["is_user_res"] = FALSE;
 	  		$settings["is_old_res"] = FALSE;
+	  		$settings["is_edit"] = FALSE;
+	  		$settings["is_add"] = FALSE;
 	  		//$is_user_res = FALSE;
 	  		//$is_old_res = FALSE;
 	  		
@@ -178,11 +186,14 @@
 	  		//request = new HttpRequest();
 	
 	  		if(isset($_POST["page"]))
-	        {
+	        {	
 	        	if(isset($_GET["action"]))
 				{
 				    $action = $_GET["action"];
 	
+				    if ($action == "approve")
+				    	$resource_type = $_GET["res_type"];
+
 				    if ($action == "edit")
 				    {
 				    	// GET RES ID and RES TYPE
@@ -214,9 +225,19 @@
 				//if push in add/edit was pressed
 				if(isset($_POST["push"]))
 				{
+					//DEBUG:
+					//print "Entering push!";
+					//nl();
+					
 					$action = $_POST["push"];
 					$resource_type = $_POST["res_type"];
 					$resource_id= $_POST["add_res_id"];
+					
+					/** @todo this is a little hack - but the user likes it */
+					if($action == "Submit to User")
+						$action = "Save for Later";
+					else if($action == "Add to Database")
+						$action = "Update Entry";
 	
 					//if a user submitted resource was loaded an push got pressed to save it to main DB and delete OLD entry
 					/*if ($_POST["is_user_res"])
@@ -224,10 +245,31 @@
 						$settings["is_user_res"] = TRUE;
 						$_POST["is_user_res"] = '0';
 					}*/
-					if(isset($_POST["is_old_res"]) && $_POST["is_old_res"])
+					if(isset($_POST["is_old_res"]))
 					{
+						//print "Old Entry";
+						//nl();
+						
 						$settings["is_old_res"] = TRUE;
-						$_POST["is_old_res"] = '0';
+						$_POST["is_old_res"] = FALSE;
+					}
+					
+					// we need that for the save for later option
+					if(isset($_POST["is_edit"]))
+					{
+						
+						//print ".. in Edit Mode";
+						//nl();
+						$settings["is_edit"] = TRUE;
+						$_POST["is_edit"] = FALSE;
+					}
+					
+					if(isset($_POST["is_add"]))
+					{
+						//print ".. in Add Mode";
+						//nl();
+						$settings["is_add"] = TRUE;
+						$_POST["is_add"] = FALSE;
 					}
 				}
 	

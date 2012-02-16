@@ -141,7 +141,8 @@ foreach($resources as $row)
 //       	print "<td><a href='mailto:" . $row["email"] . "'>" . $row["email"] . "</a></td>";
 	if($row["hide_web_address"])
 		print "<td class='red'>Not Displayed</td>";
-    elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
+	/** @todo check performance with more than 100 entries! */
+    elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) 
     	print "<td><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
     else
     	print "<td></td>";

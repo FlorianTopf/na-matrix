@@ -37,7 +37,9 @@ CREATE TABLE IF NOT EXISTS `additional_information` (
   `array_description` text,
   `backend_description` text,
   `research_comments` text,
+  `target_comments` text,
   `general_comments` text,
+  `feedback` text,
   PRIMARY KEY (`id`),
   KEY `observatory_id_4` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -132,9 +134,10 @@ INSERT INTO `clearnights_ranges` (`id`, `range`) VALUES
 (2, '51-100'),
 (3, '101-150'),
 (4, '151-200'),
-(5, '251-300'),
-(6, '>300'),
-(7, '---');
+(5, '201-250'),
+(6, '251-300'),
+(7, '>300'),
+(8, '---');
 
 -- --------------------------------------------------------
 
@@ -399,8 +402,6 @@ CREATE TABLE IF NOT EXISTS `hidden_fields` (
   `id` int(10) unsigned NOT NULL,
   `web_address` tinyint(1) NOT NULL DEFAULT '0',
   `address` tinyint(1) NOT NULL DEFAULT '0',
-  `zip_code` tinyint(1) NOT NULL DEFAULT '0',
-  `city` tinyint(1) NOT NULL DEFAULT '0',
   `phone` tinyint(1) NOT NULL DEFAULT '0',
   `email` tinyint(1) NOT NULL DEFAULT '0',
   `latitude` tinyint(1) NOT NULL DEFAULT '0',
@@ -514,6 +515,8 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   `creation_date` datetime NOT NULL,
   `modification_date` datetime DEFAULT NULL,
   `approved` tinyint(1) DEFAULT '0',
+  `saved_for_later` tinyint(1) DEFAULT '0',
+  `last_saved_by` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `country_id` (`country_id`),
   KEY `precipitation_id` (`precipitation`),
@@ -742,7 +745,8 @@ INSERT INTO `research_areas` (`id`, `domain`, `name`) VALUES
 (127, 'STELLAR PHYSICS', 'Accretion Disks'),
 (128, 'STELLAR PHYSICS', 'Asteroseismology'),
 (129, 'STELLAR PHYSICS', 'Plasma Physics (Stellar Physics)'),
-(130, 'STELLAR PHYSICS', 'Stellar Evolution');
+(130, 'STELLAR PHYSICS', 'Stellar Evolution'),
+(131, 'GENERAL ASTRONOMY', 'GENERAL ASTRONOMY');
 
 -- --------------------------------------------------------
 
@@ -1189,6 +1193,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `telescope_name` text,
   `telescope_type` int(10) unsigned NOT NULL,
+  `mobile_flag` tinyint(1) DEFAULT NULL,
   `telescope_elements` int(10) unsigned DEFAULT NULL,
   `diameter_m` float(10,6) DEFAULT NULL,
   `focallength_m` varchar(10) DEFAULT NULL,
@@ -1336,7 +1341,7 @@ CREATE TABLE IF NOT EXISTS `users_list` (
 --
 -- Dumping data for table `users_list`
 --
-
+/*
 INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`, `email`, `affiliation`, `category`, `level`) VALUES
 (1, 'anonymous', NULL, NULL, NULL, NULL, NULL, NULL, 'other', 0),
 (2, 'stoeckler', '530e90856e3fa433e5ad31f3359ea47e', 'Mr.', 'Robert', 'Stöckler', 'robert.stoeckler@oeaw.ac.at', 'Institut für Weltraumforschung', 'commercial', 31),
@@ -1344,7 +1349,7 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 (4, 'nagpal', '28e29334745b11450410d66f147239d7', 'Mr.', 'Parinesh', 'Nagpal', 'p.nagpal@ucl.ac.uk', 'UCL', 'scientific', 11),
 (5, 'smiller', '28e29334745b11450410d66f147239d7', 'Prof.', 'Steve', 'Miller', 's.miller@ucl.ac.uk', 'UCL', 'scientific', 21),
 (6, 'mscherf', '9996535e07258a7bbfd8b132435c5962', 'Mr.', 'Manuel', 'Scherf', 'manuel.scherf@oeaw.ac.at', 'IWF-OeAW', 'scientific', 21);
-
+*/
 -- --------------------------------------------------------
 
 --

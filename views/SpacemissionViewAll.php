@@ -71,7 +71,6 @@ print "<tr><td><input type='submit' name='reset_filters' value='Reset Filters' c
 print "</table></center>";
 //----
 
-/** @todo define new css rules for alternating BG color... */
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on space mission entry name</caption>" . LF;
 print "<tr><th>NAME</th><th>AGENCY</th><th>WEB</th><th>LAUNCH DATE</th><th>MISSION END</th><th>TARGETS</th></tr>" . LF;
@@ -86,7 +85,8 @@ foreach($resources as $row)
 	print "<td><span title='Click for more details' onclick=\"return openwin('views/SpacemissionView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["mission_name"]) . "</span></td>";
 	print "<td><a href='" . stripslashes($row["agency_web_address"]) . "' target='_blank'>" . htmlentities($row["agency"]) . "</a></td>";
-	if(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) /** @todo check performance with more than 100 entries! */
+	/** @todo check performance with more than 100 entries! */
+	if(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) 
 		print "<td><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
 	else
 	print "<td></td>";

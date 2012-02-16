@@ -475,7 +475,27 @@ UPDATE  `europlanet_na1`.`research_areas` SET  `domain` =  'GENERAL ASTRONOMY',
 ALTER TABLE `hidden_fields` DROP `zip_code`, DROP `city`;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 996 */
+ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `saved_for_later` TINYINT(1) NULL DEFAULT FALSE  AFTER `approved` ;
+
+ALTER TABLE `europlanet_na1`.`additional_information` 
+ADD COLUMN `target_comments` TEXT NULL DEFAULT NULL  AFTER `research_comments` , 
+ADD COLUMN `feedback` TEXT NULL DEFAULT NULL  AFTER `general_comments` ;
+
+ALTER TABLE `europlanet_na1`.`telescopes` ADD COLUMN `mobile_flag` TINYINT(1) NULL DEFAULT FALSE  AFTER `telescope_type` ;
+
+/** Clear night additions */
+UPDATE  `europlanet_na1`.`clearnights_ranges` SET  `range` =  '201-250' WHERE  `clearnights_ranges`.`id` =5 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`clearnights_ranges` SET  `range` =  '251-300' WHERE  `clearnights_ranges`.`id` =6 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`clearnights_ranges` SET  `range` =  '>300' WHERE  `clearnights_ranges`.`id` =7 LIMIT 1 ;
+INSERT INTO `europlanet_na1`.`clearnights_ranges` (`id`, `range`) VALUES ('8', '---');
+/** Change existing entries (+1) */
+UPDATE  `europlanet_na1`.`observatories` SET  `clear_nights` = '6' WHERE  `clear_nights` = '5';
+UPDATE  `europlanet_na1`.`observatories` SET  `clear_nights` = '7' WHERE  `clear_nights` = '6';
+UPDATE  `europlanet_na1`.`observatories` SET  `clear_nights` = '8' WHERE  `clear_nights` = '7';
+
+ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `last_saved_by` INT(11) NULL DEFAULT 0  AFTER `saved_for_later` ;
+
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

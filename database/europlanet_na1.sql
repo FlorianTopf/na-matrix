@@ -3,7 +3,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 DROP SCHEMA IF EXISTS `europlanet_na1` ;
-CREATE SCHEMA IF NOT EXISTS `europlanet_na1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE SCHEMA IF NOT EXISTS `europlanet_na1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `europlanet_na1` ;
 
 -- -----------------------------------------------------
@@ -75,6 +75,8 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`observatories` (
   `creation_date` DATETIME NOT NULL ,
   `modification_date` DATETIME NULL DEFAULT NULL ,
   `approved` TINYINT(1)  NULL DEFAULT FALSE ,
+  `saved_for_later` TINYINT(1)  NULL DEFAULT FALSE ,
+  `last_saved_by` INT NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id`) ,
   INDEX `country_id` (`country_id` ASC) ,
   INDEX `precipitation_id` (`precipitation` ASC) ,
@@ -123,7 +125,9 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`additional_information` (
   `array_description` TEXT NULL DEFAULT NULL ,
   `backend_description` TEXT NULL DEFAULT NULL ,
   `research_comments` TEXT NULL DEFAULT NULL ,
+  `target_comments` TEXT NULL DEFAULT NULL ,
   `general_comments` TEXT NULL DEFAULT NULL ,
+  `feedback` TEXT NULL DEFAULT NULL ,
   INDEX `observatory_id_4` (`id` ASC) ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `observatory_id_4`
@@ -152,8 +156,6 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`hidden_fields` (
   `id` INT UNSIGNED NOT NULL ,
   `web_address` TINYINT(1)  NOT NULL DEFAULT FALSE ,
   `address` TINYINT(1)  NOT NULL DEFAULT FALSE ,
-  `zip_code` TINYINT(1)  NOT NULL DEFAULT FALSE ,
-  `city` TINYINT(1)  NOT NULL DEFAULT FALSE ,
   `phone` TINYINT(1)  NOT NULL DEFAULT FALSE ,
   `email` TINYINT(1)  NOT NULL DEFAULT FALSE ,
   `latitude` TINYINT(1)  NOT NULL DEFAULT FALSE ,
@@ -253,6 +255,7 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`telescopes` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `telescope_name` TEXT NULL DEFAULT NULL ,
   `telescope_type` INT UNSIGNED NOT NULL ,
+  `mobile_flag` TINYINT(1)  NULL DEFAULT FALSE ,
   `telescope_elements` INT UNSIGNED NULL DEFAULT NULL ,
   `diameter_m` FLOAT(10,6) NULL DEFAULT NULL ,
   `focallength_m` VARCHAR(10) NULL DEFAULT NULL ,

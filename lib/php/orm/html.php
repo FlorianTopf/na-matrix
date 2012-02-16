@@ -95,8 +95,7 @@ function makeCheckBox($name, $value=false)
     return $content;
 }
 
-/** @todo not to override EPN framework 
- * 	@todo if we want to have more written in the option name than 2 items */
+/** @todo not to override EPN framework */
 function makeSelectListFromArray_($name, $value, $items, $column, $options=array())
 {
 	$content =  "<select name='". $name ."'>" . LF;
@@ -107,7 +106,8 @@ function makeSelectListFromArray_($name, $value, $items, $column, $options=array
 		$content .= "<option value='" . $item . "'";
 		if ($item == $value) $content .= " selected='selected'";
 		if(is_array($column))
-		    $content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</option>" . LF;
+			$content .= ">" . $items[$column[0]][$key] . " " . $items[$column[1]][$key] . "</option>" . LF;
+		    //$content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</option>" . LF;
 		else
     		$content .= ">" . $items[$column][$key] . "</option>" . LF;
 	}
@@ -153,10 +153,10 @@ function printSimpleSelectListFromArray($name, $value, $items)
 	print makeSimpleSelectListFromArray_($name, $value, $items);
 }
 
-
+// ADDED HAND CLASS!
 function printInputTitleCol($title, $info=NULL, $mandatory=false, $tooltip="")
 {
-	print makeTAG("td", makeInputTitle($title, $info, $mandatory), "align='left' title='" . $tooltip . "'");
+	print makeTAG("td", makeInputTitle($title, $info, $mandatory), "align='left' class='help' title='" . $tooltip . "'");
 }
 
 
@@ -192,7 +192,7 @@ function printmultipleCheckBoxRow($name, $items)
 	$iterator = 0;
 	foreach ($items as $key => $value)
 	{
-		print "<td align='center'><b>". ucwords(str_replace("_", " ", $key)) . "&nbsp;</b>" .
+		print "<td align='center'><b>". ucwords(str_replace("_", " ", $key)) . "&nbsp;&nbsp;</b>" .
 		makeCheckBox($name . "_" . $iterator, $value);
     	print "</td>" . LF;
     	$iterator++;
@@ -305,7 +305,7 @@ function printActionButton($action)
 }
 
 
-function printEditAllTable($name, $resources, $type)
+function printEditAllTable($name, $resources, $type, $action=FALSE)
 {
 	if (empty($resources))
 		print "<h3>There are no {$name} entries to edit.</h3>" . LF;	
@@ -313,7 +313,7 @@ function printEditAllTable($name, $resources, $type)
 	{
 		print "<table class='viewall'>" . LF;
     	print "<caption>To edit please click on the name of the {$name}</caption>" . LF;
-    	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
+    	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th><th>APPROVED</th><th>SAVED FOR LATER</th></tr>" . LF;
     	$index = 0;
     	foreach ($resources as $entry)
     	{
@@ -322,11 +322,23 @@ function printEditAllTable($name, $resources, $type)
 			else
 				print "<tr class='odd'>";
    			print "<td>" . $entry["id"] . "</td>";
-    		print "<td><a title='Click to edit' class='hand' " .
-              	"href='index.php?page=add&amp;action=edit&amp;id=" . $entry["id"] . "&amp;res_type={$type}" .
+   			if ($action)
+   			{
+   				print "<td><a title='Click to edit' class='hand' " .
+              		"href='index.php?page=add&amp;action=edit&amp;id={$entry["id"]}" .
+              		"&amp;res_type={$type}&amp;{$action}=1" .
+              		"'>" . $entry["name"] . "</a></td>";
+   			}
+   			else
+   			{
+   			    print "<td><a title='Click to edit' class='hand' " .
+              	"href='index.php?page=add&amp;action=edit&amp;id={$entry["id"]}&amp;res_type={$type}" .
               	"'>" . $entry["name"] . "</a></td>";
+   			}
         	print "<td>" . $entry["creation_date"] . "</td>";
         	print "<td>" . $entry["modification_date"] . "</td>";
+        	print "<td><b class='red'>" . ($entry["approved"] ? "YES" : "NO") . "</b></td>";
+        	print "<td><b class='red'>" . ($entry["saved_for_later"] ? "YES" : "NO") . "</b></td>";
         	print "</tr>" . LF;
         	
         	$index++;
@@ -334,6 +346,7 @@ function printEditAllTable($name, $resources, $type)
     	print "</table>" . LF;
 	}	
 }
+
 
 /** @todo maybe make with other function */
 //function printFilterOptions($title, $name, $value, $items)

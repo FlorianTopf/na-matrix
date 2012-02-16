@@ -916,6 +916,8 @@ $(document).ready(function(){
         $('select', newTelescope).val('');
         //clear value for each textarea
         $('textarea', newTelescope).val('');
+        //clear value of each checkbox
+        $("input[type='checkbox']", newTelescope).attr('checked', false);
 
         //save old necessary old names
         var inputs = new Array();

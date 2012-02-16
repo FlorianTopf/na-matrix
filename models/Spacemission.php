@@ -198,8 +198,6 @@ class SpacemissionDAO extends ModelDAO
    * @param $filters array of values to be used as filter on the database
    *
    * @return $resources array of resources
-   *
-   * @todo be aware that we will need filters here soon! (improve queries)
    */
 	public function get_all_resources($page, $filters = array())
 	{
@@ -320,7 +318,6 @@ class SpacemissionDAO extends ModelDAO
 		$query = "SELECT target_id as targets FROM space_mission_to_targets " .
 		"WHERE space_mission_to_targets.space_mission_id=" . $resource_id;
 		$result = self::$db->query($query);
-
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			foreach($row as $key => $value)
 				$this->_hasMany[$key][] = $value;

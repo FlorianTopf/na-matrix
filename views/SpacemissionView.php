@@ -73,13 +73,16 @@ $link->close();
 	print "</ul></fieldset>" . LF;
 
 	//Targets:
-	print "<fieldset class='report'><legend><b>Space Mission Targets:</b></legend><ul>";
-  	$targets = $_spacemission->get_targets();
-    foreach($research_areas['id'] as $key => $value)
-        if(is_array($_spacemission->get_has_many("targets", NULL)))
+	if(is_array($_spacemission->get_has_many("targets", NULL)))
+	{
+		print "<fieldset class='report'><legend><b>Space Mission Targets:</b></legend><ul>";
+  		$targets = $_spacemission->get_targets();
+    	foreach($targets['id'] as $key => $value)
         	if (in_array($value, $_spacemission->get_has_many("targets", NULL)))
-        	print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>" . LF;
-	print "</ul></fieldset>" . LF;
+        	//print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>" . LF;
+        		print "<li>" . $targets['target_name'][$key] . "</li>" . LF;
+		print "</ul></fieldset>" . LF;
+	}
 
 	//Sensors:
 	$science_goals = $_spacemission->get_science_goals();

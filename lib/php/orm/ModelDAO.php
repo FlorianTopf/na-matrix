@@ -46,7 +46,6 @@ abstract class ModelDAO
 	protected function __construct()
 	{
 		$this->_modelName = $this->getModelName(); // ex : 'ModelDAO' --> 'Model'
-		/** @todo */
 
 		if (self::$db == NULL)
 			self::$db = new DbConnector('');

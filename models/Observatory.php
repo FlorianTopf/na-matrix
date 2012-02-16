@@ -12,19 +12,13 @@
  * @brief Represents the table observatories and access to it
  *
  * @todo generalize error messages and send them via mail
- * integrate set_message() with error by checking in controller each time
- * if a SESSION error ocurred show_message()
- * 
- * @todo check all htmlentities/htmlspecialchars occurences!!
+ *       integrate set_message() with error by checking in controller each time
+ *       if a SESSION error ocurred show_message()
+ * @todo check all htmlentities/htmlspecialchars occurences!
+ * @todo zip code und city überall komplett entfernen
  */
 class ObservatoryDAO extends ModelDAO
  {
-	/** database connection */
-	//protected $_link = NULL;
-
-	/** Array of column names from observatories */
-	//protected $_fields = array();
-
 	/** Array for all countries */
 	protected $_countries = array();
 
@@ -98,30 +92,9 @@ class ObservatoryDAO extends ModelDAO
 	'targets' => '',
 	'telescopes' => '',
 	'instruments' => '');
-
-//-----------------------------------------------------------------------------------------------------------
-	/** creates relevant member variables */
-//	function __construct() {
-//		 //creates database connection
-//		 $this->_link = new DbConnector();
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** removes/unsets relevant member variables */
-//	function __destruct() {
-//		//closes database connection
-//		$this->_link->close();
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get a field from observatories */
-//	public function get_field($field)
-//	{
-//		if(array_key_exists($field, $this->_fields))
-//			return htmlspecialchars($this->_fields[$field], ENT_QUOTES);
-//		else
-//			return NULL;
-//	}
+	
+	/** Users Array for Admin operations */
+	protected $_users = array();
 
 //-----------------------------------------------------------------------------------------------------------
 	/** get field array from observatories
@@ -155,7 +128,7 @@ class ObservatoryDAO extends ModelDAO
 	 * @todo improve this a bit */
 	public function get_precipitation_ranges()
 	{
-		$query = "SELECT * FROM precipitation_ranges ORDER by id DESC";
+		$query = "SELECT * FROM precipitation_ranges ORDER BY id DESC";
       	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
@@ -171,7 +144,7 @@ class ObservatoryDAO extends ModelDAO
 	 * @todo improve this a bit */
 	public function get_clearnights_ranges()
 	{
-		$query = "SELECT * FROM clearnights_ranges ORDER by id DESC";
+		$query = "SELECT * FROM clearnights_ranges ORDER BY id DESC";
       	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
@@ -365,34 +338,32 @@ class ObservatoryDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** get fieldkeys from 1-N relations (_hasMany) */
-//	public function get_has_many($x_field, $y_field)
-//	{
-//		if($y_field == NULL)
-//			return $this->_hasMany[$x_field];
-//		else if(isset($this->_hasMany[$x_field][$y_field]))
-//			return $this->_hasMany[$x_field][$y_field];
-//		else
-//			return NULL;
-//	}
+	/** check if there is something inside */
+	public function check_add_info()
+	{
+		if ($this->get_add_info('additional_instruments') || 
+				$this->get_add_info('array_description') ||
+				$this->get_add_info('backend_description'))
+			return TRUE;
+		else
+			return FALSE;
+	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** initialize 1-N relation (_hasMany) if no entry is there */
-//	public function init_has_many($x_field, $y_field)
-//	{
-//		if($y_field == NULL)
-//		{
-//			$this->_hasMany[$x_field] = array();
-//			array_push($this->_hasMany[$x_field], 0);
-//		}
-//		else
-//		{
-//			$this->_hasMany[$x_field][$y_field] = array();
-//			array_push($this->_hasMany[$x_field][$y_field], 0);
-//		}
-//
-//		//echo "INIT HAS MANY: " . $x_field . "<br>";
-//	}
+	/** ADMIN TOOL FOR ASSIGNING USERS */
+	public function get_users()
+	{
+		$query = "SELECT id, fname, lname FROM users_list";
+		$result = self::$db->query($query);
+		
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+      		foreach ($row as $key => $value)
+				if($row['id'] != '1')
+					$this->_users[$key][$row['id']] = $value;
+      	mysqli_free_result($result);
+		
+      	return $this->_users;
+	}
 
 //-----------------------------------------------------------------------------------------------------------
   /**
@@ -404,43 +375,51 @@ class ObservatoryDAO extends ModelDAO
    *
    * @return $resources array of resources
    *
-   * @todo be aware that we will need filters here soon! (improve queries)
    */
 	public function get_all_resources($page, $filters = array())
 	{
 		$resources = array();
+		$filter_queries = array();	
+		/** we have to check carefully when resetting the filters */
+		$filter_string = implode('', $filters);
+		
 		if($page == "edit")
 		{
-			$query = "SELECT id, name, creation_date, modification_date FROM observatories";
-			/** @todo this is actually for user edits */
-//			if(!empty($filters))
-//				$query .= " WHERE user_id=" . $filters["user_id"];
-//					
-//			$query .= " ORDER BY modification_date DESC";
-//			
-//			print $query . nl();
+			$query = "SELECT id, name, creation_date, modification_date, approved, saved_for_later FROM observatories WHERE";		
+				
+			//this is for the users "My entries"
+			if(!empty($filters["user_id"]))
+				$filter_queries[] = " user_id=" . $filters["user_id"];
+			
+			//we need to distinguish between edit and approve menu (0/1)
+			if(isset($filters["approved"]))
+				$filter_queries[] = " approved=" . $filters["approved"];
+					
+			/** concatenating all filter queries with AND */
+			$query .= implode(" AND ", $filter_queries);
+					
+			$query .= " ORDER BY modification_date DESC";
+			
+			//print $query . nl();
 		}
-		elseif($page == "browse")
+		else if($page == "browse")
 		{
 			$query = "SELECT id, name, institution, web_address, " .
 			"country_id, email FROM observatories";
 
-			/** we have to check carefully when resetting the filters */
-			$filter_string = implode('', $filters);
-
 			// --------------- Questionnaire Start -----------------
-			if ($_SESSION["user_level"] >= 21)
-			{
-				if(!empty($filter_string))
-					$query .= " WHERE ";
-			}
-			else
-			{
+//			if ($_SESSION["user_level"] >= 21)
+//			{
+//				if(!empty($filter_string))
+//					$query .= " WHERE ";
+//			}
+//			else
+//			{
 				$query .= " WHERE observatories.approved = 1 ";
 				
 				if(!empty($filter_string))
 					$query .= "AND ";
-			}
+//			}
 			// --------------- Questionnaire End -----------------
 
 			//DEBUG:
@@ -448,19 +427,13 @@ class ObservatoryDAO extends ModelDAO
 			//nl();
 			//echo "Filter for Telescope Type:" . $filters["telescope_type"];
 			//nl();
-
-			$filter_queries = array();
-
+			
 			if(!empty($filters["id"]))
 				$filter_queries[] = "id=" . $filters["id"];
 
 			if(!empty($filters["country"]))
 				//$query .= "country_id=". $filters["country"];
 				$filter_queries[] = "country_id=". $filters["country"];
-
-			/** old style with only two filter types */
-			//if(!empty($filters["country"]) && !empty($filters["telescope_type"]))
-			//	$query .= " AND ";
 
 			if(!empty($filters["telescope_type"]))
 			{
@@ -613,7 +586,7 @@ class ObservatoryDAO extends ModelDAO
 		$query = "SELECT * FROM hidden_fields WHERE hidden_fields.id=" . $resource_id;
 		$result = self::$db->query($query);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		/** @todo check if empty when DONT want to insert empty rows */
+
 		foreach ($row as $key => $value)
 		{
 			//check if key is not ID, we do not need that
@@ -640,11 +613,9 @@ class ObservatoryDAO extends ModelDAO
 		//echo $query;
 		$result = self::$db->query($query);
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-		{
 			foreach ($row as $key => $value)
 				$this->_hasMany[$key][] = $value;
 
-		}
 		mysqli_free_result($result);
 
 		//TELESCOPES
@@ -710,7 +681,8 @@ class ObservatoryDAO extends ModelDAO
 					elseif ($key == 'wavelength') /** check for entries and put semicolon (autocomplete) */
 					{
 						$value = trim($value); //remove whitespaces at the beginning/end
-						if (substr($value, -1) != ",") //check if last char is not semicolon
+						//check if last char is not semicolon and there is something written inside!
+						if ((substr($value, -1) != ",") && !empty($value)) 
 							$value = $value . ", "; //add semicolon
 						else
 							$value = $value . " ";
@@ -903,7 +875,7 @@ class ObservatoryDAO extends ModelDAO
 			{
 				$this->_hiddenFields["address"] = $value;
 				$this->_hiddenFields["further_contacts"] = $value;
-				$this->_hiddenFields["city"] = $value;
+//				$this->_hiddenFields["city"] = $value;
 			}
 
 			if($key == "emailaddress")
@@ -912,8 +884,8 @@ class ObservatoryDAO extends ModelDAO
 			if($key == "phonenumber")
 				$this->_hiddenFields["phone"] = $value;
 
-			if($key == "postalcode")
-				$this->_hiddenFields["zip_code"] = $value;
+//			if($key == "postalcode")
+//				$this->_hiddenFields["zip_code"] = $value;
 
 			if($key == "url")
 				$this->_hiddenFields["web_address"] = $value;
@@ -968,8 +940,10 @@ class ObservatoryDAO extends ModelDAO
 				else
 					$this->_fields["obs_phone"] = stripslashes($value);
 
+			/** @todo this needs to be removed */
 			if($key == "zip")
-				$this->_fields["obs_zip_code"] = stripslashes($value);
+				//$this->_fields["obs_zip_code"] = stripslashes($value);
+				$this->_fields["obs_address"] .= stripslashes($value);
 
 			if($key == "url")
 				if(isset($this->_fields["obs_web_address"]))
@@ -994,12 +968,14 @@ class ObservatoryDAO extends ModelDAO
   /**
    * @fn add_resource()
    * @brief adds a new resource observatory
+   * 
+   * @param $save flag for save for later (approved=0 in any case)
    *
    * @return $status mysql_status
    *
    * GLOBAL: $_POST array
    */
-	public function add_resource() {
+	public function add_resource($save = FALSE) {
 		//convert GPS to FLOAT first
       	$latitude_float = $this->gpsToFloat($_POST["add_obs_latitude"]["prefix"],
                                                        $_POST["add_obs_latitude"]["degree"],
@@ -1012,12 +988,28 @@ class ObservatoryDAO extends ModelDAO
                                                         $_POST["add_obs_longitude"]["minutes"],
                                                         $_POST["add_obs_longitude"]["seconds"],
                                                         $_POST["add_obs_longitude"]["cent"]);
-		// ------------- Questionnaire Start -------------
+		
+        /** @todo we need to get rid of user level stuff in DAO */
+        // ------------- Questionnaire Start -------------
         if ($_SESSION["user_level"] >= 21)
+        {
         	$approved = 1;
+        	$saved_for_later = 0;
+        }
         else
+        {
         	$approved = 0;
+        	$saved_for_later = 0;
+        }
         // ------------- Questionnaire End ---------------
+        
+        // SAVE FOR LATER OPTION (for any user level)
+        if($save == TRUE)
+        {
+        	$approved = 0;
+        	$saved_for_later = 1;
+        }
+        	
         /** @todo remove this later!! */
         $_POST["add_obs_zip_code"] = "";
         $_POST["add_obs_city"] = "";
@@ -1027,8 +1019,8 @@ class ObservatoryDAO extends ModelDAO
   			"`city`,`country_id`,`phone`,`email`,`latitude`,`longitude`,`approx_position`," .
 			"`sealevel_m`,`precipitation`,`clear_nights`,`timezone`," .
 			"`observatory_status`," .
-  			"`partner_observatories`, `creation_date`, `user_id`, `approved`)" .
-  			"VALUES (NULL,'" .
+  			"`partner_observatories`, `creation_date`, `user_id`, `approved`, `saved_for_later`, `last_saved_by`)" .
+  			" VALUES (NULL,'" .
         	addslashes($_POST["add_obs_name"]) . "','" .
         	$_POST["add_obs_founded"] . "','" .
         	addslashes($_POST["add_obs_institution"]) . "','" .
@@ -1050,10 +1042,13 @@ class ObservatoryDAO extends ModelDAO
         	addslashes($_POST["add_obs_partner"]) . "'," .
         	"NOW()" . ",'" .
 			$_SESSION["user_id"] . "','" .   // Questionnaire
-			$approved .						 // Questionnaire
+			$approved .	"','" .			     // Questionnaire
+			$saved_for_later . "','" . 	     // Temporary Save
+			$_SESSION["user_id"] .           // Who saved at last?
 			"')";
 
         //print "Debug: " . $query;
+        //nl();
 
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
@@ -1070,12 +1065,13 @@ class ObservatoryDAO extends ModelDAO
    * @brief updates an existing resource obs/spa
    *
    * @param $res_id ID of the resource we want to have
+   * @param $save flag for save for later (approved=0 in any case)
    *
    * @return $status mysql_status
    *
    * GLOBAL: $_POST array
    */
-	public function update_resource($res_id) {
+	public function update_resource($res_id, $save = FALSE) {
 		//convert GPS to FLOAT first
 		$latitude_float = $this->gpsToFloat($_POST["add_obs_latitude"]["prefix"],
                                                        $_POST["add_obs_latitude"]["degree"],
@@ -1089,12 +1085,27 @@ class ObservatoryDAO extends ModelDAO
                                                         $_POST["add_obs_longitude"]["seconds"],
                                                         $_POST["add_obs_longitude"]["cent"]);
 
-		// ------------- Questionnaire Start -------------
+	    /** @todo we need to get rid of user level stuff in DAO */
+        // ------------- Questionnaire Start -------------
         if ($_SESSION["user_level"] >= 21)
+        {
         	$approved = 1;
+        	$saved_for_later = 0;
+        }
         else
+        {
         	$approved = 0;
+        	$saved_for_later = 0;
+        }
         // ------------- Questionnaire End ---------------
+        
+        // SAVE FOR LATER OPTION (for any user level)
+        if($save == TRUE)
+        {
+        	$approved = 0;
+        	$saved_for_later = 1;
+        }
+        	
         /** @todo remove this later!! */
         $_POST["add_obs_zip_code"] = "";
         $_POST["add_obs_city"] = "";
@@ -1120,10 +1131,14 @@ class ObservatoryDAO extends ModelDAO
 	  		"timezone='" . addslashes($_POST["add_obs_timezone_id"]) . "'," .
 	  		"observatory_status='" . addslashes($_POST["add_obs_status"]) . "'," .
 	  		"partner_observatories='" . addslashes($_POST["add_obs_partner"]) . "'," .
-			"modification_date=NOW()," .
-			//"user_id='" . $_SESSION["user_id"] . "'," .
-			"approved='" . $approved . "' " .
+			"modification_date=NOW(),";
+		    if (isset($_POST["add_obs_user_id"]))
+				$query .= "user_id='" . $_POST["add_obs_user_id"] . "',";
+			$query .= "approved='" . $approved . "'," .
+		    "saved_for_later='" . $saved_for_later . "'," .
+			"last_saved_by='" . $_SESSION["user_id"] . "' " .
 	  		"WHERE id=" . $res_id;
+			
 
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
@@ -1241,13 +1256,22 @@ class ObservatoryDAO extends ModelDAO
    * @brief ADD/UPD/DEL OBSERVATORIES KEY REFERENCE TABLE ENTRIES
    *
    * @param $res_id ID of observatory where we want to add SQL keys
-   * @param $action ADD/UPDATE/DELETE observatory
+   * @param $action ADD/UPDATE/DELETE/SAVE FOR LATER observatory
+   * @param $add is it an add or edit operation?
    *
    * GLOBAL: $_POST array
+   * 
+   * @todo WE HAVE TO IMPROVE THIS PROCEDURE! (actions are located here!)
    *
    */
-	public function add_obs_keys($res_id, $action)
+	public function add_obs_keys($res_id, $action, $add = TRUE)
   	{
+  		//THIS IS FOR LATER SAVE
+  		if(($action == "Save for Later") && ($add == TRUE))
+  			$action = "Add Entry";
+  		else if(($action == "Save for Later") && ($add == FALSE))
+  			$action = "Update Entry";
+  		
   		//------------------------------------------------------------
   		//ADD/UPD/DEL (observatory_to_scientific_contacts & scientific_contacts)
   		//called VIA EDIT
@@ -1392,8 +1416,8 @@ class ObservatoryDAO extends ModelDAO
 	               addslashes($_POST["add_obs_sci_con_institution"][$key]) . "')";
 
 	       		//DEBUG:
-  				echo $query;
-  				nl();
+  				//echo $query;
+  				//nl();
 
 	            self::$db->query($query);
 			    if (self::$db->errno() != 0)
@@ -1425,14 +1449,12 @@ class ObservatoryDAO extends ModelDAO
 		$query = "INSERT INTO hidden_fields VALUES (". $res_id  .",'" .
 	    	checkbox_value("add_obs_hide_0") . "','" .
 	    	checkbox_value("add_obs_hide_1") . "','" .
-//	    	checkbox_value("add_obs_hide_2") . "','" .
-//	    	checkbox_value("add_obs_hide_3") . "','" .
+	    	checkbox_value("add_obs_hide_2") . "','" .
+	    	checkbox_value("add_obs_hide_3") . "','" .
 	    	checkbox_value("add_obs_hide_4") . "','" .
 	    	checkbox_value("add_obs_hide_5") . "','" .
-	    	checkbox_value("add_obs_hide_6") . "','" .
-	    	checkbox_value("add_obs_hide_7") . "','" .
-			checkbox_value("add_obs_hide_8") . "','" .
-	        checkbox_value("add_obs_hide_9") . "')";
+			checkbox_value("add_obs_hide_6") . "','" .
+	        checkbox_value("add_obs_hide_7") . "')";
 
 	    self::$db->query($query);
 	    if (self::$db->errno() != 0)
@@ -1449,22 +1471,18 @@ class ObservatoryDAO extends ModelDAO
    * GLOBAL: $_POST array
    *
    * THIS IS A 1ST ORDER TABLE
-   *
-   * @todo gives a notice on unset post vars (not checked boxes)
    */
    protected function update_hidden_fields($res_id)
    {
 		$query = "UPDATE hidden_fields SET " .
 	  		"web_address='" . checkbox_value("add_obs_hide_0") . "'," .
 	  		"address='" . checkbox_value("add_obs_hide_1") . "'," .
-//	  		"zip_code='" . checkbox_value("add_obs_hide_2") . "'," .
-//	  		"city='" . checkbox_value("add_obs_hide_3") . "'," .
-	  		"phone='" . checkbox_value("add_obs_hide_4") . "'," .
-	  		"email='" . checkbox_value("add_obs_hide_5") . "'," .
-	  		"latitude='" . checkbox_value("add_obs_hide_6") . "'," .
-	  		"longitude='" . checkbox_value("add_obs_hide_7") . "'," .
-	  		"scientific_contacts='" . checkbox_value("add_obs_hide_8") . "'," .
-	  		"further_contacts='" . checkbox_value("add_obs_hide_9") . "'" .
+	  		"phone='" . checkbox_value("add_obs_hide_2") . "'," .
+	  		"email='" . checkbox_value("add_obs_hide_3") . "'," .
+	  		"latitude='" . checkbox_value("add_obs_hide_4") . "'," .
+	  		"longitude='" . checkbox_value("add_obs_hide_5") . "'," .
+	  		"scientific_contacts='" . checkbox_value("add_obs_hide_6") . "'," .
+	  		"further_contacts='" . checkbox_value("add_obs_hide_7") . "'" .
 	  		"WHERE id=" . $res_id;
 
 	  	self::$db->query($query);
@@ -1713,6 +1731,7 @@ class ObservatoryDAO extends ModelDAO
 				$query = "INSERT INTO telescopes VALUES (NULL,'" .
 				   addslashes($_POST["add_obs_telescope_name"][$tele_key]) . "','" .
 	               $_POST["add_obs_telescope_type_id"][$tele_key] . "','" .
+	               checkbox_value("add_obs_mobile_flag", $tele_key) . "','" .
 	               $_POST["add_obs_telescope_elements"][$tele_key] . "','" .
 	               $_POST["add_obs_diameter"][$tele_key] . "','" .
 	               addslashes($_POST["add_obs_focallength"][$tele_key]) . "','" .
@@ -1825,19 +1844,18 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 1ST ORDER TABLE
- *
- * @todo do we really want to have empty rows, if nothing was entered?
  */
   	protected function add_add_info($res_id)
   	{
 		$query = "INSERT INTO additional_information VALUES (". $res_id  .",'" .
 			addslashes($_POST["add_obs_fur_con"]) . "','" .
-    		//addslashes($_POST["add_obs_inst_com"]) . "','" .  // FIXXXME TOGGLE COMMENT
     		addslashes($_POST["add_obs_add_inst"]) . "','" .
     		addslashes($_POST["add_obs_array_desc"]) . "','" .
     		addslashes($_POST["add_obs_backend_desc"]) . "','" .
     		addslashes($_POST["add_obs_research_com"]) . "','" .
-    		addslashes($_POST["add_obs_gen_com"]) . "')";
+    		addslashes($_POST["add_obs_target_com"]) . "','" .
+    		addslashes($_POST["add_obs_gen_com"]) . "','" .
+    		addslashes($_POST["add_obs_feedback"]) . "')";
 
 		//DEBUG:
   		//echo "ADD info: " . $query . "<br>";
@@ -1856,19 +1874,18 @@ class ObservatoryDAO extends ModelDAO
  * GLOBAL: $_POST array
  *
  * THIS IS A 1ST ORDER TABLE
- *
- * @todo do we really want to have empty rows, if nothing was entered?
  */
   	protected function update_add_info($res_id)
   	{
   		$query = "UPDATE additional_information SET " .
 			"further_contacts='" . addslashes($_POST["add_obs_fur_con"]) . "'," .
-			//"instrument_comments='" . addslashes($_POST["add_obs_inst_com"]) . "'," .
 			"additional_instruments='" . addslashes($_POST["add_obs_add_inst"]) . "'," .
 			"array_description='" . addslashes($_POST["add_obs_array_desc"]) . "'," .
 			"backend_description='" . addslashes($_POST["add_obs_backend_desc"]) . "'," .
 			"research_comments='" . addslashes($_POST["add_obs_research_com"]) . "'," .
-			"general_comments='" . addslashes($_POST["add_obs_gen_com"]) . "'" .
+  			"target_comments='" . addslashes($_POST["add_obs_target_com"]) . "'," .
+  			"general_comments='" . addslashes($_POST["add_obs_gen_com"]) . "'," .
+			"feedback='" . addslashes($_POST["add_obs_feedback"]) . "'" .
 				" WHERE id=" . $res_id;
 
 		//DEBUG:
@@ -1883,6 +1900,7 @@ class ObservatoryDAO extends ModelDAO
 // HELPER METHODS
 /**
  * gpsToFloat computes Float of GPS coords given in ($prefix ,$degree, $minutes, $seconds, $cent)
+ * 
  * @return $float GPS values in float
  */
   	protected function gpsToFloat($prefix ,$degree, $minutes, $seconds, $cent)
