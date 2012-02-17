@@ -24,7 +24,7 @@
 
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
-    $headers .= "From: " . MAIL_FROM . "\n";
+    $headers .= "From: " . MAIL_FROM . "\r\n";
     $headers .= 'Bcc: ' . MAIL_TO . "\r\n";
     $headers .= "Reply-To: " . MAIL_REPLY;
 

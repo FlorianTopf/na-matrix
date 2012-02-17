@@ -570,7 +570,7 @@ class Controller
     
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
-    $headers .= "From: " . MAIL_FROM . "\n";
+    $headers .= "From: " . MAIL_FROM . "\r\n";
     $headers .= "Reply-To: " . MAIL_REPLY;
     $from = "-f" . MAIL_FROM;
 
@@ -585,9 +585,9 @@ class Controller
                 $email . "\n";
                 
     if($save)
-        $message .= "This entry was saved for later by the user!\n";
+        $message .= LF. LF ."This entry was saved for later by the user!\n";
     else
-    	$message .= "This entry needs to be reviewed and approved!\n";
+    	$message .= LF. LF. "This entry needs to be reviewed and approved!\n";
 
 
     mail(MAIL_TO_ADD, $subject, $message, $headers, $from);
@@ -615,7 +615,8 @@ class Controller
     
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
-    $headers .= "From: " . MAIL_FROM . "\n";
+    $headers .= "From: " . MAIL_FROM . "\r\n";
+    $headers .= 'Bcc: ' . MAIL_TO_ADD . "\r\n";
     $headers .= "Reply-To: " . MAIL_REPLY;
     $from = "-f" . MAIL_FROM;
 
@@ -631,12 +632,12 @@ class Controller
                 
     if($approved)
     {
-        $message .= "You can now find your entry in the \"Browse Matrix\" option\n!";
+        $message .= LF. LF. "You can now find your entry in the \"Browse Matrix\" option\n!";
         $message .= "Note, that if you modify this entry in \"My Entries\", it will be again marked for approval!\n";
     }
     else
     {
-    	$message .= "You need to review the changes made by the administrators in \"My Entries\"!\n";
+    	$message .= LF. LF. "You need to review the changes made by the administrators in \"My Entries\"!\n";
     	$message .= "Please check the entry carefully, do modifications if needed and click on \"Update Entry\"!\n";
     }
 

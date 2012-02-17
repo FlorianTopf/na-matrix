@@ -1390,21 +1390,14 @@ CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
 --
 
 INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
-(1, 'radiowaves', 'radio frequencies'),
-(2, 'radiowave (VHF)', 'very high frequency'),
-(3, 'radiowave (HF)', 'high frequency'),
-(4, 'radiowave (MF)', 'medium frequency'),
-(5, 'radiowave (LF)', 'low frequency'),
-(6, 'microwaves', 'microwave frequencies'),
-(7, 'microwave (EHF)', 'extremely high frequency'),
-(8, 'microwave (SHF)', 'super high frequency'),
-(9, 'microwave (UHF)', 'ultra high frequency'),
-(10, 'submillimeter', 'terahertz frequency'),
-(11, 'infrared (IR)', 'infrared frequencies'),
-(12, 'optical', 'visible light frequencies'),
-(13, 'ultraviolet (UV)', 'ultraviolet light frequencies'),
-(14, 'x-rays', 'x-ray frequencies'),
-(15, 'gamma-rays', 'gamma-ray frequencies');
+(1, 'radiowave', 'radio frequencies'),
+(2, 'microwave', 'microwave frequencies'),
+(3, 'submillimeter', 'terahertz frequency'),
+(4, 'infrared', 'infrared frequencies'),
+(5, 'optical', 'visible light frequencies'),
+(6, 'ultraviolet', 'ultraviolet light frequencies'),
+(7, 'x-ray', 'x-ray frequencies'),
+(8, 'gamma-ray', 'gamma-ray frequencies');
 
 -- --------------------------------------------------------
 

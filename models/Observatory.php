@@ -382,6 +382,8 @@ class ObservatoryDAO extends ModelDAO
 		$filter_queries = array();	
 		/** we have to check carefully when resetting the filters */
 		$filter_string = implode('', $filters);
+//		print "Filterstring: " . $filter_string;
+//		nl();
 		
 		if($page == "edit")
 		{
@@ -481,8 +483,8 @@ class ObservatoryDAO extends ModelDAO
 			$query .= " ORDER BY observatories.name";
 
 			//DEBUG:
-			//echo $query;
-			//nl();
+//			echo $query;
+//			nl();
 		}
 
 

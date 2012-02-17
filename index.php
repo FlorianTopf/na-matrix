@@ -219,7 +219,7 @@
 				if(isset($_POST["add_res_type"]))
 				{
 					$resource_type = $_POST["add_res_type"];
-					$action = $_POST["action"];
+					$action = $_POST["action"];		
 				}
 	
 				//if push in add/edit was pressed
@@ -275,14 +275,18 @@
 	
 				if(isset($_POST["obs_filters"]))
 				{
-					foreach($_POST["obs_filters"] as $key => $value)
-						$filters[$key] = $value;
+					// we need to reset if we change the res type
+					if($resource_type != "spa")
+						foreach($_POST["obs_filters"] as $key => $value)
+							$filters[$key] = $value;
 				}
 	
 				if(isset($_POST["spa_filters"]))
 				{
-					foreach($_POST["spa_filters"] as  $key => $value)
-						$filters[$key] = $value;
+					// we need to reset if we change the res type
+					if($resource_type != "obs")
+						foreach($_POST["spa_filters"] as  $key => $value)
+							$filters[$key] = $value;
 				}
 	
 				if(isset($_POST["reset_filters"]))

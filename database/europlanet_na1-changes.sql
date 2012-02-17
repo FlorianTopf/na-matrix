@@ -496,6 +496,19 @@ UPDATE  `europlanet_na1`.`observatories` SET  `clear_nights` = '8' WHERE  `clear
 
 ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `last_saved_by` INT(11) NULL DEFAULT 0  AFTER `saved_for_later` ;
 
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 1002 */
+
+TRUNCATE TABLE `wavelength_ranges`;
+INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
+(1, 'radiowave', 'radio frequencies'),
+(2, 'microwave', 'microwave frequencies'),
+(3, 'submillimeter', 'terahertz frequency'),
+(4, 'infrared', 'infrared frequencies'),
+(5, 'optical', 'visible light frequencies'),
+(6, 'ultraviolet', 'ultraviolet light frequencies'),
+(7, 'x-ray', 'x-ray frequencies'),
+(8, 'gamma-ray', 'gamma-ray frequencies');
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

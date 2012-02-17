@@ -202,18 +202,20 @@ class SpacemissionDAO extends ModelDAO
 	public function get_all_resources($page, $filters = array())
 	{
 		$resources = array();
+		$filter_queries = array();
+		/** we have to check carefully when resetting the filters */
+		$filter_string = implode('', $filters);
+//		print "Filterstring: " . $filter_string;
+//		nl();
+		
 		if($page == "edit")
 			$query = "SELECT id, mission_name AS name, creation_date, modification_date FROM space_missions ORDER BY modification_date DESC";
 		if($page == "browse")
 		{
 			$query = "SELECT id, mission_name, mission_agency, launch_date, death_date, web_address FROM space_missions";
 
-			/** we have to check carefully when resetting the filters */
-			$filter_string = implode('', $filters); 
 			if(!empty($filter_string))
 				$query .= " WHERE ";
-				
-			$filter_queries = array();
 			
 			if(!empty($filters["id"]))
 				$filter_queries[] = "id=" . $filters["id"];
@@ -239,8 +241,8 @@ class SpacemissionDAO extends ModelDAO
 			$query .= " ORDER BY mission_name";
 			
 			//DEBUG:
-			//echo $query;
-			//nl();
+//			echo $query;
+//			nl();
 		}
 
 		$result = self::$db->query($query);
