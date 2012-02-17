@@ -25,6 +25,7 @@ define("DOC_ROOT", "/users/iwf/europlanet/matrix");
 // Mail setup
 define("MAIL_SMTP", "smtp.oeaw.ac.at");
 define("MAIL_TO", "manuel.scherf@oeaw.ac.at, florian.topf@oeaw.ac.at");
+define("MAIL_TO_ADD", "manuel.scherf@oeaw.ac.at, florian.topf@oeaw.ac.at, jfabbri@star.ucl.ac.uk");
 define("MAIL_FROM", "manuel.scherf@oeaw.ac.at");
 define("MAIL_REPLY", "manuel.scherf@oeaw.ac.at");
 
