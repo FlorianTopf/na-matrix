@@ -21,6 +21,16 @@ function openwin(content)
   return false;
 }
 
+//CONFIRMATION DIALOG for stupid admins
+function show_confirm()
+{
+var r=confirm("Do you really want to delete this entry?");
+if (r==true)
+	return true;
+else
+	return false;
+}
+
 //-----------------------------------------------------------------------------------------------------------
 //SOME VARIABLES FOR GOOGLE MAPS
 //User Location

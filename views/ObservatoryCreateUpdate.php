@@ -601,7 +601,7 @@ else if($action == "edit")
 	print "<input type='hidden' name='is_edit' value='1'>" . LF ;
 	
 	if($_SESSION["user_level"] >= 31)
-		print "&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='push' value='Delete Entry'>" . LF;
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='push' onclick='return show_confirm()' value='Delete Entry'>" . LF;
 }
 
 print "</div>" . LF;
