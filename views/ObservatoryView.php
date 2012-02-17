@@ -130,7 +130,7 @@ $link->close();
 	if ($_observatory->get_field("obs_approx_position"))
   		print "<p><b>Approximate Position:&nbsp;</b>" . $_observatory->get_field("obs_approx_position") . "</p>" . LF;
   	if ($_observatory->get_field("obs_sealevel_m"))
-  		print "<p><b>Sealevel:</b>&nbsp;" . $_observatory->get_field("obs_sealevel_m") . "&nbsp;[m]</p>" . LF;
+  		print "<p><b>Altitude:</b>&nbsp;" . $_observatory->get_field("obs_sealevel_m") . "&nbsp;[m]</p>" . LF;
 
   	$p_ranges = $_observatory->get_precipitation_ranges();
   	$p_range = array_search($_observatory->get_field("obs_precipitation"), $p_ranges['id']);
@@ -237,7 +237,7 @@ $link->close();
 	    	if ($antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] != "---")
 	    		print "<p><b>Antenna Type:&nbsp;</b>" . $antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("wavelength", $key))
-	    		print "<p><b>Wavelength:&nbsp;</b>" . trim($_observatory->get_telescope("wavelength", $key), " ,") . LF;
+	    		print "<p><b>Wavelength Region:&nbsp;</b>" . trim($_observatory->get_telescope("wavelength", $key), " ,") . LF;
 	    	if ($_observatory->get_telescope("wavelength_begin", $key))
 	    		print "<p><b>Wavelength or Freq Begin:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_b_unit", $key)] . "</p>" . LF;
@@ -257,7 +257,7 @@ $link->close();
 	    			if ($_observatory->get_instrument("focal_position", $telescope_id, $key2))
 						print "<p><b>Focal Position:&nbsp;</b>" . $_observatory->get_instrument("focal_position", $telescope_id, $key2) . "</p>" . LF;
 					if ($_observatory->get_instrument("wavelength", $telescope_id, $key2))
-	    				print "<p><b>Wavelength:&nbsp;</b>" . $_observatory->get_instrument("wavelength", $telescope_id, $key2) . "</p>" . LF;
+	    				print "<p><b>Wavelength Region:&nbsp;</b>" . $_observatory->get_instrument("wavelength", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2))
 	    				print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2)) . " " .
 	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2)] . "</p>" . LF;

@@ -698,11 +698,19 @@ class ObservatoryDAO extends ModelDAO
 					elseif ($key == 'wavelength') /** check for entries and put semicolon (autocomplete) */
 					{
 						$value = trim($value); //remove whitespaces at the beginning/end
-						//check if last char is not semicolon and there is something written inside!
+						//print "TEST: " . $value . "x";
+						//nl();
+						/** @todo check if last char is not semicolon and there is something written inside! */
 						if ((substr($value, -1) != ",") && !empty($value)) 
 							$value = $value . ", "; //add semicolon
+						//a little mistake from avove (with !empty missing before)
+						else if ($value == ",")
+							$value = "";
 						else
 							$value = $value . " ";
+							
+						//print "TEST 2: " . $value ."x";
+						//nl();
 						$this->_telescopes[$key][] = stripslashes($value);
 
 					}

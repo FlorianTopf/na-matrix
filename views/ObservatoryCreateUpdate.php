@@ -30,7 +30,7 @@ print "<table class='create'>" . LF;
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
 $name_tooltip = "Facility Name - Please fill in the name of your facility. Please be aware that this is a 
 MANDATORY FIELD.<br/>If the facility is privately owned, and has no specific name, <br/>you can simply 
-fill in &quot;private facility&quot;.<br/><b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;";
+fill in &quot;Privately owned&quot;.<br/><b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;";
 if($action == "edit")
 	printInputTextRow("Facility Name", "update_obs_name", $_observatory->get_field("obs_name"), 
 			80, NULL, NULL, TRUE, $name_tooltip);
@@ -157,9 +157,9 @@ If you have a mobile observing facility, then you can also state this here.</br>
 printInputTextRow("Approximate Position", "add_obs_position", $_observatory->get_field("obs_approx_position"), 
 			80, NULL, NULL, FALSE, $pos_tooltip);
 //Sealevel
-$sealevel_tooltip = "Sealevel - Please insert the mean sealevel (MSL) of the facility (in meters above sealevel).</br>
+$sealevel_tooltip = "Altitude - Please insert the altitude of the facility (in meters above sea level).</br>
 <b>Example:</b> &quot;353&quot;";
-printInputTextRow("Sealevel", "add_obs_sealevel", $_observatory->get_field("obs_sealevel_m"), 
+printInputTextRow("Altitude", "add_obs_sealevel", $_observatory->get_field("obs_sealevel_m"), 
 			10, "[m]", NULL, FALSE, $sealevel_tooltip);
 //Precipitation range
 $p_tooltip = "Precipitation Range - Please choose the precipitation range of the region of your facility,</br>
@@ -198,7 +198,7 @@ Observatory Hvar, Observatory Lustb&uuml;hel";
 printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"),
 			80, NULL, "partner", FALSE, $partner_tooltip);
 //General comments
-$comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no typographic conventions.</br>
+$comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no format conventions.</br>
 <b>Example:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
 printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'),
 			65, 3, NULL, FALSE, $comm_tooltip);
@@ -237,7 +237,7 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 print "</table><table class='create'>";
 //Further contacts
 $furcon_tooltip = "Further Contacts - Please feel free to write any sort of contact information text in this box.</br>
-There are no typographic conventions.</br>
+There are no format conventions.</br>
 <b>Example:</b> &quot;For data enquiries, please visit our website: http://www.example.com/data&quot;";
 printInputTextfieldRow("Further Contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'),
 			65, 3, NULL, FALSE, $furcon_tooltip);
@@ -331,10 +331,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
       	//	count($_observatory->get_has_many("telescopes")) . "'/></tr>";
       	//echo "TELESCOPES: " . count($_observatory->get_has_many("telescopes")) . "<br>";
 
-      	/** @todo Mandatory Fields for the first telescope => add asterisk, but remove it when duplicating */
 	    //Telescope Name
 		printInputTextRow("Telescope Name", "add_obs_telescope_name[{$telescope_count}]",
-			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope");
+			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope", TRUE);
 
 		//  ---------------- Questionnaire Start ----------------------
 		if ($_SESSION["user_level"] <= 11)
@@ -345,7 +344,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		$options = array("top" => "<option value=''>Please select a Telescope Type</option>",
 			"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
 		printTypeSelectListFromArray("Telescope Type", "add_obs_telescope_type_id[{$telescope_count}]",
-		 $_observatory->get_telescope("telescope_type", $telescope_count), $telescope_types, "name", NULL, FALSE, $options);
+		 $_observatory->get_telescope("telescope_type", $telescope_count), $telescope_types, "name", NULL, TRUE, $options);
 		 
 		//Mobile Flag
 		printCheckBoxRow("Mobile Station?", "add_obs_mobile_flag[{$telescope_count}]",
@@ -357,11 +356,11 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 	    //Diameter/Aperture
 		printInputTextRow("Diameter/Aperture", "add_obs_diameter[{$telescope_count}]",
-			$_observatory->get_telescope("diameter_m", $telescope_count), 10, "[m]", "number");
+			$_observatory->get_telescope("diameter_m", $telescope_count), 10, "[m]", "number", TRUE);
 
 	    //Focallength
 		printInputTextRow("Focallength", "add_obs_focallength[{$telescope_count}]",
-			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or F-Ratio");
+			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or [F-Ratio]");
 
 		//  ---------------- Questionnaire Start ----------------------
 		if ($_SESSION["user_level"] <= 11)
@@ -375,7 +374,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 		//Wavelength
 		printInputTextRow("Wavelength Region", "add_obs_wavelength[{$telescope_count}]",
-			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength");
+			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength", TRUE);
 
 	    //Wavelength/Freq Begin
 	    print "<tr>";
