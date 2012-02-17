@@ -276,6 +276,15 @@ $(document).ready(function(){
       				digits: true },
       			add_res_are: {
       				required: true },
+      			// only the first telescope is mandatory
+      			"add_obs_telescope_name[0]": {
+      				required: true },
+      			"add_obs_telescope_type_id[0]": {
+      				required: true },
+      			"add_obs_diameter[0]": {
+      				required: true },
+      			"add_obs_wavelength[0]": {
+      				required: true },
       			add_obs_max_frames: {
       				number: true },
       			add_obs_max_exposure: {
@@ -305,14 +314,19 @@ $(document).ready(function(){
 		},
 		messages: {
 				add_obs_name: {
-				required: "Missing Observatory name!",
-				remote: "Observatory name already existing!" },
+					required: "Missing Observatory name!",
+					remote: "Observatory name already existing!" },
 				add_obs_founded: "Enter a correct year!",
 				add_obs_web_address: "Please enter a valid URL!",
 				add_obs_country_id: "Please choose a country!",
 				add_obs_email: "Please enter a valid email!",
 				add_obs_sealevel: "Please enter a number!",
 				"add_obs_res_are_ids[]": "Please choose research area(s)!",
+				"add_obs_telescope_name[0]": "Please provide at least one telescope!",
+				"add_obs_telescope_type_id[0]": "Please select a telescope type!",
+				"add_obs_diameter[0]": {
+					required: "Please enter the size of the telescope!"},
+				"add_obs_wavelength[0]": "Please enter a wavelength region!",
 				add_obs_max_frames: "Please enter a number!",
 				add_obs_max_exposure: "Please enter a time in seconds!",
 				add_obs_min_exposure: "Please enter a time in seconds!",
@@ -1169,9 +1183,9 @@ $(document).ready(function(){
   		
   		/** @todo add custom error labels here */
   		//strToAdd = strToAdd + '<tr><td></td><td><label for="add_sci_goal' + sensorCount + '[' + newGoal + 
-  		//']" class="error" style="display: none;">Please enter a new Entry or delete and select existing from above!</label></td></tr>' +
+  		//']" class="error" style="display: none;">Please enter a new entry or delete and select existing from above!</label></td></tr>' +
   		//'<tr><td></td><td><label for="add_sci_acro' + sensorCount + '[' + newGoal + 
-  		//']" class="error" style="display: none;">Please enter a new Entry or delete and select existing from above!</label></td></tr>';
+  		//']" class="error" style="display: none;">Please enter a new entry or delete and select existing from above!</label></td></tr>';
   		
 		$(this).closest('table.science_goals').append(strToAdd);
 
@@ -1344,7 +1358,7 @@ $(document).ready(function(){
 
 //JQUERY VALIDATOR STANDARD MESSAGES - ADOPTED FOR INLINE VALIDATION LABELS
 jQuery.extend(jQuery.validator.messages, {
-    required: "Please enter a new Entry or delete and select existing from above!",
+    required: "Please enter a new entry or delete and select existing from above!",
     number: "Plase enter a float number!"
 });
 

@@ -255,7 +255,7 @@ class Controller
 				 		else if($action == "Add Entry")
 				 		{
 				 			//DEBUG:
-          					print "ADD ENTRY! ";
+          					//print "ADD ENTRY! ";
 				 			$status = $_observatory->add_resource();
 				 		}
           				//print "DEBUG: Observatory added to main DB" . LF;
@@ -436,7 +436,7 @@ class Controller
     			if ($userlevel == 11)
     			{
 				   $_observatory = ModelDAO::getFromName("Observatory");
-				   $filters = array('user_id' => $_SESSION["user_id"]);
+				   $filters['user_id'] = $_SESSION["user_id"];
 				   $resources = $_observatory->get_all_resources($page, $filters);
 				   include "views/ObservatoryEditAll.php";
 				   break;
@@ -453,12 +453,12 @@ class Controller
     					$_observatory = ModelDAO::getFromName("Observatory");
     					if ($action == "approve")
     					{
-    						$filters = array('approved' => 0);
+    						$filters['approved'] = 0;
     						$resources = $_observatory->get_all_resources($page, $filters);
     						include "views/ObservatoryEditAll.php";
     						break;
     					}
-    					$filters = array('approved' => 1);
+    					$filters['approved'] = 1;
     					$resources = $_observatory->get_all_resources($page, $filters);
     					self::printSelector($page, $action, $resource_type);
     					include "views/ObservatoryEditAll.php";

@@ -385,11 +385,15 @@ class ObservatoryDAO extends ModelDAO
 		
 		if($page == "edit")
 		{
-			$query = "SELECT id, name, creation_date, modification_date, approved, saved_for_later FROM observatories WHERE";		
+			$query = "SELECT id, name, creation_date, modification_date, approved, saved_for_later FROM observatories WHERE ";		
 				
 			//this is for the users "My entries"
 			if(!empty($filters["user_id"]))
-				$filter_queries[] = " user_id=" . $filters["user_id"];
+				$filter_queries[] = "user_id=" . $filters["user_id"];
+				
+			//this is for the admins edit field!
+			if(!empty($filters["id"]))
+				$filter_queries[] = "id=" . $filters["id"];
 			
 			//we need to distinguish between edit and approve menu (0/1)
 			if(isset($filters["approved"]))
@@ -400,7 +404,8 @@ class ObservatoryDAO extends ModelDAO
 					
 			$query .= " ORDER BY modification_date DESC";
 			
-			//print $query . nl();
+			//print $query;
+			//nl(2);
 		}
 		else if($page == "browse")
 		{

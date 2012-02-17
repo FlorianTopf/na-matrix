@@ -22,7 +22,11 @@ $link = new DbConnector('');
 
 //Select necessary rows in the Observatories table
 //Questionnaire: "AND observatories.approved = 1"
-$query = "SELECT id, name, latitude, longitude FROM observatories WHERE longitude != 0.000000 AND latitude != 0.000000 AND observatories.approved = 1";
+//$query = "SELECT id, name, latitude, longitude FROM observatories WHERE longitude != 0.000000 AND latitude != 0.000000 AND observatories.approved = 1";
+//Hidden Fields!!
+$query = "SELECT observatories.id,  observatories.name, observatories.latitude, observatories.longitude FROM observatories, hidden_fields WHERE" . 
+" observatories.longitude != 0.000000 AND observatories.latitude != 0.000000 AND hidden_fields.longitude = 0 AND hidden_fields.latitude = 0 AND " . 
+"observatories.approved = 1 AND observatories.id = hidden_fields.id;";
 $result = $link->query($query);
 //Error message for query
 if (!$result) {

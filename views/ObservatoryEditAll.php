@@ -12,5 +12,6 @@ print "<div><input type='hidden' name='page' value='edit'/></div>" . LF ;
 if ($action == "approve")
 	printEditAllTable("ground-based facility", $resources, "obs", $action);
 else
-	printEditAllTable("ground-based facility", $resources, "obs");
+	//a little hack => the userlevel (as action)
+	printEditAllTable("ground-based facility", $resources, "obs", $userlevel);
 ?>
