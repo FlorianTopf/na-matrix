@@ -99,15 +99,15 @@
 
     print "<tr><td><b>First name:</b></td>" .
           "<td><input name='acc_fname' size='30'" .
-          " value='" . htmlentities($_POST["acc_fname"]) . "'></td></tr>" . LF;
+          " value='" . htmlspecialchars($_POST["acc_fname"], ENT_QUOTES) . "'></td></tr>" . LF;
 
     print "<tr><td><b>Last name:</b></td>" .
           "<td><input name='acc_lname' size='30'" .
-          " value='" . htmlentities($_POST["acc_lname"]) . "'></td></tr>" . LF;
+          " value='" . htmlspecialchars($_POST["acc_lname"], ENT_QUOTES) . "'></td></tr>" . LF;
 
     print "<tr><td><b>Affiliation:</b></td>" .
           "<td><input name='acc_affiliation' size='30'" .
-          " value='" . htmlentities($_POST["acc_affiliation"]) . "'></td></tr>" . LF;
+          " value='" . htmlspecialchars($_POST["acc_affiliation"], ENT_QUOTES) . "'></td></tr>" . LF;
 
     print "<tr><td><b>E-mail:</b></td>" .
           "<td><input name='acc_email' size='30'" .
