@@ -3,7 +3,7 @@ http://europlanet-na1.oeaw.ac.at/matrix/docs/doxygen/index.html
   * Doxygen Information for new library classes etc.
 
 FORMAT CONVENTIONS:
-	https://docs.google.com/document/d/1hvVi8se0xMOc3KD9RsDJJR7J5fPUwaEN0b9Xt/edit?hl=en_US
+https://docs.google.com/document/d/1hvVi8se0xMOc3KD9RsDJJR7J5fPUwaEN0b9Xt/edit?hl=en_US
   [OK] tooltip info for observatories (not needed for space missions)
   [PENDING] add conventions for space missions
 
@@ -12,6 +12,7 @@ NA1 QUESTIONNAIRE RELATED FUNCTIONALITY
 -----------------------------------------------------------------
 
 [URGENT] Rethink ACL and SECURITY CONCEPT (ACL, INDEX, CONTROLLER) => parts are models!
+		 Only I will have 31 in the future (Manuel and Joanna will have 21)
 [URGENT] IMPROVE ACL AND ACCESS SCRIPTS FOR LOADER OF OLD NA1 ENTRIES
 
 
@@ -20,12 +21,9 @@ Introduce Questionnaire form (entries must be approved afterwards) (see above)
   * very user friendly! tooltips necessary (UI)
 
 [URGENT] OBS_QUESTIONNAIRE:
-2 DB Solution:
- [PENDING] remove old CODE (e.g. DbConfig.php)
- [PENDING] clean up DbConnector.php, no need for different DB types
 
 1 DB Solution:
- [PENDING] add a way to register anonymous as user level 11 only (REFACTOR REGISTRATION & LOGIN)
+ [OK] add a way to register anonymous as user level 11 only (REFACTOR REGISTRATION & LOGIN)
  [OK] add pages/registration_q.php (alter user_level selector!!!)
  [OK] add registration_q to lib/php/orm/Acl.php list, user_level 0
  [OK] alter add to user_level 11
@@ -37,24 +35,23 @@ Introduce Questionnaire form (entries must be approved afterwards) (see above)
    	  add_resource() & update_resource)
  [OK] add/update resource sets 'approved' to 1 only when user_level > 11! (models/Observatory.php 
    	  add_resource() & update_resource)
- [PENDING] approved flag in edit list, add APPROVE button for admin users in EDIT mode
+ [OK] approved flag in edit list, add APPROVE button for admin users in EDIT mode
  [OK] prevent approved = 0 entries from beeing displayed (models/Observatory.php - get_all_resources())
  [OK] added 'WHERE observatories.approved = 1' to lib/observatoriesXML.php Map query
- [PENDING] MY ENTRIES edit for users (only with their entries).
- [PENDING] TO BE APPROVED menu for admins.
+ [OK] MY ENTRIES edit for users (only with their entries).
+ [OK] TO BE APPROVED menu for admins.
  [OK] implement E-Mail notification for adding questionnaire entries (improve this!)
  [OK] Uncomment code (Implement Questionnaire (Approve/Unapprove))
-
-
-[PENDING] SQL: 'foreign key constrained failed' at UPDATE scientific contact(both Observatory and Sensor), telescope, instrument, sensor at function 'init_has_many'
- 
  
 [MEDIUM PRIORITY] E-Mail functionality for ADD / EDIT notification
-  * add_obs/spa_keys => notification as array
+  [OK] ADD notification (by users)
+  * add_obs/spa_keys => for EDIT notification as array 
+    (we need to improve update process of telescopes and instruments)
 
 [MEDIUM PRIORITY] E-Mail functionality for thrown ERROR (make a function)
   * summary of thrown error
-  * set_message in models / show_message in controller!
+  * set_message in models / show_message in controller! 
+    (especially in add_obs/spa_keys) => status array
 
 [MEDIUM PRIORITY] Add JQUERY Tooltips where user help is necessary (Questionnaire)
   * http://view.jqueryui.com/master/demos/tooltip/default.html
@@ -73,18 +70,17 @@ Introduce Questionnaire form (entries must be approved afterwards) (see above)
 ROADMAP FOR TECHNICAL / SCIENTIFIC IMPROVEMENTS
 -----------------------------------------------------------------
   
- [OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
- [OK] review targets and fix issues!
- [OK] introduce research area domain in database
- [PENDING] introduce brief description for research areas
- [PENDING] Modify existing entries in running Matrix
- [OK] take care of describing old research areas / science goals with new research areas / targets
- [OK] replace old research areas with new research areas AND targets!
- [PENDING] Display Research Area (Domain) in Add/Edit and VIEW
- [OK] Implement load & add Old UCL entries functionality
- [MED PRIORITY] Add entries from old Matrix (OBS) => check if they are existing!
- [LOW PRIORITY] Add entries from old Matrix (SPA) => check if they are existing!
-  	  (Support from old excel sheets)
+[OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
+[OK] review targets and fix issues!
+[OK] introduce research area domain in database
+[PENDING] introduce brief description for research areas
+[OK] Modify existing entries in running Matrix
+[OK] take care of describing old research areas / science goals with new research areas / targets
+[OK] replace old research areas with new research areas AND targets!
+[OK] Implement load & add Old UCL entries functionality
+[MED PRIORITY] Add entries from old Matrix (OBS) => check if they are existing!
+[LOW PRIORITY] Add entries from old Matrix (SPA) => check if they are existing!
+  (Support from old excel sheets)
 
 [LOW PRIORITY]
   [OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
@@ -101,6 +97,7 @@ DATABASE MANAGEMENT
 
 * Running Database
   [PENDING] Remove Science Goals
+  [PENDING] Remove City and ZIP Code
   [OK] Rewrite entries of europlanet_na1 database
   [OK] comments to new fields (remove unnecessary comment fields: instrument comments)
   [OK] old telescope types to new instrument types
@@ -153,10 +150,10 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
   * Implement brief description for research areas(see above)
 
 ** All EDIT PAGES
-  [PENDING] add name filter for faster finding
+  [OK] add name filter for faster finding
 
 ** All BROWSE/VIEW PAGES
-  [PENDING] Check if some fields are still listed, even if there is no information
+  [OK] Check if some fields are still listed, even if there is no information
     given
   [PENDING] Check if there is an URL in the info, and make a hyperlink
   
@@ -177,7 +174,7 @@ SOURCE CODE MAINTENANCE AND IMPROVEMENTS
 -----------------------------------------------------------------
 
 BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be on the safe side)
-* Watch out for MODEL functionality and TABLEFIELD class
+  * Watch out for MODEL functionality and TABLEFIELD class
 
 [LOW PRIORITY]
 * COMMENT OUT CODE FOR QUESTIONNAIRE (ATM)

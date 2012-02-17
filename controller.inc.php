@@ -352,7 +352,7 @@ class Controller
             					if(!$is_my_entry && ($email_to != NULL))
             						self::mail_update($res_name, $res_id, $_SESSION["email"], $email_to, FALSE);
             					else 
-            						print "I don't want to send to anonymous and myself emails!";
+            						print "<h4>I don't want to send to anonymous and myself emails!</h4>";
             				}
             					
             				if($action == "Update Entry")
@@ -363,7 +363,7 @@ class Controller
             					if(!$is_my_entry && ($email_to != NULL))
             						self::mail_update($res_name, $res_id, $_SESSION["email"], $email_to);
             					else 
-            						print "I don't want to send to anonymous and myself emails!";
+            						print "<h4>I don't want to send to anonymous and myself emails!</h4>";
             				}
             				
             				/** @todo here we add some sexy backlinks */

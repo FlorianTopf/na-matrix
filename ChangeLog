@@ -1,3 +1,360 @@
+2012-02-17  ftopf
+
+    * account.php: fixed a little thing in account management
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryView.php: fixed
+      some minor issues
+
+    * Observatory.php, Spacemission.php, controller.inc.php,
+      europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql, index.php,
+      registration.php, registration_q.php, reset.php, wavelength_ranges.sql:
+      Some cleanup operations and little fixes (minor)
+
+    * ObservatoryView.php: fixed typo
+
+    * Observatory.php, ObservatoryCreateUpdate.php, controller.inc.php,
+      functions.js: Added E-Mail functionality for reviewing process, added some
+      minor updates!
+
+    * Observatory.php, ObservatoryEditAll.php, controller.inc.php, functions.js,
+      html.php, observatoriesXML.php: Added name search in edit for admins,
+      added validation for first telescope, added restriction in groundbased
+      facility map!
+
+    * ObservatoryCreateUpdate.php, config.inc.php: Added confirmation dialog for
+      stupid admins for old obs and added config for right emails
+
+    * ObservatoryCreateUpdate.php, functions.js: Added confirmation dialog for
+      stupid admins
+
+2012-02-16  ftopf
+
+    * Acl.php, ModelDAO.php, Observatory.php, ObservatoryCreateUpdate.php,
+      ObservatoryEditAll.php, ObservatoryMapAll.php, ObservatoryView.php,
+      ObservatoryViewAll.php, Spacemission.php, SpacemissionCreateUpdate.php,
+      SpacemissionEditAll.php, SpacemissionView.php, SpacemissionViewAll.php,
+      TODO, controller.inc.php, europlanet_na1-changes.sql,
+      europlanet_na1-complete-dump.sql, europlanet_na1.mwb, europlanet_na1.sql,
+      functions.js, functions.php, html.php, index.php, observatories.php,
+      research_areas.sql: SUPER MASSIVE EPIC changes for questionnaire and
+      polishment of the questionnaire. Still some items open (like E-Mail notifs
+      for Users after review) ... completely reworked TODO
+
+2012-02-15  ftopf
+
+    * ObservatoryCreateUpdate.php, content.css, controller.inc.php: Modified
+      E-Mai notif and added introduction text
+
+2012-02-14  ftopf
+
+    * controller.inc.php: added new mail functionality!
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryView.php,
+      controller.inc.php, europlanet_na1-changes.sql, html.php,
+      registration.php, registration_q.php, reset.php: Some fixes added some
+      tooltips!
+
+    * ModelDAO.php, Observatory.php, ObservatoryCreateUpdate.php,
+      Spacemission.php, html.php: modifed procedure with single apostroph
+      (htmlspecialchars) + added all missing general tooltips
+
+2012-02-13  ftopf
+
+    * ObservatoryCreateUpdate.php, SpacemissionCreateUpdate.php,
+      europlanet_na1-changes.sql, functions.js, html.php, index.php,
+      jquery.tooltip.css, jquery.tooltip.js: added preliminary tool tips (more
+      to come) ... modified html functions accordingly (achtung!)
+
+2012-02-01  ftopf
+
+    * config.inc.php: added original setup for running server! .. again!
+
+    * config.inc.php, europlanet_na1.sql: adapted changes from running server
+      and merged two backups!
+
+    * europlanet_na1.sql: adapted changes from running server and merged two
+      backups!
+
+2012-01-30  ftopf
+
+    * index.php: changed developed by
+
+    * HttpRequest.php, Observatory.php, ObservatoryViewAll.php, Request.php,
+      TODO, europlanet_na1.sql, functions.js, htaccess, instrumentNames.php,
+      mvc, observatories.php, observatoriesXML.php, spacemissions.php,
+      telescopeNames.php, wavelengthRanges.php: fixed a lot of encoding
+      problems, added some testing items (commented) modified todo + added
+      completly cleaned up database (to be deployed!)
+
+    * config.inc.php: fixed config for running server
+
+    * config.inc.php, europlanet_na1.sql: fixed some chars... more to come (see
+      cheatsheet)
+
+    * DbConnector.php, ModelDAO.php, Observatory.php, ObservatoryView.php,
+      ObservatoryViewAll.php, Spacemission.php, SpacemissionView.php,
+      SpacemissionViewAll.php, europlanet_na1.sql, html.php: fixed problem with
+      charset, database connection was still to default (latin1). removed
+      htmlentities, where not necessary, fixed some minor issues. Addeddatabase
+      dump with wrong chars (actual) => needs to be fixed soon!
+
+2012-01-28  ftopf
+
+    * content.css: changed back wrong commit
+
+    * index.php: changed styling from index.php
+
+    * content.css: changed complete design to new europlanet style ... beta
+      testing!
+
+    * home.php: changed description of frontpage
+
+    * account.php: fixed bug with special chars when modifing content (style
+      needs to be fixed)
+
+2012-01-23  ftopf
+
+    * Acl.php, europlanet_na1.sql: Added new backup and changed back acl, to
+      prevent view of edit by users at the moment!
+
+    * ObservatoryCreateUpdate.php: fixed error with wavelength units
+
+2012-01-11  ftopf
+
+    * Acl.php, controller.inc.php, europlanet_na1.sql, index.php, login.php:
+      Added some functionality to the matrix for the questionnaire system (not
+      working atm!!)
+
+    * controller.inc.php: First step of edit for questionnaire!
+
+    * config.inc.php: changed E-Mail Addresses for notifications in config.inc
+
+2012-01-10  ftopf
+
+    * europlanet_na1_test-privileges.sql: added privileges for test database
+
+2012-01-05  ftopf
+
+    * index.php, registration.php, registration_q.php: removed references to
+      robert (frontend) + E-Mail notification
+
+2012-01-04  ftopf
+
+    * europlanet_na1-complete-dump.sql: made some modifs, forgotten before
+
+    * ObservatoryViewAll.php, europlanet_na1-complete-dump.sql,
+      europlanet_na1.sql, functions.js: removed duplicate instrument type, added
+      new dumps, added modifs from Jo, removed ENTER prevention => we need an
+      alternative to that!
+
+    * 2011, europla1_obs.sql, europla1_obs_dump_06-09-2011.sql,
+      europla1_spa.sql, europla1_spa_dump_06-09-2011.sql,
+      europlanet_na1-dump-01-04-2011.sql, europlanet_na1-dump-01-12-2011.sql,
+      europlanet_na1-dump-04-04-2011.sql, europlanet_na1-dump-04-05-2011.sql,
+      europlanet_na1-dump-06-04-2011.sql, europlanet_na1-dump-08-03-2011.sql,
+      europlanet_na1-dump-09-03-2011.sql, europlanet_na1-dump-18-04-2011.sql,
+      europlanet_na1-dump-20-05-2011.sql, europlanet_na1-dump-21-04-2011.sql,
+      europlanet_na1-dump-22-11-2011.sql, europlanet_na1-dump-31-05-2011.sql,
+      europlanet_na1-dump_04-10-2011.sql, europlanet_na1-dump_14-09-2011.sql,
+      europlanet_na1.sql, europlanet_na1_dump-09-06-2011.sql,
+      europlanet_na1_dump-14-06-2011.sql, europlanet_na1_dump-27-06-2011.sql,
+      europlanet_na1_dump-28-07-2011.sql, europlanet_na1_dump_06-09-2011.sql,
+      europlanet_na1_dump_07-12-2011-post-1.sql,
+      europlanet_na1_dump_07-12-2011-post-2.sql,
+      europlanet_na1_dump_07-12-2011_pre.sql,
+      europlanet_na1_dump_12-09-2011.sql, europlanet_na1_dump_31-08-2011.sql,
+      instrument_types.sql, research_areas.sql: moved 2011 backups in another
+      folder, started now with incremental backups. some little modifs on dumps.
+
+2011-12-28  ftopf
+
+    * .project, ObservatoryCreateUpdate.php, ObservatoryView.php, TODO,
+      europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1.mwb, europlanet_na1.sql: applied changes of Joanna
+      regarding wavelength/freq ranges => recent backup from server IS MISSING,
+      modified TODO
+
+2011-12-12  ftopf
+
+    * europlanet_na1-changes.sql: added changes command for research areas
+      (deprecated are now removed)
+
+2011-12-03  ftopf
+
+    * Observatory.php, ObservatoryViewAll.php: Added new browse pages without
+      email but with info about telescope diameter
+
+    * Observatory.php, ObservatoryViewAll.php: Added filter for wavelength
+      ranges
+
+2011-12-01  ftopf
+
+    * ObservatoryView.php, ObservatoryViewAll.php: added trim function for
+      wavelength ranges in display (viewall and view)
+
+    * instrumentNames.php, telescopeNames.php, wavelengthRanges.php: fixed rest
+      of ajax files for utf8 problem!
+
+    * europlanet_na1-complete-dump.sql: fixed a little typo here
+
+    * europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1-dump-01-12-2011.sql, europlanet_na1-users.sql,
+      europlanet_na1.mwb, europlanet_na1.sql: made transfer to utf8 for all
+      relevant database files (utf8_encode and utf8_decode are still needed)
+
+    * observatories.php, spacemissions.php: fixed autocompleter issue (coming
+      from UTF8 and latin1 mixture in the database => TO BE FIXED!)
+
+    * html.php: fixed problem with unkown chars, autocompleter still has
+      problems...
+
+    * SpacemissionView.php, SpacemissionViewAll.php: fixed problem with unkown
+      chars, autocompleter still has problems...
+
+    * ObservatoryView.php, ObservatoryViewAll.php: fixed problem with unkown
+      chars, autocompleter still has problems...
+
+    * ObservatoryView.php: testing for utf-8 problem...
+
+    * index.php: testing for utf-8 problem...
+
+2011-11-30  ftopf
+
+    * Observatory.php, ObservatoryViewAll.php: finished filter for diameter
+
+    * functions.php: renamed some functions (only cleanup)
+
+    * account.php, login.php, registration.php, registration_q.php, reset.php:
+      renamed some functions (only cleanup)
+
+    * Observatory.php, ObservatoryViewAll.php, TODO: added TODO items + little
+      modifs for diameter search (not working atm)
+
+    * DbConnector.php, ObservatoryViewAll.php, Spacemission.php,
+      SpacemissionViewAll.php, functions.js, observatories.php,
+      spacemissions.php: Made changes according to UCL comments, implemented
+      space mission name search
+
+    * ObservatoryCreateUpdate.php, ObservatoryEditAll.php,
+      ObservatoryEditAllOld.php, ObservatoryMapAll.php, ObservatoryView.php,
+      ObservatoryViewAll.php, SpacemissionEditAll.php,
+      SpacemissionEditAllOld.php, SpacemissionViewAll.php, functions.js,
+      html.php: made some little changes according to UCL comments
+
+2011-11-29  ftopf
+
+    * mm_20_blue.png, mm_20_red.png, mm_20_shadow.png: added missing pics for
+      google maps
+
+    * ObservatoryMapAll.php, ObservatoryViewAll.php,
+      SpacemissionCreateUpdate.php, SpacemissionView.php,
+      SpacemissionViewAll.php, controller.inc.php, europlanet_na1-changes.sql,
+      europlanet_na1-complete-dump.sql, functions.js, home.php, index.php,
+      wavelength_ranges.sql: made some little changes according to UCL comments
+
+2011-11-22  ftopf
+
+    * europlanet_na1-dump-22-11-2011.sql: added new database backup, with joanna
+      and manuel as user-level 31
+
+2011-11-02  ftopf
+
+    * TODO: Added Doxygen link to TODO list
+
+2011-10-08  ftopf
+
+    * spacemissions.php: Fixed syntax error
+
+2011-10-05  ftopf
+
+    * Observatory.php: removed debug message
+
+    * Observatory.php: fixed issues with filter with no logged user and fixed
+      update_observatory with user_id
+
+    * Observatory.php, Spacemission.php, TODO, controller.inc.php,
+      functions.php, index.php: Modified TODO, added MAIL functionality for
+      questionaire user ADDs
+
+    * ObservatoryEditAllTemp.php: Deleted Obsolete Script
+
+2011-10-05  rst
+
+    * config.inc.php: added manuel to mail loop in config.inc.php
+
+2011-10-04  ftopf
+
+    * account.php, index.php, recaptchalib.php, registration.php,
+      registration_q.php, reset.php: Integrated recaptcha + fixed issue with js
+      submit() on all old scripts (REFACTOR!)
+
+2011-10-04  rst
+
+    * config.inc.php: recommited config.inc.php DocRoot
+
+    * DbConfig.php: removed uncommented 'TempDb' code snippets
+
+    * ObservatoryCreateUpdate.php: added check for user_level > 11 for adding
+      ResArea/Telescope/Antenna/Instrument-Types in
+      views/ObservatoryCreateUpdate.php
+
+    * ModelDAO.php, config.inc.php, controller.inc.php: removed uncommented
+      'TempDb' code snippets
+
+2011-10-04  ftopf
+
+    * TODO, europlanet_na1-changes.sql, europlanet_na1-complete-dump.sql,
+      europlanet_na1-dump_04-10-2011.sql, europlanet_na1.mwb,
+      europlanet_na1.sql: modified TODO, updated all database scripts (needs to
+      be updated on running server too + running server backup)
+
+2011-10-04  rst
+
+    * TODO: added Comment on removing different DB type functionality in
+      DbConnector.php
+
+    * Acl.php: added ACL user_level description
+
+2011-10-04  ftopf
+
+    * TODO: Modified TODO according to EPSC needs
+
+2011-09-29  rst
+
+    * config.inc.php: reset Server DOC_ROOT in config.inc.php
+
+    * Acl.php, Observatory.php, TODO, config.inc.php, controller.inc.php,
+      index.php, observatoriesXML.php, registration_q.php: added Questionnaire
+      implementation, CAPTURE STILL NEEDED!!!
+
+    * TODO: updated roadmap for obs_questionaire
+
+    * TODO: altered roadmap for obs_questionaire
+
+    * TODO: altered roadmap for obs_questionaire
+
+2011-09-29  ftopf
+
+    * TODO: Added comments to Questionnaire TODO
+
+2011-09-29  rst
+
+    * TODO: added roadmap for obs_questionaire
+
+2011-09-24  ftopf
+
+    * functions.js: integrate mechanism which prevents submit with ENTER
+
+    * Observatory.php, ObservatoryCreateUpdate.php, TODO, functions.js: Fixed
+      issues with wavelength autocompleter, is now working for instruments and
+      telescopes, fixed old issue when something is already in wavelength in
+      EDIT (observatory.php), modified TODO
+
+2011-09-20  ftopf
+
+    * ChangeLog, TODO, spacemissions.php: fixed one sql statement in
+      spacemissions.php, modified ChangeLog and TODO
+
 2011-09-15  ftopf
 
     * Observatory.php, ObservatoryViewAll.php, functions.js, html.php,
