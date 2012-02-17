@@ -6,6 +6,7 @@
  * 
  * @todo refactor the whole switch statements! (we have some redudancy here)
  * @todo refactor all uses of SESSION vars!
+ * @todo integrate status messagess from add_obs_keys!!
  */
 
 include_once ('lib/php/orm/DbConnector.php');
@@ -325,20 +326,45 @@ class Controller
           				if ($status["errno"] == 0)
           				{
             				$res_id = $status["res_id"];
-            				//$res_name = $status["res_name"];
+            				$res_name = $status["res_name"];
+            				$is_my_entry = $status["is_my_entry"];
+            				$email_to_id = $status["user_id"];
             				//INSERT FK-TABLE ENTRY & REFERENCED TABLES ENTRIES
-            				$_observatory->add_obs_keys($res_id, $action, FALSE);
+            				$_observatory->add_obs_keys($res_id, $action, FALSE);         				
+
+    						$query = "SELECT email FROM users_list WHERE " .
+             				"id = '" . $email_to_id . "' LIMIT 1";
+    						
+    						$result = $link->query($query);
+    						$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    						if ($link->getNumRows($result) > 0)
+      							$email_to = $user["email"];
+    						else
+      							$email_to = NULL;
             				
             				print "<h4>The Observatory has been updated in the database!</h4>" . LF;
             				
             				if($action == "Save for Later")
+            				{
+            					/** @todo change this notification */
             					print "<h4>Note, that you have only saved it for later, so it is not approved yet!</h4>";
+            					// IN CASE IF "SUBMIT TO USER WAS PRESSED"
+            					if(!$is_my_entry && ($email_to != NULL))
+            						self::mail_update($res_name, $res_id, $_SESSION["email"], $email_to, FALSE);
+            					else 
+            						print "I don't want to send to anonymous and myself emails!";
+            				}
             					
             				if($action == "Update Entry")
+            				{
+            					/** @todo change this notification */
             					print "<h4>Note, that this entry is now viewable via &quot;Browse Matrix&quot;</h4>";
-            				
-            				/** @todo mail functionality, resource name, id and username*/
-            				//self::mail_add($res_name, $res_id, $_SESSION["user_name"], $_SESSION["email"]);
+            					// IN CASE IF "ADD TO DATABASE WAS PRESSED"
+            					if(!$is_my_entry && ($email_to != NULL))
+            						self::mail_update($res_name, $res_id, $_SESSION["email"], $email_to);
+            					else 
+            						print "I don't want to send to anonymous and myself emails!";
+            				}
             				
             				/** @todo here we add some sexy backlinks */
           				}
@@ -538,9 +564,9 @@ class Controller
     ini_set("SMTP", MAIL_SMTP);
 
     if($add)
-    	$subject = "Europlanet NA1 Matrix: new entry";
+    	$subject = "Europlanet NA1 Matrix: New entry";
     else 
-    	$subject = "Europlanet NA1 Matrix: updated entry";
+    	$subject = "Europlanet NA1 Matrix: Updated entry";
     
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
@@ -548,24 +574,87 @@ class Controller
     $headers .= "Reply-To: " . MAIL_REPLY;
     $from = "-f" . MAIL_FROM;
 
-    $message = "User " . $user_name;
+    $message = "The User " . $user_name;
     
     if($add)
     	$message .= " added the entry '";
     else
     	$message .= " updated the entry '";
                
-    $message .= $res_name . "' (resource id: " . $res_id . "); contact email is " .
+    $message .= $res_name . "' (resource id: " . $res_id . "); The users contact email is " .
                 $email . "\n";
                 
     if($save)
-        $message .= "This entry was saved for later by the user\n!";
+        $message .= "This entry was saved for later by the user!\n";
     else
     	$message .= "This entry needs to be reviewed and approved!\n";
 
 
     mail(MAIL_TO_ADD, $subject, $message, $headers, $from);
   }
+  
+  /** 
+   * @fn mail_update($res_name, $res_id, $user_name, $email, $add=TRUE, $save=FALSE)
+   * @brief Mail functionality for add or update in the questionnaire procedure.
+   * Users will get "entry needs approval" or "approved
+   * 
+   * @param string $res_name
+   * @param int $res_id
+   * @param string $email_from
+   * @param string $email_to
+   * @param boolean $approved
+   */
+  static function mail_update($res_name, $res_id, $email_from, $email_to, $approved = TRUE)
+  {
+    ini_set("SMTP", MAIL_SMTP);
+
+    if($approved)
+    	$subject = "Europlanet NA1 Matrix: Your entry has been approved";
+    else 
+    	$subject = "Europlanet NA1 Matrix: Your entry has been modified";
+    
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/plain; charset=iso-8859-1' . "\r\n";
+    $headers .= "From: " . MAIL_FROM . "\n";
+    $headers .= "Reply-To: " . MAIL_REPLY;
+    $from = "-f" . MAIL_FROM;
+
+    $message = "The Administrators of the NA1 Matrix ";
+    
+    if($approved)
+    	$message .= " approved the entry '";
+    else
+    	$message .= " modified the entry '";
+               
+    $message .= $res_name . "'; The responsible administrator contact email is " .
+                $email_from . "\n";
+                
+    if($approved)
+    {
+        $message .= "You can now find your entry in the \"Browse Matrix\" option\n!";
+        $message .= "Note, that if you modify this entry in \"My Entries\", it will be again marked for approval!\n";
+    }
+    else
+    {
+    	$message .= "You need to review the changes made by the administrators in \"My Entries\"!\n";
+    	$message .= "Please check the entry carefully, do modifications if needed and click on \"Update Entry\"!\n";
+    }
+
+//	print $subject;
+//	nl();
+//	print $headers;
+//	nl();
+//	print $from;
+//	nl();
+//	print $message;
+//	nl();
+//	
+//	print $email_to;
+    	
+    /** @todo we need to send this to the responsible user */	
+    mail($email_to, $subject, $message, $headers, $from);
+  }
+
 }
 
 ?>

@@ -196,7 +196,7 @@ If there are more than one, please separate them with commas and a blank charact
 <b>Example for more than one partner observatory:</b> &quot;Observatory Kanzelh&ouml;he,</br>
 Observatory Hvar, Observatory Lustb&uuml;hel";
 printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"),
-			80, NULL, NULL, FALSE, $partner_tooltip);
+			80, NULL, "partner", FALSE, $partner_tooltip);
 //General comments
 $comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no typographic conventions.</br>
 <b>Example:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
@@ -331,6 +331,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
       	//	count($_observatory->get_has_many("telescopes")) . "'/></tr>";
       	//echo "TELESCOPES: " . count($_observatory->get_has_many("telescopes")) . "<br>";
 
+      	/** @todo Mandatory Fields for the first telescope => add asterisk, but remove it when duplicating */
 	    //Telescope Name
 		printInputTextRow("Telescope Name", "add_obs_telescope_name[{$telescope_count}]",
 			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope");
@@ -557,6 +558,8 @@ if($_SESSION["user_level"] >= 31)
 			 $_observatory->get_users(), $columns, NULL, false, $options);
 	print "</table></fieldset>" . LF;
 }
+else
+	print "<div><input type='hidden' name='add_obs_user_id' value='{$_observatory->get_field("obs_user_id")}'><div>"; 
 
 // Submit Button
 //-----------------------------------------------------------------------------------------------------------

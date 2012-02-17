@@ -561,6 +561,16 @@ class ObservatoryDAO extends ModelDAO
 					$this->floatToGps($key, stripslashes($value));
 				elseif($key == 'longitude')
 					$this->floatToGps($key, stripslashes($value));
+				else if($key == 'partner_observatories')
+				{
+					$value = trim($value); //remove whitespaces at the beginning/end
+				    //check if last char is not semicolon and there is something written inside!
+					if ((substr($value, -1) != ",") && !empty($value)) 
+						$value = $value . ", "; //add semicolon
+					else
+						$value = $value . " ";
+					$this->_fields["obs_$key"] = stripslashes($value);
+				}
 				else
 					$this->_fields["obs_$key"] = stripslashes($value);
 			}
@@ -1136,20 +1146,27 @@ class ObservatoryDAO extends ModelDAO
 	  		"timezone='" . addslashes($_POST["add_obs_timezone_id"]) . "'," .
 	  		"observatory_status='" . addslashes($_POST["add_obs_status"]) . "'," .
 	  		"partner_observatories='" . addslashes($_POST["add_obs_partner"]) . "'," .
-			"modification_date=NOW(),";
-		    if (isset($_POST["add_obs_user_id"]))
-				$query .= "user_id='" . $_POST["add_obs_user_id"] . "',";
-			$query .= "approved='" . $approved . "'," .
+			"modification_date=NOW()," .
+			"user_id='" . $_POST["add_obs_user_id"] . "'," .
+			"approved='" . $approved . "'," .
 		    "saved_for_later='" . $saved_for_later . "'," .
 			"last_saved_by='" . $_SESSION["user_id"] . "' " .
 	  		"WHERE id=" . $res_id;
 			
-
+		// TO CHECK IF THE UPDATED ENTRY BELONGS TO MYSELF
+		/** @todo what if we change the user? */
+		if($_POST["add_obs_user_id"] == $_SESSION["user_id"])
+			$is_my_entry = TRUE;
+		else
+			$is_my_entry = FALSE;
+			
 		self::$db->query($query);
 		$status = array("errno" => self::$db->errno(),
 			"error" => self::$db->error(),
 			"res_id" => $res_id, 
-			"res_name" => $_POST["update_obs_name"]);
+			"res_name" => $_POST["update_obs_name"],
+			"is_my_entry" => $is_my_entry,
+			"user_id" => $_POST["add_obs_user_id"]);
 
 		return $status;
 	}
