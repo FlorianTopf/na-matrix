@@ -701,12 +701,13 @@ class ObservatoryDAO extends ModelDAO
 						//print "TEST: " . $value . "x";
 						//nl();
 						/** @todo check if last char is not semicolon and there is something written inside! */
+						// has only something to do with autocompleter
 						if ((substr($value, -1) != ",") && !empty($value)) 
 							$value = $value . ", "; //add semicolon
 						//a little mistake from avove (with !empty missing before)
 						else if ($value == ",")
 							$value = "";
-						else
+						else if($value != "")
 							$value = $value . " ";
 							
 						//print "TEST 2: " . $value ."x";
