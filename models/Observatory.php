@@ -353,7 +353,7 @@ class ObservatoryDAO extends ModelDAO
 	/** ADMIN TOOL FOR ASSIGNING USERS */
 	public function get_users()
 	{
-		$query = "SELECT id, fname, lname FROM users_list";
+		$query = "SELECT id, fname, lname FROM users_list ORDER BY lname ASC";
 		$result = self::$db->query($query);
 		
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))

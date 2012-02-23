@@ -126,7 +126,7 @@
           "</td></tr>" . LF;
 
     print "</table></p>" . LF;
-    print "<p><input type='submit' name='reset' value='Reset'></p>";
+    print "<p><button type='submit' class='submit' name='reset' value='Reset'>Reset</button></p>";
   }
 
   //$link->close();

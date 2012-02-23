@@ -14,11 +14,12 @@ NA1 QUESTIONNAIRE RELATED FUNCTIONALITY
 [URGENT] Rethink ACL and SECURITY CONCEPT (ACL, INDEX, CONTROLLER) => parts are models!
 		 Only I will have 31 in the future (Manuel and Joanna will have 21)
 [URGENT] IMPROVE ACL AND ACCESS SCRIPTS FOR LOADER OF OLD NA1 ENTRIES
+[URGENT] Improve complete controller procedure and flags!
 
 
 [HIGH PRIORITY] 
 Introduce Questionnaire form (entries must be approved afterwards) (see above)
-  * very user friendly! tooltips necessary (UI)
+ [PENDING] very user friendly! tooltips necessary (UI)
 
 [URGENT] OBS_QUESTIONNAIRE:
 
@@ -53,19 +54,6 @@ Introduce Questionnaire form (entries must be approved afterwards) (see above)
   * set_message in models / show_message in controller! 
     (especially in add_obs/spa_keys) => status array
 
-[MEDIUM PRIORITY] Add JQUERY Tooltips where user help is necessary (Questionnaire)
-  * http://view.jqueryui.com/master/demos/tooltip/default.html
-  * input fields format: web addresses, latitude, longitude,
-    research areas, targets, instrument properties,
-    camera properties, sensor properties, science goals, ..
-  * input fields convention on: address, phone number
-  * wavelength ranges (format documentation)
-  * delete last sensor (remove name of sensor and it will be deleted)
-  * other research areas => research comments
-  * UI FRAMEWORK: QPHP http://qphp.net/demo/ oder JQueryUI
-    => research area / targets list (Data Grid / Selectable Rows)
-  * take only necessary jquery UI scripts + css (fix it! also for autocompleter)
-
 -----------------------------------------------------------------
 ROADMAP FOR TECHNICAL / SCIENTIFIC IMPROVEMENTS
 -----------------------------------------------------------------
@@ -98,13 +86,11 @@ DATABASE MANAGEMENT
 * Running Database
   [PENDING] Remove Science Goals
   [PENDING] Remove City and ZIP Code
-  [OK] Rewrite entries of europlanet_na1 database
-  [OK] comments to new fields (remove unnecessary comment fields: instrument comments)
-  [OK] old telescope types to new instrument types
 
 * Development Database
   [OK] improve hidden fields / additional information (remove not necessary)
-  [HIGH PRIORITY] remove OTHER from Telescope Types / Instrument Types
+  [MEDIUM PRIORITY] remove OTHER from Telescope Types / Instrument Types?
+  [MEDIUM PRIORITY] add OTHER to Antenna Types?
   * introduce JOINS where necessary and usable
 
 -----------------------------------------------------------------
@@ -113,20 +99,17 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
 
 * Input form for observatories
   * add other targets (db functionality)
-  * error labels for diameter (and other inputs) must be better!
-  * spatial resolution => format?
-  * spectral resolution => format?
   * remove last telescope => empty fields
   * remove last instrument => empty fields
-  * PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
+  [OK] PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
 
 * Input validation in JQUERY for observatories (see comments in add.php)
   * other target - MANDATORY!
-  * telescope name - MANDATORY?
-  * telescope type - MANDATORY?
-  * instrument name - MANDATORY?
-  * instrument type - MANDATORY?
-  * check for type of values (critical review)!
+  [OK] telescope name - MANDATORY!
+  [OK] telescope type - MANDATORY!
+  [OK] instrument name - MANDATORY => not atm!
+  [OK] instrument type - MANDATORY => not atm!
+  [OK] check for type of values (critical review)!
 
 
 * Input form for space missions
@@ -136,6 +119,7 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
   * range_begin, range_end => high precision float?
   * remove last sensor => empty fields
   * autocompleter for sensor type
+  * check for type of values (critical review)!
 
 * Input validation in JQUERY for space missions (see comments in add.php)
   * other target - MANDATORY!
@@ -146,8 +130,8 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
 
 
 * ALL INPUT FORMS:
-  * Add validation for existing names for all OTHER
-  * Implement brief description for research areas(see above)
+  * Add validation for existing names for all ADD OTHER
+  * Implement brief description for research areas (see above)
 
 ** All EDIT PAGES
   [OK] add name filter for faster finding
@@ -156,12 +140,13 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
   [OK] Check if some fields are still listed, even if there is no information
     given
   [PENDING] Check if there is an URL in the info, and make a hyperlink
+  [PENDING] Generate link list to other observatories in "partner observatories"
   
     
 [HIGH PRIORITY] Implement Search Interface / Interactive Map (SEPTEMBER 2011)
 	 See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
   [OK] display current user location
-   * Distinguish between RADIO/OPTICAL, discuss Information to be displayed in Info box
+  [OK] Distinguish between RADIO/OPTICAL, discuss Information to be displayed in Info box
    * HIDDEN FIELDS OK? (latitude/longitude)
   [OK] Integrate link to observatory view (with openwin) in google maps info box
   [OK] Take care of NOT existing latitude/longitude
@@ -198,8 +183,9 @@ BEWARE FOR DUPLICATE FUNCTION/MEMBER/METHOD NAMES TO EPN FRAMEWORK (just to be o
 
 [LOW PRIORITY] Refactor all Javascript in functions.js
   * dynamic row adding routines (redundancy)
-  * refactor the double hidden_fields in CreateUpdate (Sensors)
+  * refactor the double hidden_fields in createUpdate (Sensors)
   * maybe use -- again in remove fields
+  * style of validation and locations (NEW VALIDATE VERSION!)
 
 [LOW PRIORITY] Refactor classes in observatory.php, spacemission.php
   * MVC Pattern implementieren

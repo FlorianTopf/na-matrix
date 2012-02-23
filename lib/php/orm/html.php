@@ -106,7 +106,7 @@ function makeSelectListFromArray_($name, $value, $items, $column, $options=array
 		$content .= "<option value='" . $item . "'";
 		if ($item == $value) $content .= " selected='selected'";
 		if(is_array($column))
-			$content .= ">" . $items[$column[0]][$key] . " " . $items[$column[1]][$key] . "</option>" . LF;
+			$content .= ">" . $items[$column[0]][$key] . ", " . $items[$column[1]][$key] . "</option>" . LF;
 		    //$content .= ">" . $items[$column[0]][$key] . " (" . $items[$column[1]][$key] . ")" . "</option>" . LF;
 		else
     		$content .= ">" . $items[$column][$key] . "</option>" . LF;
@@ -211,8 +211,20 @@ function printInputTextRow($title, $name, $value, $size=80, $info=NULL, $class=N
     print "</tr>" . LF;
 }
 
+/** @todo improve this a bit 
+ *  @todo we have to rearrange the various options you may add
+ * */
+function printInputTextRowValid($title, $name, $value, $size=80, $info=NULL, $class=NULL, $mandatory=false, $tooltip="") 
+{	
+	print "<tr>";
+	printInputTitleCol($title, $info, $mandatory, $tooltip);
+	printInputTextCol($name, $value, $size, NULL, $class, NULL);
+	print "<label for='{$name}' class='error' style='display: none;'>Please enter a float number!</label>";
+    print "</tr>" . LF;
+}
+
 /** @todo improve this a bit */
-function printInputTextfieldRow($title, $name, $value, $cols=65, $rows=3, $info=NULL, $mandatory=false, $tooltip="") 
+function printInputTextfieldRow($title, $name, $value, $cols=65, $rows=4, $info=NULL, $mandatory=false, $tooltip="") 
 {	
 	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory, $tooltip);	
@@ -253,7 +265,7 @@ function printBigSelectListFromArray($title, $name, $value, $items, $column, $in
 {
 	print "<tr>";
 	printInputTitleCol($title, $info, $mandatory, $tooltip);	
-	print "<td align='left'><select name='{$name}' multiple='multiple' size='15'>" . LF;
+	print "<td align='left'><select name='{$name}' class='multiselect' multiple='multiple' size='15'>" . LF;
 	foreach($options as $option)
 		print $option;
 	foreach($items['id'] as $key => $item)

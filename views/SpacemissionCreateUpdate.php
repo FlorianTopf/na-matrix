@@ -135,7 +135,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	//print "<table class='create'>" . LF;
       	/** this table has two classes!! class='create' */
       	print "<table class='scientific_contacts create'>" . LF;
-      	print "<tr><th></th><th>Name</th><th>Email</th><th>Institution</th></tr>";
+      	print "<tr><th></th><th class='ui-widget-header'>Name</th><th class='ui-widget-header'>Email</th><th class='ui-widget-header'>Institution</th></tr>";
 
    		if(!is_array($_spacemission->get_has_many("scientific_contacts", $sensor_id)))
 			$_spacemission->init_has_many("scientific_contacts", $sensor_id);
@@ -167,16 +167,16 @@ if(is_array($_spacemission->get_has_many("sensors")))
 print "<div class='actionbutton'>" . LF;
 //IF ACTION IS ADD
 if($action == "add")
-	print "<input type='submit' name='push' value='Add Entry' class='submit'/>" . LF;
+	print "<button type='submit' name='push' value='Add Entry' class='submit'>Add Entry</button>" . LF;
 //IF ACTION IS loadOldSpa
 else if($action == "loadOldSpa")
 {
    	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
-   	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+   	print "<button type='submit' name='push' value='Add Entry' class='submit'>Add Entry</button>" . LF;
 }
 //IF ACTION IS EDIT
 else if($action == "edit")
-	print "<input type='submit' name='push' value='Update Entry'/>" . LF;
+	print "<button type='submit' name='push' value='Update Entry' class='submit'>Update Entry</button>" . LF;
 print "</div>" . LF;
 
 ?>

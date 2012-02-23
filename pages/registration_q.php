@@ -220,7 +220,7 @@
     //display reCaptcha
     echo recaptcha_get_html($publickey, $error);
 
-    print "<p><input type='submit' name='registration_q' value='Register'/></p>";
+    print "<p><button type='submit' class='submit' name='registration_q' value='Register'>Register</button></p>";
   }
 
   //$link->close();

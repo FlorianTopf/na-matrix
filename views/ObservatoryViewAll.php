@@ -115,7 +115,7 @@ print "</select></td></tr>" . LF;
 print "</table>";
 //----
 print "<center><table>";
-print "<tr><td><input type='submit' name='reset_filters' value='Reset Filters' class='submit'></td></tr>";
+print "<tr><td><button class='submit' type='submit' name='reset_filters' value='Reset Filters' class='submit'>Reset Filters</button></td></tr>";
 print "</table></center>";
 //----
 

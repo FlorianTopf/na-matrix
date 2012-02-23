@@ -114,7 +114,7 @@ printInputText("add_obs_latitude[cent]", $_observatory->get_field_array("obs_lat
 print "</td></tr>" . LF;
 /** @todo improve custom error labels, location in html */
 //custom error labels
-print "<tr><td colspan='2'>";
+print "<tr><td></td><td>";
 print "<label for='add_obs_latitude[degree]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_latitude[minutes]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_latitude[seconds]' class='error' style='display: none;'>Please enter a decimal number!</label>";
@@ -139,7 +139,7 @@ printInputText("add_obs_longitude[cent]", $_observatory->get_field_array("obs_lo
 print "</td></tr>" . LF;
 /** @todo improve custom error labels, location in html */
 //custom error labels
-print "<tr><td colspan='2'>";
+print "<tr><td></td><td>";
 print "<label for='add_obs_longitude[degree]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_longitude[minutes]' class='error' style='display: none;'>Please enter a decimal number!</label>";
 print "<label for='add_obs_longitude[seconds]' class='error' style='display: none;'>Please enter a decimal number!</label>";
@@ -201,7 +201,7 @@ printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observator
 $comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no format conventions.</br>
 <b>Example:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
 printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'),
-			65, 3, NULL, FALSE, $comm_tooltip);
+			70, 4, NULL, FALSE, $comm_tooltip);
 print "</table></fieldset>" . LF;
 
 //SCIENTIFIC CONTACTS
@@ -213,9 +213,10 @@ You can add 1 to N scientific contacts by clicking ADD.</br>
 Removing an entry is handled by clicking DEL</br> (only appears after one has clicked on ADD)</br>
 or clearing the fields of the added entry manually.</br>
 <b>Example:</b> Name &quot;John Doe&quot;, Email &quot;john.doe@example.com&quot;,</br> Institution &quot;Fantasia Institute&quot;";
-print "<fieldset class='rfield'><legend th title='". $contact_tooltip ."'>Scientific Contacts:</legend>" . LF;
+print "<fieldset class='rfield'><legend title='". $contact_tooltip ."'>Scientific Contacts:</legend>" . LF;
 print "<table class='create'>" . LF;
-print "<tr><th title='". $contact_tooltip ."'></th><th title='". $contact_tooltip ."'>Name</th><th>Email</th><th>Institution</th></tr>";
+print "<tr><th title='". $contact_tooltip ."'></th><th class='ui-widget-header' title='". $contact_tooltip ."'>";
+print "Name</th><th class='ui-widget-header'>Email</th><th class='ui-widget-header'>Institution</th></tr>";
 if(!is_array($_observatory->get_has_many("scientific_contacts")))
 	$_observatory->init_has_many("scientific_contacts");
 //PROOF IF THERE IS AN ARRAY!
@@ -274,36 +275,47 @@ print "<table id='research_areas' class='create'>" . LF;
 //print "<table class='create'>" . LF;
 $research_areas = $_observatory->get_research_areas();
 
-// ---------------- Questionnaire Start ----------------------
-if ($_SESSION["user_level"] <= 11)
-	$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
-else
-// ---------------- Questionnaire End ----------------------
-$options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
-	"<option id='add_other_area' value='100000'>Add other Research Area</option>");
+//// ---------------- Questionnaire Start ----------------------
+//if ($_SESSION["user_level"] <= 11)
+//	$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
+//else
+//// ---------------- Questionnaire End ----------------------
+//	$options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
+//		"<option id='add_other_area' value='100000'>Add other Research Area</option>");
+/** @todo add other implementieren, aber mit eigenem feld! */
 printBigSelectListFromArray("Areas of Interest", "add_obs_res_are_ids[]",
-	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options, $research_tooltip);
+	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, array() , $research_tooltip);
 //Research comments
 $rescomm_tooltip = "Research Comments - Please feel free to write any comments on your areas of interest. There are no format conventions.</br>
 <b>Example:</b> &quot;Involved in the Stellar Occultation Network&quot;";
 printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'),
-			65, 3, NULL, FALSE, $rescomm_tooltip);
+			65, 4, NULL, FALSE, $rescomm_tooltip);
 print "</table></fieldset>" . LF;
+
+if ($_SESSION["user_level"] <= 31)
+{
+	print "<fieldset class='rfield'><legend><b class='red'>Administration Tool</b></legend>" . LF;
+	print "<div id='add_other_area' style='margin:10px 0'><a class='ui-state-default ui-corner-all hand' id='add_other_area' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
+	print "<span class='ui-icon ui-icon-plus' style='position:absolute;top:4px;left:1px'></span>" ;
+	print "Add new Area of Interest</a></div>";
+	print "</fieldset>" . LF;
+}
 
 //TARGETS: NOT MANDADORY
 /** @todo add other targets */
-print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
+/** @todo add other implementieren, aber mit eigenem feld! (siehe oben) */
+print "<fieldset class='ui-widget ui-widget-content ui-corner-all rfield'><legend class='ui-widget ui-widget-header ui-corner-all'>Targets:</legend>" . LF;
 //print "<table id='targets' class='create'>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_observatory->get_targets();
-$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
+//$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
 //$options = array("Please choose one or several by holding CTRL...",
 //"<option id='other' value='100000'>Add other Target</option>");
 printBigSelectListFromArray("Targets", "add_obs_target_ids[]", $_observatory->get_has_many("targets"),
-	$targets, "target_name", NULL, FALSE, $options);
+	$targets, "target_name", NULL, FALSE, array());
 //Target comments
 printInputTextfieldRow("Target Comments", "add_obs_target_com", $_observatory->get_add_info('target_comments'),
-			65, 3, NULL, FALSE);
+			65, 4, NULL, FALSE);
 print "</table></fieldset>" . LF;
 
 //TELESCOPES: at least 1 ENTRY MANDATORY! (JQUERY)
@@ -317,14 +329,35 @@ if(!is_array($_observatory->get_has_many("telescopes")))
 	$_observatory->init_has_many("telescopes");
 
 if(is_array($_observatory->get_has_many("telescopes")))
+{
+	print "<div id='tabbed-tele'>";
+	print "<div style='margin:10px 5px'><a class='ui-state-default ui-corner-all add_telescope' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
+	print "<span class='ui-icon ui-icon-plus' style='position:absolute;top:4px;left:1px'></span>" ;
+	print "Add new Telescope</a></div>";
+	print "<ul>";
 	foreach($_observatory->get_has_many("telescopes") as $telescope_count => $telescope_id)
 	{
+	
+		if($_observatory->get_telescope("telescope_name", $telescope_count))	
+			print "<li><a href='#telescope-{$telescope_count}'>" . $_observatory->get_telescope("telescope_name", $telescope_count) ."</a>";
+		else
+			print "<li><a href='#telescope-{$telescope_count}'>Telescope " . ($telescope_count + 1) ."</a>";
+			
+		print " <span class='ui-icon ui-icon-close'>Remove Tab</span></li>";
+	}
+	print "</ul>";
+	
+	foreach($_observatory->get_has_many("telescopes") as $telescope_count => $telescope_id)
+	{	
 		/** @todo use this for determining deletion / update / add */
   		//TRANSPORT THE OLD NUMBER OF TELESCOPES VIA POST
 	    print "<input type='hidden' name='add_obs_telescope_ids[" . $telescope_count . "]' value='". $telescope_id . "'/>" . LF;
+		print "<div class='telescope' id='telescope-{$telescope_count}'>";
 
       	print "<fieldset class='rfield'><legend>Telescope:</legend>" . LF;
       	print "<table class='create'>" . LF;
+      	
+        /** @todo add custom error labels for all necessary inputs */
 
       	//TRANSPORT THE NUMBER OF TELESCOPES FOR JQUERY
       	//print "<tr><input type='hidden' name='telescopes' class='telescopes' value='".
@@ -341,8 +374,8 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		else
 		//  ---------------- Questionnaire End ----------------------
 		//Telescope Type
-		$options = array("top" => "<option value=''>Please select a Telescope Type</option>",
-			"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
+			$options = array("top" => "<option value=''>Please select a Telescope Type</option>",
+				"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
 		printTypeSelectListFromArray("Telescope Type", "add_obs_telescope_type_id[{$telescope_count}]",
 		 $_observatory->get_telescope("telescope_type", $telescope_count), $telescope_types, "name", NULL, TRUE, $options);
 		 
@@ -384,6 +417,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		ws(3);
 		printSelectListFromArray("add_obs_wavelength_b_unit[{$telescope_count}]", $_observatory->get_telescope("wavelength_b_unit", $telescope_count),
 			$wavelength_units, "wavelength_unit");
+		print "<label for='add_obs_wavelength_b[{$telescope_count}]' class='error' style='display: none;'>Please enter a float number!</label>";
 		print "</td></tr>" . LF;
 
 		//Wavelength/Freq End
@@ -394,18 +428,17 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		ws(3);
 		printSelectListFromArray("add_obs_wavelength_e_unit[{$telescope_count}]", $_observatory->get_telescope("wavelength_e_unit", $telescope_count),
 			$wavelength_units, "wavelength_unit");
+		print "<label for='add_obs_wavelength_e[{$telescope_count}]' class='error' style='display: none;'>Please enter a float number!</label>";
 		print "</td></tr>" . LF;
 
 	    //Telescope Comments
 		printInputTextfieldRow("Telescope Comments", "add_obs_telescope_comments[{$telescope_count}]",
 			$_observatory->get_telescope("comments", $telescope_count));
-
-		/** @todo improve custom error labels, location in html */
-	    /** @todo add custom error labels for all necessary inputs */
-	    //custom error labels
-	    print "<tr><td colspan='2'><label for='add_obs_diameter[". $telescope_count . "]' class='error' style='display: none;'>Please enter a float number!</label></td></tr>";
-	    //print "<tr><td colspan='2'><label for='add_obs_focallength[". $telescope_count . "]' class='error' style='display: none;'>Please enter a float number!</label></td></tr>";
 	    print "</table>";
+	    
+	    print "<div style='margin:10px 0'><a class='ui-state-default ui-corner-all add_instrument' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
+		print "<span class='ui-icon ui-icon-plus' style='position:absolute;top:4px;left:1px'></span>" ;
+		print "Add new Instrument</a></div>";
 
 	    //INSTRUMENTS
 	    //echo "ADD TELESCOPE COUNT: " . $telescope_count . " ID: " . $telescope_id . "<br>";
@@ -419,7 +452,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	       		//print "<input type='hidden' name='add_obs_instrument_ids[" . $telescope_count . "][" . $instrument_count . "]' value='". $instrument_id . "'/>" . LF;
 
 	       		print "<fieldset class='rfield'><legend>Instrument:</legend>" . LF;
-      			print "<table><tr><td><a href='' class='toggle_instrument'>Show Inputs</a></td></tr></table>";
+      			print "<div style='margin:10px 0'><a href='' class='ui-state-default ui-corner-all toggle_instrument' style='padding:6px 6px 6px 6px;text-decoration:none;'>Show Input Fields</a>";
+      			
+      			print "&nbsp;&nbsp;&nbsp;&nbsp;<a class='ui-state-default ui-corner-all remove_instrument' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
+				print "<span class='ui-icon ui-icon-minus' style='position:absolute;top:4px;left:1px'></span>" ;
+				print "Remove Instrument</a></div>";
+      			
       			/** this table has two classes!! class='create' */
       			//print "<table class='create'>" . LF;
       			print "<table class='instrument create'>" . LF;
@@ -427,6 +465,8 @@ if(is_array($_observatory->get_has_many("telescopes")))
 //      			print "<tr><input type='hidden' name='instruments' class='instruments' value='".
 //      				  count($_observatory->get_has_many("instruments", $telescope_id)) . "'/></tr>";
       			//echo "INSTRUMENTS: " . count($_observatory->get_has_many("instruments", $telescope_id)) . "<br>";
+      			
+      			/** @todo add custom error labels for all necessary inputs */
 
 				//Instrument Name
 				printInputTextRow("Instrument Name", "add_obs_instrument_name[{$telescope_count}][{$instrument_count}]",
@@ -451,7 +491,6 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				printInputTextRow("Wavelength Region", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength");
 
-	        	/** @todo how to implement validation here? */
 	        	//Wavelength Begin
 		  		print "<tr>";
 				printInputTitleCol("Wavelength or Freq. Begin");
@@ -461,9 +500,10 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				ws(3);
 				printSelectListFromArray("add_obs_instrument_wavelength_b_unit[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $instrument_count), $wavelength_units, "wavelength_unit");
+				print "<label for='add_obs_instrument_wavelength_b[{$telescope_count}][{$instrument_count}]' " .
+						"class='error' style='display: none;'>Please enter a float number!</label>";
 				print "</td></tr>" . LF;
 
-	      		/** @todo how to implement validation here? */
 	      		//Wavelength End
 		  		print "<tr>";
 				printInputTitleCol("Wavelength or Freq. End");
@@ -473,32 +513,34 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				ws(3);
 				printSelectListFromArray("add_obs_instrument_wavelength_e_unit[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $instrument_count), $wavelength_units, "wavelength_unit");
+				print "<label for='add_obs_instrument_wavelength_e[{$telescope_count}][{$instrument_count}]' " . 
+						"class='error' style='display: none;'>Please enter a float number!</label>";
 				print "</td></tr>" . LF;
 
 	        	//Spatial Resolution
 				printInputTextRow("Spatial Resolution", "add_obs_instrument_spatial_resolution[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 40);
+					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 40, "[arcsec/pixel]");
 	        	//Spectral Resolution
 				printInputTextRow("Spectral Resolution", "add_obs_instrument_spectral_resolution[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 40);
+					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 40, "[&Aring;]");
 	        	//Polarisation
 				printInputTextRow("Polarisation", "add_obs_instrument_polarisation[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("polarisation", $telescope_id, $instrument_count), 40, "(Polarimeter)");
 	        	//Field of View
 				printInputTextRow("Field of View", "add_obs_instrument_field_of_view[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("field_of_view", $telescope_id, $instrument_count), 40);
+					$_observatory->get_instrument("field_of_view", $telescope_id, $instrument_count), 25, "[arcsec X arcsec] or [arcsec]");
 		        //Max Frames per sec
 				printInputTextRow("MAX Frames", "add_obs_instrument_max_frames[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("max_frames_per_sec", $telescope_id, $instrument_count), 10, "[per second]&nbsp;(Camera)");
+					$_observatory->get_instrument("max_frames_per_sec", $telescope_id, $instrument_count), 15, "[per second]&nbsp;(Camera)");
 				//Frame size
 				printInputTextRow("Frame Size", "add_obs_instrument_frame_size[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("frame_size", $telescope_id, $instrument_count), 20, "[pixel*pixel]&nbsp;(Camera)");
+					$_observatory->get_instrument("frame_size", $telescope_id, $instrument_count), 25, "[pixel X pixel]&nbsp;(Camera)");
 				//Max exposure time
 				printInputTextRow("MAX Exposure Time", "add_obs_instrument_max_exposure[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("max_exposure_time", $telescope_id, $instrument_count), 10, "[seconds]&nbsp;(Camera)");
+					$_observatory->get_instrument("max_exposure_time", $telescope_id, $instrument_count), 15, "[seconds]&nbsp;(Camera)");
 				//Min exposure time
 				printInputTextRow("MIN Exposure Time", "add_obs_instrument_min_exposure[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("min_exposure_time", $telescope_id, $instrument_count), 10, "[seconds]&nbsp;(Camera)");
+					$_observatory->get_instrument("min_exposure_time", $telescope_id, $instrument_count), 15, "[seconds]&nbsp;(Camera)");
 				//Color / B/W chip
 				printCheckBoxRow("Only B/W Chip?", "add_obs_instrument_bw_chip[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("color_bw_chip", $telescope_id, $instrument_count), "(Camera)");
@@ -510,33 +552,26 @@ if(is_array($_observatory->get_has_many("telescopes")))
 					$_observatory->get_instrument("comments", $telescope_id, $instrument_count), 50);
 				print "</table>" . LF;
 
-				printAddRemoveButton($instrument_count, $_observatory->get_has_many("instruments", $telescope_id), "instrument");
-
-	      		/** @todo add custom error labels for all necessary inputs */
+				//printAddRemoveButton($instrument_count, $_observatory->get_has_many("instruments", $telescope_id), "instrument");
 				print "</fieldset>" . LF;
-	    	}
-
-		printAddRemoveButton($telescope_count, $_observatory->get_has_many("telescopes"), "telescope");
-      	print "</fieldset>" . LF;
+	    	}  	
+	
+		//printAddRemoveButton($telescope_count, $_observatory->get_has_many("telescopes"), "telescope");
+	    print "</fieldset>" . LF;
+		print "</div>" . LF;
 	}
+	print "</div>" . LF;
+}
 
 //ADDITIONAL INFORMATION:
 print "<fieldset class='rfield'><legend>Additional Information</legend>" . LF;
 print "<table class='create'>" . LF;
-//Further contacts
-//printInputTextfieldRow("Further contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'));
-//Instrument comments
-//printInputTextfieldRow("Instrument comments", "add_obs_inst_com", $_observatory->get_add_info('instrument_comments'));
 //Additional instruments
-printInputTextfieldRow("Additional Instruments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'));
+printInputTextfieldRow("General Instrument Comments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'));
 //Array description
 printInputTextfieldRow("Array Description", "add_obs_array_desc", $_observatory->get_add_info('array_description'));
 //Backend description
 printInputTextfieldRow("Backend Description", "add_obs_backend_desc", $_observatory->get_add_info('backend_description'));
-//Research comments
-//printInputTextfieldRow("Research comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'));
-//General comments
-//printInputTextfieldRow("General comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'));
 print "</table></fieldset>" . LF;
 
 //FEEDBACK for Administrators
@@ -546,33 +581,29 @@ print "<table class='create'>" . LF;
 printInputTextfieldRow("Feedback", "add_obs_feedback", $_observatory->get_add_info('feedback'));
 print "</table></fieldset>" . LF;
 
-//ADMINISTRATION TOOLS
+//ADMINISTRATION TOOL
 if($_SESSION["user_level"] >= 31)
 {
-	print "<fieldset class='rfield'><legend>Administration Tools</legend>" . LF;
+	print "<fieldset class='rfield'><legend><b class='red'>Administration Tool</b></legend>" . LF;
 	print "<table class='create'>" . LF;
-	$columns = array ("fname", "lname");
+	$columns = array ("lname", "fname");
 	$options = array("<option value='NULL'>---</option>");
 	printSelectListRowFromArray("Assign Users", "add_obs_user_id", $_observatory->get_field("obs_user_id"), 
 			 $_observatory->get_users(), $columns, NULL, false, $options);
 	print "</table></fieldset>" . LF;
 }
 else
-	print "<div><input type='hidden' name='add_obs_user_id' value='{$_observatory->get_field("obs_user_id")}'><div>"; 
+	print "<div><input type='hidden' name='add_obs_user_id' value='{$_observatory->get_field("obs_user_id")}'></div>"; 
 
 // Submit Button
 //-----------------------------------------------------------------------------------------------------------
 //Define the action buttons
 print "<div class='actionbutton'>" . LF;
-/** @todo a little hack with GET here! */
-if(isset($_GET["approve"]))
-	print "<input type='submit' name='push' value='Submit to User' class='submit'>" . LF;
-else
-	print "<input type='submit' name='push' value='Save for Later' class='submit'>" . LF;
 //IF ACTION IS ADD
 if($action == "add")
 {
-	print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
+	print "<button type='submit' name='push' value='Save for Later' class='submit'>Save for Later</button>" . LF;
+	print "<button type='submit' name='push' value='Add Entry' class='submit'>Add Entry</button>" . LF;
 	print "<input type='hidden' name='is_add' value='1'>" . LF ;
 }
 //IF ACTION IS loadTemp
@@ -584,8 +615,8 @@ if($action == "add")
 //IF ACTION IS loadOldObs
 else if($action == "loadOldObs")
 {
+	print "<button type='submit' name='push' value='Add Entry' class='submit'>Add Entry</button>" . LF;
     print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
-    print "<input type='submit' name='push' value='Add Entry' class='submit'>" . LF;
     print "<input type='hidden' name='is_add' value='1'>" . LF ;
     
     if($_SESSION["user_level"] >= 31)
@@ -594,16 +625,33 @@ else if($action == "loadOldObs")
 //IF ACTION IS EDIT
 else if($action == "edit")
 {
-	/** @todo a little hack with GET here! */
-	if(isset($_GET["approve"]))
-		print "<input type='submit' name='push' value='Add to Database'>" . LF;
-	else
-		print "<input type='submit' name='push' value='Update Entry'>" . LF;
+	/** @todo a little hack with GET here! => we need to improve this procedure*/
+	// The edit pages for admins
+	if($_SESSION["user_level"] >= 31)
+	{
+		if(($_SESSION["user_id"] == $_observatory->get_field("obs_user_id")) || 
+  									($_observatory->get_field("obs_user_id") == 0))
+			print "<button type='submit' name='push' value='Save for Later' class='submit'>Save for Later</button>" . LF;
+		else
+			print "<button type='submit' name='push' value='Submit to User' class='submit'>Submit to User</button>" . LF;
+		
+		// If we are approving
+		if(isset($_GET["approve"]))
+			print "<button type='submit' name='push' value='Add to Database' class='submit'>Add to Database</button>" . LF;		
+		else
+			print "<button type='submit' name='push' value='Update Entry' class='submit'>Update Entry</button>" . LF;
+	}	
+	// The edit page for the user!
+	else if($_SESSION["user_level"] == 11)
+	{	
+		print "<button type='submit' name='push' value='Save for Later' class='submit'>Save for Later</button>" . LF;
+		print "<button type='submit' name='push' value='Update Entry' class='submit'>Update Entry</button>" . LF;
+	}
 		
 	print "<input type='hidden' name='is_edit' value='1'>" . LF ;
 	
 	if($_SESSION["user_level"] >= 31)
-		print "&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='push' onclick='return show_confirm()' value='Delete Entry'>" . LF;
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' name='push' onclick='return show_confirm()' value='Delete Entry' class='submit'>Delete Entry</button>" . LF;
 }
 
 print "</div>" . LF;

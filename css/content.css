@@ -113,6 +113,11 @@ IMG {
 	border-style: none;
 }
 
+INPUT {
+	border: 1px solid #AAAAAA;
+	padding: 3px;
+}
+
 /* CONTENT FIELDSETS */
 fieldset {
 	color: #000000;
@@ -127,8 +132,11 @@ fieldset.report {
 }
 
 fieldset.rfield {
-	color: #000000;
-	background-color: #d3d3d3;
+/*	color: #000000; */
+	color: #222222;
+/*	background-color: #d3d3d3; */
+	background-color: #E6E6E6;
+	margin-bottom: 5px;
 }
 
 /* CONTENT TABLES - REFACTOR THEM! */
@@ -156,7 +164,8 @@ table.page td {
 }
 
 table.selector {
-	background-color: #f5f5dc;
+/* 	background-color: #f5f5dc; */
+	background-color: #E6E6E6;
 	border-collapse: collapse;
 	border-style: none;
 	border-spacing: 4px;
@@ -164,9 +173,10 @@ table.selector {
 }
 
 table.selector td {
+	background-color: #E6E6E6;
 	padding: 4px;
 	text-align: center;
-	background-color: #d3d3d3;
+/*	background-color: #d3d3d3; */
 	width: 45%;
 }
 
@@ -258,24 +268,27 @@ table.viewall td.red {
 }
 
 table.create {
-	background-color: #f5f5dc;
+/*	background-color: #f5f5dc; */
+	background-color: #E6E6E6;
 	border-style: none;
-	border-collapse: collapse;
+/*	border-collapse: collapse; */
 	border-spacing: 4px;
 	width: 100%;
 }
 
 table.create td {
-	background-color: #d3d3d3;
+/*	background-color: #d3d3d3; */
+	background-color: #E6E6E6;
 	padding: 2px;
 }
 
 table.create th {
-	color: #FFFFFF;
-	background-color: #172983;
-	padding: 10px 5px;
+/*	color: #FFFFFF; */
+/*	background-color: #172983; */
+	padding: 0.5em 0;
 	text-align: center;
-}
+} 
+
 /*
 TD.odd {
 	background-color: #d3d3d3;
@@ -338,3 +351,23 @@ button {
 	padding: 15px 0 10px 0;
 }
 
+/* additions for tabs */
+#tabbed-tele { 
+	margin-top: 0.5em; 
+	margin-bottom: 0.5em;
+}
+
+#tabbed-tele li .ui-icon-close { 
+	float: left; 
+	margin: 0.4em 0.2em 0 0; 
+	cursor: pointer; 
+}
+
+/* intermediate hack for links in input form */
+#tabbed-tele a:hover {
+	text-decoration: none;
+	color: #d2691e; 
+}
+
+a.add_telescope:hover, a.add_instrument:hover, a.toggle_instrument:hover, a.remove_instrument:hover, a#add_other_area:hover, a.remove_area:hover { 
+	border: 1px solid #999999; background: #dadada url(./../lib/js/images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #d2691e; }

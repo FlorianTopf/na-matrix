@@ -187,7 +187,7 @@
 
     print "</table></p>" . LF;
 
-    print "<p><input type='submit' name='registration' value='Register'/></p>";
+    print "<p><button type='submit' class='submit' name='registration' value='Register'>Register</button></p>";
   }
 
   //$link->close();

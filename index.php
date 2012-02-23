@@ -40,17 +40,24 @@
   	<meta http-equiv="cache-control" content="no-cache, must-revalidate"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.10.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/js/jquery-ui-1.8.17.custom.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/js/jquery.tooltip.css"/>
-	<!-- Add new AJAX loader from google when available -->
+	<link rel="stylesheet" type="text/css" href="lib/js/ui.multiselect.css"/>
+	<!--  <link rel="stylesheet" type="text/css" href="lib/js/jquery.ui.selectmenu.css"/> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<!-- Add new AJAX loader from google when available 
+	@todo nachladen bitte erst auf der map seite!
+	-->
 	<script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?sensor=true">
 	</script>
-    <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="lib/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="lib/js/jquery-ui-1.8.17.custom.min.js"></script>
     <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="lib/js/jquery.tooltip.js"></script>
-	<script type="text/javascript" src="lib/js/jquery-ui-1.8.10.custom.min.js"></script>
+	<script type="text/javascript" src="lib/js/jquery.scrollTo-min.js"></script>
+    <script type="text/javascript" src="lib/js/ui.multiselect.js"></script>
+    <!-- <script type="text/javascript" src="lib/js/jquery.ui.selectmenu.js"></script> -->
     <script type="text/javascript" src="js/functions.js"></script>
   </head>
 
@@ -61,7 +68,7 @@
       <div id="header-top">
         <div id="header-top-inside">
           <div id="logo">
-            <a href="http://europlanet-jra3.oeaw.ac.at" target="_blank"><img src="images/europlanet_logo.gif" width="561" height="51" alt="EuroPlanet - Research Infrastructure." title="EuroPlanet - Research Infrastructure." /></a>
+            <a href="http://europlanet-na1.oeaw.ac.at" target="_blank"><img src="images/europlanet_logo.gif" width="561" height="51" alt="EuroPlanet - Research Infrastructure." title="EuroPlanet - Research Infrastructure." /></a>
           </div>
           <div id="partners">
             <a href="http://europa.eu/index_en.htm" target="_blank"><img src="images/ue_logo.gif" width="81" height="47" alt="Project supported by the European Union." title="Project supported by the European Union." /></a>
@@ -106,7 +113,7 @@
 	              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
 	              print "<ul><li class='left-level-1-center'>Username:&nbsp;<input name='userid' size='10'/></li>" . LF;
 	              print "<li class='left-level-1-center'>Password:&nbsp;<input type='password' name='passwd' size='10'/></li>" . LF;
-	              print "<li class='left-level-1-center'><input type='submit' name='login' value='Log in'/></li></ul>" . LF;
+	              print "<li class='left-level-1-center'><button type='submit' name='login' value='Log in' class='submit'>Log in</button></li></ul>" . LF;
 	              print "<h1 class='menu-header'></h1>" . LF;
 	              print "<ul><li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=registration_q'>Register a new<br/> account</a></li>" . LF;
 	              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=reset'>Forgot password?</a></li></ul>" . LF;
@@ -114,25 +121,31 @@
 	            else
 	            {
 	              print "<h1 class='menu-header'>&nbsp;Edit Matrix:</h1>" . LF;
-	              print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
+	              
+	              if($_SESSION["user_level"] >= 11)
+	              	print "<ul><li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=add&action=add'>Add entries</a></li>" . LF;
+	              
+	              if ($_SESSION["user_level"] == 11)
+	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>My entries</a></li>" . LF;
+	              
 	              if ($_SESSION["user_level"] >= 21)
 	              {
 	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>Edit entries</a></li>" . LF;
 	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=approve&res_type=obs'>Approve entries</a></li>" . LF;
-	              }	
-	              if ($_SESSION["user_level"] == 11)
-	              	print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit'>My entries</a></li>" . LF;
-	             
+	              }            
+	              
 	              /** @todo this is a bit of an hack, because user may get access to this script by directly going there (edit == 21) */
 	              if ($_SESSION["user_level"] >= 31)
 	              {
 	              	if(DbConnector::checkDb('OldObs') && DbConnector::checkDb('OldSpa'))
 	              		print "<li class='left-level-1-no'><a href='" . $_SERVER["PHP_SELF"] . "?page=edit&action=viewOld'>Add OLD entries</a></li>" . LF;	
-	              }
+	              }              
+	              print "</ul>";
+	              
 	              print "<h1 class='menu-header'>&nbsp;Login:</h1>" . LF;
 	              print "<ul><li class='left-level-1-center'><b>" . $_SESSION["user_name"] . " logged in</b></li>" . LF;
 	              print "<li class='left-level-1-center'><a href='" . $_SERVER["PHP_SELF"] . "?page=account'>My account</a></li>" . LF;
-	              print "<li class='left-level-1-center'><input type='submit' class='cancel' name='logout' value='Log out'></li></ul>" . LF;
+	              print "<li class='left-level-1-center'><button type='submit' class='cancel submit' name='logout' value='Log out'>Log out</button></li></ul>" . LF;
 	
 	              if ($_SESSION["user_level"] >= 31)
 	              {

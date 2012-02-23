@@ -308,7 +308,7 @@ $link->close();
 			//if ($_observatory->get_add_info('instrument_comments'))
 		    //	print "<p><b>Instrument comments:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('instrument_comments')) . "</p>" . LF;
 		    if ($_observatory->get_add_info('additional_instruments'))
-		    	print "<p><b>Additional Instruments:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('additional_instruments')) . "</p>" . LF;
+		    	print "<p><b>General Instrument Comments&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('additional_instruments')) . "</p>" . LF;
 		    if ($_observatory->get_add_info('array_description'))
 		    	print "<p><b>Array Description:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('array_description')) . "</p>" . LF;
 		    if ($_observatory->get_add_info('backend_description'))

@@ -132,7 +132,7 @@
 
     print "</table></p>" . LF;
 
-    print "<p><input type='submit' name='update' value='Update'/><p>";
+    print "<p><button type='submit' class='submit' name='update' value='Update'>Update</button><p>";
   }
 
 ?>

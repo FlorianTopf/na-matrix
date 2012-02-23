@@ -7,6 +7,7 @@
  * @todo refactor the whole switch statements! (we have some redudancy here)
  * @todo refactor all uses of SESSION vars!
  * @todo integrate status messagess from add_obs_keys!!
+ * @todo improve handling between different userlevels (seems to be problematic some times!!)
  */
 
 include_once ('lib/php/orm/DbConnector.php');
@@ -452,7 +453,7 @@ class Controller
             				return;
           				}
 					}
-				 break;
+				break;
 			default:
     			self::printSelector($page, $action, $resource_type);
     			break; }

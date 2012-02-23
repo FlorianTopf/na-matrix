@@ -213,7 +213,19 @@ $(document).ready(function(){
 //	    }
 //	  });
 	
-	//enabling tooltips
+	/** @todo here we will introduce a lot of unobstrusive design additions */
+	$('button.submit').button();
+	/** @todo does not work because of "add other" options */
+	//$('select').selectmenu();
+	// Adding fancy classes from JQUERY UI
+	$('.rfield').addClass('ui-widget ui-widget-content ui-corner-all');
+	$('.rfield legend').addClass('ui-widget ui-widget-header ui-corner-all');
+//	$('.rfield input').addClass('ui-widget-content');
+	
+	//NEW MULTISELECT FUNCTIONALITY
+	$('.multiselect').multiselect();
+	
+	//enabling tooltips (maybe improve that!
 	$('#middle-marker *').tooltip({
 	showURL: false,
 	showBody: " - "
@@ -226,12 +238,11 @@ $(document).ready(function(){
 	$('table.instrument').hide();
 		
 	$('a.toggle_instrument').click(function() {
-		$(this).parent().parent().
-		parent().parent().next('table.instrument').toggle();
+		$(this).parent().next('table.instrument').toggle();
 		
 		var text = $(this).text();
 		$(this).text(
-			text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
+			text == "Show Input Fields" ? "Hide Input Fields" : "Show Input Fields");
 		return false;
 	});
 	
@@ -469,11 +480,10 @@ $(document).ready(function(){
 	
 	//DYNAMIC ROW ADDING FUNCTION for ADD "Instruments"
 	$.fn.add_instrument = function(newInstrumentNum) {
-		var addInstrument = $(this).parent().parent().parent().
-        parent().parent();
+		var addInstrument = $(this).parent().parent().find('fieldset.rfield:last');
 
         var newInstrument = addInstrument.clone();
-        
+            
         //remove any added new instrument types here after cloning
         if ($('a.remove_instrument_type').length>0) {
         	//we have to remove also the changed select/options  
@@ -483,10 +493,6 @@ $(document).ready(function(){
         }
         
         $('input', newInstrument).val('');
-        //set instrument number, if there are more loaded in edit
-//        if(newInstrumentNum < 1) {
-//        	newInstrumentNum = $('input.instruments', addInstrument).val();
-//        }
         $('select', newInstrument).val('');
         $('textarea', newInstrument).val('');
         $("input[type='checkbox']", newInstrument).attr('checked', false);
@@ -513,8 +519,8 @@ $(document).ready(function(){
 			newInstrumentNum = ++instrumentCount;
         
         //add delete instrument button
-        $('table.instrument_button', newInstrument).
-        html('<tr><td><a href="" class="remove_instrument">Delete Instrument<\/a><\/td><\/tr>');
+//        $('table.instrument_button', newInstrument).
+//        html('<tr><td><a href="" class="remove_instrument">Delete Instrument<\/a><\/td><\/tr>');
 
         $('input', newInstrument).each(function(i) {
         	//remove trailing [0-9] with regexp
@@ -538,9 +544,27 @@ $(document).ready(function(){
         addInstrument.after(newInstrument);
         
         $('a.remove_instrument', newInstrument).click(function() {
-        	$(this).parent().parent().parent().
-        	parent().parent().remove();
-            //newInstrumentNum--;
+//        	$(this).parent().parent().parent().
+//        	parent().parent().remove();
+        	var field = $(this).parent().parent();
+        	
+        	//if its the last one, just clear the fields
+        	if(field.parent().find("table.instrument").length == 1)
+        	{
+    	        // clear lines of the last one!
+    			var lastInstrument = field;
+    	        //clear values for each input
+    	        $('input', lastInstrument).val('');
+    	        //clear value for each select
+    	        $('select', lastInstrument).val('');
+    	        //clear value for each textarea
+    	        $('textarea', lastInstrument).val('');
+    	        //clear value of each checkbox
+    	        $("input[type='checkbox']", lastInstrument).attr('checked', false);
+        	}
+        	else
+        		field.remove();
+        	
             return false;
         });
         
@@ -553,12 +577,11 @@ $(document).ready(function(){
         });
         
 		$('a.toggle_instrument', newInstrument).click(function() {
-			$(this).parent().parent().
-			parent().parent().next('table.instrument').toggle();
+			$(this).parent().next('table.instrument').toggle();
 			
 			var text = $(this).text();
 			$(this).text(
-				text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
+				text == "Show Input Fields" ? "Hide Input Fields" : "Show Input Fields");
 			return false;
 		});
 		
@@ -628,8 +651,6 @@ $(document).ready(function(){
 
   		var strToAdd = '<tr><td>&nbsp;&nbsp;&nbsp;<a href="" class="remove_telescope_type">Delete<\/a></td>' +
   		'<td><b>New Telescope Type:&nbsp;</b>' +
-  		//'<input type="text" class="required" name="add_telescope_type' + TelescopeCount + '[' + newTelescopeType +
-  		//']" size="45" value="" /></td></tr>';
   		'<input type="text" class="telescope_type" name="add_telescope_type' + TelescopeCount + '" size="40" value="" /></td></tr>';
 
   		$(this).closest('tr').after(strToAdd);
@@ -666,8 +687,6 @@ $(document).ready(function(){
 
   		var strToAdd = '<tr><td>&nbsp;&nbsp;&nbsp;<a href="" class="remove_antenna_type">Delete<\/a></td>' +
   		'<td><b>New Antenna Type:&nbsp;</b>' +
-  		//'<input type="text" class="required" name="add_antenna_type' + TelescopeCount + '[' + newAntennaType +
-  		//']" size="45" value="" /></td></tr>';
   		'<input type="text" class="antenna_type" name="add_antenna_type' + TelescopeCount + '" size="40" value="" /></td></tr>';
 
   		$(this).closest('tr').after(strToAdd);
@@ -701,14 +720,10 @@ $(document).ready(function(){
 				
 		//remove everything before [0-9]
 		InstrumentCount = InstrumentCount.replace(/^[^\[]*(\[.*)$/, '$1');
-		//remove trailing []
-		//InstrumentCount = InstrumentCount.replace(/^(.*)\[\].*$/, '$1');
 
   		var strToAdd = '<tr><td>&nbsp;&nbsp;&nbsp;<a href="" class="remove_instrument_type">Delete<\/a></td>' +
   		'<td><b>New Instrument Type:&nbsp;</b>' +
-  		//'<input type="text" class="required" name="add_instrument_type' + InstrumentCount + '[' + newInstrumentType +
-  		//']" size="45" value="" /></td></tr>';
-  		'<input type="text" class="instrument_type" name="add_instrument_type' + InstrumentCount + '" size="40" value="" /></td></tr>';
+  		'<input type="text" class="instrument_type" name="add_instrument_type' + InstrumentCount + '" size="30" value="" /></td></tr>';
 
   		$(this).closest('tr').after(strToAdd);
   		
@@ -753,18 +768,20 @@ $(document).ready(function(){
     
 	//DYNAMIC ROW ADDING ROUTINE for SELECTION "Other" in RESEARCH AREAS
 	var newArea = 0;
-    $('#add_other_area').click(function() {
+    $('div#add_other_area').click(function() {
 		newArea++;
 
-  		var strToAdd = '<tr><td><a href="" class="remove_area">Delete<\/a></td>' +
-  		'<td><b>New Research Area:&nbsp;</b>' +
+  		var strToAdd = '<div style="margin:15px 0px">' +
+  		'<a href="" class="ui-state-default ui-corner-all remove_area" style="padding:6px 6px 6px 17px;' +
+  			'text-decoration:none;position:relative"><span class="ui-icon ui-icon-minus" style="position:absolute;top:4px;left:1px"></span>Delete<\/a>' +
+  		'&nbsp;&nbsp;&nbsp;&nbsp;New Research Area:&nbsp;</b>' +
   		'<input type="text" class="research_areas" name="add_res_are[' + newArea +
-  		']" size="50" value="" /></td></tr>';
+  		']" size="50" value=""/></div>';
 
-		$('#research_areas').append(strToAdd);
+		$(this).after(strToAdd);
 
 		$('a.remove_area').click(function() {
-            $(this).parent().parent().remove();
+            $(this).parent().remove();
             //newArea--;
             return false;
         });
@@ -886,7 +903,7 @@ $(document).ready(function(){
 		//return false;
 	});
 	
-    //REMOVE EXISTING TELESCOPES IN EDIT
+	//REMOVE EXISTING TELESCOPES IN EDIT
     $('a.remove_telescope').click(function() {
         $(this).parent().parent().parent().
         parent().parent().remove();
@@ -895,8 +912,27 @@ $(document).ready(function(){
     
     //REMOVE EXISTING INSTRUMENTS IN EDIT
     $('a.remove_instrument').click(function() {
-    	$(this).parent().parent().parent().
-    	parent().parent().remove();
+//    	$(this).parent().parent().parent().
+//    	parent().parent().remove();
+    	var field = $(this).parent().parent();
+    	
+    	//if its the last one, just clear the fields
+    	if(field.parent().find("table.instrument").length == 1)
+    	{
+	        // clear lines of the last one!
+			var lastInstrument = field;
+	        //clear values for each input
+	        $('input', lastInstrument).val('');
+	        //clear value for each select
+	        $('select', lastInstrument).val('');
+	        //clear value for each textarea
+	        $('textarea', lastInstrument).val('');
+	        //clear value of each checkbox
+	        $("input[type='checkbox']", lastInstrument).attr('checked', false);
+    	}
+    	else
+    		field.remove();
+    	
         return false;
     });
     
@@ -920,7 +956,6 @@ $(document).ready(function(){
     var newInstrumentNum = 0;
     $('a.add_instrument').click(function() {
         newInstrumentNum++;
-        //$(this).add_instrument('0', newInstrumentNum);
         newInstrumentNum = $(this).add_instrument(newInstrumentNum);
         return false;
 	});
@@ -932,21 +967,53 @@ $(document).ready(function(){
     	$(this).add_instrument_type(newInstrumentType);
     	return false;
 	});
-
-    //DYNAMIC ROW ADDING ROUTINE for TELESCOPES
+  
+    //DYNAMIC TAB ADDING ROUTINE for TELESCOPES  
+	// NEW TABS FUNCTIONALITY
+	$('#tabbed-tele').tabs({
+			/* fx: { opacity: 'toggle', duration:'fast'}, */
+			tabTemplate: "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
+		    add: function(event, ui) {
+		        $('#tabbed-tele').tabs('select', '#' + ui.panel.id);
+		    }}
+//			add: function( event, ui ) {
+//				var tab_content = $tab_content_input.val() || "Tab " + tab_counter + " content.";
+//				$( ui.panel ).append( "<p>" + tab_content + "</p>" );		
+	);    
+    // NEW TABS FUNCTIONALITY
+	$('#tabbed-tele span.ui-icon-close').live( "click", function() {
+		var tabbed = $("#tabbed-tele");
+		var TelescopeNum = $('li',tabbed).index($(this).parent());
+		
+		if(TelescopeNum != 0)
+			$("#tabbed-tele").tabs('remove', TelescopeNum);
+		else
+		{
+	        // clear lines of the last one!
+			var lastTelescope = $("#tabbed-tele").find("#telescope-0");
+	        //clear values for each input
+	        $('input', lastTelescope).val('');
+	        //clear value for each select
+	        $('select', lastTelescope).val('');
+	        //clear value for each textarea
+	        $('textarea', lastTelescope).val('');
+	        //clear value of each checkbox
+	        $("input[type='checkbox']", lastTelescope).attr('checked', false);
+		}
+			
+	});
+	//DOM CLONING
     var newTelescopeNum = 0;
     $('a.add_telescope').click(function () {
         newTelescopeNum++;
 
-        var addTelescope = $(this).parent().parent().
-        parent().parent().parent();
+        var addTelescope = $(this).parent().parent().parent().find('div.telescope:last');
 
         var newTelescope = addTelescope.clone();
 
         //remove additional instruments here afer cloning
-        if ($('a.remove_instrument').length>0) {
-            $('a.remove_instrument', newTelescope).parent().parent().
-            parent().parent().parent().remove();
+        if ($('a.remove_instrument').length > 1) {
+            $('a.remove_instrument:not(:first)', newTelescope).parent().parent().remove();
         }
 
         //remove any added new telescope types here after cloning
@@ -975,10 +1042,6 @@ $(document).ready(function(){
 
         //clear values for each input
         $('input', newTelescope).val('');
-        //set telescope number, if there are more loaded in edit
-//        if(newTelescopeNum <= 1) {
-//        	newTelescopeNum = $('input.telescopes', addTelescope).val();
-//        }
         //clear value for each select
         $('select', newTelescope).val('');
         //clear value for each textarea
@@ -1018,10 +1081,10 @@ $(document).ready(function(){
 		telescopeCount = telescopeCount.replace(/^.*\[(\d*)\]$/, '$1');
 		if(newTelescopeNum <= telescopeCount)
 			newTelescopeNum = ++telescopeCount;
-
+			
         //add delete telescope button
-        $('table.telescope_button', newTelescope).
-        html('<tr><td><a href="" class="remove_telescope">Delete Telescope<\/a><\/td><\/tr>');
+//        $('table.telescope_button', newTelescope).
+//        html('<tr><td><a href="" class="remove_telescope">Delete Telescope<\/a><\/td><\/tr>');
 
         //save all new names
         $('input', newTelescope).each(function(i) {
@@ -1063,24 +1126,29 @@ $(document).ready(function(){
             var newName = instr_areas[i] + '[' + newTelescopeNum + ']' + '[0]';
             $(this).attr('name', newName);
         });
-
+        
+        // NEW TABS FUNCTIONALITY
+        $("#tabbed-tele").tabs("add", "#telescope-" + newTelescopeNum , 'Telescope ' + (newTelescopeNum +1));
+        newTelescope = newTelescope.find('fieldset.rfield:first');
+        $("#telescope-" + newTelescopeNum).append(newTelescope);
+        
         //append new telescope field
-        addTelescope.after(newTelescope);
-
+//        addTelescope.after(newTelescope);
+        
         //remove telescope routine
-        $('a.remove_telescope', newTelescope).click(function() {
-            $(this).parent().parent().parent().
-            parent().parent().remove();
-            return false;
-        });
+//        $('a.remove_telescope', newTelescope).click(function() {
+//            $(this).parent().parent().parent().
+//            parent().parent().remove();
+//            return false;
+//        });
 
         /** @todo add telescope routine - needs to be recursive */
-        $('a.add_telescope', newTelescope).click(function() {
+//        $('a.add_telescope', newTelescope).click(function() {
             //we need a recursive call here!
-        	return false;
+//        	return false;
         	//return argument.callee();
-        });
-        
+//        });
+            
         //DYNAMIC ROW ADDING ROUTINE for ADD "Other Telescope Type"
         var newTelescopeType = 0;
         $('option.add_telescope_type', newTelescope).click(function() {
@@ -1106,6 +1174,32 @@ $(document).ready(function(){
         	return false;
         });
         
+        //REMOVE EXISTING INSTRUMENTS IN ANY DUPLICATED TELESCOPE
+        $('a.remove_instrument', newTelescope).click(function() {
+//        	$(this).parent().parent().parent().
+//        	parent().parent().remove();
+        	var field = $(this).parent().parent();
+        	
+        	//if its the last one, just clear the fields
+        	if(field.parent().find("table.instrument").length == 1)
+        	{
+    	        // clear lines of the last one!
+    			var lastInstrument = field;
+    	        //clear values for each input
+    	        $('input', lastInstrument).val('');
+    	        //clear value for each select
+    	        $('select', lastInstrument).val('');
+    	        //clear value for each textarea
+    	        $('textarea', lastInstrument).val('');
+    	        //clear value of each checkbox
+    	        $("input[type='checkbox']", lastInstrument).attr('checked', false);
+        	}
+        	else
+        		field.remove();
+        	
+            return false;
+        });
+        
         //DYNAMIC ROW ADDING ROUTINE for ADD "Other Instrument Type"
         var newInstrumentType = 0;
         $('option.add_instrument_type', newTelescope).click(function() {
@@ -1115,12 +1209,11 @@ $(document).ready(function(){
         });
         
     	$('a.toggle_instrument', newTelescope).click(function() {
-    		$(this).parent().parent().
-    		parent().parent().next('table.instrument').toggle();
+    		$(this).parent().next('table.instrument').toggle();
     		
     		var text = $(this).text();
     		$(this).text(
-    			text == "Show Inputs" ? "Hide Inputs" : "Show Inputs");
+    			text == "Show Input Fields" ? "Hide Input Fields" : "Show Input Fields");
     		return false;
     	});
     	
