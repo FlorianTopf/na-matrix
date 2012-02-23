@@ -17,8 +17,8 @@ please feel free to inform the team listed at the bottom of this page.</h3>";
 print "<h3>Important information:</h3>";
 print "<p>Please be aware that every field marked with a <b>red asterisk</b> (<b class='red'>*</b>) is a <b>mandatory</b> field, these are &quot;Facility name&quot;, 
 &quot;Country&quot;, “Areas of Interest&quot;, and at least one telescope (&quot;Telescope Name&quot;, &quot;Telescope Type&quot;, “Wavelength Region&quot;, 
-&quot;Diameter/Aperture&quot;).</br> The facility can not be added until valid information is provided for each mandatory field! 
-All other fields are optional. Only the fields you have entered will be shown in the details window of your entry.</br>
+&quot;Diameter/Aperture&quot;).<br/> The facility can not be added until valid information is provided for each mandatory field! 
+All other fields are optional. Only the fields you have entered will be shown in the details window of your entry.<br/>
 By mouse over the name of the input-field (e.g. mouse over &quot;Facility name&quot;) tool tips and examples of potential 
 inputs will appear. Please be aware that the standard formats of the inputs are Arabic numbers and Latin letters; 
 in float numbers the decimal places should be separated with &quot;.&quot;, e.g. &quot;8.9&quot;.</p>";
@@ -55,7 +55,7 @@ Please be aware that this has to be a valid URL.<br/><b>Example:</b> &quot;http:
 printInputTextRow("Web Address", "add_obs_web_address", $_observatory->get_field("obs_web_address"), 
 			80, "[http://...]", NULL, FALSE, $web_tooltip);
 //Address
-$address_tooltip = "Address - Please insert the address of your facility.</br> 
+$address_tooltip = "Address - Please insert the address of your facility.<br/> 
 i.e. the street name and name number, the city/area, and the ZIP code.<br/>
 <b>Example:</b> &quot;650 North A&#39;ohoku Place Hilo, 96720, Hawaii&quot;";
 printInputTextRow("Address", "add_obs_address", $_observatory->get_field("obs_address"), 
@@ -78,24 +78,24 @@ $options = array("<option value=''>Please choose...</option>");
 printSelectListRowFromArray("Country", "add_obs_country_id", $_observatory->get_field("obs_country_id"), 
 			$countries, "name", NULL, TRUE, $options, $country_tooltip);
 //Phone
-$phone_tooltip = "Phone - Please insert the phone-number in the following way:</br>
-[+XX-YYY-ZZZ-ZZZZ] with X=country code, Y=area code, Z=local number.</br>
+$phone_tooltip = "Phone - Please insert the phone-number in the following way:<br/>
+[+XX-YYY-ZZZ-ZZZZ] with X=country code, Y=area code, Z=local number.<br/>
 <b>Example:</b> &quot;+56-51-205-600&quot;";
 printInputTextRow("Phone", "add_obs_phone", $_observatory->get_field("obs_phone"), 
 			30, NULL, NULL, FALSE, $phone_tooltip);
 //Email
-$email_tooltip = "Email - Please insert your email-address</br>
-(or at least the email-address of the potential contact person).</br> 
-Please be aware that the email-address has to be valid.</br>
+$email_tooltip = "Email - Please insert your email-address<br/>
+(or at least the email-address of the potential contact person).<br/> 
+Please be aware that the email-address has to be valid.<br/>
 <b>Example:</b> &quot;john.doe@example.com&quot;";
 printInputTextRow("Email", "add_obs_email", $_observatory->get_field("obs_email"), 
 			30, NULL, NULL, FALSE, $email_tooltip);
 
 //Latitude			
-$gps_tooltip = "Please insert the geographic position of the facility,</br> 
-ideally in World Geodetic System 1984 (WGS84) format.</br>
-If the geographic position is in any other format, </br>the position on the map can differ up to more than 100 m.</br>
-Both, latitude & longitude should be entered in Degree (&deg;), Minutes (&#39;),</br> Seconds (&#39;&#39;), and hundredths of a Second (&#39;&#39;&#39;).</br>
+$gps_tooltip = "Please insert the geographic position of the facility,<br/> 
+ideally in World Geodetic System 1984 (WGS84) format.<br/>
+If the geographic position is in any other format, <br/>the position on the map can differ up to more than 100 m.<br/>
+Both, latitude & longitude should be entered in Degree (&deg;), Minutes (&#39;),<br/> Seconds (&#39;&#39;), and hundredths of a Second (&#39;&#39;&#39;).<br/>
 So if you want to enter 56&deg;21&#39;23.1&#39;&#39; &#8212; [56]&deg; [21]&#39; [23]&#39;&#39; [10]&#39;&#39;&#39;";
 $lat_tooltip = "Latitude - " . $gps_tooltip;
 print "<tr>";
@@ -147,58 +147,58 @@ print "<label for='add_obs_longitude[cent]' class='error' style='display: none;'
 print "</td></tr>";
 
 //Approximate position
-$pos_tooltip = "Approximate Position - Please insert an approximate position of the facility.</br>
-This is a good option if you do not want to publish the exact position of the </br>
-facility in geographic coordinates (see input above) for any reason.</br>
-The approximate position should be some local information, </br>
-like a city or region where the facility is located.</br>
-An approximate position for the Observatory Lustb&uuml;hel near Graz, Austria</br> would therefore e.g. be the city of Graz.</br>
-If you have a mobile observing facility, then you can also state this here.</br> <b>Example:</b> &quot;Mobile facility, generally located near Graz.&quot;";
+$pos_tooltip = "Approximate Position - Please insert an approximate position of the facility.<br/>
+This is a good option if you do not want to publish the exact position of the <br/>
+facility in geographic coordinates (see input above) for any reason.<br/>
+The approximate position should be some local information, <br/>
+like a city or region where the facility is located.<br/>
+An approximate position for the Observatory Lustb&uuml;hel near Graz, Austria<br/> would therefore e.g. be the city of Graz.<br/>
+If you have a mobile observing facility, then you can also state this here.<br/> <b>Example:</b> &quot;Mobile facility, generally located near Graz.&quot;";
 printInputTextRow("Approximate Position", "add_obs_position", $_observatory->get_field("obs_approx_position"), 
 			80, NULL, NULL, FALSE, $pos_tooltip);
 //Sealevel
-$sealevel_tooltip = "Altitude - Please insert the altitude of the facility (in meters above sea level).</br>
+$sealevel_tooltip = "Altitude - Please insert the altitude of the facility (in meters above sea level).<br/>
 <b>Example:</b> &quot;353&quot;";
 printInputTextRow("Altitude", "add_obs_sealevel", $_observatory->get_field("obs_sealevel_m"), 
 			10, "[m]", NULL, FALSE, $sealevel_tooltip);
 //Precipitation range
-$p_tooltip = "Precipitation Range - Please choose the precipitation range of the region of your facility,</br>
-i.e. the precipitation per year in millimeters. If it is not given, unclear, </br>
+$p_tooltip = "Precipitation Range - Please choose the precipitation range of the region of your facility,<br/>
+i.e. the precipitation per year in millimeters. If it is not given, unclear, <br/>
 or you just mean it is not worth being displayed, please leave the default value (&quot;---&quot;).";
 $p_ranges = $_observatory->get_precipitation_ranges();
 printSelectListRowFromArray("Precipitiation Range", "add_obs_precip_id", $_observatory->get_field("obs_precipitation"), 
 			$p_ranges, "range", "[mm/Y]", FALSE, array(), $p_tooltip);
 //Clear nights
-$c_tooltip = "Clear Nights - Please choose the clear nights of the region of your facility,</br>
-i.e. nights (or days in case of e.g. solar observatories)</br> in which reasonable observations are possible.
-If it is not given, unclear, </br>or you just mean it is not worth being displayed, please leave the default value (&quot;---&quot;).";
+$c_tooltip = "Clear Nights - Please choose the clear nights of the region of your facility,<br/>
+i.e. nights (or days in case of e.g. solar observatories)<br/> in which reasonable observations are possible.
+If it is not given, unclear, <br/>or you just mean it is not worth being displayed, please leave the default value (&quot;---&quot;).";
 $c_ranges = $_observatory->get_clearnights_ranges();
 printSelectListRowFromArray("Clear Nights", "add_obs_clearnights_id", $_observatory->get_field("obs_clear_nights"), 
 			$c_ranges, "range", "[D]", FALSE, array(), $c_tooltip);
 //Timezone
-$time_tooltip = "Timezone - Please select the timezone of the region of your facility. </br>
-Please be aware that the timezone is in Greenwich Mean Time (GMT) plus/minus hours, </br>
-i.e. originally the mean solar time at Royal Observatory London in Greenwich, UK.</br>
+$time_tooltip = "Timezone - Please select the timezone of the region of your facility. <br/>
+Please be aware that the timezone is in Greenwich Mean Time (GMT) plus/minus hours, <br/>
+i.e. originally the mean solar time at Royal Observatory London in Greenwich, UK.<br/>
 So the Royal Observatory’s timezone is &quot;GMT+00&quot;.";
 $timezones = $_observatory->get_timezones();
 printSelectListRowFromArray("Timezone", "add_obs_timezone_id", $_observatory->get_field("obs_timezone"),
 			$timezones, "timezone", "[GMT+/-]", FALSE, array(), $time_tooltip);
 //Facility Status
-$status_tooltip = "Facility Status - Please insert the status, of your facility, i.e. if it is active in research, </br>
-just for public outreach, inoperative, or anything else.</br>
+$status_tooltip = "Facility Status - Please insert the status, of your facility, i.e. if it is active in research, <br/>
+just for public outreach, inoperative, or anything else.<br/>
 <b>Example:</b> &quot;Currently under construction&quot;";
 printInputTextRow("Facility Status", "add_obs_status", $_observatory->get_field("obs_observatory_status"), 
 			80, NULL, NULL, FALSE, $status_tooltip);
 //Partner Facilities
-$partner_tooltip = "Partner/Umbrella Facilities - Please insert potential partner observatories/facilities and/or partner institutions.</br>
-If there are more than one, please separate them with commas and a blank character.</br>
-<b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;;</br>
-<b>Example for more than one partner observatory:</b> &quot;Observatory Kanzelh&ouml;he,</br>
+$partner_tooltip = "Partner/Umbrella Facilities - Please insert potential partner observatories/facilities and/or partner institutions.<br/>
+If there are more than one, please separate them with commas and a blank character.<br/>
+<b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;;<br/>
+<b>Example for more than one partner observatory:</b> &quot;Observatory Kanzelh&ouml;he,<br/>
 Observatory Hvar, Observatory Lustb&uuml;hel";
 printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observatory->get_field("obs_partner_observatories"),
 			80, NULL, "partner", FALSE, $partner_tooltip);
 //General comments
-$comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no format conventions.</br>
+$comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no format conventions.<br/>
 <b>Example:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
 printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'),
 			70, 4, NULL, FALSE, $comm_tooltip);
@@ -206,13 +206,13 @@ print "</table></fieldset>" . LF;
 
 //SCIENTIFIC CONTACTS
 //maybe improve this tooltip a bit!
-$contact_tooltip = "Scientific Contacts - Please insert a scientific contact of the facility,</br>
-i.e. someone who should be contacted for scientific purposes,</br>
-like participation in an observation campaign. </br>Please be aware that the email-address has to be valid.</br>
-You can add 1 to N scientific contacts by clicking ADD.</br>
-Removing an entry is handled by clicking DEL</br> (only appears after one has clicked on ADD)</br>
-or clearing the fields of the added entry manually.</br>
-<b>Example:</b> Name &quot;John Doe&quot;, Email &quot;john.doe@example.com&quot;,</br> Institution &quot;Fantasia Institute&quot;";
+$contact_tooltip = "Scientific Contacts - Please insert a scientific contact of the facility,<br/>
+i.e. someone who should be contacted for scientific purposes,<br/>
+like participation in an observation campaign. <br/>Please be aware that the email-address has to be valid.<br/>
+You can add 1 to N scientific contacts by clicking ADD.<br/>
+Removing an entry is handled by clicking DEL<br/> (only appears after one has clicked on ADD)<br/>
+or clearing the fields of the added entry manually.<br/>
+<b>Example:</b> Name &quot;John Doe&quot;, Email &quot;john.doe@example.com&quot;,<br/> Institution &quot;Fantasia Institute&quot;";
 print "<fieldset class='rfield'><legend title='". $contact_tooltip ."'>Scientific Contacts:</legend>" . LF;
 print "<table class='create'>" . LF;
 print "<tr><th title='". $contact_tooltip ."'></th><th class='ui-widget-header' title='". $contact_tooltip ."'>";
@@ -237,8 +237,8 @@ if(is_array($_observatory->get_has_many("scientific_contacts")))
 	}
 print "</table><table class='create'>";
 //Further contacts
-$furcon_tooltip = "Further Contacts - Please feel free to write any sort of contact information text in this box.</br>
-There are no format conventions.</br>
+$furcon_tooltip = "Further Contacts - Please feel free to write any sort of contact information text in this box.<br/>
+There are no format conventions.<br/>
 <b>Example:</b> &quot;For data enquiries, please visit our website: http://www.example.com/data&quot;";
 printInputTextfieldRow("Further Contacts", "add_obs_fur_con", $_observatory->get_add_info('further_contacts'),
 			65, 3, NULL, FALSE, $furcon_tooltip);
@@ -246,12 +246,12 @@ print "</table></fieldset>" . LF;
 
 //HIDDEN FIELDS:
 //maybe improve this tooltip a bit!
-$hidden_tooltip = "Hidden Fields - In case you want to hide some of the contact information you have</br> entered above, 
-please click on the relevant boxes below.</br>
-<b>Example:</b> By clicking on &quot;Email&quot;, the email-address WILL NOT</br>
-be displayed in the public database, even if you have filled out</br>
-the corresponding input-field &quot;Email&quot; above.</br>
-In that case, only the administrators of the matrix will have</br> the knowledge of the email-address.";
+$hidden_tooltip = "Hidden Fields - In case you want to hide some of the contact information you have<br/> entered above, 
+please click on the relevant boxes below.<br/>
+<b>Example:</b> By clicking on &quot;Email&quot;, the email-address WILL NOT<br/>
+be displayed in the public database, even if you have filled out<br/>
+the corresponding input-field &quot;Email&quot; above.<br/>
+In that case, only the administrators of the matrix will have<br/> the knowledge of the email-address.";
 print "<fieldset class='rfield'><legend title='". $hidden_tooltip . "'>Hidden Fields: You may want to hide some contact information</legend>" . LF;
 print "<table class='create'>" . LF;
 printMultipleCheckBoxRow("add_obs_hide", $_observatory->get_hidden_fields());
@@ -259,17 +259,18 @@ print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
 $research_tooltip = "Areas of Interest - Please select research areas of interest. If interested in every research field,
-or if research in every</br> field is potentially possible with the facility please choose &quot;General Astronomy&quot;,</br>
-which subsumes every research area, i.e. if choosing &quot;General Astronomy&quot; the facility will</br> appear under every search via &quot;Filter by Areas of Research&quot;.</br>
-Choosing more than one area of interest is possible by holding the key <b>CTRL</b> or <b>CMD</b>.</br> Please be aware that this field is MANDATORY.</br>
-&quot;Areas of Interest&quot; are intending two different purposes:</br>
-<b>i)</b> <i>Mainly for observatories hosted by scientific institutions:</i></br> &quot;Areas of Interest&quot; is virtually identical with &quot;Research Areas&quot;,
-i.e. the scientific area for </br>which the facility is intended and viable.</br>
-<b>ii)</b> <i>Mainly for privately owned facilities:</i></br>
-&quot;Areas of Interest&quot; represents (besides potential &quot;Research Areas&quot;) scientific fields,</br> in which the owner is &quot;interested&quot; in.</br>
-<b>Example:</b> If you want to observe exoplanets you are advised to add &quot;Exoplanetary Research&quot; to</br> your &quot;Areas of Interest&quot;. 
-If someone is planning to organize combined observations of exoplanets,</br>
-this person can search for potentially interested persons via the search engine of the matrix,</br> will find you and maybe contact you to participate.";
+or if research in every<br/> field is potentially possible with the facility please choose &quot;General Astronomy&quot;,<br/>
+which subsumes every research area, i.e. if choosing &quot;General Astronomy&quot; the facility will<br/> appear under every search via &quot;Filter by Areas of Research&quot;.<br/>
+Choosing more than one area of interest is possible by adding them with clicking on the <b>[+]</b> button,<br/> an already chosen are by clicking on the <b>[-]</b>.<br/>
+You can also search for specific topics via the input field at the top of the available &quot;Area of Interest&quot; box.<br/>
+&quot;Areas of Interest&quot; are intending two different purposes:<br/>
+<b>i)</b> <i>Mainly for observatories hosted by scientific institutions:</i><br/> &quot;Areas of Interest&quot; is virtually identical with &quot;Research Areas&quot;,
+i.e. the scientific area for <br/>which the facility is intended and viable.<br/>
+<b>ii)</b> <i>Mainly for privately owned facilities:</i><br/>
+&quot;Areas of Interest&quot; represents (besides potential &quot;Research Areas&quot;) scientific fields,<br/> in which the owner is &quot;interested&quot; in.<br/>
+<b>Example:</b> If you want to observe exoplanets you are advised to add &quot;Exoplanetary Research&quot; to<br/> your &quot;Areas of Interest&quot;. 
+If someone is planning to organize combined observations of exoplanets,<br/>
+this person can search for potentially interested persons via the search engine of the matrix,<br/> will find you and maybe contact you to participate.";
 print "<fieldset class='rfield'><legend>Areas of Interest:</legend>" . LF;
 print "<table id='research_areas' class='create'>" . LF;
 //print "<table class='create'>" . LF;
@@ -286,7 +287,7 @@ $research_areas = $_observatory->get_research_areas();
 printBigSelectListFromArray("Areas of Interest", "add_obs_res_are_ids[]",
 	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, array() , $research_tooltip);
 //Research comments
-$rescomm_tooltip = "Research Comments - Please feel free to write any comments on your areas of interest. There are no format conventions.</br>
+$rescomm_tooltip = "Research Comments - Please feel free to write any comments on your areas of interest. There are no format conventions.<br/>
 <b>Example:</b> &quot;Involved in the Stellar Occultation Network&quot;";
 printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'),
 			65, 4, NULL, FALSE, $rescomm_tooltip);
@@ -304,6 +305,11 @@ if ($_SESSION["user_level"] <= 31)
 //TARGETS: NOT MANDADORY
 /** @todo add other targets */
 /** @todo add other implementieren, aber mit eigenem feld! (siehe oben) */
+$target_tooltip = "Planetary Sciene Targets - Please select planetary science targets. If interested in every target, or if observation for every<br/> target category 
+is potentially possible with the facility please choose &quot;ALL&quot;,<br/> which subsumes every target; i.e. if choosing &quot;ALL&quot; the facility will appear 
+under every search via<br/> &quot;Filter by Targets&quot;. Choosing more than one target is possible by adding them with clicking 
+on the <br/><b>[+]</b> button, deleting an already chosen target by clicking on the <b>[-]</b> button.<br/> You can also search for 
+specific topics via the input field just at the top of the<br/> &quot;Planetary Science Targets&quot; box.";
 print "<fieldset class='ui-widget ui-widget-content ui-corner-all rfield'><legend class='ui-widget ui-widget-header ui-corner-all'>Targets:</legend>" . LF;
 //print "<table id='targets' class='create'>" . LF;
 print "<table class='create'>" . LF;
@@ -312,7 +318,7 @@ $targets = $_observatory->get_targets();
 //$options = array("Please choose one or several by holding CTRL...",
 //"<option id='other' value='100000'>Add other Target</option>");
 printBigSelectListFromArray("Targets", "add_obs_target_ids[]", $_observatory->get_has_many("targets"),
-	$targets, "target_name", NULL, FALSE, array());
+	$targets, "target_name", NULL, FALSE, array(), $target_tooltip);
 //Target comments
 printInputTextfieldRow("Target Comments", "add_obs_target_com", $_observatory->get_add_info('target_comments'),
 			65, 4, NULL, FALSE);
