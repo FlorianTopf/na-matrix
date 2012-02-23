@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 20. Feb 2012 um 11:02
+-- Erstellungszeit: 23. Feb 2012 um 18:02
 -- Server Version: 5.1.58
 -- PHP-Version: 5.3.8
 
@@ -127,7 +127,7 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (81, 'http://www.eso.org/sci/facilities/lpo/contact.html', '', '', '', '', NULL, 'Observing proposals - March, September Deadlines:\r\nhttp://www.eso.org/sci/observing/proposals/index.html', NULL),
 (82, '', '', '', '', '', NULL, '', NULL),
 (83, '', '', '', '', '', NULL, '', NULL),
-(84, 'See contacts for VATT and webform for contacting them, here:\r\nhttp://vaticanobservatory.org/VATT/index.php?option=com_contact_enhanced&view=category&catid=42&Itemid=55', 'Offset and slit-viewing guide box with CCD guide camera:\r\n-provides interface to derotator for all the above instruments.\r\n-effective back focal distance, from guide box to focal surface, is 2.000".\r\n-contains two filter wheels, each holding four 3.48" square filters. Adapters to accommodate 2" and 3" square filters are available.\r\n-UBVRI, uvby, Vilnius, Sloan and Order Blocking filters are currently provided. \r\n-integrating sphere with continuum and calibration lamps.', '', '', '', NULL, '', NULL),
+(84, 'See contacts for VATT and webform for contacting them, here:\r\nhttp://vaticanobservatory.org/VATT/index.php?option=com_contact_enhanced&view=category&catid=42&Itemid=55', 'Offset and slit-viewing guide box with CCD guide camera:\r\n-provides interface to derotator for all the above instruments.\r\n-effective back focal distance, from guide box to focal surface, is 2.000".\r\n-contains two filter wheels, each holding four 3.48" square filters. Adapters to accommodate 2" and 3" square filters are available.\r\n-UBVRI, uvby, Vilnius, Sloan and Order Blocking filters are currently provided. \r\n-integrating sphere with continuum and calibration lamps.', '', '', '', '', '', ''),
 (85, '', '', '', '', '', NULL, 'PIRATE is a remote-controlled observatory with a 17-inch telescope on a robotic mount in an automated 3.5-m dome. It is mainly used for university level astrophysics teaching, both in a distance learning context and in traditional lab courses.\r\nResearch applications include transiting exoplanets and transient sources. ', NULL),
 (86, 'Karl Wraight: karl@ouastro.co.uk (Chair of the OU Astronomy Club)', '', '', '', '', NULL, 'The Observatory facility is part of the Department of Physics and Astronomy and operated jointly by members of that department and members of the Open University Astronomy Club.\r\n\r\nThe Astronomy Club welcomes new members who may then participate in observing sessions at the Observatory. The Observatory is also used to train postgraduate students in observing techniques and to train staff who run the Open University Astronomy and Planetary Science Residential Schools held each year at the Observatori Astronomic de Mallorca.', NULL),
 (87, 'Valery Kleshchonok <klev@gala.net> Taras Shevchenko National University of Kyiv', 'Filter set UBVRI', '', '', '', '', '', 'Hope this information will help with cooperation'),
@@ -668,7 +668,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=734 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=739 ;
 
 --
 -- Daten für Tabelle `instruments`
@@ -763,8 +763,6 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (420, 'APEX-2 (SHeFI)', 6, 'Nasmyth-A', '275 - 370 GHz', 275.000000, 5, 370.000000, 5, '23 - 17 arcsec', '', '', '', 0, '', 0, 0, 0, '', 'Type: Heterodyne SIS, Mode: SSB'),
 (421, 'VIRCAM', 5, 'cassegrain focus', '0.9 - 2.4 um', 124.900002, 6, 333.100006, 6, '0.34 arcsec per pixel', '', '', '1.65 degree', 0, '16 arrays with 2048×2048 pixel', 0, 0, 0, 'Raytheon VIRGO HgCdTe arrays', 'Vista InfraRed CAMera\r\n64 Megapixel'),
 (422, 'OmegaCAM', 5, 'Cassegrain focus', '330 to 1000 nm', 299.799988, 6, 999.299988, 6, '0.21 arcsec per pixel', '', '', '1 x 1 degree', 0, '32 arrays with 2048 x 4096 pixel', 0, 0, 0, '', '268-megapixel'),
-(423, 'Galway Ultra Fast Imager (GUFI)', 5, '', 'optical, ', 0.000000, 1, 0.000000, 1, '', '', '', '13 arcmin', 0, '', 0, 0, 0, 'L3CCD system, based on an Andor iXon back-illuminated CCD camera', 'The L3CCD system gives a readout time of only 2 ms, extremely high time resolutions of up to 400 images a second (subframed), and very low light level sensitivity.\r\n\r\nOn loan from NUI Galway, currently until June 2011.'),
-(424, 'VATT CCD Spectrograph (VATTSpec)', 1, '', 'optical, ', 360.000000, 8, 950.000000, 8, '', '', '', '', 0, '2688 x 512', 0, 0, 0, 'back illuminated, low noise CCD STA0520A CCD', 'This optical region spectrograph has AR coated refractive optics, with beam size at its camera of 125 mm, giving:\r\n-Slit length: 30 arcsec\r\n-Spectral coverage: 100 nm at 0.1 nm resolution. \r\n-Spectral resolutions: 0.1, 0.2, and 0.4 nm with 1 arcsec wide slit.'),
 (425, 'SBIG STL-11000M-C2', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '4008 x 2672', 0.001, 3600, 1, 'Kodak KAI-11000M, Class 2', 'Built-in 5-position, 50-mm filter wheel which has been fitted with the following 2-inch filters:\r\n1. Hutech IDAS Light pollution suppression (LPS) filter with IGAD Coating\r\n2. Baader L filter\r\n3. Baader R filter\r\n4. Baader G filter\r\n5. Baader B filter\r\n\r\nExtra available 2-inch filters for the "Hubble pallet":\r\n-Astrodon Narrowband H-alpha 3-nm filter 50 mm\r\n-Astrodon Narrowband OIII 3-nm filter 50 mm\r\n-Astrodon Narrowband fSII 3-nm filter 50 mm \r\n\r\nThe SBIG camera has the Astrodon-MOAG-A and the SBIG AOL/STL installed, providing ADAPTIVE OPTICS WITH OFF-AXIS GUIDING.\r\nGuiding camera: Lodestar Autoguider or internal autoguider chip.'),
 (426, 'Marconi EEV CCD', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '0.9x0.6 degree', 0, '540x380', 0, 0, 0, 'EEV-CCD02-06-1-206,', ''),
 (427, 'Finger Lake Instruments', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '42x42 arcmin', 0, '1024x1024', 0, 0, 0, '', ''),
@@ -832,7 +830,9 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (724, 'Moravian CCD camera GS-3200ME/5', 5, '', 'optical, ', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 1, '', 'http://ccd.mii.cz/'),
 (725, 'SBIG ST-10XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '2184x1472', 0, 0.1, 1, 'High QE KAF-3200ME CCD', ''),
 (732, 'SXV H9', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 1, 'Sony', ''),
-(733, 'CCD Camera Rolera MGi', 5, '', 'Optic and near IR', 350.000000, 8, 1000.000000, 8, '', '', '', '7.2arcmin', 30, '512*512', 0, 1, 1, 'e2v L3Vision CCD97, back-illuminated', 'Using Reducer/Corrector f/6.3 Field of View is 10.65 arcmin ');
+(736, 'CCD Camera Rolera MGi', 5, '', 'Optic and near IR', 350.000000, 8, 1000.000000, 8, '', '', '', '7.2 arcmin', 30, '512*512', 1, 0, 1, 'e2v L3Vision CCD97, back-illuminated', 'Using Reducer/Corrector f/6.3 Field of View is 10.65 arcmin '),
+(737, 'Galway Ultra Fast Imager (GUFI)', 5, '', 'optical, ', 0.000000, 1, 0.000000, 1, '', '', '', '13 arcmin', 0, '', 0, 0, 0, 'L3CCD system, based on an Andor iXon back-illuminated CCD camera', 'The L3CCD system gives a readout time of only 2 ms, extremely high time resolutions of up to 400 images a second (subframed), and very low light level sensitivity.\r\n\r\nOn loan from NUI Galway, currently until June 2011.'),
+(738, 'VATT CCD Spectrograph (VATTSpec)', 1, '', 'optical, ', 360.000000, 8, 950.000000, 8, '', '', '', '', 0, '2688 x 512', 0, 0, 0, 'back illuminated, low noise CCD STA0520A CCD', 'This optical region spectrograph has AR coated refractive optics, with beam size at its camera of 125 mm, giving:\r\n-Slit length: 30 arcsec\r\n-Spectral coverage: 100 nm at 0.1 nm resolution. \r\n-Spectral resolutions: 0.1, 0.2, and 0.4 nm with 1 arcsec wide slit.');
 
 -- --------------------------------------------------------
 
@@ -987,10 +987,10 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (81, 'Paranal Observatory', 2005, 'European Southern Observatory (ESO)', 'http://www.vista.ac.uk/', 'Cerro Paranal, Antofagasta, Chile', '', '', 43, '', '', -24.615831, -70.397494, 'Atacama desert, Chile', 2635, 2, 8, 17, '', '', 0, '2011-08-30 13:19:11', '2012-02-14 15:08:37', 1, 0, 0),
 (82, 'E-ELT - European Extremely Large Telescope', 2005, 'European Southern Observatory (ESO)', 'http://www.eso.org/sci/facilities/eelt/', 'Cerro Armazones, Sierra Vicuña Mackenna, Chile', '', '', 43, '', '', -24.588889, -70.192219, 'Cerro Armazones, Sierra Vicuña Mackenna, Chile', 3060, 1, 8, 17, 'Planned completion: 2022 first light', '', 0, '2011-08-30 14:42:14', '2012-02-14 15:17:31', 1, 0, 0),
 (83, 'Optical Ground Station (OGS)', 1997, 'European Space Agency', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=36520', 'Izana, Tenerife', '', '', 192, '', '', 28.301108, -16.511942, 'Tenerife', 2390, 7, 4, 2, 'operational', 'Instituto Astrofisico di Canaries (IAC)', 10, '2012-01-04 16:44:03', '2012-02-14 15:18:57', 1, 0, 0),
-(84, 'Vatican Advanced Technology Telescope (VATT)', 1993, 'Vatican Observatory Research Group (VORG)', 'http://vaticanobservatory.org/VATT/index.php', 'Steward Observatory, University of Arizona, Tuscon, Arizona 85721', '', '', 218, '', '', 32.701225, 109.891981, 'Driving time from Tucson : 3.5 hours in good conditions', 3191, 7, 8, 20, '', ' Vatican Observatory, Mount Graham International Observatory  (MGIO)', 9, '2012-01-09 18:27:53', '2012-02-14 15:19:17', 1, 0, 0),
+(84, 'Vatican Advanced Technology Telescope (VATT)', 1993, 'Vatican Observatory Research Group (VORG)', 'http://vaticanobservatory.org/VATT/index.php', 'Steward Observatory, University of Arizona, Tuscon, Arizona 85721', '', '', 218, '', '', 32.701225, -109.891981, 'Driving time from Tucson : 3.5 hours in good conditions', 3191, 7, 8, 20, '', 'Vatican Observatory, Mount Graham International Observatory  (MGIO), ', 9, '2012-01-09 18:27:53', '2012-02-23 15:30:14', 1, 0, 6),
 (85, 'PIRATE (Physics Innovations Robotic Astronomical Telescope Explorer)', 2010, 'The Open University (OU) and the Observatori de Astronomic de Mallorca (OAM)', 'http://pirate.open.ac.uk/', 'Camí de l''Observatori , s/n 07144 Costitx, Mallorca, Illes Balears', '', '', 192, '', '', 39.642828, 2.950889, '', 162, 7, 8, 2, '', '', 9, '2012-01-27 16:50:15', '2012-02-16 13:46:44', 1, 0, 0),
 (86, 'George Abell Observatory', 0, 'The Open University (OU)', 'http://observatory.open.ac.uk/', 'Department of Physical Sciences, The Open University, Walton Hall, Milton Keynes MK7 6AA', '', '', 217, '+44 (0)1908 659457', 'a.j.norton@open.ac.uk', 52.024442, -0.706389, '', 0, 7, 8, 1, '', '', 9, '2012-01-27 17:44:56', '2012-02-14 15:19:51', 1, 0, 0),
-(87, 'Kyiv Internet Telescope (KIT)', 2008, 'Main Astronomical Observatory of NASU', 'http://www.mao.kiev.ua', '27 Acad. Zabolotnoho Street, Kyiv, 03680', '', '', 215, '+38067-6609001', 'director@mao.kiev.ua', 50.364167, 30.496667, 'South Kyiv border', 121, 7, 2, 3, 'Active inresearch', 'Our partner Taras Shevchenko National University of Kyiv, ', 11, '2012-02-14 16:00:23', '2012-02-18 12:50:30', 0, 0, 11),
+(87, 'Kyiv Internet Telescope (KIT)', 2008, 'Main Astronomical Observatory of NASU', 'http://www.mao.kiev.ua', '27 Acad. Zabolotnoho Street, Kyiv, 03680', '', '', 215, '+38067-6609001', 'director@mao.kiev.ua', 50.364167, 30.496667, 'South Kyiv border', 121, 7, 2, 3, 'Active in research', 'Our partner Taras Shevchenko National University of Kyiv, ', 11, '2012-02-14 16:00:23', '2012-02-20 14:31:04', 1, 0, 6),
 (88, 'Iso-Heikkilä Observatory', 1937, 'Turun Ursa ry', 'http://www.ursa.fi/yhd/TurunUrsa/english.html', '', '', '', 72, '', 'turun-ursa@googlegroups.com', 0.000000, 0.000000, 'Turku', 0, 7, 8, 1, 'Mainly used during public stargazing shows', 'Turku-Kevola Observatory', 6, '2012-02-14 16:15:23', NULL, 1, 0, 0),
 (89, 'Algonquin Radio Observatory', 1965, 'Thoth Technology', 'http://www.arocanada.com/', 'Thoth Technology Inc.,16845 Jane St RR1, L0G1J0 ,Kettleby ON', '', '', 38, '(905) 713-2884', 'aro@thoth.ca', 45.955503, 281.926942, 'Province of Ontario', 260, 7, 8, 18, 'operational', 'Parkes Observatory, Australia', 6, '2012-02-14 17:31:53', '2012-02-15 17:45:41', 1, 0, 0),
 (90, 'Observatory Lustbühel', 1943, 'Institute for Physics/Igam, University of Graz', 'http://www.uni-graz.at/en/igamwww/igamwww_ob_lustbuehel.htm?=', 'Lustbühelstraße 46, 8042 Graz', '', '', 14, '43 316 / 380 - 5255 or', 'sigrun.fink@uni-graz.at', 47.067217, 15.493331, 'Graz', 484, 7, 8, 1, 'operating', '', 12, '2012-02-14 18:43:52', '2012-02-17 10:50:39', 1, 0, 6),
@@ -1916,10 +1916,10 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (81, 825),
 (81, 826),
 (82, 827),
-(84, 828),
+(84, 1294),
 (85, 993),
 (86, 830),
-(87, 1290),
+(87, 1293),
 (88, 856),
 (89, 953),
 (90, 1132),
@@ -3251,7 +3251,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1291 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1295 ;
 
 --
 -- Daten für Tabelle `telescopes`
@@ -3382,7 +3382,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (825, 'VISTA - Visible and Infrared Survey Telescope for Astronomy', 5, 0, 1, 4.100000, 'f/1', 1, 'infrared, ', 130.350006, 1, 352.700012, 6, ''),
 (826, 'VST - VLT Survey Telescope', 2, 0, 1, 2.650000, '14.4', 1, 'ultraviolet, optical, ', 299.799988, 1, 999.299988, 6, 'Cooperation of Osservatorio Astronomico di Capodimonte (OAC) and  European Southern Observatory (ESO)\r\n'),
 (827, 'E-ELT - European Extremely Large Telescope', 17, 0, 1, 39.299999, 'f/10 - f/2', 1, 'optical, infrared (IR), ', 12.500000, 6, 999.299988, 6, ''),
-(828, 'The Vatican Advanced Technology Telescope (VATT)', 19, 0, 0, 1.800000, 'f/1.0', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Secondary Mirror: Diameter 0.38 m / Focal length f/0.9'),
 (830, 'Alan Cooper Telescope', 3, 0, 0, 0.400000, 'f/10', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'The telescope is a 16-inch Meade LX200.'),
 (831, '20-inch telescope', 21, 0, 0, 0.508000, 'f/6.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'A PlaneWave Instruments 20" CDK Carbon Fiber Truss Telescope on a Paramount ME mount.\r\n'),
 (832, 'Automatic Comet Imaging Telescope (ACIT)', 3, 0, 0, 0.190000, 'f/4', 1, ', ', 0.000000, 1, 0.000000, 1, 'Computerised BVRI filter wheel'),
@@ -3488,7 +3487,8 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (1279, 'FSQ-106 telescope', 7, 0, 0, 0.106000, '', 1, ' optical', 0.000000, 1, 0.000000, 1, ''),
 (1287, 'test', 13, 0, 0, 10.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1288, 'telescope', 15, 0, 0, 1.000000, '', 1, ' optical', 0.000000, 1, 0.000000, 1, ''),
-(1290, 'Kyiv Internet Telescope (KIT)', 3, 0, 0, 0.350000, '3.91', 1, 'Optical', 0.000000, 1, 0.000000, 1, '');
+(1293, 'Kyiv Internet Telescope (KIT)', 3, 0, 0, 0.356000, '3.91', 1, 'Optical', 0.000000, 1, 0.000000, 1, ''),
+(1294, 'The Vatican Advanced Technology Telescope (VATT)', 19, 0, 0, 1.800000, 'f/1.0', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Secondary Mirror: Diameter 0.38 m / Focal length f/0.9');
 
 -- --------------------------------------------------------
 
@@ -3597,8 +3597,6 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (822, 420),
 (825, 421),
 (826, 422),
-(828, 423),
-(828, 424),
 (831, 425),
 (832, 426),
 (833, 427),
@@ -3666,7 +3664,9 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (1268, 724),
 (1278, 725),
 (1288, 732),
-(1290, 733);
+(1293, 736),
+(1294, 737),
+(1294, 738);
 
 -- --------------------------------------------------------
 
@@ -3801,7 +3801,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6623 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6735 ;
 
 --
 -- Daten für Tabelle `users_statistics`
@@ -10431,7 +10431,119 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (6619, 3, 'edit', '2012-02-20 09:04:41'),
 (6620, 3, 'logout', '2012-02-20 09:04:52'),
 (6621, 1, 'home', '2012-02-20 09:04:53'),
-(6622, 1, 'login', '2012-02-20 09:04:58');
+(6622, 1, 'login', '2012-02-20 09:04:58'),
+(6623, 1, 'browse', '2012-02-20 14:19:11'),
+(6624, 1, 'browse', '2012-02-20 14:19:14'),
+(6625, 1, 'login', '2012-02-20 14:21:59'),
+(6626, 11, 'login', '2012-02-20 14:21:59'),
+(6627, 11, 'edit', '2012-02-20 14:22:05'),
+(6628, 11, 'add', '2012-02-20 14:22:13'),
+(6629, 11, 'add', '2012-02-20 14:23:27'),
+(6630, 11, 'edit', '2012-02-20 14:23:51'),
+(6631, 11, 'add', '2012-02-20 14:23:55'),
+(6632, 11, 'add', '2012-02-20 14:24:38'),
+(6633, 11, 'browse', '2012-02-20 14:24:55'),
+(6634, 11, 'browse', '2012-02-20 14:24:57'),
+(6635, 1, 'home', '2012-02-20 14:25:20'),
+(6636, 1, 'login', '2012-02-20 14:25:27'),
+(6637, 6, 'login', '2012-02-20 14:25:27'),
+(6638, 6, 'edit', '2012-02-20 14:25:31'),
+(6639, 6, 'edit', '2012-02-20 14:25:36'),
+(6640, 6, 'edit', '2012-02-20 14:26:15'),
+(6641, 6, 'add', '2012-02-20 14:26:18'),
+(6642, 1, 'home', '2012-02-20 14:26:42'),
+(6643, 1, 'login', '2012-02-20 14:26:49'),
+(6644, 1, 'login', '2012-02-20 14:26:56'),
+(6645, 3, 'login', '2012-02-20 14:26:56'),
+(6646, 3, 'edit', '2012-02-20 14:26:58'),
+(6647, 3, 'add', '2012-02-20 14:26:59'),
+(6648, 3, 'edit', '2012-02-20 14:27:09'),
+(6649, 3, 'edit', '2012-02-20 14:27:12'),
+(6650, 3, 'add', '2012-02-20 14:28:35'),
+(6651, 6, 'add', '2012-02-20 14:31:04'),
+(6652, 6, 'map', '2012-02-20 14:31:16'),
+(6653, 11, 'add', '2012-02-20 14:39:13'),
+(6654, 11, 'browse', '2012-02-20 14:39:20'),
+(6655, 11, 'browse', '2012-02-20 14:39:23'),
+(6656, 1, 'home', '2012-02-20 16:55:36'),
+(6657, 1, 'home', '2012-02-21 00:04:29'),
+(6658, 1, 'login', '2012-02-21 00:04:37'),
+(6659, 3, 'login', '2012-02-21 00:04:37'),
+(6660, 3, 'add', '2012-02-21 00:04:38'),
+(6661, 3, 'add', '2012-02-21 00:04:40'),
+(6662, 3, 'add', '2012-02-21 00:26:19'),
+(6663, 1, 'home', '2012-02-21 05:38:32'),
+(6664, 1, 'home', '2012-02-21 05:49:32'),
+(6665, 1, 'home', '2012-02-21 06:12:33'),
+(6666, 1, 'home', '2012-02-21 10:29:45'),
+(6667, 1, 'browse', '2012-02-21 13:00:48'),
+(6668, 1, 'browse', '2012-02-21 13:00:50'),
+(6669, 1, 'browse', '2012-02-21 13:00:58'),
+(6670, 1, 'browse', '2012-02-21 13:02:25'),
+(6671, 1, 'browse', '2012-02-21 13:02:41'),
+(6672, 1, 'home', '2012-02-21 16:57:47'),
+(6673, 1, 'login', '2012-02-21 16:57:52'),
+(6674, 3, 'login', '2012-02-21 16:57:53'),
+(6675, 3, 'add', '2012-02-21 16:57:54'),
+(6676, 3, 'add', '2012-02-21 16:57:58'),
+(6677, 3, 'edit', '2012-02-21 16:58:01'),
+(6678, 3, 'edit', '2012-02-21 16:58:03'),
+(6679, 3, 'add', '2012-02-21 16:58:05'),
+(6680, 3, 'add', '2012-02-21 16:58:10'),
+(6681, 3, 'add', '2012-02-21 17:00:00'),
+(6682, 1, 'home', '2012-02-21 19:20:45'),
+(6683, 1, 'login', '2012-02-21 19:20:51'),
+(6684, 3, 'login', '2012-02-21 19:20:52'),
+(6685, 3, 'add', '2012-02-21 19:20:54'),
+(6686, 3, 'add', '2012-02-21 19:20:55'),
+(6687, 3, 'edit', '2012-02-21 19:21:00'),
+(6688, 3, 'edit', '2012-02-21 19:21:01'),
+(6689, 3, 'add', '2012-02-21 19:21:03'),
+(6690, 3, 'home', '2012-02-21 19:24:20'),
+(6691, 3, 'add', '2012-02-21 19:24:25'),
+(6692, 3, 'add', '2012-02-21 19:24:27'),
+(6693, 1, 'home', '2012-02-21 19:24:52'),
+(6694, 1, 'login', '2012-02-21 19:24:57'),
+(6695, 3, 'login', '2012-02-21 19:24:58'),
+(6696, 3, 'add', '2012-02-21 19:25:00'),
+(6697, 3, 'add', '2012-02-21 19:25:01'),
+(6698, 3, 'home', '2012-02-21 22:20:16'),
+(6699, 3, 'add', '2012-02-21 22:20:25'),
+(6700, 3, 'add', '2012-02-21 22:20:27'),
+(6701, 1, 'home', '2012-02-22 10:43:40'),
+(6702, 1, 'browse', '2012-02-22 14:46:17'),
+(6703, 1, 'logout', '2012-02-22 14:46:25'),
+(6704, 1, 'home', '2012-02-22 14:46:25'),
+(6705, 1, 'home', '2012-02-22 19:33:48'),
+(6706, 1, 'login', '2012-02-22 19:34:02'),
+(6707, 3, 'login', '2012-02-22 19:34:04'),
+(6708, 3, 'add', '2012-02-22 19:34:15'),
+(6709, 3, 'add', '2012-02-22 19:34:19'),
+(6710, 3, 'add', '2012-02-22 19:35:30'),
+(6711, 3, 'add', '2012-02-22 20:19:50'),
+(6712, 1, 'home', '2012-02-22 20:35:07'),
+(6713, 1, 'map', '2012-02-22 20:51:57'),
+(6714, 1, 'map', '2012-02-22 20:51:57'),
+(6715, 1, 'home', '2012-02-22 21:27:53'),
+(6716, 1, 'home', '2012-02-23 12:48:51'),
+(6717, 1, 'login', '2012-02-23 12:48:58'),
+(6718, 3, 'login', '2012-02-23 12:48:58'),
+(6719, 3, 'add', '2012-02-23 12:49:01'),
+(6720, 3, 'add', '2012-02-23 12:49:03'),
+(6721, 1, 'home', '2012-02-23 15:28:32'),
+(6722, 1, 'login', '2012-02-23 15:28:38'),
+(6723, 6, 'login', '2012-02-23 15:28:38'),
+(6724, 6, 'edit', '2012-02-23 15:28:42'),
+(6725, 6, 'edit', '2012-02-23 15:28:44'),
+(6726, 6, 'edit', '2012-02-23 15:28:51'),
+(6727, 6, 'add', '2012-02-23 15:28:55'),
+(6728, 6, 'add', '2012-02-23 15:30:14'),
+(6729, 6, 'map', '2012-02-23 15:30:27'),
+(6730, 6, 'home', '2012-02-23 16:33:06'),
+(6731, 6, 'logout', '2012-02-23 16:33:10'),
+(6732, 1, 'home', '2012-02-23 16:33:10'),
+(6733, 1, 'login', '2012-02-23 16:33:23'),
+(6734, 1, 'login', '2012-02-23 16:33:37');
 
 -- --------------------------------------------------------
 
