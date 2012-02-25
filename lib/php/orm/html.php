@@ -177,10 +177,10 @@ function printSelectListColFromArray($name, $value, $items, $column, $options=ar
 }
 
 
-function printCheckBoxRow($title, $name, $value, $info=NULL, $mandatory=false)
+function printCheckBoxRow($title, $name, $value, $info=NULL, $mandatory=false, $tooltip="")
 {
 	print "<tr>";
-	printInputTitleCol($title, $info, $mandatory);
+	printInputTitleCol($title, $info, $mandatory, $tooltip);
 	printCheckBoxCol($name, $value);
 	print "</tr>" . LF;
 }
@@ -242,10 +242,10 @@ function printSelectListRowFromArray($title, $name, $value, $items, $column, $in
 }
 
 /** @todo improve this a bit */
-function printTypeSelectListFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array())
+function printTypeSelectListFromArray($title, $name, $value, $items, $column, $info=NULL, $mandatory=false, $options=array(), $tooltip="")
 {
 	print "<tr>";
-	printInputTitleCol($title, $info, $mandatory);
+	printInputTitleCol($title, $info, $mandatory, $tooltip);
 	print "<td align='left'><select name='{$name}'>" . LF;
 	if(array_key_exists("top", $options))
 		print $options["top"];

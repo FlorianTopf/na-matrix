@@ -199,7 +199,7 @@ printInputTextRow("Partner/Umbrella Facilities", "add_obs_partner", $_observator
 			80, NULL, "partner", FALSE, $partner_tooltip);
 //General comments
 $comm_tooltip = "General Comments - Please feel free to write any general comments in this box. There are no format conventions.<br/>
-<b>Example:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
+<b>Examples:</b> &quot;Any feedbacks are highly welcome!&quot; or &quot;My facility is a mobile one!&quot;";
 printInputTextfieldRow("General Comments", "add_obs_gen_com", $_observatory->get_add_info('general_comments'),
 			70, 4, NULL, FALSE, $comm_tooltip);
 print "</table></fieldset>" . LF;
@@ -213,9 +213,9 @@ You can add 1 to N scientific contacts by clicking ADD.<br/>
 Removing an entry is handled by clicking DEL<br/> (only appears after one has clicked on ADD)<br/>
 or clearing the fields of the added entry manually.<br/>
 <b>Example:</b> Name &quot;John Doe&quot;, Email &quot;john.doe@example.com&quot;,<br/> Institution &quot;Fantasia Institute&quot;";
-print "<fieldset class='rfield'><legend title='". $contact_tooltip ."'>Scientific Contacts:</legend>" . LF;
+print "<fieldset class='rfield'><legend class='help' title='". $contact_tooltip ."'>Scientific Contacts:</legend>" . LF;
 print "<table class='create'>" . LF;
-print "<tr><th title='". $contact_tooltip ."'></th><th class='ui-widget-header' title='". $contact_tooltip ."'>";
+print "<tr><th class='help' title='". $contact_tooltip ."'></th><th class='help ui-widget-header' title='". $contact_tooltip ."'>";
 print "Name</th><th class='ui-widget-header'>Email</th><th class='ui-widget-header'>Institution</th></tr>";
 if(!is_array($_observatory->get_has_many("scientific_contacts")))
 	$_observatory->init_has_many("scientific_contacts");
@@ -252,7 +252,7 @@ please click on the relevant boxes below.<br/>
 be displayed in the public database, even if you have filled out<br/>
 the corresponding input-field &quot;Email&quot; above.<br/>
 In that case, only the administrators of the matrix will have<br/> the knowledge of the email-address.";
-print "<fieldset class='rfield'><legend title='". $hidden_tooltip . "'>Hidden Fields: You may want to hide some contact information</legend>" . LF;
+print "<fieldset class='rfield'><legend class='help' title='". $hidden_tooltip . "'>Hidden Fields: You may want to hide some contact information</legend>" . LF;
 print "<table class='create'>" . LF;
 printMultipleCheckBoxRow("add_obs_hide", $_observatory->get_hidden_fields());
 print "</table></fieldset>" . LF;
@@ -271,7 +271,7 @@ i.e. the scientific area for <br/>which the facility is intended and viable.<br/
 <b>Example:</b> If you want to observe exoplanets you are advised to add &quot;Exoplanetary Research&quot; to<br/> your &quot;Areas of Interest&quot;. 
 If someone is planning to organize combined observations of exoplanets,<br/>
 this person can search for potentially interested persons via the search engine of the matrix,<br/> will find you and maybe contact you to participate.";
-print "<fieldset class='rfield'><legend>Areas of Interest:</legend>" . LF;
+print "<fieldset class='rfield'><legend class='help' title='{$research_tooltip}'>Areas of Interest:</legend>" . LF;
 print "<table id='research_areas' class='create'>" . LF;
 //print "<table class='create'>" . LF;
 $research_areas = $_observatory->get_research_areas();
@@ -310,7 +310,7 @@ is potentially possible with the facility please choose &quot;ALL&quot;,<br/> wh
 under every search via<br/> &quot;Filter by Targets&quot;. Choosing more than one target is possible by adding them with clicking 
 on the <br/><b>[+]</b> button, deleting an already chosen target by clicking on the <b>[-]</b> button.<br/> You can also search for 
 specific topics via the input field just at the top of the<br/> &quot;Planetary Science Targets&quot; box.";
-print "<fieldset class='ui-widget ui-widget-content ui-corner-all rfield'><legend class='ui-widget ui-widget-header ui-corner-all'>Targets:</legend>" . LF;
+print "<fieldset class='rfield'><legend class='help' title='{$target_tooltip}'>Targets:</legend>" . LF;
 //print "<table id='targets' class='create'>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_observatory->get_targets();
@@ -320,8 +320,9 @@ $targets = $_observatory->get_targets();
 printBigSelectListFromArray("Targets", "add_obs_target_ids[]", $_observatory->get_has_many("targets"),
 	$targets, "target_name", NULL, FALSE, array(), $target_tooltip);
 //Target comments
+$targetcomm_tooltip = "Target Comments - Please feel free to write any comments on your areas of interest. There are no format conventions.";
 printInputTextfieldRow("Target Comments", "add_obs_target_com", $_observatory->get_add_info('target_comments'),
-			65, 4, NULL, FALSE);
+			65, 4, NULL, FALSE, $targetcomm_tooltip);
 print "</table></fieldset>" . LF;
 
 //TELESCOPES: at least 1 ENTRY MANDATORY! (JQUERY)
@@ -355,7 +356,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	
 	foreach($_observatory->get_has_many("telescopes") as $telescope_count => $telescope_id)
 	{	
-		/** @todo use this for determining deletion / update / add */
+		/** @todo use this for determining deletion / update / add => MAYBE THIS IS THE SOURCE OF DUPLICATION SOMETIMES?*/
   		//TRANSPORT THE OLD NUMBER OF TELESCOPES VIA POST
 	    print "<input type='hidden' name='add_obs_telescope_ids[" . $telescope_count . "]' value='". $telescope_id . "'/>" . LF;
 		print "<div class='telescope' id='telescope-{$telescope_count}'>";
@@ -371,8 +372,13 @@ if(is_array($_observatory->get_has_many("telescopes")))
       	//echo "TELESCOPES: " . count($_observatory->get_has_many("telescopes")) . "<br>";
 
 	    //Telescope Name
+	    $t_name_tooltip ="Telescope Name - Please insert the name of the telescope or a common abbreviation of the telescope - 
+	    (if possible with the full name after a hyphen). - Please be aware that this field supports auto-completion. <br/>There are no format conventions.
+	    Please be aware that at least one telescope is - mandatory (including &quot;Telescope Name&quot;, &quot;Telescope Type&quot;, - 
+	     &quot;Diameter/Aperture&quot;, and &quot;Wavelength Region&quot;). - 
+	    <b>Examples:</b> &quot;ALMA 12 m telescope&quot; or &quot;APEX &ndash; Atacama Pathfinder EXperiment&quot;.";
 		printInputTextRow("Telescope Name", "add_obs_telescope_name[{$telescope_count}]",
-			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope", TRUE);
+			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope", TRUE, $t_name_tooltip);
 
 		//  ---------------- Questionnaire Start ----------------------
 		if ($_SESSION["user_level"] <= 11)
@@ -380,28 +386,44 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		else
 		//  ---------------- Questionnaire End ----------------------
 		//Telescope Type
+		$t_type_tooltip = "Telescope Type - Please choose the type of your telescope from the drop-down box. - 
+		If the appropriate telescope type is not in the list, please choose the option &quot;Other&quot;. - 
+		You can then specify your telescope under &quot;Telescope Comments&quot;. - 
+		Please be aware that a telescope will only be added to the database - if the telescope type is defined.";
 			$options = array("top" => "<option value=''>Please select a Telescope Type</option>",
 				"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
 		printTypeSelectListFromArray("Telescope Type", "add_obs_telescope_type_id[{$telescope_count}]",
-		 $_observatory->get_telescope("telescope_type", $telescope_count), $telescope_types, "name", NULL, TRUE, $options);
+		 $_observatory->get_telescope("telescope_type", $telescope_count), $telescope_types, "name", NULL, TRUE, $options, $t_type_tooltip);
 		 
 		//Mobile Flag
+		$t_mobile_flag = "Mobile Station? - Please click on the check box if this telescope is a mobile station.";
 		printCheckBoxRow("Mobile Station?", "add_obs_mobile_flag[{$telescope_count}]",
-			$_observatory->get_telescope("mobile_flag", $telescope_count));
+			$_observatory->get_telescope("mobile_flag", $telescope_count), NULL, FALSE, $t_mobile_flag);
 
 	    //Telescope Elements
+	    $t_elem_tooltip = "Telescope Elements - Please insert the number of elements of the telescope, if more than one. - 
+	    This field is particularly of interest if the telescope is an array (of any kind). - 
+	    If it is a telescope consisting of only one element (e.g. a normal Newton-telescope), - please insert nothing. <b>Example:</b> &quot;12&quot;";
 		printInputTextRow("Telescope Elements", "add_obs_telescope_elements[{$telescope_count}]",
-			$_observatory->get_telescope("telescope_elements", $telescope_count), 10);
+			$_observatory->get_telescope("telescope_elements", $telescope_count), 10, NULL, NULL, FALSE, $t_elem_tooltip);
 
 	    //Diameter/Aperture
+	    $t_dia_tooltip = "Diameter/Aperture - Please insert the diameter/aperture of the telescope in meters. - 
+	    The inserted value will be added to the database as a float value. - <b>Examples:</b> &quot;2&quot; or &quot;1.42&quot;";
 		printInputTextRow("Diameter/Aperture", "add_obs_diameter[{$telescope_count}]",
-			$_observatory->get_telescope("diameter_m", $telescope_count), 10, "[m]", "number", TRUE);
+			$_observatory->get_telescope("diameter_m", $telescope_count), 10, "[m]", "number", TRUE, $t_dia_tooltip);
 
 	    //Focallength
+	    $t_focal_tooltip = "Focallength - Please insert the focal length of the telescope (in meters) or f-number. - 
+	    For the f-number please insert with format f/.... <b>Examples:</b> &quot;1.5&quot; or &quot;f/1.4&quot;";
 		printInputTextRow("Focallength", "add_obs_focallength[{$telescope_count}]",
-			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or [F-Ratio]");
+			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or [f-number]", NULL, FALSE, $t_focal_tooltip);
 
 		//  ---------------- Questionnaire Start ----------------------
+		$t_antenna_tooltip = "Antenna Type - Please choose the type of your antenna from the drop-down box. - 
+		Keep &nbsp;---&nbsp; if the telescope has NO Antenna. - 
+		If the appropriate antenna type is not in the list, please choose the option &quot;Other&quot;. - 
+		You can then specify your antenna under - &quot;Telescope Comments&quot; or &quot;Array Description&quot;.";
 		if ($_SESSION["user_level"] <= 11)
 			$options = array();
 		//Antenna Type
@@ -409,15 +431,23 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	    //  ---------------- Questionnaire End ----------------------
 			$options = array("bottom" => "<option class='add_antenna_type' value='100000'>Add other Type</option>");
 		printTypeSelectListFromArray("Antenna Type", "add_obs_antenna_type_id[{$telescope_count}]",
-			$_observatory->get_telescope("antenna_type", $telescope_count), $antenna_types, "antenna_type", NULL, FALSE, $options);
+			$_observatory->get_telescope("antenna_type", $telescope_count), $antenna_types, "antenna_type", NULL, FALSE, $options, $t_antenna_tooltip);
 
 		//Wavelength
+		$wave_tooltip = "Wavelength Region - Please insert the wavelength of your telescope in text format. - 
+		You can also choose more than one wavelength region. - 
+		Please be aware that this field supports auto-completion. - 
+		<b>Examples:</b> &quot;infrared&quot;, &quot;optical&quot;, &quot;radiowave&quot;";
 		printInputTextRow("Wavelength Region", "add_obs_wavelength[{$telescope_count}]",
-			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength", TRUE);
+			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength", TRUE, $wave_tooltip);
 
 	    //Wavelength/Freq Begin
+	    $wave_begin_tooltip ="Wavelength or Freq. Begin - Please insert the beginning of the wavelength or frequency - (both formats possible) range. - 
+	    The appropriate wavelength or frequency units should - be selected from the adjacent drop-down box. - 
+	    Please note that if a numerical value is entered, - then the units field becomes mandatory. - 
+	    <b>Example:</b> &quot;83.0&quot; &quot;GHz&quot;";
 	    print "<tr>";
-		printInputTitleCol("Wavelength or Freq. Begin");
+		printInputTitleCol("Wavelength or Freq. Begin", NULL, FALSE, $wave_begin_tooltip);
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_b[{$telescope_count}]", $_observatory->get_telescope("wavelength_begin", $telescope_count), 10, "number");
 		ws(3);
@@ -427,8 +457,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		print "</td></tr>" . LF;
 
 		//Wavelength/Freq End
+		$wave_end_tooltip = "Wavelength or Freq. End - Please insert the beginning of the wavelength or frequency - (both formats possible) range. - 
+	    The appropriate wavelength or frequency units should - be selected from the adjacent drop-down box. - 
+	    Please note that if a numerical value is entered, - then the units field becomes mandatory. - 
+	    <b>Example:</b> &quot;83.0&quot; &quot;GHz&quot;";
 	    print "<tr>";
-		printInputTitleCol("Wavelength or Freq. End");
+		printInputTitleCol("Wavelength or Freq. End", NULL, FALSE, $wave_end_tooltip);
 		print "<td align='left'>";
 		printInputText("add_obs_wavelength_e[{$telescope_count}]", $_observatory->get_telescope("wavelength_end", $telescope_count), 10, "number");
 		ws(3);
@@ -438,8 +472,15 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		print "</td></tr>" . LF;
 
 	    //Telescope Comments
+	    $t_comm_tooltip = "Telescope Comments - 
+	    Please feel free to write any telescope comments in this box. - 
+	    You can e.g. display the link to the manufacturer of the telescope - in this comment box. 
+	    There are no format conventions. - 
+	    <b>Examples:</b> &quot;New telescope will be installed soon.&quot;, - 
+	    “Antenna Type: Half-Wave Dipole”, or - 
+	    “Details on the telescope: http://www.telescopedetails.com";
 		printInputTextfieldRow("Telescope Comments", "add_obs_telescope_comments[{$telescope_count}]",
-			$_observatory->get_telescope("comments", $telescope_count));
+			$_observatory->get_telescope("comments", $telescope_count), 60, 4, NULL, FALSE, $t_comm_tooltip);
 	    print "</table>";
 	    
 	    print "<div style='margin:10px 0'><a class='ui-state-default ui-corner-all add_instrument' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
@@ -475,8 +516,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
       			/** @todo add custom error labels for all necessary inputs */
 
 				//Instrument Name
+				$i_name_tooltip = "Instrument Name - Please insert the name of the instrument or a common abbreviation - 
+				of the instrument (if possible with the full name after a hyphen). - 
+				Please be aware that this field supports auto-completion. - There are no format conventions. - 
+				<b>Example:</b> &quot;Apogee Alta U900 camera&quot;";
 				printInputTextRow("Instrument Name", "add_obs_instrument_name[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("instrument_name", $telescope_id, $instrument_count), 60, NULL, "instrument");
+					$_observatory->get_instrument("instrument_name", $telescope_id, $instrument_count), 60, NULL, "instrument", FALSE, $i_name_tooltip);
 
 				//  ---------------- Questionnaire Start ----------------------
 				if ($_SESSION["user_level"] <= 11)
@@ -484,22 +529,31 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				else
 				//  ---------------- Questionnaire End ----------------------
 				//Instrument Type
+				$i_type_tooltip = "Instrument Type - Please choose the type of your instrument from the drop-down box. - 
+				If the appropriate instrument type is not in the list, - please choose the option &quot;Other&quot;. - 
+				You can then specify your instrument under &quot;Instrument Comments&quot;.";
 					$options = array("top" => "<option value=''>Please select an Instrument Type</option>",
 						"bottom" => "<option class='add_instrument_type' value='100000'>Add other Instrument Type</option>");
 				printTypeSelectListFromArray("Instrument Type", "add_obs_instrument_type_id[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("instrument_type", $telescope_id, $instrument_count), $instrument_types, "name", NULL, FALSE, $options);
+					$_observatory->get_instrument("instrument_type", $telescope_id, $instrument_count), $instrument_types, "name", NULL, FALSE, $options, $i_type_tooltip);
 
 	      		//Focal Position
+	      		$i_focal_tooltip = "Focal Position - Please insert any special focal point of your instrument, - 
+	      		the focal-length (in meters) or the f-number (f/... in meters) of - your instrument. 
+	      		There are no format conventions, - but you should include the unit if specifying the focal-length. - 
+	      		<b>Examples:</b> &quot;Nasmyth Focus&quot;, &quot;1.4 m&quot; or &quot;f/9&quot;";
 				printInputTextRow("Focal Position", "add_obs_instrument_focal_position[{$telescope_count}][{$instrument_count}]",
-					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 40);
+					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 40, NULL, NULL, FALSE, $i_focal_tooltip);
 
 	        	//Wavelength
+	        	//tooltip from telescopes
 				printInputTextRow("Wavelength Region", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength");
+					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength", FALSE, $wave_tooltip);
 
 	        	//Wavelength Begin
+	        	//tooltip from telescopes
 		  		print "<tr>";
-				printInputTitleCol("Wavelength or Freq. Begin");
+				printInputTitleCol("Wavelength or Freq. Begin", NULL, FALSE, $wave_begin_tooltip);
 				print "<td align='left'>";
 				printInputText("add_obs_instrument_wavelength_b[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_begin", $telescope_id, $instrument_count), 10, "number");
@@ -511,8 +565,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				print "</td></tr>" . LF;
 
 	      		//Wavelength End
+	      		//tooltip from telescopes
 		  		print "<tr>";
-				printInputTitleCol("Wavelength or Freq. End");
+				printInputTitleCol("Wavelength or Freq. End", NULL, FALSE, $wave_end_tooltip);
 				print "<td align='left'>";
 				printInputText("add_obs_instrument_wavelength_e[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("wavelength_end", $telescope_id, $instrument_count), 10, "number");
@@ -524,38 +579,64 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				print "</td></tr>" . LF;
 
 	        	//Spatial Resolution
+	        	$i_spatial_tooltip = "Spatial Resolution - Please insert the spatial resolution of 
+	        	your instrument in arc-seconds per pixel. - There are no format conventions. - 
+	        	<b>Example:</b> &quot;0.58&quot;";
 				printInputTextRow("Spatial Resolution", "add_obs_instrument_spatial_resolution[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 40, "[arcsec/pixel]");
+					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 40, "[arcsec/pixel]", NULL, FALSE, $i_spatial_tooltip);
 	        	//Spectral Resolution
+	        	$i_spectral_tooltip = "Spectral Resolution - Please insert the spectral resolution of your instrument, ideally in Angstrom. - 
+	        	This can either be one or more resolution ranges or a fixed resolution, - depending on the instrument. 
+	        	There are no format conventions. - 
+	        	<b>Example:</b> 3200 &ndash; 10200”";
 				printInputTextRow("Spectral Resolution", "add_obs_instrument_spectral_resolution[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 40, "[&Aring;]");
+					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 40, "[&Aring;]", NULL, FALSE, $i_spectral_tooltip);
 	        	//Polarisation
+	        	$i_polar_tooltip = "Polarisation - Please insert the polarisation of your instrument. - 
+	        	There are no format conventions. - <b>Example:</b> &quot;single linear polarization only&quot;";
 				printInputTextRow("Polarisation", "add_obs_instrument_polarisation[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("polarisation", $telescope_id, $instrument_count), 40, "(Polarimeter)");
+					$_observatory->get_instrument("polarisation", $telescope_id, $instrument_count), 40, "(Polarimeter)", NULL, FALSE, $i_polar_tooltip);
 	        	//Field of View
+	        	$i_fov_tooltip = "Field of View - Please insert the field of view of your instrument in X x Y arcseconds, - 
+	        	or in X arcseconds (in the case of a circular field of view). - 
+	        	<b>Example:</b> &quot;143 x 212 arcsec&quot;";
 				printInputTextRow("Field of View", "add_obs_instrument_field_of_view[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("field_of_view", $telescope_id, $instrument_count), 25, "[arcsec X arcsec] or [arcsec]");
+					$_observatory->get_instrument("field_of_view", $telescope_id, $instrument_count), 25, "[arcsec x arcsec] or [arcsec]", NULL, FALSE, $i_fov_tooltip);
 		        //Max Frames per sec
+		        $i_maxframes_tooltip = "Maximum Frames - Please insert the maximum frames per second of your instrument. - <b>Example:</b> &quot;8.9&quot;";
 				printInputTextRow("MAX Frames", "add_obs_instrument_max_frames[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("max_frames_per_sec", $telescope_id, $instrument_count), 15, "[per second]&nbsp;(Camera)");
+					$_observatory->get_instrument("max_frames_per_sec", $telescope_id, $instrument_count), 15, "[per second]&nbsp;(Camera)", NULL, FALSE, $i_maxframes_tooltip);
 				//Frame size
+				$i_framesize_tooltip = "Frame Size - Please insert the frame size of your instrument in pixel x pixel. - <b>Example:</b> &quot;1024 x 1024&quot;";
 				printInputTextRow("Frame Size", "add_obs_instrument_frame_size[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("frame_size", $telescope_id, $instrument_count), 25, "[pixel X pixel]&nbsp;(Camera)");
+					$_observatory->get_instrument("frame_size", $telescope_id, $instrument_count), 25, "[pixel x pixel]&nbsp;(Camera)", NULL, FALSE, $i_framesize_tooltip);
 				//Max exposure time
+				$i_maxexp_tooltip = "Maximum Exposure Time - Please insert the maximum exposure time of your instrument in seconds. - <b>Example:</b> &quot;0.01&quot;";
 				printInputTextRow("MAX Exposure Time", "add_obs_instrument_max_exposure[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("max_exposure_time", $telescope_id, $instrument_count), 15, "[seconds]&nbsp;(Camera)");
+					$_observatory->get_instrument("max_exposure_time", $telescope_id, $instrument_count), 15, "[seconds]&nbsp;(Camera)", NULL, FALSE, $i_maxexp_tooltip);
 				//Min exposure time
+				$i_minexp_tooltip = "Minimum Exposure Time - Please insert the minimum exposure time of your instrument in seconds. - <b>Example:</b> &quot;0.01&quot;";
 				printInputTextRow("MIN Exposure Time", "add_obs_instrument_min_exposure[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("min_exposure_time", $telescope_id, $instrument_count), 15, "[seconds]&nbsp;(Camera)");
+					$_observatory->get_instrument("min_exposure_time", $telescope_id, $instrument_count), 15, "[seconds]&nbsp;(Camera)", NULL, FALSE, $i_minexp_tooltip);
 				//Color / B/W chip
+				$i_bw_tooltip = "Only B/W Chip? - Please click on the check box if your camera chip is only operating in - black/white.";
 				printCheckBoxRow("Only B/W Chip?", "add_obs_instrument_bw_chip[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("color_bw_chip", $telescope_id, $instrument_count), "(Camera)");
+					$_observatory->get_instrument("color_bw_chip", $telescope_id, $instrument_count), "(Camera)", FALSE, $i_bw_tooltip);
 				//CCD chip type
+				$i_ccd_tooltip = "CCD Chip type - Please insert the chip type of your CCD. - 
+				There are no format conventions, so you can also provide the weblink - to the chip/manufactorer. - 
+				<b>Example:</b> &quot;Sony EXview HAD CCD, Sensor (ICX429AKL)&quot;";
 				printInputTextRow("CCD Chip Type", "add_obs_instrument_chip_type[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("ccd_chip_type", $telescope_id, $instrument_count), 50, "(Camera)");
+					$_observatory->get_instrument("ccd_chip_type", $telescope_id, $instrument_count), 50, "(Camera)", NULL, FALSE, $i_ccd_tooltip);
 				//Instrument Comments
+				$i_comm_tooltip = "Instrument Comments - Please feel free to write any additional information about - 
+				your instrument in this comments field. If the instrument is (or can be) - mounted 
+				on several telescopes you can mention this here. - 
+				You can e.g. also insert the weblink to the manufacturer into - this comment field. There are no format conventions. - 
+				<b>Examples:</b> &quot;http://www.company7.com/sbig/products/st6.html&quot;, - 
+				&quot;Halpha and [SII] filters on order&quot;, or &quot;This instrument is also available for - use on the other observatory telescopes&quot;";
 				printInputTextfieldRow("Instrument Comments", "add_obs_instrument_comments[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("comments", $telescope_id, $instrument_count), 50);
+					$_observatory->get_instrument("comments", $telescope_id, $instrument_count), 60, 4, NULL, FALSE, $i_comm_tooltip);
 				print "</table>" . LF;
 
 				//printAddRemoveButton($instrument_count, $_observatory->get_has_many("instruments", $telescope_id), "instrument");
@@ -573,18 +654,32 @@ if(is_array($_observatory->get_has_many("telescopes")))
 print "<fieldset class='rfield'><legend>Additional Information</legend>" . LF;
 print "<table class='create'>" . LF;
 //Additional instruments
-printInputTextfieldRow("General Instrument Comments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'));
+$addinst_tooltip = "General Instrument Comments - Please insert any general comments regarding your instruments. - 
+Additional instruments can also be entered here. There are no format conventions. - 
+<b>Example:</b> &quot;Several spectrometers and photometers are used at each telescope&quot;";
+printInputTextfieldRow("General Instrument Comments", "add_obs_add_inst", $_observatory->get_add_info('additional_instruments'), 65, 4, NULL, FALSE, $addinst_tooltip);
 //Array description
-printInputTextfieldRow("Array Description", "add_obs_array_desc", $_observatory->get_add_info('array_description'));
+$array_tooltip = "Array Description - Please insert any description of your array here. There are no format conventions. - 
+<b>Examples:</b> &quot;66 High precision antennas operating at 0.3 to 9.6 mm.&quot;, - &quot;Fifty 12-m diameter antennas will be used for interferometry,  
+four 12-m diameter - antennas for total power, and twelve 7-m diameter antennas for short spacings - interferometry.&quot; or &quot;All the ALMA antennas will [...]&quot;";
+printInputTextfieldRow("Array Description", "add_obs_array_desc", $_observatory->get_add_info('array_description'), 65, 4, NULL, FALSE, $array_tooltip);
 //Backend description
-printInputTextfieldRow("Backend Description", "add_obs_backend_desc", $_observatory->get_add_info('backend_description'));
+$backend_tooltip = "Backend Description - Please insert any further information regarding the facility backend equipment here. - 
+There are no format conventions. - <b>Example:</b> &quot;Additional backend equipment will be ordered soon.&quot;";
+printInputTextfieldRow("Backend Description", "add_obs_backend_desc", $_observatory->get_add_info('backend_description'), 65, 4, NULL, FALSE, $backend_tooltip);
 print "</table></fieldset>" . LF;
 
 //FEEDBACK for Administrators
 print "<fieldset class='rfield'><legend>Feedback for Administrators</legend>" . LF;
 print "<table class='create'>" . LF;
 //Feedback
-printInputTextfieldRow("Feedback", "add_obs_feedback", $_observatory->get_add_info('feedback'));
+$feedback_tooltip = "Feedback - The team of the NA1 Matrix would be pleased if you could provide some feedback on 
+the questionnaire and - on the NA1 Matrix in general, so that we can continuously improve our 
+database to provide a - helpful service for the community. - Please also inform us of potential bugs and 
+missing input fields which should be implemented. - 
+<b>Examples:</b> &quot;Observatory XY is missing in your database. Please provide some information on that.&quot;, - 
+&quot;You should contact the amateur community xy and ask them to include their telescopes&quot;, or - &quot;There was a bug in ...&quot;";
+printInputTextfieldRow("Feedback", "add_obs_feedback", $_observatory->get_add_info('feedback'), 70, 4, NULL, FALSE, $feedback_tooltip);
 print "</table></fieldset>" . LF;
 
 //ADMINISTRATION TOOL
