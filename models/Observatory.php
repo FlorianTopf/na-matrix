@@ -160,7 +160,7 @@ class ObservatoryDAO extends ModelDAO
 	 * @todo improve this a bit */
  	public function get_timezones()
 	{
-		$query = "SELECT * FROM timezones";
+		$query = "SELECT * FROM timezones ORDER BY timezone ASC";
       	$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)

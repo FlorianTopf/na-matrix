@@ -511,7 +511,19 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 (8, 'gamma-ray', 'gamma-ray frequencies');
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 1011 */
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '-09:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '-04:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '-03:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+03:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+04:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+05:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+05:45');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+06:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+09:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+10:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+11:30');
+INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+12:45'); 
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */
