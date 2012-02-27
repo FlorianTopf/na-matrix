@@ -68,12 +68,6 @@ $link->close();
   	if ($_observatory->get_field("obs_address"))
   		print "<p><b>Address:&nbsp;</b>" . ($_observatory->get_hidden_field("address") ?
   			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_address")). "</p>" . LF;
-//  	if ($_observatory->get_field("obs_zip_code"))
-//  		print "<p><b>ZIP code:&nbsp;</b>" . ($_observatory->get_hidden_field("zip_code") ?
-//  			  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_zip_code")) . "</p>" . LF;
-//  	if ($_observatory->get_field("obs_city"))
-//  		print "<p><b>City:&nbsp;</b>" . ($_observatory->get_hidden_field("city") ?
-//  		 	  "<b class='red'>Not Displayed</b>" : $_observatory->get_field("obs_city")) . "</p>" . LF;
 
   	$countries = $_observatory->get_countries();
   	print "<p><b>Country:&nbsp;</b>" . $countries['name'][$_observatory->get_field("obs_country_id")] . "</p>" . LF;
@@ -150,7 +144,7 @@ $link->close();
 		print "<p><b>Facility Status:</b>&nbsp;" . $_observatory->get_field("obs_observatory_status") . "</p>" . LF;
 
 	if ($_observatory->get_field("obs_partner_observatories"))
-  		print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . $_observatory->get_field("obs_partner_observatories") . "</p>" . LF;
+  		print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . trim($_observatory->get_field("obs_partner_observatories"), ", ") . "</p>" . LF;
   		
 	if ($_observatory->get_add_info('general_comments'))
 		print "<p><b>General Comments:&nbsp;</b><br/>" . nl2br($_observatory->get_add_info('general_comments')) . "</p>" . LF;
@@ -237,7 +231,7 @@ $link->close();
 	    	if ($antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] != "---")
 	    		print "<p><b>Antenna Type:&nbsp;</b>" . $antenna_types['antenna_type'][$_observatory->get_telescope("antenna_type", $key)] . "</p>" . LF;
 	    	if ($_observatory->get_telescope("wavelength", $key))
-	    		print "<p><b>Wavelength Region:&nbsp;</b>" . trim($_observatory->get_telescope("wavelength", $key), " ,") . LF;
+	    		print "<p><b>Wavelength Region:&nbsp;</b>" . trim($_observatory->get_telescope("wavelength", $key), ", ") . LF;
 	    	if ($_observatory->get_telescope("wavelength_begin", $key))
 	    		print "<p><b>Wavelength or Freq Begin:&nbsp;</b>" . clean_num($_observatory->get_telescope("wavelength_begin", $key)) . " " .
 	    			  $wavelength_units['wavelength_unit'][$_observatory->get_telescope("wavelength_b_unit", $key)] . "</p>" . LF;
@@ -257,7 +251,7 @@ $link->close();
 	    			if ($_observatory->get_instrument("focal_position", $telescope_id, $key2))
 						print "<p><b>Focal Position:&nbsp;</b>" . $_observatory->get_instrument("focal_position", $telescope_id, $key2) . "</p>" . LF;
 					if ($_observatory->get_instrument("wavelength", $telescope_id, $key2))
-	    				print "<p><b>Wavelength Region:&nbsp;</b>" . $_observatory->get_instrument("wavelength", $telescope_id, $key2) . "</p>" . LF;
+	    				print "<p><b>Wavelength Region:&nbsp;</b>" . trim($_observatory->get_instrument("wavelength", $telescope_id, $key2), ", ") . "</p>" . LF;
 	    			if ($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2))
 	    				print "<p><b>Wavelength Begin:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_begin", $telescope_id, $key2)) . " " .
 	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_b_unit", $telescope_id, $key2)] . "</p>" . LF;

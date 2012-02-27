@@ -16,4 +16,7 @@ INSERT INTO `telescope_types` (`id`, `name`) VALUES
 (17, 'Reflecting Telescope'),
 (18, 'Schmidt'),
 (19, 'Gregorian Telescope'),
-(20, 'Solar Telescope');
+(20, 'Solar Telescope'),
+(21, 'Corrected Dall-Kirkham Astrograph'),
+(22, 'Apochromatic refractor'),
+(23, 'ACF Optics');

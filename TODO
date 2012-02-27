@@ -19,7 +19,8 @@ NA1 QUESTIONNAIRE RELATED FUNCTIONALITY
 
 [HIGH PRIORITY] 
 Introduce Questionnaire form (entries must be approved afterwards) (see above)
- [PENDING] very user friendly! tooltips necessary (UI)
+ [OK] very user friendly! tooltips necessary (UI)
+ [PENDING] Tooltips are not duplicated (at telescopes and instruments)
 
 [URGENT] OBS_QUESTIONNAIRE:
 
@@ -85,12 +86,12 @@ DATABASE MANAGEMENT
 
 * Running Database
   [PENDING] Remove Science Goals
-  [PENDING] Remove City and ZIP Code
+  [OK] Remove City and ZIP Code
 
 * Development Database
   [OK] improve hidden fields / additional information (remove not necessary)
-  [MEDIUM PRIORITY] remove OTHER from Telescope Types / Instrument Types?
-  [MEDIUM PRIORITY] add OTHER to Antenna Types?
+  [NO] remove OTHER from Telescope Types / Instrument Types?
+  [OK] add OTHER to Antenna Types?
   * introduce JOINS where necessary and usable
 
 -----------------------------------------------------------------
@@ -99,8 +100,8 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
 
 * Input form for observatories
   * add other targets (db functionality)
-  * remove last telescope => empty fields
-  * remove last instrument => empty fields
+  [OK] remove last telescope => empty fields
+  [OK] remove last instrument => empty fields
   [OK] PARTNER OBSERVATORIES => make intelligent linkage! (e.g. autocompleter)
 
 * Input validation in JQUERY for observatories (see comments in add.php)
@@ -141,6 +142,7 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
     given
   [PENDING] Check if there is an URL in the info, and make a hyperlink
   [PENDING] Generate link list to other observatories in "partner observatories"
+  [PENDING] Check all units and descriptions (like they are in the input form)
   
     
 [HIGH PRIORITY] Implement Search Interface / Interactive Map (SEPTEMBER 2011)

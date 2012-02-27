@@ -235,7 +235,7 @@ class ObservatoryDAO extends ModelDAO
   	 * @todo improve this a bit */
  	public function get_telescope_types()
  	{
-		$query = "SELECT id, name FROM telescope_types";
+		$query = "SELECT id, name FROM telescope_types ORDER BY name ASC";
 		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
@@ -251,7 +251,7 @@ class ObservatoryDAO extends ModelDAO
 	 * @todo improve this a bit */
  	public function get_antenna_types()
  	{
-		$query = "SELECT id, antenna_type FROM antenna_types";
+		$query = "SELECT id, antenna_type FROM antenna_types ORDER BY antenna_type ASC";
 		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
@@ -309,7 +309,7 @@ class ObservatoryDAO extends ModelDAO
   	 * @todo improve this a bit */
  	public function get_instrument_types()
  	{
-		$query = "SELECT id, name FROM instrument_types";
+		$query = "SELECT id, name FROM instrument_types ORDER BY name ASC";
 		$result = self::$db->query($query);
       	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
       		foreach ($row as $key => $value)
@@ -569,7 +569,10 @@ class ObservatoryDAO extends ModelDAO
 				    //check if last char is not semicolon and there is something written inside!
 					if ((substr($value, -1) != ",") && !empty($value)) 
 						$value = $value . ", "; //add semicolon
-					else
+					//a little mistake from avove (with !empty missing before)
+					else if ($value == ",")
+						$value = "";
+					else if($value != "")
 						$value = $value . " ";
 					$this->_fields["obs_$key"] = stripslashes($value);
 				}
@@ -682,6 +685,25 @@ class ObservatoryDAO extends ModelDAO
 										//DEBUG
 										//echo "TELESCOPE ID: " . $value . "=> INSTRUMENT ID: " . $i_value . "<br>";
 										$this->_hasMany["instruments"][$value][] = $i_value;
+									}
+									elseif ($key == 'wavelength')
+									{
+										$value = trim($value); //remove whitespaces at the beginning/end
+										//print "TEST: " . $value . "x";
+										//nl();
+										/** @todo check if last char is not semicolon and there is something written inside! */
+										// has only something to do with autocompleter
+										if ((substr($value, -1) != ",") && !empty($value)) 
+											$value = $value . ", "; //add semicolon
+										//a little mistake from avove (with !empty missing before)
+										else if ($value == ",")
+											$value = "";
+										else if($value != "")
+											$value = $value . " ";
+							
+										//print "TEST 2: " . $value ."x";
+										//nl();
+										$this->_telescopes[$key][] = stripslashes($value);
 									}
 									else
 										$this->_instruments[$i_key][$value][] = stripslashes($i_value);
@@ -968,7 +990,6 @@ class ObservatoryDAO extends ModelDAO
 
 			/** @todo this needs to be removed */
 			if($key == "zip")
-				//$this->_fields["obs_zip_code"] = stripslashes($value);
 				$this->_fields["obs_address"] .= stripslashes($value);
 
 			if($key == "url")
@@ -1036,13 +1057,9 @@ class ObservatoryDAO extends ModelDAO
         	$saved_for_later = 1;
         }
         	
-        /** @todo remove this later!! */
-        $_POST["add_obs_zip_code"] = "";
-        $_POST["add_obs_city"] = "";
-
 		$query = "INSERT INTO observatories (" .
-  			"`id`,`name`,`founded`,`institution`,`web_address`,`address`,`zip_code`," .
-  			"`city`,`country_id`,`phone`,`email`,`latitude`,`longitude`,`approx_position`," .
+  			"`id`,`name`,`founded`,`institution`,`web_address`,`address`," .
+  			"`country_id`,`phone`,`email`,`latitude`,`longitude`,`approx_position`," .
 			"`sealevel_m`,`precipitation`,`clear_nights`,`timezone`," .
 			"`observatory_status`," .
   			"`partner_observatories`, `creation_date`, `user_id`, `approved`, `saved_for_later`, `last_saved_by`)" .
@@ -1052,8 +1069,6 @@ class ObservatoryDAO extends ModelDAO
         	addslashes($_POST["add_obs_institution"]) . "','" .
         	addslashes($_POST["add_obs_web_address"]) . "','" .
         	addslashes($_POST["add_obs_address"]) . "','" .
-        	addslashes($_POST["add_obs_zip_code"]) . "','" .
-        	addslashes($_POST["add_obs_city"]) . "','" .
         	$_POST["add_obs_country_id"] . "','" .
         	addslashes($_POST["add_obs_phone"]) . "','" .
         	addslashes($_POST["add_obs_email"]) . "','" .
@@ -1132,10 +1147,6 @@ class ObservatoryDAO extends ModelDAO
         	$saved_for_later = 1;
         }
         	
-        /** @todo remove this later!! */
-        $_POST["add_obs_zip_code"] = "";
-        $_POST["add_obs_city"] = "";
-
 		$query = "UPDATE observatories SET " .
 			//We get another POST VAR for the name if EDIT
 	  		"name='" . addslashes($_POST["update_obs_name"]) . "'," .
@@ -1143,8 +1154,6 @@ class ObservatoryDAO extends ModelDAO
 	  		"institution='" . addslashes($_POST["add_obs_institution"]) . "'," .
 	  		"web_address='" . addslashes($_POST["add_obs_web_address"]) . "'," .
 	  		"address='" . addslashes($_POST["add_obs_address"]) . "'," .
-	  		"zip_code='" . addslashes($_POST["add_obs_zip_code"]) . "'," .
-	  		"city='" . addslashes($_POST["add_obs_city"]) . "'," .
 	  		"country_id='" . $_POST["add_obs_country_id"] . "'," .
 	  		"phone='" . addslashes($_POST["add_obs_phone"]) . "'," .
 	  		"email='" .addslashes($_POST["add_obs_email"]) . "'," .

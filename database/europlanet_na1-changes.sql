@@ -526,7 +526,14 @@ INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+11:3
 INSERT INTO `europlanet_na1`.`timezones` (`id`, `timezone`) VALUES (NULL, '+12:45'); 
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION 1013 */
+ALTER TABLE `observatories`
+  DROP `zip_code`,
+  DROP `city`;
+
+INSERT INTO  `europlanet_na1`.`antenna_types` (`id` , `antenna_type`)
+VALUES (NULL ,  'Other');
+
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXX */

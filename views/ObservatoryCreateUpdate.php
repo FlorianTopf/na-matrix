@@ -15,7 +15,7 @@ print "<input type='hidden' name='res_type' value='{$resource_type}'/></div>" . 
 print "<h3 class='red'>The NA1 Matrix is currently in a testing phase. If you stumble upon any problems or errors, 
 please feel free to inform the team listed at the bottom of this page.</h3>";
 print "<h3>Important information:</h3>";
-print "<p>Please be aware that every field marked with a <b>red asterisk</b> (<b class='red'>*</b>) is a <b>mandatory</b> field, these are &quot;Facility name&quot;, 
+print "<p>Please be aware that every field in the input form below marked with a <b>red asterisk</b> (<b class='red'>*</b>) is a <b>mandatory</b> field, these are &quot;Facility name&quot;, 
 &quot;Country&quot;, “Areas of Interest&quot;, and at least one telescope (&quot;Telescope Name&quot;, &quot;Telescope Type&quot;, “Wavelength Region&quot;, 
 &quot;Diameter/Aperture&quot;).<br/> The facility can not be added until valid information is provided for each mandatory field! 
 All other fields are optional. Only the fields you have entered will be shown in the details window of your entry.<br/>
@@ -29,7 +29,7 @@ print "<table class='create'>" . LF;
 //Observatory Name - MANDATORY / CHECK IF THE NAME ALREADY EXISTS!
 /** @todo THIS IS A LITTLE HACK, WE DONT CHECK FOR EXISTING NAMES IF EDITING */
 $name_tooltip = "Facility Name - Please fill in the name of your facility. Please be aware that this is a 
-MANDATORY FIELD.<br/>If the facility is privately owned, and has no specific name, <br/>you can simply 
+MANDATORY FIELD.<br/>If the facility is privately owned, and has no specific name, - you can simply 
 fill in &quot;Privately owned&quot;.<br/><b>Example:</b> &quot;Observatory Kanzelh&ouml;he&quot;";
 if($action == "edit")
 	printInputTextRow("Facility Name", "update_obs_name", $_observatory->get_field("obs_name"), 
@@ -60,15 +60,6 @@ i.e. the street name and name number, the city/area, and the ZIP code.<br/>
 <b>Example:</b> &quot;650 North A&#39;ohoku Place Hilo, 96720, Hawaii&quot;";
 printInputTextRow("Address", "add_obs_address", $_observatory->get_field("obs_address"), 
 			80, NULL, NULL, FALSE, $address_tooltip);
-// ---------------- Obsolete => Will be removed ----------------------
-if ($_SESSION["user_level"] >= 21)
-{
-	//ZIP Code
-	printInputTextRow("ZIP Code", "add_obs_zip_code", $_observatory->get_field("obs_zip_code"), 10);
-	//City
-	printInputTextRow("City", "add_obs_city",  $_observatory->get_field("obs_city"), 30);
-}
-// ---------------- Obsolete => Will be removed----------------------
 //Country - MANDATORY
 $country_tooltip = "Country - Please insert the country name where the facility is located.<br/>
 Please be aware that this is a MANDATORY FIELD.<br/>
@@ -261,13 +252,13 @@ print "</table></fieldset>" . LF;
 $research_tooltip = "Areas of Interest - Please select research areas of interest. If interested in every research field,
 or if research in every<br/> field is potentially possible with the facility please choose &quot;General Astronomy&quot;,<br/>
 which subsumes every research area, i.e. if choosing &quot;General Astronomy&quot; the facility will<br/> appear under every search via &quot;Filter by Areas of Research&quot;.<br/>
-Choosing more than one area of interest is possible by adding them with clicking on the <b>[+]</b> button,<br/> an already chosen are by clicking on the <b>[-]</b>.<br/>
+Choosing more than one area of interest is possible by adding them with clicking on the <b>[+]</b> button,<br/> deleting an already chosen area by clicking on the <b>[-]</b>.<br/>
 You can also search for specific topics via the input field at the top of the available &quot;Area of Interest&quot; box.<br/>
 &quot;Areas of Interest&quot; are intending two different purposes:<br/>
-<b>i)</b> <i>Mainly for observatories hosted by scientific institutions:</i><br/> &quot;Areas of Interest&quot; is virtually identical with &quot;Research Areas&quot;,
+<b>i)</b> <i>Mainly for observatories hosted by scientific institutions:</i><br/> &quot;Areas of Interest&quot; is virtually identical to &quot;Research Areas&quot;,
 i.e. the scientific area for <br/>which the facility is intended and viable.<br/>
 <b>ii)</b> <i>Mainly for privately owned facilities:</i><br/>
-&quot;Areas of Interest&quot; represents (besides potential &quot;Research Areas&quot;) scientific fields,<br/> in which the owner is &quot;interested&quot; in.<br/>
+&quot;Areas of Interest&quot; represents (besides potential &quot;Research Areas&quot;) scientific fields,<br/> in which the owner is &quot;interested&quot;.<br/>
 <b>Example:</b> If you want to observe exoplanets you are advised to add &quot;Exoplanetary Research&quot; to<br/> your &quot;Areas of Interest&quot;. 
 If someone is planning to organize combined observations of exoplanets,<br/>
 this person can search for potentially interested persons via the search engine of the matrix,<br/> will find you and maybe contact you to participate.";
@@ -305,12 +296,12 @@ if ($_SESSION["user_level"] <= 31)
 //TARGETS: NOT MANDADORY
 /** @todo add other targets */
 /** @todo add other implementieren, aber mit eigenem feld! (siehe oben) */
-$target_tooltip = "Planetary Sciene Targets - Please select planetary science targets. If interested in every target, or if observation for every<br/> target category 
-is potentially possible with the facility please choose &quot;ALL&quot;,<br/> which subsumes every target; i.e. if choosing &quot;ALL&quot; the facility will appear 
+$target_tooltip = "Planetary Science Targets - Please select planetary science targets. If interested in every target, or if observation for every<br/> target category 
+is potentially possible with the facility, please choose &quot;ALL&quot;,<br/> which subsumes every target; i.e. if choosing &quot;ALL&quot; the facility will appear 
 under every search via<br/> &quot;Filter by Targets&quot;. Choosing more than one target is possible by adding them with clicking 
 on the <br/><b>[+]</b> button, deleting an already chosen target by clicking on the <b>[-]</b> button.<br/> You can also search for 
 specific topics via the input field just at the top of the<br/> &quot;Planetary Science Targets&quot; box.";
-print "<fieldset class='rfield'><legend class='help' title='{$target_tooltip}'>Targets:</legend>" . LF;
+print "<fieldset class='rfield'><legend class='help' title='{$target_tooltip}'>Planetary Science Targets:</legend>" . LF;
 //print "<table id='targets' class='create'>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_observatory->get_targets();
@@ -320,7 +311,7 @@ $targets = $_observatory->get_targets();
 printBigSelectListFromArray("Targets", "add_obs_target_ids[]", $_observatory->get_has_many("targets"),
 	$targets, "target_name", NULL, FALSE, array(), $target_tooltip);
 //Target comments
-$targetcomm_tooltip = "Target Comments - Please feel free to write any comments on your areas of interest. There are no format conventions.";
+$targetcomm_tooltip = "Target Comments - Please feel free to write any comments on your planetary science targets. There are no format conventions.";
 printInputTextfieldRow("Target Comments", "add_obs_target_com", $_observatory->get_add_info('target_comments'),
 			65, 4, NULL, FALSE, $targetcomm_tooltip);
 print "</table></fieldset>" . LF;
@@ -420,8 +411,8 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or [f-number]", NULL, FALSE, $t_focal_tooltip);
 
 		//  ---------------- Questionnaire Start ----------------------
-		$t_antenna_tooltip = "Antenna Type - Please choose the type of your antenna from the drop-down box. - 
-		Keep &nbsp;---&nbsp; if the telescope has NO Antenna. - 
+		$t_antenna_tooltip = "Antenna Type - Please choose the type of your antenna from the drop-down box if relevant. - 
+		Otherwise keep &nbsp;---&nbsp; if the telescope has NO Antenna. - 
 		If the appropriate antenna type is not in the list, please choose the option &quot;Other&quot;. - 
 		You can then specify your antenna under - &quot;Telescope Comments&quot; or &quot;Array Description&quot;.";
 		if ($_SESSION["user_level"] <= 11)
@@ -442,9 +433,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength", TRUE, $wave_tooltip);
 
 	    //Wavelength/Freq Begin
-	    $wave_begin_tooltip ="Wavelength or Freq. Begin - Please insert the beginning of the wavelength or frequency - (both formats possible) range. - 
-	    The appropriate wavelength or frequency units should - be selected from the adjacent drop-down box. - 
-	    Please note that if a numerical value is entered, - then the units field becomes mandatory. - 
+	    $wave_begin_tooltip ="Wavelength or Freq. Begin - Please insert the beginning of the wavelength or frequency range. - 
+	    The appropriate wavelength or frequency units should be selected - from the adjacent drop-down box. - 
+	    Please note that if a numerical value is entered, then the units field - becomes mandatory. - 
 	    <b>Example:</b> &quot;83.0&quot; &quot;GHz&quot;";
 	    print "<tr>";
 		printInputTitleCol("Wavelength or Freq. Begin", NULL, FALSE, $wave_begin_tooltip);
@@ -457,9 +448,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		print "</td></tr>" . LF;
 
 		//Wavelength/Freq End
-		$wave_end_tooltip = "Wavelength or Freq. End - Please insert the beginning of the wavelength or frequency - (both formats possible) range. - 
-	    The appropriate wavelength or frequency units should - be selected from the adjacent drop-down box. - 
-	    Please note that if a numerical value is entered, - then the units field becomes mandatory. - 
+		$wave_end_tooltip = "Wavelength or Freq. End - Please insert the end of the wavelength or frequency range. - 
+	    The appropriate wavelength or frequency units should be selected - from the adjacent drop-down box. - 
+	    Please note that if a numerical value is entered, then the units field - becomes mandatory. - 
 	    <b>Example:</b> &quot;83.0&quot; &quot;GHz&quot;";
 	    print "<tr>";
 		printInputTitleCol("Wavelength or Freq. End", NULL, FALSE, $wave_end_tooltip);
@@ -674,7 +665,7 @@ print "<fieldset class='rfield'><legend>Feedback for Administrators</legend>" . 
 print "<table class='create'>" . LF;
 //Feedback
 $feedback_tooltip = "Feedback - The team of the NA1 Matrix would be pleased if you could provide some feedback on 
-the questionnaire and - on the NA1 Matrix in general, so that we can continuously improve our 
+the input form and - on the NA1 Matrix in general, so that we can continuously improve our 
 database to provide a - helpful service for the community. - Please also inform us of potential bugs and 
 missing input fields which should be implemented. - 
 <b>Examples:</b> &quot;Observatory XY is missing in your database. Please provide some information on that.&quot;, - 

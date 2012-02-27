@@ -206,12 +206,19 @@ function extractLast( term ) {
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
 	//prevent that a user hits enter when in form (for add/edit and browse)
-//	$(window).keydown(function(event){
-//	    if(event.keyCode == 13) {
-//	      event.preventDefault();
-//	      return false;
-//	    }
-//	  });
+	$('.rfield input').keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	
+	$('.page input').keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
 	
 	/** @todo here we will introduce a lot of unobstrusive design additions */
 	$('button.submit').button();
