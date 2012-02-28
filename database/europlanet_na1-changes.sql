@@ -534,12 +534,68 @@ ALTER TABLE `observatories`
 INSERT INTO  `europlanet_na1`.`antenna_types` (`id` , `antenna_type`)
 VALUES (NULL ,  'Other');
 
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 1017 */
+INSERT INTO  `europlanet_na1`.`research_areas` (`id` , `domain` , `name`) VALUES 
+(133 ,  'ASTROPHYSICS',  'ASTROPHYSICS');
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(134, 'PLANETARY ATMOSPHERES & CLIMATE SCIENCE', 'PLANETARY ATMOSPHERES & CLIMATE SCIENCE');
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(135, 'PLANETARY MAGNETOSPHERES & AURORAE', 'PLANETARY MAGNETOSPHERES & AURORAE');
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(136, 'PLANETARY SURFACES', 'PLANETARY SURFACES');
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(137, 'EXOPLANETARY RESEARCH', 'EXOPLANETARY RESEARCH');
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(138, 'SMALL SOLAR SYSTEM BODIES', 'SMALL SOLAR SYSTEM BODIES');
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(139, 'INTERSTELLAR MEDIUM', 'INTERSTELLAR MEDIUM');
+UPDATE  `europlanet_na1`.`research_areas` SET  `domain` =  'CELESTIAL MECHANICS & ASTROMETRY',
+`name` =  'CELESTIAL MECHANICS & ASTROMETRY' WHERE  `research_areas`.`id` =95;
+INSERT INTO `europlanet_na1`.`research_areas` (`id`, `domain`, `name`) VALUES 
+(140, 'SKY SURVEY & SEARCHES', 'SKY SURVEY & SEARCHES');
+
+/** Temporary Change of names to identify the areas which will remain in the database */
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_GENERAL ASTRONOMY' WHERE  `research_areas`.`id` =131;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_ASTROBIOLOGY' WHERE  `research_areas`.`id` =18;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_ASTROCHEMISTRY' WHERE  `research_areas`.`id` =19;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_ASTROPHYSICS' WHERE  `research_areas`.`id` =133;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PLANETARY SCIENCES' WHERE  `research_areas`.`id` =71;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PLANETARY ATMOSPHERES & CLIMATE SCIENCE' WHERE  `research_areas`.`id` =134;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PLANETARY MAGNETOSPHERES & AURORAE' WHERE  `research_areas`.`id` =135;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PLANETARY SURFACES' WHERE  `research_areas`.`id` =136;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_EXOPLANETARY RESEARCH' WHERE  `research_areas`.`id` =137;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_SMALL SOLAR SYSTEM BODIES' WHERE  `research_areas`.`id` =138;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_GEODESY' WHERE  `research_areas`.`id` =12;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_Solar Physics' WHERE  `research_areas`.`id` =11;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_SPACE PHYSICS' WHERE  `research_areas`.`id` =125;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_STELLAR PHYSICS' WHERE  `research_areas`.`id` =9;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_INTERSTELLAR MEDIUM' WHERE  `research_areas`.`id` =139;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_CELESTIAL MECHANICS & ASTROMETRY' WHERE  `research_areas`.`id` =95;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_Stellar Occultations' WHERE  `research_areas`.`id` =14;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_SKY SURVEY & SEARCHES' WHERE  `research_areas`.`id` =140;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_INSTRUMENTATION' WHERE  `research_areas`.`id` =67;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PUBLIC OUTREACH / EDUCATION ETC.' WHERE  `research_areas`.`id` =15;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXX */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
