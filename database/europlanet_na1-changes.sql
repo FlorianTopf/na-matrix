@@ -578,7 +578,7 @@ UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_INSTRUMENTATION'
 UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PUBLIC OUTREACH / EDUCATION ETC.' WHERE  `research_areas`.`id` =15;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
+/** ALTER SCRIPTS FOR REVISION 1018 */
 /** SELECT * FROM `europlanet_na1`.`targets` WHERE id IN 
 (183,195,158,152,159,185,160,161,186,162,163,174,187,153,188,155,164,194,196,165,166,189,156,175,167,
 168,169,157,176,170,177,197,178,171,198,190,191,154,192,137);
@@ -623,10 +623,18 @@ UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_EXOPLANETS' WHER
 UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1_NEW-ARTIFICIAL SATELLITES' WHERE  `targets`.`id` =54 LIMIT 1 ;
 UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1_NEW-INTERPLANETARY MEDIUM' WHERE  `targets`.`id` =79 LIMIT 1 ;
 
-
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
+/** ALTER SCRIPTS FOR REVISION 1018 */
+INSERT INTO  `europlanet_na1`.`research_areas` (`id` , `domain` , `name`)
+VALUES (141 ,  'PLANETARY INTERIORS',  'PLANETARY INTERIORS'), 
+(142 ,  'PLANETARY SATELLITES',  'PLANETARY SATELLITES' );
 
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PLANETARY SATELLITES' WHERE  `research_areas`.`id` =142 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PLANETARY INTERIORS' WHERE  `research_areas`.`id` =141 LIMIT 1 ;
+
+/** change name */
+UPDATE  `europlanet_na1`.`targets` SET  `target_family` =  'ALL TARGETS',
+`target_name` =  '1-NEW_ALL TARGETS' WHERE  `targets`.`id` =218 LIMIT 1 ;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
