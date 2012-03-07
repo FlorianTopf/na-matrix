@@ -284,7 +284,7 @@ printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observator
 			65, 4, NULL, FALSE, $rescomm_tooltip);
 print "</table></fieldset>" . LF;
 
-if ($_SESSION["user_level"] <= 31)
+if ($_SESSION["user_level"] >= 31)
 {
 	print "<fieldset class='rfield'><legend><b class='red'>Administration Tool</b></legend>" . LF;
 	print "<div id='add_other_area' style='margin:10px 0'><a class='ui-state-default ui-corner-all hand' id='add_other_area' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
@@ -371,16 +371,16 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		printInputTextRow("Telescope Name", "add_obs_telescope_name[{$telescope_count}]",
 			 $_observatory->get_telescope("telescope_name", $telescope_count), 60, NULL, "telescope", TRUE, $t_name_tooltip);
 
-		//  ---------------- Questionnaire Start ----------------------
-		if ($_SESSION["user_level"] <= 11)
-			$options = array("top" => "<option value=''>Please select a Telescope Type</option>");
-		else
-		//  ---------------- Questionnaire End ----------------------
 		//Telescope Type
 		$t_type_tooltip = "Telescope Type - Please choose the type of your telescope from the drop-down box. - 
 		If the appropriate telescope type is not in the list, please choose the option &quot;Other&quot;. - 
 		You can then specify your telescope under &quot;Telescope Comments&quot;. - 
 		Please be aware that a telescope will only be added to the database - if the telescope type is defined.";
+		//  ---------------- Questionnaire Start ----------------------
+		if ($_SESSION["user_level"] <= 11)
+			$options = array("top" => "<option value=''>Please select a Telescope Type</option>");
+		else
+		//  ---------------- Questionnaire End ----------------------
 			$options = array("top" => "<option value=''>Please select a Telescope Type</option>",
 				"bottom" => "<option class='add_telescope_type' value='100000'>Add other Telescope Type</option>");
 		printTypeSelectListFromArray("Telescope Type", "add_obs_telescope_type_id[{$telescope_count}]",
@@ -514,15 +514,15 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				printInputTextRow("Instrument Name", "add_obs_instrument_name[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("instrument_name", $telescope_id, $instrument_count), 60, NULL, "instrument", FALSE, $i_name_tooltip);
 
+				//Instrument Type
+				$i_type_tooltip = "Instrument Type - Please choose the type of your instrument from the drop-down box. - 
+				If the appropriate instrument type is not in the list, - please choose the option &quot;Other&quot;. - 
+				You can then specify your instrument under &quot;Instrument Comments&quot;.";
 				//  ---------------- Questionnaire Start ----------------------
 				if ($_SESSION["user_level"] <= 11)
 					$options = array("top" => "<option value=''>Please select an Instrument Type</option>");
 				else
 				//  ---------------- Questionnaire End ----------------------
-				//Instrument Type
-				$i_type_tooltip = "Instrument Type - Please choose the type of your instrument from the drop-down box. - 
-				If the appropriate instrument type is not in the list, - please choose the option &quot;Other&quot;. - 
-				You can then specify your instrument under &quot;Instrument Comments&quot;.";
 					$options = array("top" => "<option value=''>Please select an Instrument Type</option>",
 						"bottom" => "<option class='add_instrument_type' value='100000'>Add other Instrument Type</option>");
 				printTypeSelectListFromArray("Instrument Type", "add_obs_instrument_type_id[{$telescope_count}][{$instrument_count}]",
