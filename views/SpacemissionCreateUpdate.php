@@ -40,6 +40,7 @@ printInputTextfieldRow("Brief Description", "add_spa_brief_desc", $_spacemission
 print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
+/** @todo adapt this to new conditions (like observatory) */
 print "<fieldset class='rfield'><legend>Research Areas:</legend>" . LF;
 print "<table id='research_areas' class='create'>" . LF;
 $research_areas = $_spacemission->get_research_areas();
@@ -50,7 +51,7 @@ printBigSelectListFromArray("Research Areas", "add_spa_res_are_ids[]",
 print "</table></fieldset>" . LF;
 
 //TARGETS - MANDATORY
-/** @todo add other targets */
+/** @todo add other targets (like observatory) */
 print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_spacemission->get_targets();

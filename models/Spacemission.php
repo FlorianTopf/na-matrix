@@ -518,7 +518,7 @@ class SpacemissionDAO extends ModelDAO
 	    $status = array("errno" => self::$db->errno(),
                         "error" => self::$db->error(),
                         "res_id" => $res_id,
-	    				"res_name" => $_POST["add_spa_name"]);
+	    				"res_name" => $_POST["update_spa_name"]);
 
 	  	return $status;
 	}
