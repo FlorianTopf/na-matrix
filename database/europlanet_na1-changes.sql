@@ -579,7 +579,8 @@ UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  '1-NEW_PUBLIC OUTREACH 
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION 1018 */
-/** SELECT * FROM `europlanet_na1`.`targets` WHERE id IN 
+/*
+SELECT * FROM `europlanet_na1`.`targets` WHERE id IN 
 (183,195,158,152,159,185,160,161,186,162,163,174,187,153,188,155,164,194,196,165,166,189,156,175,167,
 168,169,157,176,170,177,197,178,171,198,190,191,154,192,137);
 SELECT * FROM `europlanet_na1`.`observatory_to_targets` WHERE `target_id` IN 
@@ -587,7 +588,8 @@ SELECT * FROM `europlanet_na1`.`observatory_to_targets` WHERE `target_id` IN
 168,169,157,176,170,177,197,178,171,198,190,191,154,192,137);
 SELECT * FROM `europlanet_na1`.`space_mission_to_targets` WHERE `target_id` IN 
 (183,195,158,152,159,185,160,161,186,162,163,174,187,153,188,155,164,194,196,165,166,189,156,175,167,
-168,169,157,176,170,177,197,178,171,198,190,191,154,192,137); */
+168,169,157,176,170,177,197,178,171,198,190,191,154,192,137); 
+*/
 /** rename 1998 WW31 to TNOs (observatory 55) */
 UPDATE  `europlanet_na1`.`observatory_to_targets` SET  `target_id` =  '36' WHERE  
 `observatory_to_targets`.`observatory_id` =55 AND `observatory_to_targets`.`target_id` =169 LIMIT 1 ;
@@ -620,8 +622,8 @@ UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_Meteors' WHERE  
 UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_TNOs (Trans-Neptunian Objects)' WHERE  `targets`.`id` =36 LIMIT 1 ;
 UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_MINOR PLANETS' WHERE  `targets`.`id` =146 LIMIT 1 ;
 UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_EXOPLANETS' WHERE  `targets`.`id` =47 LIMIT 1 ;
-UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1_NEW-ARTIFICIAL SATELLITES' WHERE  `targets`.`id` =54 LIMIT 1 ;
-UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1_NEW-INTERPLANETARY MEDIUM' WHERE  `targets`.`id` =79 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_ARTIFICIAL SATELLITES' WHERE  `targets`.`id` =54 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  '1-NEW_INTERPLANETARY MEDIUM' WHERE  `targets`.`id` =79 LIMIT 1 ;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION 1018 */
@@ -637,8 +639,72 @@ UPDATE  `europlanet_na1`.`targets` SET  `target_family` =  'ALL TARGETS',
 `target_name` =  '1-NEW_ALL TARGETS' WHERE  `targets`.`id` =218 LIMIT 1 ;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
+/** ALTER SCRIPTS FOR REVISION 1022 */
+/*
+SELECT * FROM `europlanet_na1`.`observatory_to_targets` WHERE `target_id` IN 
+(SELECT id FROM `targets` WHERE `target_name` NOT LIKE '1-NEW%');
 
+SELECT * FROM `europlanet_na1`.`observatory_to_research_areas` WHERE `research_area_id` IN 
+(SELECT id FROM `research_areas` WHERE `name` NOT LIKE '1-NEW%');
+
+/** entfernen von research areas bei "Brorfelde" => e-mail to user! */
+DELETE FROM observatory_to_research_areas WHERE observatory_id=10;
+
+SELECT * FROM `europlanet_na1`.`space_mission_to_targets` WHERE `target_id` IN 
+(SELECT id FROM `targets` WHERE `target_name` NOT LIKE '1-NEW%');
+
+SELECT * FROM `europlanet_na1`.`space_mission_to_research_areas` WHERE `research_area_id` IN 
+(SELECT id FROM `research_areas` WHERE `name` NOT LIKE '1-NEW%');
+*/
+/** remove obsolete research_areas and targets */
+DELETE FROM `europlanet_na1`.`targets` WHERE `target_name` NOT LIKE '1-NEW%';
+DELETE FROM `europlanet_na1`.`research_areas` WHERE `name` NOT LIKE '1-NEW%';
+/** rename from temporary names */
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'General Astronomy' WHERE  `research_areas`.`id` =131;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Astrobiology' WHERE  `research_areas`.`id` =18;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Astrochemistry' WHERE  `research_areas`.`id` =19;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Astrophysics' WHERE  `research_areas`.`id` =133;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Planetary Sciences' WHERE  `research_areas`.`id` =71;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Planetary Atmospheres & Climate Science' WHERE  `research_areas`.`id` =134;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Planetary Magnetospheres & Aurorae' WHERE  `research_areas`.`id` =135;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Planetary Surfaces' WHERE  `research_areas`.`id` =136;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Exoplanetary Research' WHERE  `research_areas`.`id` =137;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Small Solar System Bodies' WHERE  `research_areas`.`id` =138;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Geodesy' WHERE  `research_areas`.`id` =12;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Solar Physics' WHERE  `research_areas`.`id` =11;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Space Physics' WHERE  `research_areas`.`id` =125;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Stellar Physics' WHERE  `research_areas`.`id` =9;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Interstellar Medium' WHERE  `research_areas`.`id` =139;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Celestial Mechanics & Astrometry' WHERE  `research_areas`.`id` =95;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Stellar Occultations' WHERE  `research_areas`.`id` =14;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Sky Survey & Searches' WHERE  `research_areas`.`id` =140;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Instrumentation' WHERE  `research_areas`.`id` =67;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Public Outreach / Education etc.' WHERE  `research_areas`.`id` =15;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Planetary Satellites' WHERE  `research_areas`.`id` =142 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`research_areas` SET  `name` =  'Planetary Interiors' WHERE  `research_areas`.`id` =141 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'All Targets' WHERE  `targets`.`id` =218 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Mercury' WHERE  `targets`.`id` =53 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Venus' WHERE  `targets`.`id` =1 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Earth' WHERE  `targets`.`id` =2 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Mars' WHERE  `targets`.`id` =3 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Jupiter' WHERE  `targets`.`id` =4 LIMIT 1;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Saturn' WHERE  `targets`.`id` =5 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Uranus' WHERE  `targets`.`id` =6 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Neptune' WHERE  `targets`.`id` =7 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Moon' WHERE  `targets`.`id` =9 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Sun' WHERE  `targets`.`id` =45 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Planetary Satellites' WHERE  `targets`.`id` =48 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Comets' WHERE  `targets`.`id` =31 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Asteroids' WHERE  `targets`.`id` =33 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Meteors' WHERE  `targets`.`id` =34 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'TNOs (Trans-Neptunian Objects)' WHERE  `targets`.`id` =36 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Minor Planets' WHERE  `targets`.`id` =146 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Exoplanets' WHERE  `targets`.`id` =47 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Artifical Satellites' WHERE  `targets`.`id` =54 LIMIT 1 ;
+UPDATE  `europlanet_na1`.`targets` SET  `target_name` =  'Interplanetary Medium' WHERE  `targets`.`id` =79 LIMIT 1 ;
+/** drop not needed columns */
+ALTER TABLE `targets` DROP `target_family`;
+ALTER TABLE `research_areas` DROP `domain`;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
