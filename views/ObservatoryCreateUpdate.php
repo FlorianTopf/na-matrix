@@ -712,7 +712,8 @@ else if($action == "loadOldObs")
     print "<input type='hidden' name='is_add' value='1'>" . LF ;
     
     if($_SESSION["user_level"] >= 31)
-		print "&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='push' onclick='return show_confirm()' value='Delete Old Entry'>" . LF;
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' ". 
+		"name='push' onclick='return show_confirm()' value='Delete Old Entry' class='submit'>Delete Old Entry</button>" . LF;
 }
 //IF ACTION IS EDIT
 else if($action == "edit")
@@ -743,7 +744,8 @@ else if($action == "edit")
 	print "<input type='hidden' name='is_edit' value='1'>" . LF ;
 	
 	if($_SESSION["user_level"] >= 31)
-		print "&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' name='push' onclick='return show_confirm()' value='Delete Entry' class='submit'>Delete Entry</button>" . LF;
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' name='push' onclick='return show_confirm()' value='Delete Entry' " . 
+		"class='submit'>Delete Entry</button>" . LF;
 }
 
 print "</div>" . LF;
