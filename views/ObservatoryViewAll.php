@@ -87,7 +87,7 @@ print "</select></td></tr>" . LF;
 //----
 //Research Area Filter
 $research_areas = $_observatory->get_research_areas();
-print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";
+print "<tr><td class='title' colspan='2'><b>Filter by Area of Interest</b></td>";
 print "<td class='filter' colspan='4'><select name='obs_filters[research_area]' onchange='this.form.submit()'>" . LF;
 print "<option value=''>ALL</option>";
 foreach($research_areas['id'] as $key => $value)

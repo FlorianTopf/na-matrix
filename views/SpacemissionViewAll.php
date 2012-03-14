@@ -39,7 +39,7 @@ print "</SELECT></td></tr>" . LF;
 //----
 //Research Area Filter
 $research_areas = $_spacemission->get_research_areas();
-print "<tr><td class='title' colspan='2'><b>Filter by Research Area</b></td>";
+print "<tr><td class='title' colspan='2'><b>Filter by Area of Interest</b></td>";
 print "<td class='filter' colspan='4'><SELECT name='spa_filters[research_area]' onchange='this.form.submit()'>" . LF;
 print "<OPTION value=''>ALL</OPTION>";
 foreach($research_areas['id'] as $key => $value)
@@ -67,7 +67,7 @@ print "</SELECT></td></tr>" . LF;
 print "</table>";
 //----
 print "<center><table>";
-print "<tr><td><input type='submit' name='reset_filters' value='Reset Filters' class='submit'></td></tr>";
+print "<tr><td><button class='submit' type='submit' name='reset_filters' value='Reset Filters' class='submit'>Reset Filters</button></td></tr>";
 print "</table></center>";
 //----
 
