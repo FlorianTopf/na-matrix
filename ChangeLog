@@ -1,4 +1,94 @@
+2012-03-14  ftopf
+
+    * ObservatoryViewAll.php, SpacemissionViewAll.php, ui.multiselect.js: some
+      little modifs
+
+    * config.inc.php: reverted config
+
+    * Observatory.php, Spacemission.php, config.inc.php,
+      europlanet_na1-changes.sql: little changes and database updates (targets,
+      areas of interest)
+
+2012-03-13  ftopf
+
+    * Spacemission.php, SpacemissionCreateUpdate.php: some little fixes!
+
+2012-03-07  ftopf
+
+    * ObservatoryCreateUpdate.php: fixed some little issues!
+
+2012-02-29  ftopf
+
+    * europlanet_na1-changes.sql: additional recent db changes (adaption of all
+      other sql files after completion of the change process)
+
+    * europlanet_na1-changes.sql: target changes according to notes (adaption of
+      all other sql files after completion of the change process)
+
+2012-02-28  ftopf
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1-changes.sql,
+      europlanet_na1.sql: added db backups and modifications for research area
+      (to be removed after change)
+
+2012-02-27  ftopf
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryView.php, TODO,
+      anntena_types.sql, europlanet_na1-changes.sql, europlanet_na1.mwb,
+      europlanet_na1.sql, functions.js, telescope_types.sql: some little modifs!
+      changes in the database!
+
+2012-02-25  ftopf
+
+    * Observatory.php, europlanet_na1-changes.sql,
+      europlanet_na1-complete-dump.sql, europlanet_na1.mwb, europlanet_na1.sql:
+      added new timezones and according ordering
+
+    * ObservatoryCreateUpdate.php, html.php: finished tooltips with little
+      modifs of html.php
+
+2012-02-23  ftopf
+
+    * ObservatoryCreateUpdate.php: break fixes for tooltips, added target
+      tooltip!
+
+    * europlanet_na1.sql: Database backup!
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryView.php,
+      ObservatoryViewAll.php, SpacemissionCreateUpdate.php, TODO, account.php,
+      content.css, controller.inc.php, functions.js, html.php, index.php,
+      jquery-1.7.1.min.js, jquery-ui-1.8.17.custom.css,
+      jquery-ui-1.8.17.custom.min.js, jquery.scrollTo-min.js,
+      jquery.ui.selectmenu.css, jquery.ui.selectmenu.js, registration.php,
+      registration_q.php, reset.php, ui-1.8.10,
+      ui-bg_diagonals-thick_18_b81900_40x40.png,
+      ui-bg_diagonals-thick_20_666666_40x40.png, ui-bg_flat_0_aaaaaa_40x100.png,
+      ui-bg_flat_10_000000_40x100.png, ui-bg_flat_75_ffffff_40x100.png,
+      ui-bg_glass_100_f6f6f6_1x400.png, ui-bg_glass_100_fdf5ce_1x400.png,
+      ui-bg_glass_55_fbf9ee_1x400.png, ui-bg_glass_65_ffffff_1x400.png,
+      ui-bg_glass_75_dadada_1x400.png, ui-bg_glass_75_e6e6e6_1x400.png,
+      ui-bg_glass_95_fef1ec_1x400.png, ui-bg_gloss-wave_35_f6a828_500x100.png,
+      ui-bg_highlight-soft_100_eeeeee_1x100.png,
+      ui-bg_highlight-soft_75_cccccc_1x100.png,
+      ui-bg_highlight-soft_75_ffe45c_1x100.png, ui-icons_222222_256x240.png,
+      ui-icons_228ef1_256x240.png, ui-icons_2e83ff_256x240.png,
+      ui-icons_454545_256x240.png, ui-icons_888888_256x240.png,
+      ui-icons_cd0a0a_256x240.png, ui-icons_ef8c08_256x240.png,
+      ui-icons_ffd27a_256x240.png, ui-icons_ffffff_256x240.png,
+      ui.multiselect.css, ui.multiselect.js: SUPER MASSIVE EPIC changes for
+      complete User Interface (including Javascript adaptions) and minor
+      bugfixes from bug reporting list!
+
+2012-02-20  ftopf
+
+    * Observatory.php: quick fix for semicolons in autocompleter
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql: Added newest
+      database dumps (dumps from UCL are missing!)
+
 2012-02-17  ftopf
+
+    * ChangeLog, TODO, controller.inc.php: fixed some minor issues
 
     * account.php: fixed a little thing in account management
 

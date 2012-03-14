@@ -106,8 +106,8 @@ $link->close();
   										$_observatory->get_field_array("obs_latitude", "prefix") . " " .
   		  								$_observatory->get_field_array("obs_latitude", "degree") . "&deg; ".
   		  								$_observatory->get_field_array("obs_latitude", "minutes"). "' " .
-  		  								$_observatory->get_field_array("obs_latitude", "seconds"). "'' " .
-  		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "'''" . "</a></p>" . LF ;
+  		  								$_observatory->get_field_array("obs_latitude", "seconds"). "." .
+  		  								$_observatory->get_field_array("obs_latitude", "cent")	 . "''" . "</a></p>" . LF ;
 
   	if($_observatory->get_hidden_field("longitude"))
   		print "<p><b>Longitude:&nbsp;</b><b class='red'>Not Displayed</b></p>";
@@ -118,8 +118,8 @@ $link->close();
   										$_observatory->get_field_array("obs_longitude", "prefix") . " " .
   		  								$_observatory->get_field_array("obs_longitude", "degree") . "&deg; ".
   		  								$_observatory->get_field_array("obs_longitude", "minutes"). "' " .
-  		  								$_observatory->get_field_array("obs_longitude", "seconds"). "'' " .
-  		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "'''" . "</a></p>" . LF ;
+  		  								$_observatory->get_field_array("obs_longitude", "seconds"). "." .
+  		  								$_observatory->get_field_array("obs_longitude", "cent")	 . "''" . "</a></p>" . LF ;
 
 	if ($_observatory->get_field("obs_approx_position"))
   		print "<p><b>Approximate Position:&nbsp;</b>" . $_observatory->get_field("obs_approx_position") . "</p>" . LF;

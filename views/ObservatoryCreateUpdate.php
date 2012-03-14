@@ -86,8 +86,8 @@ printInputTextRow("Email", "add_obs_email", $_observatory->get_field("obs_email"
 $gps_tooltip = "Please insert the geographic position of the facility,<br/> 
 ideally in World Geodetic System 1984 (WGS84) format.<br/>
 If the geographic position is in any other format, <br/>the position on the map can differ up to more than 100 m.<br/>
-Both, latitude & longitude should be entered in Degree (&deg;), Minutes (&#39;),<br/> Seconds (&#39;&#39;), and hundredths of a Second (&#39;&#39;&#39;).<br/>
-So if you want to enter 56&deg;21&#39;23.1&#39;&#39; &#8212; [56]&deg; [21]&#39; [23]&#39;&#39; [10]&#39;&#39;&#39;";
+Both, latitude & longitude should be entered in Degree (&deg;), Minutes (&#39;),<br/> Seconds (&#39;&#39;), and hundredths of a Second (.&#39;&#39;).<br/>
+So if you want to enter 56&deg;21&#39;23.1&#39;&#39; &#8212; [56]&deg; [21]&#39; [23]. [10]&#39;&#39";
 $lat_tooltip = "Latitude - " . $gps_tooltip;
 print "<tr>";
 printInputTitleCol("Latitude", NULL, FALSE, $lat_tooltip);
@@ -99,9 +99,9 @@ printInputText("add_obs_latitude[degree]", $_observatory->get_field_array("obs_l
 ws(4);
 printInputText("add_obs_latitude[minutes]", $_observatory->get_field_array("obs_latitude", "minutes"), 2, "digits", "'");
 ws(4);
-printInputText("add_obs_latitude[seconds]", $_observatory->get_field_array("obs_latitude", "seconds"), 2, "digits", "''");
-ws(4);
-printInputText("add_obs_latitude[cent]", $_observatory->get_field_array("obs_latitude", "cent"), 2, "digits", "'''");
+printInputText("add_obs_latitude[seconds]", $_observatory->get_field_array("obs_latitude", "seconds"), 2, "digits", ".");
+ws(1);
+printInputText("add_obs_latitude[cent]", $_observatory->get_field_array("obs_latitude", "cent"), 2, "digits", "''");
 print "</td></tr>" . LF;
 /** @todo improve custom error labels, location in html */
 //custom error labels
@@ -124,9 +124,9 @@ printInputText("add_obs_longitude[degree]", $_observatory->get_field_array("obs_
 ws(4);
 printInputText("add_obs_longitude[minutes]", $_observatory->get_field_array("obs_longitude", "minutes"), 2, "digits", "'");
 ws(4);
-printInputText("add_obs_longitude[seconds]", $_observatory->get_field_array("obs_longitude", "seconds"), 2, "digits", "''");
-ws(4);
-printInputText("add_obs_longitude[cent]", $_observatory->get_field_array("obs_longitude", "cent"), 2, "digits", "'''");
+printInputText("add_obs_longitude[seconds]", $_observatory->get_field_array("obs_longitude", "seconds"), 2, "digits", ".");
+ws(1);
+printInputText("add_obs_longitude[cent]", $_observatory->get_field_array("obs_longitude", "cent"), 2, "digits", "''");
 print "</td></tr>" . LF;
 /** @todo improve custom error labels, location in html */
 //custom error labels
