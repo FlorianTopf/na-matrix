@@ -417,7 +417,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 		//  ---------------- Questionnaire Start ----------------------
 		$t_antenna_tooltip = "Antenna Type - Please choose the type of your antenna from the drop-down box if relevant. - 
-		Otherwise keep &nbsp;---&nbsp; if the telescope has NO Antenna. - 
+		Otherwise keep &quot;---&quot;. - 
 		If the appropriate antenna type is not in the list, please choose the option &quot;Other&quot;. - 
 		You can then specify your antenna under - &quot;Telescope Comments&quot; or &quot;Array Description&quot;.";
 		if ($_SESSION["user_level"] <= 11)
@@ -469,12 +469,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 	    //Telescope Comments
 	    $t_comm_tooltip = "Telescope Comments - 
-	    Please feel free to write any telescope comments in this box. - 
-	    You can e.g. display the link to the manufacturer of the telescope - in this comment box. 
+	    Please feel free to write any additional information about your telescope in this box. - 
+	    You can e.g. display the link to the manufacturer of the telescope. - 
 	    There are no format conventions. - 
 	    <b>Examples:</b> &quot;New telescope will be installed soon.&quot;, - 
-	    “Antenna Type: Half-Wave Dipole”, or - 
-	    “Details on the telescope: http://www.telescopedetails.com";
+	    &quot;Antenna Type: Half-Wave Dipole&quot;, or - 
+	    &quot;Details on the telescope: http://www.telescopedetails.com&quot;";
 		printInputTextfieldRow("Telescope Comments", "add_obs_telescope_comments[{$telescope_count}]",
 			$_observatory->get_telescope("comments", $telescope_count), 60, 4, NULL, FALSE, $t_comm_tooltip);
 	    print "</table>";
@@ -587,10 +587,10 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				printInputTextRow("Spatial Resolution", "add_obs_instrument_spatial_resolution[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 40, "[arcsec/pixel]", NULL, FALSE, $i_spatial_tooltip);
 	        	//Spectral Resolution
-	        	$i_spectral_tooltip = "Spectral Resolution - Please insert the spectral resolution of your instrument, ideally in Angstrom. - 
+	        	$i_spectral_tooltip = "Spectral Resolution - Please insert the spectral resolution of your instrument in Angstrom. - 
 	        	This can either be one or more resolution ranges or a fixed resolution, - depending on the instrument. 
 	        	There are no format conventions. - 
-	        	<b>Example:</b> 3200 &ndash; 10200”";
+	        	<b>Example:</b> &quot;3200 &ndash; 10200&quot;";
 				printInputTextRow("Spectral Resolution", "add_obs_instrument_spectral_resolution[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 40, "[&Aring;]", NULL, FALSE, $i_spectral_tooltip);
 	        	//Polarisation

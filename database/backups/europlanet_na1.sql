@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 19. Mrz 2012 um 10:48
+-- Erstellungszeit: 19. Mrz 2012 um 13:41
 -- Server Version: 5.1.58
 -- PHP-Version: 5.3.8
 
@@ -2728,7 +2728,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `target_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=219 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=220 ;
 
 --
 -- Daten für Tabelle `targets`
@@ -2754,7 +2754,8 @@ INSERT INTO `targets` (`id`, `target_name`) VALUES
 (54, 'Artifical Satellites'),
 (79, 'Interplanetary Medium'),
 (146, 'Minor Planets'),
-(218, 'All Targets');
+(218, 'All Targets'),
+(219, 'Planets');
 
 -- --------------------------------------------------------
 
@@ -3368,7 +3369,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8095 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8131 ;
 
 --
 -- Daten für Tabelle `users_statistics`
@@ -11471,7 +11472,43 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (8091, 1, 'map', '2012-03-18 17:54:47'),
 (8092, 1, 'home', '2012-03-19 06:36:25'),
 (8093, 1, 'home', '2012-03-19 09:34:32'),
-(8094, 1, 'reset', '2012-03-19 10:44:55');
+(8094, 1, 'reset', '2012-03-19 10:44:55'),
+(8095, 1, 'home', '2012-03-19 11:07:26'),
+(8096, 1, 'login', '2012-03-19 11:07:35'),
+(8097, 6, 'login', '2012-03-19 11:07:36'),
+(8098, 6, 'edit', '2012-03-19 11:07:48'),
+(8099, 6, 'edit', '2012-03-19 11:07:50'),
+(8100, 1, 'home', '2012-03-19 11:07:59'),
+(8101, 1, 'login', '2012-03-19 11:08:02'),
+(8102, 3, 'login', '2012-03-19 11:08:02'),
+(8103, 3, 'add', '2012-03-19 11:08:04'),
+(8104, 3, 'add', '2012-03-19 11:08:06'),
+(8105, 3, 'edit', '2012-03-19 11:08:08'),
+(8106, 3, 'edit', '2012-03-19 11:08:09'),
+(8107, 3, 'edit', '2012-03-19 11:08:11'),
+(8108, 3, 'edit', '2012-03-19 11:08:14'),
+(8109, 3, 'edit', '2012-03-19 11:08:17'),
+(8110, 3, 'add', '2012-03-19 11:08:20'),
+(8111, 3, 'add', '2012-03-19 11:08:21'),
+(8112, 6, 'edit', '2012-03-19 11:08:58'),
+(8113, 6, 'edit', '2012-03-19 11:09:00'),
+(8114, 6, 'add', '2012-03-19 11:09:05'),
+(8115, 6, 'add', '2012-03-19 11:09:07'),
+(8116, 1, 'login', '2012-03-19 11:12:52'),
+(8117, 9, 'login', '2012-03-19 11:12:53'),
+(8118, 9, 'add', '2012-03-19 11:12:56'),
+(8119, 9, 'add', '2012-03-19 11:12:58'),
+(8120, 9, 'add', '2012-03-19 11:17:28'),
+(8121, 6, 'home', '2012-03-19 12:24:08'),
+(8122, 6, 'edit', '2012-03-19 12:24:18'),
+(8123, 6, 'add', '2012-03-19 12:24:23'),
+(8124, 3, 'add', '2012-03-19 12:29:05'),
+(8125, 3, 'add', '2012-03-19 12:29:55'),
+(8126, 3, 'add', '2012-03-19 12:32:56'),
+(8127, 3, 'add', '2012-03-19 12:33:45'),
+(8128, 9, 'add', '2012-03-19 12:54:48'),
+(8129, 9, 'add', '2012-03-19 13:32:22'),
+(8130, 6, 'home', '2012-03-19 13:38:43');
 
 -- --------------------------------------------------------
 
