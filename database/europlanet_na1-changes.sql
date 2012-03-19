@@ -707,7 +707,9 @@ ALTER TABLE `targets` DROP `target_family`;
 ALTER TABLE `research_areas` DROP `domain`;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
+/** ALTER SCRIPTS FOR REVISION 1027 */
+INSERT INTO  `europlanet_na1`.`targets` (`id` ,`target_name`)
+VALUES (NULL ,  'Planets');
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */

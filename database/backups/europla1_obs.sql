@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 28. Feb 2012 um 17:31
+-- Erstellungszeit: 19. Mrz 2012 um 10:48
 -- Server Version: 5.1.58
 -- PHP-Version: 5.3.8
 
@@ -213,7 +213,6 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (10137, '', 'Atmospheric Physics', '', 10081),
 (10140, '', '', '', 10084),
 (10142, '', '', '', 10086),
-(10144, '', '', '', 10088),
 (10145, '', '', '', 10089),
 (10146, '', '', '', 10090),
 (10147, '', '', '', 10091),
@@ -454,7 +453,6 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (10137, '', 0, 0, 0, 0, 0, 0, 0, 10081),
 (10140, '', 0, 0, 0, 0, 0, 0, 0, 10084),
 (10142, '', 0, 0, 0, 0, 0, 0, 0, 10086),
-(10144, '', 0, 0, 0, 0, 0, 0, 0, 10088),
 (10145, '', 0, 0, 0, 0, 0, 0, 0, 10089),
 (10146, '', 0, 0, 0, 0, 0, 0, 0, 10090),
 (10147, '', 0, 0, 0, 0, 0, 0, 0, 10091),
@@ -691,7 +689,6 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (10137, '', '', '', '', 10081),
 (10140, '', '', '', '', 10084),
 (10142, '', '', '', '', 10086),
-(10144, '', 'Additional 1.23 m and 0.8 m Optical Telescopes', '', '', 10088),
 (10145, '', '', '', 'OSIRIS - imager and spectograph, EMIR - Wide field camera, RIDA - a integral field spectrograph (near infrared) with imaging capability', 10089),
 (10146, '', '', '', 'ISIS?- single-slit spectroscopy ; ACAM?; AF2/WYFFOS?- multi-object fibre-fed spectroscopy ; NAOMI/OASIS?- integral-field spectroscopy ; NAOMI/INGRID?- IR imaging ; LIRIS?- IR spectroscopy prime-focus?- optical imaging; ACAM?- optical imaging, low-resolution spectroscopy', 10090),
 (10147, '', '', '', '', 10091),
@@ -933,7 +930,6 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (10137, '', '', '+33 492 70 6408', 'F-04870', 'http://www.obs-hp.fr/', 'Bo?r,?Michel', 'ohp.demandes@oamp.fr', '5?42''44''''E', '43 ?55''54''''', 10081),
 (10140, '', '', '(+44) 39 06 35347056', '84 00136', '', '', '', '?', '?', 10084),
 (10142, '', '', '(+44) 018 - 471 5983', 'SE-197 91', 'http://www.astro.uu.se/history/Kvistaberg.html', '', '', '?', '?', 10086),
-(10144, '', '', '', '04004', 'http://www.caha.es/', '', '', '2?32''46''''W', '37?13''25''''N', 10088),
 (10145, '', '', '', '38712', 'http://www.gtc.iac.es/en/', '', '', '17?52''34'''' W', '28?45''34'''' N', 10089),
 (10146, '', '', '', '', 'http://www.ing.iac.es/Astronomy/astronomy.html', 'Chris Benn', 'crb@ing.iac.es', '17.881408?W', '28.760361?N', 10090),
 (10147, '', '', '', '', '', '', '', '?', '?', 10091),
@@ -1205,7 +1201,6 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (10224, 'Optical Telescope<br>Optical Telescope<br>Optical Telescope', 'Optical<br>Optical<br>Optical', '1.93<br>1.52<br>1.20', '2.86', 10081),
 (10229, '', 'Optical<br>Optical', NULL, NULL, 10084),
 (10232, '', 'Optical<br>Optical', '1.00<br>1.35', NULL, 10086),
-(10237, '', 'Optical<br>Optical<br>Optical', '3.50<br>2.20<br>1.50', NULL, 10088),
 (10240, 'Gran Telescopio Canarias', 'Optical,Infrared', '10.40', '0.63', 10089),
 (10241, 'Optical Telescope', 'Optical', '4.20', NULL, 10090),
 (10242, 'Carlos S?nchez', 'Infrared', NULL, NULL, 10091),
@@ -1460,7 +1455,6 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (10137, 'Haute-Provence Observatory', '1958', '', 'http://www.obs-hp.fr/', 'France', 'Observatoire de Haute-Provence,Saint-Michel l''Observatoire,F-04870,Haute-Provence', '+33 492 70 6408', '', 'Bo?r,?Michel', 'ohp.demandes@oamp.fr', '5?42''44''''E', '43 ?55''54'''' N', '650', NULL, NULL, NULL, '3', '', 'Mid-April', 10081),
 (10140, 'Monte Mario Observatory', '', 'Rome Astronomical Observatory', '', 'Italy', 'Sede di Monte Mario,Viale del Parco Mellini,84 00136,Rome', '(+44) 39 06 35347056', '', '', '', '?', '?', NULL, NULL, NULL, NULL, NULL, '', '', 10084),
 (10142, 'Kvistaberg Observatory', '', '', 'http://www.astro.uu.se/history/Kvistaberg.html', 'Sweden', ',,SE-197 91,BRO', '(+44) 018 - 471 5983', '', '', '', '?', '?', NULL, NULL, NULL, NULL, NULL, '', '', 10086),
-(10144, 'Calar Alto Observatory', '', '', 'http://www.caha.es/', 'Spain', 'Centro Astron?mico Hispano Alem?n,C/ Jes?s Durb?n Rem?n, 2-2,04004,Almeria', '', '', '', '', '2?32''46''''W', '37?13''25''''N', '2168', NULL, NULL, NULL, '5', '', '15th March deadline. Form : http://www.caha.es/CAHA/Applications/index.html', 10088),
 (10145, 'Gran Telescopio Canarias (Roque de los Muchachos Observatory)', '', '', 'http://www.gtc.iac.es/en/', 'Spain', 'Cuesta de San Jos?,, 38712,Bre?a Baja La Palma', '', '', '', '', '17?52''34'''' W', '28?45''34'''' N', '2267', NULL, NULL, NULL, NULL, '', '31st March? Deadline, form: http://www.otri.iac.es/cci/ for details : http://www.ing.iac.es/Astronomy/observing/2010B-AO.pdf for details', 10089),
 (10146, 'William Herschel Telescope (WHT) (Roque de los Muchachos Observatory)', '', '', 'http://www.ing.iac.es/Astronomy/astronomy.html', 'Spain', ',,,La Palma', '', '', 'Chris Benn', 'crb@ing.iac.es', '17.881408?W', '28.760361?N', '2332', NULL, NULL, NULL, NULL, '', '31st March deadline form : http://www.otri.iac.es/cci/', 10090),
 (10147, 'Carlos S?nchez Infrared Telescope (Roque de los Muchachos)', '', '', '', '', ',,,', '', '', '', '', '?', '?', NULL, NULL, NULL, NULL, NULL, '', 'Form : http://www.iac.es/telescopes/peticion_tiempo/form-eng.htm', 10091),
