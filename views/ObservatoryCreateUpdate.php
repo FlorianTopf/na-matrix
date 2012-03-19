@@ -351,8 +351,13 @@ if(is_array($_observatory->get_has_many("telescopes")))
   		//TRANSPORT THE OLD NUMBER OF TELESCOPES VIA POST
 	    print "<input type='hidden' name='add_obs_telescope_ids[" . $telescope_count . "]' value='". $telescope_id . "'/>" . LF;
 		print "<div class='telescope' id='telescope-{$telescope_count}'>";
-
-      	print "<fieldset class='rfield'><legend>Telescope:</legend>" . LF;
+		
+		$t_tooltip = "Telescope - You can add 1 to N telescopes to an entry by clicking &quot;Add new Telescope&quot;. - 
+		By clicking on the ‘x’-button of a telescope-tab you can delete the corresponding telescope field. - 
+		Please be aware that giving information on at least one telescope is MANDATORY - (&quot;Telescope Name&quot;, &quot;Telescope Type&quot;, 
+		&quot;Wavelength Region&quot;, &quot;Diameter/Aperture&quot;), - i.e. at least one telescope-tab will always be visible.";
+		
+      	print "<fieldset class='rfield'><legend class='help' title='{$t_tooltip}'>Telescope:</legend>" . LF;
       	print "<table class='create'>" . LF;
       	
         /** @todo add custom error labels for all necessary inputs */
@@ -488,8 +493,14 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	    	{
 	    		//TRANSPORT THE OLD NUMBER OF INSTRUMENTS VIA POST
 	       		//print "<input type='hidden' name='add_obs_instrument_ids[" . $telescope_count . "][" . $instrument_count . "]' value='". $instrument_id . "'/>" . LF;
+	       		
+	    		$i_tooltip = "Instrument - You can add 1 to N telescopes to an entry by clicking &quot;Add new Telescope&quot;. - 
+	    		By clicking on the ‘x’-button of a telescope-tab you can delete the corresponding telescope field. - 
+	    		Please be aware that giving information on at least one telescope is MANDATORY - 
+	    		(&quot;Telescope Name&quot;, &quot;Telescope Type&quot;, &quot;Wavelength Region&quot;, &quot;Diameter/Aperture&quot;), - 
+	    		i.e. at least one telescope-tab will always be visible";
 
-	       		print "<fieldset class='rfield'><legend>Instrument:</legend>" . LF;
+	       		print "<fieldset class='rfield'><legend class='help' title='{$i_tooltip}'>Instrument:</legend>" . LF;
       			print "<div style='margin:10px 0'><a href='' class='ui-state-default ui-corner-all toggle_instrument' style='padding:6px 6px 6px 6px;text-decoration:none;'>Show Input Fields</a>";
       			
       			print "&nbsp;&nbsp;&nbsp;&nbsp;<a class='ui-state-default ui-corner-all remove_instrument' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
