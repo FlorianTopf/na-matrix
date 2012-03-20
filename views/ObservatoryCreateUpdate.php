@@ -430,12 +430,30 @@ if(is_array($_observatory->get_has_many("telescopes")))
 			$_observatory->get_telescope("antenna_type", $telescope_count), $antenna_types, "antenna_type", NULL, FALSE, $options, $t_antenna_tooltip);
 
 		//Wavelength
-		$wave_tooltip = "Wavelength Region - Please insert the wavelength of your telescope in text format. - 
+		$wavelength_ranges = $_observatory->get_wavelength_ranges();
+		$t_wave_tooltip = "Wavelength Region - Please click on the wavelength region(s) of your telescope. - 
 		You can also choose more than one wavelength region. - 
-		Please be aware that this field supports auto-completion. - 
-		<b>Examples:</b> &quot;infrared&quot;, &quot;optical&quot;, &quot;radiowave&quot;";
-		printInputTextRow("Wavelength Region", "add_obs_wavelength[{$telescope_count}]",
-			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength", TRUE, $wave_tooltip);
+		Please be aware that this is a MANDATORY field.";
+//		printInputTextRow("Wavelength Region", "add_obs_wavelength[{$telescope_count}]",
+//			$_observatory->get_telescope("wavelength", $telescope_count), 40, NULL, "wavelength", TRUE, $wave_tooltip);
+		print "<tr>";
+		printInputTitleCol("Wavelength Region", NULL, true, $t_wave_tooltip);
+		print "<td>";
+		$ranges_array = explode(", ", $_observatory->get_telescope("wavelength", $telescope_count));
+		foreach($wavelength_ranges['id'] as $key => $value)
+		{
+			print "<b>{$wavelength_ranges['acronym'][$key]}</b>";
+			if(in_array($wavelength_ranges['acronym'][$key], $ranges_array))
+				printCheckBox("add_obs_wavelength_{$key}[{$telescope_count}]", $wavelength_ranges['acronym'][$key]);
+			else
+				printCheckBox("add_obs_wavelength_{$key}[{$telescope_count}]", false);
+			ws(4);
+			//just make a newline at the fourth checkbox
+			if ($key == 4)
+				nl();
+		}
+		print "</td>";
+		print "</tr>";
 
 	    //Wavelength/Freq Begin
 	    $wave_begin_tooltip ="Wavelength or Freq. Begin - Please insert the beginning of the wavelength or frequency range. - 
@@ -548,9 +566,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 40, NULL, NULL, FALSE, $i_focal_tooltip);
 
 	        	//Wavelength
-	        	//tooltip from telescopes
+	        	$i_wave_tooltip = "Wavelength Region - Please insert the wavelength of your telescope in text format. - 
+				You can also choose more than one wavelength region. - 
+				Please be aware that this field supports auto-completion. - 
+				<b>Examples:</b> &quot;infrared&quot;, &quot;optical&quot;, &quot;radiowave&quot;";
 				printInputTextRow("Wavelength Region", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength", FALSE, $wave_tooltip);
+					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength", FALSE, $i_wave_tooltip);
 
 	        	//Wavelength Begin
 	        	//tooltip from telescopes

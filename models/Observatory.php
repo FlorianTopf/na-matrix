@@ -1768,6 +1768,20 @@ class ObservatoryDAO extends ModelDAO
 	        		//overwrite POST var with new antenna type id
 	        		$_POST["add_obs_antenna_type_id"][$tele_key] = self::$db->getLastInsertId();
 				}
+				
+				//here we have to build up the wavelength ranges string
+				$wavelength_ranges = $this->get_wavelength_ranges();
+				$wavelength_string = "";
+			 	foreach($wavelength_ranges['id'] as $key => $value)
+			 	{
+			 		//add name to string here if post-key isset!
+			 		if(isset($_POST["add_obs_wavelength_{$key}"][$tele_key]))
+			 		{
+			 			//print $wavelength_ranges['acronym'][$key];
+			 			//nl();
+			 			$wavelength_string .= ($wavelength_ranges['acronym'][$key] . ", ");
+			 		}
+			 	}
 
 				//insert new telescope
 				$query = "INSERT INTO telescopes VALUES (NULL,'" .
@@ -1778,7 +1792,8 @@ class ObservatoryDAO extends ModelDAO
 	               $_POST["add_obs_diameter"][$tele_key] . "','" .
 	               addslashes($_POST["add_obs_focallength"][$tele_key]) . "','" .
 	               $_POST["add_obs_antenna_type_id"][$tele_key] . "','" .
-				   addslashes($_POST["add_obs_wavelength"][$tele_key]) . "','" .
+				   //addslashes($_POST["add_obs_wavelength"][$tele_key]) . "','" .
+				   addslashes($wavelength_string) . "','" .
 				   $_POST["add_obs_wavelength_b"][$tele_key] . "','" .
 				   $_POST["add_obs_wavelength_b_unit"][$tele_key] . "','" .
 				   $_POST["add_obs_wavelength_e"][$tele_key] . "','" .

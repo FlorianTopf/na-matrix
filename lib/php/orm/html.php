@@ -142,6 +142,12 @@ function printInputText($name, $value, $size=10, $class=NULL, $info=NULL)
 }
 
 
+function printCheckbox($name, $value=false)
+{
+	print makeCheckBox($name, $value);
+}
+
+
 function printSelectListFromArray($name, $value, $items, $column, $options=array())
 {
 	print makeSelectListFromArray_($name, $value, $items, $column, $options);
