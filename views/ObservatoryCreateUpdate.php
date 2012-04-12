@@ -512,11 +512,11 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	    		//TRANSPORT THE OLD NUMBER OF INSTRUMENTS VIA POST
 	       		//print "<input type='hidden' name='add_obs_instrument_ids[" . $telescope_count . "][" . $instrument_count . "]' value='". $instrument_id . "'/>" . LF;
 	       		
-	    		$i_tooltip = "Instrument - You can add 1 to N telescopes to an entry by clicking &quot;Add new Telescope&quot;. - 
-	    		By clicking on the ‘x’-button of a telescope-tab you can delete the corresponding telescope field. - 
-	    		Please be aware that giving information on at least one telescope is MANDATORY - 
-	    		(&quot;Telescope Name&quot;, &quot;Telescope Type&quot;, &quot;Wavelength Region&quot;, &quot;Diameter/Aperture&quot;), - 
-	    		i.e. at least one telescope-tab will always be visible";
+	    		$i_tooltip = "Instrument - You can add additional 1 to N instruments to a telescope by clicking &quot;Add new Instrument&quot;. - 
+	    		By clicking &quot;Remove Instrument&quot; at the corresponding instrument field, - you can remove the instrument.
+	    		Additionally you can hide the inputs of an instrument by - clicking &quot;Hide Input Fields&quot;. 
+	    		The inputs will not be erased by clicking &quot;Hide Inputs&quot;. - 
+	    		By clicking &quot;Show Input Fields&quot; they will appear again.";
 
 	       		print "<fieldset class='rfield'><legend class='help' title='{$i_tooltip}'>Instrument:</legend>" . LF;
       			print "<div style='margin:10px 0'><a href='' class='ui-state-default ui-corner-all toggle_instrument' style='padding:6px 6px 6px 6px;text-decoration:none;'>Show Input Fields</a>";
