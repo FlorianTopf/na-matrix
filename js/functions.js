@@ -1407,21 +1407,21 @@ $(document).ready(function(){
         //inputs for sensors
         $('input', newSensor).each(function(i) {
         	//remove trailing [0-9] with regexp
-        	inputs[i] = inputs[i].replace(/^(.*)\[[0-9]\].*$/, '$1');
+        	inputs[i] = inputs[i].replace(/^(.*)\[[0-9]{1,3}\].*$/, '$1');
             var newName = inputs[i] + '[' + newSensorNum + ']';
             $(this).attr('name', newName);
         });
         //selects for sensors (science goals)
         $('select', newSensor).each(function(i) {
         	//remove trailing [0-9] with regexp
-        	select[i] = select[i].replace(/^(.*)\[[0-9]\].*$/, '$1');
+        	select[i] = select[i].replace(/^(.*)\[[0-9]{1,3}\].*$/, '$1');
         	var newName = select[i] + '[' + newSensorNum + ']' + '[]';
             $(this).attr('name', newName);
         });
         //textareas for sensors
         $('textarea', newSensor).each(function(i) {
         	//remove trailing [0-9] with regexp
-        	textarea[i] = textarea[i].replace(/^(.*)\[[0-9]\].*$/, '$1');
+        	textarea[i] = textarea[i].replace(/^(.*)\[[0-9]{1,3}\].*$/, '$1');
         	var newName = textarea[i] + '[' + newSensorNum + ']';
             $(this).attr('name', newName);
         });
