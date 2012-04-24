@@ -712,9 +712,29 @@ INSERT INTO  `europlanet_na1`.`targets` (`id` ,`target_name`)
 VALUES (NULL ,  'Planets');
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 1065 */
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 498;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 499;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 500;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 501;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 502;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 503;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 504;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 505;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 506;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 507;
+DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 508;
+
+/** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
 
 
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

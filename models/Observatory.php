@@ -776,11 +776,13 @@ class ObservatoryDAO extends ModelDAO
 
 		//OLD NA1 - maintable Table:
 		$query = "SELECT * FROM maintable WHERE id=" . $resource_id;
+//		echo "QUERY: " . $query;
+//		nl();
       	$result = self::$dbOldObs->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
       		or die("<br>Error: No such Resource existing!</b>");
       	mysqli_free_result($result);
-
+      	
       	foreach ($res as $key => $value)
 		{
 			if($key == "Name")
@@ -834,11 +836,13 @@ class ObservatoryDAO extends ModelDAO
 		//OLD NA1 - instruments Table
 		$query = "SELECT * FROM instruments WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
-      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No such Resource existing!</b>");
+      	/** @todo möglichen Fehler (leeres Resultat) besser abfangen */
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      		//or die("<br>Error: No associated Instruments existing!</b>");
       	mysqli_free_result($result);
 
       	$maxTelescopeNumber = 0;
+      	if ($res != NULL)
       	foreach ($res as $key => $value)
 		{
 			$counter = 0;
@@ -884,19 +888,22 @@ class ObservatoryDAO extends ModelDAO
 		}
 		while($maxTelescopeNumber--)
 			$this->_hasMany["telescopes"][] = ""; //FIXMEE
-
+			
 		//OLD NA1 - extrainstruments Table
 		$query = "SELECT * FROM extrainstruments WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No such Resource existing!</b>");
+      		or die("<br>Error: No associated extra Instruments existing!</b>");
       	mysqli_free_result($result);
 
       	foreach ($res as $key => $value)
 		{
 			if($key == "furthurcommentsins")
-				$this->_telescopes["comments"][0] .=  stripslashes($strValue) . LF;
-
+			{
+				if(!empty($strValue))
+					$this->_telescopes["comments"][0] .=  stripslashes($strValue) . LF;
+			}
+				
 			if($key == "additionalcommentsins")
 				$this->_additionalInformation["additional_instruments"] = stripslashes($value);
 
@@ -911,7 +918,7 @@ class ObservatoryDAO extends ModelDAO
 		$query = "SELECT * FROM contact WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No such Resource existing!</b>");
+      		or die("<br>Error: No associated Contacts existing!</b>");
       	mysqli_free_result($result);
 
       	foreach ($res as $key => $value)
@@ -952,7 +959,7 @@ class ObservatoryDAO extends ModelDAO
 		$query = "SELECT * FROM areasofresearch WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No such Resource existing!</b>");
+      		or die("<br>Error: No associated Areas of Interest existing!</b>");
       	mysqli_free_result($result);
 
       	foreach($res as $key => $value)
@@ -971,7 +978,7 @@ class ObservatoryDAO extends ModelDAO
 		$query = "SELECT * FROM hiddenfields WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
       	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No such Resource existing!</b>");
+      		or die("<br>Error: No associated Hidden Fields existing!</b>");
       	mysqli_free_result($result);
 
       	foreach($res as $key => $value)
