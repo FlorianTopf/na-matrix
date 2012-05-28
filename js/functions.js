@@ -220,6 +220,14 @@ $(document).ready(function(){
 	    }
 	  });
 	
+	// Man kann beim name autocompleter auch enter drücken (observatory, sowie space mission)
+	$('.filter input').keydown(function(event){
+	    if(event.keyCode == 13) {
+	      $("#main_form").submit();
+	      return false;
+	    }
+	  });
+	
 	/** @todo here we will introduce a lot of unobstrusive design additions */
 	$('button.submit').button();
 	/** @todo does not work because of "add other" options */

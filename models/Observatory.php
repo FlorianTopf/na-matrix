@@ -434,6 +434,12 @@ class ObservatoryDAO extends ModelDAO
 			//nl();
 			//echo "Filter for Telescope Type:" . $filters["telescope_type"];
 			//nl();
+			//echo "Telescope Name: " . $filters["name"];
+			//nl();
+			
+			//in the case if someone is hitting enter - without autocompleter		
+			if(!empty($filters["name"]))
+				$filter_queries[] = 'name LIKE "%' . $filters["name"] . '%"';
 			
 			if(!empty($filters["id"]))
 				$filter_queries[] = "id=" . $filters["id"];

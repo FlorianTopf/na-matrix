@@ -216,6 +216,10 @@ class SpacemissionDAO extends ModelDAO
 
 			if(!empty($filter_string))
 				$query .= " WHERE ";
+				
+			//in the case if someone is hitting enter - without autocompleter		
+			if(!empty($filters["name"]))
+				$filter_queries[] = 'mission_name LIKE "%' . $filters["name"] . '%"';
 			
 			if(!empty($filters["id"]))
 				$filter_queries[] = "id=" . $filters["id"];
