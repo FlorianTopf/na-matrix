@@ -273,7 +273,7 @@ $link->close();
 	    				print "<p><b>Frame size:&nbsp;</b>" . $_observatory->get_instrument("frame_size", $telescope_id, $key2) . "&nbsp;[pixel*pixel]</p>" . LF;
 	    			if ($_observatory->get_instrument("max_exposure_time", $telescope_id, $key2))
 	    				print "<p><b>MAX exposure time:&nbsp;</b>" . $_observatory->get_instrument("max_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</p>" . LF;
-	    			if ($_observatory->get_instrument("min_exposure_time‚", $telescope_id, $key2))
+	    			if ($_observatory->get_instrument("min_exposure_time", $telescope_id, $key2))
 	    				print "<p><b>MIN exposure time:&nbsp;</b>" . $_observatory->get_instrument("min_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</p>" . LF;
 	    			/** distinction between B/W == 1 and Color chip == 0 */
 	    			if($instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] == "Camera")
