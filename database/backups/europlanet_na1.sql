@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 31. Mai 2012 um 14:16
+-- Erstellungszeit: 11. Jun 2012 um 14:25
 -- Server Version: 5.1.58
 -- PHP-Version: 5.3.8
 
@@ -229,7 +229,8 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (191, '', 'Further information on the whole equipment of the observatory available under: http://www.astrolandofoz.com/Equipment.HTML', '', '', '', '', '', ''),
 (192, 'lbosky@aol.com\r\nPhone: 1 719 6322829\r\nUrl: http://www.teuton.lbo.org\r\nPaul R. Signorelli<br> - lbosky@aol.com<br>\r\nLatitude: 38°  52'' 36'' - Longitude: 105° 16'' 38''', '', '', 'Brand/Type of Camera: Film', '', '', '', ''),
 (193, '', 'Future instrument for the 3.5-m telescope: ODI Camera.\r\n\r\nThe One Degree Imager (ODI) will utilize both WIYN''s one degree field of view and excellent image qualtity. The focal plane of the optical imager will be sampled with 0.1" pixels, or 1 Gigapixels in total. The sharpness of images will be actively improved by correcting images for tip/tilt image motion during the integration corrections will be done over the entire field of view, using a novel detector technology called Orthogonal Transfer Array CCD, making ODI a unique and competitive instrument in the era of wide-field surveys.', '', '', '', '', 'The telescope is owned and operated by the WIYN Consortium, which consists of the University of Wisconsin, Indiana University, Yale University, and the National Optical Astronomy Observatory (NOAO).\r\n\r\nDeadlines for applications usually the last Thursday in September for February-July observing, and the last Thursday in March for August-January observing. Application online via http://www.noao.edu/noaoprop/noaoprop.html', ''),
-(194, '', 'Instrumentation with limited access:\r\n- SOFIN - The Soviet-Finnish optical high-resolution spectrograph\r\n- TURPOL - The Turku photo-polarimeter\r\n\r\nOther instruments:\r\n- LuckyCam - High resolution "Lucky" imaging in the visible\r\n- PolCor - The PolCor "Lucky" Polarimeter/coronagraph ', '', '\r\n    \r\n', '', '', 'NOTSA is governed and funded by the following partners (Associates):\r\nForskningsrådet for Natur og Univers (Denmark)\r\nSuomen Akatemia (Finland)\r\nHáskóli Íslands (Iceland)\r\nNorges forskningsråd (Norway)\r\nVetenskapsrådet (Sweden)', '');
+(194, '', 'Instrumentation with limited access:\r\n- SOFIN - The Soviet-Finnish optical high-resolution spectrograph\r\n- TURPOL - The Turku photo-polarimeter\r\n\r\nOther instruments:\r\n- LuckyCam - High resolution "Lucky" imaging in the visible\r\n- PolCor - The PolCor "Lucky" Polarimeter/coronagraph ', '', '\r\n    \r\n', '', '', 'NOTSA is governed and funded by the following partners (Associates):\r\nForskningsrådet for Natur og Univers (Denmark)\r\nSuomen Akatemia (Finland)\r\nHáskóli Íslands (Iceland)\r\nNorges forskningsråd (Norway)\r\nVetenskapsrådet (Sweden)', ''),
+(196, '', 'Other small telescopes can be mounted', '', '', 'Use photometry to a great extent', '', 'Several small telescopes on a single mount operated via Ethernet connection', 'Bug in the fields MAX exposure time and MIN exposure time: when values are stored via ''Save for Later'' instruction and the entry is edited a second time, the two numerical values have been interposed.');
 
 -- --------------------------------------------------------
 
@@ -780,7 +781,8 @@ INSERT INTO `hidden_fields` (`id`, `web_address`, `address`, `phone`, `email`, `
 (191, 0, 1, 1, 1, 1, 1, 0, 1),
 (192, 0, 1, 1, 1, 0, 0, 1, 1),
 (193, 0, 0, 0, 0, 0, 0, 0, 0),
-(194, 0, 0, 0, 0, 0, 0, 1, 0);
+(194, 0, 0, 0, 0, 0, 0, 1, 0),
+(196, 0, 0, 0, 0, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -813,7 +815,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1220 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1236 ;
 
 --
 -- Daten für Tabelle `instruments`
@@ -1069,7 +1071,11 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1213, 'StanCam - Standby CCD Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '0.176', '', '', '3'' x 3''', 0, '1024 x 1024', 0, 0, 0, 'TEK 1024x1024 back-side illuminated thinned CCD', 'http://www.not.iac.es/instruments/stancam/\r\n\r\nStanCam is mounted in a folded Cassegrain focus and kept cool using CryoTiger. It is used as an optical imaging instrument when ALFOSC or MOSCA is not mounted and also as a FIES fiber viewer.'),
 (1217, 'MegaPrime/MegaCam', 5, '', 'optical, near-infrared', 0.000000, 1, 0.000000, 1, '0.187 arcsecond per pixel', '', '', '1x1 degree', 0, '36 ccds (2048x4612)', 0, 0, 0, '', 'http://www.cfht.hawaii.edu/Instruments/Imaging/MegaPrime/'),
 (1218, 'ESPaDOnS - Echelle SpectroPolarimetric Device for the Observation of Stars', 1, '', 'optical, ', 370.000000, 8, 1050.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'http://www.cfht.hawaii.edu/Instruments/Spectroscopy/Espadons/'),
-(1219, 'WIRCam Wide-field InfraRed Camera', 5, '', 'near-infrared ', 0.000000, 1, 0.000000, 1, '0.3 arcsecond per pixel', '', '', '20x20 arcminute', 0, '4 times (2048x2048) pixel', 0, 0, 0, 'HAWAII2-RG detectors', 'http://www.cfht.hawaii.edu/Instruments/Imaging/WIRCam/');
+(1219, 'WIRCam Wide-field InfraRed Camera', 5, '', 'near-infrared ', 0.000000, 1, 0.000000, 1, '0.3 arcsecond per pixel', '', '', '20x20 arcminute', 0, '4 times (2048x2048) pixel', 0, 0, 0, 'HAWAII2-RG detectors', 'http://www.cfht.hawaii.edu/Instruments/Imaging/WIRCam/'),
+(1232, 'Starlight Xpress SXVR-H18', 5, 'Prime', 'Optical', 400.000000, 8, 900.000000, 8, '3.75', '', '', '12580 x 9460', 0.05, '3326 x 2504', 90, 0.2, 1, 'KAF 8300M', 'Mechanical shutter\r\n'),
+(1233, 'SXV H9', 5, 'Prime', 'optical, ', 400.000000, 8, 900.000000, 8, '0.49', '', '', '', 0, '1392 x 1040', 40, 0.001, 1, 'Sony Exview ICX285AL', 'Generally use camera binned 2x2\r\nFilter wheel with B V g'' r'' and i'' filters'),
+(1234, 'Starlight Xpress SXVR-H18', 5, 'Prime', 'Optical', 400.000000, 8, 900.000000, 8, '3.75', '', '', '12580 x 9460', 0.05, '3326 x 2504', 90, 0.2, 1, 'KAF 8300M', 'Mechanical shutter\r\n'),
+(1235, 'SXV H9', 5, 'Prime', 'optical, ', 400.000000, 8, 900.000000, 8, '0.49', '', '', '', 0, '1392 x 1040', 40, 0.001, 1, 'Sony Exview ICX285AL', 'Generally use camera binned 2x2\r\nFilter wheel with B V g'' r'' and i'' filters');
 
 -- --------------------------------------------------------
 
@@ -1134,7 +1140,7 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   KEY `precipitation_id` (`precipitation`),
   KEY `clear_nights_id` (`clear_nights`),
   KEY `timezone_id` (`timezone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=196 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=197 ;
 
 --
 -- Daten für Tabelle `observatories`
@@ -1326,7 +1332,8 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (191, 'Land of Oz Observatory', 2003, 'private person (Ron Abbott)', 'http://www.astrolandofoz.com', '', 218, '', 'rnrse71@kc.rr.com', 0.000000, 0.000000, 'Kansas, USA', 319, 3, 4, 18, '', '', 6, '2012-05-09 14:59:54', '2012-05-09 15:07:47', 1, 0, 6),
 (192, 'Las Brisas Observatory  (LBO)', 1972, 'Private', 'http://www.teuton.lbo.org', 'PO Box 6069', 218, '1 719 6322829', 'lbosky@aol.com', 38.876667, -105.277222, '', 2615, 4, 2, 7, '', '', 6, '2012-05-09 15:30:08', '2012-05-09 15:31:11', 1, 0, 6),
 (193, 'WIYN Observatory (Kitt Peak)', 1994, 'National Optical Astronomy Observatory - NOAO', 'http://www.wiyn.org/', 'WIYN Observatory 950 N Cherry Ave, Tuscon AZ 85719', 218, '+01-520-318-8396', 'nbird@noao.edu', 31.957492, -111.600800, '', 2096, 7, 6, 20, '', '', 9, '2012-05-22 16:35:42', '2012-05-22 17:52:16', 1, 0, 9),
-(194, 'Nordic Optical Telescope (NOT)', 1984, 'Nordic Optical Telescope Scientific Association (NOTSA)', 'http://www.not.iac.es', 'Apartado 474, E-38700 Santa Cruz de La Palma, Santa Cruz de Tenerife', 192, '+34-922-425-470', 'staff@not.iac.es', 28.757228, -17.885006, '', 2382, 7, 6, 1, '', '', 9, '2012-05-23 13:08:44', '2012-05-23 17:44:36', 1, 0, 9);
+(194, 'Nordic Optical Telescope (NOT)', 1984, 'Nordic Optical Telescope Scientific Association (NOTSA)', 'http://www.not.iac.es', 'Apartado 474, E-38700 Santa Cruz de La Palma, Santa Cruz de Tenerife', 192, '+34-922-425-470', 'staff@not.iac.es', 28.757228, -17.885006, '', 2382, 7, 6, 1, '', '', 9, '2012-05-23 13:08:44', '2012-05-23 17:44:36', 1, 0, 9),
+(196, 'Golden Hill Observatory', 2003, 'British Astronomical Association', '', 'Grange Cottage, Golden Hill, Stourton Caundle, Dorset DT10 2JP', 217, '441963364651', 'rmiles.btee@btinternet.com', 50.930842, -2.405278, 'south-west England, west of Salisbury', 75, 6, 1, 1, 'active research', '', 24, '2012-06-10 22:34:39', '2012-06-10 22:59:03', 0, 1, 24);
 
 -- --------------------------------------------------------
 
@@ -1851,7 +1858,14 @@ INSERT INTO `observatory_to_research_areas` (`observatory_id`, `research_area_id
 (194, 14),
 (194, 15),
 (194, 133),
-(194, 139);
+(194, 139),
+(196, 14),
+(196, 19),
+(196, 67),
+(196, 95),
+(196, 137),
+(196, 138),
+(196, 140);
 
 -- --------------------------------------------------------
 
@@ -1979,7 +1993,8 @@ INSERT INTO `observatory_to_scientific_contacts` (`observatory_id`, `scientific_
 (188, 757),
 (189, 758),
 (192, 759),
-(194, 760);
+(194, 760),
+(196, 761);
 
 -- --------------------------------------------------------
 
@@ -2215,7 +2230,14 @@ INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
 (191, 31),
 (191, 33),
 (191, 48),
-(193, 218);
+(193, 218),
+(196, 6),
+(196, 7),
+(196, 31),
+(196, 33),
+(196, 47),
+(196, 53),
+(196, 146);
 
 -- --------------------------------------------------------
 
@@ -2627,7 +2649,11 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (192, 2165),
 (193, 2185),
 (193, 2186),
-(194, 2196);
+(194, 2196),
+(196, 2217),
+(196, 2218),
+(196, 2219),
+(196, 2220);
 
 -- --------------------------------------------------------
 
@@ -2813,7 +2839,7 @@ CREATE TABLE IF NOT EXISTS `scientific_contacts` (
   `email` text NOT NULL,
   `institution` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=761 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=762 ;
 
 --
 -- Daten für Tabelle `scientific_contacts`
@@ -3024,7 +3050,8 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (757, 'Prof. Stutzki', 'stutzki@ph1.uni-koeln.de', 'I. Physikalisches Institut'),
 (758, 'Dr. Bengt Edvardsson (director)', 'bengt.edvardsson@fysast.uu.se', 'Department of Physics and Astronomy, Uppsala University'),
 (759, 'Paul R. Signorelli<br>', 'lbosky@aol.com<br>', 'Private'),
-(760, 'Johannes Andersen', 'ja@not.iac.es', 'NOTSA');
+(760, 'Johannes Andersen', 'ja@not.iac.es', 'NOTSA'),
+(761, 'Dr Richard Miles', 'arps@britastro.org', 'British Astronomical Association');
 
 -- --------------------------------------------------------
 
@@ -3678,7 +3705,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2205 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2221 ;
 
 --
 -- Daten für Tabelle `telescopes`
@@ -4077,7 +4104,11 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2189, 'IRTF - Infrared Telescope Facility', 2, 0, 0, 3.000000, '', 1, 'infrared, ', 0.000000, 1, 0.000000, 1, ''),
 (2196, 'Nordic Optical Telescope (NOT)', 5, 0, 0, 2.560000, 'f/11', 1, 'infrared, optical, ultraviolet, ', 0.000000, 1, 0.000000, 1, 'Minimal accessible declination: -55 degrees'),
 (2197, 'JCMT', 2, 0, 0, 15.000000, '', 11, 'submillimeter, ', 0.000000, 1, 0.000000, 1, ''),
-(2199, 'CFHT', 2, 0, 0, 3.580000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, '');
+(2199, 'CFHT', 2, 0, 0, 3.580000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2217, 'Canon widefield', 22, 0, 0, 0.100000, 'f/2.8', 1, 'optical, ', 400.000000, 8, 900.000000, 8, 'Telescope can be used unfiltered or with an Astrodon dichroic V filter'),
+(2218, 'Celestron 11', 3, 0, 0, 0.280000, 'f/9.4', 1, 'optical, ', 400.000000, 8, 900.000000, 8, 'telescope tube assembly currently off the mount'),
+(2219, 'Canon widefield', 22, 0, 0, 0.100000, 'f/2.8', 1, 'optical, ', 400.000000, 8, 900.000000, 8, 'Telescope can be used unfiltered or with an Astrodon dichroic V filter'),
+(2220, 'Celestron 11', 3, 0, 0, 0.280000, 'f/9.4', 1, 'optical, ', 400.000000, 8, 900.000000, 8, 'telescope tube assembly currently off the mount');
 
 -- --------------------------------------------------------
 
@@ -4346,7 +4377,11 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2196, 1213),
 (2199, 1217),
 (2199, 1218),
-(2199, 1219);
+(2199, 1219),
+(2217, 1232),
+(2218, 1233),
+(2219, 1234),
+(2220, 1235);
 
 -- --------------------------------------------------------
 
@@ -4461,7 +4496,7 @@ CREATE TABLE IF NOT EXISTS `users_list` (
   `category` text NOT NULL,
   `level` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Daten für Tabelle `users_list`
@@ -4489,7 +4524,8 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 (20, 'kh.gansel', '5549bcf72e058757a2872643c6f42735', 'Mr.', 'Karl-Heinz', 'Gansel', 'radioastronomie@dl6ebs.de', 'DARO', 'scientific', 11),
 (21, 'wji', '53bb79002a8ade0bc488f4469ce3fcd7', 'Dr.', 'Ian', 'Skillen', 'wji@ing.iac.es', 'Isaac Newton Group', 'scientific', 11),
 (22, 'gerhard_dangl', 'aa6aec0491f348173fe60b442c4acc9c', 'Mr.', 'Gerhard', 'Dangl', 'gerhard@dangl.at', 'Nonndorf', 'scientific', 11),
-(23, 'jotest', '1a1dc91c907325c69271ddf0c944bc72', 'Dr.', 'Jo', 'Test', 'jfabbri@star.ucl.ac.uk', 'Test', 'scientific', 11);
+(23, 'jotest', '1a1dc91c907325c69271ddf0c944bc72', 'Dr.', 'Jo', 'Test', 'jfabbri@star.ucl.ac.uk', 'Test', 'scientific', 11),
+(24, 'richardmiles', '1e774fdfe1a349253ca92f79a41bf3fd', 'Dr.', 'Richard', 'Miles', 'rmiles.btee@btinternet.com', 'British Astronomical Association', 'scientific', 11);
 
 -- --------------------------------------------------------
 
@@ -4504,7 +4540,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11818 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11900 ;
 
 --
 -- Daten für Tabelle `users_statistics`
@@ -16333,7 +16369,89 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (11814, 1, 'home', '2012-05-30 21:06:31'),
 (11815, 1, 'home', '2012-05-31 11:04:07'),
 (11816, 1, 'home', '2012-05-31 11:30:52'),
-(11817, 1, 'home', '2012-05-31 13:45:22');
+(11817, 1, 'home', '2012-05-31 13:45:22'),
+(11818, 1, 'home', '2012-05-31 16:04:05'),
+(11819, 1, 'home', '2012-05-31 21:36:33'),
+(11820, 1, 'home', '2012-05-31 21:36:36'),
+(11821, 1, 'home', '2012-06-01 08:18:19'),
+(11822, 1, 'home', '2012-06-01 23:07:26'),
+(11823, 1, 'browse', '2012-06-02 04:59:55'),
+(11824, 1, 'home', '2012-06-02 06:17:54'),
+(11825, 1, 'browse', '2012-06-03 01:29:23'),
+(11826, 1, 'home', '2012-06-03 01:37:05'),
+(11827, 1, 'map', '2012-06-03 02:43:33'),
+(11828, 1, 'reset', '2012-06-03 17:18:38'),
+(11829, 1, 'home', '2012-06-04 07:29:40'),
+(11830, 1, 'home', '2012-06-04 07:30:28'),
+(11831, 1, 'browse', '2012-06-04 07:30:35'),
+(11832, 1, 'map', '2012-06-04 07:30:41'),
+(11833, 1, 'registration_q', '2012-06-04 07:30:47'),
+(11834, 1, 'reset', '2012-06-04 07:30:54'),
+(11835, 1, 'home', '2012-06-04 12:01:40'),
+(11836, 1, 'home', '2012-06-04 21:46:18'),
+(11837, 1, 'home', '2012-06-05 11:47:00'),
+(11838, 1, 'home', '2012-06-05 12:20:07'),
+(11839, 1, 'map', '2012-06-05 12:20:08'),
+(11840, 1, 'home', '2012-06-05 12:20:08'),
+(11841, 1, 'browse', '2012-06-05 12:20:08'),
+(11842, 1, 'home', '2012-06-06 10:23:47'),
+(11843, 1, 'home', '2012-06-06 19:32:49'),
+(11844, 1, 'login', '2012-06-06 19:32:54'),
+(11845, 20, 'login', '2012-06-06 19:32:54'),
+(11846, 20, 'home', '2012-06-06 19:32:59'),
+(11847, 20, 'edit', '2012-06-06 19:33:01'),
+(11848, 20, 'map', '2012-06-06 19:33:05'),
+(11849, 20, 'browse', '2012-06-06 19:33:15'),
+(11850, 20, 'browse', '2012-06-06 19:33:17'),
+(11851, 20, 'browse', '2012-06-06 19:33:27'),
+(11852, 20, 'home', '2012-06-06 19:34:44'),
+(11853, 1, 'home', '2012-06-07 14:27:05'),
+(11854, 1, 'browse', '2012-06-07 14:27:09'),
+(11855, 1, 'browse', '2012-06-07 14:27:11'),
+(11856, 1, 'browse', '2012-06-07 14:27:28'),
+(11857, 1, 'home', '2012-06-07 17:07:23'),
+(11858, 1, 'home', '2012-06-07 17:42:03'),
+(11859, 1, 'home', '2012-06-08 09:16:36'),
+(11860, 1, 'reset', '2012-06-08 10:43:25'),
+(11861, 1, 'browse', '2012-06-08 11:43:43'),
+(11862, 1, 'browse', '2012-06-08 11:43:47'),
+(11863, 1, 'map', '2012-06-08 16:28:37'),
+(11864, 1, 'registration_q', '2012-06-09 09:05:32'),
+(11865, 1, 'reset', '2012-06-10 20:35:12'),
+(11866, 1, 'home', '2012-06-10 21:51:11'),
+(11867, 1, 'registration_q', '2012-06-10 21:53:33'),
+(11868, 1, 'registration_q', '2012-06-10 21:56:30'),
+(11869, 1, 'login', '2012-06-10 21:58:41'),
+(11870, 24, 'login', '2012-06-10 21:58:41'),
+(11871, 24, 'add', '2012-06-10 21:59:20'),
+(11872, 24, 'add', '2012-06-10 22:34:39'),
+(11873, 24, 'edit', '2012-06-10 22:35:47'),
+(11874, 24, 'add', '2012-06-10 22:35:55'),
+(11875, 24, 'add', '2012-06-10 22:39:15'),
+(11876, 24, 'edit', '2012-06-10 22:39:25'),
+(11877, 24, 'add', '2012-06-10 22:39:29'),
+(11878, 24, 'add', '2012-06-10 22:44:49'),
+(11879, 24, 'add', '2012-06-10 22:49:55'),
+(11880, 24, 'edit', '2012-06-10 22:50:05'),
+(11881, 24, 'add', '2012-06-10 22:50:08'),
+(11882, 24, 'add', '2012-06-10 22:50:19'),
+(11883, 24, 'edit', '2012-06-10 22:52:42'),
+(11884, 24, 'add', '2012-06-10 22:52:43'),
+(11885, 24, 'add', '2012-06-10 22:59:03'),
+(11886, 24, 'add', '2012-06-10 22:59:14'),
+(11887, 24, 'edit', '2012-06-10 22:59:19'),
+(11888, 24, 'logout', '2012-06-10 23:00:57'),
+(11889, 1, 'home', '2012-06-10 23:00:58'),
+(11890, 1, 'home', '2012-06-11 10:37:18'),
+(11891, 1, 'home', '2012-06-11 13:42:31'),
+(11892, 1, 'login', '2012-06-11 13:42:34'),
+(11893, 6, 'login', '2012-06-11 13:42:34'),
+(11894, 6, 'edit', '2012-06-11 13:42:36'),
+(11895, 6, 'add', '2012-06-11 13:43:02'),
+(11896, 6, 'browse', '2012-06-11 13:58:46'),
+(11897, 6, 'browse', '2012-06-11 13:58:48'),
+(11898, 1, 'browse', '2012-06-11 14:09:41'),
+(11899, 1, 'browse', '2012-06-11 14:09:43');
 
 -- --------------------------------------------------------
 

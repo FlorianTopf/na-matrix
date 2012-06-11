@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 31. Mai 2012 um 14:23
+-- Erstellungszeit: 11. Jun 2012 um 14:25
 -- Server Version: 5.1.58
 -- PHP-Version: 5.3.8
 

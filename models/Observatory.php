@@ -1875,8 +1875,8 @@ class ObservatoryDAO extends ModelDAO
 				   			addslashes($_POST["add_obs_instrument_field_of_view"][$tele_key][$instr_key]) . "','" .
 				   			$_POST["add_obs_instrument_max_frames"][$tele_key][$instr_key] . "','" .
 				   			addslashes($_POST["add_obs_instrument_frame_size"][$tele_key][$instr_key]) . "','" .
-				   			$_POST["add_obs_instrument_max_exposure"][$tele_key][$instr_key] . "','" .
 				   			$_POST["add_obs_instrument_min_exposure"][$tele_key][$instr_key] . "','" .
+				   			$_POST["add_obs_instrument_max_exposure"][$tele_key][$instr_key] . "','" .
 				   			checkbox_value("add_obs_instrument_bw_chip", $tele_key, $instr_key) . "','" .
 				   			addslashes($_POST["add_obs_instrument_chip_type"][$tele_key][$instr_key]) . "','" .
 				   			addslashes($_POST["add_obs_instrument_comments"][$tele_key][$instr_key]) . "')";
