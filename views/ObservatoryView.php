@@ -259,18 +259,18 @@ $link->close();
 	    				print "<p><b>Wavelength End:&nbsp;</b>" . clean_num($_observatory->get_instrument("wavelength_end", $telescope_id, $key2)) . " " .
 	    					  $wavelength_units['wavelength_unit'][$_observatory->get_instrument("wavelength_e_unit", $telescope_id, $key2)] . "</p>" . LF;
 	    			if ($_observatory->get_instrument("spatial_resolution", $telescope_id, $key2))
-	    				print "<p><b>Spatial Resolution:&nbsp;</b>" . $_observatory->get_instrument("spatial_resolution", $telescope_id, $key2) . "</p>" . LF;
+	    				print "<p><b>Spatial Resolution:&nbsp;</b>" . $_observatory->get_instrument("spatial_resolution", $telescope_id, $key2) . "&nbsp;[arcsec/pixel]</p>" . LF;
 	    			if ($_observatory->get_instrument("spectral_resolution", $telescope_id, $key2))
-	    				print "<p><b>Spectral Resolution:&nbsp;</b>" . $_observatory->get_instrument("spectral_resolution", $telescope_id, $key2) . "</p>" . LF;
+	    				print "<p><b>Spectral Resolution:&nbsp;</b>" . $_observatory->get_instrument("spectral_resolution", $telescope_id, $key2) . "&nbsp;[&Aring;]</p>" . LF;
 	    			if ($_observatory->get_instrument("polarisation", $telescope_id, $key2))
 	    				print "<p><b>Polarisation:&nbsp;</b>" . $_observatory->get_instrument("polarisation", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("field_of_view", $telescope_id, $key2))
-	    				print "<p><b>Field of View:&nbsp;</b>" . $_observatory->get_instrument("field_of_view", $telescope_id, $key2) . "</p>" . LF;
+	    				print "<p><b>Field of View:&nbsp;</b>" . $_observatory->get_instrument("field_of_view", $telescope_id, $key2) . "&nbsp;[arcsec x arcsec] or [arcsec]</p>" . LF;
 
 	    			if ($_observatory->get_instrument("max_frames_per_sec", $telescope_id, $key2))
 	    				print "<p><b>MAX frames:&nbsp;</b>" . $_observatory->get_instrument("max_frames_per_sec", $telescope_id, $key2) . "&nbsp;[per second]</p>" . LF;
 	    			if ($_observatory->get_instrument("frame_size", $telescope_id, $key2))
-	    				print "<p><b>Frame size:&nbsp;</b>" . $_observatory->get_instrument("frame_size", $telescope_id, $key2) . "&nbsp;[pixel*pixel]</p>" . LF;
+	    				print "<p><b>Frame size:&nbsp;</b>" . $_observatory->get_instrument("frame_size", $telescope_id, $key2) . "&nbsp;[pixel x pixel]</p>" . LF;
 	    			if ($_observatory->get_instrument("max_exposure_time", $telescope_id, $key2))
 	    				print "<p><b>MAX exposure time:&nbsp;</b>" . $_observatory->get_instrument("max_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</p>" . LF;
 	    			if ($_observatory->get_instrument("min_exposure_time", $telescope_id, $key2))
