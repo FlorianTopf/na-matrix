@@ -26,7 +26,7 @@ if(isset($_GET["extend"]))
 	$name = strtolower($_GET["term"]);
 	// remove slashes if they were magically added
 	if (get_magic_quotes_gpc()) $name = stripslashes($name);
-		$query = "SELECT id, name FROM observatories WHERE name LIKE '%$name%' AND approved='1';";
+		$query = "SELECT id, name FROM observatories WHERE name LIKE '%" . addslashes($name) . "%' AND approved='1';";
 }
 else
 {
