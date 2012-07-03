@@ -31,7 +31,7 @@ if(isset($_GET["extend"]))
 else
 {
 	$name = trim(strtolower($_GET['add_obs_name']));
-	$query = "SELECT id FROM observatories WHERE name='$name';";
+	$query = "SELECT id FROM observatories WHERE name='" . addslashes($name) . "';";
 	/** @todo maybe better for proofing existance of name */
 	//$query = "SELECT * FROM observatories WHERE name LIKE '$name';";
 }
