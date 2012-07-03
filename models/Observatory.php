@@ -964,8 +964,8 @@ class ObservatoryDAO extends ModelDAO
 		//OLD NA1 - areaofresearch Table
 		$query = "SELECT * FROM areasofresearch WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
-      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No associated Areas of Interest existing!</b>");
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      		//or die("<br>Error: No associated Areas of Interest existing!</b>");
       	mysqli_free_result($result);
 
       	foreach($res as $key => $value)
