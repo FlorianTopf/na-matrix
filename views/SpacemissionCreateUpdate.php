@@ -40,24 +40,34 @@ printInputTextfieldRow("Brief Description", "add_spa_brief_desc", $_spacemission
 print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
-/** @todo adapt this to new conditions (like observatory) */
 print "<fieldset class='rfield'><legend>Research Areas:</legend>" . LF;
 print "<table id='research_areas' class='create'>" . LF;
 $research_areas = $_spacemission->get_research_areas();
-$options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
-"<option id='add_other_area' value='100000'>Add other Research Area</option>");
+//$options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
+//"<option id='add_other_area' value='100000'>Add other Research Area</option>");
 printBigSelectListFromArray("Research Areas", "add_spa_res_are_ids[]",
-	$_spacemission->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
+	//$_spacemission->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
+	$_spacemission->get_has_many("research_areas"), $research_areas, "name");
 print "</table></fieldset>" . LF;
+//ADD OTHER RESEARCH AREAS
+if ($_SESSION["user_level"] >= 31)
+{
+	print "<fieldset class='rfield'><legend><b class='red'>Administration Tool</b></legend>" . LF;
+	print "<div id='add_other_area' style='margin:10px 0'><a class='ui-state-default ui-corner-all hand' id='add_other_area' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
+	print "<span class='ui-icon ui-icon-plus' style='position:absolute;top:4px;left:1px'></span>" ;
+	print "Add new Research Area</a></div>";
+	print "</fieldset>" . LF;
+}
 
 //TARGETS - MANDATORY
-/** @todo add other targets (like observatory) */
+/** @todo add other implementieren, aber mit eigenem feld! (siehe oben) */
 print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
 print "<table class='create'>" . LF;
 $targets = $_spacemission->get_targets();
-$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
+//$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
 printBigSelectListFromArray("Targets", "add_spa_target_ids[]", $_spacemission->get_has_many("targets"),
-	$targets, "target_name", NULL, FALSE, $options);
+	//$targets, "target_name", NULL, FALSE, $options);
+	$targets, "target_name");
 print "</table></fieldset>" . LF;
 
 //SENSORS
@@ -68,6 +78,12 @@ if(!is_array($_spacemission->get_has_many("sensors")))
 	$_spacemission->init_has_many("sensors");
 
 if(is_array($_spacemission->get_has_many("sensors")))
+{
+	print "<div id='tabbed-tele'>"; /** add this to JS */
+	print "<div style='margin:10px 5px'><a class='ui-state-default ui-corner-all add_sensor' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
+	print "<span class='ui-icon ui-icon-plus' style='position:absolute;top:4px;left:1px'></span>" ;
+	print "Add new Sensor</a></div>";
+	print "<ul>";
 	foreach($_spacemission->get_has_many("sensors") as $sensor_count => $sensor_id)
 	{
 		/** @todo refactor the two hidden fields */
@@ -160,6 +176,8 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	print "</table></fieldset>" . LF;
       	print "</fieldset>" . LF;
 	}
+	print "</div>" . LF;
+}
 
 // Submit Button
 //-----------------------------------------------------------------------------------------------------------

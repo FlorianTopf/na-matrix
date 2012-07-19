@@ -274,7 +274,6 @@ $research_areas = $_observatory->get_research_areas();
 //// ---------------- Questionnaire End ----------------------
 //	$options = array("<option value=''>Please choose one or several by holding CTRL...</option>",
 //		"<option id='add_other_area' value='100000'>Add other Research Area</option>");
-/** @todo add other implementieren, aber mit eigenem feld! */
 printBigSelectListFromArray("Areas of Interest", "add_obs_res_are_ids[]",
 	$_observatory->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, array() , $research_tooltip);
 //Research comments
@@ -283,7 +282,7 @@ $rescomm_tooltip = "Research Comments - Please feel free to write any comments o
 printInputTextfieldRow("Research Comments", "add_obs_research_com", $_observatory->get_add_info('research_comments'),
 			65, 4, NULL, FALSE, $rescomm_tooltip);
 print "</table></fieldset>" . LF;
-
+//ADD OTHER AREAS OF INTEREST
 if ($_SESSION["user_level"] >= 31)
 {
 	print "<fieldset class='rfield'><legend><b class='red'>Administration Tool</b></legend>" . LF;
@@ -294,7 +293,6 @@ if ($_SESSION["user_level"] >= 31)
 }
 
 //TARGETS: NOT MANDADORY
-/** @todo add other targets */
 /** @todo add other implementieren, aber mit eigenem feld! (siehe oben) */
 $target_tooltip = "Planetary Science Targets - Please select planetary science targets. If interested in every target, or if observation for every<br/> target category 
 is potentially possible with the facility, please choose &quot;ALL&quot;,<br/> which subsumes every target; i.e. if choosing &quot;ALL&quot; the facility will appear 

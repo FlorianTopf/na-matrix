@@ -726,8 +726,10 @@ DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 507;
 DELETE FROM `europlanet_na1`.`sensors` WHERE `sensors`.`id` = 508;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
-
+/** ALTER SCRIPTS FOR REVISION 1292 */
+ALTER TABLE `europlanet_na1`.`space_missions` 
+ADD COLUMN `research_comments` TEXT NULL DEFAULT NULL  AFTER `modification_date` , 
+ADD COLUMN `target_comments` TEXT NULL DEFAULT NULL  AFTER `research_comments` ;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */

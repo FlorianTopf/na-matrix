@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 03. Jul 2012 um 14:02
--- Server Version: 5.1.58
--- PHP-Version: 5.3.8
+-- Generation Time: Jul 19, 2012 at 02:48 PM
+-- Server version: 5.1.58
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `europlanet_na1`
+-- Database: `europlanet_na1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `additional_information`
+-- Table structure for table `additional_information`
 --
 
 CREATE TABLE IF NOT EXISTS `additional_information` (
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `additional_information` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `additional_information`
+-- Dumping data for table `additional_information`
 --
 
 INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_instruments`, `array_description`, `backend_description`, `research_comments`, `target_comments`, `general_comments`, `feedback`) VALUES
@@ -243,12 +243,25 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (206, '', '', '', 'CCD Imager 4kx4k', '', '', '', ''),
 (207, 'Important contacts, addresses and telephone numbers: http://www.magic.iac.es/contacts/', '', '', '', '', '', 'THE MAGIC Telescope Collaboration: http://wwwmagic.mppmu.mpg.de/collaboration/index.html', ''),
 (208, '', '', '', 'Littrow spectrograph 3.4 A/px - R2000', '', '', '', ''),
-(209, 'martzobservatory@hotmail.com\r\nPhone: 716-569-3689\r\nUrl: http://www.martzobservatory.org\r\nMr. Gary Nelson - President<br>Mr. John Anderson - martzobservatory@hotmail.com<br>martzobservatory@gmail.com\r\nLatitude:  - Longitude: ', '', '', 'Brand/Type of Camera: Finger Lakes', '\r\n', '', '    The Marshal Martz Memorial Astronomical Association, Inc. is a non-profit organization devoted to the amateur astronomer. The emphasis of our association is observational astronomy, well-rooted in public education and enjoyment of the starry skies.    Our mission is to inform educate and inspire the general public and support teaching in the sciences of astronomy and physics.  ', '');
+(209, '', '', '', '', '', '', 'The Marshal Martz Memorial Astronomical Association, Inc. is a non-profit organization devoted to the amateur astronomer. The emphasis of our association is observational astronomy, well-rooted in public education and enjoyment of the starry skies.    Our mission is to inform educate and inspire the general public and support teaching in the sciences of astronomy and physics.  ', ''),
+(210, '', '', '', 'Filters: UV, R,V,B -> 742nm, 830nm, 890nm/18nm', '', '', '', ''),
+(211, '', '', '', '', '', '', 'The HET operates a queue scheduled observing program.', ''),
+(212, '', '', '', '', '', '', '', ''),
+(213, '', '', '', '', 'Areas of research include: Research in radio astronomy, development of instruments needed in radio astronomy, development of methods for radio astronomical measurements, space research and education', '', 'Member of the European VLBI network.', ''),
+(214, '', '', '', 'Brand/Type of Camera: Roper Scientific (Photometrics LTd.)<br>Framesize: 1340x1300 pixels<br>Color / BW Chip: BW<br>CCD Chip Type: EEV 1340EB', '', '', '', ''),
+(215, '', '', '', '', '', '', '', ''),
+(216, '', '', '', '', '', '', 'Schedule:http://www.astro.umontreal.ca/omm/calendrier_fr.html Deadlines for application usually on 1st Thursday of November March or June', ''),
+(217, '', '', '', '', '', '', '', ''),
+(218, '', '', '', '', '', '', '', ''),
+(219, '', '', '', '', '', '', '- Information for Mopra observers: http://www.narrabri.atnf.csiro.au/mopra/obsinfo.html\r\n- ', ''),
+(220, 'Vatican-http://vaticanobservatory.org/index.php?option=com_contact&view=contact&id=9&Itemid=144\r\nVatican-http://vaticanobservatory.org/index.php?option=com_contact&view=contact&id=9&Itemid=144\r\nPhone: 928-428-2739\r\nUrl: http://mgpc3.as.arizona.edu/\r\n - \r\nLatitude: 109?53'' W - Longitude: 32?42''4.69''''', '', '', '', '', '', '', ''),
+(221, '', '', '', 'CCDs ; Cassegrain Spectrograph ; Near-Infrared Camera ; Automated Photometer; Coude Bench Spectrograph; Grism Spectrograph', '', '', '', ''),
+(222, 'Phone: (626) 440-9016\r\nUrl: www.mtwilson.edu\r\n - \r\nLatitude: 118?3''41.92'' - Longitude: 34?13''25.53''', '', 'CHARA array, 6 1.02 m Telescopes for interferometry in Infrared,Optical. Infrared spatial Interferometer 3 1.65m Telescopes.', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `agencies`
+-- Table structure for table `agencies`
 --
 
 CREATE TABLE IF NOT EXISTS `agencies` (
@@ -260,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `agencies` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Daten für Tabelle `agencies`
+-- Dumping data for table `agencies`
 --
 
 INSERT INTO `agencies` (`id`, `acronym`, `name`, `web_address`) VALUES
@@ -280,7 +293,7 @@ INSERT INTO `agencies` (`id`, `acronym`, `name`, `web_address`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `antenna_types`
+-- Table structure for table `antenna_types`
 --
 
 CREATE TABLE IF NOT EXISTS `antenna_types` (
@@ -290,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `antenna_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Daten für Tabelle `antenna_types`
+-- Dumping data for table `antenna_types`
 --
 
 INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
@@ -311,7 +324,7 @@ INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `clearnights_ranges`
+-- Table structure for table `clearnights_ranges`
 --
 
 CREATE TABLE IF NOT EXISTS `clearnights_ranges` (
@@ -321,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `clearnights_ranges` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Daten für Tabelle `clearnights_ranges`
+-- Dumping data for table `clearnights_ranges`
 --
 
 INSERT INTO `clearnights_ranges` (`id`, `range`) VALUES
@@ -337,7 +350,7 @@ INSERT INTO `clearnights_ranges` (`id`, `range`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `countries`
+-- Table structure for table `countries`
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -348,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=233 ;
 
 --
--- Daten für Tabelle `countries`
+-- Dumping data for table `countries`
 --
 
 INSERT INTO `countries` (`id`, `acronym`, `name`) VALUES
@@ -588,7 +601,7 @@ INSERT INTO `countries` (`id`, `acronym`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `hidden_fields`
+-- Table structure for table `hidden_fields`
 --
 
 CREATE TABLE IF NOT EXISTS `hidden_fields` (
@@ -606,7 +619,7 @@ CREATE TABLE IF NOT EXISTS `hidden_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `hidden_fields`
+-- Dumping data for table `hidden_fields`
 --
 
 INSERT INTO `hidden_fields` (`id`, `web_address`, `address`, `phone`, `email`, `latitude`, `longitude`, `scientific_contacts`, `further_contacts`) VALUES
@@ -808,12 +821,25 @@ INSERT INTO `hidden_fields` (`id`, `web_address`, `address`, `phone`, `email`, `
 (206, 0, 0, 0, 0, 0, 0, 0, 0),
 (207, 0, 0, 0, 0, 0, 0, 0, 0),
 (208, 0, 0, 1, 0, 0, 0, 0, 0),
-(209, 0, 0, 0, 0, 0, 0, 0, 0);
+(209, 0, 0, 0, 0, 0, 0, 0, 0),
+(210, 0, 0, 1, 0, 0, 0, 0, 0),
+(211, 0, 0, 0, 0, 0, 0, 0, 0),
+(212, 0, 0, 0, 0, 0, 0, 0, 0),
+(213, 0, 0, 0, 0, 0, 0, 0, 0),
+(214, 0, 0, 0, 0, 0, 0, 0, 0),
+(215, 0, 0, 0, 0, 0, 0, 0, 0),
+(216, 0, 0, 0, 0, 0, 0, 0, 0),
+(217, 0, 0, 0, 0, 0, 0, 0, 0),
+(218, 0, 0, 0, 0, 0, 0, 0, 0),
+(219, 0, 0, 0, 0, 0, 0, 0, 0),
+(220, 0, 0, 0, 0, 0, 0, 0, 0),
+(221, 0, 0, 0, 0, 0, 0, 0, 0),
+(222, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `instruments`
+-- Table structure for table `instruments`
 --
 
 CREATE TABLE IF NOT EXISTS `instruments` (
@@ -841,10 +867,10 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1308 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1392 ;
 
 --
--- Daten für Tabelle `instruments`
+-- Dumping data for table `instruments`
 --
 
 INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_position`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `spatial_resolution`, `spectral_resolution`, `polarisation`, `field_of_view`, `max_frames_per_sec`, `frame_size`, `min_exposure_time`, `max_exposure_time`, `color_bw_chip`, `ccd_chip_type`, `comments`) VALUES
@@ -1127,12 +1153,46 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1303, 'The DeVeny Spectrograph', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.lowell.edu/dct_instruments_deveny.php'),
 (1304, 'SBIG ST8', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, 'CCD Kodak Kaf1603', ''),
 (1305, 'NESSI - New Mexico Tech Extrasolar Spectroscopic Survey Instrument', 1, '', 'near infrared', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on the instrument available under: http://www.mro.nmt.edu/about-mro/nessi/'),
-(1307, 'CCD Monochrome Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1392 x 1040', 0.01, 999, 1, 'Sony ICX285AL', '');
+(1307, 'CCD Monochrome Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1392 x 1040', 0.01, 999, 1, 'Sony ICX285AL', ''),
+(1314, 'Lumenera SKYnyx', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 100, '640 x 480', 0.001, 3600, 1, 'Sony ICX424', ''),
+(1342, 'LRS - Marcario Low Resolution Spectrograph', 8, 'Prime focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://hydra.as.utexas.edu/?a=help&h=10'),
+(1343, 'MRS - Medium Resolution Spectrograph', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://hydra.as.utexas.edu/?a=help&h=13'),
+(1344, 'HRS - High Resolution Spectrograph', 8, '', '', 390.000000, 8, 1100.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://hydra.as.utexas.edu/?a=help&h=11'),
+(1345, 'DIAFI - Direct Imaging Auxiliary Functions Instrument', 5, 'Cassegrain f/8.8 Ritchey-Chretien focus', '', 300.000000, 8, 1050.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', '- Several different detectors. For a detailed view of the instrument visit http://www.as.utexas.edu/mcdonald/facilities/2.7m/diafi.html'),
+(1346, 'VIRUS-P - Visible Integral-field Replicable Unit Spectrograph - Prototype', 1, 'Cassegrain f/8.8 Ritchey-Chretien focus', '', 340.000000, 8, 685.000000, 8, '', '', '', '169.2', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.7m/virus-p.html'),
+(1347, 'CCD WHT Camera', 5, 'Cassegrain f/8.8 Ritchey-Chretien focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1024 x 1024', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.7m/2.7ccdwht.html'),
+(1348, 'IGI - Imaging Grism Instrument', 8, 'Cassegrain f/8.8 Ritchey-Chretien focus', '', 400.000000, 8, 1000.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.7m/2.7igi.html'),
+(1349, 'TS1 - Tull Spectrograph', 8, 'Coudé f/32.5 focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.7m/cs1.html'),
+(1350, 'TS2 - Cross-Dispersed Echelle Spectrograph', 5, 'Coudé f/32.5 focus', '', 340.000000, 8, 1090.000000, 8, '', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.7m/cs2.html'),
+(1351, 'Argos', 5, 'Prime f/3.9 focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.1m/argos.html'),
+(1352, 'SES - Sandiford Cassegrain Echelle Spectrometer', 8, 'Cassegrain f/13.7 focus', '', 370.000000, 8, 1100.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.1m/ce.html'),
+(1353, 'es2 - Cassegrain Spectrometer', 8, 'Cassegrain f/13.7 focus', '', 300.000000, 8, 1250.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.1m/es2.html'),
+(1354, 'CCD WHT Camera', 5, 'Cassegrain f/13.7 focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1024 x 1024', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.1m/2.1ccdwht.html'),
+(1355, 'IGI - Imaging Grism Instrument', 5, 'Cassegrain f/13.7 focus', '', 400.000000, 8, 1000.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/2.1m/2.1igi.html'),
+(1356, 'CQUEAN - Camera for QUasars in EArly uNiverse', 5, 'Cassegrain f/13.7 focus', '', 700.000000, 8, 1100.000000, 8, '0.276', '', '', '282 x 282', 0, '', 0, 0, 0, '', 'Further information on this instrument availabele under: http://www.as.utexas.edu/mcdonald/facilities/2.1m/cquean.html'),
+(1357, 'QHY8', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, 'Sony ICX453AQ', 'Framesize: 23.4mm(h) x 15.6mm(v)'),
+(1364, 'Vers Array CCD Camera', 5, '', 'optical', 300.000000, 8, 1000.000000, 8, '', '', '', '', 0, '1340 x 1300', 0, 0, 0, '', 'Further information on this instrument available under http://mao.tfai.vu.lt/mao/en/content/vers-array-ccd-camera'),
+(1365, 'CORAVEL - Radial Velocity Instrument', 6, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://mao.tfai.vu.lt/mao/en/content/radial-velocity-instrument-coravel'),
+(1366, 'Three-Channel Genera-Purpose Astrophotometer', 9, '', 'optical', 185.000000, 8, 850.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://mao.tfai.vu.lt/mao/en/content/three-channel-general-purpose-astrophotometer'),
+(1368, 'MOPS - Mopra Spectrometer', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'MOPS offers two configurations:\r\n- Wideband Mode\r\n- Zoom Mode'),
+(1369, 'SIS ALMA Type 1.3mm', 7, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://aro.as.arizona.edu/smt_docs/receivers/1.3mm_ALMA/1.3mmALMA.htm'),
+(1370, 'SIS 2mm', 7, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'For VLBI observations only.'),
+(1371, 'SIS 0.8mm', 7, '', '', 315.000000, 5, 365.000000, 5, '', '', '', '', 0, '', 0, 0, 0, '', ''),
+(1372, 'SIS Alma Type 0.4mm', 7, '', '', 600.000000, 5, 720.000000, 5, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://aro.as.arizona.edu/smt_docs/receivers/0.4mmsis/0.4mmsis.htm'),
+(1373, 'AOS - Acousto-Optical-Spectrometers', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Two 1 GHz bandwidth Spectrometers:\r\n- AOSA: Mean resolution 934 kHz\r\n- AOSB: Mean resolution 913 kHz\r\n\r\n250 MHz bandwidth spectrometer:\r\n- AOSC: Mean resolution 370 kHz\r\n\r\nFurther information on these instruments are available under: http://aro.as.arizona.edu/smt_docs/smt_backends.htm'),
+(1374, 'CTS - Chirp Transform Spectrometers', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Spectrometers with a bandwidth of ~215 MHz\r\n\r\nFurther information on these instruments available under http://aro.as.arizona.edu/smt_docs/smt_backends.htm'),
+(1385, 'CCD Camera', 5, 'Cassegrain focus', '', 0.000000, 1, 0.000000, 1, '0.41', '', '', '840', 0, '2048 x 2048', 0, 0, 0, '', 'Available filter sets include UBVRI, Stromgren 4-color, and DDO, as well as filters for selected spectral features'),
+(1386, 'Illinois "White" Spectrograph', 8, 'Cassegrain focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', '- CCD: Lick3 2660X448 CCD as its imaging detector\r\n- Three camera configurations (38 and 31 cm Nikon, and 15 cm Bowen Schmidt)\r\n- Four gratings (300, 400, 831, and 1200 line per mm)\r\n- Most frequently used dispersion: 0.4 and 0.2 Angstrom'),
+(1387, 'Automated Single-Channel Photoelectric Photometer', 9, 'Cassegrain focus', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Most frequently used filters: Stromgren uvby and customized near-infrared'),
+(1388, 'NIRIM - Near-InfraRed IMager', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', '- Rockwell 256x256 NICMOS3 array detector\r\n- Resolution 0.5 - 2.0 arcsec/pixel\r\n- Field of vew up to 510 arcseconds/pixel\r\n- Spectral sensitivity range: 0.8 to 2.5 microns'),
+(1389, 'High-Speed Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Currently under development'),
+(1390, 'Pulse-counting photoelectric photometer', 9, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Standard UBVRI, Stromgren 4-color, and DDO filter sets are available'),
+(1391, 'SBIG CCD Camera', 5, 'Cassegrain', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', '');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `instrument_types`
+-- Table structure for table `instrument_types`
 --
 
 CREATE TABLE IF NOT EXISTS `instrument_types` (
@@ -1142,7 +1202,7 @@ CREATE TABLE IF NOT EXISTS `instrument_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Daten für Tabelle `instrument_types`
+-- Dumping data for table `instrument_types`
 --
 
 INSERT INTO `instrument_types` (`id`, `name`) VALUES
@@ -1159,7 +1219,7 @@ INSERT INTO `instrument_types` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `observatories`
+-- Table structure for table `observatories`
 --
 
 CREATE TABLE IF NOT EXISTS `observatories` (
@@ -1192,10 +1252,10 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   KEY `precipitation_id` (`precipitation`),
   KEY `clear_nights_id` (`clear_nights`),
   KEY `timezone_id` (`timezone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=210 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=223 ;
 
 --
--- Daten für Tabelle `observatories`
+-- Dumping data for table `observatories`
 --
 
 INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_address`, `address`, `country_id`, `phone`, `email`, `latitude`, `longitude`, `approx_position`, `sealevel_m`, `precipitation`, `clear_nights`, `timezone`, `observatory_status`, `partner_observatories`, `user_id`, `creation_date`, `modification_date`, `approved`, `saved_for_later`, `last_saved_by`) VALUES
@@ -1398,12 +1458,25 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (206, 'Magdalena Ridge Observatory', 1999, 'United States Naval Research Laboratory', 'http://www.mro.nmt.edu', 'Magdalena Ridge Observatory, New Mexico Tech Research Office Building, 101 East Road ,87801 ,Socorro NM87801', 218, '(575) 835 - 6431', 'info@mro.nmt.edu', 33.976667, -107.184717, '', 3230, 7, 8, 20, '', '', 6, '2012-07-02 16:43:12', '2012-07-03 11:47:55', 1, 0, 6),
 (207, 'MAGIC - Major Atmospheric Gamma-ray Imaging Cherenkov telescopes (Roque de los Muchachos Observatory)', 2003, 'MAGIC Collaboration', 'http://wwwmagic.mppmu.mpg.de/', ',,,La Palma', 192, '+34 628 135 143', '', 28.761942, -17.890000, 'Spain; LAT:17?43''; LON:28?46'' N; Rain:; Nights:', 2200, 7, 8, 1, '', '', 6, '2012-07-03 11:50:50', '2012-07-03 12:10:42', 1, 0, 6),
 (208, 'Mandi Observatory', 1990, 'private person', '', 'via dei Brazzà, 23I-33010', 103, '39.0432-570892', 'corelli@conecta.it', 46.096942, 13.183606, 'Near Udine, Italy', 140, 6, 3, 2, '', '', 6, '2012-07-03 12:13:48', '2012-07-03 13:32:29', 1, 0, 6),
-(209, 'Martz Observatoty', 1956, 'Marshal Martz Memorial Astronomical Association, Inc.', 'http://www.martzobservatory.org', '176 Robbin Hill Rd., Frewsburg, NY', 218, '716-569-3689', 'martzobservatory@hotmail.com', 0.000000, 0.000000, 'United States; LAT:; LON:; Rain:; Nights:', 0, 7, 8, 1, '', '', 6, '2012-07-03 14:01:20', NULL, 1, 0, 6);
+(209, 'Martz Observatory', 1956, 'Marshal Martz Memorial Astronomical Association, Inc.', 'http://www.martzobservatory.org', '176 Robbin Hill Rd., Frewsburg, NY', 218, '716-569-3689', 'martzobservatory@hotmail.com', 42.008331, -79.066389, '', 0, 7, 8, 18, '', '', 6, '2012-07-03 14:01:20', '2012-07-03 15:19:16', 1, 0, 6),
+(210, 'Marc Delcroix''s Observatory', 2004, 'Marc Delcroix', '', '2, rue de l''Ardèche', 73, '+33 (5) 61 06 72 86', 'delcroix.marc@free.fr', 43.583075, 1.326231, '', 163, 6, 3, 2, '', '', 3, '2012-07-03 14:18:51', '2012-07-03 15:01:42', 1, 0, 6),
+(211, 'McDonald Observatory', 0, 'University of Texas', 'http://www.as.utexas.edu/mcdonald/mcdonald.html', 'The University of Texas, McDonald Observatory, 2515 Speedway, Stop C1402, Austin, Texas78712-1206', 218, '(512) 471-3303', '', 30.671389, -104.022492, '', 2076, 7, 8, 19, '', '', 6, '2012-07-03 15:23:33', '2012-07-03 16:26:32', 1, 0, 6),
+(212, 'Meadow View Observatory', 2008, 'Jim Collins', 'http://jimstar11.com', '1286 Valley Forge Drive', 218, '1-530-809-0444', 'jimstar11gps@yahoo.com', 39.773056, -121.818331, 'California', 74, 2, 4, 9, '', '', 6, '2012-07-03 16:40:21', '2012-07-03 16:48:44', 1, 0, 6),
+(213, 'Metsähovi Radio Observatory', 1974, 'Aalto University', 'http://www.metsahovi.fi/', 'Metsähovintie 114, 02540 Kylmälä, Finland', 72, '+358 9 256 4831', 'admin@kurp.hut.fi', 60.218056, 24.393889, '35 km west of Helsinki', 61, 7, 8, 3, '', '', 6, '2012-07-04 12:04:45', '2012-07-04 12:18:25', 1, 0, 6),
+(214, 'Michael Adrian Observatory', 1997, 'Astronomie Stiftung Trebur', 'http://homepages.fh-friedberg.de/jomo/t1t.htm', 'Fichtenstrasse 7', 81, '49614750000', 't1t@gmx.de', 49.925442, 8.411417, '', 103, 3, 2, 2, '', '', 6, '2012-07-04 12:20:02', '2012-07-09 13:29:07', 1, 0, 6),
+(215, 'Moletai Astronomical Observatory', 1991, 'Institute of Theoretical Physics and Astronomy of Lithuania, Vilnius University', 'http://www.itpa.lt/mao/', 'Moletu AO Moletai a/d Nr. 8, LT 4150 Lithuania', 118, '+370 383 45 444', 'mao@astro.lt', 55.315831, 25.563331, '', 200, 7, 8, 3, '', '', 6, '2012-07-09 13:29:59', '2012-07-09 14:05:37', 1, 0, 6),
+(216, 'OMM - Observatoire du Mont-Mégantic', 1978, 'University of Montreal', 'http://www.astro.umontreal.ca/omm/', 'Observatoire du Mont-Mégantic, Département de Physique, Université de Montréal, C.P. 6128, Succ. Centre-Ville, Montréal, QC, Canada H3c 3J7', 38, '514-343-6667', 'doyon@astro.umontreal.ca', 45.454997, -71.153331, '', 1111, 7, 8, 1, '', '', 6, '2012-07-09 14:06:36', '2012-07-09 14:24:33', 1, 0, 6),
+(217, 'Monte Mario Observatory', 1923, 'Rome Astronomical Observatory', 'http://www.mporzio.astro.it/?lang=en', 'Sede di Monte Mario,Viale del Parco Mellini,84, 00136 Rome', 103, '++39-06-35533', '', 41.922497, 12.452500, '', 139, 7, 8, 1, '', '', 6, '2012-07-09 14:37:37', '2012-07-09 14:54:23', 0, 1, 6),
+(218, 'Morehead State University Observatory', 0, 'Department of Physics and Astronomy, University of North Carolina at Chapel Hill', 'http://www.physics.unc.edu/research/astro/morehead.php', '', 218, '(919) 962-2078', 'dept@physics.unc.edu', 0.000000, 0.000000, 'Chapel Hill, North Carolina', 0, 7, 8, 1, '', '', 6, '2012-07-09 15:06:19', '2012-07-09 15:08:47', 1, 0, 6),
+(219, 'Mopra', 0, 'CSIRO Astronomy and Space Science Divison', 'http://www.narrabri.atnf.csiro.au/mopra/', 'CSIRO Australia Telescope, Locked Bag 194,NSW 2390, Coonabarabran', 13, '(+61) 02 6790 4093', '', -31.267778, 149.099442, '', 866, 7, 8, 12, '', 'Part of Australia Telescope National Facility (ATNF); part of the Australian Long Baseline Array, ', 6, '2012-07-09 15:15:35', '2012-07-09 15:31:31', 1, 0, 6),
+(220, 'SMT - Heinrich Hertz Submillimeter Telescope (MGIO - Mount Graham International Observatory)', 1989, 'Aritona Radio ObservatoryUniversity of Arizona', 'http://mgpc3.as.arizona.edu/', 'UofA - MGIO,1480 West Swift Trail,85546,Safford AZ85546', 218, '928-428-2739', '', 32.701608, -109.891242, 'USA; LAT:109?53'' W; LON:32?42''4.69''''N; Rain:; Nights:', 3174, 7, 8, 20, '', '', 6, '2012-07-09 15:38:22', '2012-07-09 15:58:36', 1, 0, 6),
+(221, 'Mount Laguna Observatory', 1968, 'Department of Astronomy, San Diego State University', 'http://mintaka.sdsu.edu/', '', 218, '(619) 594-6182', 'astro@mintaka.sdsu.edu', 32.842392, -116.427800, '45 miles East of San Diego', 1859, 7, 8, 21, '', '', 6, '2012-07-09 16:00:32', '2012-07-19 12:01:40', 1, 0, 6),
+(222, 'Mount Wilson Observatory', 0, '', 'http://www.mtwilson.edu/', 'Dave Jurasevich Superintendent Mt. Wilson Observatory Mt. Wilson,,91023,CA91023', 218, '(626) 440-9016', '', 34.223758, -118.061644, '', 1742, 7, 8, 1, '', '', 6, '2012-07-19 12:18:50', '2012-07-19 12:23:13', 1, 0, 6);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `observatory_to_research_areas`
+-- Table structure for table `observatory_to_research_areas`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_research_areas` (
@@ -1415,7 +1488,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_research_areas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `observatory_to_research_areas`
+-- Dumping data for table `observatory_to_research_areas`
 --
 
 INSERT INTO `observatory_to_research_areas` (`observatory_id`, `research_area_id`) VALUES
@@ -1967,12 +2040,59 @@ INSERT INTO `observatory_to_research_areas` (`observatory_id`, `research_area_id
 (207, 133),
 (208, 133),
 (208, 138),
-(209, 131);
+(209, 15),
+(209, 131),
+(210, 95),
+(210, 135),
+(210, 138),
+(210, 142),
+(211, 12),
+(211, 15),
+(211, 71),
+(211, 95),
+(211, 131),
+(211, 133),
+(211, 140),
+(212, 131),
+(212, 138),
+(213, 11),
+(213, 15),
+(213, 67),
+(213, 125),
+(213, 137),
+(214, 9),
+(214, 14),
+(214, 71),
+(214, 133),
+(214, 137),
+(214, 138),
+(215, 9),
+(215, 15),
+(215, 131),
+(215, 133),
+(215, 138),
+(216, 15),
+(216, 67),
+(216, 131),
+(216, 133),
+(217, 11),
+(217, 15),
+(218, 15),
+(218, 133),
+(219, 67),
+(219, 131),
+(220, 19),
+(220, 131),
+(220, 133),
+(220, 139),
+(221, 15),
+(221, 131),
+(222, 131);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `observatory_to_scientific_contacts`
+-- Table structure for table `observatory_to_scientific_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_scientific_contacts` (
@@ -1984,7 +2104,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_scientific_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `observatory_to_scientific_contacts`
+-- Dumping data for table `observatory_to_scientific_contacts`
 --
 
 INSERT INTO `observatory_to_scientific_contacts` (`observatory_id`, `scientific_contact_id`) VALUES
@@ -2105,12 +2225,20 @@ INSERT INTO `observatory_to_scientific_contacts` (`observatory_id`, `scientific_
 (205, 767),
 (207, 768),
 (208, 769),
-(209, 770);
+(209, 770),
+(209, 772),
+(210, 771),
+(213, 773),
+(214, 774),
+(215, 775),
+(216, 776),
+(216, 777),
+(219, 778);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `observatory_to_targets`
+-- Table structure for table `observatory_to_targets`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_targets` (
@@ -2122,7 +2250,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_targets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `observatory_to_targets`
+-- Dumping data for table `observatory_to_targets`
 --
 
 INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
@@ -2365,12 +2493,22 @@ INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
 (205, 219),
 (206, 33),
 (206, 54),
-(206, 219);
+(206, 219),
+(211, 218),
+(212, 9),
+(212, 31),
+(212, 219),
+(213, 45),
+(213, 47),
+(214, 33),
+(214, 47),
+(214, 219),
+(215, 33);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `observatory_to_telescopes`
+-- Table structure for table `observatory_to_telescopes`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_telescopes` (
@@ -2382,7 +2520,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_telescopes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `observatory_to_telescopes`
+-- Dumping data for table `observatory_to_telescopes`
 --
 
 INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUES
@@ -2809,14 +2947,39 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (207, 2325),
 (207, 2326),
 (208, 2330),
-(209, 2331),
-(209, 2332),
-(209, 2333);
+(209, 2345),
+(210, 2341),
+(211, 2364),
+(211, 2365),
+(211, 2366),
+(211, 2367),
+(211, 2368),
+(211, 2369),
+(212, 2376),
+(212, 2377),
+(213, 2382),
+(214, 2387),
+(214, 2388),
+(215, 2401),
+(215, 2402),
+(215, 2403),
+(216, 2406),
+(217, 2411),
+(217, 2412),
+(218, 2414),
+(219, 2418),
+(220, 2420),
+(221, 2436),
+(221, 2437),
+(221, 2438),
+(221, 2439),
+(222, 2442),
+(222, 2443);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `precipitation_ranges`
+-- Table structure for table `precipitation_ranges`
 --
 
 CREATE TABLE IF NOT EXISTS `precipitation_ranges` (
@@ -2826,7 +2989,7 @@ CREATE TABLE IF NOT EXISTS `precipitation_ranges` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Daten für Tabelle `precipitation_ranges`
+-- Dumping data for table `precipitation_ranges`
 --
 
 INSERT INTO `precipitation_ranges` (`id`, `range`) VALUES
@@ -2841,7 +3004,7 @@ INSERT INTO `precipitation_ranges` (`id`, `range`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `research_areas`
+-- Table structure for table `research_areas`
 --
 
 CREATE TABLE IF NOT EXISTS `research_areas` (
@@ -2851,7 +3014,7 @@ CREATE TABLE IF NOT EXISTS `research_areas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=143 ;
 
 --
--- Daten für Tabelle `research_areas`
+-- Dumping data for table `research_areas`
 --
 
 INSERT INTO `research_areas` (`id`, `name`) VALUES
@@ -2881,7 +3044,7 @@ INSERT INTO `research_areas` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `science_goals`
+-- Table structure for table `science_goals`
 --
 
 CREATE TABLE IF NOT EXISTS `science_goals` (
@@ -2892,7 +3055,7 @@ CREATE TABLE IF NOT EXISTS `science_goals` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
--- Daten für Tabelle `science_goals`
+-- Dumping data for table `science_goals`
 --
 
 INSERT INTO `science_goals` (`id`, `acronym`, `name`) VALUES
@@ -2988,7 +3151,7 @@ INSERT INTO `science_goals` (`id`, `acronym`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `scientific_contacts`
+-- Table structure for table `scientific_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `scientific_contacts` (
@@ -2997,10 +3160,10 @@ CREATE TABLE IF NOT EXISTS `scientific_contacts` (
   `email` text NOT NULL,
   `institution` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=771 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=861 ;
 
 --
--- Daten für Tabelle `scientific_contacts`
+-- Dumping data for table `scientific_contacts`
 --
 
 INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
@@ -3070,60 +3233,6 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (222, 'Dr. Hakim L. Malasan', 'hakim@as.itb.ac.id', 'Institut Teknologi Bandung'),
 (223, 'Erik Bryssinck<br>', 'erik.bryssinck@telenet.be<br>', 'private by Erik Bryssinck'),
 (224, 'Steve Riley', 'steve@astrosteve.com<br>', 'Private person'),
-(226, 'David Bogart ', '', 'Goddard Space Flight Center'),
-(227, 'Kevin Brown', '', ''),
-(228, 'Murakami, H', '', ''),
-(229, 'Murakami, H', '', ''),
-(230, 'Oliver Montenbruck', 'oliver.montenbruck@dlr.de', 'German Aerospace Center (DLR), Wessling, Germany'),
-(231, 'Eberhard Gill', 'e.k.a.gill@tudelft.nl', 'German Aerospace Center (DLR), Wessling, Germany'),
-(232, 'Simone D’Amico', 'simone.damico@dlr.de', 'German Aerospace Center (DLR), Wessling, Germany'),
-(233, 'Thomas Rupp', 'thomas.rupp@dlr.de', 'German Aerospace Center (DLR), Wessling, Germany'),
-(249, 'ANDERSON, Caprece', 'cap@srl.caltech.edu', 'SRL'),
-(250, 'Len Fisk', 'lafisk@umich.edu', 'SHRG'),
-(251, 'Eberhard Moebius', '', 'UNH'),
-(252, 'Dr. Robert Gold', 'Robert.Gold@jhuapl.edu', 'JHU Applied Physics Laboratory'),
-(253, 'CALDERON, Minerva', 'mc@srl.caltech.edu', 'SRL'),
-(254, 'Thomas Zurbuchen', 'Thomasz@umich.edu', 'SHRG'),
-(255, 'E. C. Stone', '', 'Caltech '),
-(256, 'D.J. McComas', '', 'Space and Atmospheric Sciences Group'),
-(257, 'Charles W. Smith', '', 'UNH'),
-(258, 'Richard Mewaldt', 'rmewaldt@srl.caltech.edu', 'SWPC'),
-(259, 'Elsa Montagnon', '', '(ESOC) Darmstadt, Germany. '),
-(260, 'Rudolf Schmidt ', '', 'ESOC, Darmstadt, Germany'),
-(261, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(262, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(263, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(264, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(265, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
-(266, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
-(267, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
-(268, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
-(269, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
-(270, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
-(272, 'Marshall Space Flight Center', '', 'NASA'),
-(274, 'Laurie Kleppin', '', 'POES '),
-(275, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(276, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(277, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(278, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(279, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(280, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(281, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
-(282, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
-(283, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
-(284, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
-(285, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
-(286, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
-(287, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
-(288, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
-(289, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
-(290, 'CNES', 'enquiries@cne-siar.gov.uk', 'CNES'),
-(291, 'CNES', 'enquiries@cne-siar.gov.uk', 'CNES'),
-(292, 'Don McCoy', '', 'ESCO, Darmstadt, Germany'),
-(293, 'Graeme Stephens', '', 'NASA'),
-(294, 'Steve Benner', '', 'NASA'),
-(296, 'Joern Wilms ', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
-(297, 'Borucki, W', '', ''),
 (503, 'Alan Stern', '', 'NASA Science Mission Directorate'),
 (504, 'Holger Sierks', '', 'Max-Planck Institute of Solar System Research, Katlenburg-Lindau, Germany'),
 (505, 'Angioletta Coradini', '', 'Institute of Space Astrophysics, Rome, Italy '),
@@ -3140,33 +3249,6 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (516, 'Christopher Carr', '', 'Imperial College of Science, Technology and Medicine, London, United Kingdom'),
 (517, 'James Burch', '', 'Southwest Research Institute, San Antonio, Texas'),
 (518, 'M. Pätzold', '', 'University of Cologne, Germany'),
-(688, 'Alan Stern', '', 'NASA Science Mission Directorate'),
-(689, 'Holger Sierks', '', 'Max-Planck Institute of Solar System Research, Katlenburg-Lindau, Germany'),
-(690, 'Angioletta Coradini', '', 'Institute of Space Astrophysics, Rome, Italy '),
-(691, 'Samuel Gulkis', '', 'NASA-JPL, Pasadena, USA'),
-(692, 'Wlodek Kofman', '', 'LPG/CNRS, Grenoble, France'),
-(693, 'Kathrin Altwegg', '', 'University of Bern, Switzerland'),
-(694, 'Klaus Torkar', '', 'Space Research Institute (IWF), Graz, Austria'),
-(695, 'Martin Hilchenbach', '', 'Max-Planck-Institute for Solar System Research, Katlenburg-Lindau, Germany'),
-(696, 'Alessandra Rotundi', '', 'INAF - Capodimonte Observatory, Naples, Italy '),
-(697, 'Rickard Lundin', '', 'Swedish Institute of Space Physics, Kiruna, Sweden'),
-(698, 'Anders Eriksson', '', 'Swedish Institute of Space Physics, Uppsala, Sweden'),
-(699, 'Karl-Heinz Glassmeier', '', 'Technical University of Braunschweig, Germany'),
-(700, 'Jean Gabriel Trotignon', '', 'Environmental Physics and Chemistry Laboratory, Orléans, France'),
-(701, 'Christopher Carr', '', 'Imperial College of Science, Technology and Medicine, London, United Kingdom'),
-(702, 'James Burch', '', 'Southwest Research Institute, San Antonio, Texas'),
-(703, 'M. Pätzold', '', 'University of Cologne, Germany'),
-(704, 'G. Klingelhöfer', '', 'Johannes-Gutenberg Univ., Mainz, Germany'),
-(705, 'J.P. Bibring', '', 'IAS, Orsay, France'),
-(706, 'W. Kofman', '', 'LPG, Grenoble, France'),
-(707, 'T. Spohn', '', 'Institute for Planetology, DLR, Berlin, Germany'),
-(708, 'I. Wright', '', 'pen University, United Kingdom'),
-(709, 'S. Mottola', '', 'DLR, Berlin, Germany'),
-(710, 'H-U.Auster', '', 'Technische Univ., Braunschweig, Germany'),
-(711, 'I. Apathy', '', 'KFKI, Budapest, Hungary'),
-(712, 'A. Ercoli-Finzi', '', 'Politecnico of Milan, Italy'),
-(713, 'K. Seidensticker', '', 'DLR, Cologne, Germany'),
-(714, 'H. Krüger', '', 'Max-Planck-Institute for Solar System Research, Katlenburg-Lindau, Germany'),
 (715, 'Arif Solmaz', 'arif.solmaz@gmail.com', 'Canakkale Onsekiz Mart University'),
 (716, 'Chuck Cundiff', 'chuckcundiff@comcast.net', 'private person'),
 (718, 'Dr Bev M. Ewen-Smitm', 'bmes@coaa.co.uk<br>', 'Private'),
@@ -3218,12 +3300,101 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (767, 'Luciano Lai', 'francylai@tin.it or lai.luciano@tin.it', 'private person'),
 (768, 'Dr. Eduardo Colombo', 'ehcolombo@gmail.com', 'Centro Astrofisica la Palma'),
 (769, 'Paolo Corelli', 'corelli@conecta.it', 'private person'),
-(770, 'Mr. Gary Nelson - President<br>Mr. John Anderson', 'martzobservatory@hotmail.com<br>martzobservatory@gmail.com', 'Marshal Martz Memorial Astronomical Association, Inc.');
+(770, 'Mr. Gary Nelson - President', 'martzobservatory@hotmail.com', 'Marshal Martz Memorial Astronomical Association, Inc.'),
+(771, 'Marc Delcroix', 'delcroix.marc@free.fr', 'Marc Delcroix'),
+(772, 'Mr. John Anderson', 'martzobservatory@gmail.com', 'Marshal Martz Memorial Astronomical Association, Inc.'),
+(773, 'Tornikoski, Merja', 'Merja.Tornikoski@hut.fi', 'Aalto University'),
+(774, 'Johannes M. Ohlert', 'jomo[at]monet.fh-friedberg.de', 'Astronomie Stiftung Trebur'),
+(775, 'Grazina Tautvaisiene', 'taut@itpa.lt', 'Institute of Theoretical Physics and Astronomy of Lithuania'),
+(776, 'René Doyon', 'doyon@astro.umontreal.ca', 'Director of OMM'),
+(777, 'Robert Lamontagne', 'lamont@astro.umontreal.ca', 'Executive Director of OMM'),
+(778, 'Balthasar Indermuehle', '', ''),
+(779, 'Alan Stern', '', 'NASA Science Mission Directorate'),
+(780, 'Holger Sierks', '', 'Max-Planck Institute of Solar System Research, Katlenburg-Lindau, Germany'),
+(781, 'Angioletta Coradini', '', 'Institute of Space Astrophysics, Rome, Italy '),
+(782, 'Samuel Gulkis', '', 'NASA-JPL, Pasadena, USA'),
+(783, 'Wlodek Kofman', '', 'LPG/CNRS, Grenoble, France'),
+(784, 'Kathrin Altwegg', '', 'University of Bern, Switzerland'),
+(785, 'Klaus Torkar', '', 'Space Research Institute (IWF), Graz, Austria'),
+(786, 'Martin Hilchenbach', '', 'Max-Planck-Institute for Solar System Research, Katlenburg-Lindau, Germany'),
+(787, 'Alessandra Rotundi', '', 'INAF - Capodimonte Observatory, Naples, Italy '),
+(788, 'Rickard Lundin', '', 'Swedish Institute of Space Physics, Kiruna, Sweden'),
+(789, 'Anders Eriksson', '', 'Swedish Institute of Space Physics, Uppsala, Sweden'),
+(790, 'Karl-Heinz Glassmeier', '', 'Technical University of Braunschweig, Germany'),
+(791, 'Jean Gabriel Trotignon', '', 'Environmental Physics and Chemistry Laboratory, Orléans, France'),
+(792, 'Christopher Carr', '', 'Imperial College of Science, Technology and Medicine, London, United Kingdom'),
+(793, 'James Burch', '', 'Southwest Research Institute, San Antonio, Texas'),
+(794, 'M. Pätzold', '', 'University of Cologne, Germany'),
+(795, 'G. Klingelhöfer', '', 'Johannes-Gutenberg Univ., Mainz, Germany'),
+(796, 'J.P. Bibring', '', 'IAS, Orsay, France'),
+(797, 'W. Kofman', '', 'LPG, Grenoble, France'),
+(798, 'T. Spohn', '', 'Institute for Planetology, DLR, Berlin, Germany'),
+(799, 'I. Wright', '', 'pen University, United Kingdom'),
+(800, 'S. Mottola', '', 'DLR, Berlin, Germany'),
+(801, 'H-U. Auster', '', 'Technische Univ., Braunschweig, Germany'),
+(802, 'I. Apathy', '', 'KFKI, Budapest, Hungary'),
+(803, 'A. Ercoli-Finzi', '', 'Politecnico of Milan, Italy'),
+(804, 'K. Seidensticker', '', 'DLR, Cologne, Germany'),
+(805, 'H. Krüger', '', 'Max-Planck-Institute for Solar System Research, Katlenburg-Lindau, Germany'),
+(806, 'Borucki, W', '', ''),
+(807, 'Joern Wilms ', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(808, 'Steve Benner', '', 'NASA'),
+(809, 'Graeme Stephens', '', 'NASA'),
+(810, 'Don McCoy', '', 'ESCO, Darmstadt, Germany'),
+(811, 'CNES', 'enquiries@cne-siar.gov.uk', 'CNES'),
+(812, 'CNES', 'enquiries@cne-siar.gov.uk', 'CNES'),
+(813, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
+(814, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
+(815, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
+(816, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
+(817, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
+(818, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
+(819, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
+(820, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
+(821, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
+(822, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(823, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(824, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(825, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(826, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(827, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(828, 'Laurie Kleppin', '', 'POES '),
+(829, 'Marshall Space Flight Center', '', 'NASA'),
+(830, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
+(831, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
+(832, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
+(833, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
+(834, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
+(835, 'Charles F. Bolden, Jr', 'www.nasa.gov', 'NASA'),
+(837, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(838, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(839, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(840, 'Joern Wilms', 'joern.wilms@sternwarte.uni-erlangen.de', 'ESA'),
+(841, 'Rudolf Schmidt ', '', 'ESOC, Darmstadt, Germany'),
+(842, 'Elsa Montagnon', '', '(ESOC) Darmstadt, Germany. '),
+(843, 'ANDERSON, Caprece', 'cap@srl.caltech.edu', 'SRL'),
+(844, 'Len Fisk', 'lafisk@umich.edu', 'SHRG'),
+(845, 'Eberhard Moebius', '', 'UNH'),
+(846, 'Dr. Robert Gold', 'Robert.Gold@jhuapl.edu', 'JHU Applied Physics Laboratory'),
+(847, 'CALDERON, Minerva', 'mc@srl.caltech.edu', 'SRL'),
+(848, 'Thomas Zurbuchen', 'Thomasz@umich.edu', 'SHRG'),
+(849, 'E. C. Stone', '', 'Caltech '),
+(850, 'D.J. McComas', '', 'Space and Atmospheric Sciences Group'),
+(851, 'Charles W. Smith', '', 'UNH'),
+(852, 'Richard Mewaldt', 'rmewaldt@srl.caltech.edu', 'SWPC'),
+(853, 'Oliver Montenbruck', 'oliver.montenbruck@dlr.de', 'German Aerospace Center (DLR), Wessling, Germany'),
+(854, 'Eberhard Gill', 'e.k.a.gill@tudelft.nl', 'German Aerospace Center (DLR), Wessling, Germany'),
+(855, 'Simone D’Amico', 'simone.damico@dlr.de', 'German Aerospace Center (DLR), Wessling, Germany'),
+(856, 'Thomas Rupp', 'thomas.rupp@dlr.de', 'German Aerospace Center (DLR), Wessling, Germany'),
+(857, 'Murakami, H', '', ''),
+(858, 'Murakami, H', '', ''),
+(859, 'Kevin Brown', '', ''),
+(860, 'David Bogart ', '', 'Goddard Space Flight Center');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `sensors`
+-- Table structure for table `sensors`
 --
 
 CREATE TABLE IF NOT EXISTS `sensors` (
@@ -3240,10 +3411,10 @@ CREATE TABLE IF NOT EXISTS `sensors` (
   `web_address` text,
   `sensor_comments` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=669 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=765 ;
 
 --
--- Daten für Tabelle `sensors`
+-- Dumping data for table `sensors`
 --
 
 INSERT INTO `sensors` (`id`, `sensor_name`, `sensor_type`, `underlying`, `range_begin`, `range_end`, `units`, `measured`, `resolution`, `field_of_view`, `web_address`, `sensor_comments`) VALUES
@@ -3256,108 +3427,108 @@ INSERT INTO `sensors` (`id`, `sensor_name`, `sensor_type`, `underlying`, `range_
 (11, 'SWIMS', 'Solar Wind Ion Mass Spectrometer', '', 2, 30, 'Z', 'M,E/Q', '62 x 6', '', '', NULL),
 (12, 'SWEPAM', 'Solar Wind Electron Proton & Alpha Monitor', '', 0, 0, 'H, He', 'E/Q', '80 x 1', '', '', NULL),
 (13, 'CRIS', 'Cosmic Ray Isotope Spectrometer', 'Silicon Detectors', 2, 30, 'Z', 'Z, M, E', '', '120', '', NULL),
-(268, 'GOES-P Solar X-Ray Imager', '', '', 6, 60, 'A (Angstroms)', '', '', '', '', ''),
-(269, 'GOES-P Space Environment Monitor', '3 in 1, EPS, Magnometer, XRS', '', 0.05, 0.3, 'nm', '', '', '', '', ''),
-(270, 'GOES-P Sounder', 'Filter Radiometer', '', 0, 15, 'microns', '', '', '', '', ''),
-(271, 'GOES-P Imager', 'Imaging', '', 0, 0, '', '', '', '', '', ''),
-(272, 'CALIOP', 'the Cloud-Aerosol Lidar with Orthogonal Polarization ', '', 0, 0, '', '', '', '', '', ''),
-(273, 'WFC', 'the Wide Field Camera ', '', 0, 0, '', '', '', '', '', ''),
-(274, 'IIR', 'the Imaging Infrared Radiometer ', '', 0, 0, '', '', '', '', '', ''),
-(275, 'Far-Infrared Surveyor', 'Infrared', '', 45, 180, 'micro m', '', '26.79arcsec, 44.20arcsec', '', '', ''),
-(276, 'InfraRed Camera', 'Infrared', '', 1.7, 5.5, 'micron', '', '', '9.5x10.0	9.1x10.0	10.3x10.2', '', ''),
-(277, 'High-grade single-frequency Phoenix GPS sensor', 'GPS', '', 0, 0, '', '', '', '', '', ''),
-(278, 'Formation Flying Radio-Frequency Sensor', '', '', 0, 0, '', '', '', '', '', ''),
-(279, 'Vision-Based Sensor ', '', '', 0, 0, '', '', '', '', '', ''),
-(280, 'ASTER', ' Advanced Spaceborne Thermal Emission and Reflection Radiometer', '', 0, 0, '', '', '', '', '', ''),
-(281, 'MOPITT', 'Measurements of Pollution in the Troposphere', '', 0, 0, '', '', '', '', '', ''),
-(282, 'MISR', 'Multi-angle Imaging Spectroradiometer ', '', 0, 0, '', '', '', '', '', ''),
-(283, 'MODIS', 'Moderate-resolution Imaging Spectroradiometer ', '', 0, 0, '', '', '', '', '', ''),
-(284, 'CERES', 'Clouds and Earth', '', 0, 0, '', '', '', '', '', ''),
 (285, 'X-ray Detector', '', '', 15, 40, 'keV', '', '', '', '', ''),
 (286, 'Gamma Radiation Detector', '', '', 30, 50, 'GeV', '', '', '', '', ''),
-(297, 'The Cosmic Ray Isotope Spectrometer (CRIS)', 'Spectrometer', '', 250, 250, 'cm²-sr', 'Species: 2 ≤ Z ≤ 30; Quantities: Z, M, E', 'mass resolution, 0.25 amu ', '', '', 'Typical Energy (MeV/nuc): ~ 200\r\nTechnique: dE/dx - E'),
-(298, 'Solar Wind Ion Composition Spectrometer (SWICS)', 'Spectrometer', '', 0, 100, 'keV/e', '', '', '', '', ''),
-(299, 'SEPICA', 'Ionic state', '', 0.2, 100, 'MeV/Nuc', '', '', '', '', ''),
-(300, 'ULEIS ', 'Ion Flux', '', 20000, 10000, 'MeV/nucleon', '', '', '', '', ''),
-(301, 'The Solar Isotope Spectrometer', 'Spectrometer', '', 10, 100, 'MeV/nucleon', '', 'mass resolution, 0.25 amu', '', '', ''),
-(302, 'Solar Wind Ions Mass Spectrometer (SWIMS)', 'Spectrometer', '', 0, 10, 'keV/e', '', '', '', '', ''),
-(303, 'EPAM', 'Spectrometer', '', 0, 50, 'keV', '', '', '', '', ''),
-(304, 'Solar Wind Electron, Proton, and Alpha Monitor (SWEPAM)', 'Monitor', '', 0.26, 36, 'Kev', '', '', '', '', ''),
-(305, 'Magnetometer Instrument', 'Twin, triaxial fluxgate magnetometers (boom mounted)', '', 4, 65, 'nT', '', '', '', '', ''),
-(306, 'Real-Time Solar Wind Data (RTSW)', 'Geometric storm warning', '', 0, 0, '', '', '', '', '', ''),
-(308, 'Radar Altmeter', '', '', 0, 0, '', '', '', '', '', ''),
-(309, 'MERMAG', 'Mercury Magnetometer', '', 0, 0, '', '', '', '', '', ''),
-(310, 'HRSC', 'High Resolution Stereo Camera ', '', 0, 0, '', '', '2 m ', '', '', ''),
-(311, 'SPI', 'Spectrometer', 'Astrophysical lines', 0.02, 10, 'MeV', '', 'Fine enough to resolve astrophysical lines and allow spectroscopy in region of gamma-rays', 'Nucleosynthesis, relativistic particle accelerators, and strong-field signatures in compact stars', '', ''),
-(312, 'OMC', 'Optical Monitor', '', 500, 600, 'nm', 'X-rays, Gamma-rays', '', '', '', ''),
-(313, 'JEM-X', 'X-ray monitor', '', 3, 35, 'keV', 'Images of the sky.', 'Arcminute angular resolution', '', '', ''),
-(314, 'IBIS', 'Imager', '', 0.015, 10, 'MeV', '', 'High Angular Resolution', '', '', ''),
-(315, 'NICMOS', 'Infrared Camera/Spectrometer', 'Objects in deepest space', 0, 77, 'Kelvin', 'Electromagnetic Spectrum, Birth of stars, galaxies, solar systems, Interstellar gas, Life of Universe, and formation of galaxies, stars & planetary systems', 'near infra-red wavelengths', '', '', ''),
-(316, 'FGS', 'Fine guidance sensors', '', 0, 0, '', 'Star positions', '0.007 arcsec', '', '', ''),
-(317, 'WFC3', 'Wide field optical camera', '', 0, 0, '', 'Near infrared light, visible light, and near-Ultraviolet radiation', '', '', '', ''),
-(318, 'COS', 'Ultraviolet spectrograph', '', 0, 0, '', 'Observing points of light, like stars and quasars, whilst looking at large areas - galaxies', '', '', '', ''),
-(319, 'STIS', 'Optical Spectrometer/Camera', '', 0, 0, '', 'To hunt for black holes, measure an object''s temperature, density, chemical composition and motion.', '', '', '', ''),
-(320, 'ACS', 'Optical Survey Camera', '', 0, 0, '', 'Studying earliest activity of the Universe, how the Universe evolved, and the nature and distribution of galaxies.', 'Enhanced sensitivity/resolution', 'Sees wavelengths from far ultraviolet to visible light.', '', ''),
-(322, 'Cluster II', '', '', 0, 0, '', 'Interaction between the Solar Wind and Magnetosphere', '', 'Solar Wind Particles, Particles entering Polar Cusps, Magnetotail', '', ''),
-(324, 'Advanced Microwave Sounding Unit (AMSU-A and MHS)', 'Microwave', '', 50.3, 89, 'GHz oxygen band', '', '', '', '', ''),
-(325, 'Advanced Data Collection System (A-DCS)', 'Environmental Monitoring System', '', 0, 0, '', '', '', '', '', ''),
-(326, 'Space Environment Monitor (SEM)', 'Charged Particle Spectrometer', '', 20, 50, 'eV', '', '', '', '', ''),
-(327, 'Solar Backscatter Ultraviolet Spectral Radiometer (SBUV/2)', 'Radiometer', '', 0, 0, '', '', '', '', '', ''),
-(328, 'High Resolution Infrared Radiation Sounder (HIRS/4)', 'Infrared', '', 0, 0, '', '', '', '', '', ''),
-(329, 'Advanced Very High Resolution Radiometer (AVHRR/3)', 'Infra red', '', 0, 0, '', '', '', '', '', ''),
-(330, 'European Photon Imaging Cameras (EPIC)', 'Cameras', '', 0.15, 15, 'keV', 'Extemely sensitive imaging observations over the telescope''s field of view.', 'Angular resolution of PSF, 6 arcsec FWHM', 'Field of view of 30 arcmin', '', ''),
-(331, 'X-ray telescopes', 'X-ray telescopes', '', 6, 7, 'keV', 'highest possible effective area over a wide range of energies - provides sufficient reflectivity at high energies', 'Mirror system uses a shallow grazing angle of 30'' to provide sufficient reflectivity at high energies.', 'The telescopes focal length is 7.5 meters and the diameter of the largest mirrors is 70cm, to be compatible with the shroud of the launcher.', '', ''),
-(332, 'Two reflection grating spectrometeres', 'Spectrometers', '', 0.33, 2.5, 'keV', 'Diffracts the X-rays to an array of dedicated charge coupled devices (CCD) detectors.', '6 arcsec (FWHM)', '30 arcmin', '', ''),
-(333, 'HIFI', 'Heterodyne Instrument for the Far Infrared', '', 480, 1250, 'GHz', '', '', '', '', ''),
-(334, 'PACS', 'Photodetector Array Camera and Spectrometer', '', 57, 210, 'µm', 'Operates either as an imaging photometer or an integral field spectrometer over the spectral band.', '', '', '', ''),
-(335, 'SPIRE', 'Spectral and Photometric Imaging Reciever', '3.5 meter diameter telescope.', 60, 700, 'µm', '', '', '', '', ''),
-(336, 'XRT', 'X-ray telescope', 'Consist of nested conical thin-foil mirrors which share similar design concepts with ASCA XRT.', 5, 8, 'keV', '', 'High Spectroscopic Resolution', '', '', ''),
-(337, 'XRS', 'X-ray spectrometer', '', 0.2, 700, 'keV', '', 'High Spectroscopic Resolution', '', '', ''),
-(338, 'XIS', 'X-ray Imaging Spectrometer', 'X-ray telescope and X-ray sensitive charged coupled device (CCD)', 0.2, 700, 'keV', 'location and energy of incident X-ray photons.', 'High Spectroscopic Resolution', '', '', ''),
-(339, 'HXD', 'Hard X-ray Detector', 'High sensitivity', 10, 700, 'keV', 'Detects transient high energy phenomena such as the gamma-ray bursts.', 'High Spectroscopic Resolution', '', '', ''),
-(340, 'C1XS', 'Chandrayaan-1 X-ray Spectrometer', 'Will carry out high-quality, low energy X-ray spectroscopic mapping of the moon', 1, 10, 'keV', 'Measure the elemental abundance, and map the distribution of the three main rock forming elements: Mg, Al, and Si.', 'High Spectroscopic Resolution', 'Determine the abundance of minor elements such as Ca, Ti and Fe on the surface of the Moon.', '', ''),
-(341, 'SARA', 'Sub-keV Atom Reflecting Analyser', 'Studies of plasma-surface interactions in space.', 0.01, 2, 'keV', 'Detect atoms with sufficient angular and mass resolution to address the scientific objectives.', '', '', '', ''),
-(342, 'SIR-2', 'The near infrared spectrometer', 'Study the chemical composition of the Moon''s crust and mantle.', 0.9, 2.4, 'micrometer', '', '6 nanometres', '', '', ''),
-(343, 'SOT', 'Solar Optical Telescope', '50cm aperture.', 388, 668, 'nm', 'Measurement of the vector magnetic field in the photosphere and dynamics of both the photosphere and chromosphere associated with the magnetic fields.', '', '', '', ''),
-(344, 'EIS', 'Extreme-ultraviolet Imaging Spectrometer', '', 0, 0, '', '', '', '', '', ''),
-(345, 'XRT', 'X-ray Telescope', '', 0, 0, '', 'Observes the generation, transport, and emergence of solar magnetic fields, and ultimate dissipation of magnetic energy in a form such as flares, and pico-flares, coronal heating, coronal mass ejection.', 'High Resolution', '', '', ''),
-(346, 'Afocal Telescope', '27cm-diameter afocal telescope', '', 370, 950, 'nm', 'Blocks sunlight reflected by the Earth.', '', '2.7-3.05 degrees', '', ''),
-(347, 'CCD', '4-CCD wide-field camera', 'CCD camera built around the PROTEUS spacecraft bus, and operates in a low-Earth orbit.', 850, 900, 'km', '', '', '', '', ''),
-(348, 'ASPERA-4', 'Analyzer of Space Plasmas and Energetic Atoms', '', 0, 0, '', '', '', '', '', ''),
-(349, 'Spectrometer', 'Planetary Fourier Spectrometer and Spectroscopy for Investigation of Characteristics of the Atmosphere of Venus, also Visible and Infrared Thermal Imaging Spectrometer', '', 0.9, 45, 'µm', '', '', '', '', ''),
-(350, 'MAG', 'magnetometer', 'measure the strength of Venus''s magnetic field and the direction of it as affected by the solar wind and Venus itself.', 0, 0, '', 'map the magnetosheath, magnetotail, ionosphere, and magnetic barrier in high resolution in three-dimensions', '', '', '', ''),
-(351, 'VMC', 'Venus Monitoring Camera (a wide-angle, multi-channel CCD)', '', 0, 0, '', '', '', '', '', ''),
-(352, 'SAR', 'Synthetic Aperture Radar', 'Generation of a consistent global Digital Elevation Model (DEM)', 0, 0, '', '', '', '', '', ''),
-(353, 'Synthetic Aperture Radar', 'X-band', '', 0, 0, '', '', '50 cm', '', '', ''),
-(354, 'The Cloud Profiling Radar (CPR)', 'Radar', '', -30, 70, 'dBZ', '', '', '', '', ''),
-(355, 'GOES-O Solar X-Ray Imager', 'Soft X-Ray', '', 6, 60, 'A (Angstroms)', '', '', '', '', ''),
-(357, 'Ariane 5 ECA', 'Expendable Launch System', '', 350, 10000, 'µm', 'Amplitude of Structures in Cosmic Microwave Background Radiation, Hubble Constant, Sunyaev-Zel''dovich Effect', 'Good Angular Resolution and Sensitivity', 'Cosmic Microwave Background Anisotropies, Inflationary Models of early Universe', '', ''),
-(358, 'Kepler photometer', 'Photometer', '', 400, 850, 'nm', '', '2200x1024 pixels', '105deg2 (about 12 degree diameter)', '', ''),
-(649, 'ALICE  (orbiter instrument)', 'Ultraviolet imaging spectrograph', 'Rowland Circle style imaging spectrograph', 70, 205, 'nm', 'Nucleus imaging and spectroscopy; Coma spectroscopy ', '0.3 - 0.5 nm', '0.1° × 6.0°', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1636', 'ALICE will characterize the composition of the nucleus and coma, and the nucleus/coma coupling of comet 67 P/Churyumov-Gerasimenko.'),
-(650, 'OSIRIS  (orbiter instrument)', 'Optical, Spectroscopic, and Infrared Remote Imaging System', '700 mm / 140 mm cameras', 250, 1000, 'nm', '', '20 - 100 μrad px-1', '2.35° × 2.35° (narrow angle) 12° × 12° (wide angle)', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1642', 'OSIRIS is a dual camera imaging system operating in the visible, near-infrared and near-ultraviolet wavelength ranges.\r\n\r\nThe narrow angle camera is designed to produce high spatial resolution images of the nucleus of the target comet. The wide angle camera has a wide field of view and high straylight rejection to image the dust and gas directly above the surface of the nucleus of the target comet.'),
-(651, 'VIRTIS (orbiter instrument)', 'Visible and Infrared Thermal Imaging Spectrometer', 'Mapping and High Resolution Spectrometer (3 Channels)', 0.25, 5, 'μm', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1646', 'VIRTIS will map and study the nature of the solids and the temperature on the surface of the comet nucleus. It will also identify comet gases, characterise the physical conditions of the coma and help to identify the best landing sites. \r\n\r\nAdditional information: http://www.ifsi-roma.inaf.it/virtis/index.php?categoryid=1'),
-(652, 'MIRO (orbiter instrument)', 'Microwave Instrument for the Rosetta Orbiter', 'Millimetre wave mixer receiver and submillimetre heterodyne receiver', 0, 0, '', '188 Ghz (Millimetre wave) and 562 Ghz (Submillimetre wave): high resolution molecular line spectra in absorption and emission, and broadband continuum emission data.', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1641', 'MIRO will determine the abundances of major gases, the surface outgassing rate and the nucleus subsurface temperature.\r\n'),
-(653, 'CONSERT (modules on both orbiter and lander)', 'Comet Nucleus Sounding Experiment by Radiowave Transmission', 'Time domain transponder', 0, 0, '', 'A 90 MHz radio signal is transmitted from the orbiter, passing though the comet surface, to the lander and, after some data extraction, is transmitted from the lander back to the orbiter.', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1637', 'CONSERT will use tomography to probe the dielectric properties of the comet’s interior by studying radio waves reflected and scattered by the nucleus. '),
-(654, 'ROSINA (orbiter instrument)', 'Rosetta Orbiter Spectrometer for Ion and Neutral Analysis', 'Three sensors: the Double Focusing Mass Spectrometer (DFMS), the Reflectron Time of Flight Spectrometer (RTOF), and the Comet Pressure Sensor (COPS). ', 1, 300, 'amu', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1650', 'The ROSINA mass spectrometers will determine the composition of the comet''s atmosphere and ionosphere, measure the temperature and bulk velocity of the gas and ions, and investigate reactions in which they take part. The ROSINA pressure sensor is capable of measuring both total and ram pressure, in order to determine the gas density and rate of radial gas flow. \r\n\r\nAdditional information: http://space.unibe.ch/rosina.html'),
-(655, 'MIDAS (orbiter instrument)', 'Micro-Imaging Dust Analysis System', '', 0, 0, '', 'Dust grains in the size range from 4 nm - 4µm will be imaged in 3-D by means of atomic force microscopy', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1640', 'MIDAS will study the dust around the comet. It will provide information on particle population, size, volume and shape.\r\n\r\nAdditional information: http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35969'),
-(656, 'COSIMA (orbiter instrument)', 'Cometary Secondary Ion Mass Analyser', 'Ion mass spectrometer, with dust collector, ion gun, and optical microscope.', 1, 3500, 'amu', 'Dust from the near comet environment are collected and bombarded with pulses of indium ions. The resulting secondary ions are extracted into the time-of-flight mass spectrometer.', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1638', 'COSIMA will analyse the characteristics of dust grains emitted by the comet, such as their composition and whether they are organic or inorganic. \r\n\r\nAdditional information: http://www.mps.mpg.de/en/projekte/rosetta/cosima/'),
-(657, 'GIADA (orbiter instrument)', 'Grain Impact Analyser and Dust Accumulator', 'Optical grain detection system and a mechanical grain impact sensor', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1639', 'GIADA will measure the scalar velocity, size and momentum of dust particles in the coma of the comet.\r\n'),
-(658, 'RPC (orbiter instrument)', 'Rosetta Plasma Consortium', 'A set of five instruments', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1644', 'RPC will measure the physical properties of the nucleus, examine the structure of the inner coma, monitor cometary activity, and study the comet’s interaction with the solar wind.\r\n\r\nRPC consists of five sensors:\r\n-Ion Composition Analyser (ICA)\r\n-Ion and Electron Sensor (IES)\r\n-Langmuir Probe (LAP)\r\n-Fluxgate Magnetometer (MAG)\r\n-Mutual Impedance Probe (MIP),\r\nas well as a joint Plasma Interface Unit (PIU), acting as instrument control, spacecraft interface, and power management unit.'),
-(659, 'RSI (orbiter instrument)', 'Radio Science Investigation', 'Radio communication system of the spacecraft and those of the ground stations on Earth', 0, 0, '', 'Radio signals at S-band or X-band', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1645', 'RSI will, by using shifts in the spacecraft’s radio signals, measure the mass, density and gravity of the nucleus, define the comet’s orbit, and study the inner coma.'),
-(660, 'APXS (lander instrument)', 'Alpha Proton X-ray Spectrometer', 'The APX spectrometer consists of a sensor head, a deployment device, and electronics. The sensor head contains the high-energy alpha sources.', 0, 0, '', 'Alpha mode: alpha backscatter spectroscopy (Rutherford scattering); X-ray mode: alpha- and x-ray induced x-ray spectroscopy', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=893', 'Lowered to within 4 cm of the ground, APXS will detect alpha particles and X-rays to gather information on the elemental composition of the comet’s surface. \r\n\r\nAdditional information: http://www3.mpch-mainz.mpg.de/~kosmo/spacepage/english/rosetta/rosetta.htm'),
-(661, 'CIVA (lander instrument)', 'Comet Infrared and Visible Analyser', 'CIVA-P: a panoramic stereo camera consisting of 6 micro-cameras; and CIVA-M: an optical microscope coupled to a near infrared microscopic hyperspectral imager', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=898', 'CIVA-P consists of six identical micro-cameras to take panoramic pictures of the comet surface as seen from the Rosetta Lander Philae.\r\n\r\nThe spectrometer, CIVA-M, will study the composition, texture and albedo (reflectivity) of samples collected from the surface.\r\n\r\nRef: J.-P. Bibring et al., Space Science Reviews, Vol 128, p397, Springer, 2007'),
-(662, 'COSAC (lander instrument)', 'COmetary SAmpling and Composition experiment', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=895', 'CONSERT will probe the internal structure of the nucleus. Radio waves from CONSERT will travel through the nucleus and will be returned by a transponder on the lander. '),
-(663, 'MUPUS (lander instrument)', 'MUlti-PUrpose Sensors for Surface and Sub-Surface Science', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=897', 'MUPUS will use sensors on the lander’s anchor, probe and exterior to measure the density, thermal and mechanical properties of the surface.'),
-(664, 'Ptolemy MODULUS (lander instrument)', 'Methods Of Determining and Understanding Light elements from Unequivocal Stable isotope compositions. ', 'Evolved gas analyser', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=896', 'MODULUS PTOLEMY is an evolved gas analyser that will obtain accurate measurements of isotopic ratios of light elements. '),
-(665, 'ROLIS (lander instrument)', 'Rosetta Lander Imaging System', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=899', 'The Descent & Down-Looking ROLIS Camera will deliver the first close-ups of the environment of the landing place of comet 67P/Churyumov-Gerasimenko during the descent.\r\n\r\nAfter landing ROLIS will make high-resolved investigations to study the structure (morphology) and mineralogy of the surface. \r\n\r\nAdditional information: http://www.dlr.de/pf/en/desktopdefault.aspx/tabid-174/319_read-19124/'),
-(666, 'ROMAP (lander instrument)', 'Rosetta Lander Magnetometer and Plasma Monitor', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=901', 'Romap is a magnetometer and plasma monitor that will study the local magnetic field and the interaction between the comet and the solar wind.'),
-(667, 'SD2 (lander instrument)', 'Sampling, drilling and distribution subsystem', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=894', 'SD2 will drill more than 20 cm into the surface, collect samples and deliver them to different ovens or for microscope inspection.'),
-(668, 'SESAME (lander instrument)', 'Surface Electrical, Seismic and Acoustic Monitoring Experiments', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=900', 'SESAME''s three instruments will measure properties of the comet’s outer layers. The Cometary Acoustic Sounding Surface Experiment will measure the way sound travels through the surface. The Permittivity Probe will investigate its electrical characteristics, and the Dust Impact Monitor will measure dust falling back to the surface.');
+(669, 'ALICE  - Ultraviolet Imaging Spectrograph', 'orbiter instrument', 'Rowland Circle style imaging spectrograph', 70, 205, 'nm', 'Nucleus imaging and spectroscopy; Coma spectroscopy ', '0.3 - 0.5 nm', '0.1° × 6.0°', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1636', 'ALICE will characterize the composition of the nucleus and coma, and the nucleus/coma coupling of comet 67 P/Churyumov-Gerasimenko.'),
+(670, 'OSIRIS  - Optical, Spectroscopic, and Infrared Remote Imaging System', '', '700 mm / 140 mm cameras', 250, 1000, 'nm', '', '20 - 100 μrad px-1', '2.35° × 2.35° (narrow angle) 12° × 12° (wide angle)', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1642', 'Orbiter instrument\r\n\r\nOSIRIS is a dual camera imaging system operating in the visible, near-infrared and near-ultraviolet wavelength ranges.\r\n\r\nThe narrow angle camera is designed to produce high spatial resolution images of the nucleus of the target comet. The wide angle camera has a wide field of view and high straylight rejection to image the dust and gas directly above the surface of the nucleus of the target comet.'),
+(671, 'VIRTIS - Visible and Infrared Thermal Imaging Spectrometer', '', 'Mapping and High Resolution Spectrometer (3 Channels)', 0.25, 5, 'μm', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1646', 'Orbiter Instrument\r\n\r\nVIRTIS will map and study the nature of the solids and the temperature on the surface of the comet nucleus. It will also identify comet gases, characterise the physical conditions of the coma and help to identify the best landing sites. \r\n\r\nAdditional information: http://www.ifsi-roma.inaf.it/virtis/index.php?categoryid=1'),
+(672, 'MIRO - Microwave Instrument for the Rosetta Orbiter', '', 'Millimetre wave mixer receiver and submillimetre heterodyne receiver', 0, 0, '', '188 Ghz (Millimetre wave) and 562 Ghz (Submillimetre wave): high resolution molecular line spectra in absorption and emission, and broadband continuum emission data.', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1641', 'Orbiter instrument\r\n\r\nMIRO will determine the abundances of major gases, the surface outgassing rate and the nucleus subsurface temperature.\r\n'),
+(673, 'CONSERT - Comet Nucleus Sounding Experiment by Radiowave Transmission', '', 'Time domain transponder', 0, 0, '', 'A 90 MHz radio signal is transmitted from the orbiter, passing though the comet surface, to the lander and, after some data extraction, is transmitted from the lander back to the orbiter.', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1637', 'Modules on both orbiter and lander\r\n\r\nCONSERT will use tomography to probe the dielectric properties of the comet’s interior by studying radio waves reflected and scattered by the nucleus. '),
+(674, 'ROSINA - Rosetta Orbiter Spectrometer for Ion and Neutral Analysis', '', 'Three sensors: the Double Focusing Mass Spectrometer (DFMS), the Reflectron Time of Flight Spectrometer (RTOF), and the Comet Pressure Sensor (COPS). ', 1, 300, 'amu', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1650', 'Orbiter instrument\r\n\r\nThe ROSINA mass spectrometers will determine the composition of the comet''s atmosphere and ionosphere, measure the temperature and bulk velocity of the gas and ions, and investigate reactions in which they take part. The ROSINA pressure sensor is capable of measuring both total and ram pressure, in order to determine the gas density and rate of radial gas flow. \r\n\r\nAdditional information: http://space.unibe.ch/rosina.html'),
+(675, 'MIDAS - Micro-Imaging Dust Analysis System', '', '', 0, 0, '', 'Dust grains in the size range from 4 nm - 4µm will be imaged in 3-D by means of atomic force microscopy', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1640', 'Orbiter instrument\r\n\r\nMIDAS will study the dust around the comet. It will provide information on particle population, size, volume and shape.\r\n\r\nAdditional information: http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35969'),
+(676, 'COSIMA - Cometary Secondary Ion Mass Analyser', '', 'Ion mass spectrometer, with dust collector, ion gun, and optical microscope.', 1, 3500, 'amu', 'Dust from the near comet environment are collected and bombarded with pulses of indium ions. The resulting secondary ions are extracted into the time-of-flight mass spectrometer.', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1638', 'Orbiter instrument\r\n\r\nCOSIMA will analyse the characteristics of dust grains emitted by the comet, such as their composition and whether they are organic or inorganic. \r\n\r\nAdditional information: http://www.mps.mpg.de/en/projekte/rosetta/cosima/'),
+(677, 'GIADA - Grain Impact Analyser and Dust Accumulator', '', 'Optical grain detection system and a mechanical grain impact sensor', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1639', 'Orbiter instrument\r\n\r\nGIADA will measure the scalar velocity, size and momentum of dust particles in the coma of the comet.\r\n'),
+(678, 'RPC - Rosetta Plasma Consortium', '', 'A set of five instruments', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1644', 'Orbiter instrument\r\n\r\nRPC will measure the physical properties of the nucleus, examine the structure of the inner coma, monitor cometary activity, and study the comet’s interaction with the solar wind.\r\n\r\nRPC consists of five sensors:\r\n-Ion Composition Analyser (ICA)\r\n-Ion and Electron Sensor (IES)\r\n-Langmuir Probe (LAP)\r\n-Fluxgate Magnetometer (MAG)\r\n-Mutual Impedance Probe (MIP),\r\nas well as a joint Plasma Interface Unit (PIU), acting as instrument control, spacecraft interface, and power management unit.'),
+(679, 'RSI - Radio Science Investigation', '', 'Radio communication system of the spacecraft and those of the ground stations on Earth', 0, 0, '', 'Radio signals at S-band or X-band', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=35061&fbodylongid=1645', 'Orbiter instrument\r\n\r\nRSI will, by using shifts in the spacecraft’s radio signals, measure the mass, density and gravity of the nucleus, define the comet’s orbit, and study the inner coma.'),
+(680, 'APXS - Alpha Proton X-ray Spectrometer', '', 'The APX spectrometer consists of a sensor head, a deployment device, and electronics. The sensor head contains the high-energy alpha sources.', 0, 0, '', 'Alpha mode: alpha backscatter spectroscopy (Rutherford scattering); X-ray mode: alpha- and x-ray induced x-ray spectroscopy', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=893', 'Lander instrument\r\n\r\nLowered to within 4 cm of the ground, APXS will detect alpha particles and X-rays to gather information on the elemental composition of the comet’s surface. \r\n\r\nAdditional information: http://www3.mpch-mainz.mpg.de/~kosmo/spacepage/english/rosetta/rosetta.htm'),
+(681, 'CIVA - Comet Infrared and Visible Analyser', '', 'CIVA-P: a panoramic stereo camera consisting of 6 micro-cameras; and CIVA-M: an optical microscope coupled to a near infrared microscopic hyperspectral imager', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=898', 'Lander instrument\r\n\r\nCIVA-P consists of six identical micro-cameras to take panoramic pictures of the comet surface as seen from the Rosetta Lander Philae.\r\n\r\nThe spectrometer, CIVA-M, will study the composition, texture and albedo (reflectivity) of samples collected from the surface.\r\n\r\nRef: J.-P. Bibring et al., Space Science Reviews, Vol 128, p397, Springer, 2007'),
+(682, 'COSAC - COmetary SAmpling and Composition experiment', '', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=895', 'Lander instrument\r\n\r\nCONSERT will probe the internal structure of the nucleus. Radio waves from CONSERT will travel through the nucleus and will be returned by a transponder on the lander. '),
+(683, 'MUPUS - MUlti-PUrpose Sensors for Surface and Sub-Surface Science', '', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=897', 'Lander instrument\r\n\r\nMUPUS will use sensors on the lander’s anchor, probe and exterior to measure the density, thermal and mechanical properties of the surface.'),
+(684, 'Ptolemy MODULUS - Methods Of Determining and Understanding Light elements from Unequivocal Stable isotope compositions', '', 'Evolved gas analyser', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=896', 'Lander instrument\r\n\r\nMODULUS PTOLEMY is an evolved gas analyser that will obtain accurate measurements of isotopic ratios of light elements. '),
+(685, 'ROLIS - ROsetta Lander Imaging System', '', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=899', 'Lander instrument \r\n\r\nThe Descent & Down-Looking ROLIS Camera will deliver the first close-ups of the environment of the landing place of comet 67P/Churyumov-Gerasimenko during the descent.\r\n\r\nAfter landing ROLIS will make high-resolved investigations to study the structure (morphology) and mineralogy of the surface. \r\n\r\nAdditional information: http://www.dlr.de/pf/en/desktopdefault.aspx/tabid-174/319_read-19124/'),
+(686, 'ROMAP - ROsetta lander MAgnetometer and Plasma monitor', '', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=901', 'Landing instrument\r\n\r\nRomap is a magnetometer and plasma monitor that will study the local magnetic field and the interaction between the comet and the solar wind.'),
+(687, 'SD2 - Sampling, drilling and distribution subsystem', '', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=894', 'Lander instrument\r\n\r\nSD2 will drill more than 20 cm into the surface, collect samples and deliver them to different ovens or for microscope inspection.'),
+(688, 'SESAME - Surface Electrical, Seismic and Acoustic Monitoring experiments', '', '', 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31445&fbodylongid=900', 'Lander instrumentr\r\n\r\nSESAME''s three instruments will measure properties of the comet’s outer layers. The Cometary Acoustic Sounding Surface Experiment will measure the way sound travels through the surface. The Permittivity Probe will investigate its electrical characteristics, and the Dust Impact Monitor will measure dust falling back to the surface.'),
+(689, 'Kepler Photometer', 'Photometer', '', 400, 850, 'nm', '', '2200x1024 pixels', '105deg2 (about 12 degree diameter)', '', ''),
+(690, 'Ariane 5 ECA', 'Expendable Launch System', '', 350, 10000, 'µm', 'Amplitude of Structures in Cosmic Microwave Background Radiation, Hubble Constant, Sunyaev-Zel''dovich Effect', 'Good Angular Resolution and Sensitivity', 'Cosmic Microwave Background Anisotropies, Inflationary Models of early Universe', '', ''),
+(691, 'GOES-O Solar X-Ray Imager', 'Soft X-Ray', '', 6, 60, 'A (Angstroms)', '', '', '', '', ''),
+(692, 'CPR - The Cloud Profiling Radar', 'Radar', '', -30, 70, 'dBZ', '', '', '', '', ''),
+(693, 'Synthetic Aperture Radar', 'X-band', '', 0, 0, '', '', '50 cm', '', '', ''),
+(694, 'SAR - Synthetic Aperture Radar', '', 'Generation of a consistent global Digital Elevation Model (DEM)', 0, 0, '', '', '', '', '', ''),
+(695, 'ASPERA-4 - Analyzer of Space Plasmas and Energetic Atoms', '', '', 0, 0, '', '', '', '', '', ''),
+(696, 'Spectrometer', 'Planetary Fourier Spectrometer and Spectroscopy for Investigation of Characteristics of the Atmosphere of Venus, also Visible and Infrared Thermal Imaging Spectrometer', '', 0.9, 45, 'µm', '', '', '', '', ''),
+(697, 'MAG', 'magnetometer', 'measure the strength of Venus''s magnetic field and the direction of it as affected by the solar wind and Venus itself.', 0, 0, '', 'map the magnetosheath, magnetotail, ionosphere, and magnetic barrier in high resolution in three-dimensions', '', '', '', ''),
+(698, 'VMC - Venus Monitoring Camera', 'a wide-angle, multi-channel CCD', '', 0, 0, '', '', '', '', '', ''),
+(699, 'Afocal Telescope', '27cm-diameter afocal telescope', '', 370, 950, 'nm', 'Blocks sunlight reflected by the Earth.', '', '2.7-3.05 degrees', '', ''),
+(700, 'CCD', '4-CCD wide-field camera', 'CCD camera built around the PROTEUS spacecraft bus, and operates in a low-Earth orbit.', 850, 900, 'km', '', '', '', '', ''),
+(701, 'SOT - Solar Optical Telescope', '', '50cm aperture.', 388, 668, 'nm', 'Measurement of the vector magnetic field in the photosphere and dynamics of both the photosphere and chromosphere associated with the magnetic fields.', '', '', '', ''),
+(702, 'EIS - Extreme-ultraviolet Imaging Spectrometer', '', '', 0, 0, '', '', '', '', '', ''),
+(703, 'XRT - X-Ray Telescope', '', '', 0, 0, '', 'Observes the generation, transport, and emergence of solar magnetic fields, and ultimate dissipation of magnetic energy in a form such as flares, and pico-flares, coronal heating, coronal mass ejection.', 'High Resolution', '', '', ''),
+(704, 'C1XS - Chandrayaan-1 X-ray Spectrometer', '', 'Will carry out high-quality, low energy X-ray spectroscopic mapping of the moon', 1, 10, 'keV', 'Measure the elemental abundance, and map the distribution of the three main rock forming elements: Mg, Al, and Si.', 'High Spectroscopic Resolution', 'Determine the abundance of minor elements such as Ca, Ti and Fe on the surface of the Moon.', '', ''),
+(705, 'SARA - Sub-keV Atom Reflecting Analyser', '', 'Studies of plasma-surface interactions in space.', 0.01, 2, 'keV', 'Detect atoms with sufficient angular and mass resolution to address the scientific objectives.', '', '', '', ''),
+(706, 'SIR-2 - The Near Infrared Spectrometer', '', 'Study the chemical composition of the Moon''s crust and mantle.', 0.9, 2.4, 'micrometer', '', '6 nanometres', '', '', ''),
+(707, 'XRT - X-Ray telescope', '', 'Consist of nested conical thin-foil mirrors which share similar design concepts with ASCA XRT.', 5, 8, 'keV', '', 'High Spectroscopic Resolution', '', '', ''),
+(708, 'XRS - X-Ray spectrometer', '', '', 0.2, 700, 'keV', '', 'High Spectroscopic Resolution', '', '', ''),
+(709, 'XIS - X-ray Imaging Spectrometer', '', 'X-ray telescope and X-ray sensitive charged coupled device (CCD)', 0.2, 700, 'keV', 'location and energy of incident X-ray photons.', 'High Spectroscopic Resolution', '', '', ''),
+(710, 'HXD - Hard X-ray Detector', '', 'High sensitivity', 10, 700, 'keV', 'Detects transient high energy phenomena such as the gamma-ray bursts.', 'High Spectroscopic Resolution', '', '', ''),
+(711, 'HIFI - Heterodyne Instrument for the Far Infrared', '', '', 480, 1250, 'GHz', '', '', '', '', ''),
+(712, 'PACS - Photodetector Array Camera and Spectrometer', '', '', 57, 210, 'µm', 'Operates either as an imaging photometer or an integral field spectrometer over the spectral band.', '', '', '', ''),
+(713, 'SPIRE - Spectral and Photometric Imaging REciever', '', '3.5 meter diameter telescope.', 60, 700, 'µm', '', '', '', '', ''),
+(714, 'EPIC - European Photon Imaging Cameras', 'Cameras', '', 0.15, 15, 'keV', 'Extemely sensitive imaging observations over the telescope''s field of view.', 'Angular resolution of PSF, 6 arcsec FWHM', 'Field of view of 30 arcmin', '', ''),
+(715, 'X-ray telescopes', 'X-ray telescopes', '', 6, 7, 'keV', 'highest possible effective area over a wide range of energies - provides sufficient reflectivity at high energies', 'Mirror system uses a shallow grazing angle of 30'' to provide sufficient reflectivity at high energies.', 'The telescopes focal length is 7.5 meters and the diameter of the largest mirrors is 70cm, to be compatible with the shroud of the launcher.', '', ''),
+(716, 'Two reflection grating spectrometeres', 'Spectrometers', '', 0.33, 2.5, 'keV', 'Diffracts the X-rays to an array of dedicated charge coupled devices (CCD) detectors.', '6 arcsec (FWHM)', '30 arcmin', '', ''),
+(717, 'AMSU-A and MHS - Advanced Microwave Sounding Unit ', 'Microwave', '', 50.3, 89, 'GHz oxygen band', '', '', '', '', ''),
+(718, 'A-DCS - Advanced Data Collection System ', 'Environmental Monitoring System', '', 0, 0, '', '', '', '', '', ''),
+(719, 'SEM - Space Environment Monitor', 'Charged Particle Spectrometer', '', 20, 50, 'eV', '', '', '', '', ''),
+(720, 'SBUV/2 - Solar Backscatter UltraViolet spectral radiometer', 'Radiometer', '', 0, 0, '', '', '', '', '', ''),
+(721, 'HIRS/4 - High Resolution Infrared Radiation Sounder', 'Infrared', '', 0, 0, '', '', '', '', '', ''),
+(722, 'AVHRR/3 - Advanced Very High Resolution Radiometer', 'Infrared', '', 0, 0, '', '', '', '', '', ''),
+(723, 'Cluster II', '', '', 0, 0, '', 'Interaction between the Solar Wind and Magnetosphere', '', 'Solar Wind Particles, Particles entering Polar Cusps, Magnetotail', '', ''),
+(724, 'NICMOS', 'Infrared Camera/Spectrometer', 'Objects in deepest space', 0, 77, 'Kelvin', 'Electromagnetic Spectrum, Birth of stars, galaxies, solar systems, Interstellar gas, Life of Universe, and formation of galaxies, stars & planetary systems', 'near infra-red wavelengths', '', '', ''),
+(725, 'FGS - Fine Guidance Sensors', '', '', 0, 0, '', 'Star positions', '0.007 arcsec', '', '', ''),
+(726, 'WFC3 - Wide Field optical Camera', '', '', 0, 0, '', 'Near infrared light, visible light, and near-Ultraviolet radiation', '', '', '', ''),
+(727, 'COS', 'Ultraviolet spectrograph', '', 0, 0, '', 'Observing points of light, like stars and quasars, whilst looking at large areas - galaxies', '', '', '', ''),
+(728, 'STIS', 'Optical Spectrometer/Camera', '', 0, 0, '', 'To hunt for black holes, measure an object''s temperature, density, chemical composition and motion.', '', '', '', ''),
+(729, 'ACS', 'Optical Survey Camera', '', 0, 0, '', 'Studying earliest activity of the Universe, how the Universe evolved, and the nature and distribution of galaxies.', 'Enhanced sensitivity/resolution', 'Sees wavelengths from far ultraviolet to visible light.', '', ''),
+(731, 'SPI', 'Spectrometer', 'Astrophysical lines', 0.02, 10, 'MeV', '', 'Fine enough to resolve astrophysical lines and allow spectroscopy in region of gamma-rays', 'Nucleosynthesis, relativistic particle accelerators, and strong-field signatures in compact stars', '', ''),
+(732, 'OMC', 'Optical Monitor', '', 500, 600, 'nm', 'X-rays, Gamma-rays', '', '', '', ''),
+(733, 'JEM-X', 'X-ray monitor', '', 3, 35, 'keV', 'Images of the sky.', 'Arcminute angular resolution', '', '', ''),
+(734, 'IBIS', 'Imager', '', 0.015, 10, 'MeV', '', 'High Angular Resolution', '', '', ''),
+(735, 'HRSC - High Resolution Stereo Camera ', '', '', 0, 0, '', '', '2 m ', '', '', ''),
+(736, 'MERMAG - MERcury MAGnetometer', '', '', 0, 0, '', '', '', '', '', ''),
+(737, 'Radar Altmeter', '', '', 0, 0, '', '', '', '', '', ''),
+(738, 'CRIS - The Cosmic Ray Isotope Spectrometer', 'Spectrometer', '', 250, 250, 'cm²-sr', 'Species: 2 ≤ Z ≤ 30; Quantities: Z, M, E', 'mass resolution, 0.25 amu ', '', '', 'Typical Energy (MeV/nuc): ~ 200\r\nTechnique: dE/dx - E'),
+(739, 'SWICS - Solar Wind Ion Composition Spectrometer', 'Spectrometer', '', 0, 100, 'keV/e', '', '', '', '', ''),
+(740, 'SEPICA', 'Ionic state', '', 0.2, 100, 'MeV/Nuc', '', '', '', '', ''),
+(741, 'ULEIS ', 'Ion Flux', '', 20000, 10000, 'MeV/nucleon', '', '', '', '', ''),
+(742, 'The Solar Isotope Spectrometer', 'Spectrometer', '', 10, 100, 'MeV/nucleon', '', 'mass resolution, 0.25 amu', '', '', ''),
+(743, 'SWIMS - Solar Wind Ions Mass Spectrometer', 'Spectrometer', '', 0, 10, 'keV/e', '', '', '', '', ''),
+(744, 'EPAM', 'Spectrometer', '', 0, 50, 'keV', '', '', '', '', ''),
+(745, 'SWEPAM - Solar Wind Electron, Proton, and Alpha Monitor', 'Monitor', '', 0.26, 36, 'Kev', '', '', '', '', ''),
+(746, 'Magnetometer Instrument', 'Twin, triaxial fluxgate magnetometers (boom mounted)', '', 4, 65, 'nT', '', '', '', '', ''),
+(747, 'RTSW - Real-Time Solar Wind data', 'Geometric storm warning', '', 0, 0, '', '', '', '', '', ''),
+(748, 'ASTER -  Advanced Spaceborne Thermal Emission and Reflection radiometer', '', '', 0, 0, '', '', '', '', '', ''),
+(749, 'MOPITT - Measurements of Pollution in the Troposphere', '', '', 0, 0, '', '', '', '', '', ''),
+(750, 'MISR - Multi-angle Imaging SpectroRadiometer ', '', '', 0, 0, '', '', '', '', '', ''),
+(751, 'MODIS - MODerate-resolution Imaging Spectroradiometer ', '', '', 0, 0, '', '', '', '', '', ''),
+(752, 'CERES', 'Clouds and Earth', '', 0, 0, '', '', '', '', '', ''),
+(753, 'High-grade single-frequency Phoenix GPS sensor', 'GPS', '', 0, 0, '', '', '', '', '', ''),
+(754, 'Formation Flying Radio-Frequency Sensor', '', '', 0, 0, '', '', '', '', '', ''),
+(755, 'Vision-Based Sensor ', '', '', 0, 0, '', '', '', '', '', ''),
+(756, 'Far-Infrared Surveyor', 'Infrared', '', 45, 180, 'micro m', '', '26.79arcsec, 44.20arcsec', '', '', ''),
+(757, 'InfraRed Camera', 'Infrared', '', 1.7, 5.5, 'micron', '', '', '9.5x10.0	9.1x10.0	10.3x10.2', '', ''),
+(758, 'CALIOP - the Cloud-Aerosol LIdar with Orthogonal Polarization ', '', '', 0, 0, '', '', '', '', '', ''),
+(759, 'WFC - the Wide Field Camera ', '', '', 0, 0, '', '', '', '', '', ''),
+(760, 'IIR - the Imaging Infrared Radiometer ', '', '', 0, 0, '', '', '', '', '', ''),
+(761, 'GOES-P SXI - Solar X-Ray Imager', 'X-ray Imager', '', 6, 60, 'A (Angstroms)', '', '', '', '', ''),
+(762, 'GOES-P SEM - Space Environment Monitor', '3 in 1, EPS, Magnometer, XRS', '', 0.05, 0.3, 'nm', '', '', '', '', ''),
+(763, 'GOES-P Sounder', 'Filter Radiometer', '', 0.4, 15, 'microns', '', '', '', '', ''),
+(764, 'GOES-P Imager', 'Imager', '', 0, 0, '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `sensor_to_science_goals`
+-- Table structure for table `sensor_to_science_goals`
 --
 
 CREATE TABLE IF NOT EXISTS `sensor_to_science_goals` (
@@ -3369,7 +3540,7 @@ CREATE TABLE IF NOT EXISTS `sensor_to_science_goals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `sensor_to_science_goals`
+-- Dumping data for table `sensor_to_science_goals`
 --
 
 INSERT INTO `sensor_to_science_goals` (`sensor_id`, `science_goal_id`) VALUES
@@ -3385,7 +3556,7 @@ INSERT INTO `sensor_to_science_goals` (`sensor_id`, `science_goal_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `sensor_to_scientific_contacts`
+-- Table structure for table `sensor_to_scientific_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `sensor_to_scientific_contacts` (
@@ -3397,96 +3568,96 @@ CREATE TABLE IF NOT EXISTS `sensor_to_scientific_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `sensor_to_scientific_contacts`
+-- Dumping data for table `sensor_to_scientific_contacts`
 --
 
 INSERT INTO `sensor_to_scientific_contacts` (`sensor_id`, `scientific_contact_id`) VALUES
-(268, 226),
-(274, 227),
-(275, 228),
-(276, 229),
-(277, 230),
-(277, 231),
-(277, 232),
-(277, 233),
-(297, 249),
-(298, 250),
-(299, 251),
-(300, 252),
-(301, 253),
-(302, 254),
-(303, 255),
-(304, 256),
-(305, 257),
-(306, 258),
-(309, 259),
-(310, 260),
-(311, 261),
-(312, 262),
-(313, 263),
-(314, 264),
-(315, 265),
-(316, 266),
-(317, 267),
-(318, 268),
-(319, 269),
-(320, 270),
-(322, 272),
-(329, 274),
-(330, 275),
-(331, 276),
-(332, 277),
-(333, 278),
-(334, 279),
-(335, 280),
-(337, 281),
-(338, 282),
-(339, 283),
-(340, 284),
-(341, 285),
-(342, 286),
-(343, 287),
-(344, 288),
-(345, 289),
-(346, 290),
-(347, 291),
-(351, 292),
-(354, 293),
-(355, 294),
-(357, 296),
-(358, 297),
-(649, 688),
-(650, 689),
-(651, 690),
-(652, 691),
-(653, 692),
-(654, 693),
-(655, 694),
-(656, 695),
-(657, 696),
-(658, 697),
-(658, 698),
-(658, 699),
-(658, 700),
-(658, 701),
-(658, 702),
-(659, 703),
-(660, 704),
-(661, 705),
-(662, 706),
-(663, 707),
-(664, 708),
-(665, 709),
-(666, 710),
-(666, 711),
-(667, 712),
-(668, 713),
-(668, 714);
+(669, 779),
+(670, 780),
+(671, 781),
+(672, 782),
+(673, 783),
+(674, 784),
+(675, 785),
+(676, 786),
+(677, 787),
+(678, 788),
+(678, 789),
+(678, 790),
+(678, 791),
+(678, 792),
+(678, 793),
+(679, 794),
+(680, 795),
+(681, 796),
+(682, 797),
+(683, 798),
+(684, 799),
+(685, 800),
+(686, 801),
+(686, 802),
+(687, 803),
+(688, 804),
+(688, 805),
+(689, 806),
+(690, 807),
+(691, 808),
+(692, 809),
+(698, 810),
+(699, 811),
+(700, 812),
+(701, 813),
+(702, 814),
+(703, 815),
+(704, 816),
+(705, 817),
+(706, 818),
+(708, 819),
+(709, 820),
+(710, 821),
+(711, 822),
+(712, 823),
+(713, 824),
+(714, 825),
+(715, 826),
+(716, 827),
+(722, 828),
+(723, 829),
+(724, 830),
+(725, 831),
+(726, 832),
+(727, 833),
+(728, 834),
+(729, 835),
+(731, 837),
+(732, 838),
+(733, 839),
+(734, 840),
+(735, 841),
+(736, 842),
+(738, 843),
+(739, 844),
+(740, 845),
+(741, 846),
+(742, 847),
+(743, 848),
+(744, 849),
+(745, 850),
+(746, 851),
+(747, 852),
+(753, 853),
+(753, 854),
+(753, 855),
+(753, 856),
+(756, 857),
+(757, 858),
+(760, 859),
+(761, 860);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `space_missions`
+-- Table structure for table `space_missions`
 --
 
 CREATE TABLE IF NOT EXISTS `space_missions` (
@@ -3504,47 +3675,47 @@ CREATE TABLE IF NOT EXISTS `space_missions` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
--- Daten für Tabelle `space_missions`
+-- Dumping data for table `space_missions`
 --
 
 INSERT INTO `space_missions` (`id`, `mission_name`, `mission_agency`, `launch_date`, `death_date`, `web_address`, `brief_description`, `creation_date`, `modification_date`) VALUES
 (1, 'AGILE', 2, '2007-04-23', '0000-00-00', 'http://agile.rm.iasf.cnr.it/', '', '2011-02-25 15:44:15', '2012-03-13 20:56:51'),
-(3, 'Rosetta', 2, '2004-03-02', '2015-12-01', 'http://www.esa.int/esaMI/Rosetta/SEMYMF374OD_0.html', 'Rosetta is the first mission designed to orbit and land on a comet. It consists of an orbiter, carrying 11 science experiments, and a lander, called "Philae", carrying 10 additional instruments, for the most detailed study of a comet ever attempted. \r\n\r\nRosetta will rendezvous with comet 67P/Churyumov-Gerasimenko in 2014, releasing its lander onto the icy nucleus and continuing to orbit the comet as it heads towards perihelion. \r\n\r\nOn its approach to 67P, Rosetta has received gravity assists from Earth and Mars and has flown by two main-belt asteroids Steins (2008) and Lutetia (2010).', '2011-02-28 12:56:32', '2012-04-16 17:43:52'),
-(4, 'Mars Express', 2, '2003-06-02', '2012-12-31', 'http://www.esa.int/SPECIALS/Mars_Express/SEMFU55V9ED_0.html', '', '2011-02-28 13:14:52', '2012-03-13 21:01:14'),
-(5, 'Cassini-Huygens', 2, '1997-10-15', '2017-00-00', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=12', '', '2011-02-28 13:23:36', '2012-03-13 21:00:19'),
-(6, 'BepiColombo', 2, '2014-00-00', '2021-00-00', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=30', '', '2011-02-28 13:25:47', '2012-03-13 21:00:52'),
-(7, 'Cluster', 1, '2000-08-09', '2014-12-31', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=8', '', '2011-03-02 16:03:09', '2012-03-13 21:04:44'),
-(8, 'International Gamma-Ray Astrophysics Laboratory (INTEGRAL)', 2, '2002-10-17', '2014-12-31', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=21', '', '2011-03-02 16:59:18', '2012-03-13 21:01:44'),
-(9, 'Planck', 2, '2009-05-14', '2012-01-01', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=17', '', '2011-03-02 23:31:21', '2012-03-13 21:55:08'),
-(10, 'XMM-Newton', 2, '1999-12-10', '2014-12-31', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=23', '', '2011-03-03 00:02:24', '2012-03-13 21:07:56'),
-(11, 'The Hubble Space Telescope', 1, '1990-04-24', '2014-12-31', 'http://hubble.nasa.gov/', '', '2011-03-03 00:27:48', '2012-03-13 21:02:39'),
-(12, 'HERSCHEL', 2, '2009-05-14', '2012-01-01', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=16', '', '2011-03-03 01:49:26', '2012-03-13 21:10:15'),
-(13, 'Suzaku', 6, '2005-07-10', '0000-00-00', 'http://www.nasa.gov/mission_pages/astro-e2/main/index.html', '', '2011-03-03 02:43:26', '2012-03-13 21:11:38'),
-(14, 'Chandrayaan-1', 11, '2008-10-22', '0000-00-00', 'http://www.isro.gov.in/Chandrayaan/htmls/home.htm', '', '2011-03-03 03:32:02', '2012-03-13 21:12:10'),
-(15, 'Hinode', 6, '2006-09-22', '0000-00-00', 'http://www.isas.jaxa.jp/e/enterp/missions/hinode/', '', '2011-03-03 04:16:56', '2012-03-13 21:24:07'),
-(16, 'COROT', 4, '2006-12-27', '2013-03-31', 'http://smsc.cnes.fr/COROT/', '', '2011-03-03 04:37:08', '2012-03-13 21:25:02'),
-(17, 'Prisma', 9, '2010-06-15', '2012-01-01', 'http://www.dlr.de/rb/en/desktopdefault.aspx/tabid-6813/11187_read-25543/', '', '2011-03-03 21:37:23', '2012-03-13 20:55:47'),
-(18, 'Akari', 6, '2006-02-21', '0000-00-00', 'http://www.ir.isas.jaxa.jp/ASTRO-F/Outreach/index_e.html', '', '2011-03-03 22:01:34', '2012-03-13 20:55:25'),
-(19, 'Advanced Composition Explorer (ACE)', 1, '1997-08-25', '2024-01-01', 'http://www.srl.caltech.edu/ACE/', 'ACE launched on a McDonnell-Douglas Delta II 7920 launch vehicle on August 25, 1997 from the Kennedy Space Center in Florida.\r\n\r\nThe Earth is constantly bombarded with a stream of accelerated particles arriving not only from the Sun, but also from interstellar and galactic sources. Study of these energetic particles contributes to our understanding of the formation and evolution of the solar system as well as the astrophysical processes involved. The Advanced Composition Explorer (ACE) spacecraft carrying six high-resolution sensors and three monitoring instruments samples low-energy particles of solar origin and high-energy galactic particles with a collecting power 10 to 1000 times greater than past experiments.\r\n\r\nACE orbits the L1 libration point which is a point of Earth-Sun gravitational equilibrium about 1.5 million km from Earth and 148.5 million km from the Sun. From its location at L1 ACE has a prime view of the solar wind, interplanetary magnetic field and higher energy particles accelerated by the Sun, as well as particles accelerated in the heliosphere and the galactic regions beyond.\r\n\r\nACE also provides near-real-time 24/7 continuous coverage of solar wind parameters and solar energetic particle intensities (space weather). When reporting space weather ACE provides an advance warning (about one hour) of geomagnetic storms that can overload power grids, disrupt communications on Earth, and present a hazard to astronauts.\r\n\r\nThe spacecraft has enough propellant on board to maintain an orbit at L1 until ~2024.\r\n\r\nMore details of the ACE mission can be found in the ACE Mission Paper, published in Space Science Reviews:\r\nhttp://www.srl.caltech.edu/ACE/ace-mission-ssr-paper.pdf', '2011-03-03 22:43:50', '2012-03-13 20:58:42'),
-(20, 'Calipso', 1, '2006-04-28', '0000-00-00', 'http://www.nasa.gov/mission_pages/calipso/spacecraft/index.html', '', '2011-03-04 00:25:26', '2012-03-13 20:55:01'),
-(21, 'EPOXI', 1, '2005-01-12', '0000-00-00', 'http://www.nasa.gov/mission_pages/epoxi/index.html', '', '2011-03-04 00:40:10', '2012-03-13 21:25:56'),
-(22, 'Terra', 1, '1999-08-12', '0000-00-00', 'http://www.nasa.gov/mission_pages/terra/index.html', '', '2011-03-04 00:48:52', '2012-03-13 20:56:18'),
+(3, 'Rosetta', 2, '2004-03-02', '2015-12-01', 'http://www.esa.int/esaMI/Rosetta/SEMYMF374OD_0.html', 'Rosetta is the first mission designed to orbit and land on a comet. It consists of an orbiter, carrying 11 science experiments, and a lander, called "Philae", carrying 10 additional instruments, for the most detailed study of a comet ever attempted. \r\n\r\nRosetta will rendezvous with comet 67P/Churyumov-Gerasimenko in 2014, releasing its lander onto the icy nucleus and continuing to orbit the comet as it heads towards perihelion. \r\n\r\nOn its approach to 67P, Rosetta has received gravity assists from Earth and Mars and has flown by two main-belt asteroids Steins (2008) and Lutetia (2010).', '2011-02-28 12:56:32', '2012-07-19 10:21:29'),
+(4, 'Mars Express', 2, '2003-06-02', '2012-12-31', 'http://www.esa.int/SPECIALS/Mars_Express/SEMFU55V9ED_0.html', '', '2011-02-28 13:14:52', '2012-07-19 10:50:01'),
+(5, 'Cassini-Huygens', 2, '1997-10-15', '2017-00-00', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=12', '', '2011-02-28 13:23:36', '2012-07-19 10:53:55'),
+(6, 'BepiColombo', 2, '2014-00-00', '2021-00-00', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=30', '', '2011-02-28 13:25:47', '2012-07-19 10:51:29'),
+(7, 'Cluster', 1, '2000-08-09', '2014-12-31', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=8', '', '2011-03-02 16:03:09', '2012-07-19 10:46:28'),
+(8, 'INTEGRAL - International Gamma-Ray Astrophysics Laboratory', 2, '2002-10-17', '2014-12-31', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=21', '', '2011-03-02 16:59:18', '2012-07-19 10:49:54'),
+(9, 'Planck', 2, '2009-05-14', '2012-01-01', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=17', '', '2011-03-02 23:31:21', '2012-07-19 10:22:22'),
+(10, 'XMM-Newton', 2, '1999-12-10', '2014-12-31', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=23', '', '2011-03-03 00:02:24', '2012-07-19 10:33:20'),
+(11, 'The Hubble Space Telescope', 1, '1990-04-24', '2014-12-31', 'http://hubble.nasa.gov/', '', '2011-03-03 00:27:48', '2012-07-19 10:48:35'),
+(12, 'HERSCHEL', 2, '2009-05-14', '2012-01-01', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=16', '', '2011-03-03 01:49:26', '2012-07-19 10:32:19'),
+(13, 'Suzaku', 6, '2005-07-10', '0000-00-00', 'http://www.nasa.gov/mission_pages/astro-e2/main/index.html', '', '2011-03-03 02:43:26', '2012-07-19 10:31:46'),
+(14, 'Chandrayaan-1', 11, '2008-10-22', '0000-00-00', 'http://www.isro.gov.in/Chandrayaan/htmls/home.htm', '', '2011-03-03 03:32:02', '2012-07-19 10:30:34'),
+(15, 'Hinode', 6, '2006-09-22', '0000-00-00', 'http://www.isas.jaxa.jp/e/enterp/missions/hinode/', '', '2011-03-03 04:16:56', '2012-07-19 10:29:46'),
+(16, 'COROT', 4, '2006-12-27', '2013-03-31', 'http://smsc.cnes.fr/COROT/', '', '2011-03-03 04:37:08', '2012-07-19 10:25:11'),
+(17, 'Prisma', 9, '2010-06-15', '2012-01-01', 'http://www.dlr.de/rb/en/desktopdefault.aspx/tabid-6813/11187_read-25543/', '', '2011-03-03 21:37:23', '2012-07-19 10:58:52'),
+(18, 'Akari', 6, '2006-02-21', '0000-00-00', 'http://www.ir.isas.jaxa.jp/ASTRO-F/Outreach/index_e.html', '', '2011-03-03 22:01:34', '2012-07-19 11:00:39'),
+(19, 'ACE - Advanced Composition Explorer', 1, '1997-08-25', '2024-01-01', 'http://www.srl.caltech.edu/ACE/', 'ACE launched on a McDonnell-Douglas Delta II 7920 launch vehicle on August 25, 1997 from the Kennedy Space Center in Florida.\r\n\r\nThe Earth is constantly bombarded with a stream of accelerated particles arriving not only from the Sun, but also from interstellar and galactic sources. Study of these energetic particles contributes to our understanding of the formation and evolution of the solar system as well as the astrophysical processes involved. The Advanced Composition Explorer (ACE) spacecraft carrying six high-resolution sensors and three monitoring instruments samples low-energy particles of solar origin and high-energy galactic particles with a collecting power 10 to 1000 times greater than past experiments.\r\n\r\nACE orbits the L1 libration point which is a point of Earth-Sun gravitational equilibrium about 1.5 million km from Earth and 148.5 million km from the Sun. From its location at L1 ACE has a prime view of the solar wind, interplanetary magnetic field and higher energy particles accelerated by the Sun, as well as particles accelerated in the heliosphere and the galactic regions beyond.\r\n\r\nACE also provides near-real-time 24/7 continuous coverage of solar wind parameters and solar energetic particle intensities (space weather). When reporting space weather ACE provides an advance warning (about one hour) of geomagnetic storms that can overload power grids, disrupt communications on Earth, and present a hazard to astronauts.\r\n\r\nThe spacecraft has enough propellant on board to maintain an orbit at L1 until ~2024.\r\n\r\nMore details of the ACE mission can be found in the ACE Mission Paper, published in Space Science Reviews:\r\nhttp://www.srl.caltech.edu/ACE/ace-mission-ssr-paper.pdf', '2011-03-03 22:43:50', '2012-07-19 10:55:05'),
+(20, 'Calipso', 1, '2006-04-28', '0000-00-00', 'http://www.nasa.gov/mission_pages/calipso/spacecraft/index.html', '', '2011-03-04 00:25:26', '2012-07-19 11:02:25'),
+(21, 'EPOXI', 1, '2005-01-12', '0000-00-00', 'http://www.nasa.gov/mission_pages/epoxi/index.html', '', '2011-03-04 00:40:10', '2012-07-19 10:29:10'),
+(22, 'Terra', 1, '1999-08-12', '0000-00-00', 'http://www.nasa.gov/mission_pages/terra/index.html', '', '2011-03-04 00:48:52', '2012-07-19 10:58:21'),
 (23, 'International Space Station', 1, '1998-00-00', '2015-00-00', 'http://www.nasa.gov/mission_pages/station/main/index.html', '', '2011-03-04 01:01:20', '2012-03-13 20:54:42'),
-(24, 'Venus Express', 2, '2005-11-09', '2012-12-00', 'http://www.esa.int/SPECIALS/Venus_Express/', '', '2011-03-04 10:25:27', '2012-03-13 21:26:15'),
-(25, 'TanDEM-X', 9, '2010-06-21', '0000-00-00', 'http://www.dlr.de/eo/en/desktopdefault.aspx/tabid-5727/10086_read-21046/', '', '2011-03-04 10:31:57', '2012-03-13 21:27:31'),
-(26, 'SATCOMBw', 9, '2009-01-10', '2024-00-00', 'http://www.dlr.de/rb/en/desktopdefault.aspx/tabid-6813/11187_read-25574/', '', '2011-03-04 10:51:58', '2012-03-13 21:28:20'),
-(27, 'SAR-Lupe', 9, '2006-12-19', '0000-00-00', 'http://www.dlr.de/en/desktopdefault.aspx/tabid-1/86_read-13077/', '', '2011-03-04 11:01:03', '2012-03-13 21:27:57'),
-(28, 'CloudSat', 1, '2006-04-28', '0000-00-00', 'http://www.nasa.gov/mission_pages/cloudsat/main/index.html', '', '2011-03-04 11:21:00', '2012-03-13 21:28:38'),
-(29, 'ARCTAS NASA', 1, '2008-07-01', '0000-00-00', 'http://www.nasa.gov/mission_pages/arctas/', '', '2011-03-04 11:30:55', '2012-03-13 21:28:56'),
-(30, 'GOES-O', 1, '2009-06-26', '0000-00-00', 'http://www.nasa.gov/mission_pages/GOES-O/main/index.html', '', '2011-03-04 11:39:34', '2012-03-13 21:29:12'),
-(31, 'GOES-P', 1, '2010-03-04', '0000-00-00', 'http://www.nasa.gov/mission_pages/GOES-P/main/index.html', '', '2011-03-04 11:50:00', '2012-03-13 20:54:09'),
-(32, 'Kepler', 1, '2009-03-07', '2012-12-30', 'http://kepler.nasa.gov/', '', '2011-03-04 12:02:04', '2012-03-13 21:55:23'),
-(33, 'NOAA-N Prime', 1, '2009-02-06', '0000-00-00', 'http://www.nasa.gov/mission_pages/NOAA-N-Prime/main/index.html', '', '2011-03-04 12:12:57', '2012-03-13 21:05:36');
+(24, 'Venus Express', 2, '2005-11-09', '2012-12-00', 'http://www.esa.int/SPECIALS/Venus_Express/', '', '2011-03-04 10:25:27', '2012-07-19 10:24:38'),
+(25, 'TanDEM-X', 9, '2010-06-21', '0000-00-00', 'http://www.dlr.de/eo/en/desktopdefault.aspx/tabid-5727/10086_read-21046/', '', '2011-03-04 10:31:57', '2012-07-19 10:23:55'),
+(26, 'SATCOMBw', 9, '2009-01-10', '2024-00-00', 'http://www.dlr.de/rb/en/desktopdefault.aspx/tabid-6813/11187_read-25574/', '', '2011-03-04 10:51:58', '2012-07-19 10:23:21'),
+(27, 'SAR-Lupe', 9, '2006-12-19', '0000-00-00', 'http://www.dlr.de/en/desktopdefault.aspx/tabid-1/86_read-13077/', '', '2011-03-04 11:01:03', '2012-07-19 10:23:33'),
+(28, 'CloudSat', 1, '2006-04-28', '0000-00-00', 'http://www.nasa.gov/mission_pages/cloudsat/main/index.html', '', '2011-03-04 11:21:00', '2012-07-19 10:23:12'),
+(29, 'ARCTAS NASA', 1, '2008-07-01', '0000-00-00', 'http://www.nasa.gov/mission_pages/arctas/', '', '2011-03-04 11:30:55', '2012-07-19 10:22:46'),
+(30, 'GOES-O', 1, '2009-06-26', '0000-00-00', 'http://www.nasa.gov/mission_pages/GOES-O/main/index.html', '', '2011-03-04 11:39:34', '2012-07-19 10:22:38'),
+(31, 'GOES-15 - Geostationary Operational Environmental Satellite-15 (formerly GOES-P)', 1, '2010-03-04', '0000-00-00', 'http://www.nasa.gov/mission_pages/GOES-P/main/index.html', 'The Geostationary Operational Environmental Satellite (GOES)-15(-P) represents a continuation of the newest generation of environmental satellites built by Boeing for the National Oceanic and Atmospheric Administration (NOAA) under the technical guidance and project management of NASA''s Goddard Space Flight Center.\r\n\r\nGOES satellites provide the familiar weather pictures seen on United States television newscasts every day. The GOES imaging and sounding instruments (built by ITT) feature flexible scans for small-scale area viewing in regions of the visible and infrared spectrum allowing meteorologists to improve short-term forecasts. GOES provides nearly continuous imaging and sounding, which allow forecasters to better measure changes in atmospheric temperature and moisture distributions and hence increase the accuracy of their forecasts.\r\n\r\nGOES environmental information is used for a host of applications, including weather monitoring and prediction models, ocean temperatures and moisture locations, climate studies, cryosphere (ice, snow, glaciers) detection and extent, land temperatures and crop conditions, and hazards detection. ', '2011-03-04 11:50:00', '2012-07-19 11:07:55'),
+(32, 'Kepler', 1, '2009-03-07', '2012-12-30', 'http://kepler.nasa.gov/', '', '2011-03-04 12:02:04', '2012-07-19 10:22:02'),
+(33, 'NOAA-N Prime', 1, '2009-02-06', '0000-00-00', 'http://www.nasa.gov/mission_pages/NOAA-N-Prime/main/index.html', '', '2011-03-04 12:12:57', '2012-07-19 10:39:54');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `space_mission_to_research_areas`
+-- Table structure for table `space_mission_to_research_areas`
 --
 
 CREATE TABLE IF NOT EXISTS `space_mission_to_research_areas` (
@@ -3556,7 +3727,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_research_areas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `space_mission_to_research_areas`
+-- Dumping data for table `space_mission_to_research_areas`
 --
 
 INSERT INTO `space_mission_to_research_areas` (`space_mission_id`, `research_area_id`) VALUES
@@ -3629,7 +3800,7 @@ INSERT INTO `space_mission_to_research_areas` (`space_mission_id`, `research_are
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `space_mission_to_sensors`
+-- Table structure for table `space_mission_to_sensors`
 --
 
 CREATE TABLE IF NOT EXISTS `space_mission_to_sensors` (
@@ -3641,112 +3812,112 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_sensors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `space_mission_to_sensors`
+-- Dumping data for table `space_mission_to_sensors`
 --
 
 INSERT INTO `space_mission_to_sensors` (`space_mission_id`, `sensor_id`) VALUES
 (1, 285),
 (1, 286),
-(3, 649),
-(3, 650),
-(3, 651),
-(3, 652),
-(3, 653),
-(3, 654),
-(3, 655),
-(3, 656),
-(3, 657),
-(3, 658),
-(3, 659),
-(3, 660),
-(3, 661),
-(3, 662),
-(3, 663),
-(3, 664),
-(3, 665),
-(3, 666),
-(3, 667),
-(3, 668),
-(4, 310),
-(5, 308),
-(6, 309),
-(7, 322),
-(8, 311),
-(8, 312),
-(8, 313),
-(8, 314),
-(9, 357),
-(10, 330),
-(10, 331),
-(10, 332),
-(11, 315),
-(11, 316),
-(11, 317),
-(11, 318),
-(11, 319),
-(11, 320),
-(12, 333),
-(12, 334),
-(12, 335),
-(13, 336),
-(13, 337),
-(13, 338),
-(13, 339),
-(14, 340),
-(14, 341),
-(14, 342),
-(15, 343),
-(15, 344),
-(15, 345),
-(16, 346),
-(16, 347),
-(17, 277),
-(17, 278),
-(17, 279),
-(18, 275),
-(18, 276),
-(19, 297),
-(19, 298),
-(19, 299),
-(19, 300),
-(19, 301),
-(19, 302),
-(19, 303),
-(19, 304),
-(19, 305),
-(19, 306),
-(20, 272),
-(20, 273),
-(20, 274),
-(22, 280),
-(22, 281),
-(22, 282),
-(22, 283),
-(22, 284),
-(24, 348),
-(24, 349),
-(24, 350),
-(24, 351),
-(25, 352),
-(27, 353),
-(28, 354),
-(30, 355),
-(31, 268),
-(31, 269),
-(31, 270),
-(31, 271),
-(32, 358),
-(33, 324),
-(33, 325),
-(33, 326),
-(33, 327),
-(33, 328),
-(33, 329);
+(3, 669),
+(3, 670),
+(3, 671),
+(3, 672),
+(3, 673),
+(3, 674),
+(3, 675),
+(3, 676),
+(3, 677),
+(3, 678),
+(3, 679),
+(3, 680),
+(3, 681),
+(3, 682),
+(3, 683),
+(3, 684),
+(3, 685),
+(3, 686),
+(3, 687),
+(3, 688),
+(4, 735),
+(5, 737),
+(6, 736),
+(7, 723),
+(8, 731),
+(8, 732),
+(8, 733),
+(8, 734),
+(9, 690),
+(10, 714),
+(10, 715),
+(10, 716),
+(11, 724),
+(11, 725),
+(11, 726),
+(11, 727),
+(11, 728),
+(11, 729),
+(12, 711),
+(12, 712),
+(12, 713),
+(13, 707),
+(13, 708),
+(13, 709),
+(13, 710),
+(14, 704),
+(14, 705),
+(14, 706),
+(15, 701),
+(15, 702),
+(15, 703),
+(16, 699),
+(16, 700),
+(17, 753),
+(17, 754),
+(17, 755),
+(18, 756),
+(18, 757),
+(19, 738),
+(19, 739),
+(19, 740),
+(19, 741),
+(19, 742),
+(19, 743),
+(19, 744),
+(19, 745),
+(19, 746),
+(19, 747),
+(20, 758),
+(20, 759),
+(20, 760),
+(22, 748),
+(22, 749),
+(22, 750),
+(22, 751),
+(22, 752),
+(24, 695),
+(24, 696),
+(24, 697),
+(24, 698),
+(25, 694),
+(27, 693),
+(28, 692),
+(30, 691),
+(31, 761),
+(31, 762),
+(31, 763),
+(31, 764),
+(32, 689),
+(33, 717),
+(33, 718),
+(33, 719),
+(33, 720),
+(33, 721),
+(33, 722);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `space_mission_to_targets`
+-- Table structure for table `space_mission_to_targets`
 --
 
 CREATE TABLE IF NOT EXISTS `space_mission_to_targets` (
@@ -3758,7 +3929,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_targets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `space_mission_to_targets`
+-- Dumping data for table `space_mission_to_targets`
 --
 
 INSERT INTO `space_mission_to_targets` (`space_mission_id`, `target_id`) VALUES
@@ -3810,7 +3981,7 @@ INSERT INTO `space_mission_to_targets` (`space_mission_id`, `target_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `targets`
+-- Table structure for table `targets`
 --
 
 CREATE TABLE IF NOT EXISTS `targets` (
@@ -3820,7 +3991,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=220 ;
 
 --
--- Daten für Tabelle `targets`
+-- Dumping data for table `targets`
 --
 
 INSERT INTO `targets` (`id`, `target_name`) VALUES
@@ -3849,7 +4020,7 @@ INSERT INTO `targets` (`id`, `target_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `telescopes`
+-- Table structure for table `telescopes`
 --
 
 CREATE TABLE IF NOT EXISTS `telescopes` (
@@ -3872,10 +4043,10 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2334 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2444 ;
 
 --
--- Daten für Tabelle `telescopes`
+-- Dumping data for table `telescopes`
 --
 
 INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag`, `telescope_elements`, `diameter_m`, `focallength_m`, `antenna_type`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `comments`) VALUES
@@ -4303,14 +4474,39 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2325, 'MAGIC I', 15, 0, 0, 17.000000, '1.03', 1, 'gamma-ray, ', 0.000000, 1, 0.000000, 1, '- Imaging Atmospheric Cherenkov Telescope\r\n- Further information on the telescope: http://wwwmagic.mppmu.mpg.de/magic/index.html'),
 (2326, 'MAGIC II', 15, 0, 0, 17.000000, '1.03', 1, 'gamma-ray, ', 0.000000, 1, 0.000000, 1, '- Imaging Atmospheric Cherenkov Telescope\r\n- Further information on the telescope: http://wwwmagic.mppmu.mpg.de/magic/index.html'),
 (2330, 'Newton-Telescope', 1, 0, 0, 0.440000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2331, 'Instrument1: Ritchey-Chretien', 5, 0, 0, 0.600000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: \r\n'),
-(2332, 'Instrument2: Radio Telescope', 10, 0, 0, 10.000000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
-(2333, 'Instrument', 15, 0, 0, 6.000000, '', 1, '', 0.000000, 1, 0.000000, 1, '');
+(2341, 'Schmidt-Cassegrain Telescope', 3, 0, 0, 0.254000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2345, '0.6 Meter Dahl Kirkham Telescope', 5, 0, 0, 0.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
+(2364, 'HET - Hobby-Eberly Telescope', 17, 0, 0, 9.200000, '13.08', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.as.utexas.edu/mcdonald/het/het.html'),
+(2365, 'Harlan J. Smith Telescope', 17, 0, 0, 2.700000, '10.68', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.as.utexas.edu/mcdonald/facilities/2.7m/2.7.html'),
+(2366, 'Otto Struve Telescope', 17, 0, 0, 2.100000, '8.13', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2367, '0.9m Telescope', 17, 0, 0, 0.900000, '3.18', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- For public outreach only.\r\n- Further information on this telescope available under: http://www.as.utexas.edu/mcdonald/facilities/0.9m/0.9.html'),
+(2368, '0.8m Telescope', 17, 0, 0, 0.800000, '2.29', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.as.utexas.edu/mcdonald/facilities/0.8m/0.8.html'),
+(2369, 'MRLS 76cm Laser Ranging System', 15, 0, 0, 0.760000, '2.286', 1, '', 0.000000, 1, 0.000000, 1, '- Laser Ranging Station\r\n- Further information on this instrument available under: http://www.as.utexas.edu/mcdonald/facilities/laser.html'),
+(2376, 'Ritchey-Chretien Telescope', 5, 0, 0, 0.254000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
+(2377, 'Schmidt-Cassegrain Telescope', 3, 0, 0, 0.279000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2382, 'Radio Observatory', 10, 0, 0, 13.700000, '', 1, 'microwave, ', 2.000000, 5, 150.000000, 5, 'Uses extrasolar radio signals between 2 to 150 GHz, with corresponding wavelengths in the range of 13.0 cm-2.0 mm.'),
+(2387, 'T1T - Treburer - 1 Meter - Teleskop', 2, 0, 0, 1.200000, '9.55', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
+(2388, '11'''' Maksutov-Newton', 4, 0, 0, 0.280000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2401, '165cm Reflecting Telescope', 17, 0, 0, 1.650000, '4.92', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://mao.tfai.vu.lt/mao/en/content/165-m-telescope'),
+(2402, '63cm Reflecting Telescope', 17, 0, 0, 0.630000, '3.03', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://mao.tfai.vu.lt/mao/en/content/63-cm-telescope'),
+(2403, '35/51 cm Maksutov Telescope ACT-452', 4, 0, 0, 0.510000, '1.20', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://mao.tfai.vu.lt/mao/en/content/3551-cm-maksutov-telescope-act-452'),
+(2406, '1.6 Meter Ritchey-Chrétien Telescope', 5, 0, 0, 1.600000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
+(2411, '68489648', 15, 0, 0, 648.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: Optical\r\n'),
+(2412, '', 15, 0, 0, 0.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: Optical\r\n'),
+(2414, '24'''' Perkin-Elmer Reflecting Telescope', 17, 0, 0, 0.610000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2418, 'Mopra 22-m Antenna', 10, 0, 0, 22.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- 3-mm band covering 76 to 117 GHz \r\n- 7-mm band covering 30 to 50 GHz \r\n- 12-mm band covering 16 to 27 GHz\r\n\r\n- Further information on the telescope and its instruments available under http://www.narrabri.atnf.csiro.au/mopra/obsinfo.html'),
+(2420, 'Heinrich Hertz Submillimeter Telescope', 10, 0, 0, 10.000000, '0.35', 11, 'submillimeter, ', 0.700000, 10, 4.000000, 10, 'Further information on this telescope available under http://aro.as.arizona.edu/smt_docs/smt_telescope_specs.htm'),
+(2436, 'MLO 40-inch Telescope', 17, 0, 0, 1.070000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, 'Further information on the telescope and its instruments available under http://mintaka.sdsu.edu/MLO/FACILITIES/40_in_scope.html'),
+(2437, 'Smith 24-inch Telescope', 2, 0, 0, 0.609000, 'f/20', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information on this telescope and its instruments available under http://mintaka.sdsu.edu/MLO/FACILITIES/24_in_scope.html'),
+(2438, 'Buller 21-inch Visitors'' Telescope', 2, 0, 0, 0.530000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information on this telescope available under http://mintaka.sdsu.edu/MLO/FACILITIES/21_in_scope.html\r\n\r\n- Mainly used for public outreach\r\n\r\n- A 35-mm film camera and an SBIG CCD camera are available for student use'),
+(2439, '50-inch Phillips Claud Telescope', 17, 0, 0, 1.270000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Under construction'),
+(2442, 'Hooker', 17, 0, 0, 2.540000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2443, 'Hale', 17, 0, 0, 1.520000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `telescope_to_instruments`
+-- Table structure for table `telescope_to_instruments`
 --
 
 CREATE TABLE IF NOT EXISTS `telescope_to_instruments` (
@@ -4322,7 +4518,7 @@ CREATE TABLE IF NOT EXISTS `telescope_to_instruments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Daten für Tabelle `telescope_to_instruments`
+-- Dumping data for table `telescope_to_instruments`
 --
 
 INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
@@ -4604,12 +4800,46 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2309, 1303),
 (2316, 1304),
 (2321, 1305),
-(2330, 1307);
+(2330, 1307),
+(2341, 1314),
+(2364, 1342),
+(2364, 1343),
+(2364, 1344),
+(2365, 1345),
+(2365, 1346),
+(2365, 1347),
+(2365, 1348),
+(2365, 1349),
+(2365, 1350),
+(2366, 1351),
+(2366, 1352),
+(2366, 1353),
+(2366, 1354),
+(2366, 1355),
+(2366, 1356),
+(2376, 1357),
+(2401, 1364),
+(2401, 1365),
+(2401, 1366),
+(2418, 1368),
+(2420, 1369),
+(2420, 1370),
+(2420, 1371),
+(2420, 1372),
+(2420, 1373),
+(2420, 1374),
+(2436, 1385),
+(2436, 1386),
+(2436, 1387),
+(2436, 1388),
+(2436, 1389),
+(2437, 1390),
+(2437, 1391);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `telescope_types`
+-- Table structure for table `telescope_types`
 --
 
 CREATE TABLE IF NOT EXISTS `telescope_types` (
@@ -4619,7 +4849,7 @@ CREATE TABLE IF NOT EXISTS `telescope_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Daten für Tabelle `telescope_types`
+-- Dumping data for table `telescope_types`
 --
 
 INSERT INTO `telescope_types` (`id`, `name`) VALUES
@@ -4649,7 +4879,7 @@ INSERT INTO `telescope_types` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `timezones`
+-- Table structure for table `timezones`
 --
 
 CREATE TABLE IF NOT EXISTS `timezones` (
@@ -4659,7 +4889,7 @@ CREATE TABLE IF NOT EXISTS `timezones` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 --
--- Daten für Tabelle `timezones`
+-- Dumping data for table `timezones`
 --
 
 INSERT INTO `timezones` (`id`, `timezone`) VALUES
@@ -4704,7 +4934,7 @@ INSERT INTO `timezones` (`id`, `timezone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users_list`
+-- Table structure for table `users_list`
 --
 
 CREATE TABLE IF NOT EXISTS `users_list` (
@@ -4722,7 +4952,7 @@ CREATE TABLE IF NOT EXISTS `users_list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Daten für Tabelle `users_list`
+-- Dumping data for table `users_list`
 --
 
 INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`, `email`, `affiliation`, `category`, `level`) VALUES
@@ -4753,7 +4983,7 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users_statistics`
+-- Table structure for table `users_statistics`
 --
 
 CREATE TABLE IF NOT EXISTS `users_statistics` (
@@ -4763,10 +4993,10 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12379 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13065 ;
 
 --
--- Daten für Tabelle `users_statistics`
+-- Dumping data for table `users_statistics`
 --
 
 INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
@@ -17154,12 +17384,698 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (12375, 6, 'add', '2012-07-03 13:57:00'),
 (12376, 6, 'add', '2012-07-03 13:57:02'),
 (12377, 6, 'add', '2012-07-03 14:00:41'),
-(12378, 6, 'add', '2012-07-03 14:01:20');
+(12378, 6, 'add', '2012-07-03 14:01:20'),
+(12379, 6, 'add', '2012-07-03 14:02:44'),
+(12380, 6, 'add', '2012-07-03 14:03:02'),
+(12381, 6, 'add', '2012-07-03 14:03:07'),
+(12382, 6, 'edit', '2012-07-03 14:03:12'),
+(12383, 6, 'edit', '2012-07-03 14:03:14'),
+(12384, 6, 'add', '2012-07-03 14:03:17'),
+(12385, 6, 'edit', '2012-07-03 14:04:06'),
+(12386, 6, 'edit', '2012-07-03 14:04:08'),
+(12387, 6, 'add', '2012-07-03 14:04:16'),
+(12388, 1, 'home', '2012-07-03 14:04:55'),
+(12389, 1, 'login', '2012-07-03 14:04:57'),
+(12390, 3, 'login', '2012-07-03 14:04:57'),
+(12391, 3, 'browse', '2012-07-03 14:04:58'),
+(12392, 3, 'browse', '2012-07-03 14:05:00'),
+(12393, 3, 'edit', '2012-07-03 14:05:03'),
+(12394, 3, 'edit', '2012-07-03 14:05:04'),
+(12395, 3, 'edit', '2012-07-03 14:05:28'),
+(12396, 3, 'edit', '2012-07-03 14:05:29'),
+(12397, 3, 'add', '2012-07-03 14:05:33'),
+(12398, 3, 'add', '2012-07-03 14:08:22'),
+(12399, 3, 'add', '2012-07-03 14:08:34'),
+(12400, 3, 'add', '2012-07-03 14:08:36'),
+(12401, 6, 'add', '2012-07-03 14:14:26'),
+(12402, 6, 'add', '2012-07-03 14:14:39'),
+(12403, 6, 'edit', '2012-07-03 14:14:43'),
+(12404, 3, 'home', '2012-07-03 14:15:53'),
+(12405, 3, 'home', '2012-07-03 14:15:54'),
+(12406, 3, 'edit', '2012-07-03 14:15:55'),
+(12407, 3, 'edit', '2012-07-03 14:15:55'),
+(12408, 3, 'edit', '2012-07-03 14:15:56'),
+(12409, 3, 'home', '2012-07-03 14:15:57'),
+(12410, 3, 'add', '2012-07-03 14:16:07'),
+(12411, 3, 'add', '2012-07-03 14:16:08'),
+(12412, 3, 'add', '2012-07-03 14:18:13'),
+(12413, 3, 'add', '2012-07-03 14:18:14'),
+(12414, 3, 'add', '2012-07-03 14:18:51'),
+(12415, 3, 'home', '2012-07-03 14:18:52'),
+(12416, 3, 'edit', '2012-07-03 14:18:59'),
+(12417, 3, 'edit', '2012-07-03 14:19:00'),
+(12418, 3, 'edit', '2012-07-03 14:19:01'),
+(12419, 3, 'home', '2012-07-03 14:19:02'),
+(12420, 3, 'edit', '2012-07-03 14:19:05'),
+(12421, 3, 'home', '2012-07-03 14:19:06'),
+(12422, 3, 'add', '2012-07-03 14:19:23'),
+(12423, 3, 'edit', '2012-07-03 14:19:30'),
+(12424, 3, 'edit', '2012-07-03 14:19:33'),
+(12425, 3, 'edit', '2012-07-03 14:19:33'),
+(12426, 3, 'add', '2012-07-03 14:19:42'),
+(12427, 6, 'edit', '2012-07-03 14:38:31'),
+(12428, 6, 'edit', '2012-07-03 14:38:33'),
+(12429, 6, 'add', '2012-07-03 14:38:39'),
+(12430, 6, 'add', '2012-07-03 14:47:52'),
+(12431, 6, 'add', '2012-07-03 14:47:57'),
+(12432, 6, 'add', '2012-07-03 14:48:03'),
+(12433, 6, 'edit', '2012-07-03 14:49:29'),
+(12434, 6, 'edit', '2012-07-03 14:49:30'),
+(12435, 6, 'add', '2012-07-03 14:49:32'),
+(12436, 6, 'add', '2012-07-03 14:51:40'),
+(12437, 6, 'map', '2012-07-03 14:51:55'),
+(12438, 6, 'edit', '2012-07-03 15:00:50'),
+(12439, 6, 'browse', '2012-07-03 15:00:54'),
+(12440, 6, 'browse', '2012-07-03 15:00:56'),
+(12441, 6, 'browse', '2012-07-03 15:01:03'),
+(12442, 6, 'edit', '2012-07-03 15:01:31'),
+(12443, 6, 'edit', '2012-07-03 15:01:33'),
+(12444, 6, 'add', '2012-07-03 15:01:35'),
+(12445, 6, 'add', '2012-07-03 15:01:42'),
+(12446, 6, 'browse', '2012-07-03 15:01:51'),
+(12447, 6, 'browse', '2012-07-03 15:01:54'),
+(12448, 6, 'browse', '2012-07-03 15:02:05'),
+(12449, 6, 'edit', '2012-07-03 15:09:21'),
+(12450, 6, 'edit', '2012-07-03 15:09:23'),
+(12451, 6, 'add', '2012-07-03 15:09:29'),
+(12452, 6, 'add', '2012-07-03 15:10:56'),
+(12453, 6, 'map', '2012-07-03 15:11:00'),
+(12454, 6, 'edit', '2012-07-03 15:11:57'),
+(12455, 6, 'edit', '2012-07-03 15:12:00'),
+(12456, 6, 'add', '2012-07-03 15:12:06'),
+(12457, 6, 'add', '2012-07-03 15:19:16'),
+(12458, 6, 'browse', '2012-07-03 15:19:19'),
+(12459, 6, 'browse', '2012-07-03 15:19:22'),
+(12460, 6, 'browse', '2012-07-03 15:19:28'),
+(12461, 6, 'edit', '2012-07-03 15:19:54'),
+(12462, 6, 'edit', '2012-07-03 15:19:55'),
+(12463, 6, 'add', '2012-07-03 15:19:58'),
+(12464, 6, 'edit', '2012-07-03 15:22:37'),
+(12465, 6, 'edit', '2012-07-03 15:22:42'),
+(12466, 6, 'edit', '2012-07-03 15:22:44'),
+(12467, 6, 'edit', '2012-07-03 15:22:46'),
+(12468, 6, 'add', '2012-07-03 15:22:50'),
+(12469, 6, 'add', '2012-07-03 15:23:33'),
+(12470, 6, 'edit', '2012-07-03 15:23:35'),
+(12471, 6, 'edit', '2012-07-03 15:23:36'),
+(12472, 6, 'add', '2012-07-03 15:23:46'),
+(12473, 6, 'add', '2012-07-03 15:26:22'),
+(12474, 6, 'map', '2012-07-03 15:26:25'),
+(12475, 6, 'edit', '2012-07-03 15:26:44'),
+(12476, 6, 'edit', '2012-07-03 15:26:45'),
+(12477, 6, 'edit', '2012-07-03 15:27:03'),
+(12478, 6, 'edit', '2012-07-03 15:27:05'),
+(12479, 6, 'edit', '2012-07-03 15:27:08'),
+(12480, 6, 'edit', '2012-07-03 15:27:10'),
+(12481, 6, 'edit', '2012-07-03 15:27:18'),
+(12482, 6, 'add', '2012-07-03 15:27:19'),
+(12483, 6, 'add', '2012-07-03 15:27:25'),
+(12484, 6, 'map', '2012-07-03 15:27:30'),
+(12485, 6, 'edit', '2012-07-03 15:28:28'),
+(12486, 6, 'edit', '2012-07-03 15:28:29'),
+(12487, 6, 'add', '2012-07-03 15:28:32'),
+(12488, 6, 'add', '2012-07-03 15:42:42'),
+(12489, 6, 'edit', '2012-07-03 15:48:27'),
+(12490, 6, 'edit', '2012-07-03 15:48:28'),
+(12491, 6, 'add', '2012-07-03 15:48:30'),
+(12492, 6, 'add', '2012-07-03 16:05:14'),
+(12493, 6, 'browse', '2012-07-03 16:05:17'),
+(12494, 6, 'browse', '2012-07-03 16:05:19'),
+(12495, 6, 'browse', '2012-07-03 16:05:25'),
+(12496, 6, 'edit', '2012-07-03 16:06:13'),
+(12497, 6, 'edit', '2012-07-03 16:06:15'),
+(12498, 6, 'add', '2012-07-03 16:06:16'),
+(12499, 1, 'home', '2012-07-03 16:17:09'),
+(12500, 6, 'add', '2012-07-03 16:17:45'),
+(12501, 6, 'browse', '2012-07-03 16:17:57'),
+(12502, 6, 'browse', '2012-07-03 16:17:59'),
+(12503, 6, 'browse', '2012-07-03 16:18:05'),
+(12504, 6, 'edit', '2012-07-03 16:18:38'),
+(12505, 6, 'edit', '2012-07-03 16:18:40'),
+(12506, 6, 'add', '2012-07-03 16:18:42'),
+(12507, 6, 'add', '2012-07-03 16:26:32'),
+(12508, 6, 'browse', '2012-07-03 16:26:42'),
+(12509, 6, 'browse', '2012-07-03 16:26:44'),
+(12510, 6, 'browse', '2012-07-03 16:26:50'),
+(12511, 6, 'edit', '2012-07-03 16:27:25'),
+(12512, 6, 'edit', '2012-07-03 16:27:26'),
+(12513, 6, 'add', '2012-07-03 16:27:33'),
+(12514, 6, 'edit', '2012-07-03 16:27:37'),
+(12515, 6, 'edit', '2012-07-03 16:27:39'),
+(12516, 6, 'add', '2012-07-03 16:27:47'),
+(12517, 6, 'edit', '2012-07-03 16:27:52'),
+(12518, 6, 'edit', '2012-07-03 16:27:53'),
+(12519, 6, 'add', '2012-07-03 16:27:59'),
+(12520, 3, 'home', '2012-07-03 16:28:22'),
+(12521, 3, 'add', '2012-07-03 16:28:25'),
+(12522, 3, 'edit', '2012-07-03 16:28:27'),
+(12523, 3, 'edit', '2012-07-03 16:28:28'),
+(12524, 3, 'add', '2012-07-03 16:28:41'),
+(12525, 3, 'edit', '2012-07-03 16:29:25'),
+(12526, 3, 'add', '2012-07-03 16:31:29'),
+(12527, 6, 'edit', '2012-07-03 16:36:07'),
+(12528, 6, 'edit', '2012-07-03 16:36:09'),
+(12529, 6, 'add', '2012-07-03 16:36:12'),
+(12530, 6, 'add', '2012-07-03 16:36:21'),
+(12531, 6, 'add', '2012-07-03 16:36:27'),
+(12532, 3, 'add', '2012-07-03 16:38:00'),
+(12533, 6, 'add', '2012-07-03 16:39:36'),
+(12534, 6, 'add', '2012-07-03 16:40:21'),
+(12535, 6, 'edit', '2012-07-03 16:40:22'),
+(12536, 6, 'edit', '2012-07-03 16:40:23'),
+(12537, 6, 'add', '2012-07-03 16:40:32'),
+(12538, 6, 'add', '2012-07-03 16:41:08'),
+(12539, 6, 'map', '2012-07-03 16:41:10'),
+(12540, 6, 'edit', '2012-07-03 16:41:59'),
+(12541, 6, 'edit', '2012-07-03 16:42:02'),
+(12542, 6, 'add', '2012-07-03 16:42:04'),
+(12543, 6, 'add', '2012-07-03 16:42:10'),
+(12544, 6, 'map', '2012-07-03 16:42:13'),
+(12545, 6, 'edit', '2012-07-03 16:43:34'),
+(12546, 6, 'edit', '2012-07-03 16:43:36'),
+(12547, 6, 'add', '2012-07-03 16:43:38'),
+(12548, 6, 'add', '2012-07-03 16:48:43'),
+(12549, 6, 'browse', '2012-07-03 16:48:46'),
+(12550, 6, 'browse', '2012-07-03 16:48:49'),
+(12551, 6, 'browse', '2012-07-03 16:49:05'),
+(12552, 1, 'home', '2012-07-03 22:40:07'),
+(12553, 1, 'map', '2012-07-03 22:40:09'),
+(12554, 1, 'map', '2012-07-03 22:40:48'),
+(12555, 1, 'home', '2012-07-04 01:38:07'),
+(12556, 1, 'map', '2012-07-04 01:38:10'),
+(12557, 1, 'home', '2012-07-04 01:38:15'),
+(12558, 1, 'browse', '2012-07-04 01:38:16'),
+(12559, 1, 'home', '2012-07-04 01:46:38'),
+(12560, 1, 'map', '2012-07-04 01:46:44'),
+(12561, 1, 'home', '2012-07-04 01:46:44'),
+(12562, 1, 'browse', '2012-07-04 01:46:44'),
+(12563, 1, 'home', '2012-07-04 01:49:31'),
+(12564, 1, 'map', '2012-07-04 01:49:34'),
+(12565, 1, 'home', '2012-07-04 01:49:34'),
+(12566, 1, 'browse', '2012-07-04 01:49:35'),
+(12567, 1, 'home', '2012-07-04 01:52:40'),
+(12568, 1, 'map', '2012-07-04 01:52:42'),
+(12569, 1, 'home', '2012-07-04 01:52:42'),
+(12570, 1, 'browse', '2012-07-04 01:52:42'),
+(12571, 1, 'home', '2012-07-04 02:03:44'),
+(12572, 1, 'map', '2012-07-04 02:03:47'),
+(12573, 1, 'home', '2012-07-04 02:03:47'),
+(12574, 1, 'browse', '2012-07-04 02:03:48'),
+(12575, 1, 'home', '2012-07-04 02:03:56'),
+(12576, 1, 'map', '2012-07-04 02:03:58'),
+(12577, 1, 'home', '2012-07-04 02:03:58'),
+(12578, 1, 'browse', '2012-07-04 02:03:58'),
+(12579, 1, 'home', '2012-07-04 02:10:07'),
+(12580, 1, 'map', '2012-07-04 02:10:09'),
+(12581, 1, 'home', '2012-07-04 02:10:09'),
+(12582, 1, 'browse', '2012-07-04 02:10:10'),
+(12583, 1, 'home', '2012-07-04 11:45:26'),
+(12584, 1, 'login', '2012-07-04 11:45:29'),
+(12585, 6, 'login', '2012-07-04 11:45:29'),
+(12586, 6, 'edit', '2012-07-04 11:45:31'),
+(12587, 6, 'edit', '2012-07-04 11:45:39'),
+(12588, 6, 'edit', '2012-07-04 11:45:41'),
+(12589, 6, 'edit', '2012-07-04 11:45:44'),
+(12590, 6, 'add', '2012-07-04 11:45:47'),
+(12591, 6, 'add', '2012-07-04 12:04:45'),
+(12592, 6, 'edit', '2012-07-04 12:04:49'),
+(12593, 6, 'edit', '2012-07-04 12:04:52'),
+(12594, 6, 'add', '2012-07-04 12:04:57'),
+(12595, 6, 'add', '2012-07-04 12:05:56'),
+(12596, 6, 'map', '2012-07-04 12:05:59'),
+(12597, 6, 'edit', '2012-07-04 12:09:03'),
+(12598, 6, 'edit', '2012-07-04 12:09:05'),
+(12599, 6, 'add', '2012-07-04 12:09:06'),
+(12600, 6, 'add', '2012-07-04 12:16:52'),
+(12601, 6, 'edit', '2012-07-04 12:17:11'),
+(12602, 6, 'edit', '2012-07-04 12:17:12'),
+(12603, 6, 'add', '2012-07-04 12:17:15'),
+(12604, 6, 'add', '2012-07-04 12:17:39'),
+(12605, 6, 'edit', '2012-07-04 12:17:56'),
+(12606, 6, 'edit', '2012-07-04 12:17:58'),
+(12607, 6, 'add', '2012-07-04 12:18:00'),
+(12608, 6, 'add', '2012-07-04 12:18:25'),
+(12609, 6, 'edit', '2012-07-04 12:18:28'),
+(12610, 6, 'edit', '2012-07-04 12:18:29'),
+(12611, 6, 'add', '2012-07-04 12:18:33'),
+(12612, 6, 'add', '2012-07-04 12:20:02'),
+(12613, 6, 'edit', '2012-07-04 12:20:04'),
+(12614, 6, 'edit', '2012-07-04 12:20:06'),
+(12615, 6, 'add', '2012-07-04 12:20:11'),
+(12616, 6, 'add', '2012-07-04 12:20:53'),
+(12617, 6, 'map', '2012-07-04 12:20:56'),
+(12618, 6, 'edit', '2012-07-04 17:09:04'),
+(12619, 6, 'edit', '2012-07-04 17:09:06'),
+(12620, 6, 'add', '2012-07-04 17:09:09'),
+(12621, 6, 'add', '2012-07-04 17:09:24'),
+(12622, 6, 'edit', '2012-07-04 17:09:26'),
+(12623, 6, 'edit', '2012-07-04 17:09:28'),
+(12624, 6, 'add', '2012-07-04 17:09:29'),
+(12625, 6, 'add', '2012-07-04 17:09:33'),
+(12626, 1, 'home', '2012-07-05 05:00:31'),
+(12627, 1, 'browse', '2012-07-05 06:59:33'),
+(12628, 1, 'browse', '2012-07-07 04:12:48'),
+(12629, 1, 'browse', '2012-07-07 09:40:52'),
+(12630, 1, 'registration_q', '2012-07-07 18:57:49'),
+(12631, 1, 'browse', '2012-07-07 20:17:17'),
+(12632, 1, 'browse', '2012-07-08 14:31:17'),
+(12633, 1, 'home', '2012-07-09 11:08:09'),
+(12634, 1, 'login', '2012-07-09 11:12:45'),
+(12635, 6, 'login', '2012-07-09 11:12:45'),
+(12636, 1, 'home', '2012-07-09 11:27:48'),
+(12637, 1, 'browse', '2012-07-09 11:27:51'),
+(12638, 1, 'browse', '2012-07-09 11:27:53'),
+(12639, 6, 'edit', '2012-07-09 11:57:58'),
+(12640, 6, 'edit', '2012-07-09 11:58:00'),
+(12641, 6, 'add', '2012-07-09 11:58:02'),
+(12642, 6, 'edit', '2012-07-09 12:53:15'),
+(12643, 6, 'edit', '2012-07-09 12:53:17'),
+(12644, 6, 'add', '2012-07-09 12:53:20'),
+(12645, 6, 'add', '2012-07-09 13:29:07'),
+(12646, 6, 'edit', '2012-07-09 13:29:15'),
+(12647, 6, 'edit', '2012-07-09 13:29:17'),
+(12648, 6, 'add', '2012-07-09 13:29:21'),
+(12649, 6, 'add', '2012-07-09 13:29:59'),
+(12650, 6, 'edit', '2012-07-09 13:30:02'),
+(12651, 6, 'edit', '2012-07-09 13:30:05'),
+(12652, 6, 'add', '2012-07-09 13:30:10'),
+(12653, 6, 'add', '2012-07-09 13:30:48'),
+(12654, 6, 'map', '2012-07-09 13:30:50'),
+(12655, 6, 'edit', '2012-07-09 13:33:09'),
+(12656, 6, 'edit', '2012-07-09 13:33:12'),
+(12657, 6, 'add', '2012-07-09 13:33:14'),
+(12658, 6, 'add', '2012-07-09 13:59:32'),
+(12659, 6, 'browse', '2012-07-09 13:59:39'),
+(12660, 6, 'browse', '2012-07-09 13:59:42'),
+(12661, 6, 'browse', '2012-07-09 13:59:51'),
+(12662, 6, 'edit', '2012-07-09 13:59:59'),
+(12663, 6, 'edit', '2012-07-09 14:00:01'),
+(12664, 6, 'add', '2012-07-09 14:00:04'),
+(12665, 6, 'add', '2012-07-09 14:00:12'),
+(12666, 6, 'edit', '2012-07-09 14:04:41'),
+(12667, 6, 'edit', '2012-07-09 14:04:42'),
+(12668, 6, 'add', '2012-07-09 14:04:47'),
+(12669, 6, 'edit', '2012-07-09 14:05:04'),
+(12670, 6, 'edit', '2012-07-09 14:05:06'),
+(12671, 6, 'add', '2012-07-09 14:05:07'),
+(12672, 6, 'add', '2012-07-09 14:05:37'),
+(12673, 6, 'add', '2012-07-09 14:06:36'),
+(12674, 6, 'edit', '2012-07-09 14:06:38'),
+(12675, 6, 'edit', '2012-07-09 14:06:40'),
+(12676, 6, 'add', '2012-07-09 14:06:44'),
+(12677, 6, 'add', '2012-07-09 14:07:06'),
+(12678, 6, 'map', '2012-07-09 14:07:10'),
+(12679, 6, 'edit', '2012-07-09 14:07:56'),
+(12680, 6, 'edit', '2012-07-09 14:08:04'),
+(12681, 6, 'add', '2012-07-09 14:08:06'),
+(12682, 6, 'add', '2012-07-09 14:24:33'),
+(12683, 6, 'edit', '2012-07-09 14:34:34'),
+(12684, 6, 'edit', '2012-07-09 14:34:36'),
+(12685, 6, 'add', '2012-07-09 14:34:42'),
+(12686, 6, 'browse', '2012-07-09 14:34:46'),
+(12687, 6, 'browse', '2012-07-09 14:34:47'),
+(12688, 6, 'browse', '2012-07-09 14:34:51'),
+(12689, 6, 'edit', '2012-07-09 14:35:09'),
+(12690, 6, 'edit', '2012-07-09 14:35:10'),
+(12691, 6, 'add', '2012-07-09 14:35:13'),
+(12692, 6, 'add', '2012-07-09 14:37:37'),
+(12693, 6, 'edit', '2012-07-09 14:37:41'),
+(12694, 6, 'edit', '2012-07-09 14:37:42'),
+(12695, 6, 'add', '2012-07-09 14:37:48'),
+(12696, 6, 'add', '2012-07-09 14:38:28'),
+(12697, 6, 'map', '2012-07-09 14:38:30'),
+(12698, 6, 'edit', '2012-07-09 14:43:54'),
+(12699, 6, 'edit', '2012-07-09 14:43:56'),
+(12700, 6, 'add', '2012-07-09 14:43:58'),
+(12701, 6, 'add', '2012-07-09 14:54:23'),
+(12702, 6, 'edit', '2012-07-09 14:54:25'),
+(12703, 6, 'edit', '2012-07-09 14:58:26'),
+(12704, 6, 'add', '2012-07-09 14:58:32'),
+(12705, 6, 'browse', '2012-07-09 14:58:38'),
+(12706, 6, 'browse', '2012-07-09 14:58:40'),
+(12707, 6, 'browse', '2012-07-09 14:58:46'),
+(12708, 6, 'add', '2012-07-09 15:06:19'),
+(12709, 6, 'edit', '2012-07-09 15:06:21'),
+(12710, 6, 'edit', '2012-07-09 15:06:22'),
+(12711, 6, 'add', '2012-07-09 15:06:28'),
+(12712, 6, 'add', '2012-07-09 15:08:46'),
+(12713, 6, 'browse', '2012-07-09 15:08:49'),
+(12714, 6, 'browse', '2012-07-09 15:08:50'),
+(12715, 6, 'browse', '2012-07-09 15:08:56'),
+(12716, 6, 'edit', '2012-07-09 15:14:30'),
+(12717, 6, 'edit', '2012-07-09 15:14:31'),
+(12718, 6, 'add', '2012-07-09 15:14:35'),
+(12719, 6, 'browse', '2012-07-09 15:14:51'),
+(12720, 6, 'browse', '2012-07-09 15:14:55'),
+(12721, 6, 'add', '2012-07-09 15:15:35'),
+(12722, 6, 'edit', '2012-07-09 15:15:37'),
+(12723, 6, 'edit', '2012-07-09 15:15:38'),
+(12724, 6, 'add', '2012-07-09 15:15:42'),
+(12725, 6, 'add', '2012-07-09 15:16:13'),
+(12726, 6, 'map', '2012-07-09 15:16:15'),
+(12727, 6, 'edit', '2012-07-09 15:17:56'),
+(12728, 6, 'edit', '2012-07-09 15:17:58'),
+(12729, 6, 'add', '2012-07-09 15:18:02'),
+(12730, 6, 'add', '2012-07-09 15:30:00'),
+(12731, 6, 'edit', '2012-07-09 15:30:02'),
+(12732, 6, 'edit', '2012-07-09 15:30:05'),
+(12733, 6, 'add', '2012-07-09 15:30:06'),
+(12734, 6, 'add', '2012-07-09 15:31:31'),
+(12735, 6, 'browse', '2012-07-09 15:31:34'),
+(12736, 6, 'browse', '2012-07-09 15:31:36'),
+(12737, 6, 'browse', '2012-07-09 15:31:40'),
+(12738, 6, 'browse', '2012-07-09 15:31:42'),
+(12739, 6, 'browse', '2012-07-09 15:31:45'),
+(12740, 6, 'edit', '2012-07-09 15:31:54'),
+(12741, 6, 'edit', '2012-07-09 15:31:55'),
+(12742, 6, 'add', '2012-07-09 15:31:59'),
+(12743, 6, 'browse', '2012-07-09 15:32:06'),
+(12744, 6, 'browse', '2012-07-09 15:32:18'),
+(12745, 6, 'browse', '2012-07-09 15:32:22'),
+(12746, 6, 'browse', '2012-07-09 15:32:37'),
+(12747, 6, 'edit', '2012-07-09 15:34:33'),
+(12748, 6, 'edit', '2012-07-09 15:34:35'),
+(12749, 6, 'edit', '2012-07-09 15:34:42'),
+(12750, 6, 'edit', '2012-07-09 15:34:47'),
+(12751, 6, 'edit', '2012-07-09 15:34:57'),
+(12752, 6, 'add', '2012-07-09 15:34:59'),
+(12753, 6, 'browse', '2012-07-09 15:35:30'),
+(12754, 6, 'add', '2012-07-09 15:38:22'),
+(12755, 6, 'map', '2012-07-09 15:38:25'),
+(12756, 6, 'edit', '2012-07-09 15:39:17'),
+(12757, 6, 'edit', '2012-07-09 15:39:19'),
+(12758, 6, 'add', '2012-07-09 15:39:25'),
+(12759, 6, 'add', '2012-07-09 15:58:36'),
+(12760, 6, 'browse', '2012-07-09 15:58:38'),
+(12761, 6, 'browse', '2012-07-09 15:58:40'),
+(12762, 6, 'browse', '2012-07-09 15:58:47'),
+(12763, 6, 'edit', '2012-07-09 15:58:57'),
+(12764, 6, 'edit', '2012-07-09 15:58:59'),
+(12765, 6, 'add', '2012-07-09 15:59:03'),
+(12766, 6, 'add', '2012-07-09 16:00:32'),
+(12767, 6, 'edit', '2012-07-09 16:00:35'),
+(12768, 6, 'edit', '2012-07-09 16:00:36'),
+(12769, 6, 'add', '2012-07-09 16:00:39'),
+(12770, 6, 'add', '2012-07-09 16:01:00'),
+(12771, 6, 'map', '2012-07-09 16:01:03'),
+(12772, 6, 'map', '2012-07-09 16:01:06'),
+(12773, 6, 'edit', '2012-07-09 16:02:03'),
+(12774, 6, 'edit', '2012-07-09 16:02:04'),
+(12775, 6, 'add', '2012-07-09 16:02:06'),
+(12776, 6, 'add', '2012-07-09 16:02:25'),
+(12777, 6, 'map', '2012-07-09 16:02:28'),
+(12778, 6, 'edit', '2012-07-09 16:06:55'),
+(12779, 6, 'edit', '2012-07-09 16:06:57'),
+(12780, 6, 'add', '2012-07-09 16:06:59'),
+(12781, 6, 'add', '2012-07-09 16:46:30'),
+(12782, 6, 'edit', '2012-07-09 16:46:33'),
+(12783, 6, 'edit', '2012-07-09 16:46:34'),
+(12784, 6, 'add', '2012-07-09 16:46:36'),
+(12785, 6, 'add', '2012-07-09 17:05:10'),
+(12786, 1, 'home', '2012-07-09 20:11:07'),
+(12787, 1, 'home', '2012-07-10 11:05:16'),
+(12788, 1, 'login', '2012-07-10 11:05:18'),
+(12789, 6, 'login', '2012-07-10 11:05:18'),
+(12790, 6, 'edit', '2012-07-10 11:05:20'),
+(12791, 6, 'add', '2012-07-10 11:05:24'),
+(12792, 1, 'home', '2012-07-10 11:29:41'),
+(12793, 6, 'add', '2012-07-10 13:39:39'),
+(12794, 1, 'home', '2012-07-11 13:30:41'),
+(12795, 1, 'login', '2012-07-11 13:30:47'),
+(12796, 6, 'login', '2012-07-11 13:30:48'),
+(12797, 6, 'edit', '2012-07-11 13:30:54'),
+(12798, 6, 'add', '2012-07-11 13:30:56'),
+(12799, 1, 'home', '2012-07-11 22:04:50'),
+(12800, 1, 'map', '2012-07-11 22:04:50'),
+(12801, 1, 'home', '2012-07-11 22:04:50'),
+(12802, 1, 'browse', '2012-07-11 22:04:50'),
+(12803, 1, 'home', '2012-07-12 01:50:56'),
+(12804, 1, 'map', '2012-07-12 01:51:11'),
+(12805, 1, 'map', '2012-07-12 08:19:48'),
+(12806, 1, 'home', '2012-07-12 13:52:11'),
+(12807, 1, 'home', '2012-07-12 13:53:19'),
+(12808, 1, 'home', '2012-07-12 15:04:58'),
+(12809, 1, 'home', '2012-07-13 04:14:38'),
+(12810, 1, 'home', '2012-07-13 06:55:36'),
+(12811, 1, 'reset', '2012-07-13 07:43:07'),
+(12812, 1, 'browse', '2012-07-13 15:18:17'),
+(12813, 1, 'home', '2012-07-14 16:34:35'),
+(12814, 1, 'home', '2012-07-14 16:35:06'),
+(12815, 1, 'browse', '2012-07-14 16:35:16'),
+(12816, 1, 'map', '2012-07-14 16:35:19'),
+(12817, 1, 'browse', '2012-07-14 16:35:38'),
+(12818, 1, 'map', '2012-07-17 09:18:07'),
+(12819, 1, 'home', '2012-07-17 10:10:54'),
+(12820, 1, 'map', '2012-07-17 10:10:55'),
+(12821, 1, 'home', '2012-07-17 10:10:55'),
+(12822, 1, 'browse', '2012-07-17 10:10:55'),
+(12823, 1, 'registration_q', '2012-07-17 12:19:45'),
+(12824, 1, 'home', '2012-07-17 18:28:43'),
+(12825, 1, 'home', '2012-07-18 02:14:11'),
+(12826, 1, 'home', '2012-07-18 15:50:04'),
+(12827, 1, 'login', '2012-07-18 15:50:06'),
+(12828, 6, 'login', '2012-07-18 15:50:06'),
+(12829, 6, 'edit', '2012-07-18 15:50:10'),
+(12830, 6, 'add', '2012-07-18 15:50:12'),
+(12831, 1, 'home', '2012-07-18 15:59:38'),
+(12832, 1, 'browse', '2012-07-18 15:59:45'),
+(12833, 1, 'browse', '2012-07-18 15:59:46'),
+(12834, 1, 'home', '2012-07-18 15:59:58'),
+(12835, 1, 'login', '2012-07-18 16:04:58'),
+(12836, 3, 'login', '2012-07-18 16:04:58'),
+(12837, 3, 'browse', '2012-07-18 16:04:59'),
+(12838, 3, 'browse', '2012-07-18 16:05:01'),
+(12839, 1, 'home', '2012-07-18 16:05:09'),
+(12840, 1, 'browse', '2012-07-18 16:05:11'),
+(12841, 3, 'map', '2012-07-18 16:05:11'),
+(12842, 1, 'browse', '2012-07-18 16:05:13'),
+(12843, 1, 'map', '2012-07-18 16:05:26'),
+(12844, 1, 'browse', '2012-07-18 16:08:11'),
+(12845, 1, 'browse', '2012-07-18 16:08:13'),
+(12846, 3, 'add', '2012-07-18 16:11:40'),
+(12847, 3, 'add', '2012-07-18 16:11:42'),
+(12848, 3, 'edit', '2012-07-18 16:11:45'),
+(12849, 3, 'browse', '2012-07-18 16:12:07'),
+(12850, 3, 'browse', '2012-07-18 16:12:08'),
+(12851, 1, 'login', '2012-07-18 16:12:18'),
+(12852, 9, 'login', '2012-07-18 16:12:18'),
+(12853, 9, 'add', '2012-07-18 16:12:38'),
+(12854, 3, 'browse', '2012-07-18 16:13:25'),
+(12855, 3, 'browse', '2012-07-18 16:13:42'),
+(12856, 6, 'browse', '2012-07-18 16:14:29'),
+(12857, 6, 'browse', '2012-07-18 16:14:31'),
+(12858, 3, 'add', '2012-07-18 16:15:11'),
+(12859, 3, 'add', '2012-07-18 16:15:12'),
+(12860, 3, 'add', '2012-07-18 16:15:18'),
+(12861, 9, 'add', '2012-07-18 16:15:21'),
+(12862, 9, 'browse', '2012-07-18 16:15:24'),
+(12863, 9, 'browse', '2012-07-18 16:15:26'),
+(12864, 3, 'add', '2012-07-18 16:18:07'),
+(12865, 3, 'add', '2012-07-18 16:18:13'),
+(12866, 6, 'edit', '2012-07-18 16:18:16'),
+(12867, 6, 'edit', '2012-07-18 16:18:18'),
+(12868, 6, 'add', '2012-07-18 16:18:20'),
+(12869, 9, 'add', '2012-07-18 16:19:43'),
+(12870, 9, 'add', '2012-07-18 16:19:46'),
+(12871, 3, 'home', '2012-07-18 16:21:31'),
+(12872, 3, 'add', '2012-07-18 16:21:37'),
+(12873, 3, 'add', '2012-07-18 16:21:39'),
+(12874, 3, 'add', '2012-07-18 16:21:46'),
+(12875, 3, 'add', '2012-07-18 16:21:48'),
+(12876, 6, 'add', '2012-07-18 16:26:36'),
+(12877, 6, 'add', '2012-07-18 16:26:38'),
+(12878, 3, 'browse', '2012-07-18 16:27:25'),
+(12879, 3, 'browse', '2012-07-18 16:27:26'),
+(12880, 3, 'add', '2012-07-18 16:32:38'),
+(12881, 3, 'add', '2012-07-18 16:32:39'),
+(12882, 3, 'home', '2012-07-18 16:49:04'),
+(12883, 3, 'browse', '2012-07-18 16:49:13'),
+(12884, 3, 'browse', '2012-07-18 16:49:14'),
+(12885, 6, 'browse', '2012-07-18 16:52:49'),
+(12886, 6, 'browse', '2012-07-18 16:52:51'),
+(12887, 1, 'home', '2012-07-19 09:58:03'),
+(12888, 1, 'login', '2012-07-19 09:58:06'),
+(12889, 6, 'login', '2012-07-19 09:58:07'),
+(12890, 6, 'home', '2012-07-19 10:05:46'),
+(12891, 6, 'edit', '2012-07-19 10:05:51'),
+(12892, 6, 'browse', '2012-07-19 10:09:12'),
+(12893, 6, 'edit', '2012-07-19 10:09:14'),
+(12894, 6, 'edit', '2012-07-19 10:09:16'),
+(12895, 6, 'add', '2012-07-19 10:10:23'),
+(12896, 6, 'add', '2012-07-19 10:21:29'),
+(12897, 6, 'add', '2012-07-19 10:21:47'),
+(12898, 6, 'add', '2012-07-19 10:22:02'),
+(12899, 6, 'add', '2012-07-19 10:22:06'),
+(12900, 6, 'add', '2012-07-19 10:22:22'),
+(12901, 6, 'add', '2012-07-19 10:22:28'),
+(12902, 6, 'add', '2012-07-19 10:22:38'),
+(12903, 6, 'add', '2012-07-19 10:22:41'),
+(12904, 6, 'add', '2012-07-19 10:22:46'),
+(12905, 6, 'add', '2012-07-19 10:22:50'),
+(12906, 6, 'add', '2012-07-19 10:23:12'),
+(12907, 6, 'add', '2012-07-19 10:23:16'),
+(12908, 6, 'add', '2012-07-19 10:23:21'),
+(12909, 6, 'add', '2012-07-19 10:23:24'),
+(12910, 6, 'add', '2012-07-19 10:23:26'),
+(12911, 6, 'add', '2012-07-19 10:23:33'),
+(12912, 6, 'add', '2012-07-19 10:23:37'),
+(12913, 6, 'add', '2012-07-19 10:23:44'),
+(12914, 6, 'add', '2012-07-19 10:23:55'),
+(12915, 6, 'add', '2012-07-19 10:24:00'),
+(12916, 6, 'add', '2012-07-19 10:24:38'),
+(12917, 6, 'add', '2012-07-19 10:24:44'),
+(12918, 6, 'add', '2012-07-19 10:24:53'),
+(12919, 6, 'add', '2012-07-19 10:24:59'),
+(12920, 6, 'add', '2012-07-19 10:25:11'),
+(12921, 6, 'add', '2012-07-19 10:29:06'),
+(12922, 6, 'add', '2012-07-19 10:29:10'),
+(12923, 6, 'add', '2012-07-19 10:29:14'),
+(12924, 6, 'add', '2012-07-19 10:29:21'),
+(12925, 6, 'add', '2012-07-19 10:29:46'),
+(12926, 6, 'add', '2012-07-19 10:29:51'),
+(12927, 6, 'add', '2012-07-19 10:30:34'),
+(12928, 6, 'add', '2012-07-19 10:30:54'),
+(12929, 6, 'add', '2012-07-19 10:31:46'),
+(12930, 6, 'add', '2012-07-19 10:31:52'),
+(12931, 6, 'add', '2012-07-19 10:32:19'),
+(12932, 6, 'add', '2012-07-19 10:32:59'),
+(12933, 6, 'add', '2012-07-19 10:33:20'),
+(12934, 6, 'add', '2012-07-19 10:33:24'),
+(12935, 6, 'add', '2012-07-19 10:39:54'),
+(12936, 9, 'add', '2012-07-19 10:43:30'),
+(12937, 9, 'edit', '2012-07-19 10:43:33'),
+(12938, 9, 'edit', '2012-07-19 10:43:37'),
+(12939, 9, 'browse', '2012-07-19 10:44:00'),
+(12940, 9, 'browse', '2012-07-19 10:44:02'),
+(12941, 6, 'add', '2012-07-19 10:45:21'),
+(12942, 6, 'add', '2012-07-19 10:45:34'),
+(12943, 6, 'add', '2012-07-19 10:46:28'),
+(12944, 6, 'add', '2012-07-19 10:47:02'),
+(12945, 9, 'edit', '2012-07-19 10:47:41'),
+(12946, 9, 'add', '2012-07-19 10:47:46'),
+(12947, 6, 'add', '2012-07-19 10:48:35'),
+(12948, 6, 'add', '2012-07-19 10:48:42'),
+(12949, 6, 'add', '2012-07-19 10:49:08'),
+(12950, 6, 'add', '2012-07-19 10:49:33'),
+(12951, 6, 'add', '2012-07-19 10:49:39'),
+(12952, 6, 'add', '2012-07-19 10:49:40'),
+(12953, 6, 'add', '2012-07-19 10:49:54'),
+(12954, 6, 'add', '2012-07-19 10:50:01'),
+(12955, 6, 'add', '2012-07-19 10:50:05'),
+(12956, 6, 'add', '2012-07-19 10:50:19'),
+(12957, 6, 'add', '2012-07-19 10:51:29'),
+(12958, 6, 'edit', '2012-07-19 10:51:38'),
+(12959, 6, 'add', '2012-07-19 10:51:46'),
+(12960, 6, 'add', '2012-07-19 10:53:45'),
+(12961, 6, 'add', '2012-07-19 10:53:55'),
+(12962, 6, 'add', '2012-07-19 10:53:59'),
+(12963, 6, 'add', '2012-07-19 10:55:05'),
+(12964, 6, 'edit', '2012-07-19 10:55:14'),
+(12965, 6, 'add', '2012-07-19 10:55:23'),
+(12966, 6, 'add', '2012-07-19 10:55:31'),
+(12967, 6, 'add', '2012-07-19 10:58:21'),
+(12968, 6, 'add', '2012-07-19 10:58:27'),
+(12969, 6, 'add', '2012-07-19 10:58:52'),
+(12970, 6, 'add', '2012-07-19 10:58:57'),
+(12971, 6, 'add', '2012-07-19 11:00:39'),
+(12972, 6, 'add', '2012-07-19 11:00:44'),
+(12973, 6, 'add', '2012-07-19 11:00:49'),
+(12974, 6, 'add', '2012-07-19 11:02:25'),
+(12975, 6, 'add', '2012-07-19 11:02:32'),
+(12976, 6, 'add', '2012-07-19 11:02:38'),
+(12977, 6, 'add', '2012-07-19 11:02:47'),
+(12978, 9, 'add', '2012-07-19 11:07:55'),
+(12979, 9, 'add', '2012-07-19 11:08:40'),
+(12980, 9, 'edit', '2012-07-19 11:08:41'),
+(12981, 9, 'edit', '2012-07-19 11:08:45'),
+(12982, 9, 'add', '2012-07-19 11:09:02'),
+(12983, 9, 'home', '2012-07-19 11:12:14'),
+(12984, 6, 'edit', '2012-07-19 11:32:27'),
+(12985, 6, 'add', '2012-07-19 11:32:29'),
+(12986, 9, 'edit', '2012-07-19 11:42:19'),
+(12987, 9, 'edit', '2012-07-19 11:42:26'),
+(12988, 9, 'edit', '2012-07-19 11:50:04'),
+(12989, 9, 'add', '2012-07-19 11:50:15'),
+(12990, 1, 'home', '2012-07-19 11:57:54'),
+(12991, 1, 'login', '2012-07-19 11:57:57'),
+(12992, 3, 'login', '2012-07-19 11:57:57'),
+(12993, 3, 'add', '2012-07-19 11:57:58'),
+(12994, 3, 'add', '2012-07-19 11:57:59'),
+(12995, 6, 'add', '2012-07-19 12:01:40'),
+(12996, 6, 'browse', '2012-07-19 12:01:44'),
+(12997, 6, 'browse', '2012-07-19 12:01:45'),
+(12998, 6, 'browse', '2012-07-19 12:01:53'),
+(12999, 9, 'edit', '2012-07-19 12:03:50'),
+(13000, 9, 'edit', '2012-07-19 12:03:52'),
+(13001, 3, 'edit', '2012-07-19 12:04:03'),
+(13002, 3, 'edit', '2012-07-19 12:04:05'),
+(13003, 3, 'add', '2012-07-19 12:04:13'),
+(13004, 6, 'edit', '2012-07-19 12:04:18'),
+(13005, 3, 'home', '2012-07-19 12:04:21'),
+(13006, 6, 'edit', '2012-07-19 12:04:21'),
+(13007, 9, 'browse', '2012-07-19 12:04:25'),
+(13008, 9, 'browse', '2012-07-19 12:04:29'),
+(13009, 6, 'add', '2012-07-19 12:05:51'),
+(13010, 9, 'add', '2012-07-19 12:11:45'),
+(13011, 6, 'edit', '2012-07-19 12:13:16'),
+(13012, 6, 'edit', '2012-07-19 12:13:18'),
+(13013, 6, 'add', '2012-07-19 12:13:25'),
+(13014, 6, 'browse', '2012-07-19 12:16:25'),
+(13015, 6, 'add', '2012-07-19 12:18:50'),
+(13016, 6, 'edit', '2012-07-19 12:18:52'),
+(13017, 6, 'edit', '2012-07-19 12:18:53'),
+(13018, 6, 'add', '2012-07-19 12:18:58'),
+(13019, 6, 'edit', '2012-07-19 12:19:52'),
+(13020, 6, 'edit', '2012-07-19 12:19:55'),
+(13021, 6, 'add', '2012-07-19 12:19:58'),
+(13022, 6, 'add', '2012-07-19 12:23:13'),
+(13023, 6, 'map', '2012-07-19 12:23:29'),
+(13024, 3, 'browse', '2012-07-19 12:26:37'),
+(13025, 3, 'browse', '2012-07-19 12:26:39'),
+(13026, 3, 'add', '2012-07-19 12:26:43'),
+(13027, 3, 'add', '2012-07-19 12:26:44'),
+(13028, 6, 'edit', '2012-07-19 12:27:48'),
+(13029, 6, 'edit', '2012-07-19 12:27:52'),
+(13030, 6, 'edit', '2012-07-19 12:27:54'),
+(13031, 6, 'edit', '2012-07-19 12:27:56'),
+(13032, 6, 'edit', '2012-07-19 12:27:57'),
+(13033, 6, 'add', '2012-07-19 12:27:59'),
+(13034, 3, 'home', '2012-07-19 12:44:59'),
+(13035, 3, 'add', '2012-07-19 12:54:44'),
+(13036, 3, 'add', '2012-07-19 12:54:46'),
+(13037, 3, 'add', '2012-07-19 12:55:00'),
+(13038, 3, 'add', '2012-07-19 12:55:07'),
+(13039, 3, 'add', '2012-07-19 13:07:37'),
+(13040, 3, 'add', '2012-07-19 13:07:55'),
+(13041, 9, 'browse', '2012-07-19 13:38:08'),
+(13042, 9, 'browse', '2012-07-19 13:38:11'),
+(13043, 9, 'edit', '2012-07-19 13:38:16'),
+(13044, 9, 'edit', '2012-07-19 13:38:18'),
+(13045, 9, 'add', '2012-07-19 13:38:22'),
+(13046, 9, 'edit', '2012-07-19 13:38:34'),
+(13047, 9, 'edit', '2012-07-19 13:38:36'),
+(13048, 9, 'add', '2012-07-19 13:38:40'),
+(13049, 9, 'edit', '2012-07-19 13:38:59'),
+(13050, 9, 'edit', '2012-07-19 13:39:11'),
+(13051, 6, 'edit', '2012-07-19 13:42:41'),
+(13052, 6, 'edit', '2012-07-19 13:42:43'),
+(13053, 6, 'add', '2012-07-19 13:42:45'),
+(13054, 9, 'edit', '2012-07-19 14:06:08'),
+(13055, 9, 'edit', '2012-07-19 14:06:10'),
+(13056, 9, 'edit', '2012-07-19 14:06:25'),
+(13057, 9, 'edit', '2012-07-19 14:06:31'),
+(13058, 9, 'edit', '2012-07-19 14:06:33'),
+(13059, 9, 'edit', '2012-07-19 14:06:42'),
+(13060, 9, 'edit', '2012-07-19 14:06:44'),
+(13061, 9, 'add', '2012-07-19 14:12:02'),
+(13062, 9, 'edit', '2012-07-19 14:16:34'),
+(13063, 9, 'edit', '2012-07-19 14:16:37'),
+(13064, 9, 'add', '2012-07-19 14:16:47');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `wavelength_ranges`
+-- Table structure for table `wavelength_ranges`
 --
 
 CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
@@ -17170,7 +18086,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Daten für Tabelle `wavelength_ranges`
+-- Dumping data for table `wavelength_ranges`
 --
 
 INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
@@ -17186,7 +18102,7 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `wavelength_units`
+-- Table structure for table `wavelength_units`
 --
 
 CREATE TABLE IF NOT EXISTS `wavelength_units` (
@@ -17196,7 +18112,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_units` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Daten für Tabelle `wavelength_units`
+-- Dumping data for table `wavelength_units`
 --
 
 INSERT INTO `wavelength_units` (`id`, `wavelength_unit`) VALUES
@@ -17213,23 +18129,23 @@ INSERT INTO `wavelength_units` (`id`, `wavelength_unit`) VALUES
 (11, 'cm');
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `additional_information`
+-- Constraints for table `additional_information`
 --
 ALTER TABLE `additional_information`
   ADD CONSTRAINT `observatory_id_4` FOREIGN KEY (`id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `hidden_fields`
+-- Constraints for table `hidden_fields`
 --
 ALTER TABLE `hidden_fields`
   ADD CONSTRAINT `observatory_id_5` FOREIGN KEY (`id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `instruments`
+-- Constraints for table `instruments`
 --
 ALTER TABLE `instruments`
   ADD CONSTRAINT `instrument_type_id` FOREIGN KEY (`instrument_type`) REFERENCES `instrument_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -17237,7 +18153,7 @@ ALTER TABLE `instruments`
   ADD CONSTRAINT `wavelength_unit_id_4` FOREIGN KEY (`wavelength_e_unit`) REFERENCES `wavelength_units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `observatories`
+-- Constraints for table `observatories`
 --
 ALTER TABLE `observatories`
   ADD CONSTRAINT `clear_nights_id` FOREIGN KEY (`clear_nights`) REFERENCES `clearnights_ranges` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -17246,76 +18162,76 @@ ALTER TABLE `observatories`
   ADD CONSTRAINT `timezone_id` FOREIGN KEY (`timezone`) REFERENCES `timezones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `observatory_to_research_areas`
+-- Constraints for table `observatory_to_research_areas`
 --
 ALTER TABLE `observatory_to_research_areas`
   ADD CONSTRAINT `observatory_id_3` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `research_area_id_1` FOREIGN KEY (`research_area_id`) REFERENCES `research_areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `observatory_to_scientific_contacts`
+-- Constraints for table `observatory_to_scientific_contacts`
 --
 ALTER TABLE `observatory_to_scientific_contacts`
   ADD CONSTRAINT `observatory_id_1` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `scientific_contact_id_1` FOREIGN KEY (`scientific_contact_id`) REFERENCES `scientific_contacts` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `observatory_to_targets`
+-- Constraints for table `observatory_to_targets`
 --
 ALTER TABLE `observatory_to_targets`
   ADD CONSTRAINT `observatory_id_7` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `target_id_1` FOREIGN KEY (`target_id`) REFERENCES `targets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `observatory_to_telescopes`
+-- Constraints for table `observatory_to_telescopes`
 --
 ALTER TABLE `observatory_to_telescopes`
   ADD CONSTRAINT `observatory_id_2` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `telescope_id_1` FOREIGN KEY (`telescope_id`) REFERENCES `telescopes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `sensor_to_science_goals`
+-- Constraints for table `sensor_to_science_goals`
 --
 ALTER TABLE `sensor_to_science_goals`
   ADD CONSTRAINT `science_goal_id` FOREIGN KEY (`science_goal_id`) REFERENCES `science_goals` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `sensor_id_3` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `sensor_to_scientific_contacts`
+-- Constraints for table `sensor_to_scientific_contacts`
 --
 ALTER TABLE `sensor_to_scientific_contacts`
   ADD CONSTRAINT `scientific_contact_id_2` FOREIGN KEY (`scientific_contact_id`) REFERENCES `scientific_contacts` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `sensor_id_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `space_missions`
+-- Constraints for table `space_missions`
 --
 ALTER TABLE `space_missions`
   ADD CONSTRAINT `mission_agency_id` FOREIGN KEY (`mission_agency`) REFERENCES `agencies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `space_mission_to_research_areas`
+-- Constraints for table `space_mission_to_research_areas`
 --
 ALTER TABLE `space_mission_to_research_areas`
   ADD CONSTRAINT `research_area_id_2` FOREIGN KEY (`research_area_id`) REFERENCES `research_areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `space_mission_id_3` FOREIGN KEY (`space_mission_id`) REFERENCES `space_missions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `space_mission_to_sensors`
+-- Constraints for table `space_mission_to_sensors`
 --
 ALTER TABLE `space_mission_to_sensors`
   ADD CONSTRAINT `sensor_id_1` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `space_mission_id_1` FOREIGN KEY (`space_mission_id`) REFERENCES `space_missions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `space_mission_to_targets`
+-- Constraints for table `space_mission_to_targets`
 --
 ALTER TABLE `space_mission_to_targets`
   ADD CONSTRAINT `space_mission_id_2` FOREIGN KEY (`space_mission_id`) REFERENCES `space_missions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `target_id_2` FOREIGN KEY (`target_id`) REFERENCES `targets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `telescopes`
+-- Constraints for table `telescopes`
 --
 ALTER TABLE `telescopes`
   ADD CONSTRAINT `antenna_type_id` FOREIGN KEY (`antenna_type`) REFERENCES `antenna_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -17324,14 +18240,14 @@ ALTER TABLE `telescopes`
   ADD CONSTRAINT `wavelength_unit_id_2` FOREIGN KEY (`wavelength_e_unit`) REFERENCES `wavelength_units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `telescope_to_instruments`
+-- Constraints for table `telescope_to_instruments`
 --
 ALTER TABLE `telescope_to_instruments`
   ADD CONSTRAINT `instrument_id_1` FOREIGN KEY (`instrument_id`) REFERENCES `instruments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `telescope_id_2` FOREIGN KEY (`telescope_id`) REFERENCES `telescopes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints der Tabelle `users_statistics`
+-- Constraints for table `users_statistics`
 --
 ALTER TABLE `users_statistics`
   ADD CONSTRAINT `users_statistics_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users_list` (`id`) ON DELETE CASCADE;

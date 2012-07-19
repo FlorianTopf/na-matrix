@@ -6,4 +6,5 @@ INSERT INTO `instrument_types` (`id`, `name`) VALUES
 (5, 'Camera'),
 (6, 'Other'), /** needs to be removed in final version */
 (7, 'Heterodyne Receiver'),
-(8, 'Spectrograph & Camera'); /** input from UCL */
+(8, 'Spectrograph & Camera'), /** input from UCL */
+(9, 'Photometer'); /** input from UCL */

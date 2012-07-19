@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 11. Jun 2012 um 14:25
--- Server Version: 5.1.58
--- PHP-Version: 5.3.8
+-- Generation Time: Jul 19, 2012 at 02:48 PM
+-- Server version: 5.1.58
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `europla1_obs`
+-- Database: `europla1_obs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `areasofresearch`
+-- Table structure for table `areasofresearch`
 --
 
 CREATE TABLE IF NOT EXISTS `areasofresearch` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `areasofresearch` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `areasofresearch`
+-- Dumping data for table `areasofresearch`
 --
 
 INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`, `oid`) VALUES
@@ -56,11 +56,9 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (27, NULL, '<br>Public Outreach / Education etc<br>Astronomical imaging.', NULL, 27),
 (33, '<br>Key Area 2 <br>Key Area 3 ', '<br>Exoplanets<br>Stellar Occultations<br>Public Outreach / Education etc<br>Astrobiology<br>Orbital Mechanics<br>History of astronomy and historical observations', NULL, 33),
 (34, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Exoplanets<br>Stellar Physics<br>Cosmology<br>Stellar Occultations', NULL, 34),
-(35, '<br>Key Area 2 ', '<br>Supernovae/Novae', NULL, 35),
 (36, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Public Outreach / Education etc', NULL, 36),
 (37, NULL, NULL, NULL, 37),
 (38, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Exoplanets<br>Stellar Occultations<br>Public Outreach / Education etc<br>Blazars', NULL, 38),
-(40, NULL, '<br>Supernovae/Novae<br>Exoplanets<br><br>Comments:<br>Variable star observation', 'Variable star observation', 40),
 (42, '<br>Key Area 2 <br>Key Area 3 ', '<br>Solar Physics<br>Public Outreach / Education etc<br>Inpterplanetary Medium<br><br>Comments:<br>Sun Plot and other for studyng in group ', 'Sun Plot and other for studyng in group ', 42),
 (44, NULL, '<br>Galaxies<br>discovery of PN<br><br>Comments:<br>http://www.outters.fr/possible-nebuleuse-planetaire.html', 'http://www.outters.fr/possible-nebuleuse-planetaire.html', 44),
 (45, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Galaxies', NULL, 45),
@@ -70,11 +68,8 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (49, NULL, NULL, NULL, 49),
 (50, '<br>Key Area 2 ', '<br>Galaxies<br>Exoplanets<br>Black Holes<br>Asteroid rotation', NULL, 50),
 (52, 'Key Area 1 <br>Key Area 3 ', '<br>Supernovae/Novae<br>Galaxies<br>Exoplanets<br>Stellar Physics<br>Solar Physics<br>Cosmology<br>Black Holes<br>Astrobiology<br>Neutron Stars / Pulsars etc<br>Gravitational lensing', NULL, 52),
-(55, 'Key Area 1 <br>Key Area 2 <br>Key Area 3 ', NULL, NULL, 55),
-(56, NULL, NULL, NULL, 56),
 (57, '<br>Key Area 2 ', '<br>Exoplanets<br>Stellar Occultations<br>Exoplanets in the testing phase, photometry blazar', NULL, 57),
 (58, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Galaxies<br>Exoplanets<br>Stellar Occultations<br>Public Outreach / Education etc<br><br>Comments:<br>Focused mainly on the light curve and brightness measurements of the exoplanets, asteroids, supernovae, GRB''s and other similar type o stellar phenomena.', 'Focused mainly on the light curve and brightness measurements of the exoplanets, asteroids, supernovae, GRB''s and other similar type o stellar phenomena.', 58),
-(60, 'Key Area 1 ', '<br>Solar Physics<br>Inpterplanetary Medium<br>Magnetospheric Physics<br>cosmic ray physics<br><br>Comments:<br>continuous measurements of cosmic rays by neutron monitor with relatively high statistical accuracy', 'continuous measurements of cosmic rays by neutron monitor with relatively high statistical accuracy', 60),
 (64, 'Key Area 1 <br>Key Area 3 ', '<br>Public Outreach / Education etc', NULL, 64),
 (65, '<br>Key Area 2 ', '<br>Stellar Occultations<br>Orbital Mechanics<br><br>Comments:<br>Astrometry of asteroids and comets  New asteroids research.', 'Astrometry of asteroids and comets  New asteroids research.', 65),
 (66, '<br>Key Area 2 ', '<br>Exoplanets<br>Solar Physics<br>Stellar Occultations<br>Public Outreach / Education etc', NULL, 66),
@@ -83,14 +78,11 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (71, NULL, 'Atmospheric Physics<br>Solar Physics', NULL, 71),
 (77, NULL, NULL, NULL, 77),
 (82, NULL, '<br>Public Outreach / Education etc', NULL, 82),
-(86, '<br>Key Area 2 ', '<br>Stellar Physics', NULL, 86),
 (89, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>photometry of comet', NULL, 89),
 (90, NULL, '<br>Galaxies<br>Interstellar Medium<br>Exoplanets<br>Stellar Physics<br>Neutron Stars / Pulsars etc<br><br>Comments:<br>Okayama Astrophysical Observatory is a common-user national observatory. In principle you need to submit an observing proposal to the time allocation committee for using the 1.88m telescope, and the observatory is open for researchers in overseas (it is required that the proposer should belong to any research institutes). Call for proposals is usually out in March and Sept. Please refer the observatory web site for further information.', 'Okayama Astrophysical Observatory is a common-user national observatory. In principle you need to submit an observing proposal to the time allocation committee for using the 1.88m telescope, and the observatory is open for researchers in overseas (it is required that the proposer should belong to any research institutes). Call for proposals is usually out in March and Sept. Please refer the observatory web site for further information.', 90),
 (94, 'Key Area 1 <br>Key Area 2 <br>Key Area 3 ', 'Atmospheric Physics<br>Solar Physics<br>Cosmology<br>Magnetospheric Physics<br>Cosmic ray', NULL, 94),
-(95, NULL, '<br>Solar Physics<br><br>Comments:<br>imaging and spectroscopy of the solar emission corona and prominences', 'imaging and spectroscopy of the solar emission corona and prominences', 95),
 (98, NULL, NULL, NULL, 98),
 (100, NULL, NULL, NULL, 100),
-(104, '<br>Key Area 2 ', '<br>Exoplanets<br>Stellar Occultations<br>AGN', NULL, 104),
 (105, NULL, '<br>Galaxies<br>Interstellar Medium<br>Cosmology<br>Public Outreach / Education etc<br>Black Holes<br>Astrochemistry', NULL, 105),
 (109, '<br>Key Area 2 ', '<br>Exoplanets', NULL, 109),
 (110, '<br>Key Area 2 ', NULL, NULL, 110),
@@ -102,12 +94,10 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (119, '<br>Key Area 2 <br>Key Area 3 ', '<br>Supernovae/Novae<br>Galaxies<br>Exoplanets<br>Stellar Physics<br>Large Scale Structures<br>Solar Physics<br>Cosmology<br>Stellar Occultations<br>Public Outreach / Education etc<br><br>Comments:<br>Physics and evolution of stars; planetary science; galaxies and cosmology; heliophysics', 'Physics and evolution of stars; planetary science; galaxies and cosmology; heliophysics', 119),
 (120, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Galaxies<br>Interstellar Medium<br>Exoplanets<br>Stellar Physics<br>Large Scale Structures<br>Cosmology<br>Stellar Occultations<br>Public Outreach / Education etc<br>Black Holes<br>Neutron Stars / Pulsars etc<br>Orbital Mechanics', NULL, 120),
 (121, NULL, NULL, NULL, 121),
-(10110, '', '', '', 10001),
 (10108, '', 'Galaxies', '', 10002),
 (10109, '', '', '', 10003),
 (10099, '', '', '', 10004),
 (10105, '', '', '', 10005),
-(10087, '', '', '', 10006),
 (10107, '', '', '', 10007),
 (10013, '', '', '', 10009),
 (10102, '', '', '', 10010),
@@ -125,37 +115,23 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (10101, '', '', '', 10030),
 (10037, '', '', '', 10033),
 (10088, '', '', '', 10034),
-(10039, '', '', '', 10035),
 (10040, '', '', '', 10036),
-(10043, '', '', '', 10039),
-(10053, '', 'Exoplanets', '', 10042),
 (10100, '', 'Stellar Physics', '', 10047),
-(10054, '', '', '', 10049),
-(10055, '', '', '', 10050),
 (10056, '', 'Solar Physics,Cosmology', '', 10051),
 (10057, '', 'Exoplanets', '', 10052),
-(10061, '', '', '', 10056),
 (10062, '', '', '', 10057),
 (10063, '', 'Neutron Stars/Pulsars', '', 10058),
-(10065, '', '', '', 10060),
 (10066, '', '', '', 10061),
 (10068, 'Key Area 1', '', '', 10063),
 (10111, '', 'Galaxies,Cosmology', '', 10066),
-(10113, '', '', '', 10068),
-(10116, '', '', 'Areas of research include: Research in radio astronomy, development of instruments needed in radio astronomy, development of methods for radio astronomical measurements, space research and education', 10069),
 (10117, '', 'Cosmology,Astrobiology', '', 10070),
 (10127, '', 'Interstellar Medium,Stellar Physics,Other', 'A lot of research is focused on variable stars.', 10072),
-(10128, '', '', '', 10073),
 (10202, '', '', '', 10078),
 (10136, '', '', '', 10080),
-(10140, '', '', '', 10084),
 (10146, '', '', '', 10090),
 (10150, '', '', '', 10094),
-(10151, '', '', '', 10095),
-(10153, '', '', '', 10097),
 (10154, '', '', '', 10098),
 (10155, '', '', '', 10099),
-(10156, '', '', '', 10100),
 (10157, '', '', '', 10101),
 (10159, '', '', '', 10103),
 (10161, '', '', '', 10105),
@@ -164,7 +140,6 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (10181, '', '', '', 10125),
 (10182, '', '', '', 10126),
 (10184, '', '', '', 10128),
-(10185, '', '', '', 10129),
 (10186, '', 'Stellar Physics', 'Main research areas are on-stationary processes and magnetism in stars and stellar systems, connected with powerful energy releases, and evolution of chemical abundances in cosmic bodies.', 10130),
 (10187, '', '', '', 10131),
 (10190, '', '', '', 10134),
@@ -176,7 +151,7 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `contact`
+-- Table structure for table `contact`
 --
 
 CREATE TABLE IF NOT EXISTS `contact` (
@@ -194,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `contact`
+-- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `phonenumber`, `postalcode`, `url`, `sc`, `gc`, `oid`) VALUES
@@ -214,11 +189,9 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (27, NULL, 0, 0, 1, 1, 0, 1, 0, 27),
 (33, NULL, 0, 0, 0, 0, 0, 0, 0, 33),
 (34, NULL, 0, 0, 0, 0, 0, 0, 0, 34),
-(35, NULL, 0, 0, 1, 1, 0, 0, 0, 35),
 (36, NULL, 0, 0, 0, 0, 0, 0, 0, 36),
 (37, NULL, 0, 0, 0, 0, 0, 0, 0, 37),
 (38, NULL, 0, 0, 0, 0, 0, 0, 0, 38),
-(40, NULL, 1, 1, 1, 1, 1, 1, 1, 40),
 (42, 'Erika Labbe  Astronomer Phd', 0, 0, 0, 0, 0, 0, 0, 42),
 (44, 'nicolas outters', 0, 0, 1, 1, 0, 1, 1, 44),
 (45, NULL, 1, 1, 1, 0, 0, 0, 0, 45),
@@ -228,11 +201,8 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (49, NULL, 0, 0, 1, 1, 0, 0, 0, 49),
 (50, NULL, 0, 0, 0, 0, 0, 0, 0, 50),
 (52, NULL, 0, 0, 0, 0, 0, 0, 0, 52),
-(55, NULL, 0, 0, 1, 0, 0, 0, 0, 55),
-(56, NULL, 0, 0, 0, 0, 0, 0, 0, 56),
 (57, NULL, 1, 1, 1, 1, 1, 1, 1, 57),
 (58, NULL, 0, 0, 0, 0, 0, 0, 0, 58),
-(60, 'more on Department of Space Physics, IEP SAS can be found at http://space.saske.sk ', 0, 0, 0, 0, 0, 0, 0, 60),
 (64, NULL, 0, 0, 0, 0, 0, 0, 0, 64),
 (65, NULL, 0, 0, 0, 0, 0, 0, 0, 65),
 (66, NULL, 0, 0, 0, 0, 0, 0, 0, 66),
@@ -241,14 +211,11 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (71, NULL, 0, 0, 0, 0, 0, 0, 0, 71),
 (77, 'Ibadinov Khursand Ibadinovich - director, ibadinov@mail.ru', 0, 0, 0, 0, 0, 0, 0, 77),
 (82, NULL, 0, 0, 0, 0, 0, 0, 0, 82),
-(86, NULL, 0, 0, 0, 0, 0, 0, 0, 86),
 (89, NULL, 0, 0, 1, 1, 0, 0, 1, 89),
 (90, NULL, 0, 0, 0, 0, 0, 0, 0, 90),
 (94, NULL, 0, 0, 0, 0, 0, 0, 0, 94),
-(95, 'Dr. Ales Kucera  head of the Solar Physics Department  Astronomical Institute SAS  Tatranska Lomnica  SLOVAKIA  ', 0, 0, 0, 0, 0, 0, 0, 95),
 (98, NULL, 0, 0, 0, 0, 0, 0, 0, 98),
 (100, NULL, 0, 0, 0, 0, 0, 0, 0, 100),
-(104, NULL, 0, 0, 0, 0, 0, 0, 0, 104),
 (105, 'Contact Public Outreach:    Karin Zacher  zacher@iram.fr', 0, 0, 0, 0, 0, 0, 0, 105),
 (109, NULL, 0, 0, 1, 0, 0, 0, 0, 109),
 (110, NULL, 1, 0, 1, 1, 1, 0, 1, 110),
@@ -260,13 +227,10 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (119, 'Nevyana Markova   nmarkova@astro.bas.bg    Tatiana Russeva  russevat@astro.bas.bg', 0, 0, 0, 0, 0, 0, 0, 119),
 (120, 'Zeki EKER  TUB?TAK National Observatory  Akdeniz University Campus  07058  Antalya-TURKEY', 0, 0, 0, 0, 0, 0, 0, 120),
 (121, NULL, 0, 0, 0, 0, 0, 0, 0, 121),
-(124, NULL, 0, 0, 0, 0, 0, 0, 0, 124),
-(10110, 'Vatican-http://vaticanobservatory.org/index.php?option=com_contact&view=contact&id=9&Itemid=144', 0, 0, 0, 0, 0, 0, 0, 10001),
 (10108, '', 0, 0, 0, 0, 0, 0, 0, 10002),
 (10109, '', 0, 0, 0, 0, 0, 0, 0, 10003),
 (10099, '', 0, 0, 0, 0, 0, 0, 0, 10004),
 (10105, '', 0, 0, 0, 0, 0, 0, 0, 10005),
-(10087, '', 0, 0, 0, 0, 0, 0, 0, 10006),
 (10107, '', 0, 0, 0, 0, 0, 0, 0, 10007),
 (10013, '', 0, 0, 0, 0, 0, 0, 0, 10009),
 (10102, '', 0, 0, 0, 0, 0, 0, 0, 10010),
@@ -284,37 +248,23 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (10101, '', 0, 0, 0, 0, 0, 0, 0, 10030),
 (10037, '', 0, 0, 0, 0, 0, 0, 0, 10033),
 (10088, '', 0, 0, 0, 0, 0, 0, 0, 10034),
-(10039, '', 0, 0, 0, 0, 0, 0, 0, 10035),
 (10040, '', 0, 0, 0, 0, 0, 0, 0, 10036),
-(10043, '', 0, 0, 0, 0, 0, 0, 0, 10039),
-(10053, '', 0, 0, 0, 0, 0, 0, 0, 10042),
 (10100, '', 0, 0, 0, 0, 0, 0, 0, 10047),
-(10054, '', 0, 0, 0, 0, 0, 0, 0, 10049),
-(10055, '', 0, 0, 0, 0, 0, 0, 0, 10050),
 (10056, '', 0, 0, 0, 0, 0, 0, 0, 10051),
 (10057, '', 0, 0, 0, 0, 0, 0, 0, 10052),
-(10061, '', 0, 0, 0, 0, 0, 0, 0, 10056),
 (10062, '', 0, 0, 0, 0, 0, 0, 0, 10057),
 (10063, '', 0, 0, 0, 0, 0, 0, 0, 10058),
-(10065, '', 0, 0, 0, 0, 0, 0, 0, 10060),
 (10066, '', 0, 0, 0, 0, 0, 0, 0, 10061),
 (10068, '', 0, 0, 0, 0, 0, 0, 0, 10063),
 (10111, '', 0, 0, 0, 0, 0, 0, 0, 10066),
-(10113, '', 0, 0, 0, 0, 0, 0, 0, 10068),
-(10116, '', 0, 0, 0, 0, 0, 0, 0, 10069),
 (10117, 'Professor: Valtaoja, Esko Tel: +358 (0)2 333 8235 Email: esko.valtaoja@utu.fi', 0, 0, 0, 0, 0, 0, 0, 10070),
 (10127, '', 0, 0, 0, 0, 0, 0, 0, 10072),
-(10128, '', 0, 0, 0, 0, 0, 0, 0, 10073),
 (10202, '', 0, 0, 0, 0, 0, 0, 0, 10078),
 (10136, '', 0, 0, 0, 0, 0, 0, 0, 10080),
-(10140, '', 0, 0, 0, 0, 0, 0, 0, 10084),
 (10146, '', 0, 0, 0, 0, 0, 0, 0, 10090),
 (10150, '', 0, 0, 0, 0, 0, 0, 0, 10094),
-(10151, '', 0, 0, 0, 0, 0, 0, 0, 10095),
-(10153, '', 0, 0, 0, 0, 0, 0, 0, 10097),
 (10154, '', 0, 0, 0, 0, 0, 0, 0, 10098),
 (10155, '', 0, 0, 0, 0, 0, 0, 0, 10099),
-(10156, '', 0, 0, 0, 0, 0, 0, 0, 10100),
 (10157, '', 0, 0, 0, 0, 0, 0, 0, 10101),
 (10159, '', 0, 0, 0, 0, 0, 0, 0, 10103),
 (10161, '', 0, 0, 0, 0, 0, 0, 0, 10105),
@@ -323,7 +273,6 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (10181, '', 0, 0, 0, 0, 0, 0, 0, 10125),
 (10182, '', 0, 0, 0, 0, 0, 0, 0, 10126),
 (10184, '', 0, 0, 0, 0, 0, 0, 0, 10128),
-(10185, '+54-264-4273653', 0, 0, 0, 0, 0, 0, 0, 10129),
 (10186, '', 0, 0, 0, 0, 0, 0, 0, 10130),
 (10187, '', 0, 0, 0, 0, 0, 0, 0, 10131),
 (10190, '', 0, 0, 0, 0, 0, 0, 0, 10134),
@@ -335,7 +284,7 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `extrainstruments`
+-- Table structure for table `extrainstruments`
 --
 
 CREATE TABLE IF NOT EXISTS `extrainstruments` (
@@ -349,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `extrainstruments` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `extrainstruments`
+-- Dumping data for table `extrainstruments`
 --
 
 INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsins`, `arraydesc`, `backenddesc`, `oid`) VALUES
@@ -369,11 +318,9 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (27, '', '', '', '', 27),
 (33, '', '', '', 'Brand/Type of Camera: Watec 120N+<br>Maximum Frame per Second: 25<br>Framesize: 795x596<br>Max. Exposure Time: 256 frames<br>Color / BW Chip: BW<br>CCD Chip Type: 1/2inch chip, interline CCD transfer', 33),
 (34, '6.3 reductor', '', '', 'Brand/Type of Camera: Sbig ST-7-ME<br>Framesize: 765x510 pixels<br>Color / BW Chip: BW Chip<br>CCD Chip Type: kodak kaf-400<br><br>Description of Back-End Equipment:<br>CFW-9 Filter Wheel   + filters Bessel B,V,R Custon Scientific', 34),
-(35, '', '', '', 'Brand/Type of Camera: CCD monochrome<br>Framesize: 1392 x 1040px - 6.45um - 8.98x6.7mm<br>Max. Exposure Time: 999s<br>Min. Exposure Time: 0.01s<br>Color / BW Chip: b/w<br>CCD Chip Type: Sony ICX285AL<br><br>Description of Back-End Equipment:<br>Littrow spectrograph 3.4 A/px - R2000', 35),
 (36, '', '', '', '', 36),
 (37, '', '', '', '', 37),
 (38, 'Instruments 1 and 2 are the same but in different optical configuration', '10 other portable instruments from 0.2 to 0.1 m diameter', '', 'Brand/Type of Camera: CCD CCD SBIG (Santa Barbara Instruments Group, USA). ST8XME <br>Maximum Frame per Second: 0.4<br>Framesize: 1.530x1020 px; 13,8x9,2 mm<br>Max. Exposure Time: 3600 s<br>Min. Exposure Time: 0.11 s<br>Color / BW Chip: BW<br>CCD Chip Type: KAF1602E', 38),
-(40, '', '', '', 'Brand/Type of Camera: SBIG ST10', 40),
 (42, 'Please   http://www.meade.com/lx200-acf/index.html  Add solar filter and accesories  3 CCD', 'CCD: LPI Meade           Philips Pro II Cam            CCD Planetary', '', 'Brand/Type of Camera: Meade<br>Maximum Frame per Second: http://www.meade.com/dsi_ii/index.html<br>Framesize: http://www.meade.com/dsi_ii/index.html<br>Max. Exposure Time: http://www.meade.com/dsi_ii/index.html<br>Min. Exposure Time: http://www.meade.com/dsi_ii/index.html<br>Color / BW Chip: http://www.meade.com/dsi_ii/index.html<br>CCD Chip Type: http://www.meade.com/dsi_ii/index.html', 42),
 (44, '', '', '', 'Brand/Type of Camera: FLI proline 16803<br>Max. Exposure Time: 1800 sec', 44),
 (45, '', '', '', 'Brand/Type of Camera: SBIG ST2000XCM<br>Framesize: 1600 x 1200<br>Max. Exposure Time: 3600 S<br>Min. Exposure Time: .001 S<br>Color / BW Chip: Color<br>CCD Chip Type:  Kodak KAI-2020CM + TI TC-237H', 45),
@@ -383,11 +330,8 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (49, '', '', '', 'Brand/Type of Camera: Starlight Xpress MX7C<br>Framesize: 6.5mm X 4.8mm<br>Color / BW Chip: Colour<br>CCD Chip Type: Sony EXview', 49),
 (50, 'Celestron C-8', '', '', 'Brand/Type of Camera: CCD Starlight MX 516<br>Color / BW Chip: Yes', 50),
 (52, '', '', '', 'Brand/Type of Camera: Philips ToUCam Pro (long exposure modified)<br>Maximum Frame per Second: 5<br>Framesize: 640x480<br>Max. Exposure Time: Unlimited<br>Min. Exposure Time: 1/10,000s<br>Color / BW Chip: Color', 52),
-(55, '', '', '', 'Brand/Type of Camera: Lumenera SKYnyx<br>Maximum Frame per Second: 100 fps<br>Framesize: 640 x 480 (1/3&quot;)<br>Max. Exposure Time: 60 min<br>Min. Exposure Time: 0.001 im/s<br>Color / BW Chip: BW<br>CCD Chip Type: Sony ICX424<br><br>Description of Back-End Equipment:<br>Filters: UV, R,V,B, IR&gt;742nm, IR&gt;830nm, IR&gt;1?m, 890nm/18nm', 55),
-(56, '', '', '', 'Brand/Type of Camera: Finger Lakes', 56),
 (57, '', '', '', 'Brand/Type of Camera: Starlight Xpress<br>Max. Exposure Time: 120 s<br>Min. Exposure Time: 0.001 s<br>Color / BW Chip: BW chip<br><br>Description of Back-End Equipment:<br>I have sunscreen hydrogen-alpha', 57),
 (58, '', '', '', 'Brand/Type of Camera: SBIG ST-8XME<br>Maximum Frame per Second: 2<br>Framesize: 1530 x 1020<br>Max. Exposure Time: 3600<br>Min. Exposure Time: 0.12<br>Color / BW Chip: BW<br>CCD Chip Type: Kodak KAF-1603ME<br><br>Description of Back-End Equipment:<br>Johnson UBVRI photometric filters, color filters, Optec NextGen 0.5 Focal Reducer, SBIG AO-7 Adaptive Optics Accessory, Baader OIII filter, Baader UV/IR Cut filter, Baader U-Filter &quot;Venusfilter&quot; (Photo-only), Baader UHC-S Nebula filter, Baader Solar Continuum filter, Celestron Polarizer filter, Neodymium Moon &amp; Skyglow filter', 58),
-(60, 'neutron monitor - cosmic ray measurements', '', '', '', 60),
 (64, '', '', '', 'Brand/Type of Camera: Videocamera<br>Maximum Frame per Second: 30<br>Framesize: 640x480 / 1024x768<br>Max. Exposure Time: 30s<br>Min. Exposure Time: 1/10000s<br>Color / BW Chip: BW<br>CCD Chip Type: ICX098BL<br><br>Description of Back-End Equipment:<br>H-Alpha Coronado SM90  Calzium K-Line 2nm FWHM  Methane-Filter 7nm/50nm FWHM  Near-UV-Filter 350nm  Nera-IR Filter &gt;685nm/&gt;1000nm  Spectroscopic grating 200L/mm  ', 64),
 (65, 'The instruments are Newton-Cassegrain', '', '', 'Brand/Type of Camera: Apogee Alta U6<br>Framesize: 24.58 x 24.58 mm<br>Max. Exposure Time: 183 min<br>Min. Exposure Time: 20 millisec<br>Color / BW Chip: BW<br>CCD Chip Type: Kodak Blue Plus sensor', 65),
 (66, 'Two lens Spectrograph of ......  R: 6884  Spectral resolution: 1.0 Angstrom  Bandwith: 3958 - 7894 Angstrom  Minimum Doppler shift: 35 Km/sec', 'APO refractor ES 80 f/6      Coronado 90 mm. H-alpha filter 0.7 A    Array set of filters: Photometric, Imaging, Methane, etc.', '', 'Brand/Type of Camera: SBIG / ST8XE with AO<br>Maximum Frame per Second: 100 f/sec. under WinScan control<br>Framesize: variable<br>Max. Exposure Time: 60 minutes<br>Min. Exposure Time: 0.001 sec. under WinScancontrol<br>Color / BW Chip: BW<br>CCD Chip Type: Full Frame<br><br>Description of Back-End Equipment:<br>SBIG CCD camera ST-8300M  IS CCD camera DMK21AF04   IS CCD camera DMK41AF02', 66),
@@ -396,14 +340,11 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (71, 'Solar Teleskopes: White Light, H-Alpha, Calcium KII', 'Instruments for measuring the solar Radiation: UV-A, UV-B, Par, Direct radiation, Indirect Radiation, Aerosol Measurements, Climatic Measurements', '', 'Brand/Type of Camera: Pulnix TM4200GE<br>Maximum Frame per Second: 6<br>Framesize: 2048x2048<br>Max. Exposure Time: ?<br>Min. Exposure Time: 2ms<br>Color / BW Chip: BW<br>CCD Chip Type: Kodak KAI4021', 71),
 (77, '', '', '', 'Brand/Type of Camera: AZT-14', 77),
 (82, '', '', '', 'Brand/Type of Camera: ST 10', 82),
-(86, '', '', '', 'Brand/Type of Camera: Sbig St8<br>CCD Chip Type: CCD Kodak Kaf1603', 86),
 (89, 'The instruments 1 and 2 are established on one equatorial automated mount. ', '', '', 'Brand/Type of Camera: QHY-6<br>Maximum Frame per Second: 1<br>Framesize: 8''x11''<br>Max. Exposure Time: 20min<br>Min. Exposure Time: 0.001sec<br>Color / BW Chip: BW<br>CCD Chip Type: Sony ICX259AL', 89),
 (90, 'Instrument1: HIDES - Optical High Dispersion Spectrograph for the Coude focus of the 1.88m telescope.  Instrument2: ISLE - Near-IR imager and spectrograph for the Cassegrain focus of the 1.88m telescope.  Instrument3: Tri-color (g, r, i) imager for 50cm telescope', 'Instrument4: KOOLS - optical imager and low-dispersion spectrograph for the Cassegrain focus of the 1.88m telescope.', '', 'Brand/Type of Camera: observatory in-house developed mosaic CCD camera<br>Maximum Frame per Second: 1<br>Framesize: 3 x 2048 x 4096<br>Max. Exposure Time: ~1800sec<br>Min. Exposure Time: ~1sec<br>CCD Chip Type: E2V CCD covering 3600ang to 9000ang<br><br>Description of Back-End Equipment:<br>- cross-dispersed echelle spectrograph  - maximal dispersion: R~110,000  - read-out noise: 5.5e-  - gain: 4.2e-/ADU  - optional iodine cell for high precision radial velocity measurements', 90),
 (94, '', '', '', '', 94),
-(95, 'two &quot;other&quot; instruments are coronagraphs (200/3000) with the f_eff = 4m', '', '', '', 95),
 (98, '', '', '', '', 98),
 (100, '', '', '', '', 100),
-(104, '', '', '', 'Brand/Type of Camera: Roper Scientific (Photometrics LTd.)<br>Framesize: 1340x1300 pixels<br>Color / BW Chip: BW<br>CCD Chip Type: EEV 1340EB', 104),
 (105, '', '', 'Six 15-meter antennas array', '', 105),
 (109, 'ASA 0.73 reducer/correctors', '', '', 'Brand/Type of Camera: SBIG ST-8300<br>Max. Exposure Time: 3600 seconds<br>Min. Exposure Time: 0.1<br>Color / BW Chip: BW Chip<br>CCD Chip Type: Kodak KAF-8300<br><br>Description of Back-End Equipment:<br>MX-716', 109),
 (110, 'Meade LX200R 12&quot;  Pentax 75 SDHF ', '', '', 'Brand/Type of Camera: StarlightXPress MX7C<br>Maximum Frame per Second: N.A.<br>Framesize: 752 x 582 pixel<br>Max. Exposure Time: Unlimited<br>Min. Exposure Time: 0,001 sec.<br>Color / BW Chip: Color<br>CCD Chip Type: Sony ICX249AK<br><br>Description of Back-End Equipment:<br>Guide camera: StarlightXPress MX5C', 110),
@@ -415,13 +356,10 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (119, 'The 2-m telescope is a Ritchey-Chretien-Coude, the Coude spectrograph having resolution up to 35000.', 'Alternativelyy to the direct imaging and high resolution spectral observations, a two-channel focal reducer cab be used at the 2-meter telescope. It provides several modes of observations: broad-band and narrow-band imaging, polarimetric imaging, low dispersion spectroscopy (R approx. 1000). ', '', 'Brand/Type of Camera: VersArray<br>Maximum Frame per Second: 0.25 for full frames, NOT binned<br>Framesize: 1340 x 1300<br>Max. Exposure Time: 20 min (more possible but not advisable)<br>Min. Exposure Time: 1 sec (less possible but not advisable)<br>Color / BW Chip: BW<br>CCD Chip Type: E2V CCD 36-40, scientific grade 1<br><br>Description of Back-End Equipment:<br>60 cm telescope with CCD-camera FLI  PL 9000;    50/70/172 Schmidt with CCD camera FLI  PL 16803    further info: www.nao-rozhen.org', 119),
 (120, '', '', '', 'Brand/Type of Camera: Spectral Instruments / Imaging<br>Maximum Frame per Second: -<br>Framesize: 4096x4096<br>Max. Exposure Time: -<br>Min. Exposure Time: 1 sec<br>Color / BW Chip: BW Chip<br>CCD Chip Type: Fairchild 486 BI<br><br>Description of Back-End Equipment:<br>TFOSC (Faint Object Spektrograph and Camera), Andor DW436 CCD (Photometric Imaging), Finger Lakes Instruments CCD (Photometric Imaging), Coude spectrometer with Andor DW436 CCD.', 120),
 (121, '', '', '', 'Brand/Type of Camera: cannon rebel', 121),
-(124, '', '', '', 'Brand/Type of Camera: QHY8<br>Framesize: 23.4mm(h) x 15.6mm(v) APS film equvilent<br>Color / BW Chip: Color<br>CCD Chip Type: Sony ICX453AQ Progressive Scan APS CCD', 124),
-(10110, 'Large Binocular telescope is one of the largest and most advanced telescopes in the World. Owned by many institutions.', '', '', '', 10001),
 (10108, 'Telescope 1 has OMR Cassegrain Spectrograph, The WET standard 3-channel high speed photometer, CCD camera.', 'Another EOS 1m Telescope, with focal length f/8.', '', '', 10002),
 (10109, '', '40m Radio Telescope', '', '', 10003),
 (10099, '', '', '', '', 10004),
 (10105, '', '', '', '', 10005),
-(10087, '', '', '', '', 10006),
 (10107, 'It has a Ritchey-Chretien Reflector, several CCD direct imaging cameras, Faint Object Spectrograph and Camera (FOSC) and Large Area Imager.', '', '', '', 10007),
 (10013, 'High Resolution Echelle Spectrograph, Imaging Camera with a 3-element Wynne Corrector.', '', '', '', 10009),
 (10102, 'Both telescopes consist 1000 of dipoles arranged in a T shape. Radioheliograph, High Resolution Radio Spectrograph, Polarization Interferometer', '', '', '', 10010),
@@ -439,37 +377,23 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (10101, '', '', '', '', 10030),
 (10037, 'http://aro.as.arizona.edu/ http://james.as.arizona.edu/~psmith/90inch/90inch.html', '0.9m Spacewatch Telescope', '', 'ARO:ALMA Type Band 3 Receiver 83-116 GHz; 3mmlo Receiver 68-90 Ghz; 3mmhi Receiver 90-116 GHz; 2mm Receiver 133-180 GHz; Bok:Near-Infrared Camera 256x256 ; MIRAC Camera Mid Infrared 44x44 (seconds); FSPEC Spectrograph Infrared; PISCES Camera Infrared Wide Field; CCD Spectropolarimeter Optical ;', 10033),
 (10088, 'http://www.astro.lsa.umich.edu/obs/mdm/technical/index.html', '', '', 'Hiltner: CCD Detectors 2048x2048 and 8kx8k ; MkIII Spectrograph ; Decaspec Spectrograph ; Modular Spectograph Optical 9.6x9.6 ; OSU CCD Spectrograph Spectrograph Optical 13 arcsec ; OSU IR Camera ; McGraw:CCD Detectors 2048x2048 and 8kx8k; MkIII Spectrograph ; Modular Spectograph Optical 9.6x9.6; OSU CCD Spectrograph Optical 13 arcsec; OSU 4k Camera 4kx4k Infrared 21.3x21.3;', 10034),
-(10039, 'http://www.lowell.edu/rsch/technical.php', 'Discovery Channel Telescope 4m, Under construction near Happy Jack Arizona. Various Other Smaller Telescopes', 'US Navy Prototype Optical Interferometer', 'Perkins: DeVeny Optical Spectrograph ; Prism Camera Wide Field; MIMIR Camera Near Infrared Wide Field; Kron Photometer Optical ; JSHall:Kron Photometer Optical; SITe Camera 2048*2048;', 10035),
 (10040, '', 'Also 1.2m and 1.3m Optical telescopes', 'Veritas Array-Gamma GeV to TeV array of 12m Telescopes. Highest sensitivity in 50 GeV to 50 TeV range.', 'MMT: Spectrograph Spectrograph 3200-8000 A ; ARIES Imager ; CLIO Imager ; Hectochelle Spectrograph ; Hectospec Spectrograph ; Megacam Imager 18k x 18k ; MIRAC3 Imager Near Infrared ; PISCES Imager ; SPOL Imager/Spectropolarimeter 4000-9000 ? ; SWIRC Camera 2048 x 2048 ; MAESTRO Camera 3185-9850 A ;', 10036),
-(10043, '', '', '', '', 10039),
-(10053, '', '4 <1m telescopes', '', 'Gemini Infrared Camera ; Hamilton Echelle Spectograph ; IRCAL Camera Infrared ; Kast Dual Spectrograph Spectrograph http://mtham.ucolick.org/techdocs/instruments/ Lick Adaptive Optics system ; Nickel Spectrograph ; Nickel Direct Spectrograph ; Prime Focus Camera ;', 10042),
 (10100, 'Available detectors: CCD camera Andor Newton DU-970N, ?CCD camera HPC-1, ?CCD camera ST-6, ?CCD camera ORBIS.', '', '', '', 10047),
-(10054, '', 'Two smaller telescopes', '', 'CCDs ; Cassegrain Spectrograph ; Near-Infrared Camera ; Automated Photometer; Coude Bench Spectrograph; Grism Spectrograph;', 10049),
-(10055, '', '', 'CHARA array, 6 1.02 m Telescopes for interferometry in Infrared,Optical. Infrared spatial Interferometer 3 1.65m Telescopes.', '', 10050),
 (10056, '', '', 'CARMA Array, millimeter wavelengths, observations using 6x10.4m and 9x6m Dishes', '', 10051),
 (10057, '', 'Smaller telescopes also available.', 'Palomar Testbed Interferometer- Near IR. No longer operating, but previous data can still be accessed.', '', 10052),
-(10061, '', '', 'MRO Optical Interferometer 10x1.4m', 'CCD Imager 4kx4k', 10056),
 (10062, '', '', 'Y shaped 27 x 25 m Radio Telescopes. Sensitivity of a Dish 130 m Across', '', 10057),
 (10063, '', 'Various small optical telescopes. PARI-JOVE antenna studies 21cm Line.', '', '26 m West: 327 MHz ; 26 m East: 1.4 and 4.8 GHz 12 m Telescope: Receiver 3.3-4.2 GHz ; Receiver 10.95-12.75 Ghz ;', 10058),
-(10065, 'Hobby-Eberly is one of the world''s largest. Segmented Mirror design', '2 <1m Telescopes', '', 'HET: High Resolution Spectrometer 390 to 1100nm ; Mid Resolution Spectrometer 900nm ; Low Resolution Spectrometer ; Furthur info: http://www.as.utexas.edu/mcdonald/facilities', 10060),
 (10066, '', '', '', '', 10061),
 (10068, '', '', '', '', 10063),
 (10111, 'Alt/Az Mount. Millimetre/Submillimetre range', '', '', '', 10066),
-(10113, '', '', '', '', 10068),
-(10116, '', '', 'Uses extrasolar radio signals between 2 to 150 GHz, with corresponding wavelengths in the range of 13.0 cm-2.0 mm.', '', 10069),
 (10117, '', '', '', '', 10070),
 (10127, '', '', '', '', 10072),
-(10128, '', '', '', '', 10073),
 (10202, '', '', '', 'ISIS?- single-slit spectroscopy ACAM? AF2/WYFFOS?- multi-object fibre-fed spectroscopy NAOMI/OASIS?- integral-field spectroscopy NAOMI/INGRID?- IR imaging LIRIS?- IR spectroscopy prime-focus?- optical imaging ACAM?- optical imaging, low-resolution spectroscopy', 10078),
 (10136, '', '', '', '', 10080),
-(10140, '', '', '', '', 10084),
 (10146, '', '', '', 'ISIS?- single-slit spectroscopy ; ACAM?; AF2/WYFFOS?- multi-object fibre-fed spectroscopy ; NAOMI/OASIS?- integral-field spectroscopy ; NAOMI/INGRID?- IR imaging ; LIRIS?- IR spectroscopy prime-focus?- optical imaging; ACAM?- optical imaging, low-resolution spectroscopy', 10090),
 (10150, '', '', '', '', 10094),
-(10151, '', '', '', 'Optical CCD camera Infrared array camera Fast Readout camera Spectrometer SkyCam', 10095),
-(10153, '', '', '', '', 10097),
 (10154, '', '', '', '12m ASKAP prototype antenna', 10098),
 (10155, '', '', '6x22 m Radio Array. Optical Interferometer.', '', 10099),
-(10156, '3, 7 and 12mm wavelength observing 3-mm is best in the Apr term only,REMOTE OBSERVING AVAILABLE', '', '', 'Spectrometer:', 10100),
 (10157, '', 'Additional 26 and 34 m Telescopes', '', '', 10101),
 (10159, '', '', '', '', 10103),
 (10161, '', '', 'Radio Array under construction, completed in 2012. cm wavelength.', '', 10105),
@@ -478,7 +402,6 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (10181, 'Planned 6.5 m Instrument', '', '', '', 10125),
 (10182, '110 Ghz- 880 Ghz', '', '', 'fourier transform spectrograph, Acousto-Optical spectrograph', 10126),
 (10184, '', '', '', '', 10128),
-(10185, '', '', '', '', 10129),
 (10186, '', 'Gamma-telescope GT-48, which has a range of 75 GHz up to 100 GHz a and an area of 54 square meters.', '', '', 10130),
 (10187, '', '', '0.002m limit, with a range of 75 GHz up to 100 GHz.', '', 10131),
 (10190, '', '', 'It has a range between 5 - 300 GHz. It works alongside the Evpatoria RT-70 radio telescope and the Galenki RT-70 radio telescope.', '', 10134),
@@ -490,7 +413,7 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `hiddenfields`
+-- Table structure for table `hiddenfields`
 --
 
 CREATE TABLE IF NOT EXISTS `hiddenfields` (
@@ -509,7 +432,7 @@ CREATE TABLE IF NOT EXISTS `hiddenfields` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `hiddenfields`
+-- Dumping data for table `hiddenfields`
 --
 
 INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sciconname`, `sciconcon`, `latitude`, `longitude`, `oid`) VALUES
@@ -529,11 +452,9 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (27, NULL, 'rottnpaws@jagowds.com', NULL, NULL, 'http://www.jagowds.com/_jap/jap_obs_1.shtml', 'Charles Jagow<br>', 'chuck@jagowds.com<br>', '076.13.31 W', '36.46.23 N', 27),
 (33, NULL, 'astromax@poczta.onet.pl', NULL, '95-006 ', 'www.bukowiecobservatory.pl', 'Pawel Maksym<br>', 'astromax@poczta.onet.pl<br>', '19 40 32,4E', '51 41 28,5N', 33),
 (34, NULL, 'fvda@skynet.be', NULL, NULL, 'http://www.astrosurf.com/vda', NULL, NULL, '05°23''50 E', '50°00''15 N', 34),
-(35, NULL, 'corelli@conecta.it', '39.0432-570892', 'I-33010', NULL, 'Paolo Corelli<br>', 'corelli@conecta.it<br>', '46°05''49&quo', '13°11''01&quo', 35),
 (36, NULL, 'observe@astro.umd.edu', '001-301-405-6555', NULL, 'http://www.astro.umd.edu/openhouse/', 'Dr. Eric McKenzie<br>Elizabeth Warner', 'eric@astro.umd.edu<br>warnerem@astro.umd.edu', '39° 00'' 07&q', '76° 57'' 22&q', 36),
 (37, NULL, 'helmut@sternwarte-Herrenberg.de', '049 7032 34385', NULL, NULL, NULL, NULL, NULL, 'WSG84 8°49''5', 37),
 (38, NULL, 'astronomia@astrosabadell.org', NULL, NULL, 'http://www.astrosabadell.org', 'Carles Schnabel<br>Albert Morral', 'astronomia[at]astrosabadell.org<br>secretaria[at]astrosabadell.org', '41° 33'' 04', '2° 05'' 29', 38),
-(40, NULL, 'maarten.vanleenhove@telenet.be', '0032 498 91 17 15', NULL, 'http://www.maartenvanleenhove.be', NULL, NULL, NULL, NULL, 40),
 (42, NULL, 'eleytong@hotmail.com', '56-9-9393007', NULL, 'www.eduardoleyton.com/Astronomia', 'Eduardo Leyton <br>Erika Labbe', 'eleytong@hotmail.com<br>iki_0@yahoo.com', 'S 33°29´11&q', 'W 70°44´30&q', 42),
 (44, NULL, 'nico.outters@libertysurf.fr', NULL, NULL, 'http://www.outters.fr/index.html', NULL, NULL, NULL, NULL, 44),
 (45, NULL, 'kenflorentine@yahoo.com', NULL, NULL, 'http://prairiepassobservatory.com', 'Ken Florentine<br>', 'kenflorentine@yahoo.com<br>', '082.09 W', '33.32 N', 45),
@@ -543,11 +464,8 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (49, NULL, 'andrew@nikauobservatory.com', NULL, NULL, 'http://www.nikauobservatory.com', NULL, NULL, '40  02''14.8&', '175 54''54.30', 49),
 (50, NULL, 'observasantgervasi@gmail.com', NULL, NULL, 'http:\\\\rosfa.com', 'Josep Mª Coloma Martinez<br>', 'observasantgervasi@gmail.com<br>', NULL, NULL, 50),
 (52, NULL, 'hwy37@yahoo.com', NULL, NULL, 'http://www.pbase.com/rolfolsen', 'Rolf Olsen<br>', NULL, NULL, NULL, 52),
-(55, NULL, 'delcroix.marc@free.fr', '+33 (5) 61 06 72 86', NULL, NULL, 'Marc Delcroix<br>', 'delcroix.marc@free.fr<br>', ' 43°34''59.07', '  1°19''34.43', 55),
-(56, NULL, 'martzobservatory@hotmail.com', '716-569-3689', NULL, 'http://www.martzobservatory.org', 'Mr. Gary Nelson - President<br>Mr. John Anderson', 'martzobservatory@hotmail.com<br>martzobservatory@gmail.com', NULL, NULL, 56),
 (57, NULL, 'obsbinibequer@rosfa.com', '34-971-93-99-22', NULL, 'www.rosfa.com/obn', 'Hilari Pallares Albalat<br>', 'obsbinibequer@rosfa.com<br>', '39º 49'' 127&', '04º 14'' 281&', 57),
 (58, NULL, 'warkauden.kassiopeia@ursa.fi', NULL, NULL, 'http://english.taurushill.net/', 'Veli-Pekka Hentunen <br>Harri Haukka', 'veli-pekka.hentunen[at]kassiopeia.net<br>harri.haukka[at]kassiopeia.net', '62° 18.896', '28° 23.357', 58),
-(60, NULL, 'kkudela@kosice.upjs.sk', '++421 55 6224554', NULL, 'http://neutronmonitor.ta3.sk', 'Karel Kudela<br>Ronald Langer', 'kkudela@kosice.upjs.sk<br>langer@ta3.sk', '49.20° N ', '20.22° E', 60),
 (64, NULL, 'Ralf@Gerstheimer.de', '0049 5606 53 8 55', 'D-34317', 'http://www.sternwarte-habichtswald.de', 'Ralf@Gerstheimer.de<br>', 'Ralf@Gerstheimer.de<br>', NULL, NULL, 64),
 (65, NULL, 'luctesi@alice.it - tesiluciano@yahoo.it', '0573 622220 -3473213290', NULL, 'http:||www.gamp-pt.net', 'michelemazzucato@tiscali.it<br>', NULL, '44 03 51 N', '10 48 13.5 E', 65),
 (66, NULL, 'PLEIADES@telefonica.net', '34-922-486346', NULL, 'http://www.astropalma.com', 'Joan Genebriera<br>', 'PLEIADES@telefonica.net<br>', ' 28º  38’ 29', '17g 52m 03.5', 66),
@@ -556,14 +474,11 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (71, NULL, 'office@kso.ac.at', '0043 4248 2717', NULL, 'http://www.kso.ac.at', 'Werner Pötzi<br>Dietmar Baumgartner', 'werner.poetzi@uni-graz.at<br>dietmar.baumgartner@uni-graz.at', '13°54''24'''' E', '46°40''42'''' N', 71),
 (77, NULL, 'mnasredin@mail.ru, nasridin@bk.ru', NULL, NULL, NULL, 'Minikulov Nasridin Khudaiberdievich<br>Gulyamov Makhmudjon Ikromovich', 'mnasredin@mail.ru, nasridin@bk.ru<br>gmi58@mail.ru', '37°55''30.5&q', '74°09''17.7&q', 77),
 (82, NULL, 'mail@sternwarte-radebeul.de', NULL, 'D-01445', 'http://www.sternwarte-radebeul.de', 'Ulf Peschel<br>Michael Funke', 'peschel@sternwarte-radebeul.de<br>funke@sternwarte-radebeul.de', '51°06''59'''' N', '13°37''20'''' E', 82),
-(86, NULL, 'francylai@tin.it', NULL, NULL, 'http://obs560.interfree.it/', 'Luciano Lai<br>Luciano Lai', 'francylai@tin.it<br>lai.luciano@tin.it', 'N 45° 24'' 26', 'E 10° 57'' 51', 86),
 (89, NULL, 'b42@tut.by', NULL, NULL, 'http://nevski.belastro.net/', 'Vitali Nevski<br>', 'nevski@tut.by<br>', '30°19''39&quo', '55°03''40&quo', 89),
 (90, NULL, 'oao-webmaster@oao.nao.ac.jp', '81-865-442155', '719-0232', 'http://www.oao.nao.ac.jp', 'Director<br>', 'openuse@oao.nao.ac.jp<br>', '34°34''34&quo', '133°35''38&qu', 90),
 (94, NULL, 'info@zvjezdarnica.hr', '00385 1 4851355', NULL, 'http://www.zvjezdarnica.hr/', 'Dragan Roša<br>dmaricic@zvjezdarnica.hr', 'drosa@zvjezdarnica.hr<br>dhrzina@zvjezdarnica.hr', '15°58''29.7&q', '45°49''08.2&q', 94),
-(95, NULL, 'rybak@astro.sk', '421-52-7879171', 'SK-05960', 'http://www.astro.sk/l3.php?p3=lso', 'Jan Rybak<br>', 'rybak@astro.sk<br>', '49°11''48', '20°13''12', 95),
 (98, NULL, 'manuel.scherf@oeaw.ac.at', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 98),
 (100, NULL, 'a@a.at', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100),
-(104, NULL, 't1t@gmx.de', NULL, NULL, 'http://homepages.fh-friedberg.de/jomo/t1t.htm', 'Johannes M. Ohlert<br>', 'jomo[at]monet.fh-friedberg.de<br>', '49 Grad 55'' ', '8 Grad 24'' 4', 104),
 (105, NULL, 'info@iram.fr', '0033-476824900', NULL, 'http://www.iram-institute.org', 'Roberto Neri<br>', 'neri@iram.fr<br>', '44:38:02.0 N', '05:54:28.5 E', 105),
 (109, NULL, 'filipfratev@yahoo.com', NULL, NULL, 'http://a79.starrydreams.com/', 'FilipFratev<br>', 'filipfratev@yahoo.com<br>', '23°50''36&quo', '42°03''49  N', 109),
 (110, NULL, 'specolasantamama@interfree.it', NULL, 'I-52010', 'http:specolasantamama.interfree.it', 'TREVISAN Stefano<br>', 'specolasantamama@interfree.it<br>', 'N43°37''51&qu', '011°51''27&qu', 110),
@@ -575,13 +490,10 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (119, NULL, 'tbonev@astro.bas.bg', '+359-[0]2-9741910', NULL, 'http://www.nao-rozhen.org/', 'Tanyu Bonev<br>Ilian Iliev', 'tbonev@astro.bas.bg<br>iliani@astro.bas.bg', '41 41''48&quo', '24 44''18'''' E', 119),
 (120, NULL, 'omur.cakirli@tug.tubitak.gov.tr', '+0090 242 2278401', NULL, 'www.tug.tubitak.gov.tr', 'Tansel AK<br>Zeki EKER', 'tanselak@tug.tubitak.gov.tr<br>eker@tug.tubitak.gov.tr', '36 49 28 N', '30 20 09 E', 120),
 (121, NULL, 'skywatcher@personainternet.com', '709 884 2336', 'A0G 4M0', NULL, 'James Gillard<br>', NULL, '49 37 02.4', '54 45 28.8', 121),
-(124, NULL, 'jimstar11gps@yahoo.com', '1-530-809-0444', NULL, 'http://jimstar11.com', NULL, NULL, '39-46-23 N', '121-49-06 W', 124),
-(10110, 'Vatican-http://vaticanobservatory.org/index.php?option=com_contact&view=contact&id=9&Itemid=144', '', '928-428-2739', '85546', 'http://mgpc3.as.arizona.edu/', '', '', '109?53'' W', '32?42''4.69''''', 10001),
 (10108, '', '', '', '', 'http://www.xinglong-naoc.org/', '', '', '40.39417?N', '117.575?E', 10002),
 (10109, '', 'ynaobgs@ynao.ac.cn', '(+86)(0)871 3920919', '650011', 'http://www.ynao.ac.cn/', 'Han Zhanwen', '', '102? 47&#824', '25? 2&#8242', 10003),
 (10099, '', '', '', '', 'http://www.trao.re.kr/', '', '', '127? 22&#824', '36? 23&#8242', 10004),
 (10105, '', '', '', '442', '', '', '', '137? 22? 16.', '34? 50? 10.?', 10005),
-(10087, '', '', '', '32054 ROC', 'http://www.lulin.ncu.edu.tw/english/index.htm', 'Wean-Shun Tsay', '', '120 52'' 25', '23 28'' 07', 10006),
 (10107, '', 'noah@wise.tau.ac.il', '972-3-6408729', '39040', 'http://wise-obs.tau.ac.il/general.html', 'Dr. Noah Brosch', '', '34?45''48'''' E', '30?35''45'''' N', 10007),
 (10013, '', 'diriia@iiap.res.in', '91 (04174) 203014', '635701', 'http://www.iiap.res.in/centers/vbo', 'Prof. S. S. Hasan', '', '78? 50''E', '12? 34''N', 10009),
 (10102, '', 'webmaster@iiap.res.in', '91 8155-291655', '561210', 'http://www.iiap.res.in/centers/radio', '', '', '77.44?E', '13.60? N', 10010),
@@ -599,37 +511,23 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (10101, '', 'www@gmrt.ncra.tifr.res.in', '91-2132-252112/3/6/7', '411 007', 'http://www.gmrt.ncra.tifr.res.in', '', '', '9? 5'' 47 E', '74? 2'' 59 N', 10030),
 (10037, '', 'psmith@as.arizona.edu', '(520) 318-8642', '85721', 'http://www.as.arizona.edu/', '', '', '111?36''01.6''', '31?57''46.5''''', 10033),
 (10088, '', '', '520-318-8661', '85634', 'http://www.astro.lsa.umich.edu/obs/mdm/', '', '', '?', '?', 10034),
-(10039, '', '', '1400 West Mars Hill Road', '86001', 'http://www.lowell.edu/', '', '', '111?32''09.3''', '35?05''48.6''''', 10035),
 (10040, '', '', '520-621-1558', '85721', 'http://www.mmto.org/', '', '', '110?52''42''''W', '31?40''52''''N', 10036),
-(10043, '', 'doyon@astro.umontreal.ca', '', '', 'http://www.astro.umontreal.ca/omm/', '', '', '71 ?9''12'''' W', '45?27''18''''N', 10039),
-(10053, '', '', '', '', 'http://mthamilton.ucolick.org/', '', '', '121?38''14.16', '37?20''34.73''', 10042),
 (10100, '', '', '372-7410-265', '', 'www.aai.ee', 'L.Leedj?rv', 'leed@aai.ee', '58? 15'' 55''''', '26? 27'' 58''N', 10047),
-(10054, '', '', '(619) 594-6182', '', 'http://mintaka.sdsu.edu/', '', '', '116?25''40.8''', '32?50''32.64''', 10049),
-(10055, '', '', '(626) 440-9016', '91023', 'www.mtwilson.edu', '', '', '118?3''41.92''', '34?13''25.53''', 10050),
 (10056, '', '', '760-938-2075', '93513', 'http://www.ovro.caltech.edu/', '', '', '118?16''56W', '37?14''02N', 10051),
 (10057, '', '', '(760) 742-2111', '92060', 'http://www.astro.caltech.edu/palomar/', '', '', '116?51''50''''W', '33?21''21''''N', 10052),
-(10061, '', 'info@mro.nmt.edu', '(575) 835 - 6431', '87801', 'http://www.mro.nmt.edu/Home/index.htm', '', '', '107?11''5''''W', '33?58''36''''N', 10056),
 (10062, '', 'info@nrao.edu', '', '87801-0387', 'http://www.vla.nrao.edu/', '', '', '107?37''6.06''', '34?4''44.28''''', 10057),
 (10063, '', 'dclavier@pari.edu', '828-862-5554', '28772', 'http://www.pari.edu/', '', '', '82?52''20.64''', '35?11''58.56''', 10058),
-(10065, '', '', '(512) 471-3303', '78712-0259', 'http://www.as.utexas.edu/mcdonald/mcdonald.html', '', '', '104?1&#8242;', '30?40&#8242;', 10060),
 (10066, '', '', '', '', 'http://www.physics.sfasu.edu/observatory/obs.htm', '', '', '94?39''38.32''', '31?45''35.59''', 10061),
 (10068, '', '', '', '', 'http://www.sofia.usra.edu/', '', '', 'Aeroplane', 'Aeroplane', 10063),
 (10111, '', '', '', '', '', '', '', '139?16''0''''W', '90? S', 10066),
-(10113, '', '', '', '', '', '', '', '?', '?', 10068),
-(10116, '', 'admin@kurp.hut.fi', '(+44)358 9 256 4831', 'FIN-02540', 'www.metsahovi.fi/', 'Tornikoski, Merja', 'Merja.Tornikoski@hut.fi', '60?13&#8242;', '24?23&#8242;', 10069),
 (10117, 'Professor: Valtaoja, Esko Tel: +358 (0)2 333 8235 Email: esko.valtaoja@utu.fi', '', '+358 2 333 8221', 'FI-21500', 'www.astro.utu.fi/', '', '', '60?24&#8242;', '22?26&#8242', 10070),
 (10127, '', 'balazs@konkoly.hu', '(36-1) 391-9322', '', 'http://www.konkoly.hu/', '?brah?m, P?ter', 'abraham@konkoly.hu', '19? 53'' 41', '19? 53'' 41', 10072),
-(10128, '', 'mao@astro.lt', '+370 383 45 444', '', 'http://www.itpa.lt/mao/', 'Grazina Tautvaisiene', 'taut@itpa.lt', '55?18'' 57N', '25?33'' 48E', 10073),
 (10202, '', 'crb@ing.iac.es', '', '', 'http://www.ing.iac.es/Astronomy/astronomy.html', 'Chris Benn', 'crb@ing.iac.es', '28.760361?N?', '17.881408?W?', 10078),
 (10136, '', '', '33 (1) 45 07 75 30', '', 'http://www.obspm.fr/', '', '', '2?14'' E', '48?48'' N', 10080),
-(10140, '', '', '(+44) 39 06 35347056', '84 00136', '', '', '', '?', '?', 10084),
 (10146, '', '', '', '', 'http://www.ing.iac.es/Astronomy/astronomy.html', 'Chris Benn', 'crb@ing.iac.es', '17.881408?W', '28.760361?N', 10090),
 (10150, '', '', '', '', '', 'Hans Van Winckel', 'hans@ster.kuleuven.be', '17?52''42''''W', '28?45''44'''' N', 10094),
-(10151, '', '', '+44 (0)151 231 2949', 'CH41 1LD', 'http://telescope.livjm.ac.uk/', 'Carter,?David', 'dxc@astro.livjm.ac.uk', '?', '?', 10095),
-(10153, '', '', '', '', '', '', '', '17?43''', '28?46'' N', 10097),
 (10154, '', 'parkes@csiro.au', '(+61) 02 6861 1700', 'NSW 2870', 'http://www.parkes.atnf.csiro.au/', '', '', '5''48.63''''E', '32?59''54.26''', 10098),
 (10155, '', 'narrabri@atnf.csiro.au', '(+61 ) 02 6790 4000', 'NSW 2390', 'http://www.narrabri.atnf.csiro.au/', '', '', '149?32'' 56.3', '30?18''52.04''', 10099),
-(10156, '', '', '(+61) 02 6790 4093', 'NSW 2390', '', 'Balthasar Indermuehle', '', '149?05''58''''E', '31?16''04''''S', 10100),
 (10157, '', '', '', '', 'http://www.atnf.csiro.au/observers/tidbinbilla/', 'Jimi Green', 'James.Green@atnf.csiro.au', '151?5''49''''E', '33?46''28''''S', 10101),
 (10159, '', '', '', '', 'http://msowww.anu.edu.au', '', '', '?', '?', 10103),
 (10161, '', '', '', '', 'http://www.ska.ac.za/', '', '', '?', '?', 10105),
@@ -638,7 +536,6 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (10181, '', '', '', '', 'http://www.ioa.s.u-tokyo.ac.jp/TAO/', '', '', '22? 59''12''''S', '22?59''12''''S', 10125),
 (10182, '', '', '', '', 'http://www.astro.uni-koeln.de/nanten2/', '', '', '67?42''8''''W', '22?58''11''''S', 10126),
 (10184, '', '', '+55 35 3621-2121', '', 'http://www.lna.br/opd/opd.html', '', '', '?', '?', 10128),
-(10185, '+54-264-4273653', '', '+54-264-4213653', 'J5402DSP', 'http://www.casleo.gov.ar/', '', '', '69?17''46''''W', '31?47''55''''S', 10129),
 (10186, '', 'webmaster@crao.crimea.ua', '', '', 'http://quake.stanford.edu/~crao/', '', '', '+44:43:36', '2h?16m?03s', 10130),
 (10187, '', 'webmaster@crao.crimea.ua', '', '', 'http://quake.stanford.edu/~crao/', '', '', '+44:23:52.6', '2h?15m?55.1s', 10131),
 (10190, '', '', '', '', 'http://radioastron.ru/?dep=16', '', '', '?', '?', 10134),
@@ -651,7 +548,7 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `instruments`
+-- Table structure for table `instruments`
 --
 
 CREATE TABLE IF NOT EXISTS `instruments` (
@@ -665,7 +562,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10324 ;
 
 --
--- Daten für Tabelle `instruments`
+-- Dumping data for table `instruments`
 --
 
 INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`, `oid`) VALUES
@@ -685,11 +582,9 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (26, 'Instrument1: Cassegrain<br>Instrument2: Refracting Telescope', '', '.254<br>.127', '', 27),
 (32, 'Instrument1: Schmidt-Cassegrain<br>Instrument2: Newton<br>Instrument3: Refr', '', '', '', 33),
 (33, 'Instrument1: Schmidt-Cassegrain', '', '', '', 34),
-(34, 'Instrument1: Newton', '', '0.440', '', 35),
 (35, 'Instrument1: Cassegrain<br>Instrument2: Schmidt-Cassegrain<br>Instrument3: ', '', '.51<br>.36<br>.18', '', 36),
 (36, '', '', '', '', 37),
 (37, 'Instrument1: Newton<br>Instrument2: Cassegrain<br>Instrument3: Refracting T', '', '0.5<br>0.5<br>0.16', '', 38),
-(39, 'Instrument1: Maksutov<br>Instrument2: Newton<br>Instrument3: Dobson', '', '0.26<br>0.25<br>0.4', '', 40),
 (41, 'Instrument1: Schmidt-Cassegrain', '', '', '2500mm', 42),
 (43, 'Instrument1: Ritchey-Chretien<br>Instrument2: Refracting Telescope', '', '0.318<br>0.140<br>0.106', '', 44),
 (44, 'Instrument1: Schmidt-Cassegrain<br>Instrument2: Refracting Telescope', '', '1/3 M', '', 45),
@@ -699,11 +594,8 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (48, 'Instrument1: Schmidt-Cassegrain', '', '250mm', '2500mm', 49),
 (49, 'Instrument1: Schmidt-Cassegrain', '', '0.203', '', 50),
 (51, 'Instrument1: Newton', '', '0.25m', '1.27m', 52),
-(54, 'Instrument1: Schmidt-Cassegrain', '', '0.254', '', 55),
-(55, 'Instrument1: Ritchey-Chretien<br>Instrument2: Radio Telescope<br>Instrument', '', '.6 meter<br>10 foot<br>6 inch', '', 56),
 (56, 'Instrument1: Schmidt-Cassegrain<br>Instrument2: Refracting Telescope', '', '0.28m<br>0.09m', '0.28m<br>0.621m', 57),
 (57, 'Instrument1: Schmidt-Cassegrain<br>Instrument2: Schmidt-Cassegrain<br>Instr', '', '', '', 58),
-(59, 'Instrument1: Other', '', '', '', 60),
 (63, 'Instrument1: Newton<br>Instrument2: Refracting Telescope<br>Instrument3: Re', '', '', '', 64),
 (64, 'Instrument1: Cassegrain<br>Instrument2: Cassegrain', '', '0.60<br>0.40', '7.5 (Newton: 2400)', 65),
 (65, 'Instrument1: Cassegrain<br>Instrument2: Refracting Telescope<br>Instrument3', '', '0.4<br>0.12<br>n/a', '', 66),
@@ -712,14 +604,11 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (70, 'Instrument1: Refracting Telescope<br>Instrument2: Refracting Telescope<br>I', '', '0.11<br>0.13<br>0.1', '', 71),
 (76, 'Instrument1: Cassegrain', '', '', '', 77),
 (81, 'Instrument1: Maksutov<br>Instrument2: Refracting Telescope', '', '0,35 m<br>0,15 m', '1,6 m<br>2,25 m', 82),
-(85, 'Instrument1: Newton<br>Instrument2: Maksutov', '', '0.4m<br>0.25m', '', 86),
 (88, 'Instrument1: Newton<br>Instrument2: Maksutov<br>Instrument3: Binocular Tele', '', '0.3<br>0.15<br>0.11', '', 89),
 (89, 'Instrument1: Spectrograph<br>Instrument2: Spectrograph<br>Instrument3: Cass', '', '1.88m<br>1.88m<br>0.5m', '54.29m<br>33.85m<br>3.25m', 90),
 (93, 'Instrument1: Refracting Telescope<br>Instrument2: Refracting Telescope<br>I', '', '175 mm<br>130 mm<br>200 mm', '1400 mm<br>1950 mm<br>2000 mm', 94),
-(94, 'Instrument1: Other<br>Instrument2: Other<br>Instrument3: Spectrograph', '', '0.2<br>0.2', '', 95),
 (97, '', '', '', '', 98),
 (99, '', '', '', '', 100),
-(103, 'Instrument1: Cassegrain', '', '', '', 104),
 (104, '', '', '', '', 105),
 (108, 'Instrument1: Newton<br>Instrument2: Newton', '', '0.35<br>0.25', '', 109),
 (109, 'Instrument1: Ritchey-Chretien<br>Instrument2: Refracting Telescope', '', '', '', 110),
@@ -731,7 +620,6 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (118, 'Instrument1: Ritchey-Chretien<br>Instrument2: Cassegrain<br>Instrument3: Ot', '', '', '', 119),
 (119, 'Instrument1: Cassegrain<br>Instrument2: Ritchey-Chretien<br>Instrument3: Ri', '', '', '', 120),
 (120, 'Instrument1: Schmidt-Cassegrain', '', '12&quot;LX 200', '3048 mm', 121),
-(123, 'Instrument1: Ritchey-Chretien<br>Instrument2: Schmidt-Cassegrain', '', '.254<br>.279', '', 124),
 (124, '', '', '', '', 0),
 (125, '', '', '', '', 0),
 (126, '', '', '', '', 0),
@@ -759,12 +647,10 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (148, '', '', '', '', 0),
 (149, '', '', '', '', 0),
 (150, '', '', '', '', 0),
-(10185, 'Heinrich Hertz Submillimeter Telescope<br>VATT (Vatican advanced Technology', 'Radio<br>Optical', '10.00<br>1.83', '0.35<br>1.00', 10001),
 (10180, 'The Large Sky Area Multi-object Fibre Spectroscopic Telescope (LAMOST) - Sc', 'Optical<br>Optical<br>Infrared', '4.00<br>2.16<br>1.26', '<br>3.00', 10002),
 (10181, 'Ynao Optical Telescope<br>Lijang Optical Telescope', 'Optical<br>Optical', '1.00<br>2.40', NULL, 10003),
 (10165, 'Radio Paraboloid Telescope', 'radio', '13.70', NULL, 10004),
 (10173, '', 'Optical<br>Optical<br>Optical', '1.50<br>2.00<br>3.00', NULL, 10005),
-(10145, 'Trebur Cassegrain Telescope', 'Optical', '1.00', '8.00', 10006),
 (10177, 'Boller and Chivens Telescope', 'Optical', '1.00', '4.00', 10007),
 (10025, 'Vainu Bappu Cassegrain Telescope<br>Carl Zeiss Telescope', 'telescope<br>telescope', '2.30<br>1.00', '3.25<br>13.00', 10009),
 (10169, 'Gauribidanur Radio Telescope<br>Mauritius Radio Telescope', 'Radio<br>Radio', '99.99<br>99.99', NULL, 10010),
@@ -782,42 +668,27 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (10168, 'Giant Metrewave Radio Telescope (GMRT)', 'Radio', '45.00', NULL, 10030),
 (10058, 'ARO 12m Radio Telescope<br>Bok Telescope<br>Spacewatch 1.8', 'dish<br>telescope<br>telescope', '12.00<br>2.30<br>1.80', '0.34', 10033),
 (10146, 'Hiltner Telescope<br>McGraw Hill Telescope', 'Optical<br>Optical', '2.40<br>1.30', NULL, 10034),
-(10063, 'Perkins Telescope<br>John S Hall', 'telescope<br>telescope', '1.80<br>1.05', NULL, 10035),
 (10065, 'MMT Observatory<br>Whipple Gamma', 'telescope<br>telescope<br>telesc', '6.50<br>10.00<1.50>', NULL, 10036),
-(10070, '', 'telescope', '1.60', NULL, 10039),
-(10090, 'Shane Reflector<br>Automated Planet Finder<br>Nickel Reflector', 'Optical<br>Optical<br>Optical', '3.00<br>2.40<br>1.00', NULL, 10042),
 (10166, 'Cassegrain Reflector telescope', 'Optical', '1.50', NULL, 10047),
-(10093, 'Illinois<br>ULRT', 'Optical,Infrared<br>Optical,Infr', '1.00<br>1.00<br>2.50', NULL, 10049),
-(10096, 'Hooker<br>Hale', 'Optical<br>Optical', '2.54<br>1.52', NULL, 10050),
 (10098, '40m Telescope', 'Microwave', '40.00', NULL, 10051),
 (10099, 'Hale Telescope<br>Unnamed<br>Samuel Oschin Telescope', 'Optical<br>Optical<br>Optical', '5.08<br>1.52<br>1.22', '3.30<br>8.75<br>2.50', 10052),
-(10108, '', 'Optical', '2.40', NULL, 10056),
 (10109, '', '', NULL, NULL, 10057),
 (10110, 'West<br>East', 'Radio<br>Radio<br>Radio', '26.00<br>26.00<br>12.00', NULL, 10058),
-(10114, 'Hobby-Eberly Telescope<br>Harlan J Smith Telescope<br>Otto Sturve Telescope', 'Optical, Infrared<br>Optical<br>', '9.20<br>2.70<br>2.10', NULL, 10060),
 (10117, '', 'Optical', '1.04', NULL, 10061),
 (10119, 'SOFIA', 'Far Infrared', '2.50', NULL, 10063),
 (10159, 'Schmidt-camera', 'Optical', '0.50', NULL, 10043),
 (10164, 'Reflector Telescope', 'Optical', '1.56', NULL, 10011),
 (10167, 'Reflecting telescope', 'Optical', '0.60', NULL, 10047),
 (10183, 'Alt-Az Optical Telescope', 'Optical', '1.20', NULL, 10003),
-(10186, 'LBT (Large Binocular Telescope)', 'Optical,Infrared', '11.40', '1.14', 10001),
 (10187, 'SPT', 'Radio', '10.00', '0.70', 10066),
-(10189, '', 'Radio', '21.00', NULL, 10068),
-(10194, 'Radio Observatory', 'Radio', '13.70', NULL, 10069),
 (10195, 'Reflector<br>Solar Radio Telescope<br>Schmidt Telescope', 'Optical<br>Radio<br>Optical', '1.00<br>2.00<br>0.70', NULL, 10070),
 (10210, 'RCC Telescope', 'Optical Reflecting Telescope', '1.00', '13.50', 10072),
-(10211, 'Reflector Telescope<br>Reflector<br>Maksutov Telescope', 'Optical Telescope<br>Optical Tel', '1.65<br>0.63<br>0.53', '4.92<br>3.03<br>1.20', 10073),
 (10321, 'William Herschel Telescope (WHT)', 'Optical Reflecting Telescope', '4.20', NULL, 10078),
 (10222, '', 'Optical<br>Radio', '1.00', NULL, 10080),
-(10229, '', 'Optical<br>Optical', NULL, NULL, 10084),
 (10241, 'Optical Telescope', 'Optical', '4.20', NULL, 10090),
 (10245, 'The Mercator Telescope', 'Optical Telescope', '1.20', NULL, 10094),
-(10246, '', 'Optical', '2.00', NULL, 10095),
-(10248, 'MAGIC', 'Gamma', '17.00', '1.03', 10097),
 (10249, 'Parkes Radio Telescope', 'Radio', '64.00', NULL, 10098),
 (10250, 'Radio Array', 'Radio', '22.00', NULL, 10099),
-(10251, '', 'Radio', '22.00', NULL, 10100),
 (10252, '', 'radio<br>radio<br>radio', '70.00<br>64.00<br>34.00', NULL, 10101),
 (10257, '', 'Optical', '2.30', NULL, 10103),
 (10259, '', '', NULL, NULL, 10105),
@@ -826,7 +697,6 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (10291, 'miniTao', 'Optical, Infrared', '1.00', NULL, 10125),
 (10292, '', 'millimeter,submillimeter', '4.00', NULL, 10126),
 (10295, '', 'Optical', '1.60', NULL, 10128),
-(10296, 'Jorge Sahade Telescope', 'Optical', '2.12', NULL, 10129),
 (10297, 'Shajn telescope<br>Optical Telescope 1<br>Optical Telescope 2', 'Optical telescope<br>Optical tel', '2.60<br>1.25<br>1.25', NULL, 10130),
 (10300, '22 Meter Telescope', 'Radio Telescope', '22.00', NULL, 10131),
 (10303, 'Suffa RT-70 radio telescope', 'Radio Telescope', '70.00', NULL, 10134),
@@ -840,7 +710,7 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `maintable`
+-- Table structure for table `maintable`
 --
 
 CREATE TABLE IF NOT EXISTS `maintable` (
@@ -869,7 +739,7 @@ CREATE TABLE IF NOT EXISTS `maintable` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `maintable`
+-- Dumping data for table `maintable`
 --
 
 INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country`, `Address`, `Phone`, `email`, `Sciencecontactname`, `Sciencecontactnemail`, `latitude`, `longitude`, `meters`, `precipitation`, `clearnights`, `timezone`, `insnumber`, `partners`, `comments`, `oid`) VALUES
@@ -889,11 +759,9 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (27, 'Rott''n Paws Observatory', '2005', 'Charles A. JAGOW', 'http://www.jagowds.com/_jap/jap_obs_1.shtml', 'United States', '1204 Saddleback Landing', NULL, 'rottnpaws@jagowds.com', 'Charles Jagow<br>', 'chuck@jagowds.com<br>', '076.13.31 W', '36.46.23 N', '3', '>500', '51-100', '-5', '2', NULL, 'Just an amateur astronomer with his own tiny little observatory.', 27),
 (33, 'Pope Silvester II Astronomical Observatory in Bukowiec', '2009', 'Fundation of development and popularization of natural sciences &quot;Galileo&quot; and Brojce Commune ', 'www.bukowiecobservatory.pl', 'Poland', 'Bukowiec ul. Szkolna 3', '48698714080', 'astromax@poczta.onet.pl', 'Pawel Maksym<br>', 'astromax@poczta.onet.pl<br>', '19 40 32,4E', '51 41 28,5N', '210', '201-500', '51-100', '1', '3', NULL, NULL, 33),
 (34, 'Observatoire de Vesqueville', '1999', 'private person', 'http://www.astrosurf.com/vda', 'Belgium', '8 rue de Fayet', NULL, 'fvda@skynet.be', NULL, NULL, '05°23''50 E', '50°00''15 N', '475 m', '>500', '51-100', '1', '1', NULL, NULL, 34),
-(35, 'Mandi Observatory', '1990', 'private person', NULL, 'Italy', 'via dei Brazzà,23', '39.0432-570892', 'corelli@conecta.it', 'Paolo Corelli<br>', 'corelli@conecta.it<br>', '46°05''49&quot; N', '13°11''01&quot; E', '140', '>500', '101-150', '1', '1', NULL, NULL, 35),
 (36, 'Univerity of Maryland Observatory', '1964', 'University of Maryland', 'http://www.astro.umd.edu/openhouse/', 'United States', 'Department of Astronomy, UM', '001-301-405-6555', 'observe@astro.umd.edu', 'Dr. Eric McKenzie<br>Elizabeth Warner', 'eric@astro.umd.edu<br>warnerem@astro.umd.edu', '39° 00'' 07&quot;', '76° 57'' 22&quot;', '53 m', NULL, NULL, '-5', NULL, NULL, NULL, 36),
 (37, 'Sternwarte-Herrenberg', '1995', 'private', NULL, 'Germany', 'Michels Helmut', '049 7032 34385', 'helmut@sternwarte-Herrenberg.de', NULL, NULL, NULL, 'WSG84 8°49''59,3&', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 37),
 (38, 'Observatori de l''Agrupació Astronòmica de Sabadell a Sabadell', '1993', 'Amateur association', 'http://www.astrosabadell.org', 'Spain', 'Apartat de correus 50', '-7255432', 'astronomia@astrosabadell.org', 'Carles Schnabel<br>Albert Morral', 'astronomia[at]astrosabadell.org<br>secretaria[at]astrosabade', '41° 33'' 04', '2° 05'' 29', '224 m', '>500', '101-150', '1', '>3', NULL, NULL, 38),
-(40, 'Leest Observatory', '1990', 'Private Person', 'http://www.maartenvanleenhove.be', 'Belgium', NULL, '0032 498 91 17 15', 'maarten.vanleenhove@telenet.be', NULL, NULL, NULL, NULL, '20', '>500', '51-100', '2', '2', NULL, NULL, 40),
 (42, 'Observatorio Astronómico MEALAGA', '2000', 'Personal', 'www.eduardoleyton.com/Astronomia', 'Chile', 'Poetas Chilenos 1023 Maipu', '56-9-9393007', 'eleytong@hotmail.com', 'Eduardo Leyton <br>Erika Labbe', 'eleytong@hotmail.com<br>iki_0@yahoo.com', 'S 33°29´11&quot;', 'W 70°44´30&quot;', '457', '51-100', '101-150', '-4', '1', NULL, NULL, 42),
 (44, 'orange observatory', '2003', 'private person', 'http://www.outters.fr/index.html', 'France', NULL, NULL, 'nico.outters@libertysurf.fr', NULL, NULL, NULL, NULL, '1060 mt', '>500', '51-100', '1', '2', NULL, NULL, 44),
 (45, 'Prairie Pass Observatory', '2005', 'Ken Florentine', 'http://prairiepassobservatory.com', 'United States', '901 Prairie Pass', NULL, 'kenflorentine@yahoo.com', 'Ken Florentine<br>', 'kenflorentine@yahoo.com<br>', '082.09 W', '33.32 N', '200', '51-100', '151-200', '-5', NULL, NULL, NULL, 45),
@@ -903,11 +771,8 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (49, 'Nikau Observatory', '2008', 'Andrew Skinner', 'http://www.nikauobservatory.com', 'New Zealand', '126 Maui Pomare Road', '42984994', 'andrew@nikauobservatory.com', NULL, NULL, '40  02''14.8&quot', '175 54''54.30&quo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 49),
 (50, 'Observatori El Vendrell', '2007', 'ROSFA', 'http:\\\\rosfa.com', 'Spain', 'C/Estornell 1, bl 6, 3-C', '34610949094', 'observasantgervasi@gmail.com', 'Josep Mª Coloma Martinez<br>', 'observasantgervasi@gmail.com<br>', NULL, NULL, NULL, NULL, '101-150', '1', '1', NULL, NULL, 50),
 (52, 'Titirangi Observatory', '2004', 'Private', 'http://www.pbase.com/rolfolsen', 'New Zealand', NULL, NULL, 'hwy37@yahoo.com', 'Rolf Olsen<br>', NULL, NULL, NULL, '200m', NULL, NULL, NULL, '1', NULL, 'I''d be happy to image planets, stars, galaxies or any other astronomical objects as requested, anytime (weather permitting)  Please see my astrophoto galleries at http://www.pbase.com/rolfolsen for examples of my work.', 52),
-(55, 'Marc Delcroix''s observatory', '2004', 'Marc Delcroix', NULL, 'France', '2, rue de l''Ardèche', '+33 (5) 61 06 72 86', 'delcroix.marc@free.fr', 'Marc Delcroix<br>', 'delcroix.marc@free.fr<br>', ' 43°34''59.07&quo', '  1°19''34.43&quo', '163 m', '>500', '101-150', '1', '1', NULL, NULL, 55),
-(56, 'Martz Observatoty', '1956', 'Marshal Martz Memorial Astronomical Association, Inc.', 'http://www.martzobservatory.org', 'United States', '176 Robbin Hill Rd., Frewsburg, NY', '716-569-3689', 'martzobservatory@hotmail.com', 'Mr. Gary Nelson - President<br>Mr. John Anderson', 'martzobservatory@hotmail.com<br>martzobservatory@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '>3', NULL, '    The Marshal Martz Memorial Astronomical Association, Inc. is a non-profit organization devoted to the amateur astronomer. The emphasis of our association is observational astronomy, well-rooted in public education and enjoyment of the starry skies.    Our mission is to inform educate and inspire the general public and support teaching in the sciences of astronomy and physics.  ', 56),
 (57, 'Obserbarotio Binibequer Nou', '2007', 'ROSFA', 'www.rosfa.com/obn', 'Spain', 'Apartado de correos 185', '34-971-93-99-22', 'obsbinibequer@rosfa.com', 'Hilari Pallares Albalat<br>', 'obsbinibequer@rosfa.com<br>', '39º 49'' 127&quot', '04º 14'' 281&quot', '19 m', '>500', '151-200', '1', '2', NULL, 'Partner of the Astronomical Association of Sabadell, with which to comment, planoccult. I realize with the English translator, I apologize for errors', 57),
 (58, 'Taurus Hill Observatory', '2003', 'Astronomical Association Warkauden Kassiopeia', 'http://english.taurushill.net/', 'Finland', 'Härkämäentie 88', '-142409', 'warkauden.kassiopeia@ursa.fi', 'Veli-Pekka Hentunen <br>Harri Haukka', 'veli-pekka.hentunen[at]kassiopeia.net<br>harri.haukka[at]kas', '62° 18.896', '28° 23.357', '150', '201-500', '51-100', '2', '3', 'Tuorla Observatory (http://www.astro.utu.fi/), Hankasalmi Observatory (http://murtoinen.dyndns.org/)', 'Please contact our research team if You have some good projects for our equipment.', 58),
-(60, 'Lomnicky stit neutron monitor', '1957', 'Institute of Experimental Physics, Slovak Academy of Sciences', 'http://neutronmonitor.ta3.sk', 'Slovakia', 'IEP SAS, Watsonova 47', '++421 55 6224554', 'kkudela@kosice.upjs.sk', 'Karel Kudela<br>Ronald Langer', 'kkudela@kosice.upjs.sk<br>langer@ta3.sk', '49.20° N ', '20.22° E', '2634 m', NULL, NULL, '1', '1', 'several partners, in Europe for example the list of neutron monitors included in NMDB project can be found at http://www.nmdb.eu/?q=node/8', 'data available with 1 min resolution', 60),
 (64, 'Sternwarte-Habichtswald', '2007', 'Private Persons', 'http://www.sternwarte-habichtswald.de', 'Germany', 'Schöne Aussicht 26', '0049 5606 53 8 55', 'Ralf@Gerstheimer.de', 'Ralf@Gerstheimer.de<br>', 'Ralf@Gerstheimer.de<br>', NULL, NULL, '320 m', '>500', '51-100', '1', '>3', NULL, NULL, 64),
 (65, 'Osservatorio Astronomico Montagna Pistoiese', '1990', 'private persons, public obs.', 'http:||www.gamp-pt.net', 'Italy', 'Viale Panoramico 949', '0573 622220 -3473213', 'luctesi@alice.it - tesiluciano@yahoo.it', 'michelemazzucato@tiscali.it<br>', NULL, '44 03 51 N', '10 48 13.5 E', '980', '201-500', '101-150', '1', NULL, 'Mazucato Michele michelemazzucato@tiscali.it  Fagioli Giancarlo  gfagio@supereva.it', NULL, 65),
 (66, 'Tacande Observatory', '2002', 'Joan Genebriera (private)', 'http://www.astropalma.com', 'Spain', 'Juana Morales,34', '34-922-486346', 'PLEIADES@telefonica.net', 'Joan Genebriera<br>', 'PLEIADES@telefonica.net<br>', ' 28º  38’ 29,55”', '17g 52m 03.57s W', '765 m.', '201-500', '251-300', '-1', '>3', NULL, NULL, 66),
@@ -916,12 +781,9 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (71, 'Observatorium Kanzelhöhe', '1943', 'Universität Graz', 'http://www.kso.ac.at', 'Austria', 'Kanzelhöhe 19', '0043 4248 2717', 'office@kso.ac.at', 'Werner Pötzi<br>Dietmar Baumgartner', 'werner.poetzi@uni-graz.at<br>dietmar.baumgartner@uni-graz.at', '13°54''24'''' E', '46°40''42'''' N', '1524', '>500', NULL, '1', '>3', 'Hvar Observatory, http://www.goefr.hr  BBSO, NJIT, http://www.bbso.njit.edu/Research/Halpha/  SIDC, http://sidc.oma.be', NULL, 71),
 (77, 'Shorbulak Observatory (near Murgab)', '1987', 'Insrirute of Astrophysics of Academy of Sciences', NULL, 'Tajikistan', '22, Bukhoro str.', '-907814600', 'mnasredin@mail.ru, nasridin@bk.ru', 'Minikulov Nasridin Khudaiberdievich<br>Gulyamov Makhmudjon I', 'mnasredin@mail.ru, nasridin@bk.ru<br>gmi58@mail.ru', '37°55''30.5&quot;', '74°09''17.7&quot;', '4250', '51-100', '251-300', '5', '1', NULL, NULL, 77),
 (82, 'Volkssternwarte Radebeul', '1959', 'Town of Radebeul', 'http://www.sternwarte-radebeul.de', 'Germany', 'Auf den Ebenbergen 10 a', '493518305905', 'mail@sternwarte-radebeul.de', 'Ulf Peschel<br>Michael Funke', 'peschel@sternwarte-radebeul.de<br>funke@sternwarte-radebeul.', '51°06''59'''' N', '13°37''20'''' E', '130 m', '201-500', '51-100', '1', '2', NULL, NULL, 82),
-(86, 'Madonna di Dossobuono', '1978', 'pirvate person', 'http://obs560.interfree.it/', 'Italy', 'via Mantovana 130 a', '39045953993', 'francylai@tin.it', 'Luciano Lai<br>Luciano Lai', 'francylai@tin.it<br>lai.luciano@tin.it', 'N 45° 24'' 26,80&', 'E 10° 57'' 51,60&', '65m', '201-500', '51-100', '1', NULL, NULL, NULL, 86),
 (89, 'Vitebsk amateur observatory', '1991', 'private persons', 'http://nevski.belastro.net/', 'Belarus', 'Tereshkova st. 16/4-47', '375297168840', 'b42@tut.by', 'Vitali Nevski<br>', 'nevski@tut.by<br>', '30°19''39&quot; E', '55°03''40&quot; N', '180', NULL, '51-100', '2', '3', 'Observatory &quot;Taurus-1&quot;  http://www.taurusskystars.narod.ru/  shurpakov_A98@tut.by', NULL, 89),
 (90, 'Okayama Astrophysical Observatory, National Astronomical Observatory of Japan', '1960', 'National Astronomical Observatory of Japan, National Institutes of Natural Sciences', 'http://www.oao.nao.ac.jp', 'Japan', '3037-5 Honjo, Kamogata, Asakuchi', '81-865-442155', 'oao-webmaster@oao.nao.ac.jp', 'Director<br>', 'openuse@oao.nao.ac.jp<br>', '34°34''34&quot; N', '133°35''38&quot; ', '350m', '>500', '51-100', '9', '>3', NULL, NULL, 90),
 (94, 'Zagreb Observatory', '1903', 'city observatory', 'http://www.zvjezdarnica.hr/', 'Croatia', 'Opaticka 22', '00385 1 4851355', 'info@zvjezdarnica.hr', 'Dragan Roša<br>dmaricic@zvjezdarnica.hr', 'drosa@zvjezdarnica.hr<br>dhrzina@zvjezdarnica.hr', '15°58''29.7&quot;', '45°49''08.2&quot;', ' 226.7m', NULL, NULL, '1', '>3', 'Hvar Observatory - Croatia, Kanzelhohe Observatory - Austria, Aragat space station - Armenia. ', NULL, 94),
-(95, 'Lomnicky Peak Observatory', '1964', 'Astronomical Institute, Slovak Academy of Sciences', 'http://www.astro.sk/l3.php?p3=lso', 'Slovakia', 'Astronomical Institute, Slovak Academy of Sciences', '421-52-7879171', 'rybak@astro.sk', 'Jan Rybak<br>', 'rybak@astro.sk<br>', '49°11''48', '20°13''12', '2632 m', '>500', '101-150', '-1', '3', NULL, NULL, 95),
-(104, 'Michael Adrian Observatory', '1997', 'Astronomie Stiftung Trebur', 'http://homepages.fh-friedberg.de/jomo/t1t.htm', 'Germany', 'Fichtenstrasse 7', '49614750000', 't1t@gmx.de', 'Johannes M. Ohlert<br>', 'jomo[at]monet.fh-friedberg.de<br>', '49 Grad 55'' 31.6', '8 Grad 24'' 41.1', '103 m', '51-100', '51-100', '1', '1', NULL, NULL, 104),
 (105, 'Plateau de Bure Interferometer', '1989', 'IRAM (Institut de Radioastronomie Millimétrique)', 'http://www.iram-institute.org', 'France', '300 rue de la Piscine', '0033-476824900', 'info@iram.fr', 'Roberto Neri<br>', 'neri@iram.fr<br>', '44:38:02.0 North', '05:54:28.5 East', '2550 m', NULL, NULL, NULL, NULL, 'IRAM 30-meter telescope (also operated by IRAM)', NULL, 105),
 (109, 'Zvezdno Obshtestvo Observatory IAU-A79', '2005', 'Filip Fratev', 'http://a79.starrydreams.com/', 'Bulgaria', 'Persenk bl34B, ap33', '359898362715', 'filipfratev@yahoo.com', 'FilipFratev<br>', 'filipfratev@yahoo.com<br>', '23°50''36&quot; E', '42°03''49  N', '1455 m', NULL, '151-200', '2', '2', 'IAU, MPC, CARA', NULL, 109),
 (110, 'Specola Santa Mama', '2004', 'Private', 'http:specolasantamama.interfree.it', 'Italy', 'Loc. Castagnoli 127/I', '390575487013', 'specolasantamama@interfree.it', 'TREVISAN Stefano<br>', 'specolasantamama@interfree.it<br>', 'N43°37''51&quot;', '011°51''27&quot;', '320 m', '51-100', '51-100', '1', '1', NULL, 'Observatory IAU code: B38', 110),
@@ -933,13 +795,10 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (119, 'National Astronomical Observatory (NAO) Rozhen', '1981', 'Institute of Astronomy with NAO at Bulg, Acad. Sci.', 'http://www.nao-rozhen.org/', 'Bulgaria', '72 Tsarigradsko chaussee, blvd.', '+359-[0]2-9741910', 'tbonev@astro.bas.bg', 'Tanyu Bonev<br>Ilian Iliev', 'tbonev@astro.bas.bg<br>iliani@astro.bas.bg', '41 41''48&quot; N', '24 44''18'''' E', '1745', '>500', '101-150', '2', '>3', NULL, NULL, 119),
 (120, 'TUBITAK National Observatory', '1997', 'Institute', 'www.tug.tubitak.gov.tr', 'Turkey', 'TUBITAK National Observatory Akdeniz University Campus', '+0090 242 2278401', 'omur.cakirli@tug.tubitak.gov.tr', 'Tansel AK<br>Zeki EKER', 'tanselak@tug.tubitak.gov.tr<br>eker@tug.tubitak.gov.tr', '36 49 28 N', '30 20 09 E', '2500', NULL, '151-200', '3', '>3', NULL, NULL, 120),
 (121, 'Twillingate Astronomical Observatory', '2000', 'private', NULL, 'Canada', 'Box 59 ,  5 Gillard''s Lane', '709 884 2336', 'skywatcher@personainternet.com', 'James Gillard<br>', NULL, '49 37 02.4', '54 45 28.8', '35', NULL, NULL, '3', NULL, NULL, NULL, 121),
-(124, 'Meadow View Observatory', '2008', 'Jim Collins', 'http://jimstar11.com', NULL, '1286 Valley Forge Drive', '1-530-809-0444', 'jimstar11gps@yahoo.com', NULL, NULL, '39-46-23 N', '121-49-06 W', '74', '11-50', '151-200', '8', '2', NULL, NULL, 124),
-(10110, 'Mount Graham International Observatory', '1989', 'Vatican,University of Arizona', 'http://mgpc3.as.arizona.edu/', 'USA', 'UofA - MGIO,1480 West Swift Trail,85546,Safford AZ', '928-428-2739', '', '', '', '109?53'' W', '32?42''4.69''''N', '3174', NULL, NULL, '-7', '3', '', '', 10001),
 (10108, 'Xinglong Station', '', 'NAOC', 'http://www.xinglong-naoc.org/', 'China', 'Yanshan,Hebei Province,,Beijing', '', '', '', '', '40.39417?N', '117.575?E', '960', NULL, '210.0', '8', '4', '', '', 10002),
 (10109, 'Yunnan Astronomical Observaotry', '1938', 'Chinese Academy of Sciences', 'http://www.ynao.ac.cn/', 'China', 'P.0.Box110,Kunming ,650011,Yunnan', '(+86)(0)871 3920919', 'ynaobgs@ynao.ac.cn', 'Han Zhanwen', '', '102? 47&#8242; 0', '25? 2&#8242; 0&', '2014', NULL, NULL, NULL, '4', '', '', 10003),
 (10099, 'Taeduk Radio Astronomy Observatory', '1986', 'Korea Astronomy and Space Institute', 'http://www.trao.re.kr/', 'South Korea', ',,,Taejon City', '', '', '', '', '127? 22&#8242; 1', '36? 23&#8242; 53', '110', NULL, NULL, '9', '1', '', '', 10004),
 (10105, 'Toyokawa Observatory', '', 'Nagoya University', '', 'Japan', '13 Honohara,3-chrome,442,Toyokawa', '', '', '', '', '137? 22? 16.??E', '34? 50? 10.??N', NULL, NULL, NULL, '9', '3', '', '', 10005),
-(10087, 'Lulin Observatory', '1999', 'Private', 'http://www.lulin.ncu.edu.tw/english/index.htm', 'Taiwan', 'National Central University,Yu-Shan National Parl,32054 ROC,Chung-Li', '', '', 'Wean-Shun Tsay', '', '120 52'' 25 E', '23 28'' 07 N', '2862', '1937.4', '200.0', '8', '1', '', '', 10006),
 (10107, 'Wise Observatory', '1971', 'Tel-Aviv University', 'http://wise-obs.tau.ac.il/general.html', 'Israel', 'Tel-Aviv University,69978 Tel-Aviv,39040,Negev', '972-3-6408729', 'noah@wise.tau.ac.il', 'Dr. Noah Brosch', '', '34?45''48'''' E', '30?35''45'''' N', '875', NULL, '170.0', '2', '1', '', '', 10007),
 (10013, 'The Vainu Bappu Observatory', '1792', 'Indian Institute of Astrophysics', 'http://www.iiap.res.in/centers/vbo', 'India', 'Vainu Bappu Observatory,Alangayam,635701,Kavalur', '91 (04174) 203014', 'diriia@iiap.res.in', 'Prof. S. S. Hasan', '', '78? 50''E', '12? 34''N', '700', NULL, NULL, '5', '2', '', '', 10009),
 (10102, 'The Gauribidanur Radio Observatory', '1976', 'Indian Institute of Astrophysics', 'http://www.iiap.res.in/centers/radio', 'India', 'Gauribidanur,Hossur post Kolar District,561210,Bangalore', '91 8155-291655', 'webmaster@iiap.res.in', '', '', '77.44?E', '13.60? N', NULL, NULL, NULL, '5', '2', '', '', 10010),
@@ -957,37 +816,23 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (10101, 'Tata Institute of Fundamental Research', '', '', 'http://www.gmrt.ncra.tifr.res.in', 'India', 'Post Bag 3,Ganeshkhind,411 007,Pune', '91-2132-252112/3/6/7', 'www@gmrt.ncra.tifr.res.in', '', '', '9? 5'' 47 E', '74? 2'' 59 N', '650', NULL, NULL, '5', '1', '', '', 10030),
 (10037, 'Steward Observatory (Kitt Peak)', '', 'University of Arizona', 'http://www.as.arizona.edu/', 'USA', 'Department of Astronomy/Steward Observatory 933 North Cherry Avenue, Rm. N204 ,,85721,Tucson, AZ', '(520) 318-8642', 'psmith@as.arizona.edu', '', '', '111?36''01.6''''E', '31?57''46.5''''N', '2000', NULL, NULL, NULL, '4', '', 'Submit request and justification to Bob Peterson, Operations Manager, Steward Observatory, University of Arizona, Tucson, AZ 85721 21 days prior to observing time', 10033),
 (10088, 'MDM Observatory (Kitt Peak)', '', 'the University of Michigan, Dartmouth College, the Ohio State University, Columbia University, and Ohio University.', 'http://www.astro.lsa.umich.edu/obs/mdm/', 'USA', 'MDM Observatory HC 02 Box 7520,,85634,Sells AZ', '520-318-8661', '', '', '', '?', '?', '1939', NULL, NULL, NULL, '2', '', 'Schedule-http://mdm.kpno.noao.edu/schedule.html Proposals-http://www.astro.lsa.umich.edu/obs/mdm/obsform/index.html', 10034),
-(10039, 'Lowell Observatory', '1894', '', 'http://www.lowell.edu/', 'USA', 'LOWELL OBSERVATORY , 1400 West Mars Hill Road,86001,Flagstaff AZ', '1400 West Mars Hil', '', '', '', '111?32''09.3'''' W', '35?05''48.6'''' N', '2206', NULL, NULL, NULL, '5', '', 'Schedules-http://www.lowell.edu/Research/Mesa/Schedules/', 10035),
 (10040, 'Whipple Observatory', '1966', 'University of Arizona,Smithsonian Institute', 'http://www.mmto.org/', 'USA', 'MMT Observatory , P.O. Box 210065 University of Arizona ,85721,Tucson AZ', '520-621-1558', '', '', '', '110?52''42''''W', '31?40''52''''N', '2606', NULL, NULL, NULL, NULL, '', 'Schedules: http://www.mmto.org/schedules/current.shtml Deadlines: Usually in late February', 10036),
-(10043, 'Mont M?gantic Observatory', '', 'University of Montreal', 'http://www.astro.umontreal.ca/omm/', 'Canada', ',,,', '', 'doyon@astro.umontreal.ca', '', '', '71 ?9''12'''' W', '45?27''18''''N', '1111', NULL, NULL, NULL, '1', '', 'Schedule:http://www.astro.umontreal.ca/omm/calendrier_fr.html Deadlines for application usually on 1st Thursday of November March or June', 10039),
-(10053, 'Lick Observatory', '1960', 'University of California', 'http://mthamilton.ucolick.org/', 'USA', ',,,California', '', '', '', '', '121?38''14.16''''W', '37?20''34.73''''N', '1276', NULL, '300.0', NULL, '6', '', 'Schedules:http://mtham.ucolick.org/techdocs/schedules/ Apply for time:http://mtham.ucolick.org/techdocs/telescopes/time_apps/', 10042),
 (10100, 'Tartu Observatory', '1946', '', 'www.aai.ee', 'Estonia', '61602, T?ravere,,Tartumaa', '372-7410-265', '', 'L.Leedj?rv', 'leed@aai.ee', '58? 15'' 55''''E', '26? 27'' 58''N', NULL, NULL, NULL, NULL, '2', '', '', 10047),
-(10054, 'Mount Laguna Observatory', '1968', '', 'http://mintaka.sdsu.edu/', 'USA', ',,,California', '(619) 594-6182', '', '', '', '116?25''40.8''''W', '32?50''32.64''''N', '1859', NULL, NULL, NULL, '5', '', '', 10049),
-(10055, 'Mt. Wilson Observatory', '', '', 'www.mtwilson.edu', '', 'Dave Jurasevich Superintendent Mt. Wilson Observatory Mt. Wilson,,91023,CA', '(626) 440-9016', '', '', '', '118?3''41.92''''W', '34?13''25.53''''N', '1742', NULL, NULL, NULL, '4', '', '', 10050),
 (10056, 'Owens Valley Observatory', '', 'Caltech', 'http://www.ovro.caltech.edu/', 'USA', 'CARMA 100 Leighton Lane (P.O. Box 968),,93513,Big Pine CA', '760-938-2075', '', '', '', '118?16''56W', '37?14''02N', '1222', NULL, NULL, NULL, '3', '', '', 10051),
 (10057, 'Palomar Observatory', '', 'Caltech', 'http://www.astro.caltech.edu/palomar/', 'USA', 'P.O. Box 200 Palomar Mountain,,92060,California', '(760) 742-2111', '', '', '', '116?51''50''''W', '33?21''21''''N', '1713', NULL, '290.0', NULL, '4', '', 'Schedule: http://www.palomar.caltech.edu:8000/calendar.tcl Forms:http://www.astro.caltech.edu/~tac/obsforms/ Deadlines on 1st of March', 10052),
-(10061, 'Magdalena Ridge Observatory', '1999', 'United States Naval Research laboratory', 'http://www.mro.nmt.edu/Home/index.htm', 'USA', 'Magdalena Ridge Observatory New Mexico Tech Research Office Building,101 East Road ,87801 ,Socorro NM', '(575) 835 - 6431', 'info@mro.nmt.edu', '', '', '107?11''5''''W', '33?58''36''''N', '3230', NULL, NULL, NULL, '2', '', '', 10056),
 (10062, 'Very Large Array', '', '', 'http://www.vla.nrao.edu/', 'USA', 'Socorro New Mexico NRAO,P.O. Box O1003 Lopezville Road,87801-0387 ,Socorro NM', '', 'info@nrao.edu', '', '', '107?37''6.06''''W', '34?4''44.28''''N', '2123', NULL, NULL, NULL, NULL, '', 'Deadlines usually October 1, June 1,Feb 2. Apply through http://my.nrao.edu/ Schedules: http://www.vla.nrao.edu/cgi-bin/schedules.cgi', 10057),
 (10063, 'Pisgah Astronomical Research Institute', '', 'PARI', 'http://www.pari.edu/', 'USA', 'Pisgah Astronomical Research Institute 1 PARI Drive Rosman,,28772,NC', '828-862-5554', 'dclavier@pari.edu', '', '', '82?52''20.64''''W', '35?11''58.56''''N', '880', NULL, NULL, NULL, '5', '', '', 10058),
-(10065, 'McDonald Observatory', '', 'University of Texas', 'http://www.as.utexas.edu/mcdonald/mcdonald.html', 'USA', 'The University of Texas McDonald Observatory 1 University Station, C1402 ,78712-0259,Austin TX', '(512) 471-3303', '', '', '', '104?1&#8242;21&#', '30?40&#8242;17&#', '2076', NULL, NULL, NULL, '5', '', 'The HET operates a queue scheduled observing program', 10060),
 (10066, 'Steven F Austin Observatory', '', 'Stephen F Austin State', 'http://www.physics.sfasu.edu/observatory/obs.htm', 'USA', ',,,Texas', '', '', '', '', '94?39''38.32''''W', '31?45''35.59''''N', '149', NULL, NULL, NULL, NULL, '', '', 10061),
 (10068, 'SOFIA', '', 'NASA', 'http://www.sofia.usra.edu/', 'USA', ',,,California', '', '', '', '', 'Aeroplane', 'Aeroplane', '12500', NULL, NULL, NULL, '1', '', '', 10063),
 (10111, 'South Pole Telescope', '', 'University of Chicago', '', 'Antarctica', ',,,', '', '', '', '', '139?16''0''''W', '90? S', NULL, NULL, NULL, NULL, '1', '', '', 10066),
-(10113, 'Morehead State University Observatory', '', '', '', '', ',,,', '', '', '', '', '?', '?', NULL, NULL, NULL, NULL, NULL, '', '', 10068),
-(10116, 'Mets?hovi Radio Observatory', '1974', 'Aalto University', 'www.metsahovi.fi/', 'Finland', 'Mets?hovintie 114, ,FIN-02540,', '(+44)358 9 256 4831', 'admin@kurp.hut.fi', 'Tornikoski, Merja', 'Merja.Tornikoski@hut.fi', '60?13&#8242;05&#', '24?23&#8242;38&#', '61', NULL, NULL, '2', '1', '', '', 10069),
 (10117, 'Tuorla Observatory', '1952', 'University of Turku', 'www.astro.utu.fi/', 'Finland', 'V?is?l?ntie 20,,FI-21500,PIIKKI?', '+358 2 333 8221', '', '', '', '60?24&#8242;57&#', '22?26&#8242;36&', '61', NULL, NULL, '2', '4', '', '', 10070),
 (10127, 'Piszk?stet&#337; Station', '1958', 'Konkoly Observatory', 'http://www.konkoly.hu/', 'Hungary', 'H-1525 Budapest ,P.O.Box 67,,M?tra Mountains', '(36-1) 391-9322', 'balazs@konkoly.hu', '?brah?m, P?ter', 'abraham@konkoly.hu', '19? 53'' 41', '19? 53'' 41', '960', NULL, NULL, '1', '1', 'Konkoly Observatory', '', 10072),
-(10128, 'Mol&#279;tai Astronomical Observatory', '1991', 'Institute of Theoretical Physics and Astronomy of Lithuania', 'http://www.itpa.lt/mao/', 'Lithuania', 'Moletu AO Moletai a/d Nr. 8,LT 4150 Lithuania,,Moletai', '+370 383 45 444', 'mao@astro.lt', 'Grazina Tautvaisiene', 'taut@itpa.lt', '55?18'' 57N', '25?33'' 48E', '200', NULL, NULL, '2', '3', '', '', 10073),
 (10202, 'William Herschel Telescope (WHT) (Roque de los Muchachos Observatory)', '1987', 'Isaac Newton Group of Telescopes', 'http://www.ing.iac.es/Astronomy/astronomy.html', 'Spain', 'Roque de los Muchachos Observatory,,,La Palma', '', 'crb@ing.iac.es', 'Chris Benn', 'crb@ing.iac.es', '28.760361?N?', '17.881408?W?', '2332', NULL, '274.0', '0', '1', '', 'Fill out the form: http://www.otri.iac.es/cci/ ', 10078),
 (10136, 'Observatoire de Paris - Site de Meudon', '1667', '', 'http://www.obspm.fr/', 'France', '5,place Jules Janssen,,92195', '33 (1) 45 07 75 30', '', '', '', '2?14'' E', '48?48'' N', '162', NULL, NULL, NULL, '2', '', '', 10080),
-(10140, 'Monte Mario Observatory', '', 'Rome Astronomical Observatory', '', 'Italy', 'Sede di Monte Mario,Viale del Parco Mellini,84 00136,Rome', '(+44) 39 06 35347056', '', '', '', '?', '?', NULL, NULL, NULL, NULL, NULL, '', '', 10084),
 (10146, 'William Herschel Telescope (WHT) (Roque de los Muchachos Observatory)', '', '', 'http://www.ing.iac.es/Astronomy/astronomy.html', 'Spain', ',,,La Palma', '', '', 'Chris Benn', 'crb@ing.iac.es', '17.881408?W', '28.760361?N', '2332', NULL, NULL, NULL, NULL, '', '31st March deadline form : http://www.otri.iac.es/cci/', 10090),
 (10150, 'The Mercator Telescope (Roque de los Muchachos Observatory )', '', '', '', 'Spain', ',,,La Palma', '', '', 'Hans Van Winckel', 'hans@ster.kuleuven.be', '17?52''42''''W', '28?45''44'''' N', '2333', NULL, NULL, NULL, NULL, '', '', 10094),
-(10151, 'Liverpool Telescope (Roque de los Muchachos Observatory )', '2003', '', 'http://telescope.livjm.ac.uk/', 'Spain', 'LT Support Astronomer, Astrophysics Research Institute, Liverpool John Moores University, Egerton Wharf, Birkenhead, CH41 1LD,La Palma', '+44 (0)151 231 2949', '', 'Carter,?David', 'dxc@astro.livjm.ac.uk', '?', '?', NULL, NULL, NULL, NULL, NULL, '', '', 10095),
-(10153, 'MAGIC (Roque de los Muchachos Observatory)', '', '', '', 'Spain', ',,,La Palma', '', '', '', '', '17?43''', '28?46'' N', '2200', NULL, NULL, NULL, NULL, '', '', 10097),
 (10154, 'Parkes Observatory', '1961', '', 'http://www.parkes.atnf.csiro.au/', 'Australia', 'PO Box 276,,NSW 2870,Parkes', '(+61) 02 6861 1700', 'parkes@csiro.au', '', '', '5''48.63''''E', '32?59''54.26''''S', '415', NULL, NULL, '10', NULL, '', '15-Jun 15-Dec deadlines form: http://www.atnf.csiro.au/observers/accomm/', 10098),
 (10155, 'Paul Wild Observatory', '1989', '', 'http://www.narrabri.atnf.csiro.au/', 'Australia', 'Locked Bag 194,, NSW 2390,Narrabri', '(+61 ) 02 6790 4000', 'narrabri@atnf.csiro.au', '', '', '149?32'' 56.3''''E', '30?18''52.04''''S', '209', NULL, NULL, '10', '2', '', 'interferometer funded till 2013 Form : http://www.atnf.csiro.au/observers/accomm/ deadlines: 15-Jun 15-Dec', 10099),
-(10156, 'MOPRA', '', '', '', 'Australia', 'CSIRO Australia Telescope, Locked Bag 194,NSW 2390,Coonabarabran', '(+61) 02 6790 4093', '', 'Balthasar Indermuehle', '', '149?05''58''''E', '31?16''04''''S', '850', NULL, NULL, '11', NULL, '', '15-Jun 15-Dec', 10100),
 (10157, 'Tidbinbilla?(Canberra Deep Space Communication Complex)', '1974', '', 'http://www.atnf.csiro.au/observers/tidbinbilla/', 'Australia', ',,,', '', '', 'Jimi Green', 'James.Green@atnf.csiro.au', '151?5''49''''E', '33?46''28''''S', '1184', NULL, NULL, NULL, NULL, '', '', 10101),
 (10159, 'Research School of Astronomy and Astrophysics', '1980', '', 'http://msowww.anu.edu.au', 'Australia', ',,,coonabarabran', '', '', '', '', '?', '?', NULL, NULL, NULL, NULL, NULL, '', '', 10103),
 (10161, 'Square Kilometre Array', '', '', 'http://www.ska.ac.za/', 'South Africa', ',,,', '', '', '', '', '?', '?', NULL, NULL, NULL, '2', NULL, '', '', 10105),
@@ -996,7 +841,6 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (10181, 'University of Tokyo Atacama Observatory (Llano de Chajnantor Observatory)', '', '', 'http://www.ioa.s.u-tokyo.ac.jp/TAO/', 'Chile', ',,,Atacama', '', '', '', '', '22? 59''12''''S', '22?59''12''''S', '5104', NULL, NULL, NULL, '1', '', '', 10125),
 (10182, 'NANTEN2 Observatory (Llano de Chajnantor Observatory)', '1999', 'Many Universities', 'http://www.astro.uni-koeln.de/nanten2/', 'Chile', ',,,Atacama', '', '', '', '', '67?42''8''''W', '22?58''11''''S', '5104', NULL, NULL, NULL, '1', '', '', 10126),
 (10184, 'Pico dos Dias Observatory', '', '', 'http://www.lna.br/opd/opd.html', 'Brazil', ',,,Minas Gerais', '+55 35 3621-2121', '', '', '', '?', '?', '1864', NULL, NULL, NULL, NULL, '', '', 10128),
-(10185, 'Leoncito Astronomical Complex', '', '', 'http://www.casleo.gov.ar/', 'Argentina', 'Complejo Astron?mico El Leoncito (CASLEO),Av. Espa?a 1512 sur - Casilla de correo 467,J5402DSP,San Juan', '+54-264-4213653', '', '', '', '69?17''46''''W', '31?47''55''''S', '2552', NULL, NULL, NULL, '2', '', '', 10129),
 (10186, 'The Crimean Observatory', '1961', '', 'http://quake.stanford.edu/~crao/', 'Ukraine', 'The Crimean Observatory, Nauchny,Ukraine,,Nauchny', '', 'webmaster@crao.crimea.ua', '', '', '+44:43:36', '2h?16m?03s', '600', NULL, NULL, '2', '4', '', '', 10130),
 (10187, 'Simeiz Observatory', '', 'Crimean Astrophysical Observatory', 'http://quake.stanford.edu/~crao/', 'Ukraine', 'The Crimean Observatory, The Department of Radioastronomy, Katsiveli,Ukraine,,Katsiveli', '', 'webmaster@crao.crimea.ua', '', '', '+44:23:52.6', '2h?15m?55.1s', '600', NULL, NULL, '2', '1', '', '', 10131),
 (10190, 'Suffa Radio Observatory', '', '', 'http://radioastron.ru/?dep=16', 'Uzbekistan', 'Suffa RT-70 radio telescope ,, Suffa plateau, Uzbekistan,,Suffa plateau', '', '', '', '', '?', '?', NULL, NULL, NULL, '5', '1', '', '', 10134),

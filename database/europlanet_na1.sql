@@ -57,8 +57,6 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`observatories` (
   `institution` TEXT NULL DEFAULT NULL ,
   `web_address` TEXT NULL DEFAULT NULL ,
   `address` TEXT NULL DEFAULT NULL ,
-  `zip_code` VARCHAR(10) NULL DEFAULT NULL ,
-  `city` TEXT NULL DEFAULT NULL ,
   `country_id` INT UNSIGNED NOT NULL ,
   `phone` VARCHAR(22) NULL DEFAULT NULL ,
   `email` TEXT NOT NULL ,
