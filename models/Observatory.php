@@ -898,8 +898,9 @@ class ObservatoryDAO extends ModelDAO
 		//OLD NA1 - extrainstruments Table
 		$query = "SELECT * FROM extrainstruments WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
-      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No associated extra Instruments existing!</b>");
+      	/** @todo möglichen Fehler (leeres Resultat) besser abfangen */
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      		//or die("<br>Error: No associated extra Instruments existing!</b>");
       	mysqli_free_result($result);
 
       	foreach ($res as $key => $value)
