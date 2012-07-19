@@ -924,8 +924,8 @@ class ObservatoryDAO extends ModelDAO
 		//OLD NA1 - contact Table
 		$query = "SELECT * FROM contact WHERE oid=" . $obsId;
       	$result = self::$dbOldObs->query($query);
-      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC)
-      		or die("<br>Error: No associated Contacts existing!</b>");
+      	$res = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      		//or die("<br>Error: No associated Contacts existing!</b>");
       	mysqli_free_result($result);
 
       	foreach ($res as $key => $value)
