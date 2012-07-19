@@ -79,25 +79,35 @@ if(!is_array($_spacemission->get_has_many("sensors")))
 
 if(is_array($_spacemission->get_has_many("sensors")))
 {
-	print "<div id='tabbed-tele'>"; /** add this to JS */
+	print "<div id='tabbed-sens'>"; /** add this to JS */
 	print "<div style='margin:10px 5px'><a class='ui-state-default ui-corner-all add_sensor' href='' style='padding:6px 6px 6px 17px;text-decoration:none;position:relative'>";
 	print "<span class='ui-icon ui-icon-plus' style='position:absolute;top:4px;left:1px'></span>" ;
 	print "Add new Sensor</a></div>";
 	print "<ul>";
 	foreach($_spacemission->get_has_many("sensors") as $sensor_count => $sensor_id)
 	{
+	
+		if($_spacemission->get_sensor("sensor_name", $sensor_count))
+		{	
+			$sensor_name = explode(" - ", $_spacemission->get_sensor("sensor_name", $sensor_count));
+			print "<li><a href='#sensor-{$sensor_count}'>" . $sensor_name[0] ."</a>";
+		}
+		else
+			print "<li><a href='#sensor-{$sensor_count}'>Sensor " . ($sensor_count + 1) ."</a>";
+			
+		print " <span class='ui-icon ui-icon-close'>Remove Tab</span></li>";
+	}
+	print "</ul>";
+	foreach($_spacemission->get_has_many("sensors") as $sensor_count => $sensor_id)
+	{
 		/** @todo refactor the two hidden fields */
       	//TRANSPORT THE OLD NUMBER OF SENSORS VIA POST
       	print "<input type='hidden' name='add_spa_sensor_ids[" . $sensor_count . "]' value='". $sensor_id . "'/>";
+      	print "<div class='sensor' id='sensor-{$sensor_count}'>";
+      	
       	print "<fieldset class='rfield'><legend>Sensor:</legend>" . LF;
 
-		printAddRemoveButton($sensor_count, $_spacemission->get_has_many("sensors"), "sensor");
-
       	print "<table class='create'>" . LF;
-       	/** @todo refactor the two hidden fields */
-      	/** @todo make the same approach as with telescope count */
-      	//TRANSPORT THE NUMBER OF SENSORS FOR JQUERY
-      	print "<tr><td></td><td><input type='hidden' name='sensors' class='sensors' value='". count($_spacemission->get_has_many("sensors", NULL)) . "'/></td></tr>";
 
       	//Sensor Name:
       	/** @todo validate => MANDATORY, but we have a little problem here, you can leave the form empty! */
@@ -123,29 +133,6 @@ if(is_array($_spacemission->get_has_many("sensors")))
         //Sensor comments
 		printInputTextfieldRow("Sensor Comments", "add_spa_sensor_com[{$sensor_count}]", $_spacemission->get_sensor("sensor_comments", $sensor_count), 65);
  		print "</table>" . LF;
-
-		//Science Goals - COMMENTED ATM BECAUSE STILL IN DISCUSSION
-//      		print "<fieldset class='rfield'><legend>Science Goals:</legend>" . LF;
-      			/** this table has two classes!! class='create' */
-//      		print "<table class='science_goals create'>" . LF;
-//      		print "<tr><td align='left' valign='middle' width='150px'>" .
-//            	  "<b class='red'>*</b><b>&nbsp;Science Goals:</b></td>";
-//      		//print "<td align='left'><select name='add_spa_sci_goal_ids[]' id='add_spa_sci_goal_ids[]'" .
-//      		//print "<td align='left'><select name='add_spa_sci_goal_ids[" . $sensor_count . "][]' id='add_spa_sci_goal_ids'" .
-//      		print "<td align='left'><select name='add_spa_sci_goal_ids[" . $sensor_count . "][]' " .
-//      			  "multiple='multiple' size='6'>" . LF;
-//      		print "<option value=''>Please choose one or several by holding CTRL...</option>";
-//      		print "<option class='add_other_goal' value='100000'>Add other Science Goal</option>";
-//			foreach($science_goals['id'] as $key => $value)
-//			{
-//				print "<option value='" . $value . "'";
-//        		if(is_array($_spacemission->get_has_many("science_goals", $sensor_id)))
-//        			if (in_array($value, $_spacemission->get_has_many("science_goals", $sensor_id)))
-//          				print " selected";
-//        		print ">" . $science_goals['name'][$key] . "</option>" . LF;
-//			}
-//      		print "</select></td></tr>" . LF;
-//      		print "</table></fieldset>" . LF;
 
       	//Scientific Contacts
       	print "<fieldset class='rfield'><legend>Scientific Contacts:</legend>" . LF;
@@ -175,6 +162,7 @@ if(is_array($_spacemission->get_has_many("sensors")))
       		}
       	print "</table></fieldset>" . LF;
       	print "</fieldset>" . LF;
+      	print "</div>" . LF;
 	}
 	print "</div>" . LF;
 }

@@ -532,10 +532,6 @@ $(document).ready(function(){
 		instrumentCount = instrumentCount.replace(/^.*\[(\d*)\]$/, '$1');
 		if(newInstrumentNum <= instrumentCount)
 			newInstrumentNum = ++instrumentCount;
-        
-        //add delete instrument button
-//        $('table.instrument_button', newInstrument).
-//        html('<tr><td><a href="" class="remove_instrument">Delete Instrument<\/a><\/td><\/tr>');
 
         $('input', newInstrument).each(function(i) {
         	//remove trailing [0-9] with regexp
@@ -1096,10 +1092,6 @@ $(document).ready(function(){
 		telescopeCount = telescopeCount.replace(/^.*\[(\d*)\]$/, '$1');
 		if(newTelescopeNum <= telescopeCount)
 			newTelescopeNum = ++telescopeCount;
-			
-        //add delete telescope button
-//        $('table.telescope_button', newTelescope).
-//        html('<tr><td><a href="" class="remove_telescope">Delete Telescope<\/a><\/td><\/tr>');
 
         //save all new names
         $('input', newTelescope).each(function(i) {
@@ -1146,23 +1138,6 @@ $(document).ready(function(){
         $("#tabbed-tele").tabs("add", "#telescope-" + newTelescopeNum , 'Telescope ' + (newTelescopeNum +1));
         newTelescope = newTelescope.find('fieldset.rfield:first');
         $("#telescope-" + newTelescopeNum).append(newTelescope);
-        
-        //append new telescope field
-//        addTelescope.after(newTelescope);
-        
-        //remove telescope routine
-//        $('a.remove_telescope', newTelescope).click(function() {
-//            $(this).parent().parent().parent().
-//            parent().parent().remove();
-//            return false;
-//        });
-
-        /** @todo add telescope routine - needs to be recursive */
-//        $('a.add_telescope', newTelescope).click(function() {
-            //we need a recursive call here!
-//        	return false;
-        	//return argument.callee();
-//        });
             
         //DYNAMIC ROW ADDING ROUTINE for ADD "Other Telescope Type"
         var newTelescopeType = 0;
@@ -1313,47 +1288,46 @@ $(document).ready(function(){
         return false;
     });
     
-    //DYNAMIC ROW ADDING ROUTINE for OTHER SENSOR - SCIENCE GOAL IN EDIT
-    var newGoal = 0;
-    $('option.add_other_goal').click(function() {
-		newGoal++;
-
-		var sensorCount = $(this).parent().attr('name');
-		/** @todo improve this regexes */
-		//remove everything before [0-9]
-		sensorCount = sensorCount.replace(/^[^\[]*(\[.*)$/, '$1');
-		//remove trailing []
-		sensorCount = sensorCount.replace(/^(.*)\[\].*$/, '$1');
-
-  		var strToAdd = '<tr><td><a href="" class="remove_goal">Delete<\/a></td>' +
-  		'<td><b>New Science Goal:&nbsp;</b>' +
-  		'<input type="text" class="science_goal" name="add_sci_goal' + sensorCount + '[' + newGoal +
-  		']" size="45" value="" />&nbsp;&nbsp;&nbsp;&nbsp;<b>Acronym:</b>&nbsp;' +
-  		'<input type="text" class="science_goal_acro" name="add_sci_acro' + sensorCount + '[' + newGoal +
-  		']" size="5" value="" /></td></tr>';
-  		
-  		/** @todo add custom error labels here */
-  		//strToAdd = strToAdd + '<tr><td></td><td><label for="add_sci_goal' + sensorCount + '[' + newGoal + 
-  		//']" class="error" style="display: none;">Please enter a new entry or delete and select existing from above!</label></td></tr>' +
-  		//'<tr><td></td><td><label for="add_sci_acro' + sensorCount + '[' + newGoal + 
-  		//']" class="error" style="display: none;">Please enter a new entry or delete and select existing from above!</label></td></tr>';
-  		
-		$(this).closest('table.science_goals').append(strToAdd);
-
-		$('a.remove_goal').click(function() {
-            $(this).parent().parent().remove();
-            //newArea--;
-            return false;
-        });
-	});
-    
     //DYNAMIC ROW ADDING ROUTINE for SENSORS
+	// NEW TABS FUNCTIONALITY
+	$('#tabbed-sens').tabs({
+			/* fx: { opacity: 'toggle', duration:'fast'}, */
+			tabTemplate: "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
+		    add: function(event, ui) {
+		        $('#tabbed-sens').tabs('select', '#' + ui.panel.id);
+		    }}
+//			add: function( event, ui ) {
+//				var tab_content = $tab_content_input.val() || "Tab " + tab_counter + " content.";
+//				$( ui.panel ).append( "<p>" + tab_content + "</p>" );		
+	);    
+    // NEW TABS FUNCTIONALITY
+	$('#tabbed-sens span.ui-icon-close').live( "click", function() {
+		var tabbed = $("#tabbed-sens");
+		var SensorNum = $('li',tabbed).index($(this).parent());
+		
+		if(SensorNum != 0)
+			$("#tabbed-sens").tabs('remove', SensorNum);
+		else
+		{
+	        // clear lines of the last one!
+			var lastSensor = $("#tabbed-sens").find("#sensor-0");
+	        //clear values for each input
+	        $('input', lastSensor).val('');
+	        //clear value for each select
+	        $('select', lastSensor).val('');
+	        //clear value for each textarea
+	        $('textarea', lastSensor).val('');
+	        //clear value of each checkbox
+	        $("input[type='checkbox']", lastSensor).attr('checked', false);
+		}
+			
+	});
     var newSensorNum = 0;
     $('a.add_sensor').click(function () {
         newSensorNum++;
 
         var addSensor = $(this).parent().parent().
-        parent().parent().parent();
+        parent().find('div.sensor:last');
 
         var newSensor = addSensor.clone();
 
@@ -1361,16 +1335,9 @@ $(document).ready(function(){
         if ($('a.remove_contact').length>0) {
             $('a.remove_contact', newSensor).parent().parent().remove();
         }
-        //remove any added new science goals here after cloning
-        if ($('a.remove_goal').length>0) {
-        	$('a.remove_goal', newSensor).parent().parent().remove();
-        }
         //clear values for each input
         $('input', newSensor).val('');
-        //set sensor number, if there are more loaded in edit
-        if(newSensorNum <= 1) {
-        	newSensorNum = $('input.sensors', addSensor).val();
-        }
+
         //clear value for each select
         $('select', newSensor).val('');
         
@@ -1397,20 +1364,17 @@ $(document).ready(function(){
         $('input.contact', addSensor).each(function(i) {
         	con_names[i] = $(this).attr('name');
         });
-        $('option.add_other_goal', addSensor).each(function(i) {
-        	goal_classes[i] = $(this).attr('class');
-        });
-        $('table.science_goals', addSensor).each(function(i) {
-        	goal_table[i] = $(this).attr('class');
-        });
+
         $('table.scientific_contacts input', addSensor).each(function(i) {
         	sci_con_inputs[i] = $(this).attr('name');
         });
-
-        //add delete sensor button
-        $('table.sensor_button', newSensor).
-        //html('<tr><td><a href="" class="remove_sensor">Delete Sensor<\/a><\/td><td><a href="" class="add_sensor">Add Sensor<\/a><\/td><\/tr>');
-        html('<tr><td><a href="" class="remove_sensor">Delete Sensor<\/a><\/td><\/tr>');
+        
+		/** @todo THIS IS A NEW APPROACH TO GETTING ACTUAL NUMBER */
+        var sensorCount = inputs[0];
+        //remove everything up to the last 0-9 (1 or more times)
+		sensorCount = sensorCount.replace(/^.*\[(\d*)\]$/, '$1');
+		if(newSensorNum <= sensorCount)
+			newSensorNum = ++sensorCount;
         
         //inputs for sensors
         $('input', newSensor).each(function(i) {
@@ -1440,14 +1404,6 @@ $(document).ready(function(){
             var newName = con_names[i] + '[' + newSensorNum + ']' + '[0]';
             $(this).attr('name', newName);
         });
-        $('option.add_other_goal', newSensor).each(function(i) {
-        	var newClass = goal_classes[i] + '_' + newSensorNum;
-        	$(this).attr('class', newClass);
-        });
-        $('table.science_goals', newSensor).each(function(i) {
-        	var newClass = goal_table[i] + '_' + newSensorNum;
-        	$(this).attr('class', newClass);
-        });
         //inputs for scientific contacts
         $('table.scientific_contacts input', newSensor).each(function(i) {
         	//remove all indices [0-9][0-9] with regexp
@@ -1455,45 +1411,11 @@ $(document).ready(function(){
             var newName = sci_con_inputs[i] + '[' + newSensorNum + ']' + '[0]';
             $(this).attr('name', newName);
         });
-
-        //append new sensor field
-        addSensor.after(newSensor);
-
-        //remove sensor routine
-        $('a.remove_sensor', newSensor).click(function() {
-            $(this).parent().parent().parent().
-            parent().parent().remove();
-            //newSensorNum--;
-            return false;
-        });
-
-        /** @todo add sensor routine - needs to be recursive */
-        $('a.add_sensor', newSensor).click(function() {
-            //we need a recursive call here!
-        	return false;
-        	//return argument.callee();
-        });
-
-        //DYNAMIC ROW ADDING ROUTINE for OTHER SENSOR - SCIENCE GOAL
-        var newGoal = 0;
-        $('option.add_other_goal_' + newSensorNum).click(function() {
-    		newGoal++;
-
-      		var strToAdd = '<tr><td><a href="" class="remove_goal_' + newSensorNum + '">Delete<\/a></td>' +
-      		'<td><b>New Science Goal:&nbsp;</b>' +
-      		'<input type="text" class="required" name="add_sci_goal[' + newSensorNum + '][' + newGoal +
-      		']" size="45" value="" />&nbsp;&nbsp;&nbsp;&nbsp;<b>Acronym:</b>&nbsp;' +
-      		'<input type="text" class="required" name="add_sci_acro[' + newSensorNum + '][' + newGoal +
-      		']" size="5" value="" /</td></tr>';
-
-    		$('table.science_goals_' + newSensorNum).append(strToAdd);
-
-    		$('a.remove_goal_' + newSensorNum).click(function() {
-                $(this).parent().parent().remove();
-                //newArea--;
-                return false;
-            });
-    	});
+        
+        // NEW TABS FUNCTIONALITY
+        $("#tabbed-sens").tabs("add", "#sensor-" + newSensorNum , 'Sensor ' + (newSensorNum +1));
+        newSensor = newSensor.find('fieldset.rfield:first');
+        $("#sensor-" + newSensorNum).append(newSensor);
 
         //DYNAMIC ROW ADDING ROUTINE for ADD "Scientific Contacts"
         var newContactNum = 0;

@@ -360,11 +360,6 @@ if(is_array($_observatory->get_has_many("telescopes")))
       	
         /** @todo add custom error labels for all necessary inputs */
 
-      	//TRANSPORT THE NUMBER OF TELESCOPES FOR JQUERY
-      	//print "<tr><input type='hidden' name='telescopes' class='telescopes' value='".
-      	//	count($_observatory->get_has_many("telescopes")) . "'/></tr>";
-      	//echo "TELESCOPES: " . count($_observatory->get_has_many("telescopes")) . "<br>";
-
 	    //Telescope Name
 	    $t_name_tooltip ="Telescope Name - Please insert the name of the telescope or a common abbreviation of the telescope - 
 	    (if possible with the full name after a hyphen). - Please be aware that this field supports auto-completion. <br/>There are no format conventions.
