@@ -732,11 +732,14 @@ ADD COLUMN `research_comments` TEXT NULL DEFAULT NULL  AFTER `modification_date`
 ADD COLUMN `target_comments` TEXT NULL DEFAULT NULL  AFTER `research_comments` ;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
-
+/** ALTER SCRIPTS FOR REVISION 1307 */
+DROP TABLE `europlanet_na1`.`sensor_to_science_goals`;
+DROP TABLE `europlanet_na1`.`science_goals`;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
