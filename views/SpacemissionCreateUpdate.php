@@ -48,6 +48,8 @@ $research_areas = $_spacemission->get_research_areas();
 printBigSelectListFromArray("Research Areas", "add_spa_res_are_ids[]",
 	//$_spacemission->get_has_many("research_areas"), $research_areas, "name", NULL, TRUE, $options);
 	$_spacemission->get_has_many("research_areas"), $research_areas, "name");
+printInputTextfieldRow("Research Comments", "add_spa_research_com", $_spacemission->get_field('research_comments'),
+			65, 4, NULL, FALSE);
 print "</table></fieldset>" . LF;
 //ADD OTHER RESEARCH AREAS
 if ($_SESSION["user_level"] >= 31)
@@ -59,7 +61,7 @@ if ($_SESSION["user_level"] >= 31)
 	print "</fieldset>" . LF;
 }
 
-//TARGETS - MANDATORY
+//TARGETS
 /** @todo add other implementieren, aber mit eigenem feld! (siehe oben) */
 print "<fieldset class='rfield'><legend>Targets:</legend>" . LF;
 print "<table class='create'>" . LF;
@@ -67,12 +69,14 @@ $targets = $_spacemission->get_targets();
 //$options = array("<option value=''>Please choose one or several by holding CTRL...</option>");
 printBigSelectListFromArray("Targets", "add_spa_target_ids[]", $_spacemission->get_has_many("targets"),
 	//$targets, "target_name", NULL, FALSE, $options);
-	$targets, "target_name");
+	$targets, "target_name", NULL, FALSE);
+printInputTextfieldRow("Target Comments", "add_spa_target_com", $_spacemission->get_field('target_comments'),
+			65, 4, NULL, FALSE);
 print "</table></fieldset>" . LF;
 
 //SENSORS
 //getting all necessary science goals only calling this once
-$science_goals = $_spacemission->get_science_goals();
+//$science_goals = $_spacemission->get_science_goals();
 
 if(!is_array($_spacemission->get_has_many("sensors")))
 	$_spacemission->init_has_many("sensors");
@@ -116,10 +120,10 @@ if(is_array($_spacemission->get_has_many("sensors")))
 		printInputTextRow("Sensor Type", "add_spa_sen_type[{$sensor_count}]", $_spacemission->get_sensor("sensor_type", $sensor_count));
       	//Underlying Instrumentation:
 		printInputTextRow("Underlying Instrumentation", "add_spa_sen_under[{$sensor_count}]", $_spacemission->get_sensor("underlying", $sensor_count));
-      	//Range begin: VALIDATION uses standard message
-		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", $_spacemission->get_sensor("range_begin", $sensor_count), 10, NULL, "number");
-      	//Range end: VALIDATION uses standard message
-		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", $_spacemission->get_sensor("range_end", $sensor_count), 10, NULL, "number");
+      	//Range begin: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
+		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15)) , 10, NULL, "number");
+      	//Range end: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
+		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15)) , 10, NULL, "number");
       	//Units:
 		printInputTextRow("Units", "add_spa_sen_units[{$sensor_count}]", $_spacemission->get_sensor("units", $sensor_count), 30);
       	//Measured:

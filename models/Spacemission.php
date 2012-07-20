@@ -478,15 +478,21 @@ class SpacemissionDAO extends ModelDAO
    */
 	public function add_resource() {
   		$query = "INSERT INTO space_missions (" .
-  		"`id`,`mission_name`,`mission_agency`,`launch_date`,`death_date`,`web_address`, `brief_description`, `creation_date`)" .
-  		"VALUES(NULL,'" .
+  		"`id`,`mission_name`,`mission_agency`,`launch_date`,`death_date`,`web_address`, `brief_description`, 
+  		`creation_date`, `modification_date`, `research_comments`, `target_comments`)" .
+  		" VALUES (NULL,'" .
         addslashes($_POST["add_spa_name"]) . "','" .
         $_POST["add_spa_agency_id"] . "','" .
         $_POST["add_spa_launch"] . "','" .
         $_POST["add_spa_death"] . "','" .
         addslashes($_POST["add_spa_web_address"]) . "','" .
         addslashes($_POST["add_spa_brief_desc"]) . "'," .
-        "NOW())";
+        "NOW()" . ",'','" .
+        addslashes($_POST["add_spa_research_com"]) . "','" .
+        addslashes($_POST["add_spa_target_com"])
+        . "')";
+        
+        //echo $query;
 
         self::$db->query($query);
         $status = array("errno" => self::$db->errno(),
@@ -515,7 +521,9 @@ class SpacemissionDAO extends ModelDAO
   		"death_date='" . $_POST["add_spa_death"] . "'," .
   		"web_address='" . addslashes($_POST["add_spa_web_address"]) . "'," .
 		"brief_description='" . addslashes($_POST["add_spa_brief_desc"]) . "'," .
-		"modification_date=NOW() " .
+		"modification_date=NOW(), '" .
+		addslashes($_POST["add_spa_research_com"]) . "','" .
+        addslashes($_POST["add_spa_targets_com"]) . "' " .
   		"WHERE id=" . $res_id;
 
   		self::$db->query($query);
@@ -617,47 +625,6 @@ class SpacemissionDAO extends ModelDAO
    	 	 		self::$db->query($query);
    	 	    	if (self::$db->errno() != 0)
    	 	    		print "<H4>Error inserting new entry in space_mission_to_sensors!</H4>" . LF;
-
-          		//Sensor to Science Goals
-          		//new Science Goals
-//   	 	    	if(isset($_POST["add_sci_goal"][$key]))
-//          		{
-//          			foreach($_POST["add_sci_goal"][$key] as $id => $new_sci_goal)
-//          			{
-//          				if($new_sci_goal != '')
-//          				{
-//          					$query = "INSERT INTO science_goals (" .
-//   							"`id`,`acronym`,`name`)". " VALUES (NULL, '" .
-//   							addslashes($_POST["add_sci_acro"][$key][$id]) . "', '" .
-//          					addslashes($new_sci_goal) . "')";
-//
-//          					self::$db->query($query);
-//	      					if (self::$db->errno() != 0)
-//	        					print "<H4>Error inserting new entry in science_goals!</H4>" . LF;
-//
-//	        				//push new id into add_spa_sci_goal_ids
-	        				/** @todo we need to check if the array is existing or put validation in JS */
-//   							array_push($_POST["add_spa_sci_goal_ids"][$key], self::$db->getLastInsertId());
-//          				}
-//          			}
-//          		}
-//
-//   		    	if(isset($_POST["add_spa_sci_goal_ids"][$key]))
-//   		    		foreach($_POST["add_spa_sci_goal_ids"][$key] as $sci_goal_id)
-//   		    		{
-//   		    			//check if sci goal id is not empty and 100000 (other)
-   		    			/** @todo maybe obsolete */
-//	    				if(($sci_goal_id != '') && ($sci_goal_id != 100000))
-//	      				{
-//   		    				$query = "INSERT INTO sensor_to_science_goals (`sensor_id`,`science_goal_id`) " .
-//   		    				"VALUES (" . $sensor_id . "," . $sci_goal_id . ")";
-//   		      		   		//DEBUG:
-//   		      		   		//echo "sensor_to_science_goals - Query: " . $query . "<br>";
-//   		      				self::$db->query($query);
-//	            			if (self::$db->errno() != 0)
-//	              				print "<H4>Error inserting new entry in sensors_to_science_goals!</H4>" . LF;
-//	      				}
-//					}
 
    		  		//Scientific Contacts
 	   	 		foreach($_POST["add_spa_sci_con_name"][$key] as $sci_con_key => $sci_con_line)

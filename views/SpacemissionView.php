@@ -85,7 +85,6 @@ $link->close();
 	}
 
 	//Sensors:
-	$science_goals = $_spacemission->get_science_goals();
 	if(is_array($_spacemission->get_has_many("sensors", NULL)))
 		foreach($_spacemission->get_has_many("sensors", NULL) as $sensor_count => $sensor_id)
 		{
@@ -111,19 +110,6 @@ $link->close();
 			 	"' target='_blank'>" . $_spacemission->get_sensor("web_address", $sensor_count) . "</a></p>" . LF;
 			if($_spacemission->get_sensor("sensor_comments", $sensor_count))
 				print "<p><b>Sensor Comments:&nbsp;</b>" . nl2br($_spacemission->get_sensor("sensor_comments", $sensor_count)) . "</p>" . LF;
-
-			//Science Goals:
-//			print "<fieldset class='report'><legend><b>Science Goals:</b></legend> <ul>";
-//			//if($_spacemission->get_science_goals($_POST["add_spa_sci_goal_ids"][$sensor_count]))
-//			//	foreach ($_spacemission->get_science_goals($_POST["add_spa_sci_goal_ids"][$sensor_count]) as $key2 => $value2 )
-//			//	{
-//			//		print "<li>" . $value2 . "</li>";
-//			//	}
-//			foreach($science_goals['id'] as $key => $value)
-//				if(is_array($_spacemission->get_has_many("science_goals", $sensor_id)))
-//					if(in_array($value, $_spacemission->get_has_many("science_goals", $sensor_id)))
-//						print "<li>" . $science_goals['name'][$key] . "</li>";
-//			print "</ul></fieldset>" . LF;
 
 			//Scientific Contacts:
 			print "<fieldset><legend><b>Scientific Contacts:</b></legend>";

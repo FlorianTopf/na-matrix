@@ -105,7 +105,7 @@
               <ul>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=home">Home</a></li>
                 <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=browse">Browse Matrix</a></li>
-                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Ground-based Facility Map (Prototype)</a></li>
+                <li class="left-level-1-no"><a href="<?php print $_SERVER["PHP_SELF"]; ?>?page=map">Ground-based Facility Map</a></li>
               </ul>
               <?php
 	            if ($_SESSION["user_id"] <= 1)

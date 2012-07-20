@@ -339,6 +339,8 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`space_missions` (
   `brief_description` TEXT NULL DEFAULT NULL ,
   `creation_date` DATETIME NOT NULL ,
   `modification_date` DATETIME NULL DEFAULT NULL ,
+  `research_comments` TEXT NULL DEFAULT NULL ,
+  `target_comments` TEXT NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `mission_agency_id` (`mission_agency` ASC) ,
   CONSTRAINT `mission_agency_id`
@@ -485,39 +487,6 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`observatory_to_targets` (
   CONSTRAINT `target_id_1`
     FOREIGN KEY (`target_id` )
     REFERENCES `europlanet_na1`.`targets` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `europlanet_na1`.`science_goals`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`science_goals` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `acronym` VARCHAR(5) NOT NULL ,
-  `name` TEXT NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `europlanet_na1`.`sensor_to_science_goals`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`sensor_to_science_goals` (
-  `sensor_id` INT UNSIGNED NOT NULL ,
-  `science_goal_id` INT UNSIGNED NOT NULL ,
-  INDEX `sensor_id_3` (`sensor_id` ASC) ,
-  INDEX `science_goal_id` (`science_goal_id` ASC) ,
-  PRIMARY KEY (`sensor_id`, `science_goal_id`) ,
-  CONSTRAINT `sensor_id_3`
-    FOREIGN KEY (`sensor_id` )
-    REFERENCES `europlanet_na1`.`sensors` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION,
-  CONSTRAINT `science_goal_id`
-    FOREIGN KEY (`science_goal_id` )
-    REFERENCES `europlanet_na1`.`science_goals` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
