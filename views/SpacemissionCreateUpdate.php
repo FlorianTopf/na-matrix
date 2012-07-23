@@ -121,9 +121,9 @@ if(is_array($_spacemission->get_has_many("sensors")))
       	//Underlying Instrumentation:
 		printInputTextRow("Underlying Instrumentation", "add_spa_sen_under[{$sensor_count}]", $_spacemission->get_sensor("underlying", $sensor_count));
       	//Range begin: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
-		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15)) , 10, NULL, "number");
+		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15, '.', '')) , 10, NULL, "number");
       	//Range end: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
-		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15)) , 10, NULL, "number");
+		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15, '.', '')) , 10, NULL, "number");
       	//Units:
 		printInputTextRow("Units", "add_spa_sen_units[{$sensor_count}]", $_spacemission->get_sensor("units", $sensor_count), 30);
       	//Measured:
@@ -184,10 +184,20 @@ else if($action == "loadOldSpa")
 {
    	print "<input type='hidden' name='is_old_res' value='1'>" . LF ;
    	print "<button type='submit' name='push' value='Add Entry' class='submit'>Add Entry</button>" . LF;
+   	
+   	if($_SESSION["user_level"] >= 31)
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' ". 
+		"name='push' onclick='return show_confirm()' value='Delete Old Entry' class='submit'>Delete Old Entry</button>" . LF;
 }
 //IF ACTION IS EDIT
 else if($action == "edit")
+{
 	print "<button type='submit' name='push' value='Update Entry' class='submit'>Update Entry</button>" . LF;
+	
+	if($_SESSION["user_level"] >= 31)
+		print "&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' name='push' onclick='return show_confirm()' value='Delete Entry' " . 
+		"class='submit'>Delete Entry</button>" . LF;
+}
 print "</div>" . LF;
 
 ?>

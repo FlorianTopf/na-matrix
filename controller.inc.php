@@ -398,6 +398,17 @@ class Controller
 						print "<h4>You are about to add an OLD NA1 resource to the database!</h4>" . LF;
 						include "views/SpacemissionCreateUpdate.php";
 					}
+					
+					if($action == "Delete Old Entry")
+					{
+						//print "Delete Old Entry: " . $resource_id;
+						$status = $_spacemission->del_old_resource($resource_id);
+						
+						if($status["errno"] === 0)
+           					print "<h4>Space Mission deleted from the old database!</h4>" . LF;
+           				else
+           					print "<h4>" . $status["error"] . "</h4>" . LF;
+					}
 
 					if($action == "Add Entry")
 					{

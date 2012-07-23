@@ -283,7 +283,6 @@ class SpacemissionDAO extends ModelDAO
 		return $resources;
 	}
 
-
 //-----------------------------------------------------------------------------------------------------------
 /**
  * @fn get_resource($resource_id)
@@ -343,23 +342,12 @@ class SpacemissionDAO extends ModelDAO
 			//for each sensor of the requested space mission
 			foreach($row as $key => $value)
 				//check if value is 0 since we use FLOAT in the DB
-				if($value != '0')
+				if($value != '0' || $key == "range_begin" || $key == "range_end")
 				{
 					if($key == 'id')
 					{
 						//save sensors id in sensors
 						$this->_hasMany["sensors"][] = $value;
-
-						//get all science goals from current sensor
-//						$query_1 = "SELECT science_goal_id FROM sensor_to_science_goals WHERE sensor_id=" . $value;
-//						//DEBUG:
-//						//echo "Science Goals queries: " . $query_1 . "<br>";
-//						$result_1 = self::$db->query($query_1);
-//
-//						while ($row_1 = mysqli_fetch_array($result_1, MYSQLI_ASSOC))
-//							$this->_hasMany["science_goals"][$value][] = $row_1["science_goal_id"];
-//
-//						mysqli_free_result($result_1);
 
 						//get all scientific contacts from current sensor
 						$query_2 = "SELECT * FROM scientific_contacts, sensor_to_scientific_contacts " .
@@ -502,6 +490,7 @@ class SpacemissionDAO extends ModelDAO
 
         return $status;
 	}
+
 //-----------------------------------------------------------------------------------------------------------
 /**
    * @fn update_resource($res_id)
@@ -534,6 +523,33 @@ class SpacemissionDAO extends ModelDAO
 
 	  	return $status;
 	}
+	
+//-----------------------------------------------------------------------------------------------------------
+/**
+   * @fn del_resource($res_id)
+   * @brief deletes an existing resource space mission
+   *
+   * @param $res_id ID of the resource we want to have
+   *
+   * @return $status mysql_status
+   *
+   * GLOBAL: $_POST array
+   */
+//	public function del_resource($res_id)
+//	{
+//		//DELETING scientific contacts
+//		$query = "DELETE FROM scientific_contacts WHERE EXISTS " .
+//			 "(SELECT telescope_to_instruments.telescope_id FROM telescope_to_instruments, observatory_to_telescopes WHERE " .
+//			 "telescope_to_instruments.instrument_id = instruments.id AND " .
+//			 "observatory_to_telescopes.telescope_id = telescope_to_instruments.telescope_id AND " .
+//			 "observatory_to_telescopes.observatory_id = " . $resource_id . ");";
+//		self::$db->query($query);
+//		
+//		//DELETING sensors
+//		
+//		//DELETING spacemission
+//	}
+
 //-----------------------------------------------------------------------------------------------------------
   /**
    * @fn add_spa_keys($res_id, $action)
@@ -587,69 +603,67 @@ class SpacemissionDAO extends ModelDAO
    {
 		if(isset($_POST["add_spa_sen_name"]))
    	 	{
-
    	 		foreach($_POST["add_spa_sen_name"] as $key => $name)
    	 		{
    	 			//Check if this sensor fieldset is filled
    	 			if($name != '')
    	 			{
-
-   	 	  		$query = "INSERT INTO sensors (`id`,`sensor_name`,`sensor_type`,`underlying`,`range_begin`," .
-   	 	  		   "`range_end`,`units`,`measured`,`resolution`,`field_of_view`,`web_address`, `sensor_comments`) VALUES (NULL,'" .
-   	 	  		   addslashes($_POST["add_spa_sen_name"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_type"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_under"][$key]) . "','" .
-   	 	  		              $_POST["add_spa_sen_range_beg"][$key] . "','" .
-   	 	  		              $_POST["add_spa_sen_range_end"][$key] . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_units"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_measured"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_resolution"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_fov"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sen_web"][$key]) . "','" .
-   	 	  		   addslashes($_POST["add_spa_sensor_com"][$key]) . "')";
-
-   	 	  		//DEBUG:
-   	 	  		//echo "Main Query: " . $query . "<br>";
-
-   	 	  		self::$db->query($query);
-	        	if (self::$db->errno() != 0)
-	          		print "<H4>Error inserting new entry in sensors!</H4>" . LF;
-
-	      		//Save sensor id for additional queries
-	      		$sensor_id = self::$db->getLastInsertId();
-
-   	 	 		//Space Mission to Sensors
-   	 	 		$query = "INSERT INTO space_mission_to_sensors (`space_mission_id`,`sensor_id`)" .
-   	 	 		"VALUES (" . $res_id . "," .  $sensor_id . ")";
-
-   	 	 		self::$db->query($query);
-   	 	    	if (self::$db->errno() != 0)
-   	 	    		print "<H4>Error inserting new entry in space_mission_to_sensors!</H4>" . LF;
-
-   		  		//Scientific Contacts
-	   	 		foreach($_POST["add_spa_sci_con_name"][$key] as $sci_con_key => $sci_con_line)
-				{
-					// check if a name is written in the line
-					if ($_POST["add_spa_sci_con_name"][$key][$sci_con_key] != "")
+	   	 	  		$query = "INSERT INTO sensors (`id`,`sensor_name`,`sensor_type`,`underlying`,`range_begin`," .
+	   	 	  		   "`range_end`,`units`,`measured`,`resolution`,`field_of_view`,`web_address`, `sensor_comments`) VALUES (NULL,'" .
+	   	 	  		   addslashes($_POST["add_spa_sen_name"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_type"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_under"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_range_beg"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_range_end"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_units"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_measured"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_resolution"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_fov"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_web"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sensor_com"][$key]) . "')";
+	
+	   	 	  		//DEBUG:
+	   	 	  		//echo "Main Query: " . $query . "<br>";
+	
+	   	 	  		self::$db->query($query);
+		        	if (self::$db->errno() != 0)
+		          		print "<H4>Error inserting new entry in sensors!</H4>" . LF;
+	
+		      		//Save sensor id for additional queries
+		      		$sensor_id = self::$db->getLastInsertId();
+	
+	   	 	 		//Space Mission to Sensors
+	   	 	 		$query = "INSERT INTO space_mission_to_sensors (`space_mission_id`,`sensor_id`)" .
+	   	 	 		"VALUES (" . $res_id . "," .  $sensor_id . ")";
+	
+	   	 	 		self::$db->query($query);
+	   	 	    	if (self::$db->errno() != 0)
+	   	 	    		print "<H4>Error inserting new entry in space_mission_to_sensors!</H4>" . LF;
+	
+	   		  		//Scientific Contacts
+		   	 		foreach($_POST["add_spa_sci_con_name"][$key] as $sci_con_key => $sci_con_line)
 					{
-
-		               	$query = "INSERT INTO scientific_contacts VALUES (NULL,'" .
-		               		addslashes($_POST["add_spa_sci_con_name"][$key][$sci_con_key]) . "','" .
-		               		addslashes($_POST["add_spa_sci_con_email"][$key][$sci_con_key]) . "','" .
-		               		addslashes($_POST["add_spa_sci_con_institution"][$key][$sci_con_key]) . "')";
-
-		            	self::$db->query($query);
-				    	if (self::$db->errno() != 0)
-				        	print "<H4>Error inserting scientific_contacts!</H4>" . LF;
-
-				    	$query = "INSERT INTO sensor_to_scientific_contacts VALUES (" . $sensor_id .
-				         	     "," . self::$db->getLastInsertId() . ")";
-
-				    	self::$db->query($query);
-				    	if (self::$db->errno() != 0)
-				        	print "<H4>Error inserting sensor_to_scientific_contacts!</H4>" . LF;
+						// check if a name is written in the line
+						if ($_POST["add_spa_sci_con_name"][$key][$sci_con_key] != "")
+						{
+	
+			               	$query = "INSERT INTO scientific_contacts VALUES (NULL,'" .
+			               		addslashes($_POST["add_spa_sci_con_name"][$key][$sci_con_key]) . "','" .
+			               		addslashes($_POST["add_spa_sci_con_email"][$key][$sci_con_key]) . "','" .
+			               		addslashes($_POST["add_spa_sci_con_institution"][$key][$sci_con_key]) . "')";
+	
+			            	self::$db->query($query);
+					    	if (self::$db->errno() != 0)
+					        	print "<H4>Error inserting scientific_contacts!</H4>" . LF;
+	
+					    	$query = "INSERT INTO sensor_to_scientific_contacts VALUES (" . $sensor_id .
+					         	     "," . self::$db->getLastInsertId() . ")";
+	
+					    	self::$db->query($query);
+					    	if (self::$db->errno() != 0)
+					        	print "<H4>Error inserting sensor_to_scientific_contacts!</H4>" . LF;
+						}
 					}
-				}
    	 			}
    	 		}
    	 	}
@@ -735,14 +749,6 @@ class SpacemissionDAO extends ModelDAO
          	self::$db->query($query);
          	if (self::$db->errno() != 0)
          		print "<H4>Error deleting entry in sensors!</H4>" . LF;
-
-         	//Sensor to Science Goals (maybe obsolete)
-//	     	$query = "DELETE FROM sensor_to_science_goals WHERE sensor_id=" . $sen_id;
-//	 	 	//DEBUG:
-//     	 	//echo "TEST: " . $query . "<br>";
-//	     	self::$db->query($query);
-//         	if (mysqli_errno(self::$db) != 0)
-//         		print "<H4>Error deleting entry in sensor_to_science_goals!</H4>" . LF;
 
          }
 	   }

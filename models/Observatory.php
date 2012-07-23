@@ -563,8 +563,8 @@ class ObservatoryDAO extends ModelDAO
 		foreach ($res as $key => $value)
 		{
 			//check if value is 0 since we use INT in the DB
-			//if($value != '0')
-			//{
+			if($value != '0')
+			{
 				if($key == 'latitude')
 					$this->floatToGps($key, stripslashes($value));
 				elseif($key == 'longitude')
@@ -584,9 +584,9 @@ class ObservatoryDAO extends ModelDAO
 				}
 				else
 					$this->_fields["obs_$key"] = stripslashes($value);
-			//}
-			//else
-			//	$this->_fields["obs_$key"] = '';
+			}
+			else
+				$this->_fields["obs_$key"] = '';
 		}
 
 		//SCIENTIFIC CONTACTS
@@ -659,7 +659,7 @@ class ObservatoryDAO extends ModelDAO
 			foreach ($row as $key => $value)
 			{
 				//check if value is 0 since we use FLOAT in the DB
-				if($value != '0')
+				if($value != '0' || $key == "diameter_m")
 				{
 					if($key == 'id')
 					{
