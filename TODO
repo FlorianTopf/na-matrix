@@ -62,7 +62,6 @@ ROADMAP FOR TECHNICAL / SCIENTIFIC IMPROVEMENTS
 [OK] Finalize RESEARCH AREAS / TARGETS / SCIENCE GOALS
 [OK] review targets and fix issues!
 [OK] introduce research area domain in database
-[PENDING] introduce brief description for research areas
 [OK] Modify existing entries in running Matrix
 [OK] take care of describing old research areas / science goals with new research areas / targets
 [OK] replace old research areas with new research areas AND targets!
@@ -74,7 +73,7 @@ ROADMAP FOR TECHNICAL / SCIENTIFIC IMPROVEMENTS
 [LOW PRIORITY]
   [OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
   [PENDING] Implement Edit link button on browse site for admins
-  [PENDING] Implement delete_resource() in spacemission model (implement delete button for admins)
+  [OK] Implement del_resource() in spacemission model
 
 -----------------------------------------------------------------
 DATABASE MANAGEMENT
@@ -85,7 +84,7 @@ DATABASE MANAGEMENT
   * Don't forget to unlock again (alles im controller machen)
 
 * Running Database
-  [PENDING] Remove Science Goals
+  [OK] Remove Science Goals
   [OK] Remove City and ZIP Code
 
 * Development Database
@@ -115,24 +114,23 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
 
 * Input form for space missions
   * add other targets (db functionality)
-  * sensor type? => dropdown from PDAP types? -> extensible?
+  [PENDING] sensor type? => dropdown from PDAP types? -> extensible?
   * field of view, resolution, measured => format?
   * range_begin, range_end => high precision float?
-  * remove last sensor => empty fields
-  * autocompleter for sensor type
+  [OK] remove last sensor => empty fields
+  [PENDING] autocompleter for sensor type
   * check for type of values (critical review)!
 
 * Input validation in JQUERY for space missions (see comments in add.php)
   * other target - MANDATORY!
   * sensor name - MANDATORY (array => THIS IS AN OPEN ISSUE!)
-  * science goals are MANDATORY! (required)
   * validation for sensor web_address (URL)
   * check for type of values (critical review)!
 
 
 * ALL INPUT FORMS:
   * Add validation for existing names for all ADD OTHER
-  * Implement brief description for research areas (see above)
+  [OK] Implement brief description for research areas (see above)
 
 ** All EDIT PAGES
   [OK] add name filter for faster finding
@@ -140,7 +138,7 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
 ** All BROWSE/VIEW PAGES
   [OK] Check if some fields are still listed, even if there is no information
     given
-  [PENDING] Check if there is an URL in the info, and make a hyperlink
+  [OK] Check if there is an URL in the info, and make a hyperlink
   [PENDING] Generate link list to other observatories in "partner observatories"
   [PENDING] Check all units and descriptions (like they are in the input form)
   
@@ -149,11 +147,10 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
 	 See: http://code.google.com/intl/de/apis/maps/articles/phpsqlajax_v3.html
   [OK] display current user location
   [OK] Distinguish between RADIO/OPTICAL, discuss Information to be displayed in Info box
-   * HIDDEN FIELDS OK? (latitude/longitude)
   [OK] Integrate link to observatory view (with openwin) in google maps info box
   [OK] Take care of NOT existing latitude/longitude
   [OK] Improve Icons
-   * SEARCH IN THE MAPS, discuss filters/searchtools to be implemented
+  [PENDING] SEARCH IN THE MAPS, discuss filters/searchtools to be implemented
      See: http://code.google.com/intl/de/apis/maps/articles/phpsqlsearch_v3.html
 
 -----------------------------------------------------------------

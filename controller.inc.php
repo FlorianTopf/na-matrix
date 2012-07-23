@@ -409,6 +409,17 @@ class Controller
            				else
            					print "<h4>" . $status["error"] . "</h4>" . LF;
 					}
+					
+					if($action == "Delete Entry")
+					{
+						//print "Delete Entry: " . $resource_id;
+						$status = $_spacemission->del_resource($resource_id);
+						
+						if($status["errno"] === 0)
+           					print "<h4>Space mission deleted from the database!</h4>" . LF;
+           				else
+           					print "<h4>" . $status["error"] . "</h4>" . LF;
+					}
 
 					if($action == "Add Entry")
 					{

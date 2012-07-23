@@ -535,20 +535,33 @@ class SpacemissionDAO extends ModelDAO
    *
    * GLOBAL: $_POST array
    */
-//	public function del_resource($res_id)
-//	{
-//		//DELETING scientific contacts
-//		$query = "DELETE FROM scientific_contacts WHERE EXISTS " .
-//			 "(SELECT telescope_to_instruments.telescope_id FROM telescope_to_instruments, observatory_to_telescopes WHERE " .
-//			 "telescope_to_instruments.instrument_id = instruments.id AND " .
-//			 "observatory_to_telescopes.telescope_id = telescope_to_instruments.telescope_id AND " .
-//			 "observatory_to_telescopes.observatory_id = " . $resource_id . ");";
-//		self::$db->query($query);
-//		
-//		//DELETING sensors
-//		
-//		//DELETING spacemission
-//	}
+	public function del_resource($res_id)
+	{
+		//DELETING scientific contacts
+		$query = "DELETE FROM scientific_contacts WHERE id IN " .
+			 "(SELECT scientific_contact_id FROM sensor_to_scientific_contacts, sensors, space_mission_to_sensors " .
+			 "WHERE space_mission_to_sensors.sensor_id = sensors.id AND " .
+			 "space_mission_to_sensors.sensor_id = sensor_to_scientific_contacts.sensor_id AND " .
+			 "space_mission_to_sensors.space_mission_id = " . $res_id . ");";
+		self::$db->query($query);
+		
+		//DELETING sensors
+		$query = "DELETE FROM sensors WHERE id IN " .
+			"(SELECT space_mission_to_sensors.sensor_id FROM space_mission_to_sensors WHERE " .
+			"space_mission_to_sensors.sensor_id  = sensors.id AND " . 
+			"space_mission_to_sensors.space_mission_id = " . $res_id . ");";
+	    self::$db->query($query);
+		
+		//DELETING spacemission
+		$query = "DELETE FROM space_missions WHERE id=" . $res_id;
+		self::$db->query($query);
+
+		$status = array("errno" => self::$db->errno(),
+			"error" => self::$db->error(),
+			"resource_id" => $res_id);
+
+		return $status;
+	}
 
 //-----------------------------------------------------------------------------------------------------------
   /**
