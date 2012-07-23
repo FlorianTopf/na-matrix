@@ -28,7 +28,7 @@ DELETE FROM `sensors` WHERE id IN (1051,1052,1052,1053,1054,1055,1056,1057);
 
 /* ACE */
 /* SELECT `scientific_contact_id` FROM  `sensor_to_scientific_contacts`  WHERE sensor_id IN (5,6,7,8,9,10,11,12,13); */
-DELETE FROM `sensors` WHERE id IN (5,6,7,8,9,10,11,12,1);
+DELETE FROM `sensors` WHERE id IN (5,6,7,8,9,10,11,12,13);
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
