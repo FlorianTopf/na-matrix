@@ -521,11 +521,11 @@ class SpacemissionDAO extends ModelDAO
   		"death_date='" . $_POST["add_spa_death"] . "'," .
   		"web_address='" . addslashes($_POST["add_spa_web_address"]) . "'," .
 		"brief_description='" . addslashes($_POST["add_spa_brief_desc"]) . "'," .
-		"modification_date=NOW(), '" .
-		addslashes($_POST["add_spa_research_com"]) . "','" .
-        addslashes($_POST["add_spa_target_com"]) . "' " .
+		"modification_date=NOW()," .
+		"research_comments='" . addslashes($_POST["add_spa_research_com"]) . "'," .
+        "target_comments='" . addslashes($_POST["add_spa_target_com"]) . "' " .
   		"WHERE id=" . $res_id;
-
+        
   		self::$db->query($query);
 	    $status = array("errno" => self::$db->errno(),
                         "error" => self::$db->error(),
