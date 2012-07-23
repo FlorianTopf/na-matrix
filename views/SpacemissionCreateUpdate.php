@@ -36,7 +36,7 @@ printInputTextRow("Mission End", "add_spa_death", $_spacemission->get_field("spa
 printInputTextRow("Web Address", "add_spa_web_address", $_spacemission->get_field("spa_web_address"), 80, "[http://...]", NULL, FALSE);
 
 //Brief Description
-printInputTextfieldRow("Brief Description", "add_spa_brief_desc", $_spacemission->get_field("spa_brief_description"), 65);
+printInputTextfieldRow("Brief Description", "add_spa_brief_desc", $_spacemission->get_field("spa_brief_description"), 80, 6);
 print "</table></fieldset>" . LF;
 
 //RESEARCH AREAS - MANDATORY
