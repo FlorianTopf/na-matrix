@@ -19,12 +19,6 @@
  */
 class SpacemissionDAO extends ModelDAO
  {
-	/** database connection */
-	//protected $_link = NULL;
-
-	/** Array of column names from space mission */
-	//protected $_fields = array();
-
 	/** Array for all agencies */
 	protected $_agencies = array();
 
@@ -52,122 +46,6 @@ class SpacemissionDAO extends ModelDAO
 	'sensors' => '',
 	'scientific_contacts' => '',
 	'science_goals' => '');
-
-//-----------------------------------------------------------------------------------------------------------
-	/** creates relevant member variables */
-//	function __construct() {
-//		 //creates database connection
-//		 $this->_link = new DbConnector();
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
- 	/** removes/unsets relevant member variables */
-//	function __destruct() {
-//		//closes database connection
-//		$this->_link->close();
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get a field from space mission */
-// 	public function get_field($field)
-//	{
-//		if(array_key_exists($field, $this->_fields))
-//			return htmlspecialchars($this->_fields[$field], ENT_QUOTES);
-//		else
-//			return NULL;
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get agencies from table */
-	public function get_agencies()
-	{
-		$query = "SELECT * FROM agencies";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-				$this->_agencies[$key][$row['id']] = $value;
-     	mysqli_free_result($result);
-
-     	return $this->_agencies;
-	}
-
-//-----------------------------------------------------------------------------------------------------------
- 	/** get fieldkeys from 1-N relations (_hasMany) */
-// 	public function get_has_many($x_field, $y_field)
-//	{
-//		if($y_field == NULL)
-//			return $this->_hasMany[$x_field];
-//		else if(isset($this->_hasMany[$x_field][$y_field]))
-//			return $this->_hasMany[$x_field][$y_field];
-//		else
-//			return NULL;
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** initialize 1-N relation (_hasMany) if no entry is there */
-// 	public function init_has_many($x_field, $y_field)
-//	{
-//		if($y_field == NULL)
-//		{
-//			$this->_hasMany[$x_field] = array();
-//			array_push($this->_hasMany[$x_field], "0");
-//		}
-//		else
-//		{
-//			$this->_hasMany[$x_field][$y_field] = array();
-//			array_push($this->_hasMany[$x_field][$y_field], "0");
-//		}
-//
-//		//echo "INIT HAS MANY: " . $x_field . "<br>";
-//	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get all research_areas from table
-	 * @todo improve this a bit
-	 * @todo this is a duplicate to get_research_areas, refactoring needed */
-	public function get_research_areas()
-	{
-		$query = "SELECT * FROM research_areas ORDER BY research_areas.name ASC";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      	    foreach ($row as $key => $value)
-				$this->_researchAreas[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_researchAreas;
-	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get targets from table
-	 * @todo improve this a bit
-	 */
-	public function get_targets()
-	{
-		$query = "SELECT id, target_name FROM targets ORDER BY targets.target_name ASC";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-				$this->_targets[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_targets;
-	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get science goals from table
-	 * @todo improve this a bit
-	 */
-   public function get_science_goals()
-   {
-		$query = "SELECT * FROM science_goals";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-  			foreach($row as $key => $value)
-  				$this->_scienceGoals[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_scienceGoals;
-   }
 
 //-----------------------------------------------------------------------------------------------------------
  	/** get a field from sensors */

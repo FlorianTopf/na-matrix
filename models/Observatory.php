@@ -108,22 +108,6 @@ class ObservatoryDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** get countries from countries table
-	 * @todo improve this a bit */
-	public function get_countries()
-	{
-		$query = "SELECT id, name FROM countries";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-      			//$this->_countries[$key][] = $value;
-				$this->_countries[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_countries;
-	}
-
-//-----------------------------------------------------------------------------------------------------------
  	/** get precipitation ranges from table
 	 * @todo improve this a bit */
 	public function get_precipitation_ranges()
@@ -156,22 +140,6 @@ class ObservatoryDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
-	/** get timezones from table
-	 * @todo improve this a bit */
- 	public function get_timezones()
-	{
-		$query = "SELECT * FROM timezones ORDER BY timezone ASC";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-				//$this->_timezones[$key][] = $value;
-				$this->_timezones[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_timezones;
-	}
-
-//-----------------------------------------------------------------------------------------------------------
 	/** get a field from scientific contacts */
 	public function get_scientific_contact($x_field, $y_field)
 	{
@@ -186,38 +154,6 @@ class ObservatoryDAO extends ModelDAO
 	public function get_hidden_fields()
 	{
 		return $this->_hiddenFields;
-	}
-
-//-----------------------------------------------------------------------------------------------------------
-	/** get research_areas from table
-	 * @todo improve this a bit */
-	public function get_research_areas()
-	{
-		$query = "SELECT * FROM research_areas ORDER BY research_areas.name ASC";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      	    foreach ($row as $key => $value)
-				//$this->_researchAreas[$key][] = $value;
-				$this->_researchAreas[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_researchAreas;
-	}
-
- //-----------------------------------------------------------------------------------------------------------
-	/** get targets from table
-	 * @todo improve this a bit */
-	public function get_targets()
-	{
-		$query = "SELECT id, target_name FROM targets ORDER BY targets.target_name ASC";
-      	$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-				//$this->_targets[$key][] = $value;
-				$this->_targets[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_targets;
 	}
 
 //-----------------------------------------------------------------------------------------------------------
@@ -262,38 +198,6 @@ class ObservatoryDAO extends ModelDAO
       	return $this->_antennaTypes;
  	}
 
-//-----------------------------------------------------------------------------------------------------------
- 	/** get wavelength units from table
- 	 * @todo improve this a bit */
- 	public function get_wavelength_units()
- 	{
-		$query = "SELECT id, wavelength_unit FROM wavelength_units";
-		$result = self::$db->query($query);
-      	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-				//$this->_wavelengthUnits[$key][] = $value;
-				$this->_wavelengthUnits[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_wavelengthUnits;
- 	}
-
-//-----------------------------------------------------------------------------------------------------------
- 	/** get wavelength ranges from table
- 	 * @todo improve this a bit */
- 	public function get_wavelength_ranges()
- 	{
- 		$query = "SELECT id, acronym FROM wavelength_ranges";
- 		$result = self::$db->query($query);
- 		
- 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-      		foreach ($row as $key => $value)
-      			$this->_wavelengthRanges[$key][$row['id']] = $value;
-      	mysqli_free_result($result);
-
-      	return $this->_wavelengthRanges;
- 	}
- 	
 //-----------------------------------------------------------------------------------------------------------
  /** get a field from instruments */
 	public function get_instrument($x_field, $y_field, $z_field)

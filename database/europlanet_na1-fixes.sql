@@ -5,7 +5,7 @@ UPDATE  `europlanet_na1`.`sensors` SET  `sensor_type` =  'Wide-angle, multi-chan
 UPDATE  `europlanet_na1`.`sensors` SET  `sensor_name` =  'ERNE - (Energetic and Relativistic Nuclei and Electron Experiment )' WHERE  `sensors`.`id` =936 LIMIT 1 ;
 
 /* SOHO */
-DELETE FROM `scientific_contacts`WHERE id IN (1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027);
+DELETE FROM `scientific_contacts` WHERE id IN (1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027);
 DELETE FROM `sensors` WHERE id IN (920,921,922,923,924, 925,926,927,928,929,930,931);
 
 /* XMM-Newton delete */ 
