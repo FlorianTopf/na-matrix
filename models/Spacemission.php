@@ -523,7 +523,7 @@ class SpacemissionDAO extends ModelDAO
 		"brief_description='" . addslashes($_POST["add_spa_brief_desc"]) . "'," .
 		"modification_date=NOW(), '" .
 		addslashes($_POST["add_spa_research_com"]) . "','" .
-        addslashes($_POST["add_spa_targets_com"]) . "' " .
+        addslashes($_POST["add_spa_target_com"]) . "' " .
   		"WHERE id=" . $res_id;
 
   		self::$db->query($query);

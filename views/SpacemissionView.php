@@ -60,7 +60,7 @@ $link->close();
 	print "<p><b>Launch Date:&nbsp;</b>" . $_spacemission->get_field("spa_launch_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;
 	print "<p><b>Mission End:&nbsp;</b>" . $_spacemission->get_field("spa_death_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;
 	print "<p><b>Web address:&nbsp;</b><a href='" . $_spacemission->get_field("spa_web_address") . "' target='_blank'>" . $_spacemission->get_field("spa_web_address") . "</a></p>" . LF;
-	print "<p><b>Brief description:&nbsp;</b>" . nl2br($_spacemission->get_field("spa_brief_description")) . "</p>" . LF;
+	print "<p><b>Brief description:&nbsp;</b>" . nl2br(autolink($_spacemission->get_field("spa_brief_description"))) . "</p>" . LF;
 	print "</fieldset>" . LF;
 
 	//Research Areas:
@@ -70,7 +70,10 @@ $link->close();
     	if(is_array($_spacemission->get_has_many("research_areas", NULL)))
         	if (in_array($value, $_spacemission->get_has_many("research_areas", NULL)))
           		print "<li>" . $research_areas['name'][$key] . "</li>";
-	print "</ul></fieldset>" . LF;
+	print "</ul>" . LF;
+	if ($_spacemission->get_field('research_comments'))
+		print "<p><b>Research Comments:&nbsp;</b><br/>" . nl2br(autolink($_spacemission->get_field('research_comments'))) . "</p>" . LF;
+	print "</fieldset>" . LF;
 
 	//Targets:
 	if(is_array($_spacemission->get_has_many("targets", NULL)))
@@ -81,7 +84,10 @@ $link->close();
         	if (in_array($value, $_spacemission->get_has_many("targets", NULL)))
         	//print "<li>" . $targets['target_family'][$key] . " - " . $targets['target_name'][$key] . "</li>" . LF;
         		print "<li>" . $targets['target_name'][$key] . "</li>" . LF;
-		print "</ul></fieldset>" . LF;
+		print "</ul>" . LF;
+		if ($_spacemission->get_field('target_comments'))
+			print "<p><b>Target Comments:&nbsp;</b><br/>" . nl2br(autolink($_spacemission->get_field('target_comments'))) . "</p>" . LF;
+		print "</fieldset>" . LF;
 	}
 
 	//Sensors:
@@ -109,7 +115,7 @@ $link->close();
 				print "<p><b>Web Address:&nbsp;</b><a href='" . $_spacemission->get_sensor("web_address", $sensor_count) .
 			 	"' target='_blank'>" . $_spacemission->get_sensor("web_address", $sensor_count) . "</a></p>" . LF;
 			if($_spacemission->get_sensor("sensor_comments", $sensor_count))
-				print "<p><b>Sensor Comments:&nbsp;</b>" . nl2br($_spacemission->get_sensor("sensor_comments", $sensor_count)) . "</p>" . LF;
+				print "<p><b>Sensor Comments:&nbsp;</b>" . nl2br(autolink($_spacemission->get_sensor("sensor_comments", $sensor_count))) . "</p>" . LF;
 
 			//Scientific Contacts:
 			print "<fieldset><legend><b>Scientific Contacts:</b></legend>";

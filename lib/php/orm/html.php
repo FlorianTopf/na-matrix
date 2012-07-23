@@ -10,7 +10,6 @@ function isValidURL($url)
 	return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
 }
 
-
 function url_exists($url)
 {
   	$handle = @fopen($url, "r");
@@ -19,8 +18,29 @@ function url_exists($url)
 	fclose($handle);
 	return true;
 }
-  
 
+function autolink($string)
+{
+	$content_array = explode(" ", $string);
+	$output = '';
+
+	foreach($content_array as $content)
+	{
+		//starts with http://
+		if(substr($content, 0, 7) == "http://")
+		$content = '<a href="' . $content . '" target="_blank">' . $content . '</a>';
+
+		//starts with www.
+		if(substr($content, 0, 4) == "www.")
+		$content = '<a href="http://' . $content . '" target="_blank">' . $content . '</a>';
+
+		$output .= " " . $content;
+	}
+
+	$output = trim($output);
+	return $output;
+}
+  
 function clean_num($num)
 {
   	return rtrim(rtrim($num, '0'), '.');
