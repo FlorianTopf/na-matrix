@@ -245,12 +245,11 @@ class SpacemissionDAO extends ModelDAO
 						}
 						mysqli_free_result($result_2);
 					}
-					else if ($key == 'wavelength')
+					else if ($key == 'sensor_type') /** check for entries and put semicolon (autocomplete) */
 					{
 						$value = trim($value); //remove whitespaces at the beginning/end
 						//print "TEST: " . $value . "x";
 						//nl();
-						/** @todo check if last char is not semicolon and there is something written inside! */
 						// has only something to do with autocompleter
 						if ((substr($value, -1) != ",") && !empty($value)) 
 							$value = $value . ", "; //add semicolon
@@ -547,7 +546,7 @@ class SpacemissionDAO extends ModelDAO
 	   	 	  		   addslashes($_POST["add_spa_sensor_com"][$key]) . "')";
 	
 	   	 	  		//DEBUG:
-	   	 	  		echo "Main Query: " . $query . "<br>";
+	   	 	  		//echo "Main Query: " . $query . "<br>";
 	
 	   	 	  		self::$db->query($query);
 		        	if (self::$db->errno() != 0)

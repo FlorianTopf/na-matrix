@@ -1279,6 +1279,51 @@ $(document).ready(function(){
 		//return false;
     });    
     
+
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+	//AUTOCOMPLETER FOR WAVELENGTH
+	$.fn.sensor_type_completer = function() {
+		// don't navigate away from the field on tab when selecting an item
+		$(this).bind( "keydown", function( event ) {
+			if ( event.keyCode === $.ui.keyCode.TAB &&
+					$( this ).data( "autocomplete" ).menu.active ) {
+				event.preventDefault();
+			}
+		});
+		$(this).autocomplete({
+			source: function( request, response ) {
+				$.getJSON( "js/sensorTypes.php", {
+					term: extractLast( request.term )
+				}, response );
+			},
+			search: function() {
+				// custom minLength
+				var term = extractLast( this.value );
+				if ( term.length < 1 ) {
+					return false;
+				}
+			},
+			focus: function() {
+				// prevent value inserted on focus
+				return false;
+			},
+			select: function( event, ui ) {
+				var terms = split( this.value );
+				// remove the current input
+				terms.pop();
+				// add the selected item
+				terms.push( ui.item.value );
+				// add placeholder to get the comma-and-space at the end
+				terms.push( "" );
+				this.value = terms.join( ", " );
+				return false;
+			}
+		});
+	};
+
+//------------------------------------------------------------------------------------------------- 
+//-------------------------------------------------------------------------------------------------    
     //ROUTINES for EDIT SPACE MISSION - SENSORS
     //REMOVE EXISTING SENSORS IN EDIT
     $('a.remove_sensor').click(function() {
@@ -1287,6 +1332,12 @@ $(document).ready(function(){
         //newSensorNum--;
         return false;
     });
+    
+	$('input.sensor_type').each(function() {
+		$(this).sensor_type_completer();
+		/** @todo check this with documentation, do we need return? */
+		//return false;
+	});
     
     //DYNAMIC ROW ADDING ROUTINE for SENSORS
 	// NEW TABS FUNCTIONALITY
@@ -1424,6 +1475,12 @@ $(document).ready(function(){
             newContactNum = $(this).add_contact(newContactNum);    
             return false;
         });
+        
+    	$('input.sensor_type').each(function() {
+    		$(this).sensor_type_completer();
+    		/** @todo check this with documentation, do we need return? */
+    		//return false;
+    	});
 
         return false;
 	});

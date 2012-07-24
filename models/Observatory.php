@@ -596,24 +596,23 @@ class ObservatoryDAO extends ModelDAO
 										//echo "TELESCOPE ID: " . $value . "=> INSTRUMENT ID: " . $i_value . "<br>";
 										$this->_hasMany["instruments"][$value][] = $i_value;
 									}
-									elseif ($key == 'wavelength')
+									elseif($i_key == 'wavelength') /** check for entries and put semicolon (autocomplete) */
 									{
-										$value = trim($value); //remove whitespaces at the beginning/end
+										$i_value = trim($i_value); //remove whitespaces at the beginning/end
 										//print "TEST: " . $value . "x";
 										//nl();
-										/** @todo check if last char is not semicolon and there is something written inside! */
 										// has only something to do with autocompleter
-										if ((substr($value, -1) != ",") && !empty($value)) 
-											$value = $value . ", "; //add semicolon
+										if ((substr($i_value, -1) != ",") && !empty($i_value)) 
+											$i_value = $i_value . ", "; //add semicolon
 										//a little mistake from avove (with !empty missing before)
-										else if ($value == ",")
-											$value = "";
-										else if($value != "")
-											$value = $value . " ";
+										else if ($i_value == ",")
+											$i_value = "";
+										else if($i_value != "")
+											$i_value = $i_value . " ";
 							
 										//print "TEST 2: " . $value ."x";
 										//nl();
-										$this->_instruments[$key][] = stripslashes($value);
+										$this->_instruments[$i_key][$value][] = stripslashes($i_value);
 									}
 									else
 										$this->_instruments[$i_key][$value][] = stripslashes($i_value);
@@ -632,7 +631,6 @@ class ObservatoryDAO extends ModelDAO
 						$value = trim($value); //remove whitespaces at the beginning/end
 						//print "TEST: " . $value . "x";
 						//nl();
-						/** @todo check if last char is not semicolon and there is something written inside! */
 						// has only something to do with autocompleter
 						if ((substr($value, -1) != ",") && !empty($value)) 
 							$value = $value . ", "; //add semicolon

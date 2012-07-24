@@ -261,7 +261,7 @@ $link->close();
 	    			if ($_observatory->get_instrument("spatial_resolution", $telescope_id, $key2))
 	    				print "<p><b>Spatial Resolution:&nbsp;</b>" . $_observatory->get_instrument("spatial_resolution", $telescope_id, $key2) . "&nbsp;[arcsec/pixel]</p>" . LF;
 	    			if ($_observatory->get_instrument("spectral_resolution", $telescope_id, $key2))
-	    				print "<p><b>Spectral Resolution:&nbsp;</b>" . $_observatory->get_instrument("spectral_resolution", $telescope_id, $key2) . "&nbsp;[&Aring;]</p>" . LF;
+	    				print "<p><b>Spectral Resolution:&nbsp;</b>" . $_observatory->get_instrument("spectral_resolution", $telescope_id, $key2) . "&nbsp;[&Aring;] or [R]</p>" . LF;
 	    			if ($_observatory->get_instrument("polarisation", $telescope_id, $key2))
 	    				print "<p><b>Polarisation:&nbsp;</b>" . $_observatory->get_instrument("polarisation", $telescope_id, $key2) . "</p>" . LF;
 	    			if ($_observatory->get_instrument("field_of_view", $telescope_id, $key2))

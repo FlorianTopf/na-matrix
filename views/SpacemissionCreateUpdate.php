@@ -115,11 +115,11 @@ if(is_array($_spacemission->get_has_many("sensors")))
 
       	//Sensor Name:
       	/** @todo validate => MANDATORY, but we have a little problem here, you can leave the form empty! */
-		printInputTextRow("Sensor Name", "add_spa_sen_name[{$sensor_count}]", $_spacemission->get_sensor("sensor_name", $sensor_count));
+		printInputTextRow("Sensor Name", "add_spa_sen_name[{$sensor_count}]", $_spacemission->get_sensor("sensor_name", $sensor_count), 60);
       	//Sensor Type:
-		printInputTextRow("Sensor Type", "add_spa_sen_type[{$sensor_count}]", $_spacemission->get_sensor("sensor_type", $sensor_count));
+		printInputTextRow("Sensor Type", "add_spa_sen_type[{$sensor_count}]", $_spacemission->get_sensor("sensor_type", $sensor_count), 60, NULL, "sensor_type");
       	//Diameter:
-		printInputTextRow("Diameter", "add_spa_sen_dia[{$sensor_count}]", $_spacemission->get_sensor("diameter_m", $sensor_count), 10, "[m]");
+		printInputTextRow("Diameter", "add_spa_sen_dia[{$sensor_count}]", $_spacemission->get_sensor("diameter_m", $sensor_count), 15, "[m]");
 		//Wavelength:
 		$wavelength_ranges = $_spacemission->get_wavelength_ranges();
 		print "<tr>";
@@ -141,21 +141,21 @@ if(is_array($_spacemission->get_has_many("sensors")))
 		print "</td>";
 		print "</tr>";
       	//Range begin: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
-		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15, '.', '')), 10, NULL, "number");
+		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15, '.', '')), 15, NULL, "number");
       	//Range end: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
-		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15, '.', '')), 10, NULL, "number");
+		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15, '.', '')), 15, NULL, "number");
       	//Units:
-		printInputTextRow("Units", "add_spa_sen_units[{$sensor_count}]", $_spacemission->get_sensor("units", $sensor_count), 30);
+		printInputTextRow("Units", "add_spa_sen_units[{$sensor_count}]", $_spacemission->get_sensor("units", $sensor_count), 15);
       	//Measured:
 		printInputTextRow("Measured", "add_spa_sen_measured[{$sensor_count}]", $_spacemission->get_sensor("measured", $sensor_count), 60);
       	//Resolution:
-		printInputTextRow("Resolution", "add_spa_sen_resolution[{$sensor_count}]", $_spacemission->get_sensor("resolution", $sensor_count), 60);
+		printInputTextRow("Resolution", "add_spa_sen_resolution[{$sensor_count}]", $_spacemission->get_sensor("resolution", $sensor_count), 25);
       	//Field of View:
-		printInputTextRow("Field of View", "add_spa_sen_fov[{$sensor_count}]", $_spacemission->get_sensor("field_of_view", $sensor_count), 60);
+		printInputTextRow("Field of View", "add_spa_sen_fov[{$sensor_count}]", $_spacemission->get_sensor("field_of_view", $sensor_count), 25, "[arcsec x arcsec] or [arcsec]");
         //Web address
-		printInputTextRow("Web Address", "add_spa_sen_web[{$sensor_count}]", $_spacemission->get_sensor("web_address", $sensor_count));
+		printInputTextRow("Web Address", "add_spa_sen_web[{$sensor_count}]", $_spacemission->get_sensor("web_address", $sensor_count), 60);
         //Sensor comments
-		printInputTextfieldRow("Sensor Comments", "add_spa_sensor_com[{$sensor_count}]", $_spacemission->get_sensor("sensor_comments", $sensor_count), 65);
+		printInputTextfieldRow("Sensor Comments", "add_spa_sensor_com[{$sensor_count}]", $_spacemission->get_sensor("sensor_comments", $sensor_count), 60, 4);
  		print "</table>" . LF;
 
       	//Scientific Contacts

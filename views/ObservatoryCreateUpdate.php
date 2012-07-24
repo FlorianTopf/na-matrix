@@ -42,7 +42,7 @@ else
 $year_tooltip = "Year Founded - Please insert the year [YYYY] the facility was founded. 
 <br/><b>Example:</b> &quot;1968&quot;";
 printInputTextRow("Year Founded", "add_obs_founded", $_observatory->get_field("obs_founded"), 
-			4, "[YYYY]", "add_obs_founded", FALSE, $year_tooltip);
+			10, "[YYYY]", "add_obs_founded", FALSE, $year_tooltip);
 //Institution
 $institution_tooltip = "Institution - Please insert the institution/owner of the facility.<br/>
 If it is privately owned, you can simply fill in &quot;privately owned facility&quot;. <br/><b>Example:</b> 
@@ -394,19 +394,19 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	    This field is particularly of interest if the telescope is an array (of any kind). - 
 	    If it is a telescope consisting of only one element (e.g. a normal Newton-telescope), - please insert nothing. <b>Example:</b> &quot;12&quot;";
 		printInputTextRow("Telescope Elements", "add_obs_telescope_elements[{$telescope_count}]",
-			$_observatory->get_telescope("telescope_elements", $telescope_count), 10, NULL, NULL, FALSE, $t_elem_tooltip);
+			$_observatory->get_telescope("telescope_elements", $telescope_count), 15, NULL, NULL, FALSE, $t_elem_tooltip);
 
 	    //Diameter/Aperture
 	    $t_dia_tooltip = "Diameter/Aperture - Please insert the diameter/aperture of the telescope in meters. - 
 	    The inserted value will be added to the database as a float value. - <b>Examples:</b> &quot;2&quot; or &quot;1.42&quot;";
 		printInputTextRow("Diameter/Aperture", "add_obs_diameter[{$telescope_count}]",
-			$_observatory->get_telescope("diameter_m", $telescope_count), 10, "[m]", "number", TRUE, $t_dia_tooltip);
+			$_observatory->get_telescope("diameter_m", $telescope_count), 15, "[m]", "number", TRUE, $t_dia_tooltip);
 
 	    //Focallength
 	    $t_focal_tooltip = "Focallength - Please insert the focal length of the telescope (in meters) or f-number. - 
 	    For the f-number please insert with format f/.... <b>Examples:</b> &quot;1.5&quot; or &quot;f/1.4&quot;";
 		printInputTextRow("Focallength", "add_obs_focallength[{$telescope_count}]",
-			$_observatory->get_telescope("focallength_m", $telescope_count), 10, "[m] or [f-number]", NULL, FALSE, $t_focal_tooltip);
+			$_observatory->get_telescope("focallength_m", $telescope_count), 15, "[m] or [f-number]", NULL, FALSE, $t_focal_tooltip);
 
 		//  ---------------- Questionnaire Start ----------------------
 		$t_antenna_tooltip = "Antenna Type - Please choose the type of your antenna from the drop-down box if relevant. - 
@@ -556,7 +556,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	      		There are no format conventions, - but you should include the unit if specifying the focal-length. - 
 	      		<b>Examples:</b> &quot;Nasmyth Focus&quot;, &quot;1.4 m&quot; or &quot;f/9&quot;";
 				printInputTextRow("Focal Position", "add_obs_instrument_focal_position[{$telescope_count}][{$instrument_count}]",
-					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 40, NULL, NULL, FALSE, $i_focal_tooltip);
+					 $_observatory->get_instrument("focal_position", $telescope_id, $instrument_count), 25, NULL, NULL, FALSE, $i_focal_tooltip);
 
 	        	//Wavelength
 	        	$i_wave_tooltip = "Wavelength Region - Please insert the wavelength of your telescope in text format. - 
@@ -564,7 +564,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 				Please be aware that this field supports auto-completion. - 
 				<b>Examples:</b> &quot;infrared&quot;, &quot;optical&quot;, &quot;radiowave&quot;";
 				printInputTextRow("Wavelength Region", "add_obs_instrument_wavelength[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 40, NULL, "wavelength", FALSE, $i_wave_tooltip);
+					$_observatory->get_instrument("wavelength", $telescope_id, $instrument_count), 50, NULL, "wavelength", FALSE, $i_wave_tooltip);
 
 	        	//Wavelength Begin
 	        	//tooltip from telescopes
@@ -599,19 +599,19 @@ if(is_array($_observatory->get_has_many("telescopes")))
 	        	your instrument in arc-seconds per pixel. - There are no format conventions. - 
 	        	<b>Example:</b> &quot;0.58&quot;";
 				printInputTextRow("Spatial Resolution", "add_obs_instrument_spatial_resolution[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 40, "[arcsec/pixel]", NULL, FALSE, $i_spatial_tooltip);
+					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 15, "[arcsec/pixel]", NULL, FALSE, $i_spatial_tooltip);
 	        	//Spectral Resolution
 	        	$i_spectral_tooltip = "Spectral Resolution - Please insert the spectral resolution of your instrument in Angstrom. - 
 	        	This can either be one or more resolution ranges or a fixed resolution, - depending on the instrument. 
 	        	There are no format conventions. - 
 	        	<b>Example:</b> &quot;3200 &ndash; 10200&quot;";
 				printInputTextRow("Spectral Resolution", "add_obs_instrument_spectral_resolution[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 40, "[&Aring;]", NULL, FALSE, $i_spectral_tooltip);
+					$_observatory->get_instrument("spectral_resolution", $telescope_id, $instrument_count), 15, "[&Aring;] or [R]", NULL, FALSE, $i_spectral_tooltip);
 	        	//Polarisation
 	        	$i_polar_tooltip = "Polarisation - Please insert the polarisation of your instrument. - 
 	        	There are no format conventions. - <b>Example:</b> &quot;single linear polarization only&quot;";
 				printInputTextRow("Polarisation", "add_obs_instrument_polarisation[{$telescope_count}][{$instrument_count}]",
-					$_observatory->get_instrument("polarisation", $telescope_id, $instrument_count), 40, "(Polarimeter)", NULL, FALSE, $i_polar_tooltip);
+					$_observatory->get_instrument("polarisation", $telescope_id, $instrument_count), 25, "(Polarimeter)", NULL, FALSE, $i_polar_tooltip);
 	        	//Field of View
 	        	$i_fov_tooltip = "Field of View - Please insert the field of view of your instrument in X x Y arcseconds, - 
 	        	or in X arcseconds (in the case of a circular field of view). - 
