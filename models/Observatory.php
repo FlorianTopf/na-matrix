@@ -613,7 +613,7 @@ class ObservatoryDAO extends ModelDAO
 							
 										//print "TEST 2: " . $value ."x";
 										//nl();
-										$this->_telescopes[$key][] = stripslashes($value);
+										$this->_instruments[$key][] = stripslashes($value);
 									}
 									else
 										$this->_instruments[$i_key][$value][] = stripslashes($i_value);

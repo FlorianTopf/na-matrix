@@ -118,12 +118,32 @@ if(is_array($_spacemission->get_has_many("sensors")))
 		printInputTextRow("Sensor Name", "add_spa_sen_name[{$sensor_count}]", $_spacemission->get_sensor("sensor_name", $sensor_count));
       	//Sensor Type:
 		printInputTextRow("Sensor Type", "add_spa_sen_type[{$sensor_count}]", $_spacemission->get_sensor("sensor_type", $sensor_count));
-      	//Underlying Instrumentation:
-		printInputTextRow("Underlying Instrumentation", "add_spa_sen_under[{$sensor_count}]", $_spacemission->get_sensor("underlying", $sensor_count));
+      	//Diameter:
+		printInputTextRow("Diameter", "add_spa_sen_dia[{$sensor_count}]", $_spacemission->get_sensor("diameter_m", $sensor_count), 10, "[m]");
+		//Wavelength:
+		$wavelength_ranges = $_spacemission->get_wavelength_ranges();
+		print "<tr>";
+		printInputTitleCol("Wavelength Region");
+		print "<td>";
+		$ranges_array = explode(", ", $_spacemission->get_sensor("wavelength", $sensor_count));
+		foreach($wavelength_ranges['id'] as $key => $value)
+		{
+			print "<b>{$wavelength_ranges['acronym'][$key]}</b>";
+			if(in_array($wavelength_ranges['acronym'][$key], $ranges_array))
+				printCheckBox("add_spa_sen_wavelength_{$key}[{$sensor_count}]", $wavelength_ranges['acronym'][$key]);
+			else
+				printCheckBox("add_spa_sen_wavelength_{$key}[{$sensor_count}]", false);
+			ws(4);
+			//just make a newline at the fourth checkbox
+			if ($key == 4)
+				nl();
+		}
+		print "</td>";
+		print "</tr>";
       	//Range begin: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
-		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15, '.', '')) , 10, NULL, "number");
+		printInputTextRow("Range Begin", "add_spa_sen_range_beg[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_begin", $sensor_count), 15, '.', '')), 10, NULL, "number");
       	//Range end: @todo VALIDATION uses standard message, aufpassen hier dürfen nur 15 Stellen angegeben werden
-		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15, '.', '')) , 10, NULL, "number");
+		printInputTextRow("Range End", "add_spa_sen_range_end[{$sensor_count}]", clean_num(number_format((float)$_spacemission->get_sensor("range_end", $sensor_count), 15, '.', '')), 10, NULL, "number");
       	//Units:
 		printInputTextRow("Units", "add_spa_sen_units[{$sensor_count}]", $_spacemission->get_sensor("units", $sensor_count), 30);
       	//Measured:

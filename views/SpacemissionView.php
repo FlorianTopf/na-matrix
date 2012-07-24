@@ -97,8 +97,10 @@ $link->close();
 			print "<fieldset class='report'><legend><b>Space Mission Sensor:&nbsp;" . $_spacemission->get_sensor("sensor_name", $sensor_count) . "</b></legend>";
 			print "<p><b>Sensor Name:&nbsp;</b>" . $_spacemission->get_sensor("sensor_name", $sensor_count) . "</p>" . LF;
 			print "<p><b>Sensor Type:&nbsp;</b>" . $_spacemission->get_sensor("sensor_type", $sensor_count) . "</p>" . LF;
-			if($_spacemission->get_sensor("underlying", $sensor_count))
-				print "<p><b>Underlying:&nbsp;</b>" . $_spacemission->get_sensor("underlying", $sensor_count) . "</p>" . LF;
+			if($_spacemission->get_sensor("diameter_m", $sensor_count))
+				print "<p><b>Diameter:&nbsp;</b>" . $_spacemission->get_sensor("diameter_m", $sensor_count) . "&nbsp;[m]</p>" . LF;
+			if ($_spacemission->get_sensor("wavelength", $sensor_count))
+	    		print "<p><b>Wavelength Region:&nbsp;</b>" . trim($_spacemission->get_sensor("wavelength", $sensor_count), ", ") . LF;
 			if($_spacemission->get_sensor("range_begin", $sensor_count))
 				print "<p><b>Range Begin:&nbsp;</b>" . $_spacemission->get_sensor("range_begin", $sensor_count) . "</p>" . LF;
 			if($_spacemission->get_sensor("range_end", $sensor_count))

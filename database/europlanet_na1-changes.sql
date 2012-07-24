@@ -737,8 +737,13 @@ DROP TABLE `europlanet_na1`.`sensor_to_science_goals`;
 DROP TABLE `europlanet_na1`.`science_goals`;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
+/** ALTER SCRIPTS FOR REVISION 1317 */
+ALTER TABLE `europlanet_na1`.`sensors` DROP COLUMN `underlying` , 
+ADD COLUMN `diameter_m` FLOAT(10,6) NULL DEFAULT NULL  AFTER `sensor_type` , 
+ADD COLUMN `wavelength` TEXT NULL DEFAULT NULL  AFTER `diameter_m` ;
 
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

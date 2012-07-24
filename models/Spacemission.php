@@ -245,6 +245,25 @@ class SpacemissionDAO extends ModelDAO
 						}
 						mysqli_free_result($result_2);
 					}
+					else if ($key == 'wavelength')
+					{
+						$value = trim($value); //remove whitespaces at the beginning/end
+						//print "TEST: " . $value . "x";
+						//nl();
+						/** @todo check if last char is not semicolon and there is something written inside! */
+						// has only something to do with autocompleter
+						if ((substr($value, -1) != ",") && !empty($value)) 
+							$value = $value . ", "; //add semicolon
+						//a little mistake from avove (with !empty missing before)
+						else if ($value == ",")
+							$value = "";
+						else if($value != "")
+							$value = $value . " ";
+							
+						//print "TEST 2: " . $value ."x";
+						//nl();
+						$this->_sensors[$key][] = stripslashes($value);
+					}
 					else
 						$this->_sensors[$key][] = stripslashes($value);
 				}
@@ -499,11 +518,25 @@ class SpacemissionDAO extends ModelDAO
    	 			//Check if this sensor fieldset is filled
    	 			if($name != '')
    	 			{
-	   	 	  		$query = "INSERT INTO sensors (`id`,`sensor_name`,`sensor_type`,`underlying`,`range_begin`," .
+   	 				$wavelength_ranges = $this->get_wavelength_ranges();
+					$wavelength_string = "";
+			 		foreach($wavelength_ranges['id'] as $wl_key => $value)
+			 		{
+			 			//add name to string here if post-key isset!
+			 			if(isset($_POST["add_spa_sen_wavelength_{$wl_key}"][$key]))
+			 			{
+			 				//print $wavelength_ranges['acronym'][$key];
+			 				//nl();
+			 				$wavelength_string .= ($wavelength_ranges['acronym'][$wl_key] . ", ");
+			 			}
+			 		}
+   	 				
+   	 				$query = "INSERT INTO sensors (`id`,`sensor_name`,`sensor_type`,`diameter_m`, `wavelength`, `range_begin`," .
 	   	 	  		   "`range_end`,`units`,`measured`,`resolution`,`field_of_view`,`web_address`, `sensor_comments`) VALUES (NULL,'" .
 	   	 	  		   addslashes($_POST["add_spa_sen_name"][$key]) . "','" .
 	   	 	  		   addslashes($_POST["add_spa_sen_type"][$key]) . "','" .
-	   	 	  		   addslashes($_POST["add_spa_sen_under"][$key]) . "','" .
+	   	 	  		   addslashes($_POST["add_spa_sen_dia"][$key]) . "','" .
+	   	 	  		   addslashes($wavelength_string) . "','" .
 	   	 	  		   addslashes($_POST["add_spa_sen_range_beg"][$key]) . "','" .
 	   	 	  		   addslashes($_POST["add_spa_sen_range_end"][$key]) . "','" .
 	   	 	  		   addslashes($_POST["add_spa_sen_units"][$key]) . "','" .
@@ -514,7 +547,7 @@ class SpacemissionDAO extends ModelDAO
 	   	 	  		   addslashes($_POST["add_spa_sensor_com"][$key]) . "')";
 	
 	   	 	  		//DEBUG:
-	   	 	  		//echo "Main Query: " . $query . "<br>";
+	   	 	  		echo "Main Query: " . $query . "<br>";
 	
 	   	 	  		self::$db->query($query);
 		        	if (self::$db->errno() != 0)

@@ -277,9 +277,9 @@ $link->close();
 	    				print "<p><b>MIN exposure time:&nbsp;</b>" . $_observatory->get_instrument("min_exposure_time", $telescope_id, $key2) . "&nbsp;[seconds]</p>" . LF;
 	    			/** distinction between B/W == 1 and Color chip == 0 */
 	    			if($instrument_types['name'][$_observatory->get_instrument("instrument_type", $telescope_id, $key2)] == "Camera")
-	    				if ($_observatory->get_instrument("color_bw_chip", $telescope_id, $key2) == 0)
-	    					print "<p><b>B/W or Color chip:&nbsp;</b>Color chip</p>" . LF;
-	    				else if ($_observatory->get_instrument("color_bw_chip", $telescope_id, $key2) == 1)
+	    				/* if ($_observatory->get_instrument("color_bw_chip", $telescope_id, $key2) == 0)
+	    					print "<p><b>B/W or Color chip:&nbsp;</b>Color chip</p>" . LF; */
+	    				if ($_observatory->get_instrument("color_bw_chip", $telescope_id, $key2) == 1)
 	    					print "<p><b>B/W or Color chip:&nbsp;</b>B/W chip</p>" . LF;
 	    			if ($_observatory->get_instrument("ccd_chip_type", $telescope_id, $key2))
 	    				print "<p><b>CCD chip type:&nbsp;</b>" . $_observatory->get_instrument("ccd_chip_type", $telescope_id, $key2) . "</p>" . LF;
