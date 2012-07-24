@@ -9,6 +9,8 @@
  * @todo empty tables (without tr), empty lists (without li), a href targets are NOT allowed with xhtml strict
  */
 
+session_start(); 
+
 require_once ('../config.inc.php');
 //require_once ('../lib/php/functions.php');
 require_once ('../lib/php/orm/html.php');
@@ -44,6 +46,17 @@ $link->close();
 <body class='report'>
 
 <?php
+	
+     if (isset($_SESSION["user_level"]) && $_SESSION["user_level"] >= 31)
+	 {
+	     print "<fieldset class='report'><legend><b class='red'>Administration Tool</b></legend>" . LF;
+	     print "<p><a title='Click to edit' class='hand' target='_blank' " .
+              		"href='./../index.php?page=add&amp;action=edit&amp;id={$_GET["id"]}" .
+              		"&amp;res_type=spa&amp;edit=1" .
+              		"'>EDIT ENTRY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	     print "<a title='Click to refresh' class='hand' href='javascript:location.reload(true);'>REFRESH PAGE</a></p>";
+		 print "</fieldset>" . LF;
+	 }         
 
   	//CREATES ACCESS CLASS TO SPACE MISSIONS
   	//$_spacemission = new SpaceMissionDAO();

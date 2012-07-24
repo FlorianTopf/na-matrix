@@ -55,15 +55,21 @@ print "</select></td></tr>" . LF;
 print "<tr><td class='title' colspan='2'><b>Filter by Telescope Diameter</b></td>";
 print "<td class='filter' colspan='4'><select name='obs_filters[diameter_sign]' onchange='this.form.submit()'>" . LF;
 print "<option value=''>ALL</option>";
+
 print "<option value='>=2'";
 if(isset($filters["diameter_sign"]))
 	if ($filters["diameter_sign"] == ">=2") print " selected";
 print ">>= 2 m";
 print "</option>";
-print "<option value='<2'";
+print "<option value='<2 AND diameter_m>0'";
 if(isset($filters["diameter_sign"]))
-	if ($filters["diameter_sign"] == "<2") print " selected";
+	if ($filters["diameter_sign"] == "<2 AND diameter_m>0") print " selected";
 print ">< 2 m";
+print "</option>";
+print "<option value='=0'";
+if(isset($filters["diameter_sign"]))
+	if ($filters["diameter_sign"] == "=0") print " selected";
+print ">NOT DEFINED";
 print "</option></select>";
 /** @todo integrate textfield => ajax call */
 //print "<input name='obs_filters[diameter_m]'" .

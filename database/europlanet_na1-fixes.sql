@@ -31,4 +31,5 @@ DELETE FROM `sensors` WHERE id IN (1051,1052,1052,1053,1054,1055,1056,1057);
 DELETE FROM `sensors` WHERE id IN (5,6,7,8,9,10,11,12,13);
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
+/** ALTER SCRIPTS FOR REVISION 1319 */
+UPDATE  `europlanet_na1`.`telescopes` SET  `diameter_m` =  '0.530000' WHERE  `telescopes`.`id` =1672 LIMIT 1 ;
