@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2012 at 11:31 AM
+-- Generation Time: Jul 24, 2012 at 06:04 PM
 -- Server version: 5.1.58
 -- PHP Version: 5.3.8
 
@@ -97,7 +97,6 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (10101, '', '', '', 10030),
 (10040, '', '', '', 10036),
 (10100, '', 'Stellar Physics', '', 10047),
-(10057, '', 'Exoplanets', '', 10052),
 (10062, '', '', '', 10057),
 (10063, '', 'Neutron Stars/Pulsars', '', 10058),
 (10066, '', '', '', 10061),
@@ -204,7 +203,6 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (10101, '', 0, 0, 0, 0, 0, 0, 0, 10030),
 (10040, '', 0, 0, 0, 0, 0, 0, 0, 10036),
 (10100, '', 0, 0, 0, 0, 0, 0, 0, 10047),
-(10057, '', 0, 0, 0, 0, 0, 0, 0, 10052),
 (10062, '', 0, 0, 0, 0, 0, 0, 0, 10057),
 (10063, '', 0, 0, 0, 0, 0, 0, 0, 10058),
 (10066, '', 0, 0, 0, 0, 0, 0, 0, 10061),
@@ -307,7 +305,6 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (10101, '', '', '', '', 10030),
 (10040, '', 'Also 1.2m and 1.3m Optical telescopes', 'Veritas Array-Gamma GeV to TeV array of 12m Telescopes. Highest sensitivity in 50 GeV to 50 TeV range.', 'MMT: Spectrograph Spectrograph 3200-8000 A ; ARIES Imager ; CLIO Imager ; Hectochelle Spectrograph ; Hectospec Spectrograph ; Megacam Imager 18k x 18k ; MIRAC3 Imager Near Infrared ; PISCES Imager ; SPOL Imager/Spectropolarimeter 4000-9000 ? ; SWIRC Camera 2048 x 2048 ; MAESTRO Camera 3185-9850 A ;', 10036),
 (10100, 'Available detectors: CCD camera Andor Newton DU-970N, ?CCD camera HPC-1, ?CCD camera ST-6, ?CCD camera ORBIS.', '', '', '', 10047),
-(10057, '', 'Smaller telescopes also available.', 'Palomar Testbed Interferometer- Near IR. No longer operating, but previous data can still be accessed.', '', 10052),
 (10062, '', '', 'Y shaped 27 x 25 m Radio Telescopes. Sensitivity of a Dish 130 m Across', '', 10057),
 (10063, '', 'Various small optical telescopes. PARI-JOVE antenna studies 21cm Line.', '', '26 m West: 327 MHz ; 26 m East: 1.4 and 4.8 GHz 12 m Telescope: Receiver 3.3-4.2 GHz ; Receiver 10.95-12.75 Ghz ;', 10058),
 (10066, '', '', '', '', 10061),
@@ -415,7 +412,6 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (10101, '', 'www@gmrt.ncra.tifr.res.in', '91-2132-252112/3/6/7', '411 007', 'http://www.gmrt.ncra.tifr.res.in', '', '', '9? 5'' 47 E', '74? 2'' 59 N', 10030),
 (10040, '', '', '520-621-1558', '85721', 'http://www.mmto.org/', '', '', '110?52''42''''W', '31?40''52''''N', 10036),
 (10100, '', '', '372-7410-265', '', 'www.aai.ee', 'L.Leedj?rv', 'leed@aai.ee', '58? 15'' 55''''', '26? 27'' 58''N', 10047),
-(10057, '', '', '(760) 742-2111', '92060', 'http://www.astro.caltech.edu/palomar/', '', '', '116?51''50''''W', '33?21''21''''N', 10052),
 (10062, '', 'info@nrao.edu', '', '87801-0387', 'http://www.vla.nrao.edu/', '', '', '107?37''6.06''', '34?4''44.28''''', 10057),
 (10063, '', 'dclavier@pari.edu', '828-862-5554', '28772', 'http://www.pari.edu/', '', '', '82?52''20.64''', '35?11''58.56''', 10058),
 (10066, '', '', '', '', 'http://www.physics.sfasu.edu/observatory/obs.htm', '', '', '94?39''38.32''', '31?45''35.59''', 10061),
@@ -545,7 +541,6 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (10168, 'Giant Metrewave Radio Telescope (GMRT)', 'Radio', '45.00', NULL, 10030),
 (10065, 'MMT Observatory<br>Whipple Gamma', 'telescope<br>telescope<br>telesc', '6.50<br>10.00<1.50>', NULL, 10036),
 (10166, 'Cassegrain Reflector telescope', 'Optical', '1.50', NULL, 10047),
-(10099, 'Hale Telescope<br>Unnamed<br>Samuel Oschin Telescope', 'Optical<br>Optical<br>Optical', '5.08<br>1.52<br>1.22', '3.30<br>8.75<br>2.50', 10052),
 (10109, '', '', NULL, NULL, 10057),
 (10110, 'West<br>East', 'Radio<br>Radio<br>Radio', '26.00<br>26.00<br>12.00', NULL, 10058),
 (10117, '', 'Optical', '1.04', NULL, 10061),
@@ -666,7 +661,6 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (10101, 'Tata Institute of Fundamental Research', '', '', 'http://www.gmrt.ncra.tifr.res.in', 'India', 'Post Bag 3,Ganeshkhind,411 007,Pune', '91-2132-252112/3/6/7', 'www@gmrt.ncra.tifr.res.in', '', '', '9? 5'' 47 E', '74? 2'' 59 N', '650', NULL, NULL, '5', '1', '', '', 10030),
 (10040, 'Whipple Observatory', '1966', 'University of Arizona,Smithsonian Institute', 'http://www.mmto.org/', 'USA', 'MMT Observatory , P.O. Box 210065 University of Arizona ,85721,Tucson AZ', '520-621-1558', '', '', '', '110?52''42''''W', '31?40''52''''N', '2606', NULL, NULL, NULL, NULL, '', 'Schedules: http://www.mmto.org/schedules/current.shtml Deadlines: Usually in late February', 10036),
 (10100, 'Tartu Observatory', '1946', '', 'www.aai.ee', 'Estonia', '61602, T?ravere,,Tartumaa', '372-7410-265', '', 'L.Leedj?rv', 'leed@aai.ee', '58? 15'' 55''''E', '26? 27'' 58''N', NULL, NULL, NULL, NULL, '2', '', '', 10047),
-(10057, 'Palomar Observatory', '', 'Caltech', 'http://www.astro.caltech.edu/palomar/', 'USA', 'P.O. Box 200 Palomar Mountain,,92060,California', '(760) 742-2111', '', '', '', '116?51''50''''W', '33?21''21''''N', '1713', NULL, '290.0', NULL, '4', '', 'Schedule: http://www.palomar.caltech.edu:8000/calendar.tcl Forms:http://www.astro.caltech.edu/~tac/obsforms/ Deadlines on 1st of March', 10052),
 (10062, 'Very Large Array', '', '', 'http://www.vla.nrao.edu/', 'USA', 'Socorro New Mexico NRAO,P.O. Box O1003 Lopezville Road,87801-0387 ,Socorro NM', '', 'info@nrao.edu', '', '', '107?37''6.06''''W', '34?4''44.28''''N', '2123', NULL, NULL, NULL, NULL, '', 'Deadlines usually October 1, June 1,Feb 2. Apply through http://my.nrao.edu/ Schedules: http://www.vla.nrao.edu/cgi-bin/schedules.cgi', 10057),
 (10063, 'Pisgah Astronomical Research Institute', '', 'PARI', 'http://www.pari.edu/', 'USA', 'Pisgah Astronomical Research Institute 1 PARI Drive Rosman,,28772,NC', '828-862-5554', 'dclavier@pari.edu', '', '', '82?52''20.64''''W', '35?11''58.56''''N', '880', NULL, NULL, NULL, '5', '', '', 10058),
 (10066, 'Steven F Austin Observatory', '', 'Stephen F Austin State', 'http://www.physics.sfasu.edu/observatory/obs.htm', 'USA', ',,,Texas', '', '', '', '', '94?39''38.32''''W', '31?45''35.59''''N', '149', NULL, NULL, NULL, NULL, '', '', 10061),
