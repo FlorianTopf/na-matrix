@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2012 at 06:06 PM
+-- Generation Time: Jul 25, 2012 at 03:01 PM
 -- Server version: 5.1.58
 -- PHP Version: 5.3.8
 
@@ -281,7 +281,10 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (245, 'tesiluciano@yahoo.it', '', '', '', 'Astrometry of asteroids and comets  New asteroids research.\r\n', '', '', ''),
 (246, '', '', 'CARMA Array, millimeter wavelengths, observations using 6x10.4m and 9x6m Dishes. Further information on this array available under http://www.mmarray.org/', '', '', '', '', ''),
 (247, '', '', '', '12m ASKAP prototype antenna', '', '', '15-Jun 15-Dec deadlines form: http://www.atnf.csiro.au/observers/accomm/', ''),
-(248, '', 'Smaller telescopes also available.', 'Palomar Testbed Interferometer- Near IR. No longer operating, but previous data can still be accessed.', '', '', '', '- Schedule: http://www.palomar.caltech.edu:8000/calendar.tcl \r\n- Forms: http://www.astro.caltech.edu/~tac/obsforms/ Deadlines on 1st of March', '');
+(248, '', 'Smaller telescopes also available.', 'Palomar Testbed Interferometer- Near IR. No longer operating, but previous data can still be accessed.', '', '', '', '- Schedule: http://www.palomar.caltech.edu:8000/calendar.tcl \r\n- Forms: http://www.astro.caltech.edu/~tac/obsforms/ Deadlines on 1st of March', ''),
+(249, '', '', '', 'The Compact Array Broadband Backend: http://www.narrabri.atnf.csiro.au/observing/CABB.html', '', '', 'Interferometer funded till 2013 Form : http://www.atnf.csiro.au/observers/accomm/ deadlines: 15-Jun 15-Dec', ''),
+(250, '', '', '', '', '', '', '', ''),
+(251, '', 'Various small optical telescopes. ', '', '26 m West: 327 MHz ; 26 m East: 1.4 and 4.8 GHz 12 m Telescope: Receiver 3.3-4.2 GHz ; Receiver 10.95-12.75 Ghz ;', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -884,7 +887,10 @@ INSERT INTO `hidden_fields` (`id`, `web_address`, `address`, `phone`, `email`, `
 (245, 0, 0, 0, 0, 0, 0, 0, 0),
 (246, 0, 0, 0, 0, 0, 0, 0, 0),
 (247, 0, 0, 0, 0, 0, 0, 0, 0),
-(248, 0, 0, 0, 0, 0, 0, 0, 0);
+(248, 0, 0, 0, 0, 0, 0, 0, 0),
+(249, 0, 0, 0, 0, 0, 0, 0, 0),
+(250, 0, 0, 0, 0, 0, 0, 0, 0),
+(251, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -917,7 +923,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1573 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1574 ;
 
 --
 -- Dumping data for table `instruments`
@@ -1140,7 +1146,6 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1169, 'Apogee AP-16', 5, '', '', 0.000000, 1, 0.000000, 1, '1.9', '', '', '4096 x 4096', 0, '', 0, 0, 0, '', ''),
 (1170, 'Photometrics S300', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 1, '1024 x 1024', 0.001, 999, 1, 'SITe 003B', ''),
 (1171, 'SBIG ST-8', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1530 x 1020', 0, 0, 0, '', ''),
-(1173, 'Canon G15Hi', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 25, '', 0.04, 0, 1, '', ''),
 (1175, 'Orion Starshoot', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', ''),
 (1191, 'Bench Spectrograph', 1, '', 'optical, ', 350.000000, 8, 950.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'http://www.wiyn.org/Instruments/wiyninstrument_current.html#bench\r\n\r\nRecent upgrades to the instrument and further specifications can be found in Bershady et. al, "WIYN bench upgrade: a revitalized spectrograph" (http://www.wiyn.org/Instruments/bershady_bench_spie08.pdf)'),
 (1192, 'Hydra Spectrograph', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'http://www.wiyn.org/Instruments/wiyninstrument_current.html#hydra\r\n\r\nHydra is a multi-object spectrometer that utilizes fiber optics placed in the focal plane to simultaneously transmit the light from numerous objects to a bench-mounted spectrograph that records the spectrum of each object onto a CCD detector. '),
@@ -1275,7 +1280,8 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1569, 'PHARO - Palomar High Angular Resolution Observer', 8, 'Cassegrain', 'infrared', 1.000000, 9, 2.500000, 9, '0.04 and 0.025', '', '', '', 0, '1024x1024', 0, 0, 0, '', 'Further information on this instrument available under http://www.astro.caltech.edu/palomar/200inch/palao/pharo_specs.html\r\nand http://www.astro.caltech.edu/observatories/palomar/200inch/palao/Pharo/pharo.html'),
 (1570, 'SWIFT', 8, 'Cassegrain', 'optical, near infrared', 650.000000, 8, 1000.000000, 8, '0.235; 0.16; and 0.08', '', '', '10.3 x 20.9; 7.0 x 14.2; and 3.5 x 7.1', 0, '4000 x 2000', 0, 0, 0, '', '- Spectral resolving power: R ≡ λ ⁄Δλ = 3250 at 650 nm, rising linearly to 4400 at 1000 nm, 2 pixel spectral FWHM.\r\n\r\n- Further information on this instrument available under http://www.astro.caltech.edu/palomar/200inch/palao/swift/swift_specs.htm'),
 (1571, 'EAE - East Arm Echelle', 8, '', 'optical', 3800.000000, 7, 8600.000000, 7, '', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', 'Further information on this instrument available under http://www.astro.caltech.edu/palomar/200inch/echelle/eae_spec.html'),
-(1572, 'Facility Optical Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '0.378', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', 'Further information on this instrument available under http://www.astro.caltech.edu/palomar/P60observers.html');
+(1572, 'Facility Optical Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '0.378', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', 'Further information on this instrument available under http://www.astro.caltech.edu/palomar/P60observers.html'),
+(1573, 'Canon G15Hi', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 25, '', 0.04, 0, 1, '', '');
 
 -- --------------------------------------------------------
 
@@ -1340,7 +1346,7 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   KEY `precipitation_id` (`precipitation`),
   KEY `clear_nights_id` (`clear_nights`),
   KEY `timezone_id` (`timezone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=249 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=252 ;
 
 --
 -- Dumping data for table `observatories`
@@ -1456,7 +1462,7 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (108, 'Bohyunsan Optical Astronomy Observatory', 1996, 'Korea Astronomy and Space Institute', 'http://boao.kasi.re.kr/Default.aspx', '61-1, Hwaam-dong,Yuseong-gu,305-348', 191, '82428653246', 'webinfo@kasi.re.kr', 36.164906, 128.976567, '', 1240, 7, 8, 10, '', 'Sobaeksan Optical Astronomy Observatory, ', 6, '2012-02-16 20:54:39', '2012-03-20 11:49:01', 1, 0, 6),
 (110, 'Boothe Memorial Astronomical Society', 1954, 'Boothe Memorial Astronomical Society', 'http://www.bmas.org', 'Main Street, Putney, Stratford, CT 06615', 218, '', 'info@bmas.org', 0.000000, 0.000000, '', 0, 7, 7, 1, '', '', 6, '2012-02-16 22:02:29', '2012-03-20 11:50:24', 1, 0, 6),
 (111, 'BODE-Observatory', 1985, 'Hans-J. Bode (privately owned)', 'http://www.occultations.info', 'Bartold-Knaust-Str., 8D-30459', 81, '-424750', 'HJB@occultations.info', 52.335567, 9.710278, '', 65, 4, 2, 2, '', '', 6, '2012-02-17 11:12:09', '2012-03-20 13:45:27', 1, 0, 6),
-(112, 'Boyden Observatory', 1889, 'Department of Physiscs, University of the Free State', 'http://www.assabfn.co.za/friendsofboyden/boyden.htm', 'Bloemfontein', 190, '051-401 2561', '', -29.038831, 26.404717, '20km north-east of Bloemfontein', 1372, 7, 8, 3, '', '', 6, '2012-02-17 11:52:10', '2012-03-08 17:39:55', 1, 0, 9),
+(112, 'Boyden Observatory', 1889, 'Department of Physiscs, University of the Free State', 'http://www.assabfn.co.za/friendsofboyden/boyden.htm', 'Bloemfontein', 190, '051-401 2561', '', -29.038831, 26.404717, '20km north-east of Bloemfontein', 1372, 7, 8, 3, '', '', 6, '2012-02-17 11:52:10', '2012-07-25 11:06:00', 1, 0, 6),
 (113, 'Bosscha Observatory', 1923, 'Institut Teknologi Bandung', 'http://bosscha.itb.ac.id', 'West Java, Lembang', 100, '', '', -6.824556, 107.615875, 'Near Lembang, about 15km north of Bandung, Java', 1310, 7, 8, 10, '', '', 6, '2012-02-17 13:10:28', '2012-03-20 14:02:48', 1, 0, 6),
 (114, 'Brixiis Observatory', 2005, 'Erik Bryssinck (privately owned)', 'http://www.astronomie.be/erik.bryssinck/', 'Eyckensbeekstraat 2, Kruibeke', 21, '32-3-2962102', 'erik.bryssinck@telenet.be', 0.000000, 0.000000, 'About 10 km south of Antwerp', 6, 7, 2, 2, '', '', 6, '2012-02-17 14:21:41', '2012-03-08 17:34:46', 1, 0, 9),
 (115, 'Buena Vista Observatory', 2005, 'privately owned', 'http://www.astrosteve.com', '', 218, '', 'steve@astrosteve.com', 0.000000, 0.000000, 'New Mexico', 503, 6, 4, 21, '', '', 6, '2012-02-17 14:52:28', '2012-03-08 17:23:36', 1, 0, 9),
@@ -1526,7 +1532,7 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (183, 'Cerro Tololo Station (Inter American Observatory)', 0, 'NOAO', 'http://www.ctio.noao.edu/', ',,,Cerro Tololo', 43, '', '', 0.000000, 0.000000, 'Chile; LAT:?; LON:?; Rain:; Nights:', 2700, 7, 8, 1, '', '', 6, '2012-05-09 13:33:41', '2012-05-09 13:33:55', 0, 1, 6),
 (185, 'Kitt Peak National Observatory', 0, 'National Optical Astronomy Observatory', 'http://kpno@noao.edu', 'Kitt Peak National Observatory,950 N. Cherry Avenue,85719,Tuscon AZ85719', 218, '520-318-8000', 'kpno@noao.edu', 0.000000, 0.000000, 'USA; LAT:111?36''00.56''''W; LON:31?57''48.52''''N; Rain:; Nights:', 2069, 7, 8, 1, '', '', 6, '2012-05-09 13:36:18', '2012-05-09 13:36:31', 0, 1, 6),
 (186, 'Klet'' Observatory', 1957, 'funded by the South Bohemian Region', 'http://www.klet.org', 'Kleť Observatory, Zátkovo nábřeží 4, CZ-370 01 České Budějovice, Czech Republic', 56, '+420-380-123-327', 'klet@klet.cz', 48.863331, 14.288056, '', 1070, 5, 4, 2, '', '', 6, '2012-05-09 13:40:31', '2012-05-09 14:05:30', 1, 0, 6),
-(187, 'Knínice', 2005, 'Tomáš Janík', '', 'Knínice 37400 02', 56, '420777039269', 'jazzer@centrum.cz', 50.733331, 14.002497, '', 460, 6, 2, 2, '', 'Observatory Rokycany, Observatory Teplice, Zdenek Moravec (Usti nad Labem), ', 6, '2012-05-09 14:09:51', '2012-05-09 14:13:17', 1, 0, 6),
+(187, 'Knínice', 2005, 'privately owned (Tomáš Janík)', '', 'Knínice 37400 02', 56, '420777039269', 'jazzer@centrum.cz', 50.733331, 14.002494, '', 460, 6, 2, 2, '', 'Observatory Rokycany, Observatory Teplice, Zdenek Moravec (Usti nad Labem), ', 6, '2012-05-09 14:09:51', '2012-07-25 11:04:45', 1, 0, 6),
 (188, 'KOSMA - Kölner Observatorium für Submillimeter-Astronomie', 1967, 'I. Physikalisches Institut, Universität zuKöln', 'http://www.astro.uni-koeln.de/kosma', 'Gornergrat, CH-3920 Zermatt', 200, '+41-279-672715', 'stutzki@ph1.uni-koeln.de', 45.984442, 7.785831, '', 3135, 7, 8, 2, '', '', 6, '2012-05-09 14:18:57', '2012-05-09 14:26:54', 1, 0, 6),
 (189, 'Kvistaberg Observatory', 0, 'Department of Physics and Astronomy, Uppsala University', 'http://www.astro.uu.se/history/Kvistaberg.html', 'Kvistabergs observatorium, SE-197 91 BRO, Sweden', 199, '(+44) 018 - 471 5983', '', 59.501667, 17.606667, '45 km North-West of Stockholm', 0, 7, 8, 1, 'no active research', 'Uppsala Astronomical Observatory, ', 6, '2012-05-09 14:35:21', '2012-05-09 14:46:34', 1, 0, 6),
 (191, 'Land of Oz Observatory', 2003, 'private person (Ron Abbott)', 'http://www.astrolandofoz.com', '', 218, '', 'rnrse71@kc.rr.com', 0.000000, 0.000000, 'Kansas, USA', 319, 3, 4, 18, '', '', 6, '2012-05-09 14:59:54', '2012-05-09 15:07:47', 1, 0, 6),
@@ -1584,7 +1590,10 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (245, 'Osservatorio Astronomico Montagna Pistoiese', 1990, 'private - Gruppo Astrofili Montagna Pistoiese', 'http://www.gamp-pt.net', 'Viale Panoramico 949', 103, '0573 622220 -3473213', 'luctesi@alice.it', 44.064167, 10.803750, '', 980, 5, 3, 2, '', 'Mazucato Michele michelemazzucato@tiscali.it;  Fagioli Giancarlo  gfagio@supereva.it', 6, '2012-07-23 16:19:55', '2012-07-23 16:32:56', 1, 0, 6),
 (246, 'Owens Valley Observatory', 1958, 'Caltech', 'http://www.ovro.caltech.edu/', 'CARMA 100 Leighton Lane (P.O. Box 968), Big Pine CA93513', 218, '760-938-2075', '', 37.233889, -118.282217, '', 1222, 7, 8, 21, '', '', 6, '2012-07-23 16:48:18', '2012-07-23 17:07:31', 1, 0, 6),
 (247, 'Parkes Observatory', 1961, 'CSIRO Astronomy and Space Science', 'http://www.parkes.atnf.csiro.au/', 'PO Box 276, Parkes, NSW 2870', 13, '(+61) 02 6861 1700', 'parkes@csiro.au', -32.999942, 148.262306, '20 km north of the town of Parkes, New South Wales', 415, 7, 8, 11, '', '', 6, '2012-07-23 17:17:05', '2012-07-24 11:36:06', 1, 0, 6),
-(248, 'Palomar Observatory', 1928, 'Caltech', 'http://www.astro.caltech.edu/palomar/', 'Palomar Observatory, 35899 Canfield Road, Palomar Mountain, CA 92060-0200', 218, '(760) 742-2111', '', 33.355831, -116.863889, '', 1713, 7, 6, 21, '', '', 6, '2012-07-24 11:39:34', '2012-07-24 15:10:17', 1, 0, 6);
+(248, 'Palomar Observatory', 1928, 'Caltech', 'http://www.astro.caltech.edu/palomar/', 'Palomar Observatory, 35899 Canfield Road, Palomar Mountain, CA 92060-0200', 218, '(760) 742-2111', '', 33.355831, -116.863889, '', 1713, 7, 6, 21, '', '', 6, '2012-07-24 11:39:34', '2012-07-24 15:10:17', 1, 0, 6),
+(249, 'ATCA - Australia Telescope Compact Array (Paul Wild Observatory)', 1989, 'CSIRO Astronomy and Space Science', 'http://www.narrabri.atnf.csiro.au/', 'CSIRO Australia Telescope, Locked Bag 194, Narrabri NSW 2390, AUSTRALIA', 13, '+61 02 6790 4000', 'narrabri@atnf.csiro.au', -30.313900, 149.562000, '25 km west of the town of Narrabri', 209, 7, 8, 11, '', 'Part of the Australia Telescope National Facility', 6, '2012-07-25 10:20:19', '2012-07-25 11:41:19', 1, 0, 6),
+(250, 'Pico dos Dias Observatory', 0, 'LNA - Laboratório Nacional de Astrofisica', 'http://www.lna.br/opd/opd.html', 'Minas Gerais', 30, '+55 35 3621-2121', '', -22.534442, -45.582500, '', 1864, 7, 8, 16, '', '', 6, '2012-07-25 11:52:09', '2012-07-25 13:48:12', 0, 1, 6),
+(251, 'Pisgah Astronomical Research Institute', 0, 'PARI', 'http://www.pari.edu/', 'Pisgah Astronomical Research Institute 1 PARI Drive Rosman,,28772,NC28772', 218, '828-862-5554', 'dclavier@pari.edu', 35.199592, -82.872392, 'USA; LAT:82?52''20.64''''W; LON:35?11''58.56''''N; Rain:; Nights:', 880, 7, 8, 18, '', '', 6, '2012-07-25 13:49:16', '2012-07-25 14:44:18', 1, 0, 6);
 
 -- --------------------------------------------------------
 
@@ -2300,7 +2309,15 @@ INSERT INTO `observatory_to_research_areas` (`observatory_id`, `research_area_id
 (248, 15),
 (248, 131),
 (248, 137),
-(248, 140);
+(248, 140),
+(249, 131),
+(250, 131),
+(251, 9),
+(251, 11),
+(251, 15),
+(251, 131),
+(251, 133),
+(251, 135);
 
 -- --------------------------------------------------------
 
@@ -2774,7 +2791,9 @@ INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
 (244, 33),
 (245, 31),
 (245, 33),
-(246, 45);
+(246, 45),
+(251, 4),
+(251, 45);
 
 -- --------------------------------------------------------
 
@@ -3027,11 +3046,11 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (111, 1648),
 (111, 1649),
 (111, 1650),
-(112, 1481),
-(112, 1482),
-(112, 1483),
-(112, 1484),
-(112, 1485),
+(112, 2734),
+(112, 2735),
+(112, 2736),
+(112, 2737),
+(112, 2738),
 (113, 1679),
 (113, 1680),
 (113, 1681),
@@ -3176,9 +3195,9 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (186, 2127),
 (186, 2128),
 (186, 2129),
-(187, 2136),
-(187, 2137),
-(187, 2138),
+(187, 2731),
+(187, 2732),
+(187, 2733),
 (188, 2144),
 (188, 2145),
 (188, 2146),
@@ -3315,7 +3334,16 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (248, 2724),
 (248, 2725),
 (248, 2726),
-(248, 2727);
+(248, 2727),
+(249, 2739),
+(250, 2745),
+(250, 2746),
+(250, 2747),
+(251, 2767),
+(251, 2768),
+(251, 2769),
+(251, 2770),
+(251, 2771);
 
 -- --------------------------------------------------------
 
@@ -3394,7 +3422,7 @@ CREATE TABLE IF NOT EXISTS `scientific_contacts` (
   `email` text NOT NULL,
   `institution` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1303 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1369 ;
 
 --
 -- Dumping data for table `scientific_contacts`
@@ -3579,9 +3607,6 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (813, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
 (814, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
 (815, 'http://www.jaxa.jp/pr/mail/index_e.html', '', 'JAXA'),
-(816, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
-(817, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
-(818, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
 (819, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
 (820, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
 (821, 'http://www.jaxa.jp/pr/inquiries/index_e.html', '', 'JAXA'),
@@ -3675,7 +3700,15 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (1299, 'D.J. McComas', '', 'Space and Atmospheric Sciences Group'),
 (1300, 'Charles W. Smith', '', 'UNH'),
 (1301, 'Richard Mewaldt', 'rmewaldt@srl.caltech.edu', 'SWPC'),
-(1302, 'Elsa Montagnon', '', '(ESOC) Darmstadt, Germany. ');
+(1302, 'Elsa Montagnon', '', '(ESOC) Darmstadt, Germany. '),
+(1361, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
+(1362, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
+(1363, 'Antariksh Bhavan', 'satish@isro.gov.in', 'ISRO'),
+(1364, 'AS Kiran', 'kiran@sac.isro.gov.in', ''),
+(1365, 'AS Kiran', 'kiran@sac.isro.gov.in', ''),
+(1366, 'JA Kamalakar', 'kamalakar@leosisro.com', ''),
+(1367, 'JN Goswami', 'goswami@prl.ernet.in', ''),
+(1368, 'N Bhandari', 'bhandari@prl.ernet.in', '');
 
 -- --------------------------------------------------------
 
@@ -3698,7 +3731,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
   `web_address` text,
   `sensor_comments` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1232 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1306 ;
 
 --
 -- Dumping data for table `sensors`
@@ -3736,9 +3769,6 @@ INSERT INTO `sensors` (`id`, `sensor_name`, `sensor_type`, `diameter_m`, `wavele
 (701, 'SOT - Solar Optical Telescope', '', NULL, NULL, 388, 668, 'nm', 'Measurement of the vector magnetic field in the photosphere and dynamics of both the photosphere and chromosphere associated with the magnetic fields.', '', '', '', ''),
 (702, 'EIS - Extreme-ultraviolet Imaging Spectrometer', '', NULL, NULL, 0, 0, '', '', '', '', '', ''),
 (703, 'XRT - X-Ray Telescope', '', NULL, NULL, 0, 0, '', 'Observes the generation, transport, and emergence of solar magnetic fields, and ultimate dissipation of magnetic energy in a form such as flares, and pico-flares, coronal heating, coronal mass ejection.', 'High Resolution', '', '', ''),
-(704, 'C1XS - Chandrayaan-1 X-ray Spectrometer', '', NULL, NULL, 1, 10, 'keV', 'Measure the elemental abundance, and map the distribution of the three main rock forming elements: Mg, Al, and Si.', 'High Spectroscopic Resolution', 'Determine the abundance of minor elements such as Ca, Ti and Fe on the surface of the Moon.', '', ''),
-(705, 'SARA - Sub-keV Atom Reflecting Analyser', '', NULL, NULL, 0.01, 2, 'keV', 'Detect atoms with sufficient angular and mass resolution to address the scientific objectives.', '', '', '', ''),
-(706, 'SIR-2 - The Near Infrared Spectrometer', '', NULL, NULL, 0.9, 2.4, 'micrometer', '', '6 nanometres', '', '', ''),
 (707, 'XRT - X-Ray telescope', '', NULL, NULL, 5, 8, 'keV', '', 'High Spectroscopic Resolution', '', '', ''),
 (708, 'XRS - X-Ray spectrometer', '', NULL, NULL, 0.2, 700, 'keV', '', 'High Spectroscopic Resolution', '', '', ''),
 (709, 'XIS - X-ray Imaging Spectrometer', '', NULL, NULL, 0.2, 700, 'keV', 'location and energy of incident X-ray photons.', 'High Spectroscopic Resolution', '', '', ''),
@@ -3836,7 +3866,18 @@ INSERT INTO `sensors` (`id`, `sensor_name`, `sensor_type`, `diameter_m`, `wavele
 (1228, 'MPO - Mercury Planetary Orbiter', 'Various', NULL, NULL, 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=38831', ''),
 (1229, 'MMO - Mercury Magnetospheric Orbiter', 'Various', NULL, NULL, 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=38832', ''),
 (1230, 'Huygens Probe', 'Various (6)', NULL, NULL, 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=31193', ''),
-(1231, 'Cassini Orbiter', 'Various (12)', NULL, NULL, 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=34954', '');
+(1231, 'Cassini Orbiter', 'Various (12)', NULL, NULL, 0, 0, '', '', '', '', 'http://sci.esa.int/science-e/www/object/index.cfm?fobjectid=34954', ''),
+(1295, 'C1XS - Chandrayaan-1 X-ray Spectrometer', 'X-ray spectrometer, ', 0.000000, 'x-ray, ', 1, 10, 'keV', 'Measure the elemental abundance, and map the distribution of the three main rock forming elements: Mg, Al, and Si.', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/cixs_esa.htm', 'The C1XS is, through ESA, a collaboration between Rutherford Appleton Laboratory,UK and ISRO Satellite Centre, ISRO.\r\n\r\nThe primary goal of the C1XS instrument is to carry out high quality X-ray spectroscopic mapping of the Moon.'),
+(1296, 'SARA - Sub-keV Atom Reflecting Analyser', '', 0.000000, '', 0.01, 2, 'keV', 'Detect atoms with sufficient angular and mass resolution to address the scientific objectives.', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/sara_esa.htm', ''),
+(1297, 'SIR-2 - Near Infrared Spectrometer', 'Spectrometer, ', 0.000000, 'infrared, ', 0.9, 2.4, 'microns', '', '6 nm', '', 'http://www.isro.gov.in/Chandrayaan/htmls/sir-2_esa.htm', ''),
+(1298, 'TMC - Terrain Mapping Camera', 'Imaging camera, ', 0.000000, 'optical, ', 0.5, 0.85, 'µm', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/tmc.htm', 'The aim of TMC is to map topography of both near and far side of the Moon and prepare a 3-D atlas with high spatial and elevation resolution of 5 m.'),
+(1299, 'HySi - Hyper Spectral Imager', 'Imaging spectrometer, ', 0.000000, 'optical, ', 0.4, 0.95, 'µm', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/hysi.htm', 'The uniqueness of the HySI is in its capability of mapping the lunar surface in 64 contiguous bands in the VNIR, the spectral range of 0.4-0.95 µm region with a spectral resolution of better than 15 nm and spatial resolution of 80 m, with swath coverage of 20 km. HySI will collect the Sun’s reflected light from the Moon’s surface through a tele-centric refractive optics and focus on to an Active Pixel Sensor (APS) area detector for this purpose. '),
+(1300, 'LLRI - Lunar Laser Ranging Instrument', 'Altimeter, ', 0.000000, '', 0, 0, '', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/llri.htm', 'The LLRI will provide ranging data for determining the height difference between the spacecraft and the lunar surface.\r\n\r\nThe elevation map of the Moon prepared using the laser ranging instrument will help in studying the morphology of large basins and other lunar features, study stress, strain and flexural properties of the lithosphere and when coupled with gravity studies, would be able to find the density distribution of the crust.'),
+(1301, 'HEX - High Energy X-ray Spectrometer', 'X-ray spectrometer, ', 0.000000, 'x-ray, ', 30, 270, 'keV', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/hex.htm', 'he High Energy X-ray (HEX) experiment is designed primarily to study the emission of low energy (30-270 keV) natural gamma-rays from the lunar surface due to 238U and 232Th and their decay chain nuclides. '),
+(1302, 'MIP - Moon Impact Probe', 'Radar altimeter, CCD camera, Mass spectrometer, ', 0.000000, '', 0, 0, '', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/mip.htm', 'The impact probe of 35 kg mass will be attached at the top deck of the main orbiter and will be released during the final 100 km x 100 km orbit at a predetermined time to impact at a pre-selected location. During the descent phase, it is spin-stabilized. The total flying time from release to impact on Moon is around 25 minutes.\r\n\r\nThe primary objective is to demonstrate the technologies required for landing the probe at a desired location on the Moon and to qualify some of the technologies related to future soft landing missions. '),
+(1303, 'RADOM - Radiation Dose Monitor Experiment', 'Miniature spectrometer-dosimeter, ', 0.000000, '', 0, 0, '', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/radom_bas.htm', 'RADOM will qualitatively and quantitatively characterise the radiation environment in near lunar space, in terms of particle flux, dose rate and deposited energy spectrum. '),
+(1304, 'Mini-SAR - Miniature Synthetic Aperture Radar', 'Various, ', 0.000000, '', 0, 0, '', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/minisar_nasa.htm', 'Mini-SAR aims to detect water ice in the permanently shadowed regions on the Lunar poles, upto a depth of a few meters.'),
+(1305, 'M3 - Moon Mineralogy Mapper', 'Imaging spectrometer', 0.000000, '', 0, 0, '', '', '', '', 'http://www.isro.gov.in/Chandrayaan/htmls/mmm_nasa.htm', 'The primary Science goal of M3 is to characterize and map lunar surface mineralogy in the context of lunar geologic evolution. This translates into several sub-topics relating to understanding the highland crust, basaltic volcanism, impact craters, and potential volatiles. ');
 
 -- --------------------------------------------------------
 
@@ -3893,9 +3934,6 @@ INSERT INTO `sensor_to_scientific_contacts` (`sensor_id`, `scientific_contact_id
 (701, 813),
 (702, 814),
 (703, 815),
-(704, 816),
-(705, 817),
-(706, 818),
 (708, 819),
 (709, 820),
 (710, 821),
@@ -3967,7 +4005,15 @@ INSERT INTO `sensor_to_scientific_contacts` (`sensor_id`, `scientific_contact_id
 (1214, 1299),
 (1215, 1300),
 (1216, 1301),
-(1228, 1302);
+(1228, 1302),
+(1295, 1361),
+(1296, 1362),
+(1297, 1363),
+(1298, 1364),
+(1299, 1365),
+(1300, 1366),
+(1301, 1367),
+(1303, 1368);
 
 -- --------------------------------------------------------
 
@@ -4008,7 +4054,7 @@ INSERT INTO `space_missions` (`id`, `mission_name`, `mission_agency`, `launch_da
 (11, 'The Hubble Space Telescope', 1, '1990-04-24', '2014-12-31', 'http://hubble.nasa.gov/', '', '2011-03-03 00:27:48', '2012-07-19 10:48:35', NULL, NULL),
 (12, 'Herschel Space Observatory', 2, '2009-05-14', '2013-05-13', 'http://sci.esa.int/science-e/www/area/index.cfm?fareaid=16', 'See also: http://www.esa.int/esaMI/Herschel\r\n\r\n', '2011-03-03 01:49:26', '2012-07-24 00:24:19', '', ''),
 (13, 'Suzaku', 6, '2005-07-10', '0000-00-00', 'http://www.nasa.gov/mission_pages/astro-e2/main/index.html', '', '2011-03-03 02:43:26', '2012-07-19 10:31:46', NULL, NULL),
-(14, 'Chandrayaan-1', 11, '2008-10-22', '0000-00-00', 'http://www.isro.gov.in/Chandrayaan/htmls/home.htm', '', '2011-03-03 03:32:02', '2012-07-19 10:30:34', NULL, NULL),
+(14, 'Chandrayaan-1', 11, '2008-10-22', '0000-00-00', 'http://www.isro.gov.in/Chandrayaan/htmls/home.htm', 'The Chandrayaan-1 mission is India''s first scientific mission to the Moon, aimed at high-resolution remote sensing in visible, near infrared (NIR), low energy X-rays and high-energy X-ray regions. Specifically the objectives are:\r\n- To prepare a three-dimensional atlas (with high spatial and altitude resolution of 5-10 m) of both near and far side of the moon.\r\n	\r\n- To conduct chemical and mineralogical mapping of the entire lunar surface for distribution of mineral and chemical elements such as Magnesium, Aluminum, Silicon, Calcium, Iron and Titanium as well as high atomic number elements such as Radon, Uranium & Thorium with high spatial resolution.', '2011-03-03 03:32:02', '2012-07-25 13:02:34', '', ''),
 (15, 'Hinode', 6, '2006-09-22', '0000-00-00', 'http://www.isas.jaxa.jp/e/enterp/missions/hinode/', '', '2011-03-03 04:16:56', '2012-07-19 10:29:46', NULL, NULL),
 (16, 'COROT', 4, '2006-12-27', '2013-03-31', 'http://smsc.cnes.fr/COROT/', '', '2011-03-03 04:37:08', '2012-07-19 10:25:11', NULL, NULL),
 (17, 'Prisma', 9, '2010-06-15', '2012-01-01', 'http://www.dlr.de/rb/en/desktopdefault.aspx/tabid-6813/11187_read-25543/', '', '2011-03-03 21:37:23', '2012-07-19 10:58:52', NULL, NULL),
@@ -4191,9 +4237,17 @@ INSERT INTO `space_mission_to_sensors` (`space_mission_id`, `sensor_id`) VALUES
 (13, 708),
 (13, 709),
 (13, 710),
-(14, 704),
-(14, 705),
-(14, 706),
+(14, 1295),
+(14, 1296),
+(14, 1297),
+(14, 1298),
+(14, 1299),
+(14, 1300),
+(14, 1301),
+(14, 1302),
+(14, 1303),
+(14, 1304),
+(14, 1305),
 (15, 701),
 (15, 702),
 (15, 703),
@@ -4399,7 +4453,7 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2728 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2772 ;
 
 --
 -- Dumping data for table `telescopes`
@@ -4498,11 +4552,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (1470, 'Telescope 1', 1, 1, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1471, 'Telescope 2', 2, 0, 0, 0.280000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1472, 'Orion ED 80', 7, 1, 0, 0.080000, '0.6', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(1481, '60 inch Rockefeller Reflector', 2, 0, 0, 1.500000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information: http://www.assabfn.co.za/friendsofboyden/explore_60inch.htm'),
-(1482, '16 inch Nishimura reflector', 2, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- It is currently not operational, but future funds will re-instate it as a powerful, publicly accessible telescope.\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_16inchnishimura.htm'),
-(1483, '10 inch Metcalf Photographic Triplet Refractor', 7, 0, 0, 0.254000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- A 6 inch refractor of remarkable quality accompanies the Metcalf\r\n\r\n- Historic telescope (over 100 years), but still operating\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_10inch.htm '),
-(1484, '13 inch Alvin Clark Refractor', 7, 0, 0, 0.330000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- The telescope has an 8 inch refractor mounted on it\r\n\r\n- Historic telescope (110 years old), but still operating.\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_13inch.htm'),
-(1485, '20 cm Coelostat (Solar Telescope)', 20, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information: http://www.assabfn.co.za/friendsofboyden/explore_solartelescope.htm'),
 (1486, 'Troughton Equatorial Telescope', 7, 0, 0, 0.250000, '0.9144', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Historic 10-inch equatorial refractor built by Grubb brothers (Dublin) in 1885. Used mostly for visual and video work.'),
 (1487, 'Planewave CDK 17-inch Corrected Hall-Dirkham Astrograph', 17, 0, 0, 0.430000, 'f/6.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Auxiliary Telescope: 10.6 cm f/5.0 apochromatic reflector\r\nGuide Telescope: Equinox 120ED guidescope'),
 (1493, 'Vixen Visac', 2, 0, 0, 0.200000, 'f/9', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
@@ -4622,7 +4671,7 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (1669, '40-cm Zeiss refractor', 7, 0, 1, 0.400000, '1/17.5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1670, '40-cm Zeiss double astrograph', 7, 0, 1, 0.400000, '1/7', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'FOV = 6 degree'),
 (1671, '36-cm Zeiss Schmidt', 17, 0, 1, 0.360000, '1/1.5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'FOV = 7.5 degree'),
-(1672, '53-cm Coronograph', 15, 0, 0, 0.000000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(1672, '53-cm Coronograph', 15, 0, 0, 0.530000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
 (1673, '44-cm Coelostat', 15, 0, 0, 0.440000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
 (1674, 'Maksutov-Cassegrain', 4, 0, 1, 0.300000, '4.8', 1, 'infrared, optical, ultraviolet, ', 0.000000, 1, 0.000000, 1, 'Image scale: 43 arcsec/mm'),
 (1675, 'MEADE ETX-125', 4, 0, 1, 0.127000, '1.9', 1, 'infrared, optical, ultraviolet, ', 0.000000, 1, 0.000000, 1, 'Image scale: 108 arcsec/mm'),
@@ -4732,8 +4781,7 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (1998, 'Westford Radio Telescope', 10, 0, 0, 18.299999, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, 'Further information available under: http://www.haystack.mit.edu/obs/westford/index.html'),
 (1999, 'MISA Antenna', 15, 0, 0, 46.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- Incoherent Scatter Radar\r\n\r\n'),
 (2000, 'Zenith Antenna', 15, 0, 0, 68.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- Incoherent Scatter Radar'),
-(2004, '"Aristarchos"', 5, 0, 0, 2.300000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '');
-INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag`, `telescope_elements`, `diameter_m`, `focallength_m`, `antenna_type`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `comments`) VALUES
+(2004, '"Aristarchos"', 5, 0, 0, 2.300000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2005, 'Aristarchos Telescope', 5, 0, 0, 2.300000, '8.00', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.astro.noa.gr/helmos/telescope_information.html'),
 (2015, 'Ritchey-Chretien Telescope', 5, 0, 0, 1.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2016, 'Telescope 1', 1, 0, 0, 0.700000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
@@ -4745,7 +4793,8 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2038, 'Meade 97 90mm', 4, 0, 0, 0.090000, '1', 1, '', 0.000000, 1, 0.000000, 1, ''),
 (2039, 'Coronado PST Solar', 20, 0, 0, 0.040000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Hydrogen Alpha telescope, mounted on the CPC'),
 (2042, 'Meade 14'''' LX200GPS', 3, 0, 0, 0.360000, 'f/10', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2046, '18'''' Newton Telescope', 1, 0, 0, 0.457200, '2.135', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Optional focal length: 1.61m'),
+(2046, '18'''' Newton Telescope', 1, 0, 0, 0.457200, '2.135', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Optional focal length: 1.61m');
+INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag`, `telescope_elements`, `diameter_m`, `focallength_m`, `antenna_type`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `comments`) VALUES
 (2051, 'HAGAR (High Altitude Gamma Ray Telescope)', 15, 0, 7, 4.400000, '1.75', 1, 'gamma-ray, ', 0.000000, 1, 0.000000, 1, '- Gamma-ray observatory\r\n\r\n- HAGAR is an Atmospheric Cerenkov experiment with 7 telescopes, each with 7 mirrors of total area of 4.4 sq.mtrs - the total light gathering area of 7 telescopes is thus 31 sq.mtrs. The telescopes are deployed on the periphery of a circle of radius 50 meters with one telescope at the center. Each telescope has alt-azimuth mounting. Each of the 7 mirrors in each telescope is looked at by a UV sensitive PhotoMultiplier Tube. All seven units are installed, and calibration tests are underway.\r\n\r\n- Further information on this telescope available under: http://www.iiap.res.in/iao_hagar'),
 (2052, 'HCT - The Himalayan Chandra optical-infrared Telescope', 5, 0, 0, 2.000000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.iiap.res.in/iao_telescope'),
 (2061, 'William Herschel Telescope', 17, 0, 0, 4.200000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, '- Applying for time: http://www.ing.iac.es/Astronomy/observing/INGinfo_home.html\r\n\r\n- Further information on this instrument available under: http://www.ing.iac.es/astronomy/telescopes/wht/'),
@@ -4773,9 +4822,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2127, '1.06-m KLENOT telescope', 1, 0, 0, 1.060000, 'f/3', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information on this telescope can be found under: http://www.klet.org/?stranka=klenot_telescope&menu_id=84&uroven=3\r\n\r\n- Information on the KLENOT-project: http://www.klet.org/?stranka=klenot&menu_id=4&uroven=2'),
 (2128, '0.57-m f/5.2 reflector', 17, 0, 0, 0.570000, 'f/5.2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.klet.org/?stranka=telescopes&menu_id=3&uroven=2'),
 (2129, 'Maksutov telescope', 4, 0, 0, 0.630000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope can be found under: http://www.klet.org/?stranka=telescopes&menu_id=3&uroven=2'),
-(2136, 'Newton Telescope', 1, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2137, 'Dobson Telescope', 6, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2138, 'Binocular Telescope', 8, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2144, 'The 3m KOSMA Radio Telescope', 10, 0, 0, 3.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '210 and 880 GHz'),
 (2145, '1.5m infrared telescope', 15, 0, 0, 1.500000, '', 1, 'infrared, ', 0.000000, 1, 0.000000, 1, ''),
 (2146, 'The 3m KOSMA submillimeter telescope', 15, 0, 0, 0.000000, '', 1, 'submillimeter, ', 0.000000, 1, 0.000000, 1, 'historic, not any longer available.'),
@@ -4927,7 +4973,24 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2724, 'Samuel Oschin Telescope', 18, 0, 0, 1.220000, 'f/2.50', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://www.astro.caltech.edu/palomar/sot.html'),
 (2725, '60-inch Telescope', 17, 0, 0, 1.500000, 'f/8.75', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information on this telescope available under http://www.astro.caltech.edu/palomar/60inch.html\r\n\r\n- Information on the adaptive optics system Robo-AO: http://www.astro.caltech.edu/Robo-AO/'),
 (2726, '18-inch Schmidt Telescope', 18, 0, 0, 0.457000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- No longer used for scientific research, but there are plans in the works to put it on public display\r\n\r\n- Further information on this telescope available under http://www.astro.caltech.edu/palomar/18inch.html'),
-(2727, '24-inch Telescope', 17, 0, 0, 0.610000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://www.astro.caltech.edu/palomar/24inch.html');
+(2727, '24-inch Telescope', 17, 0, 0, 0.610000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://www.astro.caltech.edu/palomar/24inch.html'),
+(2731, 'Newton Telescope', 1, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2732, 'Dobson Telescope', 6, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2733, 'Binocular Telescope', 8, 0, 0, 0.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2734, '60 inch Rockefeller Reflector', 2, 0, 0, 1.500000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information: http://www.assabfn.co.za/friendsofboyden/explore_60inch.htm'),
+(2735, '16 inch Nishimura reflector', 2, 0, 0, 0.406000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- It is currently not operational, but future funds will re-instate it as a powerful, publicly accessible telescope.\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_16inchnishimura.htm'),
+(2736, '10 inch Metcalf Photographic Triplet Refractor', 7, 0, 0, 0.254000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- A 6 inch refractor of remarkable quality accompanies the Metcalf\r\n\r\n- Historic telescope (over 100 years), but still operating\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_10inch.htm '),
+(2737, '13 inch Alvin Clark Refractor', 7, 0, 0, 0.330000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- The telescope has an 8 inch refractor mounted on it\r\n\r\n- Historic telescope (110 years old), but still operating.\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_13inch.htm'),
+(2738, '20 cm Coelostat (Solar Telescope)', 20, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information: http://www.assabfn.co.za/friendsofboyden/explore_solartelescope.htm'),
+(2739, 'ATCA', 10, 0, 6, 22.000000, '', 1, 'radiowave, ', 1.100000, 5, 105.000000, 5, '\r\nFurther information on this array available under http://www.narrabri.atnf.csiro.au/observing/users_guide/html/new_atug_6.html#Overview-of-the-ATCA'),
+(2745, '1.6m Telescope', 2, 0, 0, 1.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2746, '0.6m Telescope', 5, 0, 0, 0.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2747, '0.6m Telescope', 2, 0, 0, 0.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2767, '26-meter West Radio Telescope', 10, 0, 0, 26.000000, '', 1, '', 0.000000, 1, 0.000000, 1, '- Five scanning spectrometers and two 64 Msps FFT spectrometers\r\n\r\n- Current receivers on the West 26-m telescope include the frequencies 1.4 GHz for HI measurements, 4.8 GHz for formaldehyde. The 26-m radio telescopes can also be used at other frequencies with receivers provided by visiting astronomers.\r\n\r\n- Further information on this telescope and its spectrometers available under http://www.pari.edu/telescopes/RadioTelescopes/26West/'),
+(2768, '26-meter East Radio Telescope', 10, 0, 0, 26.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- 26 East is currently configured for 327 MHz pulsar research.\r\n\r\n- Five scanning spectrometers and two 64 Msps FFT spectrometers\r\n\r\n- Further information on this telescope and its spectrometers available under http://www.pari.edu/telescopes/RadioTelescopes/26East/'),
+(2769, '', 10, 0, 0, 12.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: Radio\r\n'),
+(2770, 'Radio Jove Antenna', 10, 0, 2, 0.000000, '', 1, 'radiowave, ', 17.000000, 4, 30.000000, 4, '- Automatic Tracking\r\n\r\n- Further information available under http://www.pari.edu/telescopes/RadioTelescopes/parijove/'),
+(2771, '4.6m Radio Telescope "Smiley"', 10, 0, 0, 4.600000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- The antenna is currently configured for 21 cm (1.42 GHz) neutral hydrogen reception\r\n\r\n- For public outreach only.\r\n\r\n- Further information o nthis telescope available under http://www.pari.edu/telescopes/RadioTelescopes/four_six/');
 
 -- --------------------------------------------------------
 
@@ -5163,7 +5226,6 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2076, 1169),
 (2127, 1170),
 (2128, 1171),
-(2136, 1173),
 (2160, 1175),
 (2185, 1191),
 (2185, 1192),
@@ -5298,7 +5360,8 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2723, 1569),
 (2723, 1570),
 (2723, 1571),
-(2725, 1572);
+(2725, 1572),
+(2731, 1573);
 
 -- --------------------------------------------------------
 
@@ -5457,7 +5520,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14586 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14787 ;
 
 --
 -- Dumping data for table `users_statistics`
@@ -20056,7 +20119,209 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (14582, 9, 'edit', '2012-07-24 18:02:05'),
 (14583, 9, 'add', '2012-07-24 18:02:07'),
 (14584, 9, 'add', '2012-07-24 18:02:37'),
-(14585, 9, 'edit', '2012-07-24 18:03:26');
+(14585, 9, 'edit', '2012-07-24 18:03:26'),
+(14586, 9, 'logout', '2012-07-24 18:09:03'),
+(14587, 1, 'home', '2012-07-24 18:09:03'),
+(14588, 1, 'home', '2012-07-24 18:09:10'),
+(14589, 1, 'home', '2012-07-24 18:09:11'),
+(14590, 1, 'home', '2012-07-24 18:09:17'),
+(14591, 1, 'home', '2012-07-24 18:09:17'),
+(14592, 1, 'home', '2012-07-25 00:37:49'),
+(14593, 1, 'login', '2012-07-25 00:37:52'),
+(14594, 3, 'login', '2012-07-25 00:37:52'),
+(14595, 3, 'add', '2012-07-25 00:37:54'),
+(14596, 3, 'add', '2012-07-25 00:37:56'),
+(14597, 3, 'home', '2012-07-25 00:38:11'),
+(14598, 3, 'add', '2012-07-25 00:38:14'),
+(14599, 3, 'add', '2012-07-25 00:38:15'),
+(14600, 3, 'add', '2012-07-25 00:38:19'),
+(14601, 3, 'add', '2012-07-25 00:38:21'),
+(14602, 3, 'add', '2012-07-25 00:38:29'),
+(14603, 1, 'browse', '2012-07-25 04:57:52'),
+(14604, 1, 'login', '2012-07-25 09:58:26'),
+(14605, 9, 'login', '2012-07-25 09:58:27'),
+(14606, 9, 'home', '2012-07-25 09:58:29'),
+(14607, 9, 'home', '2012-07-25 09:58:30'),
+(14608, 9, 'browse', '2012-07-25 09:58:34'),
+(14609, 9, 'browse', '2012-07-25 09:58:36'),
+(14610, 9, 'add', '2012-07-25 09:59:19'),
+(14611, 9, 'browse', '2012-07-25 10:02:15'),
+(14612, 9, 'browse', '2012-07-25 10:02:18'),
+(14613, 1, 'home', '2012-07-25 10:02:48'),
+(14614, 1, 'browse', '2012-07-25 10:02:51'),
+(14615, 1, 'browse', '2012-07-25 10:02:53'),
+(14616, 1, 'login', '2012-07-25 10:03:02'),
+(14617, 6, 'login', '2012-07-25 10:03:02'),
+(14618, 6, 'browse', '2012-07-25 10:03:04'),
+(14619, 6, 'browse', '2012-07-25 10:03:06'),
+(14620, 9, 'edit', '2012-07-25 10:03:14'),
+(14621, 9, 'edit', '2012-07-25 10:03:16'),
+(14622, 9, 'home', '2012-07-25 10:03:30'),
+(14623, 9, 'edit', '2012-07-25 10:03:34'),
+(14624, 9, 'edit', '2012-07-25 10:03:34'),
+(14625, 9, 'edit', '2012-07-25 10:03:36'),
+(14626, 9, 'add', '2012-07-25 10:03:43'),
+(14627, 9, 'add', '2012-07-25 10:03:48'),
+(14628, 9, 'edit', '2012-07-25 10:03:54'),
+(14629, 9, 'edit', '2012-07-25 10:03:57'),
+(14630, 9, 'edit', '2012-07-25 10:04:00'),
+(14631, 9, 'add', '2012-07-25 10:04:08'),
+(14632, 9, 'add', '2012-07-25 10:04:38'),
+(14633, 9, 'browse', '2012-07-25 10:04:44'),
+(14634, 9, 'browse', '2012-07-25 10:04:48'),
+(14635, 9, 'edit', '2012-07-25 10:07:00'),
+(14636, 9, 'edit', '2012-07-25 10:07:02'),
+(14637, 9, 'add', '2012-07-25 10:08:15'),
+(14638, 6, 'home', '2012-07-25 10:14:17'),
+(14639, 6, 'edit', '2012-07-25 10:16:21'),
+(14640, 6, 'edit', '2012-07-25 10:16:24'),
+(14641, 6, 'edit', '2012-07-25 10:16:26'),
+(14642, 6, 'add', '2012-07-25 10:16:29'),
+(14643, 6, 'browse', '2012-07-25 10:18:59'),
+(14644, 6, 'browse', '2012-07-25 10:19:01'),
+(14645, 6, 'browse', '2012-07-25 10:19:07'),
+(14646, 6, 'edit', '2012-07-25 10:19:38'),
+(14647, 6, 'edit', '2012-07-25 10:19:40'),
+(14648, 6, 'edit', '2012-07-25 10:19:42'),
+(14649, 6, 'add', '2012-07-25 10:19:45'),
+(14650, 6, 'add', '2012-07-25 10:20:19'),
+(14651, 6, 'edit', '2012-07-25 10:20:21'),
+(14652, 6, 'edit', '2012-07-25 10:20:23'),
+(14653, 6, 'add', '2012-07-25 10:20:27'),
+(14654, 6, 'add', '2012-07-25 10:20:53'),
+(14655, 6, 'map', '2012-07-25 10:20:57'),
+(14656, 6, 'edit', '2012-07-25 10:22:00'),
+(14657, 6, 'edit', '2012-07-25 10:22:02'),
+(14658, 6, 'add', '2012-07-25 10:22:04'),
+(14659, 6, 'add', '2012-07-25 10:24:32'),
+(14660, 6, 'map', '2012-07-25 10:24:46'),
+(14661, 6, 'edit', '2012-07-25 10:27:50'),
+(14662, 6, 'edit', '2012-07-25 10:30:35'),
+(14663, 6, 'edit', '2012-07-25 10:30:37'),
+(14664, 6, 'add', '2012-07-25 10:30:42'),
+(14665, 9, 'home', '2012-07-25 10:36:18'),
+(14666, 9, 'browse', '2012-07-25 10:36:20'),
+(14667, 9, 'browse', '2012-07-25 10:36:22'),
+(14668, 9, 'browse', '2012-07-25 10:36:32'),
+(14669, 9, 'browse', '2012-07-25 10:36:49'),
+(14670, 9, 'add', '2012-07-25 10:42:10'),
+(14671, 9, 'add', '2012-07-25 10:44:28'),
+(14672, 9, 'add', '2012-07-25 10:45:13'),
+(14673, 9, 'add', '2012-07-25 10:45:37'),
+(14674, 9, 'edit', '2012-07-25 10:48:09'),
+(14675, 9, 'add', '2012-07-25 10:48:15'),
+(14676, 9, 'add', '2012-07-25 10:48:46'),
+(14677, 9, 'edit', '2012-07-25 10:49:49'),
+(14678, 9, 'edit', '2012-07-25 10:49:51'),
+(14679, 9, 'add', '2012-07-25 10:49:55'),
+(14680, 6, 'browse', '2012-07-25 10:55:15'),
+(14681, 6, 'browse', '2012-07-25 10:55:17'),
+(14682, 6, 'browse', '2012-07-25 10:55:23'),
+(14683, 9, 'browse', '2012-07-25 11:03:49'),
+(14684, 9, 'browse', '2012-07-25 11:04:05'),
+(14685, 6, 'browse', '2012-07-25 11:04:07'),
+(14686, 6, 'add', '2012-07-25 11:04:29'),
+(14687, 6, 'add', '2012-07-25 11:04:45'),
+(14688, 6, 'add', '2012-07-25 11:05:19'),
+(14689, 6, 'add', '2012-07-25 11:06:00'),
+(14690, 9, 'browse', '2012-07-25 11:08:13'),
+(14691, 9, 'home', '2012-07-25 11:08:30'),
+(14692, 9, 'browse', '2012-07-25 11:08:34'),
+(14693, 9, 'browse', '2012-07-25 11:08:37'),
+(14694, 9, 'add', '2012-07-25 11:35:54'),
+(14695, 9, 'edit', '2012-07-25 11:36:18'),
+(14696, 9, 'edit', '2012-07-25 11:36:20'),
+(14697, 9, 'add', '2012-07-25 11:36:22'),
+(14698, 6, 'add', '2012-07-25 11:41:19'),
+(14699, 6, 'browse', '2012-07-25 11:41:23'),
+(14700, 6, 'browse', '2012-07-25 11:41:25'),
+(14701, 6, 'browse', '2012-07-25 11:41:31'),
+(14702, 9, 'edit', '2012-07-25 11:44:14'),
+(14703, 9, 'edit', '2012-07-25 11:44:20'),
+(14704, 9, 'add', '2012-07-25 11:44:28'),
+(14705, 6, 'edit', '2012-07-25 11:49:20'),
+(14706, 6, 'edit', '2012-07-25 11:50:19'),
+(14707, 6, 'add', '2012-07-25 11:50:23'),
+(14708, 6, 'add', '2012-07-25 11:52:09'),
+(14709, 6, 'edit', '2012-07-25 11:52:12'),
+(14710, 6, 'edit', '2012-07-25 11:52:14'),
+(14711, 6, 'add', '2012-07-25 11:52:33'),
+(14712, 6, 'add', '2012-07-25 11:52:57'),
+(14713, 6, 'map', '2012-07-25 11:52:59'),
+(14714, 6, 'edit', '2012-07-25 12:02:53'),
+(14715, 6, 'edit', '2012-07-25 12:02:55'),
+(14716, 6, 'add', '2012-07-25 12:06:26'),
+(14717, 9, 'add', '2012-07-25 12:21:56'),
+(14718, 9, 'edit', '2012-07-25 12:22:02'),
+(14719, 9, 'edit', '2012-07-25 12:22:04'),
+(14720, 9, 'add', '2012-07-25 12:22:06'),
+(14721, 9, 'add', '2012-07-25 12:26:49'),
+(14722, 9, 'edit', '2012-07-25 12:28:50'),
+(14723, 9, 'edit', '2012-07-25 12:28:52'),
+(14724, 9, 'add', '2012-07-25 12:28:53'),
+(14725, 9, 'add', '2012-07-25 12:38:50'),
+(14726, 9, 'home', '2012-07-25 12:39:28'),
+(14727, 9, 'edit', '2012-07-25 12:39:30'),
+(14728, 9, 'edit', '2012-07-25 12:39:32'),
+(14729, 9, 'add', '2012-07-25 12:39:34'),
+(14730, 9, 'add', '2012-07-25 12:41:25'),
+(14731, 9, 'edit', '2012-07-25 12:41:29'),
+(14732, 9, 'edit', '2012-07-25 12:41:31'),
+(14733, 9, 'add', '2012-07-25 12:41:34'),
+(14734, 9, 'add', '2012-07-25 12:44:56'),
+(14735, 9, 'edit', '2012-07-25 12:44:59'),
+(14736, 9, 'edit', '2012-07-25 12:45:02'),
+(14737, 9, 'add', '2012-07-25 12:45:07'),
+(14738, 9, 'add', '2012-07-25 12:46:06'),
+(14739, 9, 'home', '2012-07-25 12:48:22'),
+(14740, 9, 'edit', '2012-07-25 12:48:24'),
+(14741, 9, 'edit', '2012-07-25 12:48:26'),
+(14742, 9, 'add', '2012-07-25 12:48:28'),
+(14743, 9, 'add', '2012-07-25 12:58:06'),
+(14744, 9, 'edit', '2012-07-25 12:58:10'),
+(14745, 9, 'edit', '2012-07-25 12:58:12'),
+(14746, 9, 'add', '2012-07-25 12:58:14'),
+(14747, 9, 'add', '2012-07-25 13:00:30'),
+(14748, 9, 'edit', '2012-07-25 13:00:33'),
+(14749, 9, 'edit', '2012-07-25 13:00:35'),
+(14750, 9, 'add', '2012-07-25 13:00:36'),
+(14751, 9, 'add', '2012-07-25 13:02:34'),
+(14752, 9, 'logout', '2012-07-25 13:02:41'),
+(14753, 1, 'home', '2012-07-25 13:02:42'),
+(14754, 6, 'add', '2012-07-25 13:46:43'),
+(14755, 6, 'browse', '2012-07-25 13:47:17'),
+(14756, 6, 'browse', '2012-07-25 13:47:26'),
+(14757, 6, 'browse', '2012-07-25 13:47:43'),
+(14758, 6, 'edit', '2012-07-25 13:48:01'),
+(14759, 6, 'add', '2012-07-25 13:48:08'),
+(14760, 6, 'add', '2012-07-25 13:48:12'),
+(14761, 6, 'add', '2012-07-25 13:48:18'),
+(14762, 6, 'add', '2012-07-25 13:49:16'),
+(14763, 6, 'edit', '2012-07-25 13:49:19'),
+(14764, 6, 'edit', '2012-07-25 13:49:20'),
+(14765, 6, 'add', '2012-07-25 13:49:52'),
+(14766, 6, 'add', '2012-07-25 13:50:25');
+INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
+(14767, 6, 'map', '2012-07-25 13:50:32'),
+(14768, 6, 'edit', '2012-07-25 13:52:55'),
+(14769, 6, 'edit', '2012-07-25 13:52:57'),
+(14770, 6, 'add', '2012-07-25 13:52:59'),
+(14771, 6, 'add', '2012-07-25 14:03:45'),
+(14772, 6, 'edit', '2012-07-25 14:03:48'),
+(14773, 6, 'add', '2012-07-25 14:03:49'),
+(14774, 6, 'add', '2012-07-25 14:03:57'),
+(14775, 6, 'edit', '2012-07-25 14:04:03'),
+(14776, 6, 'edit', '2012-07-25 14:04:05'),
+(14777, 6, 'add', '2012-07-25 14:04:06'),
+(14778, 6, 'add', '2012-07-25 14:43:20'),
+(14779, 6, 'browse', '2012-07-25 14:43:27'),
+(14780, 6, 'browse', '2012-07-25 14:43:29'),
+(14781, 6, 'browse', '2012-07-25 14:43:46'),
+(14782, 6, 'add', '2012-07-25 14:44:05'),
+(14783, 6, 'add', '2012-07-25 14:44:18'),
+(14784, 6, 'edit', '2012-07-25 14:44:47'),
+(14785, 6, 'edit', '2012-07-25 14:45:52'),
+(14786, 6, 'add', '2012-07-25 14:45:55');
 
 -- --------------------------------------------------------
 

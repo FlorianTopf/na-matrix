@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2012 at 06:04 PM
+-- Generation Time: Jul 25, 2012 at 03:00 PM
 -- Server version: 5.1.58
 -- PHP Version: 5.3.8
 
@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `maintable` (
 --
 
 INSERT INTO `maintable` (`id`, `Mission`, `Agency`, `Launch`, `Death`, `Orbit`, `Notes`, `sid`) VALUES
-(55, 'Cassini Orbiter', 'NASA', '1997-10-15', '2017-00-00', '', 'Orbiting Saturn.', 2),
 (17, 'Huygens Probe', 'NASA', '2004-12-25', '0000-00-00', '', 'http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?bibcode=1997ESASP1177..109T&db_key=AST&page_ind=0&plate_select=NO&data_type=GIF&type=SCREEN_GIF&classic=YES\r\n', 3),
 (19, 'Kepler', 'NASA', '2009-03-07', '2012-00-00', '', 'Earth Trailing Heliocentric', 5),
 (20, 'Mars Express', 'NASA', '2003-06-02', '2012-12-31', '', 'Mars', 6),
@@ -90,25 +89,6 @@ CREATE TABLE IF NOT EXISTS `sensors` (
 --
 
 INSERT INTO `sensors` (`id`, `Sensor`, `Type`, `underlying`, `rangebegin`, `rangeend`, `units`, `measured`, `resolution`, `fov`, `sciencegoals`, `prin_inv`, `prin_inv_con`, `sid`) VALUES
-(643, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', 256.00, 16348.00, 'nT', 'Magnetic Fields,,', '0.01%', '45                 x              ', 'MA SA', 'Michele Dougherty ', 'm.dougherty@imperial.ac.uk ', 2),
-(644, 'MIMI', 'Magnetospheric Imaging Instrument ', 'Ion and Neutral Camera [INCA] ', 7.00, 3000.00, 'keV/nu', 'Energetic Neutral Atoms,Ion Species,', '', '120                x              ', 'AT AU', 'Stamatios Krimigis ', 'tom.krimigs@jhuapl.edu ', 2),
-(645, 'VIMS', 'Visual Infrared and Mapping Spectrometer', 'Imaging grating spectrometers', 0.35, 5.10, 'micron', ',,', '', '1.8                 x             ', 'AT', 'Robert Brown', 'rhb@lpl.arizona.edu ', 2),
-(642, 'RPWS', 'Radio and Plasma Wave Science ', 'Electric Field Antennas, Search Coil Magnetic Antennas', 0.00, 16125.00, 'kHz', 'Radio Emissions, Plasma Waves, Thermal Plasma and Dust ', '13%', '                x                ', 'MA AU', 'Donald Gurnett ', 'donald-gurnett@uiowa.edu ', 2),
-(641, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', -400.00, 400.00, 'nT', 'Magnetic Fields,,', '48.8nT', '45                 x              ', 'MA SA', 'Michele Dougherty ', 'm.dougherty@imperial.ac.uk ', 2),
-(640, 'CRIS', 'Composite Infrared Spectrometer ', 'Two 1 x 10 HgCdTe detector arrays ', 600.00, 1400.00, 'cm^-1', ',,', '', '                 x                ', 'AT SA', 'Mike Flasar', 'f.m.flasar@nasa.gov', 2),
-(628, 'UVIS', 'Ultraviolet Imaging Spectrograph ', 'Spectrograph', 56.00, 190.00, 'nm', ',,', '', '                 x                ', 'AT MA SA', 'Larry Esposito', 'larry.esposito@lasp.colorado.edu ', 2),
-(629, 'CAPS', 'Cassini Plasma Spectrometer ', 'Ion Mass Spectrometer ', 1.00, 50280.00, 'eV', 'Magnetosphere Plasma,Ion Species,', '(&#8710;E/E)FWHM = 0.014 with Angular Resolution 1.4? x 1.4?', '8                 x               ', 'MA', 'Dave Young', 'dtyoung@umich.edu ', 2),
-(630, 'ISS', 'Imaging Science Substation', 'Framing Camera focal length 2000mm ', 1.10, 2000.00, 'Angstr', ',,', '12 micron square pixel', '0.35                 x            ', 'AT SA', 'Carolyn Porco', 'carolyn@ciclops.org ', 2),
-(631, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', -32.00, 32.00, 'nT', 'Magnetic Fields,,', '0.5%', '45                 x              ', 'MA SA', 'Michele Dougherty ', 'm.dougherty@imperial.ac.uk ', 2),
-(632, 'CRIS', 'Composite Infrared Spectrometer ', 'Polarizing Interferometer', 10.00, 600.00, 'cm^-1', ',,', '', '0.25                 x            ', 'AT SA', 'Mike Flasar', 'f.m.flasar@nasa.gov', 2),
-(633, 'MIMI', 'Magnetospheric Imaging Instrument ', 'Charge-Energy-Mass-Spectrometer [CHEMS] ', 3.00, 220.00, 'keV', 'Ion Energy,Ion Charge  and Ion Mass,Ion 3-D anisotrophy', '', '4                x                ', 'MA', 'Stamatios Krimigis ', 'tom.krimigs@jhuapl.edu ', 2),
-(634, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', -44000.00, 44000.00, 'nT', 'Magnetic Fields,,', '5.4nT', '45                 x              ', 'MA SA', 'Michele Dougherty', 'm.dougherty@imperial.ac.uk ', 2),
-(635, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', -40.00, 40.00, 'nT', 'Magnetic Fields,,', '4.9nT', '45                 x              ', 'MA SA', 'Michele Dougherty ', 'm.dougherty@imperial.ac.uk ', 2),
-(636, 'CAPS', 'Cassini Plasma Spectrometer ', 'Ion Beam Spectrometer (CEM Detector) ', 1.00, 9999.99, 'eV', 'Ion Velocity Distributions,,', '', '1.5                 x             ', 'AT AU', 'Dave Young', 'dtyoung@umich.edu ', 2),
-(637, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', -256.00, 256.00, 'nT', 'Magnetic Fields,,', '0.5%', '45                 x              ', 'MA SA', 'Michele Dougherty ', 'm.dougherty@imperial.ac.uk ', 2),
-(623, 'INMS', 'Ion and Neutral Mass Spectrometer ', 'Closed Neutral Source, Open Neutral Source and Open Ion Source ', 1.00, 99.00, 'amu', 'Non-reacitve neutral molecules,reactive neutrals,positive ions', 'M/&#8710;M = 100 (at 10% of the mass peak height), Neutral Detection &#8805;104cm-3 Ion mode 10-2cm-3', '8.6                 x             ', 'AT MA', 'J Hunter Waite', 'hunterw@umich.edu ', 2),
-(639, 'ISS', 'Imaging Science Substation', 'Framing Camera focal length 200mm ', 1.10, 2000.00, 'Angstr', ',,', '', '3.5                 x             ', 'AT SA', 'Carolyn Porco', 'carolyn@ciclops.org ', 2),
-(638, 'MIMI', 'Magnetospheric Imaging Instrument ', 'Low Energy Magnetospheric Measurements System [LEMMS] ', 0.30, 18.00, 'MeV (I', 'Ions,Electrons,', '', '360                x              ', 'MA', 'Stamatios Krimigis ', 'tom.krimigs@jhuapl.edu ', 2),
 (187, 'ACP (Aerosol Collector and Pyrolyser)', 'Collector ', 'Pump Unit, OH heating element pyrolysis furnace (250?C or 600?C)', 135.00, 32.00, 'km', 'Titans Atmospheres,,', '', ' x ', 'SA', 'Guy Israel', 'guy.israel@aerov.jussieu.fr', 3),
 (188, 'DISR (Descent Imager and Spectral Radiometer)', 'Photometer', 'Violet Photometer [ULV]', 350.00, 480.00, 'nm', 'photons,,', '', '170? x (5-88)?', 'SA', 'M Tomasko', 'mtomasko@lpl.arizona.edu', 3),
 (189, 'DISR (Descent Imager and Spectral Radiometer)', 'Spectrometer', 'Visible Spectrometer [ULVS]', 480.00, 960.00, 'nm', 'photons,,', '', '170? x (5-88)?', 'SA', 'M Tomasko', 'asko@lpl.arizona.edu', 3),
@@ -214,12 +194,7 @@ INSERT INTO `sensors` (`id`, `Sensor`, `Type`, `underlying`, `rangebegin`, `rang
 (325, 'X-POL (X-ray Polarimeter)', 'Polarimeter', 'Gas Pixel Detector', 2.00, 10.00, 'KeV', ',,', 'around 5keV', '2.5 x 2.5 arcminutes', '', '', '', 20),
 (326, 'XGS (X-ray Grating Spectrometer)', 'Spectrometer', 'wavelength dispersive spectrometer', 0.30, 1.00, 'KeV', ',,', '80eV', ' x ', '', '', '', 20),
 (372, 'ACIS', 'Advanced CCD Imaging Spectrometer', '', 0.10, 10.00, 'keV', ',,', '', ' x ', '', '', '', 26),
-(373, 'HRC', 'High Resolution Camera', '', 0.10, 10.00, 'keV', ',,', '25 microns', '30 x 30', '', '', '', 26),
-(626, 'Radar', 'Cassini Radar ', 'Ka, S and X band Radar ', 13.78, NULL, 'GHz (K', 'Gravitational Wave Experiments, Ring, Atmospheric and Ionospheric experimen', '', '                x                ', 'SA', 'Charles Elachi amd Steve Wall ', 'stephen.d.wall@jpl.nasa.gov ', 2),
-(627, 'CAPS', 'Cassini Plasma Spectrometer ', 'Electron Spectrometer ', 0.00, 28250.00, 'keV', 'electrons,,', '', '5.24                 x            ', 'SA AU', 'Dave Young', 'dtyoung@umich.edu ', 2),
-(625, 'CDA', 'Cosmic Dust Analyzer', 'PVDF sensors and Dust analyzer using impact ionization', 0.00, 0.00, 'kg', 'Interplanetary Dust,,', '', '                 x                ', 'SA MA', 'Ralf Srama', 'ralf.srama@mpi-hd.mpg.de ', 2),
-(624, 'RSS', 'Radio Science Subsystem ', 'S, X, Ka-band Radar via High Gain Antena', 2.30, 32.00, 'GHz', 'Gravitational Wave Experiments, Ring Occultation, Atmosphere and Ionosphere', 'Allan Deviation 2 x 10-13 at 1-second integration time to 1 x 10-15 at 1000-second integration time', '                x                ', 'SA AT', 'Arv Kilore ', 'akliore@jpl.nasa.gov ', 2),
-(646, 'MAG', 'Magnetometer', 'Vector/Scalar Helium and Fluxgate Magnetometer', -10000.00, 10000.00, 'nT', 'Magnetic Fields,,', '1.2nT', '45                 x              ', 'MA SA', 'Michele Dougherty', 'm.dougherty@imperial.ac.uk ', 2);
+(373, 'HRC', 'High Resolution Camera', '', 0.10, 10.00, 'keV', ',,', '25 microns', '30 x 30', '', '', '', 26);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
