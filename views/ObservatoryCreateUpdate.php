@@ -373,7 +373,7 @@ if(is_array($_observatory->get_has_many("telescopes")))
 		$t_type_tooltip = "Telescope Type - Please choose the type of your telescope from the drop-down box. - 
 		If the appropriate telescope type is not in the list, please choose the option &quot;Other&quot;. - 
 		You can then specify your telescope under &quot;Telescope Comments&quot;. - 
-		Please be aware that a telescope will only be added to the database - if the telescope type is defined.";
+		Please be aware that this ia a MANDATORY field.";
 		//  ---------------- Questionnaire Start ----------------------
 		if ($_SESSION["user_level"] <= 11)
 			$options = array("top" => "<option value=''>Please select a Telescope Type</option>");
@@ -398,7 +398,9 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 	    //Diameter/Aperture
 	    $t_dia_tooltip = "Diameter/Aperture - Please insert the diameter/aperture of the telescope in meters. - 
-	    The inserted value will be added to the database as a float value. - <b>Examples:</b> &quot;2&quot; or &quot;1.42&quot;";
+	    If the diameter/aperture is not defined, please enter the diameter as 0 (zero). - 
+	    The inserted value will be added to the database as a float value. - 
+	    Please be aware that this is a MANDATORY field. - <b>Examples:</b> &quot;2&quot; or &quot;1.42&quot;";
 		printInputTextRow("Diameter/Aperture", "add_obs_diameter[{$telescope_count}]",
 			$_observatory->get_telescope("diameter_m", $telescope_count), 15, "[m]", "number", TRUE, $t_dia_tooltip);
 
@@ -596,12 +598,12 @@ if(is_array($_observatory->get_has_many("telescopes")))
 
 	        	//Spatial Resolution
 	        	$i_spatial_tooltip = "Spatial Resolution - Please insert the spatial resolution of 
-	        	your instrument in arc-seconds per pixel. - There are no format conventions. - 
+	        	your instrument in - arc-seconds per pixel. There are no format conventions. - 
 	        	<b>Example:</b> &quot;0.58&quot;";
 				printInputTextRow("Spatial Resolution", "add_obs_instrument_spatial_resolution[{$telescope_count}][{$instrument_count}]",
 					$_observatory->get_instrument("spatial_resolution", $telescope_id, $instrument_count), 15, "[arcsec/pixel]", NULL, FALSE, $i_spatial_tooltip);
 	        	//Spectral Resolution
-	        	$i_spectral_tooltip = "Spectral Resolution - Please insert the spectral resolution of your instrument in Angstrom. - 
+	        	$i_spectral_tooltip = "Spectral Resolution - Please insert the spectral resolution of your instrument in Angstrom - or as Resolving Power, R. - 
 	        	This can either be one or more resolution ranges or a fixed resolution, - depending on the instrument. 
 	        	There are no format conventions. - 
 	        	<b>Example:</b> &quot;3200 &ndash; 10200&quot;";
