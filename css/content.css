@@ -131,6 +131,12 @@ fieldset.report {
 	margin: 5px;
 }
 
+fieldset.telescope {
+	color: #000000;
+	margin: 5px;
+	background-color: #B0B0B0;
+}
+
 fieldset.rfield {
 /*	color: #000000; */
 	color: #222222;

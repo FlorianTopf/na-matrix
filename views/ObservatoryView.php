@@ -227,7 +227,7 @@ $link->close();
     if(is_array($_observatory->get_has_many("telescopes", NULL)))
       	foreach($_observatory->get_has_many("telescopes", NULL) as $key => $telescope_id)
 	    {
-	    	print "<fieldset class='report'><legend><b>Telescope:&nbsp;" . $_observatory->get_telescope("telescope_name", $key);
+	    	print "<fieldset class='telescope'><legend><b>Telescope:&nbsp;" . $_observatory->get_telescope("telescope_name", $key);
 	    	if($_observatory->get_telescope("mobile_flag", $key))
 	    		print "&nbsp;(Mobile Station)";
 	    	print "</b></legend>" . LF;
