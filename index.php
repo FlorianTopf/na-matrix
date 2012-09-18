@@ -59,6 +59,7 @@
     <script type="text/javascript" src="lib/js/ui.multiselect.js"></script>
     <!-- <script type="text/javascript" src="lib/js/jquery.ui.selectmenu.js"></script> -->
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/mapFunctions.js"></script>
   </head>
 
 <body>
