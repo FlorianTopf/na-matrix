@@ -14,8 +14,8 @@ print "<h2>There are " . $resources_count . " ground-based facilities listed in 
 print "<table class='filter'>" . LF;
 print "<caption>Filter the content by selecting one of the dropdown menus or type a facility name to search</caption>" . LF;
 //----
-//Name Search (with autocompleter)
-print "<tr><td class='title' colspan='2'><b>Search by Name</b></td>";
+//Observatory Name Search (with autocompleter)
+print "<tr><td class='title' colspan='2'><b>Search by Observatory Name</b></td>";
 print "<td class='filter' colspan='4'><input name='obs_filters[name]' class='obs_name'" .
 (isset($filters["name"]) ? "value='" . $filters["name"] . "'" : "value=''") . " size='80'/>" . LF;
 /** this value is manipulated by jquery */
@@ -37,6 +37,11 @@ foreach($countries['id'] as $key => $value)
 }
 print "</select></td></tr>" . LF;
 //----
+//Telescope Name Search (with autocompleter)
+print "<tr><td class='title' colspan='2'><b>Search by Telescope Name</b></td>";
+print "<td class='filter' colspan='4'><input name='obs_filters[t_name]' class='obs_t_name'" .
+(isset($filters["t_name"]) ? "value='" . $filters["t_name"] . "'" : "value=''") . " size='80'/>" . LF;
+//----
 //Telescope Type Filter
 $telescope_types = $_observatory->get_telescope_types();
 print "<tr><td class='title' colspan='2'><b>Filter by Telescope Type</b></td>";
@@ -50,6 +55,12 @@ foreach($telescope_types['id'] as $key => $value)
    	print ">" . $telescope_types['name'][$key] . "</option>" . LF;
 }
 print "</select></td></tr>" . LF; 
+//----
+//Mobile Station Filter
+print "<tr><td class='title' colspan='2'><b>Show Mobile Stations only</b></td>";
+print "<td class='filter'><input name='obs_filters[mobile]' type='checkbox' value='1' onchange='this.form.submit()'";
+	isset($filters["mobile"]) ? print " checked='checked'" : print "";
+print "/></td></tr>";
 //----
 //Diameter Filter
 print "<tr><td class='title' colspan='2'><b>Filter by Telescope Diameter</b></td>";
@@ -91,6 +102,20 @@ foreach($wavelength_ranges['id'] as $key => $value)
 }
 print "</select></td></tr>" . LF; 
 //----
+//Instrument Type Filter
+$instrument_types = $_observatory->get_instrument_types();
+print "<tr><td class='title' colspan='2'><b>Filter by Instrument Type</b></td>";
+print "<td class='filter' colspan='4'><select name='obs_filters[instrument_type]' onchange='this.form.submit()'>" . LF;
+print "<option value=''>ALL</option>";
+foreach($instrument_types['id'] as $key => $value)
+{
+	print "<option value='" . $value . "'";
+	if(isset($filters["instrument_type"]))
+		if ($value == $filters["instrument_type"]) print " selected";
+   	print ">" . $instrument_types['name'][$key] . "</option>" . LF;
+}
+print "</select></td></tr>" . LF; 
+//----
 //Research Area Filter
 $research_areas = $_observatory->get_research_areas();
 print "<tr><td class='title' colspan='2'><b>Filter by Area of Interest</b></td>";
@@ -124,6 +149,19 @@ print "<center><table>";
 print "<tr><td><button class='submit' type='submit' name='reset_filters' value='Reset Filters' class='submit'>Reset Filters</button></td></tr>";
 print "</table></center>";
 //----
+
+// We go through the results for creating a JSON object and the MAP
+/* $filterJSON = array();
+foreach($resources as $row)
+{
+	array_push($filterJSON, array("id" => $row['id'], 
+	    "name" => strip_tags($row['name']), 
+    	"lat" => $row['latitude'],
+    	"lng" => $row['longitude']));
+} */
+//print "<div><p><a href='' class='ui-state-default ui-corner-all toggle_map' style='padding:6px 6px 6px 6px;text-decoration:none;'>Show Map</a></p></div>";
+//print "<div id='map' class='map' style='width: 775px; height: 450px'></div>" . LF ;
+//print "<script>$(document).trigger('filterMapIsReady', '" . json_encode($filterJSON,JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) . "');</script>" . LF;
 
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on ground-based facility entry name</caption>" . LF;

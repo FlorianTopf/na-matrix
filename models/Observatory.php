@@ -316,7 +316,7 @@ class ObservatoryDAO extends ModelDAO
 		else if($page == "browse")
 		{
 			$query = "SELECT id, name, institution, web_address, " .
-			"country_id, email FROM observatories";
+			"country_id, email, latitude, longitude FROM observatories";
 
 			// --------------- Questionnaire Start -----------------
 //			if ($_SESSION["user_level"] >= 21)
@@ -351,6 +351,12 @@ class ObservatoryDAO extends ModelDAO
 			if(!empty($filters["country"]))
 				//$query .= "country_id=". $filters["country"];
 				$filter_queries[] = "country_id=". $filters["country"];
+				
+			if(!empty($filters["t_name"]))
+			{
+				$filter_queries[] = 'id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN ' .
+					'(SELECT id FROM telescopes WHERE telescope_name LIKE "%'  . $filters["t_name"] . '%"))';
+			}
 
 			if(!empty($filters["telescope_type"]))
 			{
@@ -358,6 +364,12 @@ class ObservatoryDAO extends ModelDAO
 				//$query .= "(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";
 				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
 					"(SELECT id FROM telescopes WHERE telescope_type=" . $filters["telescope_type"] . "))";
+			}
+			
+			if(!empty($filters["mobile"]))
+			{
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
+					"(SELECT id FROM telescopes WHERE mobile_flag=" . $filters["mobile"] . "))";
 			}
 			
 			if(!empty($filters["diameter_sign"]))
@@ -373,6 +385,13 @@ class ObservatoryDAO extends ModelDAO
 				/** @todo sort functions if necessary => put in browse sort functions */
 				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
 					"(SELECT id FROM telescopes WHERE wavelength LIKE '%" . $filters["wavelength_range"] . "%'))";
+			}
+			
+			if(!empty($filters["instrument_type"]))
+			{
+				$filter_queries[] = "id IN (SELECT observatory_id FROM observatory_to_telescopes WHERE telescope_id IN " .
+					"(SELECT telescope_id FROM telescope_to_instruments WHERE instrument_id IN (SELECT id FROM instruments " .
+					"WHERE instrument_type=" . $filters["instrument_type"] . ")))";
 			}
 
 			if(!empty($filters["research_area"]))
@@ -393,8 +412,8 @@ class ObservatoryDAO extends ModelDAO
 			$query .= " ORDER BY observatories.name";
 
 			//DEBUG:
-//			echo $query;
-//			nl();
+			//echo $query;
+			//nl(2);
 		}
 
 

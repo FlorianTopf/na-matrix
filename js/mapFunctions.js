@@ -89,6 +89,8 @@ function doNothing() {}
 
 //Note that using Google Gears requires loading the Javascript
 //at http://code.google.com/apis/gears/gears_init.js
+
+//THIS IS FOR THE GENERAL MAP
 $(document).bind('mapIsReady', function() {   	
 	var myOptions = {
         zoom: 4,
@@ -145,8 +147,6 @@ $(document).bind('mapIsReady', function() {
         	handleNoGeolocation(browserSupportFlag, map);
         }
     
-		//var bounds = new google.maps.LatLngBounds();
-    
         //Fetch Observatory Locations from Database
     	downloadUrl("js/observatoriesXML.php", function(data) {
     		var xml = parseXml(data);
@@ -160,8 +160,6 @@ $(document).bind('mapIsReady', function() {
     			var name = markers[i].getAttribute("name");
     			var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
     					parseFloat(markers[i].getAttribute("lng")));
-    			
-    			//bounds.extend (point);
     			
     			var id = markers[i].getAttribute("id");
     			//Set information for infowindow
@@ -178,7 +176,55 @@ $(document).bind('mapIsReady', function() {
     			});
     			bindInfoWindow(marker, map, infoWindow, html);
     		}
-			
-    		//map.fitBounds(bounds)
     	});
+});
+
+//-----------------------------------------------------------------------------------------------------------
+//THIS IS FOR THE BROWSE/FILTER MAP
+$(document).bind('filterMapIsReady', function(e, filterXML) {   	
+	var myOptions = {
+      zoom: 4,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	
+	//alert(filterXML);
+  		
+	//Generate Map
+	var map = new google.maps.Map(document.getElementById("map"), myOptions);
+	//Generate Infowindow
+	var infoWindow = new google.maps.InfoWindow;
+	
+	map.setCenter(initialLocation);
+  
+	var bounds = new google.maps.LatLngBounds();
+  
+    //Fetch Observatory Locations from XML String
+  	var json = JSON.parse(filterXML);
+  	
+ 	for (var i = 0; i < json.length; i++) {
+ 		
+ 		if (json[i].lat && json[i].lng)
+  		var point = new google.maps.LatLng(parseFloat(json[i].lat),
+  					parseFloat(json[i].lng));
+  			
+  		bounds.extend (point);
+  			
+  		var id = json[i].id;
+  		//Set information for infowindow
+  		var html = "<h3>" + json[i].name + "</h3>" + 
+  			"<center><b><a href=\"#\" onClick=\"return openwin('views/ObservatoryView.php?" +
+  			"id=" + id + "')\" class='hand'>Click here for details</b></center>"; 
+  		var icon = customIcons["observatory"];
+  		//Set marker for Observatory
+  		var marker = new google.maps.Marker({
+  			map: map,
+  			position: point,
+  			icon: icon.icon,
+  			shadow: icon.shadow
+  		});
+  		bindInfoWindow(marker, map, infoWindow, html);
+  	}
+
+  	map.fitBounds(bounds);
+
 });
