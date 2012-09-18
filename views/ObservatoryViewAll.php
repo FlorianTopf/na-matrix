@@ -151,17 +151,17 @@ print "</table></center>";
 //----
 
 // We go through the results for creating a JSON object and the MAP
-/* $filterJSON = array();
+ $filterJSON = array();
 foreach($resources as $row)
 {
 	array_push($filterJSON, array("id" => $row['id'], 
 	    "name" => strip_tags($row['name']), 
     	"lat" => $row['latitude'],
     	"lng" => $row['longitude']));
-} */
-//print "<div><p><a href='' class='ui-state-default ui-corner-all toggle_map' style='padding:6px 6px 6px 6px;text-decoration:none;'>Show Map</a></p></div>";
-//print "<div id='map' class='map' style='width: 775px; height: 450px'></div>" . LF ;
-//print "<script>$(document).trigger('filterMapIsReady', '" . json_encode($filterJSON,JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) . "');</script>" . LF;
+} 
+print "<div><p><a href='' class='ui-state-default ui-corner-all toggle_map' style='padding:6px 6px 6px 6px;text-decoration:none;'>Show Map</a></p></div>";
+print "<div id='map' class='map' style='width: 775px; height: 450px'></div>" . LF ;
+print "<script>$(document).trigger('filterMapIsReady', '" . json_encode($filterJSON,JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) . "');</script>" . LF;
 
 print "<table class='viewall'>" . LF;
 print "<caption>For details please click on ground-based facility entry name</caption>" . LF;

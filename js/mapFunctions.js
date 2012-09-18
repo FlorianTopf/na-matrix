@@ -182,6 +182,8 @@ $(document).bind('mapIsReady', function() {
 //-----------------------------------------------------------------------------------------------------------
 //THIS IS FOR THE BROWSE/FILTER MAP
 $(document).bind('filterMapIsReady', function(e, filterXML) {   	
+	$('div.map').hide();
+	
 	var myOptions = {
       zoom: 4,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -196,35 +198,63 @@ $(document).bind('filterMapIsReady', function(e, filterXML) {
 	
 	map.setCenter(initialLocation);
   
-	var bounds = new google.maps.LatLngBounds();
-  
     //Fetch Observatory Locations from XML String
   	var json = JSON.parse(filterXML);
+	
+  	var bounds = new google.maps.LatLngBounds();
   	
  	for (var i = 0; i < json.length; i++) {
- 		
- 		if (json[i].lat && json[i].lng)
-  		var point = new google.maps.LatLng(parseFloat(json[i].lat),
-  					parseFloat(json[i].lng));
-  			
-  		bounds.extend (point);
-  			
-  		var id = json[i].id;
-  		//Set information for infowindow
-  		var html = "<h3>" + json[i].name + "</h3>" + 
-  			"<center><b><a href=\"#\" onClick=\"return openwin('views/ObservatoryView.php?" +
-  			"id=" + id + "')\" class='hand'>Click here for details</b></center>"; 
-  		var icon = customIcons["observatory"];
-  		//Set marker for Observatory
-  		var marker = new google.maps.Marker({
-  			map: map,
-  			position: point,
-  			icon: icon.icon,
-  			shadow: icon.shadow
-  		});
-  		bindInfoWindow(marker, map, infoWindow, html);
+ 		if (json[i].lat && json[i].lng) {
+	  		var point = new google.maps.LatLng(parseFloat(json[i].lat),
+	  					parseFloat(json[i].lng));
+	  			
+	  		bounds.extend (point);
+	  			
+	  		var id = json[i].id;
+	  		//Set information for infowindow
+	  		var html = "<h3>" + json[i].name + "</h3>" + 
+	  			"<center><b><a href=\"#\" onClick=\"return openwin('views/ObservatoryView.php?" +
+	  			"id=" + id + "')\" class='hand'>Click here for details</b></center>"; 
+	  		var icon = customIcons["observatory"];
+	  		//Set marker for Observatory
+	  		var marker = new google.maps.Marker({
+	  			map: map,
+	  			position: point,
+	  			icon: icon.icon,
+	  			shadow: icon.shadow
+	  		});
+	  		bindInfoWindow(marker, map, infoWindow, html);
+ 		}
+  	}
+ 	
+ 	//not needed - never called with toggle
+ 	map.fitBounds(bounds);
+ 	
+ 	if(json.length < 2)
+ 		map.setZoom(4);
+  	
+  	map.redraw = function() {
+  		gmOnLoad = true;
+  	    if(gmOnLoad) {
+  	      google.maps.event.trigger(map, "resize");
+  	      //map.setCenter(initialLocation);
+  	      map.fitBounds(bounds);
+  	      
+  	      if(json.length < 2)
+  	 		map.setZoom(4);
+  	      gmOnLoad = false;
+  	    } 
   	}
 
-  	map.fitBounds(bounds);
-
+  	$('a.toggle_map').click(function() {
+  		$(this).parent().parent().next('div.map').toggle();
+  		
+  		var text = $(this).text();
+  		$(this).text(
+  			text == "Show Map" ? "Hide Map" : "Show Map");
+  	    
+  		if (map != undefined) {
+  	        map.redraw(); }
+  		return false;
+  	});  	
 });
