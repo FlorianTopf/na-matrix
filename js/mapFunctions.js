@@ -104,7 +104,7 @@ $(document).bind('mapIsReady', function() {
         
     //Set User Location
     //Variables for marker
-    var html = "<b>Your current location</b>";
+    var html = "<h3>Your current location</h3>";
     var icon = customIcons["myLocation"];
     // Try W3C Geolocation (Preferred)
     if(navigator.geolocation) {
