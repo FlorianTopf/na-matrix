@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------------------------------------------
 //SOME VARIABLES FOR GOOGLE MAPS
 //User Location (Default 0 0)
-var initialLocation = new google.maps.LatLng(0, 0);
+var initialLocation = new google.maps.LatLng(30, 0);
 //Standard Locations (not used)
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
@@ -25,9 +25,10 @@ var customIcons = {
 };
 
 //HELPER FUNCTIONS for GOOGLE MAPS
-function handleNoGeolocation(errorFlag, map, infoWindow) {
+function handleNoGeolocation(errorFlag, map) {
 	//unbedingt bessere default plätze definieren
-    var html = "<b>Default location</b>";
+	//var html = "<b>Default location</b>";
+    //var icon = customIcons["myLocation"];
 	
 	if (errorFlag == true) {
 		//alert("Geolocation service failed.");
@@ -38,13 +39,13 @@ function handleNoGeolocation(errorFlag, map, infoWindow) {
     }
     map.setCenter(initialLocation);
     map.setZoom(2);
-	var marker = new google.maps.Marker({
-		map: map,
-		position: initialLocation,
-		icon: icon.icon,
-		shadow: icon.shadow
-	});
-	bindInfoWindow(marker, map, infoWindow, html);
+    //var marker = new google.maps.Marker({
+	//	map: map,
+	//	position: initialLocation,
+	//	icon: icon.icon,
+	//	shadow: icon.shadow
+	//});
+	//bindInfoWindow(marker, map, infoWindow, html);
 }
 
 function bindInfoWindow(marker, map, infoWindow, html) {
@@ -118,7 +119,7 @@ $(document).bind('mapIsReady', function() {
         	});
         	bindInfoWindow(marker, map, infoWindow, html);
         }, function() {
-        	handleNoGeolocation(browserSupportFlag, map, infoWindow);	
+        	handleNoGeolocation(browserSupportFlag, map);	
         });
         // Try Google Gears Geolocation
         } else if (google.gears) {
@@ -136,12 +137,12 @@ $(document).bind('mapIsReady', function() {
         		});
         		bindInfoWindow(marker, map, infoWindow, html);
         	}, function() {
-        		handleNoGeoLocation(browserSupportFlag);
+        		handleNoGeoLocation(browserSupportFlag, map);
         	});
         // Browser doesn't support Geolocation
         } else {
         	browserSupportFlag = false;
-        	handleNoGeolocation(browserSupportFlag);
+        	handleNoGeolocation(browserSupportFlag, map);
         }
     
 		//var bounds = new google.maps.LatLngBounds();
