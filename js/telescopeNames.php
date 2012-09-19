@@ -9,6 +9,7 @@
  * @author Florian Topf
  * 
  * no utf8_decode and utf8_encode needed anymore
+ * @todo we need only approved telescopes!
  */
 
 // no term passed - just exit early with no response

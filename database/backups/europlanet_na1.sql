@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 25, 2012 at 03:01 PM
--- Server version: 5.1.58
--- PHP Version: 5.3.8
+-- Erstellungszeit: 19. Sep 2012 um 16:20
+-- Server Version: 5.1.58
+-- PHP-Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `europlanet_na1`
+-- Datenbank: `europlanet_na1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `additional_information`
+-- Tabellenstruktur für Tabelle `additional_information`
 --
 
 CREATE TABLE IF NOT EXISTS `additional_information` (
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `additional_information` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `additional_information`
+-- Daten für Tabelle `additional_information`
 --
 
 INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_instruments`, `array_description`, `backend_description`, `research_comments`, `target_comments`, `general_comments`, `feedback`) VALUES
@@ -239,7 +239,7 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (202, 'More on Department of Space Physics, IEP SAS can be found at http://space.saske.sk kkudela@kosice.upjs.sk\r\n', '', '', '', 'Continuous measurements of cosmic rays by neutron monitor with relatively high statistical accuracy.\r\n', '', 'Data available with 1 min resolution', ''),
 (203, 'Staff list: http://www.lowell.edu/about_staff.php', 'Additional telescope: TMT - Titan Monitoring Telescope -> http://www.lowell.edu/research_telescopes_tmt.php\r\n\r\nDiscovery Channel Telescope 4m, Under construction near Happy Jack Arizona. Various Other Smaller Telescopes', 'US Navy Prototype Optical Interferometer: http://www.lowell.edu/research_telescopes_noi.php', 'Perkins: \r\n- DeVeny Optical Spectrograph\r\n- Prism Camera Wide Field\r\n- MIMIR Camera Near Infrared Wide Field\r\n- Kron Photometer Optical\r\n\r\nJSHall:\r\n- Kron Photometer Optical\r\n- SITe Camera 2048*2048', '', '', 'Schedules: http://www.lowell.edu/Research/Mesa/Schedules/', ''),
 (204, '', '', '', '', '', '', '', ''),
-(205, '', 'Further information on the telescope and on the camera available in Italian under: http://obs560.interfree.it/gli%20strumenti/gli%20strumenti.html', '', '', '\r\n', '', '', ''),
+(205, '', 'Further information on the telescope and on the camera available in Italian under: http://obs560.interfree.it/gli%20strumenti/gli%20strumenti.html', '', '', '', '', '', ''),
 (206, '', '', '', 'CCD Imager 4kx4k', '', '', '', ''),
 (207, 'Important contacts, addresses and telephone numbers: http://www.magic.iac.es/contacts/', '', '', '', '', '', 'THE MAGIC Telescope Collaboration: http://wwwmagic.mppmu.mpg.de/collaboration/index.html', ''),
 (208, '', '', '', 'Littrow spectrograph 3.4 A/px - R2000', '', '', '', ''),
@@ -283,13 +283,24 @@ INSERT INTO `additional_information` (`id`, `further_contacts`, `additional_inst
 (247, '', '', '', '12m ASKAP prototype antenna', '', '', '15-Jun 15-Dec deadlines form: http://www.atnf.csiro.au/observers/accomm/', ''),
 (248, '', 'Smaller telescopes also available.', 'Palomar Testbed Interferometer- Near IR. No longer operating, but previous data can still be accessed.', '', '', '', '- Schedule: http://www.palomar.caltech.edu:8000/calendar.tcl \r\n- Forms: http://www.astro.caltech.edu/~tac/obsforms/ Deadlines on 1st of March', ''),
 (249, '', '', '', 'The Compact Array Broadband Backend: http://www.narrabri.atnf.csiro.au/observing/CABB.html', '', '', 'Interferometer funded till 2013 Form : http://www.atnf.csiro.au/observers/accomm/ deadlines: 15-Jun 15-Dec', ''),
-(250, '', '', '', '', '', '', '', ''),
-(251, '', 'Various small optical telescopes. ', '', '26 m West: 327 MHz ; 26 m East: 1.4 and 4.8 GHz 12 m Telescope: Receiver 3.3-4.2 GHz ; Receiver 10.95-12.75 Ghz ;', '', '', '', '');
+(250, '', 'Further information in Portuguese on all telescopes available under http://www.lna.br/opd/telescop/telescop.html#160bc\r\n\r\n', '', '- Information in Portuguese on available backend equipment available under http://www.lna.br/opd/instrum/instr.html', '', '', '', ''),
+(251, '', '- PARI Sky (24 hour wide angle camera): http://www.pari.edu/telescopes/OpticalTelescopes/our-sky-1/\r\n\r\n- Polaris Monitoring Program (Monitoring Polaris - A Cepheid Variable Star with a Meade 8-inch f/10 telescope): http://www.pari.edu/telescopes/OpticalTelescopes/alphaumi/\r\n\r\n- North Sky Monitoring Program (Monitoring 2 degrees x 3 degrees of the north polar sky): http://www.pari.edu/telescopes/OpticalTelescopes/polaris/\r\n\r\nVarious small optical telescopes. ', '', '', '', '', '', ''),
+(252, '', '', '', '', 'A lot of research is focused on variable stars.', '', '', ''),
+(253, 'Contact Public Outreach:    \r\nKarin Zacher  zacher@iram.frinfo@iram.fr\r\n', '', '', '', '', '', '', ''),
+(254, '\r\n', '', '', '', 'History of astronomy and historical observations\r\n', '', '', ''),
+(255, '', '', '', '', '', '', '', ''),
+(256, '', '', '', '', '', '', '', ''),
+(257, '', 'Qinhai station is also equipped with some optical telescopes used for the observations of celestial objects in solar system.', '', '', '', '', '', ''),
+(258, '', '', '', '', '', '', '', ''),
+(259, '', '', '', '', 'NEO/Minor Planet follow-up observations; Photometry/Lightcurve science.\r\n', '', '', ''),
+(260, 'Contact form: http://www.lco.cl/contact-info', '', '', '', '', '', 'Proposals: http://obs.carnegiescience.edu/Proposals - see also this site for details about schedules', ''),
+(261, 'merlin@jb.man.ac.uk\r\nPhone: +44 (0) 1477 571321\r\nUrl: http://www.merlin.ac.uk/\r\n - \r\nLatitude: ? - Longitude: ?', '', 'MERLIN is an array of seven radio telescopes, spanning 217km. Its capabilities include; Observing bands at 1.3-1.8 GHz, 4-8 GHz, 22-24 GHz, a resolution 10 to 150 mas, a total bandwidth of 4 GHz and sensitivity ~ 1 &#956;Jy.', '', '', '', 'To request time of MERLIN, visit the following webpage: http://www.merlin.ac.uk/propsub/', ''),
+(262, 'or 569951\r\nor 569951\r\nPhone: 340123\r\nUrl: \r\nCh. V. Sastry - \r\nLatitude: 77? 27? 07?? - Longitude: 13? 36? 12??', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agencies`
+-- Tabellenstruktur für Tabelle `agencies`
 --
 
 CREATE TABLE IF NOT EXISTS `agencies` (
@@ -301,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `agencies` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `agencies`
+-- Daten für Tabelle `agencies`
 --
 
 INSERT INTO `agencies` (`id`, `acronym`, `name`, `web_address`) VALUES
@@ -321,7 +332,7 @@ INSERT INTO `agencies` (`id`, `acronym`, `name`, `web_address`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `antenna_types`
+-- Tabellenstruktur für Tabelle `antenna_types`
 --
 
 CREATE TABLE IF NOT EXISTS `antenna_types` (
@@ -331,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `antenna_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `antenna_types`
+-- Daten für Tabelle `antenna_types`
 --
 
 INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
@@ -352,7 +363,7 @@ INSERT INTO `antenna_types` (`id`, `antenna_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clearnights_ranges`
+-- Tabellenstruktur für Tabelle `clearnights_ranges`
 --
 
 CREATE TABLE IF NOT EXISTS `clearnights_ranges` (
@@ -362,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `clearnights_ranges` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `clearnights_ranges`
+-- Daten für Tabelle `clearnights_ranges`
 --
 
 INSERT INTO `clearnights_ranges` (`id`, `range`) VALUES
@@ -378,7 +389,7 @@ INSERT INTO `clearnights_ranges` (`id`, `range`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `countries`
+-- Tabellenstruktur für Tabelle `countries`
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -389,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=233 ;
 
 --
--- Dumping data for table `countries`
+-- Daten für Tabelle `countries`
 --
 
 INSERT INTO `countries` (`id`, `acronym`, `name`) VALUES
@@ -629,7 +640,7 @@ INSERT INTO `countries` (`id`, `acronym`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hidden_fields`
+-- Tabellenstruktur für Tabelle `hidden_fields`
 --
 
 CREATE TABLE IF NOT EXISTS `hidden_fields` (
@@ -647,7 +658,7 @@ CREATE TABLE IF NOT EXISTS `hidden_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hidden_fields`
+-- Daten für Tabelle `hidden_fields`
 --
 
 INSERT INTO `hidden_fields` (`id`, `web_address`, `address`, `phone`, `email`, `latitude`, `longitude`, `scientific_contacts`, `further_contacts`) VALUES
@@ -890,12 +901,23 @@ INSERT INTO `hidden_fields` (`id`, `web_address`, `address`, `phone`, `email`, `
 (248, 0, 0, 0, 0, 0, 0, 0, 0),
 (249, 0, 0, 0, 0, 0, 0, 0, 0),
 (250, 0, 0, 0, 0, 0, 0, 0, 0),
-(251, 0, 0, 0, 0, 0, 0, 0, 0);
+(251, 0, 0, 0, 0, 0, 0, 0, 0),
+(252, 0, 0, 0, 0, 0, 0, 0, 0),
+(253, 0, 0, 0, 0, 0, 0, 0, 0),
+(254, 0, 0, 0, 0, 0, 0, 0, 0),
+(255, 0, 1, 1, 1, 0, 0, 0, 1),
+(256, 0, 0, 0, 0, 0, 0, 0, 0),
+(257, 0, 0, 0, 0, 0, 0, 0, 0),
+(258, 0, 0, 0, 0, 0, 0, 0, 0),
+(259, 0, 0, 0, 0, 0, 0, 0, 0),
+(260, 0, 0, 0, 0, 0, 0, 0, 0),
+(261, 0, 0, 0, 0, 0, 0, 0, 0),
+(262, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `instruments`
+-- Tabellenstruktur für Tabelle `instruments`
 --
 
 CREATE TABLE IF NOT EXISTS `instruments` (
@@ -923,10 +945,10 @@ CREATE TABLE IF NOT EXISTS `instruments` (
   KEY `instrument_type_id` (`instrument_type`),
   KEY `wavelength_unit_id_3` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_4` (`wavelength_e_unit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1574 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1693 ;
 
 --
--- Dumping data for table `instruments`
+-- Daten für Tabelle `instruments`
 --
 
 INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_position`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `spatial_resolution`, `spectral_resolution`, `polarisation`, `field_of_view`, `max_frames_per_sec`, `frame_size`, `min_exposure_time`, `max_exposure_time`, `color_bw_chip`, `ccd_chip_type`, `comments`) VALUES
@@ -934,7 +956,6 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (746, 'SBIG STL-6303E', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '18x24 arcmin', 0, '3072x2048', 0, 0, 0, 'KAF-6303E/LE', ''),
 (747, 'Apogee Alta U47 16Bit', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '55x55 arcmin', 0, '1024x1024', 0, 0, 0, '', ''),
 (748, 'Apogee Alta U900 camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '18x18 arcmin', 0, '3056x3056', 0, 0, 0, 'Kodak KAF-09000', ''),
-(749, 'SBIG ST-7XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 4, '765 x 510', 0.12, 3600, 1, 'KAF-0402ME', 'BVR Custom Scientific Photometric filters (Johnson BV - Cousins R) and SBIG CFW9 Filter Wheel.'),
 (752, 'HEROS Heidelberg Extended Range Optical Spectrograph', 8, '', 'optical (350-560nm - red channel; 580-880 - red channel)', 0.000000, 1, 0.000000, 1, '', '20000', '', '', 0, '', 0, 0, 0, '', 'Further information available under: http://www.lsw.uni-heidelberg.de/projects/instrumentation/Heros/'),
 (754, 'CCD ST-7', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '765x510', 0, 0, 1, 'CCD KAF0400', 'SBIG CFW-8 Color Filter Wheel'),
 (755, 'CCD 2000XCM', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1600x1200', 0, 0, 1, 'Kodak KAI-2020CM + TI TC-237', 'SBIG CFW-8 Color Filter Wheel'),
@@ -999,7 +1020,6 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (858, 'CCD Camera Rolera MGi', 5, '', 'Optic and near IR', 350.000000, 8, 1000.000000, 8, '', '', '', '7.2 arcmin', 30, '512*512', 1, 0, 1, 'e2v L3Vision CCD97, back-illuminated', 'Using Reducer/Corrector f/6.3 Field of View is 10.65 arcmin '),
 (859, 'Starlight Xpress SXVR-H36', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '4904x3280', 0, 0, 0, 'Kodak KAI16000M', 'Filters: Starlight Xpress + Astronomik LRGB 50mm'),
 (868, 'Meade ', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 100, '1360x1024', 0.0001, 3600, 1, 'SONY Ex View HAD ICX285AL', ''),
-(869, 'SBIG ST6', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '375x242', 0.01, 3600, 1, 'TI TC-241', ''),
 (870, 'GMOS - Gemini Multi-Object Spectrograph', 8, '', 'optical, ', 360.000000, 8, 940.000000, 8, '0.073 arcsec per pixel', '', '', '330 arcsec x 330 arcsec', 0, '', 0, 0, 0, '', 'GMOS is a multi-object, long-slit and IFU spectrograph and imager. \r\n\r\nThree types of spectroscopy are possible with its selection of gratings:\r\n-Long-slit spectroscopy, which covers the full extent of the CCD package (3 x 2048 pixels) with two small gaps.\r\n-Multi-object spectroscopy, which uses custom-designed, laser-milled masks.\r\n-Integral field spectroscopy, which uses 0.2 arcsec fibers covering a 35 square arcsec field of view.\r\n\r\nGMOS can perform broad band imaging (using the SDSS filter system) or narrow-band imaging using select filters. For imaging, the field of view is 5.5 arcmin x 5.5 arcmin. \r\n\r\nFor further details about this instrument see: http://www.gemini.edu/node/10625'),
 (871, 'T-ReCS - Thermal-Region Camera Spectrograph', 8, '', 'Mid-infrared (MIR)', 8.000000, 9, 26.000000, 9, '0.09 arcsec per pixel', 'R~100-1000', '', '', 0, '', 0, 0, 0, '', 'T-ReCS is a mid-infrared imager and long-slit spectrograph. When combined with Gemini''s fast tip/tilt compensating secondary mirror, T-ReCS will yield nearly diffraction-limited 10-µm images under most natural seeing conditions. \r\n\r\nT-ReCS is capable of imaging in the 8–26 µm range as follows:\r\n-Broad-band (N, Q) and Narrow-band Filter Imaging\r\n-Pixel size = 0.09" (fixed)\r\n-Field of view = 28.8"×21.6"\r\n-Number of filters: currently 20, capacity for 24\r\n-Occulting bar available for imaging (2" wide)\r\n\r\nT-ReCS is capable of spectroscopy with R~100 - 1000 in the 8–26 µm range as follows:\r\n-Low resolution long-slit spectroscopy: R ~ 100 near 10 µm, R ~ 80 near 20 µm\r\n-Medium long-slit spectroscopy: R ~ 1000 near 10 µm\r\n-Pixel size in spatial direction = 0.09" (fixed)\r\n-Slit length = 21.6"\r\n-Slit widths = 0.21" to 1.32"\r\n-Low-Res Dispersion at 10 µm = 0.02213 µm/pix, delta lambda = 7.1 µm (entire N band) across detector\r\n-Low-Res Dispersion at 20 µm = 0.033 µm/pix, delta lambda = 10.6 µm (entire Q band)\r\n-Hi-Res Dispersion at 10 µm = 0.0019 µm/pix, delta lambda = 0.6 µm\r\n\r\nFor further details about this instrument see:\r\nhttp://www.gemini.edu/sciops/instruments/trecs'),
 (872, 'NICI - Near-Infrared Coronagraphic Imager', 6, '', 'Near-infrared (NIR)', 1.000000, 9, 5.000000, 9, '18 mas per pixel', '', '', '18 arcsec x 18 arcsec', 0, '1024 x 1024', 0, 0, 0, '1024x1024 ALADDIN InSb array', 'NICI combines an 85-element curvature adaptive optics system, a dedicated Lyot coronagraph, and a specialized dual-channel camera into a single instrument optimized to detect large Jovian-type planets around nearby stars.\r\n\r\nFor further details about this instrument, see:\r\nhttp://www.gemini.edu/sciops/instruments/nici/?q=sciops/instruments/nici'),
@@ -1103,9 +1123,9 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1077, 'DOLORES - Device Optimized for the LOw RESolution', 8, 'Nasmyth B', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.tng.iac.es/instruments/lrs/'),
 (1079, 'ST-8XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', ''),
 (1082, 'ST9', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0.1, 1200, 1, 'KAF-0261E', ''),
-(1084, 'SBIG ST8-XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '1530 x 1020', 0, '', 0.1, 0, 1, 'Kodak KAF 1603', '');
+(1084, 'SBIG ST8-XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '1530 x 1020', 0, '', 0.1, 0, 1, 'Kodak KAF 1603', ''),
+(1093, 'SEQUOIA', 7, '', '', 85.000000, 5, 116.000000, 5, '', '', '', '', 0, '', 0, 0, 0, '', '"SEQUOIA is a cryogenic focal-plane array of 32 pixels, arranged in dual-polarized 4x4 arrays, that operates in the range 85 - 116 GHz. The arrays which are feed by square horns separated by 2F\\lambda are cooled to 18K and use low-noise Indium Phosphide (InP) monolithic microwave integrated circuit (MMIC) preamplifiers designed at UMASS to provide a characteristic receiver noise of 55K in the range 85-107 GHz, increasing to 90K at 116GHz." (http://www.lmtgtm.org/instrument.html)');
 INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_position`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `spatial_resolution`, `spectral_resolution`, `polarisation`, `field_of_view`, `max_frames_per_sec`, `frame_size`, `min_exposure_time`, `max_exposure_time`, `color_bw_chip`, `ccd_chip_type`, `comments`) VALUES
-(1093, 'SEQUOIA', 7, '', '', 85.000000, 5, 116.000000, 5, '', '', '', '', 0, '', 0, 0, 0, '', '"SEQUOIA is a cryogenic focal-plane array of 32 pixels, arranged in dual-polarized 4x4 arrays, that operates in the range 85 - 116 GHz. The arrays which are feed by square horns separated by 2F\\lambda are cooled to 18K and use low-noise Indium Phosphide (InP) monolithic microwave integrated circuit (MMIC) preamplifiers designed at UMASS to provide a characteristic receiver noise of 55K in the range 85-107 GHz, increasing to 90K at 116GHz." (http://www.lmtgtm.org/instrument.html)'),
 (1094, 'Redshift Search Receiver (RSR) System', 7, '', '', 75.000000, 5, 111.000000, 5, '', '', '', '', 0, '', 0, 0, 0, '', '"A novel MMIC-based receiver has been designed to maximize the instantaneous receiver bandwidth to cover the 90 GHz atmospheric window (75-111 GHz) in a single tuning. The receiver has four pixels arranged in a dual-beam, dual polarized configuration. Orthogonal polarizations are combined in waveguide-based orthomode transducers. Beam-switching on the sky is achieved with a fast Faraday rotation polarization switch and a wire-grid to interchange the reflected and transmitted beams to each receiver. This ultra-wideband receiver typically achieves noise temperatures < 50K between 75-111 GHz. Because of the fast beam-switch involving no moving mechanical parts, the Redshift Search Receiver will have exceptional baseline stability, well-suited to the detection of redshifted transitions of the CO ladder from star-forming galaxies at cosmological distances. An innovative wideband analog autocorrelator system which covers the full 36 GHz with 31 MHz (100 km/s at 90 GHz) resolution serves as the backend spectrometer." (http://www.lmtgtm.org/instrument.html)'),
 (1095, '1 mm SIS Receiver', 7, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', '"A single-pixel dual-polarization SIS (superconductor-insulator-superconductor) receiver is under development to provide high-sensitivity in the 210-275 GHz atmospheric window. This receiver is to be used for initial commissioning and scientific use of the 1mm window. Using a sideband separation scheme to provide 8 GHz of instantaneous bandwidth in each sideband, this instrument will have a single-sideband system temperature of < 100K." (http://www.lmtgtm.org/instrument.html)'),
 (1096, 'AzTEC', 5, '', '1.1 mm', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', '"AzTEC is a 144-pixel millimeter-wavelength camera that will operate at 1.1mm. Radiation is coupled to Si-Ni "spider-web" bolometers, arranged in a close-packed hexagonal pattern, with an array of conical feedhorns separated by 1.4 F&lambda. Scanning of the telescope or movements of the secondary mirror provide fully-sampled images. \r\nThe detector array is cooled to ~250 mK via a three-stage, closed-cycle3He refrigerator. The field-of-view of AzTEC on the LMT is 2.4 sq. arcmin and, with a per pixel sensitivity of ~3 mJy Hz-1/2 and FWHM beam-size of 6 arcsecs at 1.1mm, AzTEC will have an extremely fast mapping-speed of ~0.36 deg2/hr/mJy2." (http://www.lmtgtm.org/instrument.html)\r\n\r\nFurther information on this instrument is available under: http://www.astro.umass.edu/~aztec/'),
@@ -1188,7 +1208,6 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1301, 'LMI - The Monolithic Imager', 5, 'Ritchey-Chretien', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.lowell.edu/dct_instruments_lmi.php'),
 (1302, 'NIHTS - The Near-Infrared High-Throughout Spectrograph', 1, 'Ritchey-Chretien', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information available under: http://www.lowell.edu/dct_instruments_nihts.php'),
 (1303, 'The DeVeny Spectrograph', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under: http://www.lowell.edu/dct_instruments_deveny.php'),
-(1304, 'SBIG ST8', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, 'CCD Kodak Kaf1603', ''),
 (1305, 'NESSI - New Mexico Tech Extrasolar Spectroscopic Survey Instrument', 1, '', 'near infrared', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on the instrument available under: http://www.mro.nmt.edu/about-mro/nessi/'),
 (1307, 'CCD Monochrome Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1392 x 1040', 0.01, 999, 1, 'Sony ICX285AL', ''),
 (1314, 'Lumenera SKYnyx', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 100, '640 x 480', 0.001, 3600, 1, 'Sony ICX424', ''),
@@ -1241,20 +1260,16 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1417, 'Boller & Chivens Spectrograph', 1, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available (in spanish) under: http://astro.inaoep.mx/observatorios/cananea/boller/'),
 (1418, 'CANICA - Cananea Near Infrared Camera', 5, '', 'near-infrared', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available (in spanish) under: http://astro.inaoep.mx/observatorios/cananea/canica/'),
 (1420, 'Sbig ST-7-ME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, ' 765x510', 0, 0, 1, 'kodak kaf-400', ''),
-(1421, 'SBIG ST8XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0.4, '1530 x 1020', 0.11, 3600, 1, '', 'Time: 0.11 s<br>Color / BW Chip: BW<br>CCD Chip Type: KAF1602E'),
-(1422, 'FLI CM-9', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '512 x 512', 0, 0, 1, '', ''),
 (1425, 'CCD Starlight MX 516', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', ''),
 (1426, 'Pulnix TM4200GE', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 6, '', 0.002, 0, 1, 'Kodak KAI4021', ''),
 (1427, 'SBIG ST8300C', 5, '', 'optical, infrared, ', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '3326 x 2504 pixel', 0, 0, 0, 'Kodak KAF-8300', ''),
 (1428, 'Starlight Xpress SXVF M8C ', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '2312 x 1720', 0, 0, 0, 'Sony ICX406AQ SuperHAD CCD', ''),
-(1430, 'ATIK 2HS', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '640 x 480', 0, 0, 1, 'Sony ICX-424AL', ''),
 (1436, 'HIDES - HIgh Dispersion Echelle Spectrograph', 8, '', 'optical', 360.000000, 8, 1000.000000, 8, '', '', '', '', 0, '2048 x 4096', 0, 0, 0, '', 'Further information on this instrument available under http://www.oao.nao.ac.jp/~hides/wiki/index.php?English'),
 (1437, 'ISLE', 8, 'Cassegrain', 'near infrared', 1.000000, 9, 2.500000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://www.oao.nao.ac.jp/~isle/'),
 (1438, 'KOOLS - Kyoto Okayama Optical Low-dispersion Spectrograph', 8, 'Cassegrain', 'optical', 400.000000, 8, 800.000000, 8, '0.334', '', '', '300 x 264', 0, '2048 x 4096', 0, 0, 0, 'SITe ST-002A', 'Further information on this instrument available under http://www.oao.nao.ac.jp/~kools/'),
 (1439, 'HBS', 8, '', 'optical, ', 360.000000, 8, 900.000000, 8, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information (in Japanese only) available under http://1601-031.a.hiroshima-u.ac.jp/hbs/'),
 (1440, 'Observatory in-house developed mosaic CCD camera', 5, '', 'optical', 360.000000, 8, 900.000000, 8, '', '', '', '', 1, '3 x 2048 x 4096', 1, 1800, 0, 'E2V CCD', ''),
 (1442, 'FLI proline 16803', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 1800, 0, '', ''),
-(1443, 'Starlight Xpress SXVF H16', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0.001, 0, 1, 'KAI 4021M - KodaK', ''),
 (1444, ' Apogee Alta U6', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0.02, 10980, 1, 'Kodak Blue Plus sensor', ''),
 (1528, 'CRIRES', 1, '', '0.92–5.2 um', 0.000000, 1, 0.000000, 1, '0.086 arcseconds per pixel', 'R<100000', '', '', 0, '3 * 1024x1024 ', 0, 0, 0, 'mosaic of 3 x Aladdin III InSb arrays. Each array has 1024 x 1024 pixels', 'Cryogenic high-resolution InfraRed Echelle Spectrograph [Mounted on UT1]\r\n\r\nScience goals: search for exoplanets, Solar System objects, stellar evolution and abundances, star forming regions, active galactic nuclei'),
 (1529, 'MIDI ', 2, '', '8–13 um', 0.000000, 1, 0.000000, 1, '', 'R=30–230', '', '', 0, '320x240', 0, 0, 0, '320 x 240 pixel Raytheon Si:As Impurity Band Conduction (IBC) array', 'MID-infrared Interferometric instrument, combining two beams, either from the UTs or from the ATs.\r\n\r\nScience goals: dust rings around black holes at the centres of quasars, circumstellar discs of forming stars, dust in the atmospheres of giant stars'),
@@ -1281,12 +1296,42 @@ INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_po
 (1570, 'SWIFT', 8, 'Cassegrain', 'optical, near infrared', 650.000000, 8, 1000.000000, 8, '0.235; 0.16; and 0.08', '', '', '10.3 x 20.9; 7.0 x 14.2; and 3.5 x 7.1', 0, '4000 x 2000', 0, 0, 0, '', '- Spectral resolving power: R ≡ λ ⁄Δλ = 3250 at 650 nm, rising linearly to 4400 at 1000 nm, 2 pixel spectral FWHM.\r\n\r\n- Further information on this instrument available under http://www.astro.caltech.edu/palomar/200inch/palao/swift/swift_specs.htm'),
 (1571, 'EAE - East Arm Echelle', 8, '', 'optical', 3800.000000, 7, 8600.000000, 7, '', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', 'Further information on this instrument available under http://www.astro.caltech.edu/palomar/200inch/echelle/eae_spec.html'),
 (1572, 'Facility Optical Camera', 5, '', '', 0.000000, 1, 0.000000, 1, '0.378', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', 'Further information on this instrument available under http://www.astro.caltech.edu/palomar/P60observers.html'),
-(1573, 'Canon G15Hi', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 25, '', 0.04, 0, 1, '', '');
+(1573, 'Canon G15Hi', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 25, '', 0.04, 0, 1, '', ''),
+(1577, 'Apogee Alta E42', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '2048 x 2048', 0, 0, 0, '', ''),
+(1579, ' Watec 120N+', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 25, '795 x 596', 0, 256, 1, '1/2inch chip, interline CCD transfer', ''),
+(1581, 'SBIG ST2000XCM', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '1600 x 1200', 0.001, 3600, 0, ' Kodak KAI-2020CM + TI TC-237H', ''),
+(1582, 'SBIG', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 1, '765x510', 0.11, 3600, 1, 'Kodak KAF-0402ME', ''),
+(1668, 'IMACS - Inamori Magellan Areal Camera and Spectrograph', 8, 'Magellan 1 - Baade Telescope - Instruments f/11', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, '', 'Furtherinformation on this instrument can be found under http://www.lco.cl/telescopes-information/magellan/instruments/imacs/ and http://www.lco.cl/telescopes-information/magellan/instruments/imacs/imacs-specs'),
+(1669, 'FourStar', 5, 'Magellan 1 - Baade Telescope - Instruments f/11', 'near-infrared, ', 0.000000, 1, 0.000000, 1, '', '', '', '654x654', 0, '4096x4096', 0, 0, 0, '', 'Further information on this instrument available under http://instrumentation.obs.carnegiescience.edu/FourStar/'),
+(1670, 'FIRE - Folded port InfraRed Echellette', 1, 'Magellan 1 - Baade Telescope - Instruments f/11', 'near-infrared, ', 0.800000, 9, 2.500000, 9, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument can be found under http://web.mit.edu/~rsimcoe/www/FIRE/'),
+(1671, 'MIKE - Magellan Inamori Kyocera Echelle', 1, 'Magellan II - Clay Telescope - Instruments f/11', 'optical, ', 0.320000, 9, 1.000000, 9, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument can be found under http://www.lco.cl/telescopes-information/magellan/instruments/mike and http://www.lco.cl/telescopes-information/magellan/instruments/mike/mike-specs'),
+(1672, 'MagE - Magellan Echellette', 1, 'Magellan II - Clay Telescope - Instruments f/11', 'optical, ', 0.310000, 9, 1.000000, 9, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument can be found under http://www.lco.cl/telescopes-information/magellan/instruments/mage and http://www.lco.cl/telescopes-information/magellan/instruments/mage'),
+(1673, 'LDSS3 - Low Dispersion Survey Spectrograph', 1, 'Magellan II - Clay Telescope - Instruments f/11', 'optical, ', 0.360000, 9, 1.000000, 9, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument can be found under http://www.lco.cl/telescopes-information/magellan/instruments/ldss-3 and http://www.lco.cl/telescopes-information/magellan/instruments/ldss-3/ldss-3-specs/ldss-3-specs'),
+(1674, 'MEGACAM', 5, 'Magellan II - Clay Telescope - Instruments f/5', 'optical, ', 0.000000, 1, 0.000000, 1, '0.08', '', '', '1440x1440', 0, '36x2048x4608', 0, 0, 0, 'E2V CCD42-90 CCDs', 'Large mosaic CCD camera (36 science CCDs and 2 guide CCDs)\r\n\r\nFurther information on this instrument can be found under http://hopper.si.edu/wiki/mmti/MMTI/Megacam/ObsManual'),
+(1675, 'MMIRS - MMT and Magellan InfraRed Spectrograph', 8, 'Magellan II - Clay Telescope - Instruments f/5', 'near infrared, ', 0.000000, 1, 0.000000, 1, '', '', '', '414x414', 0, '2048x2048', 0, 0, 0, '', 'Further information on this instrument are available under http://hopper.si.edu/wiki/mmti/MMTI/MMIRS/ObsManual'),
+(1676, 'PFS - Planet Finder Spectrograph', 1, 'Magellan II - Clay Telescope - Instruments f/11', 'optical, ', 0.388000, 9, 0.668000, 9, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://users.obs.carnegiescience.edu/crane/pfs/'),
+(1677, 'SITe2K CCD', 5, 'Cassegrain', 'optical, ', 0.000000, 1, 0.000000, 1, '0.259', '', '', '531x531', 0, '2048x2048', 0, 0, 0, '', 'Further information on this instrument available under http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/website/direct-ccd-manuals/direct-ccd-manuals-1 and http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/specs/du-pont-telescope-direct-ccd-camera-ccd');
+INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_type`, `focal_position`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `spatial_resolution`, `spectral_resolution`, `polarisation`, `field_of_view`, `max_frames_per_sec`, `frame_size`, `min_exposure_time`, `max_exposure_time`, `color_bw_chip`, `ccd_chip_type`, `comments`) VALUES
+(1678, 'WIRC - Wide Field Infrared Camera', 5, 'Cassegrain', 'infrared, ', 0.000000, 1, 0.000000, 1, '0.196', '', '', '201x201 (single detector)', 0, '4x1024x1024', 0, 0, 0, '', 'Four 1024 x 1024 Hawaii HgCdTe arrays\r\n\r\nFurther information on this instrument available under http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/website/wide-field-infrared-camera-wirc-manuals and http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/specs/du-pont-telescope-wide-field-ir-camera-wirc'),
+(1679, 'WFCCD - Wide Field CCD', 5, 'Cassegrain', 'optical, ', 0.380000, 9, 0.760000, 9, '0.484', '', '', '1500x1500', 0, '4064x4064', 0, 0, 0, '', 'Further information on this instrument available under http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/website/wfccd/wfccd-manuals and http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/specs/du-pont-telescope-wide-field-reimaging-ccd-camera-wfccd'),
+(1680, 'Boller & Chivens Spectrograph', 1, 'Cassegrain', 'optical, ', 0.310000, 9, 1.000000, 9, '0.7', '', '', '', 0, '', 0, 0, 0, '', 'Further information on this instrument available under http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/website/boller-chivens-spectrograph-manuals/boller-chivens-spectrograph-manuals and http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/specs/du-pont-telescope-boller-and-chivens-spectrograph '),
+(1681, 'Echelle', 1, '', 'optical, ', 0.370000, 9, 0.700000, 9, '', '', '', '', 0, '', 0, 0, 0, '', 'Further information available under http://www.lco.cl/telescopes-information/lco/telescopes-information/irenee-du-pont/instruments/website/echelle-spectrograph-manuals/echelle-spectrograph-manuals'),
+(1682, 'CAPSCam - Carnegie Astrometric Planet Search Camera', 5, 'Cassegrain', '', 0.000000, 1, 0.000000, 1, '0.194', '', '', '398x398', 0, '2048x2048', 0, 0, 0, '', 'Designed for an astrometric search of Jupiter-like planets around red dwarf stars.\r\n\r\nFurther information available under specialized astrometric camera designed for an astrometric search for Jupiter-like planets and http://www.lco.cl/telescopes-information/irenee-du-pont/instruments/specs/carnegie-astrometic-planet-search-camera-capscam'),
+(1683, 'RetroCam', 5, '', 'near infrared, ', 0.000000, 1, 0.000000, 1, '0.201', '', '', '204x204', 0, '1024x1024', 0, 0, 0, '', 'Built especialy for the Carnegie Supernova Program, but also general available for users.\r\n\r\nFurther information on this instrument available under http://www.lco.cl/telescopes-information/irenee-du-pont/instruments/website/retrocam and http://www.lco.cl/telescopes-information/henrietta-swope/telescopes-information/henrietta-swope/instruments/specs/d'),
+(1684, 'Direct CCD', 5, '', '', 0.000000, 1, 0.000000, 1, '0.435', '', '', '888x1368', 0, '2048x3150', 0, 0, 0, '', 'Further information on this telescope available under http://www.lco.cl/telescopes-information/henrietta-swope/lco/telescopes-information/irenee-du-pont/instruments/website/direct-ccd-manuals/direct-ccd-manuals-1 and http://www.lco.cl/telescopes-information/henrietta-swope/lco/telescopes-information/henrietta-swope/instruments/specs/direct-ccd-camera-ccd/direct-ccd-camera-ccd'),
+(1685, 'OGLE-IV - "Third generation" mosaic camera', 5, '', '', 0.000000, 1, 0.000000, 1, '0.26', '', '', '', 0, '32x2048x4096', 0, 0, 0, '', ''),
+(1686, 'SBIG ST-7XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 4, '765 x 510', 0.12, 3600, 1, 'KAF-0402ME', 'BVR Custom Scientific Photometric filters (Johnson BV - Cousins R) and SBIG CFW9 Filter Wheel.'),
+(1687, 'SBIG ST6', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '375x242', 0.01, 3600, 1, 'TI TC-241', ''),
+(1688, 'SBIG ST8', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0, 0, 0, 'CCD Kodak Kaf1603', ''),
+(1689, 'SBIG ST8XME', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0.4, '1530 x 1020', 0.11, 3600, 1, '', 'Time: 0.11 s<br>Color / BW Chip: BW<br>CCD Chip Type: KAF1602E'),
+(1690, 'FLI CM-9', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '512 x 512', 0, 0, 1, '', ''),
+(1691, 'ATIK 2HS', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '640 x 480', 0, 0, 1, 'Sony ICX-424AL', ''),
+(1692, 'Starlight Xpress SXVF H16', 5, '', '', 0.000000, 1, 0.000000, 1, '', '', '', '', 0, '', 0.001, 0, 1, 'KAI 4021M - KodaK', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `instrument_types`
+-- Tabellenstruktur für Tabelle `instrument_types`
 --
 
 CREATE TABLE IF NOT EXISTS `instrument_types` (
@@ -1296,7 +1341,7 @@ CREATE TABLE IF NOT EXISTS `instrument_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `instrument_types`
+-- Daten für Tabelle `instrument_types`
 --
 
 INSERT INTO `instrument_types` (`id`, `name`) VALUES
@@ -1313,7 +1358,7 @@ INSERT INTO `instrument_types` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `observatories`
+-- Tabellenstruktur für Tabelle `observatories`
 --
 
 CREATE TABLE IF NOT EXISTS `observatories` (
@@ -1346,16 +1391,16 @@ CREATE TABLE IF NOT EXISTS `observatories` (
   KEY `precipitation_id` (`precipitation`),
   KEY `clear_nights_id` (`clear_nights`),
   KEY `timezone_id` (`timezone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=252 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=263 ;
 
 --
--- Dumping data for table `observatories`
+-- Daten für Tabelle `observatories`
 --
 
 INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_address`, `address`, `country_id`, `phone`, `email`, `latitude`, `longitude`, `approx_position`, `sealevel_m`, `precipitation`, `clear_nights`, `timezone`, `observatory_status`, `partner_observatories`, `user_id`, `creation_date`, `modification_date`, `approved`, `saved_for_later`, `last_saved_by`) VALUES
 (1, 'IRAM 30m telescope', 1984, 'Institut de Radioastronomie Millimétrique (IRAM)', 'http://www.iram-institute.org', 'Avenida Divina Pastora 7, 18012, Granada', 192, '+34-958-80-5454', 'info@iram.fr', 37.068414, -3.398753, 'Pico Veleta, Sierra Nevada Andalusia', 2850, 7, 8, 2, '', 'Plateau de Bure Interferometer (also operated by IRAM), ', 0, '2011-02-25 14:10:58', '2012-03-20 13:58:06', 1, 0, 6),
 (2, 'University of London Observatory (ULO)', 1929, 'University College London', 'http://www.ulo.ucl.ac.uk/', '553 Watford Way, Mill Hill London NW7 2QS', 217, '+44-203-108-1613', 'kathryn.goldsmith@ucl.ac.uk', 51.600000, -0.233331, '', 78, 7, 8, 1, '', '', 0, '2011-02-25 14:50:57', '2012-02-29 13:43:46', 1, 0, 6),
-(3, 'A81 Balzaretto Observatory', 2005, 'Privately owned', 'http://digilander.libero.it/A81_Observatory/', 'Via Giuseppe Balzaretto 184, 00163 Rome', 103, '+39-6-664-11076', 'lor_franco@libero.it', 41.869992, 12.403306, '', 70, 6, 8, 2, '', '', 0, '2011-02-25 15:10:01', '2012-02-29 13:45:51', 1, 0, 6),
+(3, 'A81 Balzaretto Observatory', 2005, 'Privately owned', 'http://digilander.libero.it/A81_Observatory/', 'Via Giuseppe Balzaretto 184, 00163 Rome', 103, '+39-6-664-11076', 'lor_franco@libero.it', 41.869992, 12.403306, '', 70, 6, 8, 2, '', '', 0, '2011-02-25 15:10:01', '2012-09-19 14:30:15', 1, 0, 6),
 (4, 'Armagh Observatory', 1790, 'Armagh Observatory', 'http://www.arm.ac.uk', 'College Hill, Armagh BT61 9DG', 217, '+44-2837-522928', 'info@arm.ac.uk', 54.353056, -6.649717, '', 60, 6, 2, 1, '', '', 0, '2011-02-25 15:19:53', '2012-03-08 17:41:16', 1, 0, 9),
 (5, 'Abre Los Ojos', 2008, 'Privately owned', 'http://www.AbreLosOjos.be', '', 192, '', 'info@AbreLosOjos.be', 0.000000, 0.000000, 'Nearest airport: Alicante', 50, 7, 8, 2, '', '', 0, '2011-02-25 15:29:48', '2012-03-08 15:54:38', 1, 0, 6),
 (6, 'European Incoherent Scatter Facility (EISCAT), Tromso', 0, 'EISCAT', 'http://www.eiscat.se/', 'Ramfjordmoen, N‐9027 Ramfjordbotn', 155, '', '', 69.583331, 19.233331, 'Tromso', 86, 1, 1, 1, '', 'EISCAT Kiruna, EISCAT Sodankylä, EISCAT Longyearbyen, ', 0, '2011-02-26 15:47:58', '2012-03-20 11:58:44', 1, 0, 6),
@@ -1450,11 +1495,11 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (96, 'Arecibo Observatory', 1963, 'NRAO - National Radio Astronomy Observatory', 'http://www.naic.edu/', 'Arecibo Observatory, HC03 Box 53995 Arecibo, P.R. 00612, ROUTE 625  Bo. Esperanza,Puerto Rico', 167, '787 878 2612', 'hhernand@naic.edu', 18.344167, -66.752778, 'Rain:83.1; Nights:', 497, 7, 8, 17, '', '', 6, '2012-02-16 10:40:42', '2012-03-08 18:15:28', 1, 0, 9),
 (97, 'Asiago Astrophysical Observatory', 1942, 'Padova Observatory & INAF - Istituto Nazionale di Astrofisica', 'http://www.pd.astro.it/asiago/', 'Asiago Astrophysical Observatory, Asiago', 103, '+39-0424-462032', '', 45.866389, 11.526389, 'Asiago, about 90km north-westof Padova', 1045, 7, 8, 1, 'operating', 'Partner Observatory, ', 6, '2012-02-16 12:41:14', '2012-03-20 11:47:44', 1, 0, 6),
 (98, 'Astronomical and Geophysical Observatory in Modra', 0, 'Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava', 'http://daa.fmph.uniba.sk/', 'P.O.Box 4, 900 01 Modra', 186, '+421 336475261', 'ago@fmph.uniba.sk', 48.373331, 17.273889, '', 531, 6, 4, 2, '', 'Ondrejov observatory, ', 6, '2012-02-16 14:45:11', '2012-03-09 13:33:05', 1, 0, 9),
-(99, 'Astraeus Observatory', 2009, 'Privately owned', 'http://www.astraeusobservatory.com', '', 218, '', 'patrick@astraeusobservatory.com', 0.000000, 0.000000, '', 240, 2, 3, 18, '', '', 6, '2012-02-16 14:47:28', '2012-03-08 18:36:10', 1, 0, 9),
+(99, 'Astraeus Observatory', 2009, 'Privately owned', 'http://www.astraeusobservatory.com', '', 218, '', 'patrick@astraeusobservatory.com', 0.000000, 0.000000, '', 240, 2, 3, 18, '', '', 6, '2012-02-16 14:47:28', '2012-09-19 14:33:29', 1, 0, 6),
 (100, 'Astronomical Station Kryoneri', 1972, 'National Observatory of Athens', 'http://www.astro.noa.gr/ASK_1.2m/ask_main.htm', 'P.O. BOX 20048,Thissio,11810, Athens', 84, '', '', 37.966667, 22.616667, '105km outside of Athens', 930, 7, 8, 1, '', 'National Observatory of Athens, ', 6, '2012-02-16 15:38:33', '2012-03-20 11:48:13', 1, 0, 6),
 (101, 'Astrophysical Observatory, Baldone', 1957, 'Institute of Astronomy, University of Latvia', 'http://www.astr.lu.lv', '19 Raina blvd., LV-1586', 113, '+371 67932863; +371 ', 'astra@latnet.lv', 56.773331, 24.404167, '', 103, 6, 2, 4, '', 'Institute of Theoretical Physics and Astronomy of Vilnius University, http://www.itpa.lt/         atom@itpa.lt, ', 6, '2012-02-16 16:54:36', '2012-03-20 11:48:30', 1, 0, 6),
 (102, 'Atlante MPC J51', 0, 'Juan Antonio Henríquez Santana (privately owned)', 'http://atlante.org.es', 'Juan Alvarez Delgado nº11, 5º2', 192, '34-922-215074', 'jahensan@gmail.com', 28.464725, -16.270831, '', 149, 7, 8, 1, '', '', 6, '2012-02-16 17:21:15', '2012-03-08 18:12:51', 1, 0, 9),
-(103, 'B50 Corner Observatory', 2007, 'Privately owned', 'http://www.cometmillenium.de', 'Im Eck 1/19', 81, '+49 7245 937594', 'juergen@cometmillenium.de', 0.000000, 0.000000, 'Near Karlsruhe, Germany', 127, 6, 2, 2, '', 'Red Barn Observatory H68 (http://www.cometary.net/) & TSO 628  http://www.bph.rub.de/~axelm/tso/tso.htm   & Small Budget Sky Survey & http://www.cometary.net/tzec_maun.htm, ', 6, '2012-02-16 17:52:31', '2012-03-08 18:35:23', 1, 0, 9),
+(103, 'B50 Corner Observatory', 2007, 'Privately owned', 'http://www.cometmillenium.de', 'Im Eck 1/19', 81, '+49 7245 937594', 'juergen@cometmillenium.de', 0.000000, 0.000000, 'Near Karlsruhe, Germany', 127, 6, 2, 2, '', 'Red Barn Observatory H68 (http://www.cometary.net/) & TSO 628  http://www.bph.rub.de/~axelm/tso/tso.htm   & Small Budget Sky Survey & http://www.cometary.net/tzec_maun.htm, ', 6, '2012-02-16 17:52:31', '2012-09-19 14:38:43', 1, 0, 6),
 (104, 'Bairisch Koelldorf', 2002, 'Privately owned', '', 'Bairisch Koelldorf 291', 14, '436644243216', 'arnold.hanslmeier@uni-graz.at', 46.866667, 15.949992, '', 320, 6, 1, 2, '', '', 6, '2012-02-16 18:19:41', '2012-03-08 18:18:53', 1, 0, 9),
 (105, 'Bareket Observatory, Israel', 1995, 'private-educational', 'http://www.bareket-astro.com/', '', 102, '', 'red7@bareket-astro.com', 31.783331, 35.216667, 'Jerusalem', 303, 1, 8, 3, 'operating', '', 6, '2012-02-16 18:37:32', '2012-03-08 18:37:09', 1, 0, 9),
 (106, 'Bergen-Enkheim Observatory', 0, 'Uwe Suessenberger (privately owned)', 'http://www.bergen-enkheim-observatory.de/', 'Hohe Straße 14', 81, '06109-378695', 'u.suessenberger@t-online.de', 50.155000, 8.753056, '', 195, 6, 1, 2, '', 'Observatorium Wildberg (http://www.astro-wildberg.de) & Privatsternwarte Seng  (http://members.infodat.at/Sternwarte_Seng)  & Taunus-Sternwarte (http://www.erwinschwab.de/taunus-sternwarte.htm) & Sternwarte Gaisberg (http://www.observatorium.at/), ', 6, '2012-02-16 19:05:37', '2012-03-13 21:58:27', 0, 1, 6),
@@ -1548,7 +1593,7 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (202, 'Lomnicky Stit Neutron Monitor', 1957, 'Institute of Experimental Physics, Slovak Academy of Sciences', 'http://neutronmonitor.ta3.sk', 'IEP SAS, Watsonova 47', 186, '++421 55 6224554', 'kkudela@kosice.upjs.sk', 49.200000, 20.219719, '', 2634, 7, 8, 2, '', 'Several partners, in Europe for example the list of neutron monitors included in NMDB project can be found at http://www.nmdb.eu/?q=node/8, ', 6, '2012-07-02 14:53:20', '2012-07-02 14:55:50', 1, 0, 6),
 (203, 'Lowell Observatory', 1894, 'Private - Friends of Lowell', 'http://www.lowell.edu/', 'LOWELL OBSERVATORY, 1400 West Mars Hill Road, Flagstaff AZ-86001', 218, '(928) 774-3358', 'info@lowell.edu', 35.096831, -111.535842, '', 2206, 7, 8, 20, '', '', 6, '2012-07-02 15:10:59', '2012-07-02 15:53:43', 1, 0, 6),
 (204, 'Lulin Observatory', 1999, 'Graduated Institute of Astronomy, National Central University', 'http://www.lulin.ncu.edu.tw/english/index.htm', 'National Central University, Yu-Shan National Park, Chung-Li 32054 ROC', 201, '', '', 23.468608, 120.873608, '', 2862, 7, 8, 9, '', '', 6, '2012-07-02 16:05:37', '2012-07-02 16:23:43', 1, 0, 6),
-(205, 'Madonna di Dossobuono', 1978, 'pirvate person', 'http://obs560.interfree.it/', 'via Mantovana 130e, Madonna die Dossobuono, 37062 Verona, Italy', 103, '39045953993', 'francylai@tin.it', 45.407442, 10.964331, '', 65, 5, 2, 2, '', '', 6, '2012-07-02 16:25:42', '2012-07-02 16:40:02', 1, 0, 6),
+(205, 'Madonna di Dossobuono', 1978, 'private person', 'http://obs560.interfree.it/', 'via Mantovana 130e, Madonna die Dossobuono, 37062 Verona, Italy', 103, '39045953993', 'francylai@tin.it', 45.407442, 10.964331, '', 65, 5, 2, 2, '', '', 6, '2012-07-02 16:25:42', '2012-09-19 14:49:20', 1, 0, 6),
 (206, 'Magdalena Ridge Observatory', 1999, 'United States Naval Research Laboratory', 'http://www.mro.nmt.edu', 'Magdalena Ridge Observatory, New Mexico Tech Research Office Building, 101 East Road ,87801 ,Socorro NM87801', 218, '(575) 835 - 6431', 'info@mro.nmt.edu', 33.976667, -107.184717, '', 3230, 7, 8, 20, '', '', 6, '2012-07-02 16:43:12', '2012-07-03 11:47:55', 1, 0, 6),
 (207, 'MAGIC - Major Atmospheric Gamma-ray Imaging Cherenkov telescopes (Roque de los Muchachos Observatory)', 2003, 'MAGIC Collaboration', 'http://wwwmagic.mppmu.mpg.de/', ',,,La Palma', 192, '+34 628 135 143', '', 28.761942, -17.890000, 'Spain; LAT:17?43''; LON:28?46'' N; Rain:; Nights:', 2200, 7, 8, 1, '', '', 6, '2012-07-03 11:50:50', '2012-07-03 12:10:42', 1, 0, 6),
 (208, 'Mandi Observatory', 1990, 'private person', '', 'via dei Brazzà, 23I-33010', 103, '39.0432-570892', 'corelli@conecta.it', 46.096942, 13.183606, 'Near Udine, Italy', 140, 6, 3, 2, '', '', 6, '2012-07-03 12:13:48', '2012-07-03 13:32:29', 1, 0, 6),
@@ -1580,25 +1625,36 @@ INSERT INTO `observatories` (`id`, `name`, `founded`, `institution`, `web_addres
 (234, 'Observatoire de Duines', 2001, 'private', 'http://astro.perroud-net.fr/observatoire.html', '', 73, '', 'site.valere@perroud-net.fr', 45.736389, 6.407497, '', 650, 6, 3, 3, '', '', 6, '2012-07-23 11:24:07', '2012-07-23 11:51:50', 1, 0, 6),
 (235, 'Observatoire de Paris - Site de Meudon', 1667, '', 'http://www.obspm.fr/', '5, place Jules Janssen, 92195', 73, '33 (1) 45 07 75 30', '', 48.805089, 2.231003, '', 162, 7, 8, 2, '', '', 6, '2012-07-23 11:53:24', '2012-07-23 13:36:52', 1, 0, 6),
 (236, 'Observatoire de Vesqueville', 1999, 'private person', 'http://www.astrosurf.com/vda', '8 rue de Fayet', 21, '', 'fvda@skynet.be', 50.004167, 5.397217, '', 475, 6, 2, 2, '', '', 6, '2012-07-23 13:38:16', '2012-07-23 13:58:42', 1, 0, 6),
-(237, 'Observatori de l''Agrupació Astronòmica de Sabadell a Sabadell', 1993, 'Amateur Association', 'http://www.astrosabadell.org', 'Apartado de Correos , 50 08200 SABADELL', 192, '-7255432', 'astronomia@astrosabadell.org', 41.551108, 2.091389, '', 224, 6, 3, 2, '', '', 6, '2012-07-23 14:03:08', '2012-07-23 14:13:39', 1, 0, 6),
+(237, 'Observatori de l''Agrupació Astronòmica de Sabadell a Sabadell', 1993, 'Amateur Association', 'http://www.astrosabadell.org', 'Apartado de Correos , 50 08200 SABADELL', 192, '-7255432', 'astronomia@astrosabadell.org', 41.551106, 2.091389, '', 224, 6, 3, 2, '', '', 6, '2012-07-23 14:03:08', '2012-09-19 14:52:48', 1, 0, 6),
 (238, 'Observatori El Vendrell', 2007, 'ROSFA', 'http://www.rosfa.com', 'C/Estornell 1, bl 6, 3-C', 192, '34610949094', 'observasantgervasi@gmail.com', 0.000000, 0.000000, '', 0, 7, 3, 2, '', '', 6, '2012-07-23 14:17:17', '2012-07-23 14:19:34', 1, 0, 6),
 (239, 'Observatorio Astronómico MELAGA', 2000, 'Personal', 'httP://www.eduardoleyton.com/Astronomia', 'Poetas Chilenos, 1023 Maipu', 43, '56-9-9393007', 'eleytong@hotmail.com', -33.486389, -70.741667, 'Near Santiago de Chile', 457, 3, 3, 17, '', '', 6, '2012-07-23 14:27:57', '2012-07-23 14:40:56', 1, 0, 6),
-(241, 'Observatory Samo Stopar', 1987, 'privat person', 'http://www.observatory-stopar.com/', 'Samo StoparVitovlje 7', 187, '++386 41915877', 'samo.stopar@siol.net', 45.923889, 13.753606, '', 150, 7, 8, 2, '', '', 6, '2012-07-23 14:53:33', '2012-07-23 15:08:59', 1, 0, 6),
+(241, 'Observatory Samo Stopar', 1987, 'private person', 'http://www.observatory-stopar.com/', 'Samo StoparVitovlje 7', 187, '++386 41915877', 'samo.stopar@siol.net', 45.923889, 13.753606, '', 150, 7, 8, 2, '', '', 6, '2012-07-23 14:53:33', '2012-09-19 14:54:31', 1, 0, 6),
 (242, 'Okayama Astrophysical Observatory, National Astronomical Observatory of Japan', 1960, 'National Astronomical Observatory of Japan, National Institutes of Natural Sciences', 'http://www.oao.nao.ac.jp', 'Okayama Astrophysical Observatory, NAOJ, NINS, 3037-5 Honjo, Kamogata, Asakuchi, Okayama 719-0232, Japan', 105, '81-865-442155', 'oao-webmaster@oao.nao.ac.jp', 34.576106, 133.593889, '', 350, 6, 2, 10, '', '', 6, '2012-07-23 15:12:53', '2012-07-23 15:48:15', 1, 0, 6),
 (243, 'Orange Observatory', 2003, 'private person', 'http://www.outters.fr/index.html', '', 73, '', 'nico.outters@libertysurf.fr', 0.000000, 0.000000, '', 1060, 6, 2, 2, '', '', 6, '2012-07-23 15:49:40', '2012-07-23 16:00:25', 1, 0, 6),
-(244, 'Osservatorio Astronomico di Stia', 1997, 'Privato', 'http://giba44.interfree.it/', 'Viale 17 Partigiani N°5652017 Stia', 103, '3337942274', 'giba44@interfree.it', 43.804997, 11.716389, '', 500, 3, 3, 2, '', '', 6, '2012-07-23 16:01:22', '2012-07-23 16:17:22', 1, 0, 6),
+(244, 'Osservatorio Astronomico di Stia', 1997, 'private person', 'http://giba44.interfree.it/', 'Viale 17 Partigiani N°5652017 Stia', 103, '3337942274', 'giba44@interfree.it', 43.804994, 11.716389, '', 500, 3, 3, 2, '', '', 6, '2012-07-23 16:01:22', '2012-09-19 14:55:18', 1, 0, 6),
 (245, 'Osservatorio Astronomico Montagna Pistoiese', 1990, 'private - Gruppo Astrofili Montagna Pistoiese', 'http://www.gamp-pt.net', 'Viale Panoramico 949', 103, '0573 622220 -3473213', 'luctesi@alice.it', 44.064167, 10.803750, '', 980, 5, 3, 2, '', 'Mazucato Michele michelemazzucato@tiscali.it;  Fagioli Giancarlo  gfagio@supereva.it', 6, '2012-07-23 16:19:55', '2012-07-23 16:32:56', 1, 0, 6),
 (246, 'Owens Valley Observatory', 1958, 'Caltech', 'http://www.ovro.caltech.edu/', 'CARMA 100 Leighton Lane (P.O. Box 968), Big Pine CA93513', 218, '760-938-2075', '', 37.233889, -118.282217, '', 1222, 7, 8, 21, '', '', 6, '2012-07-23 16:48:18', '2012-07-23 17:07:31', 1, 0, 6),
 (247, 'Parkes Observatory', 1961, 'CSIRO Astronomy and Space Science', 'http://www.parkes.atnf.csiro.au/', 'PO Box 276, Parkes, NSW 2870', 13, '(+61) 02 6861 1700', 'parkes@csiro.au', -32.999942, 148.262306, '20 km north of the town of Parkes, New South Wales', 415, 7, 8, 11, '', '', 6, '2012-07-23 17:17:05', '2012-07-24 11:36:06', 1, 0, 6),
 (248, 'Palomar Observatory', 1928, 'Caltech', 'http://www.astro.caltech.edu/palomar/', 'Palomar Observatory, 35899 Canfield Road, Palomar Mountain, CA 92060-0200', 218, '(760) 742-2111', '', 33.355831, -116.863889, '', 1713, 7, 6, 21, '', '', 6, '2012-07-24 11:39:34', '2012-07-24 15:10:17', 1, 0, 6),
 (249, 'ATCA - Australia Telescope Compact Array (Paul Wild Observatory)', 1989, 'CSIRO Astronomy and Space Science', 'http://www.narrabri.atnf.csiro.au/', 'CSIRO Australia Telescope, Locked Bag 194, Narrabri NSW 2390, AUSTRALIA', 13, '+61 02 6790 4000', 'narrabri@atnf.csiro.au', -30.313900, 149.562000, '25 km west of the town of Narrabri', 209, 7, 8, 11, '', 'Part of the Australia Telescope National Facility', 6, '2012-07-25 10:20:19', '2012-07-25 11:41:19', 1, 0, 6),
-(250, 'Pico dos Dias Observatory', 0, 'LNA - Laboratório Nacional de Astrofisica', 'http://www.lna.br/opd/opd.html', 'Minas Gerais', 30, '+55 35 3621-2121', '', -22.534442, -45.582500, '', 1864, 7, 8, 16, '', '', 6, '2012-07-25 11:52:09', '2012-07-25 13:48:12', 0, 1, 6),
-(251, 'Pisgah Astronomical Research Institute', 0, 'PARI', 'http://www.pari.edu/', 'Pisgah Astronomical Research Institute 1 PARI Drive Rosman,,28772,NC28772', 218, '828-862-5554', 'dclavier@pari.edu', 35.199592, -82.872392, 'USA; LAT:82?52''20.64''''W; LON:35?11''58.56''''N; Rain:; Nights:', 880, 7, 8, 18, '', '', 6, '2012-07-25 13:49:16', '2012-07-25 14:44:18', 1, 0, 6);
+(250, 'Pico dos Dias Observatory', 0, 'LNA - Laboratório Nacional de Astrofisica', 'http://www.lna.br/opd/opd.html', 'Minas Gerais', 30, '+55 35 3621-2121', '', -22.534442, -45.582500, '', 1864, 7, 8, 16, '', '', 6, '2012-07-25 11:52:09', '2012-07-26 13:48:50', 1, 0, 6),
+(251, 'Pisgah Astronomical Research Institute', 0, 'PARI', 'http://www.pari.edu/', 'Pisgah Astronomical Research Institute 1 PARI Drive Rosman,,28772,NC28772', 218, '828-862-5554', 'dclavier@pari.edu', 35.199592, -82.872392, '', 914, 7, 8, 18, '', '', 6, '2012-07-25 13:49:16', '2012-07-25 15:25:49', 1, 0, 6),
+(252, 'Piszkéstetői Station', 1958, 'Konkoly Observatory', 'http://www.konkoly.hu/', 'P.O.Box 67, H-1525 Budapest, Mátra Mountains', 97, '(36-1) 391-9322', 'balazs@konkoly.hu', 47.917433, 19.893781, '', 960, 7, 8, 2, '', 'Konkoly Observatory', 6, '2012-07-25 15:30:40', '2012-07-25 15:33:00', 1, 0, 6),
+(253, 'Plateau de Bure Interferometer', 1989, 'IRAM (Institut de Radioastronomie Millimétrique)', 'http://www.iram-institute.org/EN/plateau-de-bure.php?ContentID=3&rub=3&srub=0&ssrub=0&sssrub=0', '300 rue de la Piscine', 73, '0033-476824900', 'info@iram.fr', 44.633889, 5.907792, 'France; LAT:44:38:02.0 North; LON:05:54:28.5 East; Rain:; Nights:', 2550, 7, 8, 1, '', 'IRAM 30-meter telescope (also operated by IRAM), ', 6, '2012-07-25 15:39:27', '2012-07-25 15:46:48', 1, 0, 6),
+(254, 'Pope Silvester II Astronomical Observatory', 2009, 'Foundation of development and popularization of natural sciences &quot;Galileo&quot; and Brojce Commune ', 'http://www.bukowiecobservatory.pl', 'Obserwatorium Astronomiczne im. Papieża Sylwestra II w Bukowcu, Bukowiec, ul. Szkolna 3', 165, '48698714080', 'astromax@poczta.onet.pl', 51.691242, 19.675556, '', 210, 5, 2, 2, '', '', 6, '2012-07-25 15:50:23', '2012-07-26 11:41:35', 1, 0, 6),
+(255, 'Prairie Pass Observatory', 2005, 'Privately owned (Ken Florentine)', 'http://prairiepassobservatory.com', '901 Prairie Pass', 218, '', 'kenflorentine@yahoo.com', 33.320000, -82.090000, 'United States; LAT:082.09 W; LON:33.32 N; Rain:51-100; Nights:151-200', 200, 3, 4, 18, '', '', 6, '2012-07-26 13:50:20', '2012-07-26 14:03:58', 1, 0, 6),
+(256, 'PMO - Purple Mountain Observatory', 1934, 'CAS - Chinese Academy of Sciences', 'http://english.pmo.cas.cn/', 'Purple Mountain Observatory CAS, 2 west Beijing Road, Nanjing, 210008, The People''s Republic of China', 44, '0086 25 8333 2000', '', 32.066667, 118.824717, '', 267, 7, 8, 9, '', '', 6, '2012-07-26 14:05:55', '2012-07-26 14:53:15', 1, 0, 6),
+(257, 'Qinghai Station of PMO', 0, 'PMO - Purple Moutain Observatory, CAS - Chinese Academy of Sciences', 'http://english.dlh.pmo.cas.cn/', '26 Box Branch Post Office People Road, Delingha, Qinghai, China', 44, '86-977-8221935', 'cnaodlh@public.xn.qh.cn', 37.373325, 97.560000, '', 3200, 7, 8, 9, '', '', 6, '2012-07-26 14:51:33', '2012-07-26 15:19:03', 1, 0, 6),
+(258, 'Radio Astronomy Center', 1970, 'National Centre for Radio Astrophysics, Tata Institute of Fundamental Research', 'http://rac.ncra.tifr.res.in/', 'Radio Astronomy Centre, National Centre for Radio Astrophysics, Tata Institute of Fundamental Research, Post Box 8,  Udhagamandalam (Ooty) - 643 001, India', 99, '(91-423) 2550334', 'www@ncra.tifr.res.in', 11.383403, 76.666156, '', 2240, 7, 8, 6, '', '', 6, '2012-07-26 15:20:18', '2012-07-26 15:40:04', 1, 0, 6),
+(259, 'Red Barn Observatory MPC-H68', 2006, 'Private Person', 'http://www.cometary.net', '865 WB Parks Road, Georgia, USA', 218, '', 'sefarmer@cometary.net', 31.387969, -83.651983, '', 107, 4, 4, 17, '', '', 6, '2012-08-23 11:22:13', '2012-08-23 12:22:26', 1, 0, 6),
+(260, 'LCO - Las Campanas Observatory', 1971, 'Carnegie Institute for Science', 'http://www.lco.cl', 'Las Campanas Observatory, Carnegie Institution of Washington, Colina El Pino Casilla 601 La Serena, Chile', 43, '56-51-207301', '', -29.014600, -70.692592, '', 2380, 7, 8, 17, '', '', 6, '2012-08-23 12:23:59', '2012-08-27 11:58:19', 1, 0, 6),
+(261, 'MERLIN - Multi-Element Radio Linked Interferometer Network', 0, 'Science and Technology Facilities Council', 'http://www.merlin.ac.uk/', 'MERLIN/VLBI National Facility University of Manchester Jodrell Bank Observatory Macclesfield ,Cheshire SK11 9DL United Kingdom,SK11 9DL,CheshireSK11 9DL', 217, '+44 (0) 1477 571321', 'merlin@jb.man.ac.uk', 0.000000, 0.000000, 'United Kingdom; LAT:?; LON:?; Rain:; Nights:', 0, 7, 8, 1, '', '', 6, '2012-08-27 12:02:03', '2012-08-27 12:02:16', 0, 1, 6),
+(262, 'Gauribidanur Observatory', 1948, 'Raman Resarch Institute; Indian Institute of Astrophysic', 'http://www.iiap.res.in/centers/radio', 'Bangalore-34,,560080,Karnataka560080', 99, '340123', '', 13.599719, 77.439719, '100 km north of Bengaluru', 500, 7, 8, 6, '', '', 6, '2012-08-27 12:14:14', '2012-08-27 13:24:50', 1, 0, 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `observatory_to_research_areas`
+-- Tabellenstruktur für Tabelle `observatory_to_research_areas`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_research_areas` (
@@ -1610,7 +1666,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_research_areas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `observatory_to_research_areas`
+-- Daten für Tabelle `observatory_to_research_areas`
 --
 
 INSERT INTO `observatory_to_research_areas` (`observatory_id`, `research_area_id`) VALUES
@@ -2311,18 +2367,62 @@ INSERT INTO `observatory_to_research_areas` (`observatory_id`, `research_area_id
 (248, 137),
 (248, 140),
 (249, 131),
+(250, 15),
 (250, 131),
 (251, 9),
 (251, 11),
 (251, 15),
+(251, 71),
 (251, 131),
 (251, 133),
-(251, 135);
+(251, 135),
+(251, 140),
+(251, 142),
+(252, 9),
+(252, 139),
+(253, 15),
+(253, 19),
+(253, 133),
+(253, 139),
+(254, 14),
+(254, 15),
+(254, 18),
+(254, 71),
+(254, 137),
+(254, 138),
+(254, 142),
+(255, 133),
+(255, 138),
+(256, 71),
+(256, 95),
+(256, 125),
+(256, 131),
+(256, 133),
+(256, 138),
+(257, 11),
+(257, 19),
+(257, 71),
+(257, 125),
+(258, 9),
+(258, 125),
+(258, 131),
+(258, 133),
+(259, 14),
+(259, 15),
+(259, 95),
+(259, 133),
+(259, 137),
+(259, 138),
+(259, 142),
+(260, 131),
+(260, 137),
+(261, 131),
+(262, 131);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `observatory_to_scientific_contacts`
+-- Tabellenstruktur für Tabelle `observatory_to_scientific_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_scientific_contacts` (
@@ -2334,7 +2434,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_scientific_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `observatory_to_scientific_contacts`
+-- Daten für Tabelle `observatory_to_scientific_contacts`
 --
 
 INSERT INTO `observatory_to_scientific_contacts` (`observatory_id`, `scientific_contact_id`) VALUES
@@ -2479,12 +2579,21 @@ INSERT INTO `observatory_to_scientific_contacts` (`observatory_id`, `scientific_
 (239, 1097),
 (241, 1107),
 (242, 1123),
-(244, 1154);
+(244, 1154),
+(252, 1369),
+(253, 1370),
+(254, 1371),
+(255, 1372),
+(256, 1373),
+(257, 1374),
+(258, 1375),
+(259, 1376),
+(262, 1377);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `observatory_to_targets`
+-- Tabellenstruktur für Tabelle `observatory_to_targets`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_targets` (
@@ -2496,7 +2605,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_targets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `observatory_to_targets`
+-- Daten für Tabelle `observatory_to_targets`
 --
 
 INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
@@ -2793,12 +2902,33 @@ INSERT INTO `observatory_to_targets` (`observatory_id`, `target_id`) VALUES
 (245, 33),
 (246, 45),
 (251, 4),
-(251, 45);
+(251, 9),
+(251, 45),
+(254, 31),
+(254, 33),
+(254, 48),
+(255, 31),
+(255, 33),
+(256, 218),
+(257, 5),
+(257, 31),
+(257, 33),
+(257, 45),
+(257, 48),
+(258, 45),
+(258, 79),
+(259, 9),
+(259, 33),
+(259, 34),
+(259, 47),
+(259, 146),
+(260, 47),
+(260, 218);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `observatory_to_telescopes`
+-- Tabellenstruktur für Tabelle `observatory_to_telescopes`
 --
 
 CREATE TABLE IF NOT EXISTS `observatory_to_telescopes` (
@@ -2810,7 +2940,7 @@ CREATE TABLE IF NOT EXISTS `observatory_to_telescopes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `observatory_to_telescopes`
+-- Daten für Tabelle `observatory_to_telescopes`
 --
 
 INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUES
@@ -2820,7 +2950,7 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (2, 1299),
 (2, 1300),
 (2, 1301),
-(3, 1302),
+(3, 2924),
 (4, 1486),
 (4, 1487),
 (5, 1455),
@@ -3022,13 +3152,13 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (97, 1587),
 (98, 1519),
 (98, 1520),
-(99, 1501),
-(99, 1502),
+(99, 2925),
+(99, 2926),
 (100, 1588),
 (101, 1589),
 (102, 1493),
-(103, 1499),
-(103, 1500),
+(103, 2927),
+(103, 2928),
 (104, 1497),
 (104, 1498),
 (105, 1503),
@@ -3234,7 +3364,7 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (203, 2309),
 (204, 2312),
 (204, 2313),
-(205, 2316),
+(205, 2929),
 (206, 2321),
 (206, 2322),
 (207, 2325),
@@ -3309,21 +3439,21 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (235, 2583),
 (235, 2584),
 (236, 2591),
-(237, 2598),
-(237, 2599),
-(237, 2600),
+(237, 2930),
+(237, 2931),
+(237, 2932),
 (238, 2603),
 (239, 2607),
-(241, 2623),
+(241, 2933),
 (242, 2638),
 (242, 2639),
 (242, 2640),
 (242, 2641),
 (243, 2647),
 (243, 2648),
-(244, 2653),
-(244, 2654),
-(244, 2655),
+(244, 2934),
+(244, 2935),
+(244, 2936),
 (245, 2660),
 (245, 2661),
 (246, 2664),
@@ -3336,19 +3466,39 @@ INSERT INTO `observatory_to_telescopes` (`observatory_id`, `telescope_id`) VALUE
 (248, 2726),
 (248, 2727),
 (249, 2739),
-(250, 2745),
-(250, 2746),
-(250, 2747),
-(251, 2767),
-(251, 2768),
-(251, 2769),
-(251, 2770),
-(251, 2771);
+(250, 2832),
+(250, 2833),
+(250, 2834),
+(251, 2800),
+(251, 2801),
+(251, 2802),
+(251, 2803),
+(251, 2804),
+(251, 2805),
+(251, 2806),
+(251, 2807),
+(251, 2808),
+(251, 2809),
+(252, 2811),
+(253, 2815),
+(254, 2827),
+(254, 2828),
+(255, 2841),
+(256, 2851),
+(257, 2861),
+(258, 2867),
+(259, 2870),
+(260, 2911),
+(260, 2912),
+(260, 2913),
+(260, 2914),
+(261, 2916),
+(262, 2923);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `precipitation_ranges`
+-- Tabellenstruktur für Tabelle `precipitation_ranges`
 --
 
 CREATE TABLE IF NOT EXISTS `precipitation_ranges` (
@@ -3358,7 +3508,7 @@ CREATE TABLE IF NOT EXISTS `precipitation_ranges` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `precipitation_ranges`
+-- Daten für Tabelle `precipitation_ranges`
 --
 
 INSERT INTO `precipitation_ranges` (`id`, `range`) VALUES
@@ -3373,17 +3523,17 @@ INSERT INTO `precipitation_ranges` (`id`, `range`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `research_areas`
+-- Tabellenstruktur für Tabelle `research_areas`
 --
 
 CREATE TABLE IF NOT EXISTS `research_areas` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=144 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=143 ;
 
 --
--- Dumping data for table `research_areas`
+-- Daten für Tabelle `research_areas`
 --
 
 INSERT INTO `research_areas` (`id`, `name`) VALUES
@@ -3413,7 +3563,7 @@ INSERT INTO `research_areas` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scientific_contacts`
+-- Tabellenstruktur für Tabelle `scientific_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `scientific_contacts` (
@@ -3422,10 +3572,10 @@ CREATE TABLE IF NOT EXISTS `scientific_contacts` (
   `email` text NOT NULL,
   `institution` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1369 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1378 ;
 
 --
--- Dumping data for table `scientific_contacts`
+-- Daten für Tabelle `scientific_contacts`
 --
 
 INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
@@ -3708,12 +3858,21 @@ INSERT INTO `scientific_contacts` (`id`, `name`, `email`, `institution`) VALUES
 (1365, 'AS Kiran', 'kiran@sac.isro.gov.in', ''),
 (1366, 'JA Kamalakar', 'kamalakar@leosisro.com', ''),
 (1367, 'JN Goswami', 'goswami@prl.ernet.in', ''),
-(1368, 'N Bhandari', 'bhandari@prl.ernet.in', '');
+(1368, 'N Bhandari', 'bhandari@prl.ernet.in', ''),
+(1369, 'Abraham, Peter', 'abraham@konkoly.hu', 'Konkoly Observatory'),
+(1370, 'Roberto Neri', 'neri@iram.fr', 'IRAM (Institut de Radioastronomie Millimétrique)'),
+(1371, 'Pawel Maksym', 'astromax@poczta.onet.pl', 'Fundation of development and popularization of natural sciences "Galileo" and Brojce Commune '),
+(1372, 'Ken Florentine', 'kenflorentine@yahoo.com', 'Ken Florentine'),
+(1373, 'Ji Yang', '', ''),
+(1374, 'Dr. Ji Yang', 'jiyang@pmo.ac.cn', 'Purple Moutain Observatory, Chinese Academy of Sciences'),
+(1375, 'Dr. P.K. Manoharan', '', 'Tata Institute of Fundamental Research'),
+(1376, 'Steve E. Farmer Jr.', 'sefarmer@cometary.net', 'Private Person'),
+(1377, 'Ch. V. Sastry', '', 'Department of Science and Technology, Government of India');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sensors`
+-- Tabellenstruktur für Tabelle `sensors`
 --
 
 CREATE TABLE IF NOT EXISTS `sensors` (
@@ -3734,7 +3893,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1306 ;
 
 --
--- Dumping data for table `sensors`
+-- Daten für Tabelle `sensors`
 --
 
 INSERT INTO `sensors` (`id`, `sensor_name`, `sensor_type`, `diameter_m`, `wavelength`, `range_begin`, `range_end`, `units`, `measured`, `resolution`, `field_of_view`, `web_address`, `sensor_comments`) VALUES
@@ -3882,7 +4041,7 @@ INSERT INTO `sensors` (`id`, `sensor_name`, `sensor_type`, `diameter_m`, `wavele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sensor_to_scientific_contacts`
+-- Tabellenstruktur für Tabelle `sensor_to_scientific_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `sensor_to_scientific_contacts` (
@@ -3894,7 +4053,7 @@ CREATE TABLE IF NOT EXISTS `sensor_to_scientific_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sensor_to_scientific_contacts`
+-- Daten für Tabelle `sensor_to_scientific_contacts`
 --
 
 INSERT INTO `sensor_to_scientific_contacts` (`sensor_id`, `scientific_contact_id`) VALUES
@@ -4018,7 +4177,7 @@ INSERT INTO `sensor_to_scientific_contacts` (`sensor_id`, `scientific_contact_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `space_missions`
+-- Tabellenstruktur für Tabelle `space_missions`
 --
 
 CREATE TABLE IF NOT EXISTS `space_missions` (
@@ -4038,7 +4197,7 @@ CREATE TABLE IF NOT EXISTS `space_missions` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
--- Dumping data for table `space_missions`
+-- Daten für Tabelle `space_missions`
 --
 
 INSERT INTO `space_missions` (`id`, `mission_name`, `mission_agency`, `launch_date`, `death_date`, `web_address`, `brief_description`, `creation_date`, `modification_date`, `research_comments`, `target_comments`) VALUES
@@ -4080,7 +4239,7 @@ INSERT INTO `space_missions` (`id`, `mission_name`, `mission_agency`, `launch_da
 -- --------------------------------------------------------
 
 --
--- Table structure for table `space_mission_to_research_areas`
+-- Tabellenstruktur für Tabelle `space_mission_to_research_areas`
 --
 
 CREATE TABLE IF NOT EXISTS `space_mission_to_research_areas` (
@@ -4092,7 +4251,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_research_areas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `space_mission_to_research_areas`
+-- Daten für Tabelle `space_mission_to_research_areas`
 --
 
 INSERT INTO `space_mission_to_research_areas` (`space_mission_id`, `research_area_id`) VALUES
@@ -4169,7 +4328,7 @@ INSERT INTO `space_mission_to_research_areas` (`space_mission_id`, `research_are
 -- --------------------------------------------------------
 
 --
--- Table structure for table `space_mission_to_sensors`
+-- Tabellenstruktur für Tabelle `space_mission_to_sensors`
 --
 
 CREATE TABLE IF NOT EXISTS `space_mission_to_sensors` (
@@ -4181,7 +4340,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_sensors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `space_mission_to_sensors`
+-- Daten für Tabelle `space_mission_to_sensors`
 --
 
 INSERT INTO `space_mission_to_sensors` (`space_mission_id`, `sensor_id`) VALUES
@@ -4322,7 +4481,7 @@ INSERT INTO `space_mission_to_sensors` (`space_mission_id`, `sensor_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `space_mission_to_targets`
+-- Tabellenstruktur für Tabelle `space_mission_to_targets`
 --
 
 CREATE TABLE IF NOT EXISTS `space_mission_to_targets` (
@@ -4334,7 +4493,7 @@ CREATE TABLE IF NOT EXISTS `space_mission_to_targets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `space_mission_to_targets`
+-- Daten für Tabelle `space_mission_to_targets`
 --
 
 INSERT INTO `space_mission_to_targets` (`space_mission_id`, `target_id`) VALUES
@@ -4391,7 +4550,7 @@ INSERT INTO `space_mission_to_targets` (`space_mission_id`, `target_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `targets`
+-- Tabellenstruktur für Tabelle `targets`
 --
 
 CREATE TABLE IF NOT EXISTS `targets` (
@@ -4401,7 +4560,7 @@ CREATE TABLE IF NOT EXISTS `targets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=220 ;
 
 --
--- Dumping data for table `targets`
+-- Daten für Tabelle `targets`
 --
 
 INSERT INTO `targets` (`id`, `target_name`) VALUES
@@ -4430,7 +4589,7 @@ INSERT INTO `targets` (`id`, `target_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telescopes`
+-- Tabellenstruktur für Tabelle `telescopes`
 --
 
 CREATE TABLE IF NOT EXISTS `telescopes` (
@@ -4453,10 +4612,10 @@ CREATE TABLE IF NOT EXISTS `telescopes` (
   KEY `wavelength_unit_id_1` (`wavelength_b_unit`),
   KEY `wavelength_unit_id_2` (`wavelength_e_unit`),
   KEY `antenna_type_id` (`antenna_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2772 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2937 ;
 
 --
--- Dumping data for table `telescopes`
+-- Daten für Tabelle `telescopes`
 --
 
 INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag`, `telescope_elements`, `diameter_m`, `focallength_m`, `antenna_type`, `wavelength`, `wavelength_begin`, `wavelength_b_unit`, `wavelength_end`, `wavelength_e_unit`, `comments`) VALUES
@@ -4467,7 +4626,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (1299, 'Celestron C14 14-inch Reflector', 3, 0, 2, 0.356000, '3.910', 1, 'optical', 0.000000, 1, 0.000000, 1, ''),
 (1300, 'Allen 24-inch Reflector', 5, 0, 0, 0.600000, '7', 1, 'optical', 0.000000, 1, 0.000000, 1, ''),
 (1301, 'Radcliffe 18/24-inch Double Refractor', 7, 0, 0, 0.600000, '7', 1, 'optical', 0.000000, 1, 0.000000, 1, ''),
-(1302, 'Meade LX200 GPS', 3, 0, 0, 0.203000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1312, 'Newton Telescope', 1, 0, 0, 0.210000, '', 1, 'optical', 0.000000, 1, 0.000000, 1, ''),
 (1313, 'T500 Newton Telescope', 3, 0, 0, 0.500000, '', 1, 'optical', 0.000000, 1, 0.000000, 1, ''),
 (1314, 'T400  Cassegrain Telescope', 2, 0, 0, 0.400000, '', 1, 'optical', 0.000000, 1, 0.000000, 1, ''),
@@ -4560,10 +4718,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (1496, 'Zeiss BMK 75', 15, 0, 0, 0.300000, '0.75', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Satellite Camera\r\n\r\n- GPS nd GLONASS receivers included.\r\n'),
 (1497, 'Instrument1: Schmidt-Cassegrain', 3, 0, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1498, 'Instrument2: Schmidt-Cassegrain', 3, 0, 0, 0.280000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(1499, 'Schmidt-Cassegrain', 3, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(1500, 'Instrument 2', 15, 0, 0, 0.090000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(1501, 'Meade LX200 GPS', 23, 0, 0, 0.254000, '2.5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(1502, 'Orion Astroview 100mm', 7, 0, 0, 0.100000, '0.6', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1503, 'Instrument1: Newton', 1, 0, 0, 0.304000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1504, 'Instrument2: Schmidt-Cassegrain', 3, 0, 0, 0.360000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (1505, 'Optical Cassegrain Telescope', 2, 0, 0, 1.000000, '3.00', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
@@ -4863,7 +5017,6 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2309, 'Discovery Channel telescope', 5, 0, 0, 4.300000, '', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://www.lowell.edu/dct.php and http://www.lowell.edu/dct_instruments.php'),
 (2312, 'Trebur Cassegrain Telescope', 2, 0, 0, 1.000000, '8.00', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2313, 'SLT - Super Light Telescope', 5, 0, 0, 0.400000, '8.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2316, 'Newton Telescope', 1, 0, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
 (2321, '2.4-meter Telescope', 5, 0, 0, 2.400000, '8.85', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, 'Further information on the telescope available under: http://www.mro.nmt.edu/2.4m/'),
 (2322, 'MROI - Magdalena Rich Optical Interferometer', 17, 0, 10, 1.400000, '', 1, 'infrared, optical, ', 0.600000, 9, 2.400000, 9, 'Further information on the interferometer can be found under: http://www.mro.nmt.edu/about-mro/interferometer-mroi/'),
 (2325, 'MAGIC I', 15, 0, 0, 17.000000, '1.03', 1, 'gamma-ray, ', 0.000000, 1, 0.000000, 1, '- Imaging Atmospheric Cherenkov Telescope\r\n- Further information on the telescope: http://wwwmagic.mppmu.mpg.de/magic/index.html'),
@@ -4941,25 +5094,18 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2588, '16-Inch Meade', 3, 0, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- It is meant for monitoring atmospheric extinction and sky brightness\r\n\r\n- Equipped with a CCD STS-6 camera (UV and UBVRI filters)\r\n\r\n- Further information on this telescope available under: http://astro.inaoep.mx/en/observatories/oagh/telescopes/meade.php'),
 (2589, '8-Inch DIMM Seeing Monitor', 15, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under: http://astro.inaoep.mx/en/observatories/oagh/telescopes/dimm.php'),
 (2591, 'Celestron 8', 3, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2598, '0.5m Newton Telescope', 1, 0, 0, 0.500000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
-(2599, '0.5m Cassegrain Telescope', 2, 0, 0, 0.500000, '7.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2600, '16.2cm Refracting Telescope', 7, 0, 0, 0.160000, '2.06', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2603, 'Schmidt-Cassegrain Telescope', 3, 0, 0, 0.203000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2607, 'Meade SCT LX200 10''''', 3, 0, 0, 0.254000, '2.500', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2608, 'Telescope 1', 7, 0, 0, 0.110000, '1.65', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2609, 'H-Alpha Telescope', 7, 0, 0, 0.100000, '', 1, 'optical, ', 653.299988, 8, 0.000000, 1, ''),
 (2614, 'Celestron EdgeHD 9,25', 7, 0, 1, 0.235000, '2.35 m', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2615, 'Triplet fluorite APO refractor', 7, 0, 0, 0.080000, 'f6', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2623, 'Newton Telescope', 1, 0, 0, 0.250000, '1.2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under https://sites.google.com/site/observatorysamostopar/'),
 (2638, 'The 188cm Telescope', 2, 0, 0, 1.880000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://www.oao.nao.ac.jp/en/telescope/abouttel188/'),
 (2639, 'The 91cm telescope', 17, 0, 0, 0.910000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2640, 'The 50cm Telescope', 2, 0, 0, 0.500000, '3.25m', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2641, 'The 65cm Solar Telescope', 20, 0, 0, 0.650000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2647, 'Ritchey-Chretien Telescope', 5, 0, 0, 0.318000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2648, 'Refracting Telescope', 7, 0, 0, 0.140000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
-(2653, 'Ritchey-Chretien Telescope', 5, 0, 0, 0.305000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
-(2654, 'Pentax 75 SDHF', 7, 0, 0, 0.075000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2655, 'Maksutov 90', 4, 0, 0, 0.090000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2660, 'Cassegrain Telescope', 2, 0, 0, 0.600000, '7.5 (Newto', 1, '', 0.000000, 1, 0.000000, 1, '\r\n'),
 (2661, 'Cassegrain Telescope', 2, 0, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
 (2664, '40m Telescope', 10, 0, 0, 40.000000, '', 1, 'microwave, ', 0.000000, 1, 0.000000, 1, '\r\n'),
@@ -4983,19 +5129,52 @@ INSERT INTO `telescopes` (`id`, `telescope_name`, `telescope_type`, `mobile_flag
 (2737, '13 inch Alvin Clark Refractor', 7, 0, 0, 0.330000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- The telescope has an 8 inch refractor mounted on it\r\n\r\n- Historic telescope (110 years old), but still operating.\r\n\r\n- Further information: http://www.assabfn.co.za/friendsofboyden/explore_13inch.htm'),
 (2738, '20 cm Coelostat (Solar Telescope)', 20, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Further information: http://www.assabfn.co.za/friendsofboyden/explore_solartelescope.htm'),
 (2739, 'ATCA', 10, 0, 6, 22.000000, '', 1, 'radiowave, ', 1.100000, 5, 105.000000, 5, '\r\nFurther information on this array available under http://www.narrabri.atnf.csiro.au/observing/users_guide/html/new_atug_6.html#Overview-of-the-ATCA'),
-(2745, '1.6m Telescope', 2, 0, 0, 1.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2746, '0.6m Telescope', 5, 0, 0, 0.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2747, '0.6m Telescope', 2, 0, 0, 0.600000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
-(2767, '26-meter West Radio Telescope', 10, 0, 0, 26.000000, '', 1, '', 0.000000, 1, 0.000000, 1, '- Five scanning spectrometers and two 64 Msps FFT spectrometers\r\n\r\n- Current receivers on the West 26-m telescope include the frequencies 1.4 GHz for HI measurements, 4.8 GHz for formaldehyde. The 26-m radio telescopes can also be used at other frequencies with receivers provided by visiting astronomers.\r\n\r\n- Further information on this telescope and its spectrometers available under http://www.pari.edu/telescopes/RadioTelescopes/26West/'),
-(2768, '26-meter East Radio Telescope', 10, 0, 0, 26.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- 26 East is currently configured for 327 MHz pulsar research.\r\n\r\n- Five scanning spectrometers and two 64 Msps FFT spectrometers\r\n\r\n- Further information on this telescope and its spectrometers available under http://www.pari.edu/telescopes/RadioTelescopes/26East/'),
-(2769, '', 10, 0, 0, 12.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: Radio\r\n'),
-(2770, 'Radio Jove Antenna', 10, 0, 2, 0.000000, '', 1, 'radiowave, ', 17.000000, 4, 30.000000, 4, '- Automatic Tracking\r\n\r\n- Further information available under http://www.pari.edu/telescopes/RadioTelescopes/parijove/'),
-(2771, '4.6m Radio Telescope "Smiley"', 10, 0, 0, 4.600000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- The antenna is currently configured for 21 cm (1.42 GHz) neutral hydrogen reception\r\n\r\n- For public outreach only.\r\n\r\n- Further information o nthis telescope available under http://www.pari.edu/telescopes/RadioTelescopes/four_six/');
+(2800, '26-meter West Radio Telescope', 10, 0, 0, 26.000000, '', 1, '', 0.000000, 1, 0.000000, 1, '- Five scanning spectrometers and two 64 Msps FFT spectrometers\r\n\r\n- Current receivers on the West 26-m telescope include the frequencies 1.4 GHz for HI measurements, 4.8 GHz for formaldehyde. The 26-m radio telescopes can also be used at other frequencies with receivers provided by visiting astronomers.\r\n\r\n- Further information on this telescope and its spectrometers available under http://www.pari.edu/telescopes/RadioTelescopes/26West/'),
+(2801, '26-meter East Radio Telescope', 10, 0, 0, 26.000000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- 26 East is currently configured for 327 MHz pulsar research.\r\n\r\n- Five scanning spectrometers and two 64 Msps FFT spectrometers\r\n\r\n- Further information on this telescope and its spectrometers available under http://www.pari.edu/telescopes/RadioTelescopes/26East/'),
+(2802, '12m Radio Telescope', 10, 0, 0, 12.000000, '', 1, '', 0.000000, 1, 0.000000, 1, '- Prime focus feeds currently in place support: 6 cm (3.3 - 4.2 GHz) and 3 cm (10.95 - 12.75 GHz). A removable cassegrain subreflector and feed assembly is also available for 6 / 5 cm (6.6 - 8 GHz) operation. \r\n\r\n- Further information for this telescope available under http://www.pari.edu/telescopes/RadioTelescopes/twelve/'),
+(2803, 'Radio Jove Antenna', 10, 0, 2, 0.000000, '', 1, 'radiowave, ', 17.000000, 4, 30.000000, 4, '- Automatic Tracking\r\n\r\n- Further information available under http://www.pari.edu/telescopes/RadioTelescopes/parijove/'),
+(2804, '4.6m Radio Telescope "Smiley"', 10, 0, 0, 4.600000, '', 1, 'radiowave, ', 0.000000, 1, 0.000000, 1, '- The antenna is currently configured for 21 cm (1.42 GHz) neutral hydrogen reception\r\n\r\n- For public outreach only.\r\n\r\n- Further information o nthis telescope available under http://www.pari.edu/telescopes/RadioTelescopes/four_six/'),
+(2805, 'West Optical Observatory', 5, 0, 0, 0.400000, 'f/8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Filter set = Bessell UBVRI and a clear filter\r\n\r\n- Further information available under http://www.pari.edu/telescopes/OpticalTelescopes/WOT/'),
+(2806, 'South Optical Observatory', 17, 0, 0, 0.350000, 'f/1.9', 1, '', 0.000000, 1, 0.000000, 1, '- Filter set = RGB and a clear filter\r\n\r\n- SBIG ST2000 Camera\r\n\r\n- Further information available under http://www.pari.edu/telescopes/OpticalTelescopes/copy_of_WOT/'),
+(2807, 'Sunspot Telescope Celestron c-5', 20, 0, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- Monochrome CCD with 1280 x 960 pixels\r\n\r\n- Further information on this telescope available under http://www.pari.edu/telescopes/OpticalTelescopes/solar-telescopes/'),
+(2808, 'Solar Flare Telescope Coronado Solarmax 40', 20, 0, 0, 0.040000, '', 1, '', 0.000000, 1, 0.000000, 1, '- Hydrogen alpha filter with a bandwidth of 0.7 Angstrom\r\n\r\n-  SBIG ST-8300M1 with 3326 pixels x 2504 pixels'),
+(2809, 'Furman/PARI Telescope', 17, 0, 0, 0.350000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '- SBIG ST10XME CCD + BVRI filter set\r\n\r\n- Further information on this telescope available under http://www.pari.edu/telescopes/OpticalTelescopes/FurmanPARITelescope/'),
+(2811, 'RCC Telescope', 17, 0, 0, 1.000000, '13.50', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2815, 'Plateau de Bure Interferometer', 10, 0, 6, 15.000000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(2827, '10” f/10 SCT', 3, 0, 0, 0.254000, 'f/10', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2828, '10” f/4.7  Newtonian', 1, 0, 0, 0.254000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2832, 'Telescópio 1,6 m Perkin-Elmer', 5, 0, 0, 1.600000, 'f/10', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2833, 'Telescópio 0,6 m Boller & Chivens', 5, 0, 0, 0.600000, 'f/13.5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2834, 'Telescópio 0,6 m Zeiss', 2, 0, 0, 0.600000, 'f/12.5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2841, 'Schmidt-Cassegrain Telescope', 3, 0, 0, 1.000000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2851, 'Historical Instruments', 15, 0, 0, 0.000000, '', 1, '', 0.000000, 1, 0.000000, 1, ''),
+(2861, 'Radio Telescope', 10, 0, 0, 13.700000, '', 1, 'radiowave, ', 85.000000, 5, 115.000000, 5, ''),
+(2867, 'ORT - Ooty Radio Telescope', 10, 0, 24, 530.000000, '', 11, 'radiowave, ', 0.000000, 1, 0.000000, 1, 'The telescope is operated at 327 MHz (a wavelength of 0.92 m) with 15 MHz usable bandwidth\r\n\r\nFurther information on this telescope available under http://rac.ncra.tifr.res.in/OotyRadioTelescope.html'),
+(2870, 'Schmidt-Cassegrain Telescope', 3, 0, 0, 0.300000, 'f/4.4', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '\r\n'),
+(2911, 'Magellan Telescopes', 17, 0, 2, 6.500000, 'f/11; f/15', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, '- The Magellan Telescopes are a pair of 6.5m optical telescopes, i.e the "Magellan I - Baade Telescope" and the "Magellan II - Clay Telescope"\r\n\r\n- f/11: Nasmyth focus; f/15: Cassegrain focus\r\n\r\n- Further information on this telescope available under http://www.lco.cl/telescopes-information/magellan/'),
+(2912, 'Irénée du Pont Telescope', 2, 0, 0, 2.500000, 'f/7.5', 1, 'infrared, optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope can be found under http://www.lco.cl/telescopes-information/magellan/instruments/telescopes-information/irenee-du-pont/'),
+(2913, 'Henrietta Swope Telescope', 5, 0, 0, 1.000000, 'f/7', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under http://www.lco.cl/telescopes-information/henrietta-swope/'),
+(2914, 'Warsaw Telescope', 5, 0, 0, 1.300000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Operated by the University of Warsaw Observatory and main instrument of the Optical Gravitational Lensing Experiment (http://ogle.astrouw.edu.pl/)'),
+(2916, 'radio', 10, 0, 0, 10000.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: \r\n'),
+(2923, 'T Shaped Array', 10, 0, 0, 815.000000, '', 1, '', 0.000000, 1, 0.000000, 1, 'TelType: Radio\r\n'),
+(2924, 'Meade LX200 GPS', 3, 1, 0, 0.203000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2925, 'Meade LX200 GPS', 23, 1, 0, 0.254000, '2.5', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2926, 'Orion Astroview 100mm', 7, 1, 0, 0.100000, '0.6', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2927, 'Schmidt-Cassegrain', 3, 1, 0, 0.200000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2928, 'Instrument 2', 15, 1, 0, 0.090000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2929, 'Newton Telescope', 1, 0, 0, 0.400000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2930, '0.5m Newton Telescope', 1, 1, 0, 0.500000, '2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2931, '0.5m Cassegrain Telescope', 2, 0, 0, 0.500000, '7.8', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2932, '16.2cm Refracting Telescope', 7, 1, 0, 0.160000, '2.06', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2933, 'Newton Telescope', 1, 0, 0, 0.250000, '1.2', 1, 'optical, ', 0.000000, 1, 0.000000, 1, 'Further information on this telescope available under https://sites.google.com/site/observatorysamostopar/'),
+(2934, 'Ritchey-Chretien Telescope', 5, 0, 0, 0.305000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2935, 'Pentax 75 SDHF', 7, 0, 0, 0.075000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, ''),
+(2936, 'Maksutov 90', 4, 0, 0, 0.090000, '', 1, 'optical, ', 0.000000, 1, 0.000000, 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telescope_to_instruments`
+-- Tabellenstruktur für Tabelle `telescope_to_instruments`
 --
 
 CREATE TABLE IF NOT EXISTS `telescope_to_instruments` (
@@ -5007,7 +5186,7 @@ CREATE TABLE IF NOT EXISTS `telescope_to_instruments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `telescope_to_instruments`
+-- Daten für Tabelle `telescope_to_instruments`
 --
 
 INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
@@ -5015,7 +5194,6 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (1299, 746),
 (1300, 747),
 (1301, 748),
-(1302, 749),
 (1331, 752),
 (1356, 754),
 (1356, 755),
@@ -5080,7 +5258,6 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (1469, 858),
 (1487, 859),
 (1497, 868),
-(1499, 869),
 (1508, 870),
 (1508, 871),
 (1508, 872),
@@ -5268,7 +5445,6 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2309, 1301),
 (2309, 1302),
 (2309, 1303),
-(2316, 1304),
 (2321, 1305),
 (2330, 1307),
 (2341, 1314),
@@ -5321,20 +5497,16 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2587, 1417),
 (2587, 1418),
 (2591, 1420),
-(2598, 1421),
-(2598, 1422),
 (2603, 1425),
 (2608, 1426),
 (2614, 1427),
 (2614, 1428),
-(2623, 1430),
 (2638, 1436),
 (2638, 1437),
 (2638, 1438),
 (2638, 1439),
 (2638, 1440),
 (2647, 1442),
-(2653, 1443),
 (2660, 1444),
 (2700, 1528),
 (2700, 1529),
@@ -5361,12 +5533,41 @@ INSERT INTO `telescope_to_instruments` (`telescope_id`, `instrument_id`) VALUES
 (2723, 1570),
 (2723, 1571),
 (2725, 1572),
-(2731, 1573);
+(2731, 1573),
+(2805, 1577),
+(2827, 1579),
+(2841, 1581),
+(2870, 1582),
+(2911, 1668),
+(2911, 1669),
+(2911, 1670),
+(2911, 1671),
+(2911, 1672),
+(2911, 1673),
+(2911, 1674),
+(2911, 1675),
+(2911, 1676),
+(2912, 1677),
+(2912, 1678),
+(2912, 1679),
+(2912, 1680),
+(2912, 1681),
+(2912, 1682),
+(2912, 1683),
+(2913, 1684),
+(2914, 1685),
+(2924, 1686),
+(2927, 1687),
+(2929, 1688),
+(2930, 1689),
+(2930, 1690),
+(2933, 1691),
+(2934, 1692);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telescope_types`
+-- Tabellenstruktur für Tabelle `telescope_types`
 --
 
 CREATE TABLE IF NOT EXISTS `telescope_types` (
@@ -5376,7 +5577,7 @@ CREATE TABLE IF NOT EXISTS `telescope_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `telescope_types`
+-- Daten für Tabelle `telescope_types`
 --
 
 INSERT INTO `telescope_types` (`id`, `name`) VALUES
@@ -5406,7 +5607,7 @@ INSERT INTO `telescope_types` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `timezones`
+-- Tabellenstruktur für Tabelle `timezones`
 --
 
 CREATE TABLE IF NOT EXISTS `timezones` (
@@ -5416,7 +5617,7 @@ CREATE TABLE IF NOT EXISTS `timezones` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 --
--- Dumping data for table `timezones`
+-- Daten für Tabelle `timezones`
 --
 
 INSERT INTO `timezones` (`id`, `timezone`) VALUES
@@ -5461,7 +5662,7 @@ INSERT INTO `timezones` (`id`, `timezone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_list`
+-- Tabellenstruktur für Tabelle `users_list`
 --
 
 CREATE TABLE IF NOT EXISTS `users_list` (
@@ -5479,7 +5680,7 @@ CREATE TABLE IF NOT EXISTS `users_list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `users_list`
+-- Daten für Tabelle `users_list`
 --
 
 INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`, `email`, `affiliation`, `category`, `level`) VALUES
@@ -5493,7 +5694,7 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 (9, 'jfabbri', '9013a0b8be8995e58076b3b6f2edfa5d', 'Dr.', 'Joanna', 'Fabbri', 'jfabbri@star.ucl.ac.uk', 'UCL', 'scientific', 31),
 (10, 'dkoschny', '1c0009465d5b7b26f0eb0bf9b2baf84d', 'Dr.', 'Detlef', 'Koschny', 'detlef.koschny@esa.int', 'ESA', 'scientific', 11),
 (11, 'romanyuk', '345b2aba0dbad09dee191b81b5c1dd84', 'Dr.', 'Yaroslav', 'Romanyuk', 'romanyuk@mao.kiev.ua', 'Main Astronomical Observatory, National Academy of Science of Ukraine', 'scientific', 11),
-(12, 'mstest', '2a767630a483926f851c7cb6130c2cbc', 'Dr.', 'test', 'entry', 'manuel.scherf@oeaw.ac.at', 'testland', 'scientific', 11),
+(12, 'mstest', '827ccb0eea8a706c4c34a16891f84e7b', 'Dr.', 'test', 'entry', 'manuel.scherf@oeaw.ac.at', 'testland', 'scientific', 11),
 (13, 'steve_miller', 'fe840c049be5fd63ce16c3b822ff6179', 'Prof.', 'Steve', 'Miller', 's.miller@ucl.ac.uk', 'UCL', 'scientific', 11),
 (14, 'anitaheward', '9995d434193357f3fcf307bc1212c338', 'Ms.', 'Anita', 'Heward', 'anitaheward@btinternet.com', 'Europlanet', 'educational', 11),
 (15, 'Algol', 'eb27b5382e9d6e1ae84947113126b570', 'Mr.', 'Jakub', 'Koukal', 'hvezdarna.kromeriz@post.cz', 'CEMENT', 'scientific', 11),
@@ -5510,7 +5711,7 @@ INSERT INTO `users_list` (`id`, `username`, `passwd`, `title`, `fname`, `lname`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_statistics`
+-- Tabellenstruktur für Tabelle `users_statistics`
 --
 
 CREATE TABLE IF NOT EXISTS `users_statistics` (
@@ -5520,10 +5721,10 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
   `epoch` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14787 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15807 ;
 
 --
--- Dumping data for table `users_statistics`
+-- Daten für Tabelle `users_statistics`
 --
 
 INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
@@ -20321,12 +20522,1032 @@ INSERT INTO `users_statistics` (`id`, `user`, `page`, `epoch`) VALUES
 (14783, 6, 'add', '2012-07-25 14:44:18'),
 (14784, 6, 'edit', '2012-07-25 14:44:47'),
 (14785, 6, 'edit', '2012-07-25 14:45:52'),
-(14786, 6, 'add', '2012-07-25 14:45:55');
+(14786, 6, 'add', '2012-07-25 14:45:55'),
+(14787, 6, 'add', '2012-07-25 15:15:57'),
+(14788, 6, 'browse', '2012-07-25 15:16:01'),
+(14789, 6, 'browse', '2012-07-25 15:16:04'),
+(14790, 6, 'browse', '2012-07-25 15:16:11'),
+(14791, 6, 'add', '2012-07-25 15:16:34'),
+(14792, 6, 'add', '2012-07-25 15:17:08'),
+(14793, 6, 'browse', '2012-07-25 15:17:12'),
+(14794, 6, 'browse', '2012-07-25 15:18:44'),
+(14795, 6, 'edit', '2012-07-25 15:18:49'),
+(14796, 6, 'edit', '2012-07-25 15:18:51'),
+(14797, 6, 'add', '2012-07-25 15:18:53'),
+(14798, 6, 'add', '2012-07-25 15:21:10'),
+(14799, 6, 'add', '2012-07-25 15:25:27'),
+(14800, 6, 'add', '2012-07-25 15:25:49'),
+(14801, 6, 'edit', '2012-07-25 15:27:12'),
+(14802, 6, 'edit', '2012-07-25 15:27:15'),
+(14803, 6, 'add', '2012-07-25 15:27:18'),
+(14804, 6, 'add', '2012-07-25 15:30:40'),
+(14805, 6, 'edit', '2012-07-25 15:30:43'),
+(14806, 6, 'edit', '2012-07-25 15:30:44'),
+(14807, 6, 'add', '2012-07-25 15:30:49'),
+(14808, 6, 'add', '2012-07-25 15:33:00'),
+(14809, 6, 'map', '2012-07-25 15:33:05'),
+(14810, 6, 'edit', '2012-07-25 15:37:52'),
+(14811, 6, 'edit', '2012-07-25 15:37:54'),
+(14812, 6, 'add', '2012-07-25 15:37:58'),
+(14813, 6, 'add', '2012-07-25 15:39:27'),
+(14814, 6, 'edit', '2012-07-25 15:39:29'),
+(14815, 6, 'edit', '2012-07-25 15:39:32'),
+(14816, 6, 'add', '2012-07-25 15:39:41'),
+(14817, 6, 'add', '2012-07-25 15:40:03'),
+(14818, 6, 'map', '2012-07-25 15:40:07'),
+(14819, 6, 'edit', '2012-07-25 15:42:12'),
+(14820, 6, 'edit', '2012-07-25 15:42:15'),
+(14821, 6, 'add', '2012-07-25 15:42:17'),
+(14822, 6, 'add', '2012-07-25 15:46:18'),
+(14823, 6, 'browse', '2012-07-25 15:46:20'),
+(14824, 6, 'browse', '2012-07-25 15:46:22'),
+(14825, 6, 'browse', '2012-07-25 15:46:30'),
+(14826, 6, 'add', '2012-07-25 15:46:38'),
+(14827, 6, 'add', '2012-07-25 15:46:48'),
+(14828, 6, 'browse', '2012-07-25 15:46:52'),
+(14829, 6, 'browse', '2012-07-25 15:46:54'),
+(14830, 6, 'browse', '2012-07-25 15:47:00'),
+(14831, 6, 'edit', '2012-07-25 15:47:36'),
+(14832, 6, 'edit', '2012-07-25 15:47:38'),
+(14833, 6, 'add', '2012-07-25 15:47:45'),
+(14834, 6, 'add', '2012-07-25 15:50:23'),
+(14835, 6, 'edit', '2012-07-25 15:50:26'),
+(14836, 6, 'edit', '2012-07-25 15:50:28'),
+(14837, 6, 'add', '2012-07-25 15:50:32'),
+(14838, 6, 'add', '2012-07-25 15:51:02'),
+(14839, 6, 'map', '2012-07-25 15:51:06'),
+(14840, 6, 'edit', '2012-07-25 15:52:32'),
+(14841, 6, 'map', '2012-07-25 15:52:35'),
+(14842, 6, 'edit', '2012-07-25 15:52:38'),
+(14843, 6, 'edit', '2012-07-25 15:52:39'),
+(14844, 6, 'add', '2012-07-25 15:52:41'),
+(14845, 6, 'add', '2012-07-25 15:52:52'),
+(14846, 1, 'home', '2012-07-26 11:30:36'),
+(14847, 1, 'login', '2012-07-26 11:30:38'),
+(14848, 6, 'login', '2012-07-26 11:30:38'),
+(14849, 6, 'edit', '2012-07-26 11:30:42'),
+(14850, 6, 'add', '2012-07-26 11:30:44'),
+(14851, 6, 'add', '2012-07-26 11:40:32'),
+(14852, 6, 'browse', '2012-07-26 11:40:35'),
+(14853, 6, 'browse', '2012-07-26 11:40:37'),
+(14854, 6, 'browse', '2012-07-26 11:40:43'),
+(14855, 6, 'add', '2012-07-26 11:41:11'),
+(14856, 6, 'add', '2012-07-26 11:41:35'),
+(14857, 1, 'home', '2012-07-26 12:08:12'),
+(14858, 1, 'browse', '2012-07-26 12:08:17'),
+(14859, 1, 'browse', '2012-07-26 12:08:19'),
+(14860, 1, 'browse', '2012-07-26 12:08:51'),
+(14861, 1, 'browse', '2012-07-26 12:08:52'),
+(14862, 6, 'home', '2012-07-26 13:17:22'),
+(14863, 6, 'edit', '2012-07-26 13:17:29'),
+(14864, 6, 'add', '2012-07-26 13:36:43'),
+(14865, 6, 'add', '2012-07-26 13:48:14'),
+(14866, 6, 'browse', '2012-07-26 13:48:17'),
+(14867, 6, 'browse', '2012-07-26 13:48:18'),
+(14868, 6, 'browse', '2012-07-26 13:48:25'),
+(14869, 6, 'add', '2012-07-26 13:48:41'),
+(14870, 6, 'add', '2012-07-26 13:48:50'),
+(14871, 6, 'edit', '2012-07-26 13:48:56'),
+(14872, 6, 'edit', '2012-07-26 13:48:57'),
+(14873, 6, 'add', '2012-07-26 13:49:00'),
+(14874, 6, 'add', '2012-07-26 13:50:20'),
+(14875, 6, 'edit', '2012-07-26 13:50:57'),
+(14876, 6, 'edit', '2012-07-26 13:50:58'),
+(14877, 6, 'edit', '2012-07-26 13:50:59'),
+(14878, 6, 'add', '2012-07-26 13:51:04'),
+(14879, 6, 'add', '2012-07-26 13:52:38'),
+(14880, 6, 'map', '2012-07-26 13:52:46'),
+(14881, 6, 'edit', '2012-07-26 13:55:08'),
+(14882, 6, 'edit', '2012-07-26 13:55:10'),
+(14883, 6, 'add', '2012-07-26 13:55:13'),
+(14884, 6, 'add', '2012-07-26 14:00:46'),
+(14885, 6, 'add', '2012-07-26 14:00:55'),
+(14886, 6, 'add', '2012-07-26 14:01:53'),
+(14887, 6, 'browse', '2012-07-26 14:02:06'),
+(14888, 6, 'browse', '2012-07-26 14:02:08'),
+(14889, 6, 'browse', '2012-07-26 14:02:17'),
+(14890, 6, 'add', '2012-07-26 14:02:28'),
+(14891, 6, 'add', '2012-07-26 14:02:58'),
+(14892, 6, 'add', '2012-07-26 14:03:58'),
+(14893, 6, 'browse', '2012-07-26 14:04:01'),
+(14894, 6, 'browse', '2012-07-26 14:04:02'),
+(14895, 6, 'browse', '2012-07-26 14:04:07'),
+(14896, 6, 'edit', '2012-07-26 14:04:35'),
+(14897, 6, 'edit', '2012-07-26 14:04:41'),
+(14898, 6, 'edit', '2012-07-26 14:04:43'),
+(14899, 6, 'edit', '2012-07-26 14:04:45'),
+(14900, 6, 'add', '2012-07-26 14:04:48'),
+(14901, 6, 'add', '2012-07-26 14:05:55'),
+(14902, 6, 'edit', '2012-07-26 14:05:57'),
+(14903, 6, 'edit', '2012-07-26 14:05:59'),
+(14904, 6, 'edit', '2012-07-26 14:06:00'),
+(14905, 6, 'add', '2012-07-26 14:06:16'),
+(14906, 6, 'add', '2012-07-26 14:07:05'),
+(14907, 6, 'map', '2012-07-26 14:07:07'),
+(14908, 6, 'edit', '2012-07-26 14:07:56'),
+(14909, 6, 'edit', '2012-07-26 14:07:57'),
+(14910, 6, 'add', '2012-07-26 14:07:59'),
+(14911, 6, 'add', '2012-07-26 14:08:11'),
+(14912, 6, 'map', '2012-07-26 14:08:13'),
+(14913, 6, 'edit', '2012-07-26 14:08:40'),
+(14914, 6, 'edit', '2012-07-26 14:08:41'),
+(14915, 6, 'add', '2012-07-26 14:08:43'),
+(14916, 6, 'add', '2012-07-26 14:08:52'),
+(14917, 6, 'map', '2012-07-26 14:08:56'),
+(14918, 6, 'edit', '2012-07-26 14:09:12'),
+(14919, 6, 'edit', '2012-07-26 14:09:14'),
+(14920, 6, 'add', '2012-07-26 14:09:15'),
+(14921, 6, 'add', '2012-07-26 14:09:23'),
+(14922, 6, 'map', '2012-07-26 14:09:25'),
+(14923, 6, 'edit', '2012-07-26 14:09:59'),
+(14924, 6, 'edit', '2012-07-26 14:10:01'),
+(14925, 6, 'add', '2012-07-26 14:10:02'),
+(14926, 6, 'add', '2012-07-26 14:40:07'),
+(14927, 6, 'edit', '2012-07-26 14:47:55'),
+(14928, 6, 'edit', '2012-07-26 14:47:57'),
+(14929, 6, 'add', '2012-07-26 14:48:01'),
+(14930, 6, 'add', '2012-07-26 14:51:33'),
+(14931, 6, 'edit', '2012-07-26 14:51:35'),
+(14932, 6, 'add', '2012-07-26 14:51:37'),
+(14933, 6, 'add', '2012-07-26 14:52:02'),
+(14934, 6, 'browse', '2012-07-26 14:52:05'),
+(14935, 6, 'browse', '2012-07-26 14:52:06'),
+(14936, 6, 'browse', '2012-07-26 14:52:11'),
+(14937, 6, 'add', '2012-07-26 14:52:29'),
+(14938, 6, 'add', '2012-07-26 14:52:40'),
+(14939, 6, 'edit', '2012-07-26 14:52:45'),
+(14940, 6, 'edit', '2012-07-26 14:52:48'),
+(14941, 6, 'add', '2012-07-26 14:53:00'),
+(14942, 6, 'add', '2012-07-26 14:53:05'),
+(14943, 6, 'add', '2012-07-26 14:53:15'),
+(14944, 6, 'browse', '2012-07-26 14:53:19'),
+(14945, 6, 'browse', '2012-07-26 14:53:20'),
+(14946, 6, 'browse', '2012-07-26 14:53:24'),
+(14947, 6, 'edit', '2012-07-26 14:53:40'),
+(14948, 6, 'add', '2012-07-26 14:53:58'),
+(14949, 6, 'map', '2012-07-26 14:54:02'),
+(14950, 6, 'edit', '2012-07-26 14:55:06'),
+(14951, 6, 'edit', '2012-07-26 14:55:08'),
+(14952, 6, 'add', '2012-07-26 14:55:09'),
+(14953, 6, 'add', '2012-07-26 14:56:04'),
+(14954, 6, 'map', '2012-07-26 14:56:07'),
+(14955, 6, 'edit', '2012-07-26 14:57:23'),
+(14956, 6, 'edit', '2012-07-26 14:57:25'),
+(14957, 6, 'add', '2012-07-26 14:57:27'),
+(14958, 6, 'add', '2012-07-26 14:57:55'),
+(14959, 6, 'map', '2012-07-26 14:57:59'),
+(14960, 6, 'edit', '2012-07-26 14:58:43'),
+(14961, 6, 'map', '2012-07-26 14:58:45'),
+(14962, 6, 'edit', '2012-07-26 14:58:47'),
+(14963, 6, 'edit', '2012-07-26 14:58:48'),
+(14964, 6, 'add', '2012-07-26 14:58:56'),
+(14965, 6, 'add', '2012-07-26 14:59:26'),
+(14966, 6, 'map', '2012-07-26 14:59:30'),
+(14967, 6, 'edit', '2012-07-26 15:01:24'),
+(14968, 6, 'edit', '2012-07-26 15:01:28'),
+(14969, 6, 'add', '2012-07-26 15:01:30'),
+(14970, 6, 'add', '2012-07-26 15:03:18'),
+(14971, 6, 'map', '2012-07-26 15:03:20'),
+(14972, 6, 'edit', '2012-07-26 15:05:08'),
+(14973, 6, 'add', '2012-07-26 15:05:10'),
+(14974, 6, 'add', '2012-07-26 15:05:35'),
+(14975, 6, 'map', '2012-07-26 15:05:36'),
+(14976, 6, 'add', '2012-07-26 15:06:10'),
+(14977, 6, 'add', '2012-07-26 15:06:14'),
+(14978, 6, 'add', '2012-07-26 15:06:29'),
+(14979, 6, 'edit', '2012-07-26 15:11:54'),
+(14980, 6, 'edit', '2012-07-26 15:11:55'),
+(14981, 6, 'add', '2012-07-26 15:11:57'),
+(14982, 6, 'add', '2012-07-26 15:15:50'),
+(14983, 6, 'browse', '2012-07-26 15:16:00'),
+(14984, 6, 'browse', '2012-07-26 15:16:02'),
+(14985, 6, 'browse', '2012-07-26 15:16:07'),
+(14986, 6, 'add', '2012-07-26 15:16:26'),
+(14987, 6, 'add', '2012-07-26 15:18:03'),
+(14988, 6, 'browse', '2012-07-26 15:18:05'),
+(14989, 6, 'add', '2012-07-26 15:18:54'),
+(14990, 6, 'add', '2012-07-26 15:19:03'),
+(14991, 6, 'edit', '2012-07-26 15:19:09'),
+(14992, 6, 'edit', '2012-07-26 15:19:11'),
+(14993, 6, 'add', '2012-07-26 15:19:16'),
+(14994, 6, 'browse', '2012-07-26 15:19:23'),
+(14995, 6, 'browse', '2012-07-26 15:19:37'),
+(14996, 6, 'add', '2012-07-26 15:20:18'),
+(14997, 6, 'edit', '2012-07-26 15:20:20'),
+(14998, 6, 'edit', '2012-07-26 15:20:22'),
+(14999, 6, 'add', '2012-07-26 15:20:28'),
+(15000, 6, 'edit', '2012-07-26 15:20:33'),
+(15001, 6, 'add', '2012-07-26 15:20:39'),
+(15002, 6, 'add', '2012-07-26 15:21:31'),
+(15003, 6, 'edit', '2012-07-26 15:22:01'),
+(15004, 6, 'edit', '2012-07-26 15:22:06'),
+(15005, 6, 'add', '2012-07-26 15:22:08'),
+(15006, 6, 'add', '2012-07-26 15:23:41'),
+(15007, 6, 'map', '2012-07-26 15:23:46'),
+(15008, 6, 'edit', '2012-07-26 15:24:33'),
+(15009, 6, 'edit', '2012-07-26 15:24:34'),
+(15010, 6, 'add', '2012-07-26 15:24:36'),
+(15011, 6, 'add', '2012-07-26 15:24:47'),
+(15012, 6, 'edit', '2012-07-26 15:26:16'),
+(15013, 6, 'edit', '2012-07-26 15:26:17'),
+(15014, 6, 'add', '2012-07-26 15:26:19'),
+(15015, 6, 'add', '2012-07-26 15:36:53'),
+(15016, 6, 'edit', '2012-07-26 15:37:42'),
+(15017, 6, 'edit', '2012-07-26 15:37:44'),
+(15018, 6, 'add', '2012-07-26 15:37:46'),
+(15019, 6, 'add', '2012-07-26 15:40:04'),
+(15020, 6, 'map', '2012-07-26 15:40:06'),
+(15021, 6, 'browse', '2012-07-26 15:40:09'),
+(15022, 6, 'browse', '2012-07-26 15:40:11'),
+(15023, 6, 'browse', '2012-07-26 15:40:17'),
+(15024, 1, 'home', '2012-07-28 09:16:20'),
+(15025, 1, 'home', '2012-07-28 11:26:53'),
+(15026, 1, 'map', '2012-07-29 01:53:04'),
+(15027, 1, 'map', '2012-07-29 21:06:43'),
+(15028, 1, 'home', '2012-07-30 01:08:17'),
+(15029, 1, 'map', '2012-07-30 01:09:08'),
+(15030, 1, 'map', '2012-07-30 01:09:36'),
+(15031, 1, 'home', '2012-07-30 02:33:14'),
+(15032, 1, 'home', '2012-07-30 04:46:11'),
+(15033, 1, 'home', '2012-07-30 11:35:40'),
+(15034, 1, 'home', '2012-07-30 11:35:48'),
+(15035, 1, 'map', '2012-07-30 15:13:01'),
+(15036, 1, 'reset', '2012-07-30 15:48:41'),
+(15037, 1, 'browse', '2012-07-30 16:00:51'),
+(15038, 1, 'registration_q', '2012-07-30 16:37:01'),
+(15039, 1, 'home', '2012-07-30 17:40:50'),
+(15040, 1, 'browse', '2012-07-30 17:42:14'),
+(15041, 1, 'home', '2012-07-30 17:43:38'),
+(15042, 1, 'registration_q', '2012-07-30 17:45:02'),
+(15043, 1, 'home', '2012-07-31 02:56:11'),
+(15044, 1, 'home', '2012-07-31 15:50:54'),
+(15045, 1, 'map', '2012-07-31 15:50:55'),
+(15046, 1, 'home', '2012-07-31 15:50:56'),
+(15047, 1, 'browse', '2012-07-31 15:50:56'),
+(15048, 1, 'browse', '2012-08-01 08:39:23'),
+(15049, 1, 'home', '2012-08-01 13:10:36'),
+(15050, 1, 'home', '2012-08-01 13:10:58'),
+(15051, 1, 'browse', '2012-08-01 13:43:25'),
+(15052, 1, 'home', '2012-08-01 15:26:36'),
+(15053, 1, 'home', '2012-08-01 17:23:36'),
+(15054, 1, 'browse', '2012-08-01 17:23:39'),
+(15055, 1, 'login', '2012-08-01 17:23:48'),
+(15056, 9, 'login', '2012-08-01 17:23:48'),
+(15057, 9, 'edit', '2012-08-01 17:23:53'),
+(15058, 9, 'edit', '2012-08-01 17:23:54'),
+(15059, 9, 'edit', '2012-08-01 17:24:25'),
+(15060, 9, 'edit', '2012-08-01 17:24:27'),
+(15061, 1, 'home', '2012-08-01 17:57:35'),
+(15062, 9, 'browse', '2012-08-01 18:31:16'),
+(15063, 9, 'browse', '2012-08-01 18:31:17'),
+(15064, 9, 'browse', '2012-08-01 18:43:39'),
+(15065, 9, 'map', '2012-08-01 18:43:44'),
+(15066, 1, 'reset', '2012-08-01 23:08:32'),
+(15067, 1, 'map', '2012-08-02 11:04:22'),
+(15068, 1, 'home', '2012-08-02 11:28:57'),
+(15069, 1, 'home', '2012-08-03 02:54:03'),
+(15070, 1, 'browse', '2012-08-03 02:55:07'),
+(15071, 1, 'browse', '2012-08-03 02:55:11'),
+(15072, 1, 'browse', '2012-08-03 02:55:22'),
+(15073, 1, 'map', '2012-08-03 02:55:59'),
+(15074, 1, 'map', '2012-08-03 02:56:19'),
+(15075, 1, 'home', '2012-08-03 02:56:47'),
+(15076, 1, 'reset', '2012-08-03 04:53:14'),
+(15077, 1, 'reset', '2012-08-03 06:10:58'),
+(15078, 1, 'home', '2012-08-03 07:57:07'),
+(15079, 1, 'browse', '2012-08-03 08:41:14'),
+(15080, 1, 'home', '2012-08-03 11:52:05'),
+(15081, 1, 'home', '2012-08-03 12:48:31'),
+(15082, 1, 'home', '2012-08-03 14:03:32'),
+(15083, 1, 'map', '2012-08-03 14:54:58'),
+(15084, 1, 'map', '2012-08-03 15:55:05'),
+(15085, 1, 'map', '2012-08-03 16:10:05'),
+(15086, 1, 'home', '2012-08-04 08:14:47'),
+(15087, 1, 'browse', '2012-08-05 11:39:11'),
+(15088, 1, 'home', '2012-08-05 20:45:27'),
+(15089, 1, 'home', '2012-08-05 20:46:31'),
+(15090, 1, 'browse', '2012-08-05 20:46:33'),
+(15091, 1, 'map', '2012-08-05 20:46:34'),
+(15092, 1, 'reset', '2012-08-05 20:46:35'),
+(15093, 1, 'registration_q', '2012-08-05 20:46:42'),
+(15094, 1, 'home', '2012-08-05 22:15:13'),
+(15095, 1, 'registration_q', '2012-08-06 02:18:44'),
+(15096, 1, 'map', '2012-08-06 13:27:12'),
+(15097, 1, 'home', '2012-08-06 14:06:40'),
+(15098, 1, 'map', '2012-08-06 17:55:07'),
+(15099, 1, 'reset', '2012-08-06 21:50:44'),
+(15100, 1, 'home', '2012-08-07 04:48:05'),
+(15101, 1, 'map', '2012-08-07 04:48:06'),
+(15102, 1, 'home', '2012-08-07 04:48:06'),
+(15103, 1, 'browse', '2012-08-07 04:48:06'),
+(15104, 1, 'home', '2012-08-07 05:06:00'),
+(15105, 1, 'reset', '2012-08-07 10:41:37'),
+(15106, 1, 'map', '2012-08-07 15:43:50'),
+(15107, 1, 'registration_q', '2012-08-08 08:06:09'),
+(15108, 1, 'browse', '2012-08-08 17:47:41'),
+(15109, 1, 'home', '2012-08-09 01:51:34'),
+(15110, 1, 'home', '2012-08-09 16:38:12'),
+(15111, 1, 'registration_q', '2012-08-11 12:50:18'),
+(15112, 1, 'map', '2012-08-12 01:47:02'),
+(15113, 1, 'home', '2012-08-13 01:10:41'),
+(15114, 1, 'home', '2012-08-13 04:40:10'),
+(15115, 1, 'home', '2012-08-13 11:33:09'),
+(15116, 1, 'browse', '2012-08-13 11:33:12'),
+(15117, 1, 'login', '2012-08-13 11:33:15'),
+(15118, 3, 'login', '2012-08-13 11:33:15'),
+(15119, 3, 'edit', '2012-08-13 11:33:17'),
+(15120, 3, 'add', '2012-08-13 11:33:20'),
+(15121, 1, 'map', '2012-08-13 14:22:42'),
+(15122, 1, 'registration_q', '2012-08-13 20:51:41'),
+(15123, 1, 'registration_q', '2012-08-14 06:26:40'),
+(15124, 1, 'home', '2012-08-14 08:38:22'),
+(15125, 1, 'map', '2012-08-14 08:38:23'),
+(15126, 1, 'home', '2012-08-14 08:38:23'),
+(15127, 1, 'browse', '2012-08-14 08:38:23'),
+(15128, 1, 'home', '2012-08-14 12:38:39'),
+(15129, 1, 'map', '2012-08-14 14:15:45'),
+(15130, 1, 'home', '2012-08-14 16:06:55'),
+(15131, 1, 'home', '2012-08-14 21:44:04'),
+(15132, 1, 'map', '2012-08-14 21:44:09'),
+(15133, 1, 'home', '2012-08-15 05:49:25'),
+(15134, 1, 'home', '2012-08-16 00:45:03'),
+(15135, 1, 'home', '2012-08-16 00:59:35'),
+(15136, 1, 'home', '2012-08-16 05:05:18'),
+(15137, 1, 'registration_q', '2012-08-17 00:14:48'),
+(15138, 1, 'home', '2012-08-17 05:53:08'),
+(15139, 1, 'home', '2012-08-17 05:53:47'),
+(15140, 1, 'browse', '2012-08-17 05:53:53'),
+(15141, 1, 'map', '2012-08-17 05:53:59'),
+(15142, 1, 'registration_q', '2012-08-17 05:54:04'),
+(15143, 1, 'reset', '2012-08-17 05:54:09'),
+(15144, 1, 'reset', '2012-08-18 21:01:24'),
+(15145, 1, 'map', '2012-08-20 05:41:30'),
+(15146, 1, 'map', '2012-08-20 10:51:23'),
+(15147, 1, 'home', '2012-08-20 10:52:34'),
+(15148, 1, 'map', '2012-08-20 10:56:54'),
+(15149, 1, 'home', '2012-08-20 14:39:54'),
+(15150, 1, 'browse', '2012-08-20 14:59:22'),
+(15151, 1, 'browse', '2012-08-21 07:58:43'),
+(15152, 1, 'home', '2012-08-21 10:53:29'),
+(15153, 1, 'home', '2012-08-21 10:53:29'),
+(15154, 1, 'map', '2012-08-21 10:53:30'),
+(15155, 1, 'map', '2012-08-21 10:53:30'),
+(15156, 1, 'home', '2012-08-21 10:53:30'),
+(15157, 1, 'home', '2012-08-21 10:53:30'),
+(15158, 1, 'browse', '2012-08-21 10:53:30'),
+(15159, 1, 'browse', '2012-08-21 10:53:30'),
+(15160, 1, 'home', '2012-08-22 09:50:41'),
+(15161, 1, 'login', '2012-08-22 09:50:45'),
+(15162, 6, 'login', '2012-08-22 09:50:45'),
+(15163, 6, 'browse', '2012-08-22 09:50:47'),
+(15164, 6, 'browse', '2012-08-22 09:50:49'),
+(15165, 1, 'browse', '2012-08-23 02:35:56'),
+(15166, 1, 'home', '2012-08-23 11:18:50'),
+(15167, 1, 'login', '2012-08-23 11:18:52'),
+(15168, 6, 'login', '2012-08-23 11:18:52'),
+(15169, 6, 'edit', '2012-08-23 11:18:57'),
+(15170, 6, 'edit', '2012-08-23 11:19:01'),
+(15171, 6, 'edit', '2012-08-23 11:19:03'),
+(15172, 6, 'add', '2012-08-23 11:19:14'),
+(15173, 6, 'add', '2012-08-23 11:22:13'),
+(15174, 6, 'edit', '2012-08-23 11:22:17'),
+(15175, 6, 'edit', '2012-08-23 11:22:22'),
+(15176, 6, 'add', '2012-08-23 11:22:33'),
+(15177, 6, 'add', '2012-08-23 11:49:03'),
+(15178, 6, 'map', '2012-08-23 11:49:07'),
+(15179, 6, 'edit', '2012-08-23 12:19:30'),
+(15180, 6, 'edit', '2012-08-23 12:19:33'),
+(15181, 6, 'add', '2012-08-23 12:19:36'),
+(15182, 6, 'add', '2012-08-23 12:22:26'),
+(15183, 6, 'browse', '2012-08-23 12:22:29'),
+(15184, 6, 'browse', '2012-08-23 12:22:30'),
+(15185, 6, 'browse', '2012-08-23 12:22:39'),
+(15186, 6, 'edit', '2012-08-23 12:22:48'),
+(15187, 6, 'edit', '2012-08-23 12:22:49'),
+(15188, 6, 'add', '2012-08-23 12:22:51'),
+(15189, 6, 'edit', '2012-08-23 12:22:55'),
+(15190, 6, 'edit', '2012-08-23 12:23:01'),
+(15191, 6, 'edit', '2012-08-23 12:23:02'),
+(15192, 6, 'add', '2012-08-23 12:23:59'),
+(15193, 6, 'edit', '2012-08-23 12:24:02'),
+(15194, 6, 'edit', '2012-08-23 12:24:03'),
+(15195, 6, 'add', '2012-08-23 12:24:08'),
+(15196, 6, 'add', '2012-08-23 12:24:16'),
+(15197, 6, 'edit', '2012-08-23 12:24:19'),
+(15198, 6, 'add', '2012-08-23 12:24:34'),
+(15199, 6, 'browse', '2012-08-23 12:26:06'),
+(15200, 6, 'browse', '2012-08-23 12:26:08'),
+(15201, 6, 'add', '2012-08-23 12:26:56'),
+(15202, 6, 'map', '2012-08-23 12:27:08'),
+(15203, 6, 'edit', '2012-08-23 12:28:19'),
+(15204, 6, 'edit', '2012-08-23 12:28:21'),
+(15205, 6, 'add', '2012-08-23 12:28:23'),
+(15206, 6, 'add', '2012-08-23 12:28:55'),
+(15207, 6, 'map', '2012-08-23 12:28:58'),
+(15208, 6, 'edit', '2012-08-23 12:40:39'),
+(15209, 6, 'edit', '2012-08-23 12:40:41'),
+(15210, 6, 'add', '2012-08-23 12:40:43'),
+(15211, 6, 'add', '2012-08-23 12:53:47'),
+(15212, 6, 'edit', '2012-08-23 13:31:11'),
+(15213, 6, 'edit', '2012-08-23 13:31:16'),
+(15214, 6, 'add', '2012-08-23 13:31:18'),
+(15215, 6, 'add', '2012-08-23 14:21:13'),
+(15216, 6, 'edit', '2012-08-23 14:21:18'),
+(15217, 6, 'edit', '2012-08-23 14:21:20'),
+(15218, 6, 'add', '2012-08-23 14:21:22'),
+(15219, 6, 'add', '2012-08-23 14:33:20'),
+(15220, 6, 'browse', '2012-08-23 14:33:24'),
+(15221, 6, 'browse', '2012-08-23 14:33:25'),
+(15222, 6, 'browse', '2012-08-23 14:33:32'),
+(15223, 6, 'edit', '2012-08-23 14:33:47'),
+(15224, 6, 'edit', '2012-08-23 14:33:49'),
+(15225, 6, 'add', '2012-08-23 14:33:51'),
+(15226, 6, 'add', '2012-08-23 15:21:35'),
+(15227, 6, 'browse', '2012-08-23 15:21:41'),
+(15228, 6, 'browse', '2012-08-23 15:21:43'),
+(15229, 6, 'browse', '2012-08-23 15:21:51'),
+(15230, 1, 'home', '2012-08-23 15:24:06'),
+(15231, 1, 'login', '2012-08-23 15:24:09'),
+(15232, 3, 'login', '2012-08-23 15:24:09'),
+(15233, 3, 'browse', '2012-08-23 15:24:10'),
+(15234, 3, 'browse', '2012-08-23 15:24:11'),
+(15235, 3, 'add', '2012-08-23 15:24:14'),
+(15236, 3, 'add', '2012-08-23 15:24:15'),
+(15237, 6, 'edit', '2012-08-23 15:24:58'),
+(15238, 6, 'edit', '2012-08-23 15:25:09'),
+(15239, 6, 'edit', '2012-08-23 15:25:11'),
+(15240, 6, 'add', '2012-08-23 15:25:16'),
+(15241, 6, 'add', '2012-08-23 15:33:34'),
+(15242, 6, 'edit', '2012-08-23 15:34:11'),
+(15243, 6, 'edit', '2012-08-23 15:34:12'),
+(15244, 6, 'add', '2012-08-23 15:34:15'),
+(15245, 6, 'edit', '2012-08-23 15:52:33'),
+(15246, 6, 'browse', '2012-08-23 15:52:38'),
+(15247, 6, 'browse', '2012-08-23 15:52:41'),
+(15248, 6, 'browse', '2012-08-23 15:52:53'),
+(15249, 3, 'browse', '2012-08-23 15:53:01'),
+(15250, 3, 'browse', '2012-08-23 15:53:03'),
+(15251, 6, 'edit', '2012-08-23 15:54:50'),
+(15252, 6, 'edit', '2012-08-23 15:54:52'),
+(15253, 6, 'add', '2012-08-23 15:54:56'),
+(15254, 6, 'add', '2012-08-23 16:09:18'),
+(15255, 6, 'edit', '2012-08-23 16:09:22'),
+(15256, 6, 'edit', '2012-08-23 16:09:23'),
+(15257, 6, 'add', '2012-08-23 16:09:25'),
+(15258, 6, 'add', '2012-08-23 16:29:29'),
+(15259, 6, 'browse', '2012-08-23 16:29:33'),
+(15260, 6, 'browse', '2012-08-23 16:29:34'),
+(15261, 6, 'browse', '2012-08-23 16:29:41'),
+(15262, 6, 'edit', '2012-08-23 16:32:52'),
+(15263, 6, 'edit', '2012-08-23 16:32:53'),
+(15264, 6, 'add', '2012-08-23 16:32:56'),
+(15265, 6, 'add', '2012-08-23 16:37:46'),
+(15266, 6, 'edit', '2012-08-23 16:38:00'),
+(15267, 6, 'edit', '2012-08-23 16:38:01'),
+(15268, 6, 'add', '2012-08-23 16:38:04'),
+(15269, 6, 'add', '2012-08-23 16:44:36'),
+(15270, 6, 'browse', '2012-08-23 16:44:41'),
+(15271, 6, 'browse', '2012-08-23 16:44:43'),
+(15272, 6, 'browse', '2012-08-23 16:44:49'),
+(15273, 1, 'reset', '2012-08-23 19:17:46'),
+(15274, 1, 'browse', '2012-08-23 20:12:46'),
+(15275, 1, 'home', '2012-08-24 00:15:30'),
+(15276, 1, 'reset', '2012-08-24 01:06:45'),
+(15277, 1, 'registration_q', '2012-08-24 01:12:45'),
+(15278, 1, 'home', '2012-08-24 08:34:46'),
+(15279, 1, 'home', '2012-08-24 20:28:10'),
+(15280, 1, 'home', '2012-08-24 20:28:12'),
+(15281, 1, 'home', '2012-08-25 23:54:27'),
+(15282, 1, 'browse', '2012-08-25 23:58:02'),
+(15283, 1, 'home', '2012-08-26 00:02:53'),
+(15284, 1, 'registration_q', '2012-08-26 00:08:21'),
+(15285, 1, 'home', '2012-08-27 11:50:32'),
+(15286, 1, 'login', '2012-08-27 11:50:36'),
+(15287, 6, 'login', '2012-08-27 11:50:36'),
+(15288, 6, 'edit', '2012-08-27 11:50:38'),
+(15289, 6, 'edit', '2012-08-27 11:50:44'),
+(15290, 6, 'edit', '2012-08-27 11:50:46'),
+(15291, 6, 'add', '2012-08-27 11:50:48'),
+(15292, 6, 'add', '2012-08-27 11:58:19'),
+(15293, 6, 'browse', '2012-08-27 11:58:24'),
+(15294, 6, 'browse', '2012-08-27 11:58:25'),
+(15295, 6, 'browse', '2012-08-27 11:58:31'),
+(15296, 6, 'edit', '2012-08-27 11:59:16'),
+(15297, 6, 'edit', '2012-08-27 11:59:17'),
+(15298, 6, 'add', '2012-08-27 11:59:22'),
+(15299, 6, 'browse', '2012-08-27 11:59:23'),
+(15300, 6, 'browse', '2012-08-27 11:59:26'),
+(15301, 6, 'edit', '2012-08-27 11:59:32'),
+(15302, 6, 'add', '2012-08-27 12:02:03'),
+(15303, 6, 'edit', '2012-08-27 12:02:05'),
+(15304, 6, 'edit', '2012-08-27 12:02:06'),
+(15305, 6, 'edit', '2012-08-27 12:02:11'),
+(15306, 6, 'add', '2012-08-27 12:02:12'),
+(15307, 6, 'add', '2012-08-27 12:02:16'),
+(15308, 6, 'edit', '2012-08-27 12:02:18'),
+(15309, 6, 'edit', '2012-08-27 12:02:19'),
+(15310, 6, 'edit', '2012-08-27 12:02:21'),
+(15311, 6, 'add', '2012-08-27 12:02:26'),
+(15312, 6, 'browse', '2012-08-27 12:02:40'),
+(15313, 6, 'browse', '2012-08-27 12:02:42'),
+(15314, 6, 'add', '2012-08-27 12:12:38'),
+(15315, 6, 'edit', '2012-08-27 12:12:41'),
+(15316, 6, 'edit', '2012-08-27 12:12:44'),
+(15317, 6, 'edit', '2012-08-27 12:12:48'),
+(15318, 6, 'edit', '2012-08-27 12:12:53'),
+(15319, 6, 'edit', '2012-08-27 12:12:54'),
+(15320, 6, 'edit', '2012-08-27 12:13:11'),
+(15321, 6, 'edit', '2012-08-27 12:13:12'),
+(15322, 6, 'add', '2012-08-27 12:13:13'),
+(15323, 6, 'add', '2012-08-27 12:13:34'),
+(15324, 6, 'edit', '2012-08-27 12:13:40'),
+(15325, 6, 'edit', '2012-08-27 12:13:42'),
+(15326, 6, 'add', '2012-08-27 12:13:43'),
+(15327, 6, 'add', '2012-08-27 12:14:14'),
+(15328, 6, 'edit', '2012-08-27 12:14:16'),
+(15329, 6, 'edit', '2012-08-27 12:14:17'),
+(15330, 6, 'edit', '2012-08-27 12:14:21'),
+(15331, 6, 'edit', '2012-08-27 12:14:26'),
+(15332, 6, 'edit', '2012-08-27 12:14:32'),
+(15333, 6, 'add', '2012-08-27 12:14:34'),
+(15334, 6, 'add', '2012-08-27 12:14:39'),
+(15335, 6, 'edit', '2012-08-27 12:17:42'),
+(15336, 6, 'add', '2012-08-27 12:17:45'),
+(15337, 6, 'edit', '2012-08-27 12:17:51'),
+(15338, 6, 'add', '2012-08-27 12:17:52'),
+(15339, 6, 'add', '2012-08-27 12:18:27'),
+(15340, 6, 'map', '2012-08-27 12:18:31'),
+(15341, 6, 'edit', '2012-08-27 12:19:00'),
+(15342, 6, 'edit', '2012-08-27 12:19:02'),
+(15343, 6, 'add', '2012-08-27 12:19:04'),
+(15344, 6, 'add', '2012-08-27 12:21:15'),
+(15345, 6, 'edit', '2012-08-27 12:21:18'),
+(15346, 6, 'add', '2012-08-27 12:21:19'),
+(15347, 6, 'add', '2012-08-27 12:21:24'),
+(15348, 6, 'map', '2012-08-27 12:21:26'),
+(15349, 6, 'edit', '2012-08-27 12:23:04'),
+(15350, 6, 'edit', '2012-08-27 12:23:06'),
+(15351, 6, 'add', '2012-08-27 12:23:08'),
+(15352, 6, 'add', '2012-08-27 12:29:33'),
+(15353, 6, 'map', '2012-08-27 12:29:45'),
+(15354, 6, 'edit', '2012-08-27 12:36:39'),
+(15355, 6, 'edit', '2012-08-27 12:36:41'),
+(15356, 6, 'add', '2012-08-27 12:36:43'),
+(15357, 6, 'add', '2012-08-27 13:24:50'),
+(15358, 6, 'edit', '2012-08-27 13:24:55'),
+(15359, 6, 'edit', '2012-08-27 13:24:56'),
+(15360, 6, 'add', '2012-08-27 13:24:58'),
+(15361, 1, 'map', '2012-08-27 17:17:02'),
+(15362, 1, 'map', '2012-08-27 22:17:32'),
+(15363, 1, 'home', '2012-08-28 11:19:40'),
+(15364, 1, 'map', '2012-08-28 11:19:41'),
+(15365, 1, 'home', '2012-08-28 11:19:41'),
+(15366, 1, 'browse', '2012-08-28 11:19:42'),
+(15367, 1, 'home', '2012-08-28 23:12:12'),
+(15368, 1, 'map', '2012-08-29 23:18:08'),
+(15369, 1, 'home', '2012-08-31 05:03:18'),
+(15370, 1, 'home', '2012-08-31 05:24:37'),
+(15371, 1, 'home', '2012-08-31 05:24:37'),
+(15372, 1, 'home', '2012-08-31 19:01:37'),
+(15373, 1, 'reset', '2012-08-31 19:21:53'),
+(15374, 1, 'browse', '2012-08-31 19:41:11'),
+(15375, 1, 'registration_q', '2012-08-31 19:52:09'),
+(15376, 1, 'home', '2012-09-03 11:06:03'),
+(15377, 1, 'login', '2012-09-03 11:06:13'),
+(15378, 9, 'login', '2012-09-03 11:06:14'),
+(15379, 9, 'browse', '2012-09-03 11:06:20'),
+(15380, 9, 'browse', '2012-09-03 11:06:21'),
+(15381, 9, 'edit', '2012-09-03 11:11:56'),
+(15382, 9, 'edit', '2012-09-03 11:11:58'),
+(15383, 1, 'home', '2012-09-03 15:28:15'),
+(15384, 1, 'browse', '2012-09-03 15:28:53'),
+(15385, 1, 'login', '2012-09-03 15:28:56'),
+(15386, 3, 'login', '2012-09-03 15:28:56'),
+(15387, 3, 'browse', '2012-09-03 15:28:58'),
+(15388, 3, 'logout', '2012-09-03 15:29:39'),
+(15389, 1, 'home', '2012-09-03 15:29:40'),
+(15390, 1, 'browse', '2012-09-03 15:29:40'),
+(15391, 1, 'map', '2012-09-03 15:29:41'),
+(15392, 1, 'registration_q', '2012-09-03 15:29:45'),
+(15393, 1, 'login', '2012-09-03 15:29:58'),
+(15394, 3, 'login', '2012-09-03 15:29:58'),
+(15395, 3, 'logout', '2012-09-03 15:30:12'),
+(15396, 1, 'home', '2012-09-03 15:30:12'),
+(15397, 1, 'home', '2012-09-03 15:31:12'),
+(15398, 1, 'login', '2012-09-03 15:31:20'),
+(15399, 1, 'login', '2012-09-03 15:31:30'),
+(15400, 1, 'login', '2012-09-03 15:31:37'),
+(15401, 1, 'login', '2012-09-03 15:31:47'),
+(15402, 1, 'login', '2012-09-03 15:31:56'),
+(15403, 1, 'reset', '2012-09-03 15:32:04'),
+(15404, 1, 'reset', '2012-09-03 15:32:07'),
+(15405, 1, 'login', '2012-09-03 15:32:30'),
+(15406, 12, 'login', '2012-09-03 15:32:31'),
+(15407, 12, 'account', '2012-09-03 15:32:35'),
+(15408, 12, 'account', '2012-09-03 15:32:43'),
+(15409, 12, 'browse', '2012-09-03 15:33:57'),
+(15410, 12, 'add', '2012-09-03 15:33:59'),
+(15411, 12, 'edit', '2012-09-03 15:34:01'),
+(15412, 12, 'home', '2012-09-03 15:34:12'),
+(15413, 1, 'home', '2012-09-03 15:34:27'),
+(15414, 1, 'login', '2012-09-03 15:34:33'),
+(15415, 6, 'login', '2012-09-03 15:34:34'),
+(15416, 6, 'edit', '2012-09-03 15:34:37'),
+(15417, 6, 'browse', '2012-09-03 15:34:45'),
+(15418, 6, 'browse', '2012-09-03 15:34:47'),
+(15419, 6, 'browse', '2012-09-03 15:34:54'),
+(15420, 12, 'edit', '2012-09-03 15:35:13'),
+(15421, 12, 'add', '2012-09-03 15:35:15'),
+(15422, 12, 'edit', '2012-09-03 15:35:17'),
+(15423, 12, 'add', '2012-09-03 15:55:18'),
+(15424, 1, 'login', '2012-09-03 16:02:25'),
+(15425, 12, 'login', '2012-09-03 16:02:26'),
+(15426, 12, 'browse', '2012-09-03 16:02:28'),
+(15427, 12, 'edit', '2012-09-03 16:02:31'),
+(15428, 12, 'add', '2012-09-03 16:02:41'),
+(15429, 12, 'edit', '2012-09-03 16:02:44'),
+(15430, 12, 'browse', '2012-09-03 16:03:35'),
+(15431, 12, 'browse', '2012-09-03 16:03:36'),
+(15432, 12, 'browse', '2012-09-03 16:04:28'),
+(15433, 12, 'browse', '2012-09-03 16:04:44'),
+(15434, 12, 'browse', '2012-09-03 16:04:49'),
+(15435, 12, 'map', '2012-09-03 16:06:10'),
+(15436, 12, 'map', '2012-09-03 16:07:20'),
+(15437, 12, 'browse', '2012-09-03 16:07:31'),
+(15438, 12, 'browse', '2012-09-03 16:07:32'),
+(15439, 12, 'browse', '2012-09-03 16:07:44'),
+(15440, 12, 'browse', '2012-09-03 16:07:55'),
+(15441, 12, 'browse', '2012-09-03 16:08:09'),
+(15442, 12, 'browse', '2012-09-03 16:17:21'),
+(15443, 12, 'browse', '2012-09-03 16:18:15'),
+(15444, 12, 'browse', '2012-09-03 16:18:24'),
+(15445, 12, 'browse', '2012-09-03 16:18:49'),
+(15446, 12, 'browse', '2012-09-03 16:19:12'),
+(15447, 12, 'browse', '2012-09-03 16:19:18'),
+(15448, 12, 'browse', '2012-09-03 16:19:37'),
+(15449, 12, 'browse', '2012-09-03 16:19:48'),
+(15450, 12, 'browse', '2012-09-03 16:19:52'),
+(15451, 12, 'browse', '2012-09-03 16:20:30'),
+(15452, 12, 'browse', '2012-09-03 16:20:41'),
+(15453, 12, 'browse', '2012-09-03 16:21:08'),
+(15454, 12, 'browse', '2012-09-03 16:21:15'),
+(15455, 12, 'browse', '2012-09-03 16:21:54'),
+(15456, 12, 'browse', '2012-09-03 16:21:57'),
+(15457, 12, 'browse', '2012-09-03 16:22:03'),
+(15458, 12, 'browse', '2012-09-03 16:22:08'),
+(15459, 12, 'browse', '2012-09-03 16:22:13'),
+(15460, 12, 'browse', '2012-09-03 16:22:35'),
+(15461, 12, 'browse', '2012-09-03 16:22:42'),
+(15462, 12, 'browse', '2012-09-03 16:23:17'),
+(15463, 12, 'browse', '2012-09-03 16:23:19'),
+(15464, 12, 'browse', '2012-09-03 16:23:41'),
+(15465, 12, 'browse', '2012-09-03 16:23:59'),
+(15466, 12, 'browse', '2012-09-03 16:24:10'),
+(15467, 12, 'browse', '2012-09-03 16:24:23'),
+(15468, 9, 'logout', '2012-09-03 18:11:08'),
+(15469, 1, 'home', '2012-09-03 18:11:09'),
+(15470, 1, 'home', '2012-09-03 21:55:43'),
+(15471, 1, 'login', '2012-09-03 21:55:49'),
+(15472, 12, 'login', '2012-09-03 21:55:49'),
+(15473, 12, 'add', '2012-09-03 21:55:52'),
+(15474, 12, 'add', '2012-09-03 21:56:55'),
+(15475, 12, 'edit', '2012-09-03 21:59:30'),
+(15476, 12, 'browse', '2012-09-03 22:01:48'),
+(15477, 12, 'browse', '2012-09-03 22:01:50'),
+(15478, 12, 'browse', '2012-09-03 22:06:11'),
+(15479, 12, 'browse', '2012-09-03 22:06:21'),
+(15480, 12, 'browse', '2012-09-03 22:06:27'),
+(15481, 12, 'browse', '2012-09-03 22:09:52'),
+(15482, 12, 'browse', '2012-09-03 22:14:31'),
+(15483, 12, 'browse', '2012-09-03 22:14:44'),
+(15484, 12, 'browse', '2012-09-03 22:15:39'),
+(15485, 12, 'browse', '2012-09-03 22:17:37'),
+(15486, 12, 'browse', '2012-09-03 22:17:43'),
+(15487, 1, 'reset', '2012-09-04 06:17:35'),
+(15488, 1, 'home', '2012-09-04 10:29:24'),
+(15489, 1, 'map', '2012-09-04 10:29:25'),
+(15490, 1, 'home', '2012-09-04 10:29:25'),
+(15491, 1, 'browse', '2012-09-04 10:29:25'),
+(15492, 1, 'login', '2012-09-04 10:44:07'),
+(15493, 9, 'login', '2012-09-04 10:44:08'),
+(15494, 9, 'edit', '2012-09-04 10:44:11'),
+(15495, 9, 'edit', '2012-09-04 10:47:32'),
+(15496, 9, 'edit', '2012-09-04 10:47:34'),
+(15497, 9, 'add', '2012-09-04 10:47:41'),
+(15498, 1, 'home', '2012-09-04 11:41:27'),
+(15499, 1, 'browse', '2012-09-04 11:41:30'),
+(15500, 1, 'browse', '2012-09-04 11:41:31'),
+(15501, 1, 'browse', '2012-09-04 11:42:39'),
+(15502, 1, 'map', '2012-09-04 11:42:41'),
+(15503, 1, 'login', '2012-09-04 11:45:02'),
+(15504, 3, 'login', '2012-09-04 11:45:03'),
+(15505, 3, 'add', '2012-09-04 11:45:05'),
+(15506, 3, 'add', '2012-09-04 11:45:06'),
+(15507, 1, 'home', '2012-09-04 11:48:28'),
+(15508, 1, 'login', '2012-09-04 11:48:38'),
+(15509, 6, 'login', '2012-09-04 11:48:38'),
+(15510, 6, 'browse', '2012-09-04 11:48:46'),
+(15511, 6, 'browse', '2012-09-04 11:48:47'),
+(15512, 6, 'edit', '2012-09-04 11:48:52'),
+(15513, 6, 'edit', '2012-09-04 11:48:54'),
+(15514, 6, 'add', '2012-09-04 11:48:57'),
+(15515, 1, 'home', '2012-09-04 22:16:18'),
+(15516, 1, 'home', '2012-09-05 17:07:31'),
+(15517, 1, 'map', '2012-09-05 17:17:43'),
+(15518, 1, 'home', '2012-09-06 12:38:35'),
+(15519, 1, 'home', '2012-09-06 17:18:03'),
+(15520, 1, 'home', '2012-09-06 18:14:28'),
+(15521, 1, 'login', '2012-09-06 18:14:40'),
+(15522, 3, 'login', '2012-09-06 18:14:41'),
+(15523, 3, 'logout', '2012-09-06 18:14:43'),
+(15524, 1, 'home', '2012-09-06 18:14:44'),
+(15525, 1, 'login', '2012-09-06 18:14:49'),
+(15526, 12, 'login', '2012-09-06 18:14:50'),
+(15527, 12, 'edit', '2012-09-06 18:14:53'),
+(15528, 12, 'add', '2012-09-06 18:14:56'),
+(15529, 12, 'browse', '2012-09-06 18:15:37'),
+(15530, 12, 'map', '2012-09-06 18:15:40'),
+(15531, 1, 'home', '2012-09-07 09:10:09'),
+(15532, 1, 'login', '2012-09-07 09:10:16'),
+(15533, 6, 'login', '2012-09-07 09:10:17'),
+(15534, 6, 'browse', '2012-09-07 09:10:20'),
+(15535, 6, 'browse', '2012-09-07 09:10:21'),
+(15536, 6, 'browse', '2012-09-07 09:10:39'),
+(15537, 6, 'browse', '2012-09-07 09:11:03'),
+(15538, 1, 'home', '2012-09-07 10:52:53'),
+(15539, 1, 'home', '2012-09-07 10:52:57'),
+(15540, 1, 'home', '2012-09-07 11:56:15'),
+(15541, 1, 'home', '2012-09-07 12:24:10'),
+(15542, 1, 'map', '2012-09-07 12:24:20'),
+(15543, 1, 'map', '2012-09-07 12:24:34'),
+(15544, 1, 'map', '2012-09-07 12:25:17'),
+(15545, 1, 'map', '2012-09-07 12:25:25'),
+(15546, 1, 'home', '2012-09-07 12:26:13'),
+(15547, 1, 'map', '2012-09-07 12:26:17'),
+(15548, 1, 'home', '2012-09-07 12:30:55'),
+(15549, 1, 'map', '2012-09-07 12:30:58'),
+(15550, 1, 'home', '2012-09-07 12:32:17'),
+(15551, 1, 'map', '2012-09-07 12:32:21'),
+(15552, 1, 'home', '2012-09-07 14:55:44'),
+(15553, 1, 'login', '2012-09-07 14:55:52'),
+(15554, 12, 'login', '2012-09-07 14:55:53'),
+(15555, 12, 'map', '2012-09-07 14:55:58'),
+(15556, 12, 'logout', '2012-09-07 15:28:05'),
+(15557, 1, 'home', '2012-09-07 15:28:05'),
+(15558, 1, 'registration_q', '2012-09-07 15:28:14'),
+(15559, 1, 'home', '2012-09-07 15:28:22'),
+(15560, 1, 'login', '2012-09-07 15:28:38'),
+(15561, 12, 'login', '2012-09-07 15:28:39'),
+(15562, 12, 'add', '2012-09-07 15:28:45'),
+(15563, 1, 'browse', '2012-09-07 15:28:57'),
+(15564, 1, 'browse', '2012-09-07 15:29:08'),
+(15565, 12, 'map', '2012-09-07 15:29:57'),
+(15566, 1, 'browse', '2012-09-07 15:30:03'),
+(15567, 1, 'map', '2012-09-07 15:30:19'),
+(15568, 12, 'browse', '2012-09-07 15:30:36'),
+(15569, 12, 'browse', '2012-09-07 15:30:38'),
+(15570, 12, 'browse', '2012-09-07 15:31:13'),
+(15571, 12, 'browse', '2012-09-07 15:31:39'),
+(15572, 12, 'home', '2012-09-07 15:31:55'),
+(15573, 12, 'browse', '2012-09-07 15:31:58'),
+(15574, 12, 'browse', '2012-09-07 15:31:59'),
+(15575, 12, 'browse', '2012-09-07 15:32:05'),
+(15576, 12, 'browse', '2012-09-07 15:32:10'),
+(15577, 1, 'registration_q', '2012-09-07 18:39:46'),
+(15578, 1, 'map', '2012-09-07 19:07:40'),
+(15579, 1, 'reset', '2012-09-07 19:44:26'),
+(15580, 1, 'home', '2012-09-07 21:34:59'),
+(15581, 1, 'home', '2012-09-07 22:52:23'),
+(15582, 1, 'registration_q', '2012-09-08 20:07:26'),
+(15583, 1, 'map', '2012-09-08 20:07:29'),
+(15584, 1, 'browse', '2012-09-09 06:23:09'),
+(15585, 1, 'home', '2012-09-09 08:24:05'),
+(15586, 1, 'home', '2012-09-09 15:34:19'),
+(15587, 1, 'browse', '2012-09-10 00:18:29'),
+(15588, 1, 'reset', '2012-09-10 04:14:25'),
+(15589, 1, 'home', '2012-09-10 14:38:31'),
+(15590, 1, 'home', '2012-09-11 06:44:45'),
+(15591, 1, 'home', '2012-09-11 06:45:53'),
+(15592, 1, 'registration_q', '2012-09-11 06:46:01'),
+(15593, 1, 'reset', '2012-09-11 06:46:03'),
+(15594, 1, 'map', '2012-09-11 06:46:04'),
+(15595, 1, 'browse', '2012-09-11 06:46:05'),
+(15596, 1, 'home', '2012-09-11 12:46:46'),
+(15597, 1, 'browse', '2012-09-11 12:46:51'),
+(15598, 1, 'browse', '2012-09-11 12:46:56'),
+(15599, 1, 'home', '2012-09-13 11:30:36'),
+(15600, 1, 'login', '2012-09-13 11:30:38'),
+(15601, 6, 'login', '2012-09-13 11:30:38'),
+(15602, 6, 'browse', '2012-09-13 11:30:42'),
+(15603, 6, 'browse', '2012-09-13 11:30:43'),
+(15604, 6, 'edit', '2012-09-13 11:34:19'),
+(15605, 6, 'edit', '2012-09-13 11:34:20'),
+(15606, 6, 'edit', '2012-09-13 11:34:24'),
+(15607, 6, 'edit', '2012-09-13 11:34:26'),
+(15608, 6, 'add', '2012-09-13 11:34:29'),
+(15609, 6, 'browse', '2012-09-13 11:37:18'),
+(15610, 6, 'browse', '2012-09-13 11:37:20'),
+(15611, 6, 'browse', '2012-09-13 11:46:46'),
+(15612, 6, 'browse', '2012-09-13 11:57:58'),
+(15613, 6, 'browse', '2012-09-13 11:58:09'),
+(15614, 6, 'browse', '2012-09-13 11:58:16'),
+(15615, 6, 'browse', '2012-09-13 13:33:04'),
+(15616, 6, 'browse', '2012-09-13 13:33:14'),
+(15617, 6, 'browse', '2012-09-13 13:35:56'),
+(15618, 6, 'browse', '2012-09-13 13:42:39'),
+(15619, 6, 'browse', '2012-09-13 13:47:46'),
+(15620, 6, 'browse', '2012-09-13 13:59:41'),
+(15621, 6, 'browse', '2012-09-13 14:03:28'),
+(15622, 6, 'browse', '2012-09-13 14:04:44'),
+(15623, 6, 'map', '2012-09-13 14:12:31'),
+(15624, 6, 'map', '2012-09-13 14:13:57'),
+(15625, 6, 'edit', '2012-09-13 14:19:03'),
+(15626, 6, 'edit', '2012-09-13 14:19:08'),
+(15627, 6, 'add', '2012-09-13 14:19:08'),
+(15628, 6, 'add', '2012-09-13 14:19:10'),
+(15629, 6, 'add', '2012-09-13 14:19:12'),
+(15630, 1, 'browse', '2012-09-13 23:13:00'),
+(15631, 1, 'reset', '2012-09-14 08:29:34'),
+(15632, 1, 'map', '2012-09-14 08:35:31'),
+(15633, 1, 'registration_q', '2012-09-14 08:41:43'),
+(15634, 1, 'home', '2012-09-15 11:54:56'),
+(15635, 1, 'map', '2012-09-16 01:09:42'),
+(15636, 1, 'home', '2012-09-17 14:46:01'),
+(15637, 1, 'browse', '2012-09-17 14:46:03'),
+(15638, 1, 'browse', '2012-09-17 14:46:05'),
+(15639, 1, 'home', '2012-09-17 14:48:27'),
+(15640, 1, 'browse', '2012-09-17 14:48:30'),
+(15641, 1, 'browse', '2012-09-17 14:48:31'),
+(15642, 1, 'browse', '2012-09-17 14:48:37'),
+(15643, 1, 'home', '2012-09-17 15:01:38'),
+(15644, 1, 'browse', '2012-09-17 15:02:38'),
+(15645, 1, 'browse', '2012-09-17 15:02:40'),
+(15646, 1, 'home', '2012-09-17 17:04:02'),
+(15647, 1, 'browse', '2012-09-17 17:04:06'),
+(15648, 1, 'browse', '2012-09-17 17:04:09'),
+(15649, 1, 'home', '2012-09-18 00:39:42'),
+(15650, 1, 'home', '2012-09-18 02:14:55'),
+(15651, 1, 'home', '2012-09-18 04:24:00'),
+(15652, 1, 'map', '2012-09-18 04:24:01'),
+(15653, 1, 'home', '2012-09-18 04:24:01'),
+(15654, 1, 'browse', '2012-09-18 04:24:01'),
+(15655, 1, 'home', '2012-09-18 10:29:08'),
+(15656, 1, 'home', '2012-09-18 14:33:20'),
+(15657, 1, 'browse', '2012-09-18 14:33:23'),
+(15658, 1, 'login', '2012-09-18 14:33:27'),
+(15659, 3, 'login', '2012-09-18 14:33:28'),
+(15660, 3, 'add', '2012-09-18 14:33:29'),
+(15661, 3, 'add', '2012-09-18 14:33:31'),
+(15662, 3, 'browse', '2012-09-18 14:36:18'),
+(15663, 3, 'browse', '2012-09-18 14:36:19'),
+(15664, 1, 'home', '2012-09-18 16:23:30'),
+(15665, 1, 'browse', '2012-09-18 16:23:32'),
+(15666, 1, 'browse', '2012-09-18 16:23:34'),
+(15667, 1, 'home', '2012-09-18 16:23:35'),
+(15668, 1, 'browse', '2012-09-18 17:00:39'),
+(15669, 1, 'home', '2012-09-18 17:00:48'),
+(15670, 1, 'browse', '2012-09-18 17:00:50'),
+(15671, 1, 'browse', '2012-09-18 17:00:51'),
+(15672, 1, 'browse', '2012-09-18 23:27:25'),
+(15673, 3, 'home', '2012-09-19 00:17:06'),
+(15674, 3, 'browse', '2012-09-19 00:17:10'),
+(15675, 3, 'browse', '2012-09-19 00:17:12'),
+(15676, 3, 'browse', '2012-09-19 00:17:21'),
+(15677, 3, 'browse', '2012-09-19 00:17:24'),
+(15678, 3, 'browse', '2012-09-19 00:17:30'),
+(15679, 3, 'browse', '2012-09-19 00:17:36'),
+(15680, 3, 'browse', '2012-09-19 00:17:43'),
+(15681, 3, 'map', '2012-09-19 00:17:53'),
+(15682, 3, 'map', '2012-09-19 00:17:58'),
+(15683, 3, 'map', '2012-09-19 00:18:13'),
+(15684, 3, 'home', '2012-09-19 01:11:45'),
+(15685, 3, 'browse', '2012-09-19 01:11:48'),
+(15686, 3, 'browse', '2012-09-19 01:11:50'),
+(15687, 3, 'browse', '2012-09-19 01:12:03'),
+(15688, 3, 'browse', '2012-09-19 01:13:38'),
+(15689, 3, 'home', '2012-09-19 02:12:14'),
+(15690, 3, 'browse', '2012-09-19 02:12:18'),
+(15691, 3, 'browse', '2012-09-19 02:12:22'),
+(15692, 3, 'browse', '2012-09-19 02:12:31'),
+(15693, 3, 'browse', '2012-09-19 02:13:13'),
+(15694, 3, 'browse', '2012-09-19 02:13:31'),
+(15695, 3, 'browse', '2012-09-19 02:14:35'),
+(15696, 3, 'browse', '2012-09-19 02:14:41'),
+(15697, 3, 'browse', '2012-09-19 02:15:07'),
+(15698, 3, 'browse', '2012-09-19 02:15:17'),
+(15699, 3, 'map', '2012-09-19 02:15:35'),
+(15700, 3, 'map', '2012-09-19 02:15:42'),
+(15701, 3, 'browse', '2012-09-19 02:15:49'),
+(15702, 3, 'browse', '2012-09-19 02:15:51'),
+(15703, 3, 'browse', '2012-09-19 02:15:58'),
+(15704, 3, 'browse', '2012-09-19 02:17:29'),
+(15705, 3, 'home', '2012-09-19 02:28:51'),
+(15706, 3, 'browse', '2012-09-19 02:28:54'),
+(15707, 3, 'browse', '2012-09-19 02:28:55'),
+(15708, 3, 'browse', '2012-09-19 02:29:03'),
+(15709, 3, 'browse', '2012-09-19 02:29:11'),
+(15710, 3, 'browse', '2012-09-19 02:29:17'),
+(15711, 3, 'browse', '2012-09-19 02:29:24'),
+(15712, 3, 'browse', '2012-09-19 02:31:09'),
+(15713, 1, 'home', '2012-09-19 08:46:16'),
+(15714, 1, 'login', '2012-09-19 08:46:18'),
+(15715, 6, 'login', '2012-09-19 08:46:18'),
+(15716, 6, 'browse', '2012-09-19 08:46:20'),
+(15717, 6, 'browse', '2012-09-19 08:46:22'),
+(15718, 6, 'browse', '2012-09-19 08:46:29'),
+(15719, 6, 'browse', '2012-09-19 08:46:59'),
+(15720, 6, 'browse', '2012-09-19 08:47:04'),
+(15721, 1, 'home', '2012-09-19 09:39:48'),
+(15722, 1, 'map', '2012-09-19 09:39:49'),
+(15723, 1, 'home', '2012-09-19 09:39:49'),
+(15724, 1, 'browse', '2012-09-19 09:39:50'),
+(15725, 1, 'home', '2012-09-19 10:56:59'),
+(15726, 1, 'browse', '2012-09-19 10:57:02'),
+(15727, 1, 'browse', '2012-09-19 10:57:04'),
+(15728, 1, 'browse', '2012-09-19 10:57:18'),
+(15729, 1, 'browse', '2012-09-19 10:57:48'),
+(15730, 1, 'browse', '2012-09-19 10:57:53'),
+(15731, 1, 'browse', '2012-09-19 10:58:23'),
+(15732, 1, 'browse', '2012-09-19 10:58:37'),
+(15733, 1, 'home', '2012-09-19 11:05:25'),
+(15734, 1, 'browse', '2012-09-19 11:06:46'),
+(15735, 1, 'browse', '2012-09-19 11:06:47'),
+(15736, 1, 'browse', '2012-09-19 11:13:05'),
+(15737, 1, 'browse', '2012-09-19 11:13:16'),
+(15738, 1, 'browse', '2012-09-19 11:13:23'),
+(15739, 1, 'browse', '2012-09-19 11:15:26'),
+(15740, 1, 'browse', '2012-09-19 11:15:34'),
+(15741, 1, 'browse', '2012-09-19 11:15:40'),
+(15742, 1, 'browse', '2012-09-19 11:15:47'),
+(15743, 1, 'browse', '2012-09-19 11:15:52'),
+(15744, 1, 'home', '2012-09-19 11:19:31'),
+(15745, 1, 'browse', '2012-09-19 11:19:33'),
+(15746, 1, 'browse', '2012-09-19 11:19:35'),
+(15747, 1, 'browse', '2012-09-19 11:19:43'),
+(15748, 1, 'home', '2012-09-19 11:20:10'),
+(15749, 1, 'home', '2012-09-19 11:27:19'),
+(15750, 1, 'browse', '2012-09-19 11:27:22'),
+(15751, 1, 'browse', '2012-09-19 11:27:24'),
+(15752, 1, 'browse', '2012-09-19 11:27:32'),
+(15753, 1, 'browse', '2012-09-19 11:27:48'),
+(15754, 1, 'browse', '2012-09-19 11:28:08'),
+(15755, 1, 'browse', '2012-09-19 11:28:40'),
+(15756, 1, 'home', '2012-09-19 13:02:29'),
+(15757, 1, 'home', '2012-09-19 13:02:30'),
+(15758, 1, 'browse', '2012-09-19 13:02:31'),
+(15759, 1, 'browse', '2012-09-19 13:02:32'),
+(15760, 1, 'browse', '2012-09-19 13:02:33'),
+(15761, 1, 'home', '2012-09-19 13:02:35'),
+(15762, 1, 'home', '2012-09-19 13:02:48'),
+(15763, 1, 'browse', '2012-09-19 13:02:51'),
+(15764, 1, 'browse', '2012-09-19 13:02:52'),
+(15765, 1, 'home', '2012-09-19 13:15:09'),
+(15766, 1, 'browse', '2012-09-19 13:15:13'),
+(15767, 1, 'browse', '2012-09-19 13:15:15'),
+(15768, 1, 'browse', '2012-09-19 13:15:56'),
+(15769, 1, 'browse', '2012-09-19 13:16:14'),
+(15770, 1, 'browse', '2012-09-19 13:16:58'),
+(15771, 1, 'browse', '2012-09-19 13:18:20'),
+(15772, 1, 'map', '2012-09-19 13:18:41'),
+(15773, 1, 'browse', '2012-09-19 13:19:34'),
+(15774, 1, 'browse', '2012-09-19 13:19:36'),
+(15775, 1, 'browse', '2012-09-19 13:19:48'),
+(15776, 1, 'browse', '2012-09-19 13:20:27'),
+(15777, 1, 'browse', '2012-09-19 13:21:04'),
+(15778, 1, 'browse', '2012-09-19 13:24:55'),
+(15779, 1, 'browse', '2012-09-19 13:25:02'),
+(15780, 1, 'browse', '2012-09-19 13:25:07'),
+(15781, 1, 'browse', '2012-09-19 13:25:11'),
+(15782, 1, 'home', '2012-09-19 14:18:58'),
+(15783, 1, 'browse', '2012-09-19 14:19:04'),
+(15784, 1, 'browse', '2012-09-19 14:19:06'),
+(15785, 1, 'login', '2012-09-19 14:25:55'),
+(15786, 6, 'login', '2012-09-19 14:25:56'),
+(15787, 6, 'browse', '2012-09-19 14:25:58'),
+(15788, 6, 'browse', '2012-09-19 14:25:59'),
+(15789, 6, 'add', '2012-09-19 14:26:08'),
+(15790, 6, 'add', '2012-09-19 14:30:15'),
+(15791, 6, 'add', '2012-09-19 14:33:19'),
+(15792, 6, 'add', '2012-09-19 14:33:29'),
+(15793, 6, 'add', '2012-09-19 14:38:29'),
+(15794, 6, 'add', '2012-09-19 14:38:43'),
+(15795, 6, 'add', '2012-09-19 14:49:09'),
+(15796, 6, 'add', '2012-09-19 14:49:20'),
+(15797, 6, 'add', '2012-09-19 14:52:40'),
+(15798, 6, 'add', '2012-09-19 14:52:48'),
+(15799, 6, 'add', '2012-09-19 14:53:34'),
+(15800, 6, 'add', '2012-09-19 14:54:31'),
+(15801, 6, 'add', '2012-09-19 14:54:58'),
+(15802, 6, 'add', '2012-09-19 14:55:18'),
+(15803, 6, 'browse', '2012-09-19 14:56:30'),
+(15804, 6, 'browse', '2012-09-19 14:56:42'),
+(15805, 1, 'browse', '2012-09-19 16:06:15'),
+(15806, 1, 'browse', '2012-09-19 16:09:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wavelength_ranges`
+-- Tabellenstruktur für Tabelle `wavelength_ranges`
 --
 
 CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
@@ -20337,7 +21558,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_ranges` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `wavelength_ranges`
+-- Daten für Tabelle `wavelength_ranges`
 --
 
 INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
@@ -20353,7 +21574,7 @@ INSERT INTO `wavelength_ranges` (`id`, `acronym`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wavelength_units`
+-- Tabellenstruktur für Tabelle `wavelength_units`
 --
 
 CREATE TABLE IF NOT EXISTS `wavelength_units` (
@@ -20363,7 +21584,7 @@ CREATE TABLE IF NOT EXISTS `wavelength_units` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `wavelength_units`
+-- Daten für Tabelle `wavelength_units`
 --
 
 INSERT INTO `wavelength_units` (`id`, `wavelength_unit`) VALUES
@@ -20380,23 +21601,23 @@ INSERT INTO `wavelength_units` (`id`, `wavelength_unit`) VALUES
 (11, 'cm');
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `additional_information`
+-- Constraints der Tabelle `additional_information`
 --
 ALTER TABLE `additional_information`
   ADD CONSTRAINT `observatory_id_4` FOREIGN KEY (`id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `hidden_fields`
+-- Constraints der Tabelle `hidden_fields`
 --
 ALTER TABLE `hidden_fields`
   ADD CONSTRAINT `observatory_id_5` FOREIGN KEY (`id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `instruments`
+-- Constraints der Tabelle `instruments`
 --
 ALTER TABLE `instruments`
   ADD CONSTRAINT `instrument_type_id` FOREIGN KEY (`instrument_type`) REFERENCES `instrument_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -20404,7 +21625,7 @@ ALTER TABLE `instruments`
   ADD CONSTRAINT `wavelength_unit_id_4` FOREIGN KEY (`wavelength_e_unit`) REFERENCES `wavelength_units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `observatories`
+-- Constraints der Tabelle `observatories`
 --
 ALTER TABLE `observatories`
   ADD CONSTRAINT `clear_nights_id` FOREIGN KEY (`clear_nights`) REFERENCES `clearnights_ranges` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -20413,69 +21634,69 @@ ALTER TABLE `observatories`
   ADD CONSTRAINT `timezone_id` FOREIGN KEY (`timezone`) REFERENCES `timezones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `observatory_to_research_areas`
+-- Constraints der Tabelle `observatory_to_research_areas`
 --
 ALTER TABLE `observatory_to_research_areas`
   ADD CONSTRAINT `observatory_id_3` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `research_area_id_1` FOREIGN KEY (`research_area_id`) REFERENCES `research_areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `observatory_to_scientific_contacts`
+-- Constraints der Tabelle `observatory_to_scientific_contacts`
 --
 ALTER TABLE `observatory_to_scientific_contacts`
   ADD CONSTRAINT `observatory_id_1` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `scientific_contact_id_1` FOREIGN KEY (`scientific_contact_id`) REFERENCES `scientific_contacts` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `observatory_to_targets`
+-- Constraints der Tabelle `observatory_to_targets`
 --
 ALTER TABLE `observatory_to_targets`
   ADD CONSTRAINT `observatory_id_7` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `target_id_1` FOREIGN KEY (`target_id`) REFERENCES `targets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `observatory_to_telescopes`
+-- Constraints der Tabelle `observatory_to_telescopes`
 --
 ALTER TABLE `observatory_to_telescopes`
   ADD CONSTRAINT `observatory_id_2` FOREIGN KEY (`observatory_id`) REFERENCES `observatories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `telescope_id_1` FOREIGN KEY (`telescope_id`) REFERENCES `telescopes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `sensor_to_scientific_contacts`
+-- Constraints der Tabelle `sensor_to_scientific_contacts`
 --
 ALTER TABLE `sensor_to_scientific_contacts`
   ADD CONSTRAINT `scientific_contact_id_2` FOREIGN KEY (`scientific_contact_id`) REFERENCES `scientific_contacts` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `sensor_id_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `space_missions`
+-- Constraints der Tabelle `space_missions`
 --
 ALTER TABLE `space_missions`
   ADD CONSTRAINT `mission_agency_id` FOREIGN KEY (`mission_agency`) REFERENCES `agencies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `space_mission_to_research_areas`
+-- Constraints der Tabelle `space_mission_to_research_areas`
 --
 ALTER TABLE `space_mission_to_research_areas`
   ADD CONSTRAINT `research_area_id_2` FOREIGN KEY (`research_area_id`) REFERENCES `research_areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `space_mission_id_3` FOREIGN KEY (`space_mission_id`) REFERENCES `space_missions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `space_mission_to_sensors`
+-- Constraints der Tabelle `space_mission_to_sensors`
 --
 ALTER TABLE `space_mission_to_sensors`
   ADD CONSTRAINT `sensor_id_1` FOREIGN KEY (`sensor_id`) REFERENCES `sensors` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `space_mission_id_1` FOREIGN KEY (`space_mission_id`) REFERENCES `space_missions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `space_mission_to_targets`
+-- Constraints der Tabelle `space_mission_to_targets`
 --
 ALTER TABLE `space_mission_to_targets`
   ADD CONSTRAINT `space_mission_id_2` FOREIGN KEY (`space_mission_id`) REFERENCES `space_missions` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `target_id_2` FOREIGN KEY (`target_id`) REFERENCES `targets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `telescopes`
+-- Constraints der Tabelle `telescopes`
 --
 ALTER TABLE `telescopes`
   ADD CONSTRAINT `antenna_type_id` FOREIGN KEY (`antenna_type`) REFERENCES `antenna_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -20484,14 +21705,14 @@ ALTER TABLE `telescopes`
   ADD CONSTRAINT `wavelength_unit_id_2` FOREIGN KEY (`wavelength_e_unit`) REFERENCES `wavelength_units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `telescope_to_instruments`
+-- Constraints der Tabelle `telescope_to_instruments`
 --
 ALTER TABLE `telescope_to_instruments`
   ADD CONSTRAINT `instrument_id_1` FOREIGN KEY (`instrument_id`) REFERENCES `instruments` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `telescope_id_2` FOREIGN KEY (`telescope_id`) REFERENCES `telescopes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `users_statistics`
+-- Constraints der Tabelle `users_statistics`
 --
 ALTER TABLE `users_statistics`
   ADD CONSTRAINT `users_statistics_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users_list` (`id`) ON DELETE CASCADE;
