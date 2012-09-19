@@ -204,7 +204,7 @@ $(document).bind('filterMapIsReady', function(e, filterXML) {
   	var bounds = new google.maps.LatLngBounds();
   	
  	for (var i = 0; i < json.length; i++) {
- 		if ((json[i].lat > 0) || (json[i].lng > 0)) {
+ 		if ((json[i].lat != 0) || (json[i].lng != 0)) {
 	  		var point = new google.maps.LatLng(parseFloat(json[i].lat),
 	  					parseFloat(json[i].lng));
 	  			
