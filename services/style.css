@@ -1,0 +1,25 @@
+H3 {
+	color: #172983;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+A {
+	font-weight: bold;
+	font-size: 12pt;
+	color: #cd853f;
+}
+
+A:link {
+	text-decoration: none;
+}
+
+A:visited {
+	text-decoration: none;
+}
+
+A:hover {
+	text-decoration: none;
+	color: #d2691e;
+}

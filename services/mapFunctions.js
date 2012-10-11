@@ -4,6 +4,15 @@
  * @author Florian Topf
 **/
 //-----------------------------------------------------------------------------------------------------------
+//HELPER FUNCTION FOR DETAIL WINDOWS
+function openwin(content)
+{
+  W=window.open(content,'RESULTS','status=yes,menubar=yes,hotkeys=no,resizable=yes,scrollbars=yes,width=650,height=600');
+  W.focus();
+
+  return false;
+}
+//-----------------------------------------------------------------------------------------------------------
 //SOME VARIABLES FOR GOOGLE MAPS
 //User Location (Default 0 0)
 var initialLocation = new google.maps.LatLng(30, 0);
@@ -170,7 +179,8 @@ $(document).bind('mapIsReady', function(e, filter) {
     			var id = markers[i].getAttribute("id");
     			//Set information for infowindow
     			var html = "<h3>" + name + "</h3>" + 
-    				"<center><b><a href=\"#\" onClick=\"return openwin('views/ObservatoryView.php?" +
+    				"<center><b><a href=\"#\" " +
+    				"onClick=\"return openwin('http://europlanet-na1.oeaw.ac.at/matrix/views/ObservatoryView.php?" +
     				"id=" + id + "')\" class='hand'>Click here for details</b></center>"; 
     			var icon = customIcons["observatory"];
     			//Set marker for Observatory
