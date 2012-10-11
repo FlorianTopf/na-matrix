@@ -326,7 +326,7 @@ $link->close();
 	    }
 		
 		//OBSERVATORY FEEDBACK (only for admins)
-		if($_SESSION["user_level"] >= 31)
+		if (isset($_SESSION["user_level"]) && $_SESSION["user_level"] >= 31)
 		{
 			 if ($_observatory->get_add_info('feedback'))
 			 {
