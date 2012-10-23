@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 25, 2012 at 03:00 PM
--- Server version: 5.1.58
--- PHP Version: 5.3.8
+-- Erstellungszeit: 23. Okt 2012 um 11:07
+-- Server Version: 5.1.58
+-- PHP-Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `europla1_spa`
+-- Datenbank: `europla1_spa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `maintable`
+-- Tabellenstruktur für Tabelle `maintable`
 --
 
 CREATE TABLE IF NOT EXISTS `maintable` (
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `maintable` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=56 ;
 
 --
--- Dumping data for table `maintable`
+-- Daten für Tabelle `maintable`
 --
 
 INSERT INTO `maintable` (`id`, `Mission`, `Agency`, `Launch`, `Death`, `Orbit`, `Notes`, `sid`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `maintable` (`id`, `Mission`, `Agency`, `Launch`, `Death`, `Orbit`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sensors`
+-- Tabellenstruktur für Tabelle `sensors`
 --
 
 CREATE TABLE IF NOT EXISTS `sensors` (
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=647 ;
 
 --
--- Dumping data for table `sensors`
+-- Daten für Tabelle `sensors`
 --
 
 INSERT INTO `sensors` (`id`, `Sensor`, `Type`, `underlying`, `rangebegin`, `rangeend`, `units`, `measured`, `resolution`, `fov`, `sciencegoals`, `prin_inv`, `prin_inv_con`, `sid`) VALUES
