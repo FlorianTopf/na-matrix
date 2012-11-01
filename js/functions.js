@@ -21,14 +21,27 @@ function openwin(content)
   return false;
 }
 
+function showUrlInDialog(url) {
+	var tag = $("<div></div>");
+	$.ajax({
+		url: url,
+		success: function(data) {
+		  tag.html(data).dialog({
+			  width: 650,
+			  height: 600,
+			  modal: true
+		  }).dialog('open');
+		}
+	});
+}
+
 //CONFIRMATION DIALOG for stupid admins
-function show_confirm()
-{
-var r=confirm("Do you really want to delete this entry?");
-if (r==true)
-	return true;
-else
-	return false;
+function show_confirm() {
+	var r=confirm("Do you really want to delete this entry?");
+	if (r==true)
+		return true;
+	else
+		return false;
 }
 
 //-----------------------------------------------------------------------------------------------------------

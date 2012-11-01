@@ -53,6 +53,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`observatories` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `name` TEXT NOT NULL ,
+  `iau_code` VARCHAR(10) NULL DEFAULT NULL ,
   `founded` INT NULL DEFAULT NULL ,
   `institution` TEXT NULL DEFAULT NULL ,
   `web_address` TEXT NULL DEFAULT NULL ,
@@ -333,6 +334,7 @@ CREATE  TABLE IF NOT EXISTS `europlanet_na1`.`space_missions` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `mission_name` TEXT NOT NULL ,
   `mission_agency` INT UNSIGNED NOT NULL ,
+  `spice_id` VARCHAR(10) NULL DEFAULT NULL ,
   `launch_date` DATE NOT NULL ,
   `death_date` DATE NULL DEFAULT NULL ,
   `web_address` TEXT NOT NULL ,

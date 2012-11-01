@@ -743,6 +743,15 @@ ADD COLUMN `diameter_m` FLOAT(10,6) NULL DEFAULT NULL  AFTER `sensor_type` ,
 ADD COLUMN `wavelength` TEXT NULL DEFAULT NULL  AFTER `diameter_m` ;
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 1349 */
+ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `iau_code` VARCHAR(10) NULL DEFAULT NULL  AFTER `name` ;
+ALTER TABLE `europlanet_na1`.`space_missions` ADD COLUMN `spice_id` VARCHAR(10) NULL DEFAULT NULL  AFTER `mission_agency` ;
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+
+/** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
 
 

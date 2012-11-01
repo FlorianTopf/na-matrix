@@ -493,6 +493,7 @@ DROP TABLE IF EXISTS `observatories`;
 CREATE TABLE IF NOT EXISTS `observatories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
+  `iau_code` VARCHAR(10) NULL DEFAULT NULL ,
   `founded` int(11) DEFAULT NULL,
   `institution` text,
   `web_address` text,
@@ -754,6 +755,7 @@ CREATE TABLE IF NOT EXISTS `space_missions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `mission_name` text NOT NULL,
   `mission_agency` int(10) unsigned NOT NULL,
+  `spice_id` VARCHAR(10) NULL DEFAULT NULL ,
   `launch_date` date NOT NULL,
   `death_date` date DEFAULT NULL,
   `web_address` text NOT NULL,

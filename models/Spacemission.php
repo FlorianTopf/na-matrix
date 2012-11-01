@@ -362,11 +362,12 @@ class SpacemissionDAO extends ModelDAO
    */
 	public function add_resource() {
   		$query = "INSERT INTO space_missions (" .
-  		"`id`,`mission_name`,`mission_agency`,`launch_date`,`death_date`,`web_address`, `brief_description`, 
+  		"`id`,`mission_name`,`mission_agency`,`spice_id`, `launch_date`,`death_date`,`web_address`, `brief_description`, 
   		`creation_date`, `modification_date`, `research_comments`, `target_comments`)" .
   		" VALUES (NULL,'" .
         addslashes($_POST["add_spa_name"]) . "','" .
         $_POST["add_spa_agency_id"] . "','" .
+        $_POST["add_spa_spice_id"] . "','" .
         $_POST["add_spa_launch"] . "','" .
         $_POST["add_spa_death"] . "','" .
         addslashes($_POST["add_spa_web_address"]) . "','" .
@@ -402,6 +403,7 @@ class SpacemissionDAO extends ModelDAO
 		$query = "UPDATE space_missions SET " .
   		"mission_name='" . addslashes($_POST["update_spa_name"]) . "'," .
   		"mission_agency='" . $_POST["add_spa_agency_id"] . "'," .
+		"spice_id='" . $_POST["add_spa_spice_id"] . "'," .
   		"launch_date='" . $_POST["add_spa_launch"] . "'," .
   		"death_date='" . $_POST["add_spa_death"] . "'," .
   		"web_address='" . addslashes($_POST["add_spa_web_address"]) . "'," .

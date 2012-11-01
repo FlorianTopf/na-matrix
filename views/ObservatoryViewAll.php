@@ -177,6 +177,8 @@ foreach($resources as $row)
 		print "<tr class='odd'>";
 	print "<td width='260px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
+	//print "<td width='260px'><span title='Click for more details' onclick=\"showUrlInDialog('views/ObservatoryView.php?id=" . 
+	//	$row["id"] . "'); return false;\" class='hand'>" . stripslashes($row["name"]) ."</span></td>";
     print "<td width='150px'>" . stripslashes($row["institution"]) . "</td>";
 	print "<td>" . stripslashes($row["country"]) . "</td>";
 //	if($row["hide_email"])

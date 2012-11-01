@@ -37,6 +37,11 @@ if($action == "edit")
 else
 	printInputTextRow("Facility Name", "add_obs_name", $_observatory->get_field("obs_name"), 
 			80, NULL, NULL, TRUE, $name_tooltip);
+			
+//IAU Code (see: http://www.minorplanetcenter.net/iau/lists/ObsCodesF.html)
+$iau_tooltip = "IAU Code - Please provide the IAU Code if available for the Observatory";
+printInputTextRow("IAU Code", "add_obs_iau_code", $_observatory->get_field("obs_iau_code"), 
+			10, NULL, NULL, FALSE, $iau_tooltip);
 
 //Year Founded - check if it is a YEAR
 $year_tooltip = "Year Founded - Please insert the year [YYYY] the facility was founded. 

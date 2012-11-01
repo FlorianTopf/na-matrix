@@ -1,4 +1,203 @@
+2012-10-23  ftopf
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql: added newest
+      backups!
+
+2012-10-11  ftopf
+
+    * style.css: fixed style
+
+    * ObservatoryView.php: fixed a little problem here
+
+    * countries.php, mapFunctions.js, style.css: added some fixes and style for
+      info windows
+
+    * countries.php, countries.xml, mapFunctions.js, observatoriesXML.php,
+      services: added webservice for observatories (country filter)
+
+2012-09-19  ftopf
+
+    * europlanet_na1.sql, telescopeNames.php: added backup and comment for
+      telescope names
+
+    * content.css, mapFunctions.js: Fixed some little issues
+
+    * mapFunctions.js: fixed a litte bug when displaying the items (coordinates)
+
+2012-09-18  ftopf
+
+    * ObservatoryViewAll.php, mapFunctions.js: added functionality for toggling
+      map (will be redrawn now)
+
+    * mapFunctions.js: fixed formatting in current location
+
+    * Observatory.php, ObservatoryViewAll.php, mapFunctions.js: added additional
+      filters to browse observatories - added preliminary functions for
+      displaying a map in browse matrix. Jquery toggle is not working because
+      the map isn't resize properly
+
+    * mapFunctions.js: Fixed some issues with the defaul location
+
+    * functions.js, index.php, mapFunctions.js: moved map functions out of the
+      way, added JS for other browse filter - autocompleter. Fixed Map Bug when
+      User Location is denied.
+
+2012-08-23  ftopf
+
+    * ObservatoryView.php, content.css: fixed some view-config
+
+2012-07-25  ftopf
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql: changed some
+      tooltips, added newest backups
+
+    * ObservatoryCreateUpdate.php: changed some tooltips
+
+2012-07-24  ftopf
+
+    * ObservatoryView.php, ObservatoryViewAll.php, SpacemissionView.php,
+      europlanet_na1-complete-dump.sql, europlanet_na1-fixes.sql,
+      europlanet_na1.mwb, europlanet_na1.sql: database adaptions and admin
+      helper functions
+
+    * Observatory.php, ObservatoryCreateUpdate.php, ObservatoryView.php,
+      Spacemission.php, SpacemissionCreateUpdate.php, SpacemissionView.php,
+      functions.js, sensorTypes.php: added some functionalities and properties
+      for space missions
+
+    * Observatory.php, ObservatoryView.php, Spacemission.php,
+      SpacemissionCreateUpdate.php, SpacemissionView.php,
+      europlanet_na1-changes.sql, europlanet_na1.mwb, europlanet_na1.sql:
+      changes of space mission => units still need to be added in sensors!
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql: added beckups
+      before db change
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql: added new backups
+
+2012-07-23  ftopf
+
+    * europlanet_na1-fixes.sql: little fix
+
+    * ModelDAO.php, Observatory.php, Spacemission.php, europlanet_na1-fixes.sql:
+      some refactoring
+
+    * Spacemission.php, TODO, controller.inc.php, europla1_obs.sql,
+      europla1_spa.sql, europlanet_na1-fixes.sql, europlanet_na1.sql: added
+      duplicate database backup, added db fixes, added functionality for delete
+      space mission
+
+    * Observatory.php, Spacemission.php, SpacemissionCreateUpdate.php,
+      controller.inc.php: fixed some errors
+
+    * SpacemissionCreateUpdate.php: fixed space mission update error
+
+    * Spacemission.php: fixed space mission update error
+
+    * ObservatoryView.php, Spacemission.php, SpacemissionView.php,
+      europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql, html.php: fixed
+      again some reccomendations
+
+2012-07-20  ftopf
+
+    * europlanet_na1-changes.sql: added changes!
+
+    * Observatory.php, Spacemission.php, SpacemissionCreateUpdate.php,
+      SpacemissionView.php, europlanet_na1-complete-dump.sql,
+      europlanet_na1.mwb, europlanet_na1.sql, index.php: finished some
+      modifications!
+
+2012-07-19  ftopf
+
+    * ObservatoryCreateUpdate.php, SpacemissionCreateUpdate.php, content.css,
+      functions.js: finished tabs for sensors => testing on friday
+
+    * ObservatoryCreateUpdate.php, SpacemissionCreateUpdate.php,
+      europla1_obs.sql, europla1_spa.sql, europlanet_na1-changes.sql,
+      europlanet_na1-complete-dump.sql, europlanet_na1.mwb, europlanet_na1.sql,
+      instrument_types.sql: some changes => tabs for space missions still not
+      finished!
+
+    * Observatory.php: removed error!
+
+    * Observatory.php: removed error!
+
+2012-07-03  ftopf
+
+    * Observatory.php: removed unnecessary fehlermeldung
+
+    * observatories.php: another fix
+
+    * config.inc.php: fixed config
+
+    * observatories.php: quick fix for names with SQL special chars
+
+    * config.inc.php, europlanet_na1.sql: added database backup
+
+2012-07-02  ftopf
+
+    * ObservatoryView.php: small fixes in view window
+
+2012-06-11  ftopf
+
+    * ObservatoryView.php: fixed little syntax error
+
+    * config.inc.php: reverted config
+
+    * config.inc.php, europlanet_na1.sql: added newest DB dumb, after change of
+      exposure times
+
+    * Observatory.php, europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql:
+      little fix
+
+2012-05-31  ftopf
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1.sql: Added most recent
+      database backup
+
+2012-05-28  ftopf
+
+    * Observatory.php, Spacemission.php, functions.js: Little fix (autocompleter
+      + enter)
+
+2012-04-24  ftopf
+
+    * Observatory.php, europla1_obs.sql, europla1_spa.sql,
+      europlanet_na1-changes.sql, europlanet_na1.sql: Database fixes and fix of
+      problem when loading old resources (no resource found)
+
+2012-04-16  ftopf
+
+    * content.css, europlanet_na1.sql, functions.js: Fixed problem with more
+      than 10 sensors, added newest database backup
+
+2012-04-12  ftopf
+
+    * ObservatoryCreateUpdate.php: fixed instrument tooltip
+
+2012-03-20  ftopf
+
+    * Observatory.php, ObservatoryCreateUpdate.php, europlanet_na1.sql,
+      html.php: changed way of adding wavelength ranges to telescope, added new
+      database backup!
+
+2012-03-19  ftopf
+
+    * ObservatoryCreateUpdate.php, europlanet_na1.sql: Changed tooltips
+      accordingly!
+
+    * ObservatoryCreateUpdate.php: added telescope and instrument tooltips
+
+    * europla1_obs.sql, europla1_spa.sql, europlanet_na1-changes.sql,
+      europlanet_na1.sql, research_areas.sql, targets.sql, telescope_types.sql:
+      Added database changes!
+
 2012-03-14  ftopf
+
+    * ObservatoryCreateUpdate.php: fixed button!
+
+    * ChangeLog, ObservatoryCreateUpdate.php, ObservatoryView.php: changed
+      display of GPS coordinates according to user request
 
     * ObservatoryViewAll.php, SpacemissionViewAll.php, ui.multiselect.js: some
       little modifs

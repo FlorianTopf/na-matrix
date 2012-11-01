@@ -54,7 +54,7 @@ $link->close();
               		"href='./../index.php?page=add&amp;action=edit&amp;id={$_GET["id"]}" .
               		"&amp;res_type=obs&amp;edit=1" .
               		"'>EDIT ENTRY</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	     print "<a title='Click to refresh' class='hand' href='javascript:location.reload(true);'>REFRESH PAGE</a></p>";
+	     print "<a title='Click to refresh' class='hand' href='javascript:window.location.reload(true);'>REFRESH PAGE</a></p>";
 		 print "</fieldset>" . LF;
 	 }              
 
@@ -67,6 +67,8 @@ $link->close();
 	//OBSERVATORY GENERAL:
   	print "<fieldset class='report'><legend><b>Ground-based Facility General</b></legend>" . LF;
   	print "<p><b>Observatory Name:&nbsp;</b>" .	$_observatory->get_field("obs_name") . "</p>" . LF;
+  	if ($_observatory->get_field("obs_iau_code"))
+  		print "<p><b>IAU Code:&nbsp;</b>" . $_observatory->get_field("obs_iau_code") . "</p>" . LF;
   	if ($_observatory->get_field("obs_founded"))
   		print "<p><b>Year Founded:&nbsp;</b>" . $_observatory->get_field("obs_founded") . "</p>" . LF;
   	if ($_observatory->get_field("obs_institution"))

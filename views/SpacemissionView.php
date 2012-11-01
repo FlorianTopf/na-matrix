@@ -70,6 +70,8 @@ $link->close();
 	$agencies = $_spacemission->get_agencies();
 	print "<p><b>Agency:</b>&nbsp;<a href='" . $agencies['web_address'][$_spacemission->get_field("spa_mission_agency")] .
 		  "' target='_blank'>" . $agencies['acronym'][$_spacemission->get_field("spa_mission_agency")] . "</a></p>" . LF;
+	if($_spacemission->get_field("spa_spice_id"))
+		print "<p><b>SPICE ID:&nbsp;</b>" . $_spacemission->get_field("spa_spice_id") . "</p>" . LF;
 	print "<p><b>Launch Date:&nbsp;</b>" . $_spacemission->get_field("spa_launch_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;
 	if($_spacemission->get_field("spa_death_date"))
 		print "<p><b>Mission End:&nbsp;</b>" . $_spacemission->get_field("spa_death_date") . "&nbsp;[YYYY-MM-DD]</p>" . LF;

@@ -174,8 +174,6 @@ $(document).bind('mapIsReady', function(e, filter) {
     			var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
     					parseFloat(markers[i].getAttribute("lng")));
     			
-    			bounds.extend(point);
-    			
     			var id = markers[i].getAttribute("id");
     			//Set information for infowindow
     			var html = "<h3>" + name + "</h3>" + 
@@ -191,6 +189,8 @@ $(document).bind('mapIsReady', function(e, filter) {
     				shadow: icon.shadow
     			});
     			bindInfoWindow(marker, map, infoWindow, html);
+    			
+    			bounds.extend(point);
     		}
     	});
     	

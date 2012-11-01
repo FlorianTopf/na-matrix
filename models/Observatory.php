@@ -993,13 +993,14 @@ class ObservatoryDAO extends ModelDAO
         }
         	
 		$query = "INSERT INTO observatories (" .
-  			"`id`,`name`,`founded`,`institution`,`web_address`,`address`," .
+  			"`id`,`name`, `iau_code`, `founded`,`institution`,`web_address`,`address`," .
   			"`country_id`,`phone`,`email`,`latitude`,`longitude`,`approx_position`," .
 			"`sealevel_m`,`precipitation`,`clear_nights`,`timezone`," .
 			"`observatory_status`," .
   			"`partner_observatories`, `creation_date`, `user_id`, `approved`, `saved_for_later`, `last_saved_by`)" .
   			" VALUES (NULL,'" .
         	addslashes($_POST["add_obs_name"]) . "','" .
+        	$_POST["add_obs_iau_code"] . "','" .
         	$_POST["add_obs_founded"] . "','" .
         	addslashes($_POST["add_obs_institution"]) . "','" .
         	addslashes($_POST["add_obs_web_address"]) . "','" .
@@ -1085,7 +1086,8 @@ class ObservatoryDAO extends ModelDAO
 		$query = "UPDATE observatories SET " .
 			//We get another POST VAR for the name if EDIT
 	  		"name='" . addslashes($_POST["update_obs_name"]) . "'," .
-	  		"founded='" . addslashes($_POST["add_obs_founded"]) . "'," .
+			"iau_code='" . $_POST["add_obs_iau_code"] . "'," .
+	  		"founded='" . $_POST["add_obs_founded"] . "'," .
 	  		"institution='" . addslashes($_POST["add_obs_institution"]) . "'," .
 	  		"web_address='" . addslashes($_POST["add_obs_web_address"]) . "'," .
 	  		"address='" . addslashes($_POST["add_obs_address"]) . "'," .
@@ -1096,9 +1098,9 @@ class ObservatoryDAO extends ModelDAO
 	  		"longitude='" . addslashes($longitude_float) . "'," .
 	  		"approx_position='" . addslashes($_POST["add_obs_position"]) . "'," .
 	  		"sealevel_m='" . addslashes($_POST["add_obs_sealevel"]) . "'," .
-	  		"precipitation='" . addslashes($_POST["add_obs_precip_id"]) . "'," .
-	  		"clear_nights='" . addslashes($_POST["add_obs_clearnights_id"]) . "'," .
-	  		"timezone='" . addslashes($_POST["add_obs_timezone_id"]) . "'," .
+	  		"precipitation='" . $_POST["add_obs_precip_id"] . "'," .
+	  		"clear_nights='" . $_POST["add_obs_clearnights_id"] . "'," .
+	  		"timezone='" . $_POST["add_obs_timezone_id"] . "'," .
 	  		"observatory_status='" . addslashes($_POST["add_obs_status"]) . "'," .
 	  		"partner_observatories='" . addslashes($_POST["add_obs_partner"]) . "'," .
 			"modification_date=NOW()," .

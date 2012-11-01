@@ -26,6 +26,9 @@ $options = array("<option value=''>Please choose...</option>");
 printSelectListRowFromArray("Mission Agency", "add_spa_agency_id", $_spacemission->get_field("spa_mission_agency"),
 	$agencies, array("acronym", "name"), NULL, TRUE, $options);
 
+//SPICE ID
+printInputTextRow("SPICE ID", "add_spa_spice_id", $_spacemission->get_field("spa_spice_id"), 12, NULL , NULL, FALSE);
+	
 //Launch date - FORMAT: YYYY-MM-DD - MANDATORY
 printInputTextRow("Launch Date", "add_spa_launch", $_spacemission->get_field("spa_launch_date"), 12, "[YYYY-MM-DD]", NULL, TRUE);
 
