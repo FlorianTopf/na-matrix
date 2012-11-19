@@ -5,7 +5,7 @@ http://europlanet-na1.oeaw.ac.at/matrix/docs/doxygen/index.html
 FORMAT CONVENTIONS:
 https://docs.google.com/document/d/1hvVi8se0xMOc3KD9RsDJJR7J5fPUwaEN0b9Xt/edit?hl=en_US
   [OK] tooltip info for observatories (not needed for space missions)
-  [PENDING] add conventions for space missions
+  [OK] add conventions for space missions
 
 -----------------------------------------------------------------
 NA1 QUESTIONNAIRE RELATED FUNCTIONALITY
@@ -72,7 +72,7 @@ ROADMAP FOR TECHNICAL / SCIENTIFIC IMPROVEMENTS
 
 [LOW PRIORITY]
   [OK] Develop Strategy for UPDATE Entry procedure (JUNE 2011)
-  [PENDING] Implement Edit link button on browse site for admins
+  [OK] Implement Edit link button on browse site for admins
   [OK] Implement del_resource() in spacemission model
 
 -----------------------------------------------------------------
@@ -118,7 +118,7 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
   * field of view, resolution, measured => format?
   * range_begin, range_end => high precision float?
   [OK] remove last sensor => empty fields
-  [PENDING] autocompleter for sensor type
+  [OK] autocompleter for sensor type
   * check for type of values (critical review)!
 
 * Input validation in JQUERY for space missions (see comments in add.php)
@@ -140,7 +140,7 @@ INPUT FORMS / ADD EDIT PROCEDURE / VIEW PAGES
     given
   [OK] Check if there is an URL in the info, and make a hyperlink
   [PENDING] Generate link list to other observatories in "partner observatories"
-  [PENDING] Check all units and descriptions (like they are in the input form)
+  [OK] Check all units and descriptions (like they are in the input form)
   
     
 [HIGH PRIORITY] Implement Search Interface / Interactive Map (SEPTEMBER 2011)

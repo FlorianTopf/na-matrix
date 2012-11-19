@@ -163,11 +163,14 @@ print "<div><p><a href='' class='ui-state-default ui-corner-all toggle_map' styl
 print "<div id='map' class='map' style='width: 775px; height: 450px'></div>" . LF ;
 print "<script>$(document).trigger('filterMapIsReady', '" . json_encode($filterJSON,JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP) . "');</script>" . LF;
 
-print "<table class='viewall'>" . LF;
+print "<table id='browsesorter' class='viewall tablesorter'>" . LF;
 print "<caption>For details please click on ground-based facility entry name</caption>" . LF;
+print "<thead>";
 //print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>E-MAIL</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
 print "<tr><th>NAME</th><th>INSTITUTION</th><th>COUNTRY</th><th>WEB</th><th>TELESCOPE-TYPE <i>(WAVELENGTH)</i></th></tr>" . LF;
+print "</thead>";
 
+print "<tbody>";
 $index = 0;
 foreach($resources as $row)
 {
@@ -175,29 +178,34 @@ foreach($resources as $row)
 		print "<tr class='even'>";
 	else
 		print "<tr class='odd'>";
-	print "<td width='260px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
+	print "<td width='220px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
 	//print "<td width='260px'><span title='Click for more details' onclick=\"showUrlInDialog('views/ObservatoryView.php?id=" . 
 	//	$row["id"] . "'); return false;\" class='hand'>" . stripslashes($row["name"]) ."</span></td>";
-    print "<td width='150px'>" . stripslashes($row["institution"]) . "</td>";
-	print "<td>" . stripslashes($row["country"]) . "</td>";
+    print "<td width='120px'>" . stripslashes($row["institution"]) . "</td>";
+	print "<td width='90px'>" . stripslashes($row["country"]) . "</td>";
 //	if($row["hide_email"])
 //    	print "<td class='red'>Not Displayed</td>";
 //    else
 //       	print "<td><a href='mailto:" . $row["email"] . "'>" . $row["email"] . "</a></td>";
 	if($row["hide_web_address"])
-		print "<td class='red'>Not Displayed</td>";
+		print "<td width='10px'class='red'>Not Displayed</td>";
 	/** @todo check performance with more than 100 entries! */
     elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) 
-    	print "<td><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
+    	print "<td width='10px'><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
     else
-    	print "<td></td>";
-    print "<td>";
-    foreach($row["telescope_types"] as $key => $type)
+    	print "<td width='10px'></td>";
+    print "<td width='250px'>";
+    //sort function for telescope diameter within one entry (indexes are still correct)
+    arsort($row["diameter_m"], SORT_NUMERIC);
+    //foreach($row["telescope_types"] as $key => $type)
+    foreach($row["diameter_m"] as $key => $diameter) 
     {	
     	print "<b>";
-		($row["diameter_m"][$key] != 0) ? print $row["diameter_m"][$key] : print " ";
-    	print $type . "</b>";
+		//($row["diameter_m"][$key] != 0) ? print $row["diameter_m"][$key] : print " ";
+		($diameter != 0) ? print $diameter : print " ";
+    	//print $type . "</b>";
+    	print $row["telescope_types"][$key] . "</b>";
        if($row["wavelengths"][$key] != ", " && $row["wavelengths"][$key] != "")
         	print " (<i>" . trim($row["wavelengths"][$key], ", ") . "</i>)";
 		print "<br/>";
@@ -211,6 +219,7 @@ foreach($resources as $row)
 if(empty($resources))
 	print "<tr><td colspan='6'><h3>There are no ground-based facility entries</h3></td></tr>" . LF;
 
+print "</tbody>";
 print "</table>" . LF;
 		
 ?>

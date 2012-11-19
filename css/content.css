@@ -1,5 +1,6 @@
 /* CONTENT SINGLE ELEMENTS */
 /* Attention: Only one H1 element here at the frontpage */
+/* refactor these file an distribute settings to other files accordingly */
 H1 {
 	font-size: 14px;
 	color: #172983;

@@ -14,6 +14,7 @@
 @import url(content.css);
 @import url(left.css);
 @import url(validation.css);
+@import url(tablesorter.css);
 
 /* COLUMNS2 */
 #left-menu-box {

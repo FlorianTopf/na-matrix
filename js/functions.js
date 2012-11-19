@@ -54,9 +54,48 @@ function extractLast( term ) {
 	return split( term ).pop();
 }
 
+ 
+
 //-----------------------------------------------------------------------------------------------------------
 //HERE ALL JQUERY STUFF STARTS
 $(document).ready(function(){
+	// add parser through the tablesorter addParser method 
+	$.tablesorter.addParser({ 
+	    // set a unique id 
+	    id: 'diameters', 
+	    is: function(s) { 
+	        // return false so this parser is not auto detected 
+	        return false; 
+	    }, 
+	    format: function(s) { 
+	        // we devide the string by whitespace
+	    	// the first value must be a number if a diameter is given
+	    	var tokens = s.split(" ");
+	    	if(parseFloat((tokens[0]) == 'NaN') || (tokens[0] == ''))
+	    		return parseFloat('0.0');
+	    	else
+	    		return parseFloat(tokens[0]);
+	    }, 
+	    // set type, either numeric or text 
+	    type: 'numeric' 
+	});
+	
+	//sorting function for browse all table
+	$('#browsesorter').tablesorter({
+		widgets: ["zebra"],
+		widgetOptions : {
+			zebra : ["odd", "even"]
+		},
+		headers: {
+			3: {
+				sorter: false
+			},
+			4: {
+				sorter: 'diameters'
+			}
+		}
+	});
+	
 	//prevent that a user hits enter when in form (for add/edit and browse)
 	$('.rfield input').keydown(function(event){
 	    if(event.keyCode == 13) {
