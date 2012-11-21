@@ -270,6 +270,42 @@ class ObservatoryDAO extends ModelDAO
 	}
 
 //-----------------------------------------------------------------------------------------------------------
+	/** partner observatory linker */
+	public function obs_linker($partners)
+	{
+		$partners = trim($partners, ", ");
+		$partners = explode(",", $partners);
+		$new_partners = array();
+		
+		foreach($partners as $key => $partner)
+		{
+			$query = "SELECT id, name FROM observatories WHERE name LIKE '%" . trim($partner) . "%'";
+			
+			//echo $query;
+			
+			$result = self::$db->query($query);
+			//maybe we just take the first result by now!
+			if(self::$db->getNumRows($result) > 0)
+			{
+				$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+				
+				$temp_partner = "<span style='color:#cd853f' title='Click for more details' " .
+				"onclick=\"return openwin('ObservatoryView.php?" .
+				"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span>";
+				
+				if(!in_array($temp_partner, $new_partners))
+					$new_partners[] = $temp_partner;
+			}
+			else
+				$new_partners[] = $partner;
+		}
+		
+		$new_partners = implode("; ", $new_partners);
+		
+		return $new_partners;
+	}
+	
+//-----------------------------------------------------------------------------------------------------------
   /**
    * @fn get_all_resources($page, $filters)
    * @brief gets all existing resources observatory
@@ -503,6 +539,7 @@ class ObservatoryDAO extends ModelDAO
 						$value = "";
 					else if($value != "")
 						$value = $value . " ";
+						
 					$this->_fields["obs_$key"] = stripslashes($value);
 				}
 				else

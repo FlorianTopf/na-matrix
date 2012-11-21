@@ -41,6 +41,15 @@ $link->close();
 <!--    <script type="text/javascript" src="lib/js/jquery-1.4.2.min.js"></script>-->
 <!--    <script type="text/javascript" src="lib/js/jquery.validate.min.js"></script>-->
 <!--    <script type="text/javascript" src="js/functions.js"></script>-->
+<script type="text/javascript">
+function openwin(content)
+{
+  W=window.open(content,'LINKS','status=yes,menubar=yes,hotkeys=no,resizable=yes,scrollbars=yes,width=650,height=600, screenX=500');
+  W.focus();
+
+  return false;
+}
+</script>
 </head>
 
 <body class='report'>
@@ -158,6 +167,9 @@ $link->close();
 
 	if ($_observatory->get_field("obs_partner_observatories"))
   		print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . trim($_observatory->get_field("obs_partner_observatories"), ", ") . "</p>" . LF;
+  		
+  			if ($_observatory->get_field("obs_partner_observatories"))
+  		print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . trim($_observatory->obs_linker($_observatory->get_field("obs_partner_observatories")), ", ") . "</p>" . LF;
   		
 	if ($_observatory->get_add_info('general_comments'))
 		print "<p><b>General Comments:&nbsp;</b><br/>" . nl2br(autolink($_observatory->get_add_info('general_comments'))) . "</p>" . LF;

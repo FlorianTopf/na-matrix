@@ -19,7 +19,7 @@ if ($action == "approve")
 	if (empty($resources))
 		print "<h3>There are no {$name} entries to edit.</h3>" . LF;	
 	else
-	{
+	{	
 		print "<table id='editsorter' class='viewall tablesorter'>" . LF;
     	print "<caption>To edit please click on the name of the {$name}</caption>" . LF;
     	print "<thead>";
@@ -72,6 +72,8 @@ else {
 	{		
 		if($userlevel >= 31)
 		{
+			print "<h2>There are " . count($resources) . " {$name} entries to edit.</h2>" . LF;
+			
 			print "<table class='filter'>" . LF;
 			print "<caption>Filter the content by typing a facility name to search</caption>" . LF;
 			//Name Search (with autocompleter)	
