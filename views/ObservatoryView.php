@@ -165,10 +165,9 @@ function openwin(content)
 	if ($_observatory->get_field("obs_observatory_status"))
 		print "<p><b>Facility Status:</b>&nbsp;" . $_observatory->get_field("obs_observatory_status") . "</p>" . LF;
 
-	if ($_observatory->get_field("obs_partner_observatories"))
-  		print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . trim($_observatory->get_field("obs_partner_observatories"), ", ") . "</p>" . LF;
-  		
-  			if ($_observatory->get_field("obs_partner_observatories"))
+	//if ($_observatory->get_field("obs_partner_observatories"))
+  	//	print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . trim($_observatory->get_field("obs_partner_observatories"), ", ") . "</p>" . LF;
+  	if ($_observatory->get_field("obs_partner_observatories"))
   		print "<p><b>Partner/Umbrella Facilities:</b>&nbsp;" . trim($_observatory->obs_linker($_observatory->get_field("obs_partner_observatories")), ", ") . "</p>" . LF;
   		
 	if ($_observatory->get_add_info('general_comments'))
