@@ -178,23 +178,23 @@ foreach($resources as $row)
 		print "<tr class='even'>";
 	else
 		print "<tr class='odd'>";
-	print "<td width='220px'><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
+	print "<td><span title='Click for more details' onclick=\"return openwin('views/ObservatoryView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["name"]) . "</span></td>";
 	//print "<td width='260px'><span title='Click for more details' onclick=\"showUrlInDialog('views/ObservatoryView.php?id=" . 
 	//	$row["id"] . "'); return false;\" class='hand'>" . stripslashes($row["name"]) ."</span></td>";
-    print "<td width='120px'>" . stripslashes($row["institution"]) . "</td>";
+    print "<td width='100px'>" . stripslashes($row["institution"]) . "</td>";
 	print "<td width='90px'>" . stripslashes($row["country"]) . "</td>";
 //	if($row["hide_email"])
 //    	print "<td class='red'>Not Displayed</td>";
 //    else
 //       	print "<td><a href='mailto:" . $row["email"] . "'>" . $row["email"] . "</a></td>";
 	if($row["hide_web_address"])
-		print "<td width='10px'class='red'>Not Displayed</td>";
+		print "<td class='red'>Not Displayed</td>";
 	/** @todo check performance with more than 100 entries! */
     elseif(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) 
-    	print "<td width='10px'><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
+    	print "<td><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
     else
-    	print "<td width='10px'></td>";
+    	print "<td></td>";
     print "<td width='250px'>";
     //sort function for telescope diameter within one entry (indexes are still correct)
     arsort($row["diameter_m"], SORT_NUMERIC);

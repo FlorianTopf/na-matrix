@@ -18,7 +18,7 @@ $type = "spa";
 		print "<h3>There are no {$name} entries to edit.</h3>" . LF;	
 	else
 	{
-		print "<table class='viewall'>" . LF;
+		print "<table id='editsorter' class='viewall tablesorter'>" . LF;
     	print "<caption>To edit please click on the name of the {$name}</caption>" . LF;
     	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th></tr>" . LF;
     	$index = 0;
@@ -28,14 +28,14 @@ $type = "spa";
 				print "<tr class='even'>";
 			else
 				print "<tr class='odd'>";
-   			print "<td>" . $entry["id"] . "</td>";
+   			print "<td width='40px'>" . $entry["id"] . "</td>";
 
    			print "<td><a title='Click to edit' class='hand' " .
               	"href='index.php?page=add&amp;action=edit&amp;id={$entry["id"]}&amp;res_type={$type}" .
               	"'>" . $entry["name"] . "</a></td>";
    			
-        	print "<td>" . $entry["creation_date"] . "</td>";
-        	print "<td>" . $entry["modification_date"] . "</td>";
+        	print "<td width='140px'>" . $entry["creation_date"] . "</td>";
+        	print "<td width='160px'>" . $entry["modification_date"] . "</td>";
         	print "</tr>" . LF;
         	
         	$index++;

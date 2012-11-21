@@ -487,6 +487,7 @@ class Controller
 				   $_observatory = ModelDAO::getFromName("Observatory");
 				   $filters['user_id'] = $_SESSION["user_id"];
 				   $resources = $_observatory->get_all_resources($page, $filters);
+				   $users = $_observatory->get_users();
 				   include "views/ObservatoryEditAll.php";
 				   break;
     			}
@@ -500,6 +501,7 @@ class Controller
     						break;
     					}				
     					$_observatory = ModelDAO::getFromName("Observatory");
+    					$users = $_observatory->get_users();
     					if ($action == "approve")
     					{
     						$filters['approved'] = 0;

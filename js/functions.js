@@ -96,6 +96,13 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#editsorter').tablesorter({
+		widgets: ["zebra"],
+		widgetOptions : {
+			zebra : ["odd", "even"]
+		}
+	});
+	
 	//prevent that a user hits enter when in form (for add/edit and browse)
 	$('.rfield input').keydown(function(event){
 	    if(event.keyCode == 13) {

@@ -291,7 +291,7 @@ class ObservatoryDAO extends ModelDAO
 		
 		if($page == "edit")
 		{
-			$query = "SELECT id, name, creation_date, modification_date, approved, saved_for_later FROM observatories WHERE ";		
+			$query = "SELECT id, name, user_id, creation_date, modification_date, approved, saved_for_later, last_saved_by FROM observatories WHERE ";		
 				
 			//this is for the users "My entries"
 			if(!empty($filters["user_id"]))

@@ -84,15 +84,15 @@ foreach($resources as $row)
 		print "<tr class='odd'>";
 	print "<td><span title='Click for more details' onclick=\"return openwin('views/SpacemissionView.php?" .
 		"id=" . $row["id"] . "')\" class='hand'>" . stripslashes($row["mission_name"]) . "</span></td>";
-	print "<td><a href='" . stripslashes($row["agency_web_address"]) . "' target='_blank'>" . htmlentities($row["agency"]) . "</a></td>";
+	print "<td width='70px'><a href='" . stripslashes($row["agency_web_address"]) . "' target='_blank'>" . htmlentities($row["agency"]) . "</a></td>";
 	/** @todo check performance with more than 100 entries! */
 	if(isValidURL($row["web_address"])) //if(url_exists($row["web_address"])) 
 		print "<td><a href='" . stripslashes($row["web_address"]) . "' target='_blank'><img width='30' src='images/globe.png' alt='globe'/></a></td>";
 	else
-	print "<td></td>";
-	print "<td>" . $row["launch_date"] . "</td>";
-	print "<td>" . (($row["death_date"] == "0000-00-00") ? "" : $row["death_date"]) . "</td>";
-	print "<td>";
+		print "<td></td>";
+	print "<td width='100px'>" . $row["launch_date"] . "</td>";
+	print "<td width='100px'>" . (($row["death_date"] == "0000-00-00") ? "" : $row["death_date"]) . "</td>";
+	print "<td width='120px'>";
     foreach($row["targets"] as $target)
     {
     	print $target . "<br/>";

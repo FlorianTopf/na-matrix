@@ -343,65 +343,6 @@ function printActionButton($action)
 }
 
 
-function printEditAllTable($name, $resources, $type, $action=FALSE)
-{
-	if (empty($resources))
-		print "<h3>There are no {$name} entries to edit.</h3>" . LF;	
-	else
-	{
-		print "<table class='filter'>" . LF;
-		
-		if($action >= 31)
-		{
-			print "<caption>Filter the content by typing a facility name to search</caption>" . LF;
-			//Name Search (with autocompleter)	
-			print "<tr><td class='title' colspan='2'><b>Search by Name</b></td>";
-			print "<td class='filter' colspan='4'><input name='obs_filters[name]' class='obs_name'" .
-			(isset($filters["name"]) ? "value='" . $filters["name"] . "'" : "value=''") . " size='80'/>" . LF;
-			/** this value is manipulated by jquery */
-			print "<input name='obs_filters[id]' class='obs_id' type='hidden'" . 
-			(isset($filters["id"]) ? "value='" . $filters["id"] . "'" : "value=''") . "/>";
-			print "</td></tr>" . LF;
-			print "</table>" . LF;
-		}
-		
-		print "<table class='viewall'>" . LF;
-    	print "<caption>To edit please click on the name of the {$name}</caption>" . LF;
-    	print "<tr><th>ID</th><th>NAME</th><th>CREATION DATE</th><th>MODIFICATION DATE</th><th>APPROVED</th><th>SAVED FOR LATER</th></tr>" . LF;
-    	$index = 0;
-    	foreach ($resources as $entry)
-    	{
-   			if($index % 2) 
-				print "<tr class='even'>";
-			else
-				print "<tr class='odd'>";
-   			print "<td>" . $entry["id"] . "</td>";
-   			if ($action == "approve")
-   			{
-   				print "<td><a title='Click to edit' class='hand' " .
-              		"href='index.php?page=add&amp;action=edit&amp;id={$entry["id"]}" .
-              		"&amp;res_type={$type}&amp;{$action}=1" .
-              		"'>" . $entry["name"] . "</a></td>";
-   			}
-   			else
-   			{
-   			    print "<td><a title='Click to edit' class='hand' " .
-              	"href='index.php?page=add&amp;action=edit&amp;id={$entry["id"]}&amp;res_type={$type}" .
-              	"'>" . $entry["name"] . "</a></td>";
-   			}
-        	print "<td>" . $entry["creation_date"] . "</td>";
-        	print "<td>" . $entry["modification_date"] . "</td>";
-        	print "<td><b class='red'>" . ($entry["approved"] ? "YES" : "NO") . "</b></td>";
-        	print "<td><b class='red'>" . ($entry["saved_for_later"] ? "YES" : "NO") . "</b></td>";
-        	print "</tr>" . LF;
-        	
-        	$index++;
-    	}
-    	print "</table>" . LF;
-	}	
-}
-
-
 /** @todo maybe make with other function */
 //function printFilterOptions($title, $name, $value, $items)
 //{

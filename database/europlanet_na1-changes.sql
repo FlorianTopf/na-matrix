@@ -748,8 +748,9 @@ ALTER TABLE `europlanet_na1`.`observatories` ADD COLUMN `iau_code` VARCHAR(10) N
 ALTER TABLE `europlanet_na1`.`space_missions` ADD COLUMN `spice_id` VARCHAR(10) NULL DEFAULT NULL  AFTER `mission_agency` ;
 
 /** -------------------------------------------------------------------------------------------- */
-/** ALTER SCRIPTS FOR REVISION XXXX */
-
+/** ALTER SCRIPTS FOR REVISION 1361 */
+/** we associate now every anonymous entry to the anonymous user */
+UPDATE observatories SET user_id=1 WHERE user_id=0;
 
 /** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */

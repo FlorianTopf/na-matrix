@@ -711,7 +711,7 @@ if($_SESSION["user_level"] >= 31)
 	print "<fieldset class='rfield'><legend><b class='red'>Administration Tool</b></legend>" . LF;
 	print "<table class='create'>" . LF;
 	$columns = array ("lname", "fname");
-	$options = array("<option value='NULL'>---</option>");
+	$options = array("<option value='1'>---</option>");
 	printSelectListRowFromArray("Assign Users", "add_obs_user_id", $_observatory->get_field("obs_user_id"), 
 			 $_observatory->get_users(), $columns, NULL, false, $options);
 	print "</table></fieldset>" . LF;
@@ -755,7 +755,7 @@ else if($action == "edit")
 	if($_SESSION["user_level"] >= 31)
 	{
 		if(($_SESSION["user_id"] == $_observatory->get_field("obs_user_id")) || 
-  									($_observatory->get_field("obs_user_id") == 0))
+  									($_observatory->get_field("obs_user_id") == 1))
 			print "<button type='submit' name='push' value='Save for Later' class='submit'>Save for Later</button>" . LF;
 		else
 			print "<button type='submit' name='push' value='Submit to User' class='submit'>Submit to User</button>" . LF;
