@@ -1040,20 +1040,20 @@ $(document).ready(function(){
 
         //save all new names
         $('input', newTelescope).each(function(i) {
-        	//remove trailing [0-9] with regexp
-        	inputs[i] = inputs[i].replace(/^(.*)\[[0-9]\].*$/, '$1');
+        	//remove trailing [0-9] with regexp (one or more digits)
+        	inputs[i] = inputs[i].replace(/^(.*)\[[0-9]*\].*$/, '$1');
             var newName = inputs[i] + '[' + newTelescopeNum + ']';
             $(this).attr('name', newName);
         });
         $('select', newTelescope).each(function(i) {
-        	//remove trailing [0-9] with regexp
-        	selects[i] = selects[i].replace(/^(.*)\[[0-9]\].*$/, '$1');
+        	//remove trailing [0-9] with regexp (one or more digits)
+        	selects[i] = selects[i].replace(/^(.*)\[[0-9]*\].*$/, '$1');
         	var newName = selects[i] + '[' + newTelescopeNum + ']';
             $(this).attr('name', newName);
         });
         $('textarea', newTelescope).each(function(i) {
-        	//remove trailing [0-9] with regexp
-        	areas[i] = areas[i].replace(/^(.*)\[[0-9]\].*$/, '$1');
+        	//remove trailing [0-9] with regexp (one or more digits)
+        	areas[i] = areas[i].replace(/^(.*)\[[0-9]*\].*$/, '$1');
         	var newName = areas[i] + '[' + newTelescopeNum + ']';
             $(this).attr('name', newName);
         });        
