@@ -753,7 +753,17 @@ ALTER TABLE `europlanet_na1`.`space_missions` ADD COLUMN `spice_id` VARCHAR(10) 
 UPDATE observatories SET user_id=1 WHERE user_id=0;
 
 /** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION 1364 */
+TRUNCATE TABLE `users_statistics`;
+
+/** -------------------------------------------------------------------------------------------- */
 /** ALTER SCRIPTS FOR REVISION XXXX */
+
+
+/** -------------------------------------------------------------------------------------------- */
+/** ALTER SCRIPTS FOR REVISION XXXX */
+
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
