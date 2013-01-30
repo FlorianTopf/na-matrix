@@ -605,8 +605,11 @@ class Controller
     	$message .= " added the entry '";
     else
     	$message .= " updated the entry '";
+    	
+    $path = preg_replace("#[^/]*$#", "", $_SERVER['REQUEST_URI']);
                
-    $message .= $res_name . "' (resource id: " . $res_id . "); The users contact email is " .
+    $message .= $res_name . "' (resource id: " . $res_id . ", resource url: " . $_SERVER['SERVER_NAME'] . 
+    $path . "ObservatoryView.php?id=" . $res_id . "); The users contact email is " .
                 $email . "\n";
                 
     if($save)
