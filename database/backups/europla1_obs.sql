@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.7
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 26. Nov 2012 um 13:18
--- Server Version: 5.1.58
--- PHP-Version: 5.3.8
+-- Generation Time: Aug 10, 2014 at 05:58 PM
+-- Server version: 5.1.58
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `europla1_obs`
+-- Database: `europla1_obs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `areasofresearch`
+-- Table structure for table `areasofresearch`
 --
 
 CREATE TABLE IF NOT EXISTS `areasofresearch` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `areasofresearch` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `areasofresearch`
+-- Dumping data for table `areasofresearch`
 --
 
 INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`, `oid`) VALUES
@@ -69,8 +69,6 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 (118, NULL, '<br>Public Outreach / Education etc', NULL, 118),
 (120, '<br>Key Area 2 ', '<br>Supernovae/Novae<br>Galaxies<br>Interstellar Medium<br>Exoplanets<br>Stellar Physics<br>Large Scale Structures<br>Cosmology<br>Stellar Occultations<br>Public Outreach / Education etc<br>Black Holes<br>Neutron Stars / Pulsars etc<br>Orbital Mechanics', NULL, 120),
 (121, NULL, NULL, NULL, 121),
-(10108, '', 'Galaxies', '', 10002),
-(10109, '', '', '', 10003),
 (10099, '', '', '', 10004),
 (10105, '', '', '', 10005),
 (10107, '', '', '', 10007),
@@ -99,7 +97,7 @@ INSERT INTO `areasofresearch` (`id`, `keyresearch`, `extraresearch`, `comments`,
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `contact`
+-- Table structure for table `contact`
 --
 
 CREATE TABLE IF NOT EXISTS `contact` (
@@ -117,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `contact`
+-- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `phonenumber`, `postalcode`, `url`, `sc`, `gc`, `oid`) VALUES
@@ -150,8 +148,6 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 (118, 'administrativee contact:  stalder-joe@bluewin.ch', 0, 0, 0, 0, 0, 1, 0, 118),
 (120, 'Zeki EKER  TUB?TAK National Observatory  Akdeniz University Campus  07058  Antalya-TURKEY', 0, 0, 0, 0, 0, 0, 0, 120),
 (121, NULL, 0, 0, 0, 0, 0, 0, 0, 121),
-(10108, '', 0, 0, 0, 0, 0, 0, 0, 10002),
-(10109, '', 0, 0, 0, 0, 0, 0, 0, 10003),
 (10099, '', 0, 0, 0, 0, 0, 0, 0, 10004),
 (10105, '', 0, 0, 0, 0, 0, 0, 0, 10005),
 (10107, '', 0, 0, 0, 0, 0, 0, 0, 10007),
@@ -180,7 +176,7 @@ INSERT INTO `contact` (`id`, `FurthurContact`, `contactdata`, `emailaddress`, `p
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `extrainstruments`
+-- Table structure for table `extrainstruments`
 --
 
 CREATE TABLE IF NOT EXISTS `extrainstruments` (
@@ -194,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `extrainstruments` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `extrainstruments`
+-- Dumping data for table `extrainstruments`
 --
 
 INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsins`, `arraydesc`, `backenddesc`, `oid`) VALUES
@@ -227,8 +223,6 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 (118, 'Instrument 3: PST Solar telescope', 'Heliostat for sun ligth projection', '', '', 118),
 (120, '', '', '', 'Brand/Type of Camera: Spectral Instruments / Imaging<br>Maximum Frame per Second: -<br>Framesize: 4096x4096<br>Max. Exposure Time: -<br>Min. Exposure Time: 1 sec<br>Color / BW Chip: BW Chip<br>CCD Chip Type: Fairchild 486 BI<br><br>Description of Back-End Equipment:<br>TFOSC (Faint Object Spektrograph and Camera), Andor DW436 CCD (Photometric Imaging), Finger Lakes Instruments CCD (Photometric Imaging), Coude spectrometer with Andor DW436 CCD.', 120),
 (121, '', '', '', 'Brand/Type of Camera: cannon rebel', 121),
-(10108, 'Telescope 1 has OMR Cassegrain Spectrograph, The WET standard 3-channel high speed photometer, CCD camera.', 'Another EOS 1m Telescope, with focal length f/8.', '', '', 10002),
-(10109, '', '40m Radio Telescope', '', '', 10003),
 (10099, '', '', '', '', 10004),
 (10105, '', '', '', '', 10005),
 (10107, 'It has a Ritchey-Chretien Reflector, several CCD direct imaging cameras, Faint Object Spectrograph and Camera (FOSC) and Large Area Imager.', '', '', '', 10007),
@@ -257,7 +251,7 @@ INSERT INTO `extrainstruments` (`id`, `furthurcommentsins`, `additionalcommentsi
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `hiddenfields`
+-- Table structure for table `hiddenfields`
 --
 
 CREATE TABLE IF NOT EXISTS `hiddenfields` (
@@ -276,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `hiddenfields` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `hiddenfields`
+-- Dumping data for table `hiddenfields`
 --
 
 INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sciconname`, `sciconcon`, `latitude`, `longitude`, `oid`) VALUES
@@ -309,8 +303,6 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 (118, NULL, 'info@planetarium-kreuzlingen.ch', '+41 71 677 38 00', 'CH-8280 ', 'http://www.sternwarte-kreuzlingen.ch', NULL, NULL, ' 47°38''29&qu', ' 09°09''37&qu', 118),
 (120, NULL, 'omur.cakirli@tug.tubitak.gov.tr', '+0090 242 2278401', NULL, 'www.tug.tubitak.gov.tr', 'Tansel AK<br>Zeki EKER', 'tanselak@tug.tubitak.gov.tr<br>eker@tug.tubitak.gov.tr', '36 49 28 N', '30 20 09 E', 120),
 (121, NULL, 'skywatcher@personainternet.com', '709 884 2336', 'A0G 4M0', NULL, 'James Gillard<br>', NULL, '49 37 02.4', '54 45 28.8', 121),
-(10108, '', '', '', '', 'http://www.xinglong-naoc.org/', '', '', '40.39417?N', '117.575?E', 10002),
-(10109, '', 'ynaobgs@ynao.ac.cn', '(+86)(0)871 3920919', '650011', 'http://www.ynao.ac.cn/', 'Han Zhanwen', '', '102? 47&#824', '25? 2&#8242', 10003),
 (10099, '', '', '', '', 'http://www.trao.re.kr/', '', '', '127? 22&#824', '36? 23&#8242', 10004),
 (10105, '', '', '', '442', '', '', '', '137? 22? 16.', '34? 50? 10.?', 10005),
 (10107, '', 'noah@wise.tau.ac.il', '972-3-6408729', '39040', 'http://wise-obs.tau.ac.il/general.html', 'Dr. Noah Brosch', '', '34?45''48'''' E', '30?35''45'''' N', 10007),
@@ -339,7 +331,7 @@ INSERT INTO `hiddenfields` (`id`, `Contact`, `email`, `phone`, `zip`, `url`, `sc
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `instruments`
+-- Table structure for table `instruments`
 --
 
 CREATE TABLE IF NOT EXISTS `instruments` (
@@ -353,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `instruments` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10324 ;
 
 --
--- Daten für Tabelle `instruments`
+-- Dumping data for table `instruments`
 --
 
 INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`, `oid`) VALUES
@@ -413,8 +405,6 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (148, '', '', '', '', 0),
 (149, '', '', '', '', 0),
 (150, '', '', '', '', 0),
-(10180, 'The Large Sky Area Multi-object Fibre Spectroscopic Telescope (LAMOST) - Sc', 'Optical<br>Optical<br>Infrared', '4.00<br>2.16<br>1.26', '<br>3.00', 10002),
-(10181, 'Ynao Optical Telescope<br>Lijang Optical Telescope', 'Optical<br>Optical', '1.00<br>2.40', NULL, 10003),
 (10165, 'Radio Paraboloid Telescope', 'radio', '13.70', NULL, 10004),
 (10173, '', 'Optical<br>Optical<br>Optical', '1.50<br>2.00<br>3.00', NULL, 10005),
 (10177, 'Boller and Chivens Telescope', 'Optical', '1.00', '4.00', 10007),
@@ -430,7 +420,6 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 (10117, '', 'Optical', '1.04', NULL, 10061),
 (10159, 'Schmidt-camera', 'Optical', '0.50', NULL, 10043),
 (10167, 'Reflecting telescope', 'Optical', '0.60', NULL, 10047),
-(10183, 'Alt-Az Optical Telescope', 'Optical', '1.20', NULL, 10003),
 (10187, 'SPT', 'Radio', '10.00', '0.70', 10066),
 (10195, 'Reflector<br>Solar Radio Telescope<br>Schmidt Telescope', 'Optical<br>Radio<br>Optical', '1.00<br>2.00<br>0.70', NULL, 10070),
 (10321, 'William Herschel Telescope (WHT)', 'Optical Reflecting Telescope', '4.20', NULL, 10078),
@@ -447,7 +436,7 @@ INSERT INTO `instruments` (`id`, `instrument`, `type`, `diameter`, `focallength`
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `maintable`
+-- Table structure for table `maintable`
 --
 
 CREATE TABLE IF NOT EXISTS `maintable` (
@@ -476,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `maintable` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10204 ;
 
 --
--- Daten für Tabelle `maintable`
+-- Dumping data for table `maintable`
 --
 
 INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country`, `Address`, `Phone`, `email`, `Sciencecontactname`, `Sciencecontactnemail`, `latitude`, `longitude`, `meters`, `precipitation`, `clearnights`, `timezone`, `insnumber`, `partners`, `comments`, `oid`) VALUES
@@ -507,8 +496,6 @@ INSERT INTO `maintable` (`id`, `Name`, `Founded`, `Institution`, `URL`, `Country
 (118, 'Sternwarte Kreuzlingen', '1976', 'Stiftung Sternwarte &amp; Planetarium Kreuzlingen', 'http://www.sternwarte-kreuzlingen.ch', 'Switzerland', 'Breitenrainstrasse 21 ', '+41 71 677 38 00', 'info@planetarium-kreuzlingen.ch', NULL, NULL, ' 47°38''29&quot; ', ' 09°09''37&quot; ', '480 m', NULL, NULL, '1', '>3', NULL, 'public observatory, no scientific research intention.  A Zeiss Planetarium (70 places) is part of the observatory', 118),
 (120, 'TUBITAK National Observatory', '1997', 'Institute', 'www.tug.tubitak.gov.tr', 'Turkey', 'TUBITAK National Observatory Akdeniz University Campus', '+0090 242 2278401', 'omur.cakirli@tug.tubitak.gov.tr', 'Tansel AK<br>Zeki EKER', 'tanselak@tug.tubitak.gov.tr<br>eker@tug.tubitak.gov.tr', '36 49 28 N', '30 20 09 E', '2500', NULL, '151-200', '3', '>3', NULL, NULL, 120),
 (121, 'Twillingate Astronomical Observatory', '2000', 'private', NULL, 'Canada', 'Box 59 ,  5 Gillard''s Lane', '709 884 2336', 'skywatcher@personainternet.com', 'James Gillard<br>', NULL, '49 37 02.4', '54 45 28.8', '35', NULL, NULL, '3', NULL, NULL, NULL, 121),
-(10108, 'Xinglong Station', '', 'NAOC', 'http://www.xinglong-naoc.org/', 'China', 'Yanshan,Hebei Province,,Beijing', '', '', '', '', '40.39417?N', '117.575?E', '960', NULL, '210.0', '8', '4', '', '', 10002),
-(10109, 'Yunnan Astronomical Observaotry', '1938', 'Chinese Academy of Sciences', 'http://www.ynao.ac.cn/', 'China', 'P.0.Box110,Kunming ,650011,Yunnan', '(+86)(0)871 3920919', 'ynaobgs@ynao.ac.cn', 'Han Zhanwen', '', '102? 47&#8242; 0', '25? 2&#8242; 0&', '2014', NULL, NULL, NULL, '4', '', '', 10003),
 (10099, 'Taeduk Radio Astronomy Observatory', '1986', 'Korea Astronomy and Space Institute', 'http://www.trao.re.kr/', 'South Korea', ',,,Taejon City', '', '', '', '', '127? 22&#8242; 1', '36? 23&#8242; 53', '110', NULL, NULL, '9', '1', '', '', 10004),
 (10105, 'Toyokawa Observatory', '', 'Nagoya University', '', 'Japan', '13 Honohara,3-chrome,442,Toyokawa', '', '', '', '', '137? 22? 16.??E', '34? 50? 10.??N', NULL, NULL, NULL, '9', '3', '', '', 10005),
 (10107, 'Wise Observatory', '1971', 'Tel-Aviv University', 'http://wise-obs.tau.ac.il/general.html', 'Israel', 'Tel-Aviv University,69978 Tel-Aviv,39040,Negev', '972-3-6408729', 'noah@wise.tau.ac.il', 'Dr. Noah Brosch', '', '34?45''48'''' E', '30?35''45'''' N', '875', NULL, '170.0', '2', '1', '', '', 10007),
